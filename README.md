@@ -9,14 +9,15 @@ Hello fellow home assistant users, I have started using Home Assistant almost a 
 ### Screenshots and Video
 
 Screenshot Summary (find more screenshots in the screenshots folder with the rest of the files):
-![Homescreen](/screenshots/1.jpg?raw=true "Homescreen")
-![Lights](/screenshots/2.jpg?raw=true "Lights")
-![Devices](/screenshots/3.jpg?raw=true "Devices")
-![Security](/screenshots/4.jpg?raw=true "Security")
-![Climate](/screenshots/5.jpg?raw=true "Climate")
 
-![Love Theme Homescreen](/screenshots/red1.jpg?raw=true "Love Theme Homescreen")
-![Love Theme Devices](/screenshots/red1.jpg?raw=true "Love Theme Devices")
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/1.jpg" width="300" height="650">
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/2.jpg" width="300" height="650">
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/3.jpg" width="300" height="650">
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/4.jpg" width="300" height="650">
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/5.jpg" width="300" height="650">
+
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/red1.jpg" width="300" height="650">
+<img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/red2.jpg" width="300" height="650">
 
 #### Don't stop here! Watch the video!
 There is SOO much going on in just 5 views that I can't possibly throw all the screenshots here without making this document unreadable. Please refer to the screenshots folder for more screenshots OR watch the video below which will give you the grand tour into this setup!
