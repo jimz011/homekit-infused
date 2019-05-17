@@ -1,0 +1,169 @@
+# TURN ON LIGHTS (THEY NO LONGER FLASH)
+light_flash:
+  alias: Light flash on
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: group.all_leds
+    - delay:
+        seconds: 1
+    - service: light.turn_on
+      data:
+        entity_id: group.all_leds
+        effect: 4
+    - delay:
+        seconds: 1
+
+# START XIAOMI SIREN 
+xiaomi_alarm_siren:
+  alias: Xiaomi Alarm Siren 
+  sequence:
+    - service: xiaomi_aqara.play_ringtone
+      data_template:
+        ringtone_id: 7
+        ringtone_vol: 100
+        gw_mac: MACHERE
+    - delay:
+#### time for siren to play before restarting 
+        seconds: 14
+    - service: script.turn_on
+      data:
+        entity_id: script.xiaomi_alarm_siren_loop
+
+# LOOP BACK TO START SIREN AGAIN         
+xiaomi_alarm_siren_loop:
+  alias: Xiaomi Alarm loop
+  sequence:
+    - delay:
+#### time for siren to start
+        seconds: .1
+    - service: script.turn_on
+      data:
+        entity_id: script.xiaomi_alarm_siren
+
+# BADKAMER AAN/UIT SCRIPT
+badkamer_aanuit:
+  alias: Badkamer om de 10 minuten uit
+  sequence:
+    - service: switch.koogeek_sw_056ce9
+      data:
+        entity_id: switch.kh01cn
+    - delay:
+        seconds: 1
+    - service: switch.turn_on
+      data:
+        entity_id: switch.koogeek_sw_056ce9
+
+# LEDS ON IN BEDROOM AT NIGHT WHEN TOILETLAMP TURNS ON
+slaapkamer_vloer_led:
+  alias: Slaapkamer vloer led als toiletlamp aan gaat
+  sequence:
+    - service: light.turn_on 
+      data:
+        entity_id: light.vloerled
+        brightness_pct: 1
+    - delay:
+        seconds: 35
+    - service: light.turn_off
+      data:
+        entity_id: light.vloerled
+
+# MOTION SENSOR TOILET SCRIPTS
+toiletlamp_1:
+  alias: "Turn on lamp and cancel script"
+  sequence:
+    # Cancel ev. old scripts
+    - service: script.turn_off
+      data:
+        entity_id: script.toiletlamp_off
+    - service: light.turn_on
+      data:
+        entity_id: light.toiletlamp
+        brightness_pct: 100
+
+toiletlamp_1_night:
+  alias: "Turn off lamp after 2 minutes"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.toiletlamp_off
+    - service: light.turn_on
+      data:
+        entity_id: light.toiletlamp
+        brightness_pct: 50
+
+toiletlamp_off:
+  alias: "Turn off lamp"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.toiletlamp_1
+    - service: script.turn_off
+      data:
+        entity_id: script.toiletlamp_1_night
+    - delay:
+        seconds: 10
+    - service: light.turn_off
+      data:
+        entity_id: light.toiletlamp
+
+# MOTION SENSOR BIJKEUKEN SCRIPT
+bijkeukenlamp:
+  alias: "Turn on lamp and cancel script"
+  sequence:
+    # Cancel ev. old scripts
+    - service: script.turn_off
+      data:
+        entity_id: script.bijkeukenlamp_off
+    - service: light.turn_on
+      data:
+        entity_id: light.bijkeukenlamp
+        brightness_pct: 100
+
+bijkeukenlamp_off:
+  alias: "Turn off lamp"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.bijkeukenlamp
+    - delay:
+        seconds: 10
+    - service: light.turn_off
+      data:
+        entity_id: light.bijkeukenlamp
+
+# STEPHANIE MEDICATION NOTIFY SCRIPT/REPEAT
+stephnotification:
+  alias: "Steph meds notify"
+  sequence:
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen."
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "meds_alert"
+    - delay:
+        minutes: 20
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen, dit is de eerste herinnering."
+        data:
+          push:
+            badge: 0
+            category: "meds_alert"
+            sound: default
+    - delay:
+        minutes: 20
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen, dit is de tweede en tevens laatste herinnering."
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "meds_alert"

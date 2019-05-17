@@ -1,0 +1,839 @@
+  - name: office normal
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 100
+
+  - name: office off
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 0
+
+  - name: office 25
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 25
+
+  - name: office 75
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 75
+  
+  - name: office dim
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 50
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 50
+
+  - name: office movie
+    entities:
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 5
+            brightness_pct: 0
+        light.officeled:
+            state: on
+            transition: 5
+            brightness_pct: 10
+
+  - name: living normal
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.eettafel_lamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.vloerlamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.tafel_lamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+
+  - name: living off
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 0
+
+  - name: living 75
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 75
+
+  - name: living 25
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 25
+
+  - name: living dim
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 50
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 50
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 50
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 50
+
+  - name: living dim_2
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 65
+
+  - name: living movie
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 5
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 5
+            brightness_pct: 5
+        light.eettafel_lamp:
+            state: on
+            transition: 5
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 5
+            brightness_pct: 1
+        light.tafel_lamp:
+            state: on
+            transition: 5
+            brightness_pct: 1
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 0
+
+  - name: living game
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 4
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 4
+            brightness_pct: 100
+        light.eettafel_lamp:
+            state: on
+            transition: 4
+            brightness_pct: 85
+        light.vloerlamp:
+            state: on
+            transition: 4
+            brightness_pct: 100
+        light.tafel_lamp:
+            state: on
+            transition: 4
+            brightness_pct: 75
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+
+  - name: welterusten
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 25
+        light.kleine_kamer_plafondlampen: off
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        switch.keukenspots: off
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.toiletlamp: off
+        light.balkonlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tradfri_bulb_e27_ws_opal_980lm_4:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        switch.koogeek_sw_056ce9: off
+        switch.receiver: off
+        switch.waterkoker: off
+        switch.afzuigkap: off
+        switch.air_fryer: off
+        switch.printer: off
+        switch.ventilator: off
+        media_player.samsung_tv_remote: off
+        switch.tradfri_outlet_2: off
+        switch.tradfri_outlet: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: schoonmaken
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.eettafel_lamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.vloerlamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.tafel_lamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.officeled:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        switch.keukenspots: on
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.keuken_plafondlampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.bijkeukenlamp:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.toiletlamp: on
+        switch.koogeek_sw_056ce9: on
+        light.entree_lamp: on
+        light.gang_lamp: on
+
+  - name: koken
+    entities:
+        switch.keukenspots: on
+        light.keuken_plafondlampen: on
+        switch.waterkoker: on
+        switch.afzuigkap: on
+        switch.air_fryer: on
+        switch.tradfri_outlet: on
+
+  - name: klaar met koken
+    entities:
+        switch.keukenspots: off
+        light.keuken_plafondlampen: off
+        switch.waterkoker: off
+        switch.afzuigkap: off
+        switch.air_fryer: off
+        switch.tradfri_outlet: off
+
+  - name: tot ziens overdag
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        switch.keukenspots: off
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.toiletlamp: off
+        light.balkonlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tradfri_bulb_e27_ws_opal_980lm_4:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        switch.koogeek_sw_056ce9: off
+        switch.receiver: off
+        switch.waterkoker: off
+        switch.afzuigkap: off
+        switch.air_fryer: off
+        switch.printer: off
+        switch.ventilator: off
+        media_player.samsung_tv_remote: off
+        switch.tradfri_outlet_2: off
+        switch.tradfri_outlet: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: tot ziens avond
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        switch.keukenspots: on
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.toiletlamp: off
+        light.balkonlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tradfri_bulb_e27_ws_opal_980lm_4:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        switch.koogeek_sw_056ce9: off
+        switch.receiver: off
+        switch.waterkoker: off
+        switch.afzuigkap: off
+        switch.air_fryer: off
+        switch.printer: off
+        switch.ventilator: off
+        media_player.samsung_tv_remote: off
+        switch.tradfri_outlet_2: off
+        switch.tradfri_outlet: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: avondverlichting
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 50
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        switch.keukenspots: on
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: dagverlichting
+    entities:
+        light.woonkamer_plafond:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.eettafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.vloerlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.tafel_lamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.gateway_light_7811dcdef324:
+            state: on
+            transition: 0
+            brightness_pct: 0
+        light.kleine_kamer_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        switch.keukenspots: off
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.slaapkamer_led_lampen: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: nachtverlichting
+    entities:
+        light.woonkamer_plafond: off
+        light.woonkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        light.eettafel_lamp: off
+        light.vloerlamp: off
+        light.tafel_lamp: off
+        light.gateway_light_7811dcdef324:
+            state: on
+            brightness_pct: 10
+        light.kleine_kamer_plafondlampen: off
+        light.officeled:
+            state: on
+            transition: 2
+            brightness_pct: 75
+        switch.keukenspots: on
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp: off
+        light.slaapkamer_led_lampen: off
+        switch.koogeek_sw_056ce9: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+
+  - name: lichtuit
+    entities:
+        light.woonkamer_plafond: off
+        light.woonkamer_led_lampen: off
+        light.eettafel_lamp: off
+        light.vloerlamp: off
+        light.tafel_lamp: off
+        light.gateway_light_7811dcdef324: off
+        light.kleine_kamer_plafondlampen: off
+        light.officeled: off
+        switch.keukenspots: off
+        light.keuken_plafondlampen: off
+        light.bijkeukenlamp: off
+        light.slaapkamer_led_lampen: off
+        switch.koogeek_sw_056ce9: off
+        light.entree_lamp: off
+        light.gang_lamp: off
+        light.nachtkastje_jimmy: off
+        light.nachtkastje_stephanie: off
+        light.balkonlamp: off
+        light.tradfri_bulb_e27_ws_opal_980lm_4: off
+        light.toiletlamp: off
+
+  - name: wassen
+    entities:
+        switch.droger: on
+        switch.vaatwasser: on
+        switch.wasmachine: on
+
+  - name: klaar met wassen
+    entities:
+        switch.droger: off
+        switch.vaatwasser: off
+        switch.wasmachine: off
+
+  - name: naarbed
+    entities:
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 25
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 25
+
+  - name: keukenlampen
+    entities:
+        switch.keukenspots: on
+        light.bijkeukenlamp:
+            state: on
+            transition: 2
+            brightness_pct: 100
+        light.keuken_plafondlampen:
+            state: on
+            transition: 2
+            brightness_pct: 100
+
+  - name: keukenlampen off
+    entities:
+        switch.keukenspots: off
+        light.bijkeukenlamp: off
+        light.keuken_plafondlampen: off
+
+  - name: gamen
+    entities:
+        switch.pc_van_stephanie: on
+        switch.pc_van_jimmy: on
+        switch.xbox_one: on
+
+  - name: slaapkamer normal
+    entities:
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 0
+            brightness_pct: 100
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 0
+            brightness_pct: 100
+
+  - name: slaapkamer off
+    entities:
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 0
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 0
+
+  - name: slaapkamer romantic
+    entities:
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 1
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 1
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 50
+
+  - name: slaapkamer movie
+    entities:
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 5
+            brightness_pct: 0
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 5
+            brightness_pct: 0
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 5
+            brightness_pct: 50
+
+  - name: slaapkamer dim
+    entities:
+        light.nachtkastje_jimmy:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.nachtkastje_stephanie:
+            state: on
+            transition: 2
+            brightness_pct: 65
+        light.slaapkamer_led_lampen:
+            state: on
+            transition: 2
+            brightness_pct: 65
+
+

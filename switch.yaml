@@ -1,0 +1,39 @@
+  - platform: wake_on_lan
+    mac_address: "MAC_HERE"
+    name: PC van Stephanie
+    host: "192.168.0.41"
+    turn_off:
+      service: shell_command.turn_off_steph_pc
+
+  - platform: wake_on_lan
+    mac_address: "MAC_HERE"
+    name: PC van Jimmy
+    host: "192.168.0.40"
+    turn_off:
+      service: shell_command.turn_off_jimzz_pc
+
+  - platform: template
+    switches:
+      xbox_one:
+        value_template: "{{ is_state('media_player.xbox_one', 'on') }}"
+        turn_on:
+          service: media_player.turn_on
+          data:
+            entity_id: media_player.xbox_one
+        turn_off:
+          service: media_player.turn_off
+          data:
+            entity_id: media_player.xbox_one
+
+  - platform: template
+    switches:
+      samsung_tv:
+        value_template: "{{ is_state('media_player.samsung_tv_remote', 'on') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.woonkamer_apple_tv
+        turn_off:
+          service: homeassistant.turn_off
+          data:
+            entity_id: group.samsung_tv
