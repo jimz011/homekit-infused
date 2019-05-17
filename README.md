@@ -95,7 +95,19 @@ Unfortunately that comes with the downside of having a black header instead of f
 - New Climate panel
 - Better looking brightness sliders/colorwheels on light entities
 - Added back temp/humid sensor graphs from my first setup and restyled for the current
+- Started to use anchors to make setup lighter
 - And many more little details
+
+### TO DO
+- Global theming (which will lighten the setup) and the ability to have themes change dynamically. This will include a day and night theme
+- Cleaning up
+- Scenes (continue the testing of my automations and where needed change)
+- Birthdays
+- Xiaomi Roborock s55 Vacuum
+- Xiaomi Plantsensor Cards
+- Energy Consumption Graphs
+- Other graphs related to servers/computers etc.
+- And many more, which I can't think of at the moment
 
 ### Questions?
 
