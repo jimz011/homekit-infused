@@ -301,6 +301,8 @@ anchors:
             - color: black
           state:
             - color: gray
+          lock:
+            - color: black
       - value: "off"
         style:
           - opacity: 0.4
@@ -311,6 +313,8 @@ anchors:
             - color: gray
           state:
             - color: gray
+          lock:
+            - color: black
       - value: "unavailable"
         style:
           - opacity: 0.2
@@ -459,7 +463,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: 'custom:card-modder'
                   style: 
                     border-radius: 12px
@@ -597,14 +601,14 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: horizontal-stack
               cards:
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: 'custom:card-modder'
                   style:
                     border-radius: 12px
@@ -634,7 +638,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: 'custom:card-modder'
               style:
                 --paper-card-background-color: rgba(0,0,0,0)
@@ -1371,7 +1375,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: custom:button-card
                           entity: group.film_kijken_automation
                           name: Movie
@@ -1409,14 +1413,14 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: horizontal-stack
                       cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: custom:button-card
                           entity: automation.motion_detected_no_one_home_gallerij
                           name: Motion
@@ -1428,11 +1432,17 @@ views:
                           <<: *showboth
                           <<: *lightbuttonstate
                           <<: *lightbuttonactions
-                        - type: 'custom:button-card'
-                          color_type: blank-card
-                          styles:
-                            card:
-                              - width: 105px 
+                        - type: custom:button-card
+                          entity: automation.apple_tv_idle_turn_off
+                          name: Apple TV
+                          icon: "mdi:apple"
+                          label: Turns off TV
+                          color: auto
+                          size: 30%
+                          <<: *lightbuttonstyle
+                          <<: *showboth
+                          <<: *lightbuttonstate
+                          <<: *lightbuttonactions
                         - type: custom:button-card
                           entity: group.all_automations
                           name: All
@@ -1448,7 +1458,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px
+                              - width: 15px
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: rgba(0,0,0,0)
@@ -1638,7 +1648,7 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                           - type: 'custom:vertical-stack-in-card'
                             cards:
                               - type: conditional
@@ -1800,7 +1810,7 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                       - type: 'custom:card-modder'
                         style:
                           --paper-card-background-color: rgba(0,0,0,0)
@@ -1824,7 +1834,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px   
+                              - width: 15px   
                         - type: 'custom:card-modder'
                           style:
                             background-image: url('/local/images/daihatsu.jpg')
@@ -1842,7 +1852,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                       card:
@@ -1852,7 +1862,7 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px
+                                - width: 15px
                           - type: 'custom:card-modder'
                             card:
                               type: 'custom:vertical-stack-in-card'
@@ -1919,14 +1929,14 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                     - type: horizontal-stack
                       cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: vertical-stack
                           cards:
                             - type: vertical-stack
@@ -1951,7 +1961,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: rgba(0,0,0,0)
@@ -1980,7 +1990,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: vertical-stack
                           cards:      
                             - type: horizontal-stack
@@ -2002,7 +2012,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                       card:
@@ -2012,7 +2022,7 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                           - type: 'custom:vertical-stack-in-card'
                             cards:    
                               - type: conditional
@@ -2099,14 +2109,14 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                     - type: horizontal-stack
                       cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: vertical-stack
                           cards:
                             - type: vertical-stack
@@ -2131,7 +2141,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: rgba(0,0,0,0)
@@ -2155,7 +2165,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: vertical-stack
                           cards:      
                             - type: horizontal-stack
@@ -2173,7 +2183,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                       card:
@@ -2183,7 +2193,7 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                           - type: 'custom:vertical-stack-in-card'
                             cards:
                               - type: conditional
@@ -2270,14 +2280,14 @@ views:
                             color_type: blank-card
                             styles:
                               card:
-                                - width: 14px 
+                                - width: 15px 
                     - type: horizontal-stack
                       cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: vertical-stack
                           cards:
                             - type: vertical-stack
@@ -2302,7 +2312,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: rgba(0,0,0,0)
@@ -2325,7 +2335,7 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
@@ -2362,7 +2372,7 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                   type: horizontal-stack 
                 - type: horizontal-stack
                   cards:
@@ -2370,7 +2380,7 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                     - type: "custom:button-card" 
                       name: Woonkamer
                       icon: "mdi:radiator"
@@ -2385,14 +2395,14 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                 - type: horizontal-stack
                   cards:
                     - type: 'custom:button-card'
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
@@ -2427,14 +2437,14 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                 - type: horizontal-stack
                   cards:
                     - type: 'custom:button-card'
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                     - type: "custom:button-card" 
                       name: Slaapkamer
                       icon: "mdi:radiator"
@@ -2449,14 +2459,14 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                 - type: horizontal-stack
                   cards:
                     - type: 'custom:button-card'
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px 
+                          - width: 15px 
                     - type: 'custom:card-modder'
                       style:
                         --paper-card-background-color: 'rgba(255, 251, 239, 0.9)'
@@ -2489,7 +2499,7 @@ views:
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 14px
+                          - width: 15px
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
@@ -2547,7 +2557,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: 'custom:card-modder'
                   style:
                     border-radius: 12px
@@ -2561,7 +2571,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: 'custom:card-modder'
               style:
                 --paper-card-background-color: rgba(0, 0, 0, 0.0)
@@ -3314,7 +3324,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
                         - type: custom:button-card
                           entity: input_boolean.scene_dagverlichting
                           name: Dag
@@ -3364,7 +3374,7 @@ views:
                           color_type: blank-card
                           styles:
                             card:
-                              - width: 14px 
+                              - width: 15px 
               type: vertical-stack
             - type: horizontal-stack
               cards:
@@ -3372,7 +3382,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
@@ -3412,14 +3422,14 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: horizontal-stack
               cards:
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: custom:button-card
                   entity: group.scene_koken_on
                   name: Koken
@@ -3469,14 +3479,14 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: horizontal-stack
               cards:
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
                 - type: custom:button-card
                   entity: input_boolean.scene_klaar_met_koken
                   name: Klaar met
@@ -3526,7 +3536,7 @@ views:
                   color_type: blank-card
                   styles:
                     card:
-                      - width: 14px 
+                      - width: 15px 
             - type: 'custom:card-modder'
               style:
                 --paper-card-background-color: rgba(0,0,0,0)
@@ -3549,6 +3559,7 @@ views:
         notify_indicator_color: "#e80000"
         swipe: true
         swipe_wrap: false
+        swipe_animate: fade
         background: 'rgba(0,0,0,0.3)'
       - type: vertical-stack
         cards:
@@ -4237,60 +4248,89 @@ views:
                     styles:
                       card:
                         - width: 1px 
-      - type: 'custom:card-modder'
-        <<: *headertext
-        card:
-          content: '##### Notifications and Events'
-          type: markdown
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: '##### Notifications and Events'
+              type: markdown
           - type: conditional
             conditions:
               - entity: alarm_control_panel.home_alarm
                 state: armed_home
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 0, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  LET OP: Het alarm staat ingeschakeld!
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      LET OP: Het alarm staat ingeschakeld!
           - type: conditional
             conditions:
               - entity: alarm_control_panel.home_alarm
                 state: armed_away
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 0, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  LET OP: Het alarm staat ingeschakeld!
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      LET OP: Het alarm staat ingeschakeld!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+          - type: conditional
+            conditions:
+              - entity: alarm_control_panel.home_alarm
+                state: "triggered"
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Het Alarm is afgegaan!!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: alarm_control_panel.home_alarm
@@ -4298,28 +4338,28 @@ views:
               - entity: group.device_status
                 state_not: home
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 110, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Er is niemand meer thuis, schakel het alarm in!
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px  
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 110, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Er is niemand meer thuis, schakel het alarm in!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px  
           - type: conditional
             conditions:
               - entity: binary_sensor.door_window_sensor_158d000236f9dd 
@@ -4346,351 +4386,384 @@ views:
                 state: "off"
               - entity: binary_sensor.dafang_motion_sensor
                 state: "off"
+              - entity: input_boolean.apkjimz
+                state: "off"
+              - entity: input_boolean.apksteph
+                state: "off"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(157, 0, 255, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Alles is rustig, er zijn geen meldingen
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px  
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(157, 0, 255, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Alles is rustig, er zijn geen meldingen
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px  
           - type: conditional
             conditions:
-              - entity: binary_sensor.door_window_sensor_158d000236f9dd 
+              - entity: input_boolean.apksteph
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(249, 44, 44, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De voordeur staat open
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(163, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      APK Citroën C1 verloopt op [[ sensor.citroen_c1_expdate.state ]]!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+          - type: conditional
+            conditions:
+              - entity: input_boolean.apkjimz
+                state: "on"
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(163, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      APK Daihatsu Gran Move verloopt op [[ sensor.daihatsu_gran_move_expdate.state ]]!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
           - type: conditional
             conditions:
               - entity: switch.afzuigkap
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(29, 0, 255, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De afzuigkap staat aan
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(29, 0, 255, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De afzuigkap staat aan
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.door_window_sensor_158d000236f9dd 
+                state: "on"
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(249, 44, 44, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De voordeur staat open
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: binary_sensor.door_window_sensor_158d000232ac1b
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(13, 226, 20, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De slaapkamerdeur staat open
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(13, 226, 20, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De slaapkamerdeur staat open
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: binary_sensor.door_window_sensor_158d000238644b
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 250, 10, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De woonkamerdeur staat open
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 250, 10, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De woonkamerdeur staat open
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
           - type: conditional
             conditions:
               - entity: binary_sensor.dafang_motion_sensor 
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(161, 255, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Er is beweging op de gallerij
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(161, 255, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Er is beweging op de gallerij
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: binary_sensor.motion_sensor_158d0002b7eec9
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(193, 0, 29, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Er is beweging in de bijkeuken
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(193, 0, 29, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Er is beweging in de bijkeuken
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: binary_sensor.motion_sensor_158d00024e687d
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(0, 221, 255, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Er is beweging op het toilet
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-          - type: conditional
-            conditions:
-              - entity: alarm_control_panel.home_alarm
-                state: "triggered"
-            card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 0, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  Het Alarm is afgegaan!!
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(0, 221, 255, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      Er is beweging op het toilet
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: binary_sensor.smoke_sensor_158d000287ab41
                 state: "on"
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(255, 0, 0, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De rookmelder is afgegaan!! Onderneem actie!!
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(255, 0, 0, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De rookmelder is afgegaan!! Onderneem actie!!
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
-              - entity: sensor.dishwasher_status
+              - entity: input_select.dishwasher_status
                 state: Clean
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(9, 195, 242, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De vaatwasser is klaar
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(9, 195, 242, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De vaatwasser is klaar
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
-              - entity: sensor.washing_machine_status
+              - entity: input_select.washing_machine_status
                 state: Clean
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(216, 32, 164, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De wasmachine is klaar
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(216, 32, 164, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De wasmachine is klaar
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
           - type: conditional
             conditions:
               - entity: input_select.dryer_status
                 state: Clean
             card:
-              type: 'custom:card-modder'
-              style:
-                --paper-card-background-color: rgba(176, 66, 244, 0.3)
-                border-radius: 12px
-                font-size: 13px
-                font-family: Helvetica
-              card:
-                type: custom:useful-markdown-card
-                content: >
-                  De droger is klaar
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 1px 
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px 
+                - type: 'custom:card-modder'
+                  style:
+                    --paper-card-background-color: rgba(176, 66, 244, 0.3)
+                    border-radius: 12px
+                    font-size: 13px
+                    font-family: Helvetica
+                  card:
+                    type: custom:useful-markdown-card
+                    content: >
+                      De droger is klaar
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 1px
     icon: 'mdi:home'
     path: home
     title: Home
@@ -5015,7 +5088,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: "custom:button-card" 
                 name: Plafond
                 icon: "mdi:ceiling-light"
@@ -5059,14 +5132,14 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
           - type: horizontal-stack
             cards:
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: "custom:button-card" 
                 name: Vloerlamp
                 icon: "mdi:floor-lamp"
@@ -5109,9 +5182,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
-      - type: vertical-stack
-        cards:
+                    - width: 15px
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5123,7 +5194,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: light.nachtkastje_stephanie
                 name: Stephanie
@@ -5167,9 +5238,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
-      - type: vertical-stack
-        cards:
+                    - width: 15px 
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5181,7 +5250,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: "custom:button-card" 
                 name: Plafond
                 icon: "mdi:ceiling-light"
@@ -5207,17 +5276,12 @@ views:
                 <<: *lightbuttonstyle
                 <<: *showboth
                 <<: *lightbuttonstate
-                <<: *lightbuttonactions
+                <<: *lightbuttonactions 
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
                   card:
-                      
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
+                    - width: 15px 
       - type: vertical-stack
         cards:
           - type: 'custom:card-modder'
@@ -5231,7 +5295,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: light.keuken_plafondlampen
                 name: Plafond
@@ -5273,9 +5337,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
-      - type: vertical-stack
-        cards:
+                    - width: 15px
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5287,7 +5349,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: light.entree_lamp
                 name: Entree
@@ -5310,18 +5372,6 @@ views:
                 <<: *showboth
                 <<: *lightbuttonstate
                 <<: *lightbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                      
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px
-      - type: vertical-stack
-        cards:
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5333,7 +5383,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.koogeek_sw_056ce9
                 name: Douche
@@ -5375,14 +5425,14 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
+                    - width: 15px
           - type: horizontal-stack
             cards:
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
+                    - width: 15px
               - type: custom:button-card
                 entity: light.tradfri_bulb_e27_ws_opal_980lm_4
                 name: Berging
@@ -5400,22 +5450,12 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                      
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                      
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
-      - type: 'custom:card-modder'
-        <<: *headertext
-        card:
-          content: ' '
-          type: markdown
+                    - width: 15px 
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: ' '
+              type: markdown
 # Devices View
   - badges: []
     cards:
@@ -5433,7 +5473,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.ventilator
                 name: Ventilator
@@ -5470,9 +5510,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
-      - type: vertical-stack
-        cards:
+                    - width: 15px 
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5484,7 +5522,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.ventilator
                 name: Ventilator
@@ -5521,7 +5559,82 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: '##### Kleine Kamer'
+              type: markdown
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+              - type: custom:button-card
+                entity: switch.pc_van_stephanie
+                lock: true
+                name: Stephanie
+                icon: "mdi:desktop-tower-monitor"
+                label: "&nbsp;"
+                color: auto
+                size: 25%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *lightbuttonactions
+              - type: custom:button-card
+                entity: switch.pc_van_jimmy
+                lock: true
+                name: Jimmy
+                icon: "mdi:desktop-tower-monitor"
+                label: "&nbsp;"
+                color: auto
+                size: 25%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *lightbuttonactions
+              - type: custom:button-card
+                entity: switch.printer
+                name: Printer
+                icon: "mdi:printer-wireless"
+                label: "&nbsp;"
+                color: auto
+                size: 25%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *lightbuttonactions
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+              - type: custom:button-card
+                entity: switch.xbox_one
+                name: Xbox
+                icon: "mdi:xbox"
+                label: "&nbsp;"
+                color: auto
+                size: 25%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *xboxstate
+                <<: *lightbuttonactions
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
       - type: vertical-stack
         cards:
           - type: 'custom:card-modder'
@@ -5535,7 +5648,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.waterkoker
                 name: Waterkoker
@@ -5572,14 +5685,14 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
           - type: horizontal-stack    
             cards:
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.tradfri_outlet
                 name: Cappumaker
@@ -5606,84 +5719,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
-      - type: vertical-stack
-        cards:
-          - type: 'custom:card-modder'
-            <<: *headertext
-            card:
-              content: '##### Kleine Kamer'
-              type: markdown
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
-              - type: custom:button-card
-                entity: switch.pc_van_stephanie
-                name: Stephanie
-                icon: "mdi:desktop-tower-monitor"
-                label: "&nbsp;"
-                color: auto
-                size: 25%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *lightbuttonactions
-              - type: custom:button-card
-                entity: switch.pc_van_jimmy
-                name: Jimmy
-                icon: "mdi:desktop-tower-monitor"
-                label: "&nbsp;"
-                color: auto
-                size: 25%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *lightbuttonactions
-              - type: custom:button-card
-                entity: switch.printer
-                name: Printer
-                icon: "mdi:printer-wireless"
-                label: "&nbsp;"
-                color: auto
-                size: 25%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *lightbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
-              - type: custom:button-card
-                entity: switch.xbox_one
-                name: Xbox
-                icon: "mdi:xbox"
-                label: "&nbsp;"
-                color: auto
-                size: 25%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *xboxstate
-                <<: *lightbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 14px 
-      - type: vertical-stack
-        cards:
+                    - width: 15px 
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5695,7 +5731,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: switch.wasmachine
                 name: Wasmachine
@@ -5722,12 +5758,12 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
-      - type: 'custom:card-modder'
-        <<: *headertext
-        card:
-          content: ' '
-          type: markdown
+                    - width: 15px 
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: ' '
+              type: markdown
     path: devices
 #    icon: 'mdi:power-plug'
     title: Devices
@@ -5798,7 +5834,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: binary_sensor.door_window_sensor_158d000236f9dd
                 name: Voordeur
@@ -5836,7 +5872,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
+                    - width: 15px
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5848,7 +5884,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: binary_sensor.dafang_motion_sensor
                 name: Gallerij
@@ -5886,7 +5922,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
+                    - width: 15px
           - type: 'custom:card-modder'
             <<: *headertext
             card:
@@ -5898,7 +5934,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px 
+                    - width: 15px 
               - type: custom:button-card
                 entity: binary_sensor.smoke_sensor_158d000287ab41
                 name: Rookmelder
@@ -5914,7 +5950,7 @@ views:
                 color_type: blank-card
                 styles:
                   card:
-                    - width: 14px
+                    - width: 15px
           - type: 'custom:button-card'
             color_type: blank-card
             styles:
@@ -5941,7 +5977,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -5977,7 +6013,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -5989,7 +6025,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
                   - type: 'custom:card-modder'
                     style: 
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -6036,7 +6072,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
@@ -6051,7 +6087,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -6087,7 +6123,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6099,7 +6135,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
                   - type: 'custom:card-modder'
                     style:
                       border-radius: 12px
@@ -6197,14 +6233,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
                   - type: 'custom:card-modder'
                     style:
                       border-radius: 12px
@@ -6302,14 +6338,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
                   - type: 'custom:card-modder'
                     style:
                       border-radius: 12px
@@ -6406,7 +6442,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
@@ -6421,7 +6457,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -6457,7 +6493,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6469,7 +6505,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -6481,7 +6517,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6493,7 +6529,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -6505,7 +6541,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6520,7 +6556,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -6556,7 +6592,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6568,7 +6604,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       border-radius: 12px
@@ -6580,7 +6616,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
           Klimaat:
             type: vertical-stack
             cards:
@@ -6590,7 +6626,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -6626,7 +6662,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6638,7 +6674,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:swipe-card'
                     path: '/local/custom-lovelace/swipe-card'
                     cards:
@@ -6688,14 +6724,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
                   - type: 'custom:swipe-card'
                     cards:
                       - type: 'custom:card-modder'
@@ -6730,14 +6766,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:swipe-card'
                     path: '/local/custom-lovelace/swipe-card'
                     cards:
@@ -6787,14 +6823,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:swipe-card'
                     path: '/local/custom-lovelace/swipe-card'
                     cards:
@@ -6844,14 +6880,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:swipe-card'
                     path: '/local/custom-lovelace/swipe-card'
                     cards:
@@ -6901,7 +6937,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
@@ -6917,7 +6953,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -6953,7 +6989,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -6965,7 +7001,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -6995,7 +7031,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -7007,7 +7043,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -7042,7 +7078,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:button-card'
                 color_type: blank-card
                 styles:
@@ -7058,7 +7094,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -7094,7 +7130,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -7131,7 +7167,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -7164,14 +7200,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Climate
                     icon: "mdi:thermometer"
@@ -7207,14 +7243,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Dates
                     icon: "mdi:calendar"
@@ -7250,14 +7286,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Plex
                     icon: "mdi:plex"
@@ -7293,14 +7329,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Links
                     icon: "mdi:link-variant"
@@ -7336,14 +7372,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Floorplan
                     icon: "mdi:floor-plan"
@@ -7379,14 +7415,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Washok
                     icon: "mdi:washing-machine"
@@ -7422,14 +7458,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Energie
                     icon: "mdi:power"
@@ -7465,14 +7501,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Other
                     icon: "mdi:information"
@@ -7508,14 +7544,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Updates
                     icon: "mdi:arrow-down-bold-box"
@@ -7551,7 +7587,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
           Energie:
             type: vertical-stack
             cards:
@@ -7561,7 +7597,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -7597,14 +7633,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: test
                     icon: "mdi:home"
@@ -7622,7 +7658,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
           Overige:
             type: vertical-stack
             cards:
@@ -7632,7 +7668,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: "custom:button-card" 
                     name: Home
                     icon: "mdi:home"
@@ -7668,7 +7704,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: 'custom:card-modder'
                 <<: *headertext
                 card:
@@ -7680,7 +7716,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -7703,14 +7739,14 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px 
+                        - width: 15px 
                   - type: 'custom:card-modder'
                     style:
                       --paper-card-background-color: rgba(255, 251, 239, 0.7)
@@ -7732,7 +7768,7 @@ views:
                     color_type: blank-card
                     styles:
                       card:
-                        - width: 14px
+                        - width: 15px
 
     path: information
 #   icon: 'mdi:information'
