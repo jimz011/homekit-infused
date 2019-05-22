@@ -1,8 +1,8 @@
 # Home Assistant 0.93.0/0.94.0dev compatible Lovelace setup.
 My current Home Assistant install (current running version 0.94.0dev)
 
-## Lovelace setup by jimzz011 May 2019
-#### WARNING NOTE: This lovelace setup is mainly created for iOS and specifically for iPhones. It will work on Android smartphones. However the current layout is not perfect on larger screens and on some pages it looks awkward in landscape mode. An iPad is the best choice if you want it to look a bit decent but only when used in portrait mode. I will be working on landscape ipad views in the future. (I will also try to fix some spacing on larger iphones).
+## Lovelace setup by jimzz011 May 2019 (*updated: 22/05/2019)
+#### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). NEW! iPad landscape support. In the original upload ipad views in landscape mode looked a bit off. This is fixed in the latest version!
 
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
 
@@ -98,7 +98,7 @@ Unfortunately that comes with the downside of having a black header instead of f
 - Started to use anchors to make setup lighter
 - And many more little details
 
-### TO DO
+### TO DO (*updated: 22/05/2019)
 - Global theming (which will lighten the setup) and the ability to have themes change dynamically. This will include a day and night theme
 - Cleaning up
 - Scenes (continue the testing of my automations and where needed change)
@@ -106,6 +106,7 @@ Unfortunately that comes with the downside of having a black header instead of f
 - Xiaomi Roborock s55 Vacuum
 - Xiaomi Plantsensor Cards
 - Energy Consumption Graphs
+- Correct spacing for larger phone screens
 - Other graphs related to servers/computers etc.
 - And many more, which I can't think of at the moment
 
@@ -121,22 +122,40 @@ Anyways have fun and see you next time!
 
 ## A very special thanks to
 @ciotlosm
+
 @thomasloven
+
 @balloob
+
 @gluwc
+
 @maykar
+
 @robbiet480
+
 @ljmerza
+
 @iantrich
+
 @kalkih
+
 @bramkragten
+
 @peternijssen
+
 @eelcohn
+
 @hunterjm
+
 @jc2k
+
 @kuuji
+
 @romrider
-@everyone I forgot to mention, I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
+
+@everyone I forgot to mention
+
+I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
 
 ## Author
 
