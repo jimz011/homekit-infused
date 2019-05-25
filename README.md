@@ -1,4 +1,4 @@
-# Home Assistant 0.93.0/0.94.0dev compatible Lovelace setup.
+# Home Assistant 0.93.2 compatible Lovelace setup.
 My current Home Assistant install (current running version 0.93.2)
 
 ## Lovelace setup by jimzz011 May 2019 (*updated: 25/05/2019)
@@ -106,7 +106,7 @@ Unfortunately that comes with the downside of having a black header instead of f
 - Started to use anchors to make setup lighter
 - And many more little details
 
-### TO DO (*updated: 22/05/2019)
+### TO DO (*updated: 25/05/2019)
 - Global theming (which will lighten the setup) and the ability to have themes change dynamically. This will include a day and night theme
 - Cleaning up
 - Scenes (continue the testing of my automations and where needed change)
@@ -116,6 +116,7 @@ Unfortunately that comes with the downside of having a black header instead of f
 - Energy Consumption Graphs
 - Correct spacing for larger phone screens
 - Other graphs related to servers/computers etc.
+- Rework climate view to accomodate more information
 - And many more, which I can't think of at the moment
 
 ### Questions?
