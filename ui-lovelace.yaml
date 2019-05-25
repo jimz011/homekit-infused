@@ -22,7 +22,7 @@ resources:
     type: js
   - url: /customcards/custom-lovelace/day-countdown/day-countdown.js?v=1
     type: js
-  - url: /customcards/custom-lovelace/button-card/button-card.js?v=4.1.0
+  - url: /customcards/custom-lovelace/button-card/button-card.js?v=4.1.1
     type: module
   - url: /local/card-tools/card-tools.js?v=f5bb8e
     type: js
@@ -38,7 +38,7 @@ resources:
     type: js
   - url: /customcards/custom-lovelace/simple-weather-card/simple-weather-card.bundle.js?v=0.3.0
     type: module
-  - url: /customcards/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.0.8
+  - url: /customcards/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.0.9
     type: module
   - url: /customcards/custom-lovelace/postnl-card/postnl-card.js?v=.1.0
     type: module
@@ -83,9 +83,9 @@ anchors:
         - grid-template-columns: 1fr
         - grid-template-rows: 1fr min-content min-content
       img_cell:
-        - align-self: center
+        - align-self: start
         - text-align: start
-        - margin-left: 10px
+        - margin-right: 120px
       name:
         - justify-self: start
         - padding-left: 10px
@@ -101,8 +101,6 @@ anchors:
           state:
             - color: gray
       - value: "off"
-        style:
-          - opacity: 0.4
         styles:
           icon:
             - color: gray
@@ -110,6 +108,8 @@ anchors:
             - color: gray
           state:
             - color: gray
+          card:
+            - opacity: 0.4
       - value: "unavailable"
         style:
           - opacity: 0.2
@@ -173,9 +173,9 @@ anchors:
       - grid-template-columns: 1fr
       - grid-template-rows: 1fr min-content min-content
     img_cell:
-      - align-self: center
+      - align-self: start
       - text-align: start
-      - margin-left: 10px
+      - margin-right: 45px
     name:
       - justify-self: start
       - padding-left: 10px
@@ -210,9 +210,9 @@ anchors:
       - grid-template-columns: 1fr
       - grid-template-rows: 1fr min-content min-content
     img_cell:
-      - align-self: center
+      - align-self: start
       - text-align: start
-      - margin-left: 10px
+      - margin-right: 45px
     name:
       - justify-self: start
       - padding-left: 10px
@@ -262,7 +262,6 @@ anchors:
         - border-radius: 12px
         - width: 105px
         - height: 105px
-         
         - --paper-card-background-color: var(--homekit-white)
       label:
         - color: gray
@@ -283,9 +282,9 @@ anchors:
         - grid-template-columns: 1fr
         - grid-template-rows: 1fr min-content min-content
       img_cell:
-        - align-self: center
+        - align-self: start
         - text-align: start
-        - margin-left: 10px
+        - margin-right: 60px
       name:
         - justify-self: start
         - padding-left: 10px
@@ -304,9 +303,9 @@ anchors:
           lock:
             - color: black
       - value: "off"
-        style:
-          - opacity: 0.4
         styles:
+          card:
+            - opacity: 0.4
           icon:
             - color: gray
           name:
@@ -331,9 +330,9 @@ anchors:
           label:
             - color: black
       - value: "off"
-        style:
-          - opacity: 0.4
         styles:
+          card:
+            - opacity: 0.4
           icon:
             - color: gray
           name:
@@ -352,17 +351,21 @@ anchors:
             - color: gray
           icon:
             - color: DodgerBlue
+          lock:
+            - color: black
         spin: true
       - value: "off"
-        style:
-          - opacity: 0.4
         styles:
+          card:
+            - opacity: 0.4
           icon:
             - color: gray
           name:
             - color: gray
           state:
             - color: gray
+          lock:
+            - color: black
       - value: "unavailable"
         style:
           - opacity: 0.2
@@ -380,9 +383,9 @@ anchors:
           icon:
             - color: green
       - value: "off"
-        style:
-          - opacity: 0.4
         styles:
+          card:
+            - opacity: 0.4
           icon:
             - color: gray
           name:
@@ -430,9 +433,9 @@ anchors:
           state:
             - color: gray
       - value: "off"
-        style:
-          - opacity: 0.7
         styles:
+          card:
+            - opacity: 0.7
           icon:
             - color: gray
           name:
@@ -442,11 +445,401 @@ anchors:
       - value: "unavailable"
         style:
           - opacity: 0.2
-
-# Home View
+          
+# General Config
 title: Home
 background: var(--background-image)
 views:
+# Security View / Cameras
+  - badges: []
+    cards:
+      - type: custom:compact-custom-header
+        main_config: true
+        menu: hide
+        options: hide
+        notifications: hide
+        voice: hide
+        header: true
+        chevrons: false
+        notify_indicator_color: "#e80000"
+        swipe: true
+        swipe_wrap: false
+        background: 'rgba(0,0,0,0.3)'
+        default_tab: 2
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: "##### Camera's"
+              type: markdown
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 12px
+                  overflow: hidden
+                card:
+                  entity: camera.gallerij_camera
+                  title: Camera's
+                  type: picture-entity
+                  aspect_ratio: 16x9
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 12px
+                  overflow: hidden
+                card:
+                  entity: camera.woonkamer_camera
+                  title: Camera's
+                  type: picture-entity
+                  aspect_ratio: 16x9
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+      - type: vertical-stack
+        cards:
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: '##### Doors'
+              type: markdown
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+              - type: custom:button-card
+                entity: binary_sensor.door_window_sensor_158d000236f9dd
+                name: Voordeur
+                icon: "mdi:door"
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: custom:button-card
+                entity: binary_sensor.door_window_sensor_158d000238644b
+                name: Woonkamer
+                icon: "mdi:door"
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: custom:button-card
+                entity: binary_sensor.door_window_sensor_158d000232ac1b
+                name: Slaapkamer
+                icon: "mdi:door"
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: '##### Motion'
+              type: markdown
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+              - type: custom:button-card
+                entity: binary_sensor.dafang_motion_sensor
+                name: Gallerij
+                icon: 'mdi:motion-sensor'
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: custom:button-card
+                entity: binary_sensor.motion_sensor_158d0002b7eec9
+                name: Bijkeuken
+                icon: 'mdi:motion-sensor'
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: custom:button-card
+                entity: binary_sensor.motion_sensor_158d00024e687d
+                name: Toilet
+                icon: 'mdi:motion-sensor'
+                show_last_changed: true
+                color: auto
+                size: 30%
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: '##### Alarms'
+              type: markdown
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px 
+              - type: custom:button-card
+                entity: binary_sensor.smoke_sensor_158d000287ab41
+                name: Rookmelder
+                icon: "mdi:smoke-detector"
+                show_last_changed: true
+                size: 30%
+                color: auto
+                <<: *lightbuttonstyle
+                <<: *showboth
+                <<: *lightbuttonstate
+                <<: *standardbuttonactions
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 15px
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - height: 20px
+
+    path: security
+#    icon: 'mdi:cctv'
+    title: Guard
+# Climate Control
+  - title: Climate
+    path: climate
+    cards:
+      - type: 'custom:compact-custom-header'
+      - cards:
+          - cards:
+              - cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                  - type: 'custom:card-modder'
+                    style:
+                      --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
+                      border-radius: 12px
+                    card:
+                      ambient_temperature: sensor.temperature_158d00020ed06c
+                      chevron_size: 100
+                      pending: 1
+                      entity: climate.tado_smart_radiator_thermostat_va2898201344
+                      hvac:
+                        attribute: operation_mode
+                        states:
+                          'heat': 'heat'
+                          'off': 'off'
+                      step: 1
+                      type: 'custom:thermostat-card'
+                  - type: 'custom:card-modder'
+                    style:
+                      --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
+                      border-radius: 12px
+                    card:
+                      ambient_temperature: sensor.printer_am2301_temperature
+                      chevron_size: 100
+                      pending: 1
+                      entity: climate.tado_smart_radiator_thermostat_va1671957504
+                      hvac:
+                        attribute: operation_mode
+                        states:
+                          'heat': 'heat'
+                          'off': 'off'
+                      step: 1
+                      type: 'custom:thermostat-card'
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                type: horizontal-stack 
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                  - type: "custom:button-card" 
+                    name: Woonkamer
+                    icon: "mdi:radiator"
+                    entity: input_boolean.tado_woonkamer
+                    <<: *radiatorbuttonstyle
+                  - type: "custom:button-card" 
+                    name: Kleine Kamer
+                    icon: "mdi:radiator"
+                    entity: input_boolean.tado_kleine_kamer
+                    <<: *radiatorbuttonstyle
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                  - type: 'custom:card-modder'
+                    style:
+                      --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
+                      border-radius: 12px
+                    card:
+                      ambient_temperature: sensor.temperature_158d0002b546e7
+                      chevron_size: 100
+                      entity: climate.woonkamer
+                      hvac:
+                        attribute: operation_mode
+                        states:
+                          'heat': 'heat'
+                          'off': 'off'
+                      step: 1
+                      type: 'custom:thermostat-card'
+                  - type: 'custom:card-modder'
+                    style:
+                      --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
+                      border-radius: 12px
+                    card:
+                      ambient_temperature: sensor.waterkoker_am2301_temperature
+                      chevron_size: 100
+                      entity: climate.woonkamer
+                      hvac:
+                        attribute: operation_mode
+                        states:
+                          'heat': 'heat'
+                          'off': 'off'
+                      step: 1
+                      type: 'custom:thermostat-card'
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                  - type: "custom:button-card" 
+                    name: Slaapkamer
+                    icon: "mdi:radiator"
+                    entity: input_boolean.dummy2
+                    <<: *radiatorbuttonstyle
+                  - type: "custom:button-card" 
+                    name: Keuken
+                    icon: "mdi:radiator"
+                    entity: input_boolean.dummy2
+                    <<: *radiatorbuttonstyle
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px 
+                  - type: 'custom:card-modder'
+                    style:
+                      --paper-card-background-color: 'rgba(255, 251, 239, 0.9)'
+                      border-radius: 12px
+                      --paper-item-icon-color: gray
+                      color: gray
+                    card:
+                      type: custom:mini-graph-card
+                      show:
+                      
+                        state: false
+                      name: Temperature Graph
+                      icon: mdi:thermometer
+                      hours_to_show: 12
+                      animate: true
+                      hour24: true
+                      font_size: 60
+                      entities:
+                        - entity: sensor.temperature_158d00020ed06c
+                          name: Woonkamer
+                        - entity: sensor.temperature_158d0002b546e7
+                          name: Slaapkamer
+                        - entity: sensor.temperature_158d0002b54868
+                          name: Badkamer
+                        - entity: sensor.printer_am2301_temperature
+                          name: Kleine Kamer
+                        - entity: sensor.waterkoker_am2301_temperature
+                          name: Keuken
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 15px
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - height: 13px 
+            type: vertical-stack
+        type: vertical-stack
+        
+# Frontpage
   - badges: []
     popup_cards:
       input_boolean.lovelace_now_on:
@@ -1357,6 +1750,42 @@ views:
                       styles:
                         card:
                           - height: 1px 
+    weather.dark_sky:
+      title: Weather
+      style:
+        border-radius: 12px
+        background: var(--background-image)
+      card:
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+              - type: 'custom:card-modder'
+                style:
+                  border-radius: 12px
+                  overflow: hidden
+                  --paper-card-background-color: rgba(250, 250, 250, 0.0)
+                  box-shadow: rgba(0,0,0,0.0
+                card:
+                  type: iframe
+                  aspect_ratio: 110%
+                  url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 1px 
+          - type: 'custom:card-modder'
+            <<: *headertext
+            card:
+              content: ' '
+              type: markdown
+
       input_boolean.lovelace_automation:
         title: Automations
         style:
@@ -2322,227 +2751,8 @@ views:
                         styles:
                           card:
                             - height: 13px                
-      input_boolean.lovelace_climate:
-        title: Climate Control
-        style:
-          border-radius: 12px
-          background: var(--background-image)
-        card:
-          cards:
-            - cards:
-                - cards:
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                    - type: 'custom:card-modder'
-                      style:
-                        --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
-                        border-radius: 12px
-                      card:
-                        ambient_temperature: sensor.temperature_158d00020ed06c
-                        chevron_size: 100
-                        pending: 1
-                        entity: climate.tado_smart_radiator_thermostat_va2898201344
-                        hvac:
-                          attribute: operation_mode
-                          states:
-                            'heat': 'heat'
-                            'off': 'off'
-                        step: 1
-                        type: 'custom:thermostat-card'
-                    - type: 'custom:card-modder'
-                      style:
-                        --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
-                        border-radius: 12px
-                      card:
-                        ambient_temperature: sensor.printer_am2301_temperature
-                        chevron_size: 100
-                        pending: 1
-                        entity: climate.tado_smart_radiator_thermostat_va1671957504
-                        hvac:
-                          attribute: operation_mode
-                          states:
-                            'heat': 'heat'
-                            'off': 'off'
-                        step: 1
-                        type: 'custom:thermostat-card'
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                  type: horizontal-stack 
-                - type: horizontal-stack
-                  cards:
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                    - type: "custom:button-card" 
-                      name: Woonkamer
-                      icon: "mdi:radiator"
-                      entity: input_boolean.tado_woonkamer
-                      <<: *radiatorbuttonstyle
-                    - type: "custom:button-card" 
-                      name: Kleine Kamer
-                      icon: "mdi:radiator"
-                      entity: input_boolean.tado_kleine_kamer
-                      <<: *radiatorbuttonstyle
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                - type: horizontal-stack
-                  cards:
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                    - type: 'custom:card-modder'
-                      style:
-                        --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
-                        border-radius: 12px
-                      card:
-                        ambient_temperature: sensor.temperature_158d0002b546e7
-                        chevron_size: 100
-                        entity: climate.woonkamer
-                        hvac:
-                          attribute: operation_mode
-                          states:
-                            'heat': 'heat'
-                            'off': 'off'
-                        step: 1
-                        type: 'custom:thermostat-card'
-                    - type: 'custom:card-modder'
-                      style:
-                        --paper-card-background-color: 'rgba(255, 251, 239, 0.7)'
-                        border-radius: 12px
-                      card:
-                        ambient_temperature: sensor.waterkoker_am2301_temperature
-                        chevron_size: 100
-                        entity: climate.woonkamer
-                        hvac:
-                          attribute: operation_mode
-                          states:
-                            'heat': 'heat'
-                            'off': 'off'
-                        step: 1
-                        type: 'custom:thermostat-card'
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                - type: horizontal-stack
-                  cards:
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                    - type: "custom:button-card" 
-                      name: Slaapkamer
-                      icon: "mdi:radiator"
-                      entity: input_boolean.dummy2
-                      <<: *radiatorbuttonstyle
-                    - type: "custom:button-card" 
-                      name: Keuken
-                      icon: "mdi:radiator"
-                      entity: input_boolean.dummy2
-                      <<: *radiatorbuttonstyle
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                - type: horizontal-stack
-                  cards:
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px 
-                    - type: 'custom:card-modder'
-                      style:
-                        --paper-card-background-color: 'rgba(255, 251, 239, 0.9)'
-                        border-radius: 12px
-                        --paper-item-icon-color: gray
-                        color: gray
-                      card:
-                        type: custom:mini-graph-card
-                        show:
-                        
-                          state: false
-                        name: Temperature Graph
-                        icon: mdi:thermometer
-                        hours_to_show: 12
-                        animate: true
-                        hour24: true
-                        font_size: 60
-                        entities:
-                          - entity: sensor.temperature_158d00020ed06c
-                            name: Woonkamer
-                          - entity: sensor.temperature_158d0002b546e7
-                            name: Slaapkamer
-                          - entity: sensor.temperature_158d0002b54868
-                            name: Badkamer
-                          - entity: sensor.printer_am2301_temperature
-                            name: Kleine Kamer
-                          - entity: sensor.waterkoker_am2301_temperature
-                            name: Keuken
-                    - type: 'custom:button-card'
-                      color_type: blank-card
-                      styles:
-                        card:
-                          - width: 15px
-                - type: 'custom:button-card'
-                  color_type: blank-card
-                  styles:
-                    card:
-                      - height: 13px 
-              type: vertical-stack
-          type: vertical-stack
-      weather.dark_sky:
-        title: Weather
-        style:
-          border-radius: 12px
-          background: var(--background-image)
-        card:
-          type: vertical-stack
-          cards:
-            - type: horizontal-stack
-              cards:
-                - type: 'custom:button-card'
-                  color_type: blank-card
-                  styles:
-                    card:
-                      - width: 1px 
-                - type: 'custom:card-modder'
-                  style:
-                    border-radius: 12px
-                    overflow: hidden
-                    --paper-card-background-color: rgba(250, 250, 250, 0.0)
-                    box-shadow: rgba(0,0,0,0.0
-                  card:
-                    type: iframe
-                    aspect_ratio: 110%
-                    url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
-                - type: 'custom:button-card'
-                  color_type: blank-card
-                  styles:
-                    card:
-                      - width: 1px 
-            - type: 'custom:card-modder'
-              <<: *headertext
-              card:
-                content: ' '
-                type: markdown
-
+      input_boolean.vacuum_cleaner:
+        title: Vacuum Cleaner (under construction)
       alarm_control_panel.home_alarm:
         title: Alarm
         style:
@@ -3549,18 +3759,6 @@ views:
           type: vertical-stack
     cards:
       - type: custom:compact-custom-header
-        main_config: true
-        menu: hide
-        options: hide
-        notifications: hide
-        voice: hide
-        header: true
-        chevrons: false
-        notify_indicator_color: "#e80000"
-        swipe: true
-        swipe_wrap: false
-        swipe_animate: fade
-        background: 'rgba(0,0,0,0.3)'
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -4126,9 +4324,9 @@ views:
                       <<: *standardbuttonstyle
                     state:
                       - value: "idle"
-                        style:
-                          - opacity: 0.7
                         styles:
+                          card:
+                            - opacity: 0.7
                           name:
                             - color: gray
                           label:
@@ -4234,9 +4432,9 @@ views:
                       <<: *standardbuttonstyle
                   - type: custom:button-card
                     entity: input_boolean.lovelace_climate
-                    name: Climate
-                    icon: "mdi:thermometer"
-                    label: Control
+                    name: Vacuum
+                    icon: "mdi:robot-vacuum"
+                    label: Cleaner
                     <<: *standardbuttonactions
                     <<: *standardbuttonstate
                     <<: *showlabel
@@ -5197,6 +5395,7 @@ views:
                     - width: 15px 
               - type: custom:button-card
                 entity: light.nachtkastje_stephanie
+                lock: true
                 name: Stephanie
                 icon: "mdi:lamp"
                 label_template: >
@@ -5210,6 +5409,7 @@ views:
                 <<: *lightbuttonactions
               - type: custom:button-card
                 entity: light.nachtkastje_jimmy
+                lock: true
                 name: Jimmy
                 icon: "mdi:lamp"
                 label_template: >
@@ -5223,6 +5423,7 @@ views:
                 <<: *lightbuttonactions
               - type: custom:button-card
                 entity: light.slaapkamer_led_lampen
+                lock: true
                 name: LEDs
                 icon: "mdi:led-strip"
                 label_template: >
@@ -5525,6 +5726,7 @@ views:
                     - width: 15px 
               - type: custom:button-card
                 entity: switch.ventilator
+                lock: true
                 name: Ventilator
                 icon: "mdi:fan"
                 label: "&nbsp;"
@@ -5535,6 +5737,7 @@ views:
                 <<: *lightbuttonactions
               - type: custom:button-card
                 entity: switch.receiver_slaapkamer
+                lock: true
                 name: Receiver
                 icon: "mdi:set-top-box"
                 label: "&nbsp;"
@@ -5546,6 +5749,7 @@ views:
                 <<: *lightbuttonactions
               - type: custom:button-card
                 entity: switch.tradfri_outlet_2
+                lock: true
                 name: TV
                 icon: "mdi:television"
                 label: "&nbsp;"
@@ -5621,6 +5825,7 @@ views:
                     - width: 15px 
               - type: custom:button-card
                 entity: switch.xbox_one
+                lock: true
                 name: Xbox
                 icon: "mdi:xbox"
                 label: "&nbsp;"
@@ -5767,199 +5972,6 @@ views:
     path: devices
 #    icon: 'mdi:power-plug'
     title: Devices
-
-# Security View / Cameras
-  - badges: []
-    cards:
-      - type: custom:compact-custom-header
-      - type: vertical-stack
-        cards:
-          - type: 'custom:card-modder'
-            <<: *headertext
-            card:
-              content: "##### Camera's"
-              type: markdown
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 1px 
-              - type: 'custom:card-modder'
-                style:
-                  border-radius: 12px
-                  overflow: hidden
-                card:
-                  entity: camera.gallerij_camera
-                  title: Camera's
-                  type: picture-entity
-                  aspect_ratio: 16x9
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 1px 
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 1px 
-              - type: 'custom:card-modder'
-                style:
-                  border-radius: 12px
-                  overflow: hidden
-                card:
-                  entity: camera.woonkamer_camera
-                  title: Camera's
-                  type: picture-entity
-                  aspect_ratio: 16x9
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 1px 
-      - type: vertical-stack
-        cards:
-          - type: 'custom:card-modder'
-            <<: *headertext
-            card:
-              content: '##### Doors'
-              type: markdown
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px 
-              - type: custom:button-card
-                entity: binary_sensor.door_window_sensor_158d000236f9dd
-                name: Voordeur
-                icon: "mdi:door"
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: custom:button-card
-                entity: binary_sensor.door_window_sensor_158d000238644b
-                name: Woonkamer
-                icon: "mdi:door"
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: custom:button-card
-                entity: binary_sensor.door_window_sensor_158d000232ac1b
-                name: Slaapkamer
-                icon: "mdi:door"
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px
-          - type: 'custom:card-modder'
-            <<: *headertext
-            card:
-              content: '##### Motion'
-              type: markdown
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px 
-              - type: custom:button-card
-                entity: binary_sensor.dafang_motion_sensor
-                name: Gallerij
-                icon: 'mdi:motion-sensor'
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: custom:button-card
-                entity: binary_sensor.motion_sensor_158d0002b7eec9
-                name: Bijkeuken
-                icon: 'mdi:motion-sensor'
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: custom:button-card
-                entity: binary_sensor.motion_sensor_158d00024e687d
-                name: Toilet
-                icon: 'mdi:motion-sensor'
-                show_last_changed: true
-                color: auto
-                size: 30%
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px
-          - type: 'custom:card-modder'
-            <<: *headertext
-            card:
-              content: '##### Alarms'
-              type: markdown
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px 
-              - type: custom:button-card
-                entity: binary_sensor.smoke_sensor_158d000287ab41
-                name: Rookmelder
-                icon: "mdi:smoke-detector"
-                show_last_changed: true
-                size: 30%
-                color: auto
-                <<: *lightbuttonstyle
-                <<: *showboth
-                <<: *lightbuttonstate
-                <<: *standardbuttonactions
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 15px
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - height: 20px
-
-    path: security
-#    icon: 'mdi:cctv'
-    title: Security
 
 # Information View
   - badges: []
