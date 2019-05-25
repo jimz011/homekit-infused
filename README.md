@@ -1,9 +1,17 @@
 # Home Assistant 0.93.0/0.94.0dev compatible Lovelace setup.
 My current Home Assistant install (current running version 0.94.0dev)
 
-## Lovelace setup by jimzz011 May 2019 (*updated: 22/05/2019)
-#### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). NEW! iPad landscape support. In the original upload ipad views in landscape mode looked a bit off. This is fixed in the latest version!
+## Lovelace setup by jimzz011 May 2019 (*updated: 25/05/2019)
+#### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). 
 
+### Changes in this update (25/05/2019):
+- moved around the climate control to an actual view (pre work to make a more detailed climate page)
+- on homescreen replaced climate control with vacuum control (this is under construction and only pre work)
+- fixed styles on breaking changes with the custom button card v1.10 (might need some more tweaking)
+- added automations.yaml (I actually thought it was already up here, my bad)
+- made the homepage the third view on the screen, together with Compact Custom Header I have set that view to be the default tab. This means it will open the page on the third view (which is now the homepage) and allows me to swipe left or right for faster access to particular views.
+
+## Introduction
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
 
 ### Screenshots and Video
