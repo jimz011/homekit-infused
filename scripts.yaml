@@ -22,7 +22,7 @@ xiaomi_alarm_siren:
       data_template:
         ringtone_id: 7
         ringtone_vol: 100
-        gw_mac: MACHERE
+        gw_mac: 78:11:DC:DE:F3:24
     - delay:
 #### time for siren to play before restarting 
         seconds: 14
@@ -45,9 +45,9 @@ xiaomi_alarm_siren_loop:
 badkamer_aanuit:
   alias: Badkamer om de 10 minuten uit
   sequence:
-    - service: switch.koogeek_sw_056ce9
+    - service: switch.turn_off
       data:
-        entity_id: switch.kh01cn
+        entity_id: switch.koogeek_sw_056ce9
     - delay:
         seconds: 1
     - service: switch.turn_on
