@@ -1,0 +1,2487 @@
+# HOMEKIT START DELAY
+- alias: Start Homekit
+  initial_state: 'true'
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - delay: 00:03
+  - service: homekit.start
+
+
+# WHEN SAMSUNG TV TURNS ON, TURN RECEIVER ON  
+- alias: Samsung TV Turn ON sony
+  initial_state: 'true'
+  trigger:
+  - entity_id: media_player.samsung_tv_remote
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      entity_id: group.samsung_tv
+    service: homeassistant.turn_on
+
+# WHEN APPLE TV TURNS ON, TURN RECEIVER ON  
+- alias: APPLE TV Turn ON sony
+  initial_state: 'true'
+  trigger:
+  - entity_id: media_player.woonkamer_apple_tv
+    platform: state
+    from: 'off'
+  action:
+  - data:
+      entity_id: group.samsung_tv
+    service: homeassistant.turn_on
+
+- alias: APPLE TV idle turn off
+  initial_state: 'true'
+  trigger:
+  - entity_id: media_player.woonkamer_apple_tv
+    platform: state
+    to: 'idle'
+    for:
+      seconds: 300
+  action:
+  - data:
+      entity_id: group.samsung_tv
+    service: homeassistant.turn_off
+
+# WHEN PHILIPS TV TURNS ON, TURN APPLE REMOTE ON  
+- alias: Philips TV Turn ON
+  initial_state: 'true'
+  trigger:
+  - entity_id: switch.tradfri_outlet_2
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: remote.slaapkamer_apple_tv
+    service: remote.turn_on
+
+# WHEN PHILIPS TV TURNS OFF, TURN APPLE REMOTE OFF  
+- alias: Philips TV Turn OFF
+  initial_state: 'true'
+  trigger:
+  - entity_id: switch.tradfri_outlet_2
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: remote.slaapkamer_apple_tv
+    service: remote.turn_off
+
+# BADKAMER LAMP IEDERE 10 MINUTEN UIT/AAN
+- alias: badkamer_aan_uit
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.koogeek_sw_056ce9
+    to: 'on'
+    for:
+      minutes: 10
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.badkamer_aanuit
+
+- alias: badkamer_aan_uit_2
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.koogeek_sw_056ce9
+    to: 'on'
+  action:
+  - service: script.turn_off
+    data:
+      entity_id: script.badkamer_aanuit
+
+# WHEN SAMSUNG TV TURNS OFF, TURN APPLE REMOTE OFF
+- alias: Samsung TV Turn OFF button
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: media_player.samsung_tv_remote
+    to: 'off'
+  action:
+  - data:
+      entity_id: group.samsung_tv
+    service: homeassistant.turn_off
+
+# SEND MESSAGE TO IOS AFZUIGKAP ON FOR 30 MIN, BUT ONLY TO 
+- alias: Afzuigkap Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.afzuigkap
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+    data:
+      title: "Afzuigkap"
+      message: "Ik sta al 30 minuten aan, zou je me niet eens uitzetten?"
+      data:
+        push:
+          sound: default
+          badge: 0
+          category: "afzuigkap_alert" 
+
+# DOORS OPEN ALERTS TO IOS
+- alias: Voordeur Alert Opened
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    to: 'on'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.ios_notifier
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Voordeur"
+      message: "De Voordeur is zojuist geopend!"
+      data:
+        push:
+          sound: default
+
+- alias: Voordeur Alert Closed
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    to: 'off'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.ios_notifier
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Voordeur"
+      message: "De Voordeur is zojuist gesloten!"
+      data:
+        push:
+          sound: default
+
+#
+- alias: Woonkamer Deur Alert Opened
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000238644b
+    to: 'on'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.nobody
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Woonkamer Deur"
+      message: "De Woonkamer Deur is zojuist geopend!"
+      data:
+        push:
+          sound: default
+
+- alias: Woonkamer Alert Closed
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000238644b
+    to: 'off'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.nobody
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Woonkamer Deur"
+      message: "De Woonkamer Deur is zojuist gesloten!"
+      data:
+        push:
+          sound: default
+
+#
+- alias: Slaapkamer Deur Alert Opened
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    to: 'on'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.nobody
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Slaapkamer Deur"
+      message: "De Slaapkamer Deur is zojuist geopend!"
+      data:
+        push:
+          sound: default
+
+- alias: Slaapkamer Alert Closed
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    to: 'off'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.nobody
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% endif %}
+    data:
+      title: "Slaapkamer Deur"
+      message: "De Slaapkamer Deur is zojuist gesloten!"
+      data:
+        push:
+          sound: default
+    
+# WHEN KEUKENLAMP TURNS OFF, KEUKENSPOTS TURNS OFF
+- id: '1533498185749'
+  alias: Keukenlamp turns off Keukenspotjes
+  initial_state: 'true'
+  trigger:
+  - entity_id: light.keukenlamp_b
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.keukenspots
+    service: switch.turn_off
+    
+# WHEN KEUKENLAMP TURNS ON, TURN KEUKENSPOTS ON (FROM 19.00H-06.00H)
+- id: '1533504863293'
+  alias: Keukenspotjes aan
+  initial_state: 'true'
+  trigger:
+  - entity_id: light.keukenlamp_b
+    platform: state
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - data:
+      entity_id: switch.keukenspots
+    service: switch.turn_on
+
+# WHEN KEUKENLAMP TURNS OFF, BIJKEUKENLAMP TURNS OFF
+- alias: keuken_bijkeuken_uit
+  initial_state: 'true'
+  trigger:
+  - entity_id: light.keukenlamp_a
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - service: light.turn_off
+    entity_id: light.bijkeukenlamp
+
+# TURN LEDLAMPEN WOONKAMER AND KLEINE KAMER ON AT SUNSET
+- alias: leds_aan_at_sunset
+  initial_state: 'true'
+  trigger:
+    platform: sun    
+    event: sunset
+    offset: '-00:30:00'
+  action:
+  - data:
+      entity_id: light.woonkamer_led_lampen
+    service: light.turn_on
+  - data:
+      entity_id: light.officeled
+    service: light.turn_on
+
+# TURN LEDLIGHTS ON/OFF WITH TRADFRI REMOTE, BUT ONLY IF TV IS OFF
+- alias: leds_off_button_press
+  initial_state: 'true'
+  trigger:
+    platform: state
+    to: 'off'
+    entity_id: group.nachtkastjes
+  condition:
+  - condition: state
+    entity_id: switch.tradfri_outlet_2  
+    state: 'off'
+  action:
+  - data:
+      entity_id: light.slaapkamer_led_lampen
+    service: light.turn_off
+
+- alias: leds_on_button_press
+  initial_state: 'true'
+  trigger:
+    platform: state
+    to: 'on'
+    entity_id: group.nachtkastjes
+  condition:
+    condition: state
+    entity_id: switch.tradfri_outlet_2  
+    state: 'off'
+  action:
+  - data:
+      entity_id: light.slaapkamer_led_lampen
+    service: light.turn_on
+
+# WATERKOKER TURNS ON CAPU MAKER
+- alias: waterkoker_cap_on
+  initial_state: 'true'
+  trigger:
+    platform: state
+    to: 'on'
+    entity_id: switch.waterkoker
+  action:
+  - data:
+      entity_id: switch.tradfri_outlet
+    service: switch.turn_on
+
+# WATERKOKER TURNS OFF CAPU MAKER
+- alias: waterkoker_cap_off
+  initial_state: 'true'
+  trigger:
+    platform: state
+    to: 'off'
+    entity_id: switch.waterkoker
+  action:
+  - data:
+      entity_id: switch.tradfri_outlet
+    service: switch.turn_off
+
+# TURN ALL LEDS OFF AT SUNRISE
+- alias: leds_uit_at_sunrise
+  initial_state: 'true'
+  trigger:
+  - platform: sun
+    event: 'sunrise'
+  action:
+  - data:
+      entity_id: light.woonkamer_led_lampen
+    service: light.turn_off
+  - data:
+      entity_id: light.officeled
+    service: light.turn_off
+  - data:
+      entity_id: light.slaapkamer_led_lampen
+    service: light.turn_off
+
+# WHEN IPHONEVANJIMMY IS HOME, TURN ON PC VAN JIMMY
+- alias: turn_on_jimz_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_jimmy
+    service: switch.turn_on
+  - data:
+      entity_id: media_player.xbox_one
+    service: media_player.turn_on
+
+# PC TURNS OFF = XBOX TURNS OFF
+- alias: pc_off_xbox_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.pc_van_jimmy
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+  - data:
+      entity_id: media_player.xbox_one
+    service: media_player.turn_off
+
+# PC TURNS ON = XBOX TURNS ON
+- alias: pc_on_xbox_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.pc_van_jimmy
+    to: 'on'
+  action:
+  - data:
+      entity_id: media_player.xbox_one
+    service: media_player.turn_on
+
+# WHEN IPHONEVANSTEPH IS HOME, TURN ON PC VAN STEPHANIE
+- alias: turn_on_stephanie_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_stephanie
+    service: switch.turn_on
+
+# WHEN TOILET MOTION SENSOR TURNS ON, RUN TOILETLAMP_ SCRIPT
+- alias: toiletlamp_turn_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    to: 'on'
+  condition:
+  - condition: time
+    after: '06:30:00'
+    before: '01:00:00'
+  action:
+  - data:
+      entity_id: script.toiletlamp_1
+    service: script.turn_on
+
+# WHEN TOILET MOTION SENSOR TURNS OFF, RUN TOILETLAMP_OFF SCRIPT
+- alias: toiletlamp_turn_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    to: 'off'
+  action:
+  - data:
+      entity_id: script.toiletlamp_off
+    service: script.turn_on
+
+# WHEN TOILET @ NIGHT MOTION SENSOR TURNS ON, RUN TOILETLAMP SCRIPT
+- alias: toiletlamp_turn_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    to: 'on'
+  condition:
+  - condition: time
+    after: '01:00:00'
+    before: '06:30:00'
+  action:
+  - data:
+      entity_id: script.toiletlamp_1_night
+    service: script.turn_on
+
+# WHEN BIJKEUKEN MOTION SENSOR TURNS ON, RUN BIJKEUKENLAMP SCRIPT
+- alias: bijkeukenlamp_turn_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    to: 'on'
+  action:
+  - data:
+      entity_id: script.bijkeukenlamp
+    service: script.turn_on
+
+# WHEN BIJKEUKEN MOTION SENSOR TURNS OFF, RUN BIJKEUKENLAMP_OFF SCRIPT
+- alias: bijkeukenlamp_turn_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    to: 'off'
+  action:
+  - data:
+      entity_id: script.bijkeukenlamp_off
+    service: script.turn_on
+
+######################################################################
+### MANUAL ALARM PANEL                                             ###
+######################################################################
+
+# ALARM FOR AWAY
+- alias: Alarm Away
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.door_window_sensor_158d000238644b
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.motion_sensor_158d00024e687d
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_away'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+# ALARM FOR AT HOME
+- alias: Alarm Home
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.door_window_sensor_158d000238644b
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_home'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+# ALARM FOR AT NIGHT
+- alias: Alarm Night
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_night'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+################################################################
+### ALARM TRIGGERS                                             #
+################################################################
+- alias: Triggered Flash
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    to: 'triggered'
+  action:
+  - data:
+      entity_id: script.light_flash
+    service: script.turn_on
+  - data:
+      entity_id: script.xiaomi_alarm_siren
+    service: script.turn_on
+
+################################################################
+### ALARM DISARMED                                             #
+################################################################
+- alias: Disarmed Off
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    to: 'disarmed'
+  action:
+  - data:
+      entity_id: script.light_flash
+    service: script.turn_off
+  - data:
+      entity_id: script.xiaomi_alarm_siren
+    service: script.turn_off
+  - data:
+      entity_id: script.xiaomi_alarm_siren_loop
+    service: script.turn_off
+#  - data:
+#      entity_id: script.all_lights_turn_on
+#    service: script.turn_on
+
+- alias: Alarm Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'triggered'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "ALARM ALARM !Het Alarm is afgegaan! ALARM ALARM"
+      data:
+        push:
+          sound: default
+          badge: 0
+          category: "alarm_alert"
+
+- alias: Alarm Away Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_away'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor Afwezig!"
+      data:
+        push:
+          sound: default 
+
+- alias: Alarm Home Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_home'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor Thuis!"
+      data:
+        push:
+          sound: default
+
+- alias: Alarm Night Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_night'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor de Nacht!"
+      data:
+        push:
+          sound: default
+
+- alias: Alarm Disarm Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'disarmed'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is uitgeschakeld!"  
+      data:
+        push:
+          sound: default
+
+
+# NOTIFY IF RECEIVER DIDN'T TURN ON DUE TO UNAVAILABLE
+- alias: Receiver Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: media_player.samsung_tv_remote
+    to: 'on'
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: switch.receiver
+      state: 'off'
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+    data:
+      title: "Sony Receiver"
+      message: "De Televisie staat aan, maar de receiver is niet automatisch aangegaan. Wil je deze nu inschakelen?"
+      data:
+        push:
+          sound: default
+          badge: 0
+          category: "receiver_alert"
+
+# LEAVE HOME AT NIGHTTIME
+- alias: tot ziens avond
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: scene.turn_on
+    entity_id: scene.tot_ziens_avond
+
+# LEAVE HOME AT DAYTIME
+- alias: tot ziens overdag
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - after: sunrise
+        condition: sun
+      - before: sunset
+        condition: sun
+        before_offset: "-01:00:00"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.tot_ziens_overdag
+
+# ARRIVE HOME WITH DAY SCENE
+- alias: welkom overdag
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    condition: or
+    conditions:
+      - after: sunrise
+        condition: sun
+      - before: sunset
+        condition: sun
+        before_offset: "-01:00:00"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.dagverlichting
+
+# ARRIVE HOME WITH NIGHT SCENE
+- alias: welkom avond
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: scene.turn_on
+    entity_id: scene.nachtverlichting
+
+# ARRIVE HOME WITH NIGHT SCENE ENTREE
+- alias: welkom avond entree
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    to: 'on'
+    from: 'off'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: light.turn_on
+    entity_id: light.entree_lamp
+
+
+- alias: deur dicht lichten uit
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    to: 'off'
+    from: 'on'
+  action:
+  - delay:
+      seconds: 20
+  - service: light.turn_off
+    entity_id: light.entree_lamp
+  - service: light.turn_off
+    entity_id: light.gang_lamp
+
+- alias: turn_off_automation_light
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    to: 'on'
+    from: 'off'
+  action:
+  - delay:
+      seconds: 10
+  - entity_id: automation.welkom_avond_entree
+    service: automation.turn_off
+
+- alias: turn_on_automation_light
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+  action:
+  - entity_id: automation.welkom_avond_entree
+    service: automation.turn_on
+
+
+# TURN SLAAPKAMER LEDLAMPEN ON AT SUNSET IF NOBODY IS HOME
+- alias: leds_if_not_home
+  initial_state: 'true'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  condition:
+  - condition: state
+    entity_id: group.device_status
+    state: not_home
+  action:
+  - data:
+      entity_id: light.slaapkamer_led_lampen
+    service: light.turn_on
+
+# TURN ON BEDROOM LEDS WHEN TOILETLAMP IS ON AT NIGHT
+- alias: toiletlamp is vloerled
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: light.toiletlamp
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '08:00:00'
+        after: '00:00:00'
+      - condition: state
+        entity_id: switch.pc_van_jimmy
+        state: 'off'
+  action:
+  - data:
+      entity_id: script.slaapkamer_vloer_led
+    service: script.turn_on
+    
+
+# Alarm Notifications/Automatic Disarm
+- alias: Alarm Disarm Jimmy Away
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_away'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}   
+
+- alias: Alarm Disarm Jimmy Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+
+- alias: Alarm Disarm Steph Away
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_away'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+
+- alias: Alarm Disarm Steph Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+
+- alias: Alarm Activation Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status_2
+    from: 'home'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'disarmed'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Alarm"
+      message: "Iedereen is weg, wil je het Alarm inschakelen?"
+      data:
+        push:
+          sound: default
+          badge: 0
+          category: "alarm_activeren"
+
+# Notify Jimmy/Stephanie when arrive home
+- alias: Jimmy Home Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    from: 'not_home'
+    to: 'home'
+    for:
+      seconds: 90
+  action:
+  - service: notify.mobile_app_iphone_stephanie
+    data:
+      title: "Locatie"
+      message: "Jimmy is zojuist Thuis gearriveerd"
+      data:
+        push:
+          sound: default
+          category: map
+        action_data:
+          latitude: !secret latitude1
+          longitude: !secret longitude1
+
+- alias: Stephanie Home Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 90
+  action:
+  - service: notify.mobile_app_iphone_jimmy
+    data:
+      title: "Locatie"
+      message: "Stephanie is zojuist Thuis gearriveerd"
+      data:
+        push:
+          badge: 0
+          sound: default
+          category: map
+        action_data:
+          latitude: !secret latitude1
+          longitude: !secret longitude1
+
+# Set theme on startup
+- alias: 'Set theme at startup'
+  initial_state: 'true'
+  trigger:
+   - platform: homeassistant
+     event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: grey
+
+#################################################################################
+#        Wasmachine, Droger en Vaatwasser Automations                           #
+#################################################################################
+ 
+# When we detect power being drawn from the dishwasher,
+# mark the dishwasher as using power
+ 
+- alias: Set dishwasher active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_energy_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Running
+ 
+# When the power level drops below 10, and the Dishwasher is set to
+# the 'Running' state, mark the Dishwasher as Finished
+ 
+- alias: Set dishwasher drying when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_energy_power
+      below: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Drying
+ 
+# Once the dishwasher status has been 'Drying' for 30 minutes, mark the
+# dishwasher as clean
+ 
+- alias: Set dishwasher clean
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Drying
+      for:
+        minutes: 15
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Clean
+ 
+# When the power drops and the dishwasher is Clean or Drying, someone has
+# turned the Dishwasher off and emptied it. We should do this when the state
+# of the Dishwasher is clean or Finishing, just incase someone opens the
+# Dishwasher before the 30 minute timeout has been reached.
+ 
+- alias: Set Dishwasher dirty when power off
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_energy_power
+      below: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.vaatwasser_energy_power
+        below: 1
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Clean
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Idle
+ 
+# When power is detected, and the washing machine is not in 
+# the Running state, change the status of the washing machine
+# to Running. 
+# The status check will ensure we don't try to put the state 
+# to Running each time the power level changes, and we're already
+# in the Running state.
+ 
+- alias: Set washing machine active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.wasmachine_energy_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Running
+ 
+# When the power drops, move the state of the washing machine to 
+# Finishing.
+ 
+- alias: Set washing machine finished when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.wasmachine_energy_power
+      below: 6
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Finishing
+ 
+# Wait 8 minutes for us to be in the Finishing state before we
+# decide the washing machine has finished. This way, if the 
+# washing machine is in between cycles and the power drops, we 
+# won't mark the washing machine cycle as finished too early.
+ 
+- alias: Set washing machine clean after timeout
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.washing_machine_status
+      to: Finishing
+      for:
+        minutes: 8
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Clean
+ 
+- alias: Set vaatwasser to POWER OFF when power is OFF
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.vaatwasser
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Power OFF
+
+- alias: Set vaatwasser to idle when powered ON
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.vaatwasser
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Idle
+
+- alias: Set washing machine dirty when door opens
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.wasmachine
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Power OFF
+
+- alias: Set washingmachine to POWER OFF when powered off
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.wasmachine
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Idle
+ 
+- alias: Set dryer active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.droger_energy_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: Running
+ 
+- alias: Set washing machine finished when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.droger_energy_power
+      below: 6
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: Finishing
+
+- alias: Set dryer clean after timeout
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.dryer_status
+      to: Finishing
+      for:
+        minutes: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: Clean
+
+- alias: Set dryer to POWER OFF when turned OFF
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.droger
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: Power OFF
+
+- alias: Set dryer idle when turned on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.droger
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: Idle
+
+# Vaatwasser Gereed Notificatie
+- alias: Send alert when dishwasher is clean
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Clean
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:30:00'
+        after: '08:29:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Clean
+      # Don't send this alert if it was last triggered less than 30 minutes ago (1,800 seconds)
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_dishwasher_is_clean.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_dishwasher_is_clean.attributes.last_triggered) | int > 3600 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Vaatwasser heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Vaatwasser'
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "vaatwasser_alert"
+
+# Wasmachine Gereed Notificatie
+- alias: Send alert when washing machine is finished
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.washing_machine_status
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '01:30:00'
+        after: '08:30:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Clean
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_washing_machine_is_finished.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_washing_machine_is_finished.attributes.last_triggered) | int > 1800 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Wasmachine heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Wasmachine'
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "wasmachine_alert" 
+
+# Droger Gereed Notificatie
+- alias: Send alert when dryer is finished
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.dryer_status
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '01:30:00'
+        after: '08:30:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.dryer_status
+        state: Clean
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_dryer_is_finished.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_dryer_is_finished.attributes.last_triggered) | int > 1800 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_jimmy
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Droger heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Droger'
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "droger_alert" 
+
+# Motion Detection Notificaties / Camera
+- alias: Motion detected no one home bijkeuken
+  initial_state: 'true'
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: group.device_status
+    state: 'not_home'
+    condition: state
+  action:
+  - service: notify.ios_notifier
+    data:
+      message: 'Er is beweging gedetecteerd in de bijkeuken terwijl er niemand thuis is! Wat wil je doen?'
+      title: 'Motion'
+      data:
+        push:
+          badge: 0
+          sound: default
+          category: "bijkeuken_alert"
+
+- alias: Motion detected no one home toilet
+  initial_state: 'true'
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d00024e687d
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: group.device_status
+    state: 'not_home'
+    condition: state
+  action:
+  - service: notify.ios_notifier
+    data:
+      message: 'Er is beweging gedetecteerd in het toilet terwijl er niemand thuis is! Wat wil je doen? '
+      title: 'Motion'
+      data:
+        push:
+          badge: 0
+          sound: default
+          category: "toilet_alert" 
+
+- alias: Motion detected no one home gallerij
+  initial_state: 'false'
+  trigger:
+  - entity_id: binary_sensor.dafang_motion_sensor
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: group.device_status_2
+    state: 'not_home'
+    condition: state
+  action:
+  - service: notify.ios_notifier
+    data:
+      message: 'Er is beweging gedetecteerd op de gallerij! '
+      title: 'Motion'
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          badge: 0
+          sound: default
+          category: camera 
+        entity_id: camera.gallerij_camera
+
+# Actionable Notifications voor iOS
+- alias: iOS Actionable Notification for Afzuigkap
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: AFZUIGKAP_UITZETTEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.afzuigkap
+
+- alias: iOS Actionable Notification for Bijkeuken
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: THUIS_ALARM
+  action:
+    service: alarm_control_panel.alarm_arm_home
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+
+- alias: iOS Actionable Notification for Toilet
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: AFWEZIG_ALARM
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+
+- alias: iOS Actionable Notification for Droger_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_INSCHAKELEN
+  action:
+    service: switch.turn_on
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Droger_2
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: DROGER_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.droger
+
+- alias: iOS Actionable Notification for Wasmachine_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_INSCHAKELEN
+  action:
+    service: switch.turn_on
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Wasmachine_2
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: WASMACHINE_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.wasmachine
+
+- alias: iOS Actionable Notification for Vaatwasser_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Alarm Afwezig
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_AFWEZIG
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+
+- alias: iOS Actionable Notification for Alarm Thuis
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_THUIS
+  action:
+    service: alarm_control_panel.alarm_arm_home
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+
+- alias: iOS Actionable Notification for Receiver
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: RECEIVER_INSCHAKELEN
+  action:
+    service: switch.turn_on
+    entity_id: switch.receiver
+
+- alias: iOS Actionable Notification for Receiver 2
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: TV_UITSCHAKELEN
+  action:
+    service: media_player.turn_off
+    entity_id: media_player.samsung_tv_remote
+    
+- alias: iOS Actionable Notification for Smoke
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SMOKE_UITSCHAKELEN
+  action:
+    service: homeassistant.turn_off
+    entity_id: binary_sensor.smoke_sensor_158d000287ab41
+
+- alias: iOS Actionable Notification for Alarm
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_UITSCHAKELEN
+  action:
+    service: alarm_control_panel.alarm_disarm
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+
+# TV aan is ATV aan
+- alias: Samsung TV Turn ON button
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: call_service
+    event_data:
+      service_data:
+        entity_id: media_player.samsung_tv_remote
+      domain: media_player
+      service: toggle
+  condition:
+    condition: state
+    state: 'off'
+    entity_id: remote.woonkamer_apple_tv
+  action:
+  - data:
+      entity_id: remote.woonkamer_apple_tv
+    service: remote.turn_on
+
+# Dimmen/Verlichten bij film kijken
+  # Woonkamer
+- alias: "Media player paused/stopped"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id:  media_player.woonkamer_apple_tv
+      from: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: scene.turn_on
+      entity_id: scene.living_dim_2
+
+- alias: "Media player playing"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id:  media_player.woonkamer_apple_tv
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: scene.turn_on
+      entity_id: scene.living_movie
+  # Slaapkamer
+- alias: "Media player paused/stopped bedroom"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id:  media_player.slaapkamer_apple_tv
+      from: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+      service: scene.turn_on
+      entity_id: scene.slaapkamer_dim
+
+- alias: "Media player playing bedroom"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id:  media_player.slaapkamer_apple_tv
+      to: 'playing'
+  action:
+      service: scene.turn_on
+      entity_id: scene.slaapkamer_movie
+
+# PostNL Notificatie 1 pakketje
+- alias: PostNL Jimmy
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.postnl_jimmy
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.postnl_jimmy
+        above: 0
+      - condition: numeric_state
+        entity_id: sensor.postnl_jimmy
+        below: 2
+  action:
+    - service: notify.mobile_app_iphone_jimmy
+      data_template:
+        message: >-
+          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
+          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+          {% set d = t1.split('T')[0] %}
+          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+          Er is {{ trigger.to_state.state }} pakketje onderweg voor Jimmy van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+        title: 'PostNL Jimmy'
+        data:
+          push:
+            sound: default
+
+- alias: PostNL Stephanie
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.postnl_stephanie
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.postnl_stephanie
+        above: 0
+      - condition: numeric_state
+        entity_id: sensor.postnl_stephanie
+        below: 2
+  action:
+    - service: notify.ios_notifier
+      data_template:
+        message: >-
+          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
+          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+          {% set d = t1.split('T')[0] %}
+          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+          Er is {{ trigger.to_state.state }} pakketje onderweg voor Stephanie van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+        title: 'PostNL Stephanie'
+        data:
+          push:
+            sound: default
+
+
+# PostNL Notificatie meerdere pakketjes
+- alias: PostNL Jimmy Meer
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.postnl_jimmy
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.postnl_jimmy
+      above: 1
+  action:
+    - service: notify.mobile_app_iphone_jimmy
+      data_template:
+        message: >-
+          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
+          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+          {% set d = t1.split('T')[0] %}
+          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+          Er zijn {{ trigger.to_state.state }} pakketjes onderweg voor Jimmy van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+        title: 'PostNL Jimmy'
+        data:
+          push:
+            sound: default
+
+- alias: PostNL Stephanie Meer
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.postnl_stephanie
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.postnl_stephanie
+      above: 2
+  action:
+    - service: notify.ios_notifier
+      data_template:
+        message: >-
+          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
+          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+          {% set d = t1.split('T')[0] %}
+          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+          Er zijn {{ trigger.to_state.state }} pakketjes onderweg voor Stephanie van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+        title: 'PostNL Stephanie'
+        data:
+          push:
+            sound: default
+
+- alias: Email Breach Jimmy
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: !secret jimzmailsensor
+  condition:
+    - condition: numeric_state
+      entity_id: !secret jimzmailsensor
+      above: 0
+  action:
+    - service: notify.mobile_app_iphone_jimmy
+      data:
+        message: "WAARSCHUWING: Er zijn belangrijke gegevens gelekt, uw e-mailadres is bekend en uw wachtwoord kan gestolen zijn. Verander uw wachtwoorden zo snel mogelijk!! NEGEER DIT BERICHT NIET! Voor meer informatie open de HA app en ga naar informatie."
+        title: 'Email/Password Breach'
+        data:
+          push:
+            sound: default
+
+- alias: Email Breach Stephanie
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: !secret stephmailsensor
+  condition:
+    - condition: numeric_state
+      entity_id: !secret stephmailsensor
+      above: 1
+  action:
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        message: "WAARSCHUWING: Er zijn belangrijke gegevens gelekt, uw e-mailadres is bekend en uw wachtwoord kan gestolen zijn. Verander uw wachtwoorden zo snel mogelijk!! NEGEER DIT BERICHT NIET! Voor meer informatie open de HA app en ga naar informatie."
+        title: 'Email/Password Breach'
+        data:
+          push:
+            sound: default
+
+- alias: APK date expiration notification Daihatsu
+  initial_state: 'true'
+  trigger:
+    - platform: template
+      value_template: "{{ ((as_timestamp(strptime(states('sensor.daihatsu_gran_move_expdate'), '%d %b %Y')) / 86400) | int) == ((as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) / 86400) | int) + 21 }} }}"
+  action:
+    - service: notify.mobile_app_iphone_jimmy
+      data_template:
+        title: 'APK Daihatsu Gran Move'
+        message: De APK op uw Daihatsu Gran Move met kenteken 42-DH-PS verloopt op {{ states.sensor.daihatsu_gran_move_expdate.state }}. Plan een keuring bij uw garage.
+        data:
+          push:
+            sound: default
+
+- alias: APK date expiration notification Citroen
+  initial_state: 'true'
+  trigger:
+    - platform: template
+      value_template: "{{ ((as_timestamp(strptime(states('sensor.citroen_c1_expdate'), '%d %b %Y')) / 86400) | int) == ((as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) / 86400) | int) + 21 }} }}"
+  action:
+    - service: notify.mobile_app_iphone_stephanie
+      data_template:
+        title: 'APK Citroën C1'
+        message: De APK op uw Citroën C1 met kenteken 55-GFF-3 verloopt op {{ states.sensor.citroen_c1_expdate.state }}. Plan een keuring bij uw garage.
+        data:
+          push:
+            sound: default
+
+# Rookmelder
+- alias: Smoke Alert
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.smoke_sensor_158d000287ab41
+      to: 'on'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: "Rookmelder"
+        message: "Attentie, Er is rook gesignaleerd in de Keuken, onderneem nu actie!"
+        data:
+          push:
+            sound: default
+            badge: 0
+            category: "smoke_alert"
+
+# Vaatwasser starten na een wasprogramma
+- alias: Vaatwasser Starten na Drogen
+  initial_state: 'false'
+  trigger:
+    - platform: state
+      entity_id: sensor.dryer_status
+      to: Clean
+      for:
+        minutes: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.vaatwasser
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.droger
+    - service: switch.turn_on
+      data:
+        entity_id: switch.vaatwasser
+
+- alias: Vaatwasser Starten na Wassen
+  initial_state: 'false'
+  trigger:
+    - platform: state
+      entity_id: sensor.washing_machine_status
+      to: Clean
+      for:
+        minutes: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.vaatwasser
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wasmachine
+    - service: switch.turn_on
+      data:
+        entity_id: switch.vaatwasser
+
+# Medicijnen Stephanie Notificatie
+- alias: Start notify script Stephanie
+  initial_state: 'true'
+  trigger:
+    - platform: time
+      at: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.stephnotification
+
+- alias: iOS Actionable Notification for meds alert
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: MEDS_ALARM
+  action:
+    service: script.turn_off
+    entity_id: script.stephnotification
+
+- alias: 'Update Available Notifications'
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: updater.updater
+  action:
+  - service: notify.mobile_app_iphone_jimmy
+    data:
+      title: 'Home Assistant Update'
+      message: 'Er is een update voor Home Assistant uitgebracht. HA Versie {{ states.updater.updater.state }}.'
+      data:
+        push:
+          sound: default
+
+- alias: 'reset input_select'
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Klimaat'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Updates'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Plex'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Datums'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Overige'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Plattegrond'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Links'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Energie'
+    for:
+      seconds: 20
+  - platform: state
+    entity_id: input_select.algemeen
+    to: 'Washok'
+    for:
+      seconds: 20
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.algemeen
+      option: Home
+
+# Tado Heating
+- alias: set tado woonkamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_woonkamer
+    to: 'on'
+  action:
+  - service: climate.set_operation_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+      operation_mode: heat
+- alias: set tado woonkamer off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_woonkamer
+    to: 'off'
+  action:
+  - service: climate.set_operation_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+      operation_mode: "off"
+
+- alias: set tado kleine kamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_kleine_kamer
+    to: 'on'
+  action:
+  - service: climate.set_operation_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+      operation_mode: heat
+- alias: set tado kleine kamer off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_kleine_kamer
+    to: 'off'
+  action:
+  - service: climate.set_operation_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+      operation_mode: "off"
+      
+## Scenes Input Booleans (Work in Progress)
+- alias: scene dagverlichting on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: group.scene_dagverlichting_on
+      to: 'on'
+    - platform: state
+      entity_id: group.scene_dagverlichting_off
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_dagverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_dagverlichting_on
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.scene_dagverlichting
+      
+- alias: scene dagverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_dagverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_dagverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_dagverlichting
+      
+- alias: scene nachtverlichting on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: group.scene_nachtverlichting_on
+      to: 'on'
+    - platform: state
+      entity_id: group.scene_nachtverlichting_off
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_nachtverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_nachtverlichting_on
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.scene_nachtverlichting
+      
+- alias: scene nachtverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_nachtverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_nachtverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_nachtverlichting
+      
+- alias: scene avondverlichting on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_avondverlichting_on
+    to: 'on'
+  - platform: state
+    entity_id: group.scene_avondverlichting_off
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_avondverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_avondverlichting_on
+        state: 'on'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_avondverlichting
+      
+- alias: scene avondverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_avondverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_avondverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_avondverlichting
+
+- alias: scene schoonmaken on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_on
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+- alias: scene schoonmaken off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+- alias: scene schoonmaken input_boolean
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+- alias: scene koken on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_koken_on
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_klaar_met_koken
+- alias: scene koken off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_koken_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_klaar_met_koken
+      
+- alias: scene wassen on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_wassen_on
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_klaar_met_wassen
+- alias: scene wassen off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_wassen_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_klaar_met_wassen
+      
+- alias: scene welterusten on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_welterusten_on
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: group.scene_welterusten_off
+    state: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_welterusten
+- alias: scene welterusten off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_welterusten_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_welterusten
+      
+# Birthday Python Script (Work in Progress)
+- alias: Reminder - Refresh date countdown sensors
+  initial_state: on
+  trigger:
+    - platform: time
+      at: '00:00:01'
+    - platform: homeassistant
+      event: start
+  action:
+    - service: python_script.date_countdown
+      data:
+        name: test
+        type: birthday
+        date: 16/05/2018
