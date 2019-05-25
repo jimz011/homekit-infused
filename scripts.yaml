@@ -22,7 +22,7 @@ xiaomi_alarm_siren:
       data_template:
         ringtone_id: 7
         ringtone_vol: 100
-        gw_mac: 78:11:DC:DE:F3:24
+        gw_mac: YOURMACHERE
     - delay:
 #### time for siren to play before restarting 
         seconds: 14
