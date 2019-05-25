@@ -1,5 +1,5 @@
 # Home Assistant 0.93.0/0.94.0dev compatible Lovelace setup.
-My current Home Assistant install (current running version 0.94.0dev)
+My current Home Assistant install (current running version 0.93.2)
 
 ## Lovelace setup by jimzz011 May 2019 (*updated: 25/05/2019)
 #### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). 
