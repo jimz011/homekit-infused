@@ -1,9 +1,10 @@
 # Home Assistant 0.93.2 compatible Lovelace setup.
 My current Home Assistant install (current running version 0.93.2)
 
-## Lovelace setup by jimzz011 May 2019 (*updated: 25/05/2019)
+## Lovelace setup by jimzz011 May 2019 (*updated: 03/06/2019)
 #### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). 
 
+### Changes (03/06/2019): Added missing files like configuration.yaml etc.
 ### Changes in this update (25/05/2019):
 - moved around the climate control to an actual view (pre work to make a more detailed climate page)
 - on homescreen replaced climate control with vacuum control (this is under construction and only pre work)
