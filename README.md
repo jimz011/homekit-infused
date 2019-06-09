@@ -1,4 +1,4 @@
-# Home Assistant 0.93.2 compatible Lovelace setup.
+# Home Assistant 0.94.1 compatible Lovelace setup.
 My current Home Assistant install (current running version 0.93.2)
 
 ## Lovelace setup by jimzz011 May 2019 (*updated: 03/06/2019)
