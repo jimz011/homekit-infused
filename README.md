@@ -107,18 +107,18 @@ Unfortunately that comes with the downside of having a black header instead of f
 - Started to use anchors to make setup lighter
 - And many more little details
 
-### TO DO (*updated: 25/05/2019)
-- Global theming (which will lighten the setup) and the ability to have themes change dynamically. This will include a day and night theme
-- Cleaning up
-- Scenes (continue the testing of my automations and where needed change)
-- Birthdays
-- Xiaomi Roborock s55 Vacuum
-- Xiaomi Plantsensor Cards
-- Energy Consumption Graphs
-- Correct spacing for larger phone screens
-- Other graphs related to servers/computers etc.
-- Rework climate view to accomodate more information
-- And many more, which I can't think of at the moment
+### TO DO (*updated: 12/06/2019) *Some categories have a work completed sign, expect this to be uploaded soon!
+- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress
+- Cleaning up and converting card-modder to card-mod and useful-markdown-card to markdown-mod ###Currently in progress
+- Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
+- Birthdays ###Work Completed
+- Xiaomi Roborock s55 Vacuum ###Work Completed
+- Xiaomi Plantsensor Cards ###Waiting for Sensors to Arrive
+- Energy Consumption Graphs ###Postponed to a future release
+- Correct spacing for larger phone screens ###Work Completed
+- Other graphs related to servers/computers etc. ###Postponed to a future release
+- Rework climate view to accomodate more information ###in Progress
+- And many more, which I can't think of at the moment ###Always in Progress
 
 ### Questions?
 
