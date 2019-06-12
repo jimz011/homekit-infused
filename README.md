@@ -2,15 +2,10 @@
 My current Home Assistant install (current running version 0.93.2)
 
 ## Lovelace setup by jimzz011 May 2019 (*updated: 03/06/2019)
-#### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (I will look into that later). 
+#### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (This work has been completed as of 12/06/2019, you can expect a new release within a few days). 
 
-### Changes (03/06/2019): Added missing files like configuration.yaml etc.
-### Changes in this update (25/05/2019):
-- moved around the climate control to an actual view (pre work to make a more detailed climate page)
-- on homescreen replaced climate control with vacuum control (this is under construction and only pre work)
-- fixed styles on breaking changes with the custom button card v1.10 (might need some more tweaking)
-- added automations.yaml (I actually thought it was already up here, my bad)
-- made the homepage the third view on the screen, together with Compact Custom Header I have set that view to be the default tab. This means it will open the page on the third view (which is now the homepage) and allows me to swipe left or right for faster access to particular views.
+### Changes (03/06/2019): 
+Added missing files like configuration.yaml etc.
 
 ## Introduction
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
@@ -84,28 +79,6 @@ Custom Components:
 * [Sonarr-Upcoming-Media](https://github.com/custom-components/sensor.sonarr_upcoming_media) - Required to use with Upcoming Media Card.
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Xbox One Component to control you Xbox one from Home Assistant
-
-## Changes since previous version
-
-A lot has changed since the last version and one single card made that available (custom:button-card). The changes are too much to name so I will make a summary of the changes. for the old version you can click * [HERE](https://github.com/jimz011/HA-Old/).
-- Completely new design inspired by the style of Apple's Homekit, this includes almost every element of my last setup. Buttons look almost identical to Apple Homekit buttons.
-- Spacing between the edge of the screen and the first/last button/card which makes it look so much cleaner
-- Changed color scheme from black/gray to whiteish/gray (as in not really white :P) This to contrast dark wallpapers against light buttons.
-- Changed header color from grey to black, this is groundwork for dynamically changing themes which I will be working on next. The newer iPhones (X, Xs, Xs MAX, Xr) have a notch and as such a larger header. Unfortunately this notch part of the header doesn't change color. It only changes color upon the start of homeassistant which makes themes other than a greyish theme impossible if I want to change the theme via the HA UI. So a black header it is. 
-Unfortunately that comes with the downside of having a black header instead of filling the empty spaces to the left and right of the notch. Though some people might argue that no notch looks better. Judge yourself. (see link from my old setup)
-- Added windy weather iframe
-- Added spinning icons for fans/exhausts
-- Redesigned security page
-- Complete makover of the Other view which is now looking more like an actual smartphone menu
-- Swipe Navigation
-- Compact Header
-- Notifications in Lovelace
-- Scenes with state (beta) - I am currently testing this and this might change a lot very soon! Use at your own risk.
-- New Climate panel
-- Better looking brightness sliders/colorwheels on light entities
-- Added back temp/humid sensor graphs from my first setup and restyled for the current
-- Started to use anchors to make setup lighter
-- And many more little details
 
 ### TO DO (*updated: 12/06/2019) *Some categories have a work completed sign, expect this to be uploaded soon!
 - Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress
