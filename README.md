@@ -1,5 +1,5 @@
 # Home Assistant 0.94.1 compatible Lovelace setup.
-My current Home Assistant install (current running version 0.93.2)
+My current Home Assistant install (current running version 0.94.2)
 
 ## Lovelace setup by jimzz011 May 2019 (*updated: 03/06/2019)
 #### WARNING NOTE: This lovelace setup is mainly created for smaller sized smartphones like an iPhone X. It will work perfectly fine on larger displays but spacing on the right side might be off a bit (This work has been completed as of 12/06/2019, you can expect a new release within a few days). 
@@ -56,7 +56,7 @@ Now lets get into the custom-cards and components you will need (components are 
 Cards:
 * [Bar-Card](https://github.com/custom-cards/bar-card) - This one is optional, as I don't use this (yet)
 * [Button-Card](https://github.com/custom-cards/button-card) - The MOST IMPORTANT card of my setup, you will need this!!
-* [Card-Modder](https://github.com/thomasloven/lovelace-card-modder) - ESSENTIAL for a lot of styling
+* [Card-Modder](https://github.com/thomasloven/lovelace-card-modder) WILL PROBABLY NO LONGER BE USED IN THE NEXT RELEASE, DO NOT USE THIS ANYMORE!
 * [Card-Tools](https://github.com/thomasloven/lovelace-card-tools) - ESSENTIAL many custom-cards depend on this, including Card-Modder
 * [Compact-Custom-Header](https://github.com/maykar/compact-custom-header) - Not essential, however one of my most favorite cards, it makes swipe navigation possible in lovelace as well as the ability to tweak the header just the way you want! I recommend to install this.
 * [Popup-Card](https://github.com/thomasloven/lovelace-popup-card) - ESSENTIAL this card is essential for my setup to work, without it the buttons on the front page will become useless.
@@ -64,7 +64,7 @@ Cards:
 * [Thermostat-Card](https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card) - Not Essential you will not need this card to use this setup, you can replace this with a thermostat card of your choice.
 * [Tracker-Card](https://github.com/custom-cards/tracker-card) - Not Essential, but handy for updates.
 * [Upcoming-Media-Card](https://github.com/custom-cards/upcoming-media-card) - Required if you want the upcoming media card. You will require a custom component for Sonarr and Radarr as well. If you do not run something like Kodi/Plex and get the films/series yourself you will have no use for this.
-* [Lovelace-Useful-Markdown-Card](https://github.com/thomasloven/lovelace-useful-markdown-card) - You don't need this card or do you? I think you do, just get it. Why? Find out by clicking the link!
+* [Lovelace-Useful-Markdown-Card] WILL NO LONGER BE USED IN THE NEXT RELEASE, DO NOT USE THIS ANYMORE!
 * [Vertical-Stack-In-Card](https://github.com/custom-cards/vertical-stack-in-card) - You do not need this and I would not recommend using it on this setup. I have modified the js to have a transparent background as this card enforces a background. I'd recommend using a regular vertical-stack for this. I only use this for my custom:check-marker-cards
 * [Mini-Media-Player](https://github.com/kalkih/mini-media-player) - Beautiful replacement for the standard media player. I'd recommend this. The border-radius can not be set for iOS with a card-modder card on this. You will have to change the border radius in the js file of the card. Don't know what you are doing? Don't worry you can always redownload the file. Or just leave it as is.
 * [Swipe-Card](https://github.com/bramkragten/custom-ui) - A card that makes use of swiper giving you endless swipe possibilities. For example you could make horizontal-stacks scroll horizontally and basically have an endless stack on the same space as you normally would have for 3 or 4 buttons (or maybe more depending on the size). Recommended! 
@@ -100,7 +100,7 @@ https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-
 
 ## Thank you
 
-Thank you for taking your timing reading all this mess, I hope you have great fun with Home Assistant as I have and I will always try to help people out where I can, but as I said I am only an amateur so do not expect miracles :P.
+Thank you for taking your time reading all this mess, I hope you have great fun with Home Assistant as I have and I will always try to help people out where I can, but as I said I am only an amateur so do not expect miracles :P.
 Anyways have fun and see you next time!
 
 ## A very special thanks to
