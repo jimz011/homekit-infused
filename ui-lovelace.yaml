@@ -24,9 +24,9 @@ decluttering_templates:
 title: Home
 background: var(--background-image)
 views:
-  - !include lovelace/views/security.yaml
-  - !include lovelace/views/climate.yaml
-  - !include lovelace/views/main_view.yaml
-  - !include lovelace/views/lights.yaml
-  - !include lovelace/views/devices.yaml
-  - !include lovelace/views/other.yaml
+  - !include lovelace/security.yaml
+  - !include lovelace/climate.yaml
+  - !include lovelace/main_view.yaml
+  - !include lovelace/lights.yaml
+  - !include lovelace/devices.yaml
+  - !include lovelace/other.yaml
