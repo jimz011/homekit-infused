@@ -1,0 +1,850 @@
+title: Other
+path: information
+cards:
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Home
+    card:                   
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Home
+                - icon: home
+                - aspect_ratio: 4/1
+                - show_label: false
+                - show_state: false
+                - show_icon: false
+                - opacity: 0.9
+                - tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home
+                    haptic: light  
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state_not: Home
+    card:                   
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Home
+                - icon: home
+                - aspect_ratio: 4/1
+                - show_label: false
+                - show_state: false
+                - show_icon: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Home
+                      entity_id: input_select.algemeen
+                    haptic: light     
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Home
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Climate
+                - icon: thermometer
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Klimaat
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Important
+                - label: Dates
+                - icon: calendar
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Datums
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Upcoming
+                - label: Media
+                - icon: plex
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Plex
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Links
+                - icon: link-variant
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Links
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Floorplan
+                - icon: floor-plan
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Plattegrond
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Laundry
+                - label: Room
+                - icon: washing-machine
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Washok
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Energy
+                - label: Consumption
+                - icon: power
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Energie
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Other
+                - icon: information
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Overige
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.lovelace_maintenance
+                - name: Updates
+                - icon: arrow-down-bold-box
+                - show_state: false
+                - opacity: 0.9
+                - tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      option: Updates
+                      entity_id: input_select.algemeen
+                    haptic: light
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Klimaat
+    card:
+      type: vertical-stack
+      cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Climate'
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:swipe-card'
+                path: '/local/custom-lovelace/swipe-card'
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: temperature_158d00020ed06c
+                      - name: Woonkamer Temperatuur
+                      - line_color: '#ffb414'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: humidity_158d00020ed06c
+                      - name: Woonkamer Luchtvochtigheid
+                      - line_color: '#1427ff'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: illumination_7811dcdef324
+                      - name: Woonkamer Lichtopbrengst
+                      - line_color: '#6e01c1'
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:swipe-card'
+                path: '/local/custom-lovelace/swipe-card'
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: printer_am2301_temperature
+                      - name: Kleine Kamer Temperatuur
+                      - line_color: '#ffb414'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: printer_am2301_humidity
+                      - name: Kleine Kamer Luchtvochtigheid
+                      - line_color: '#1427ff'
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:swipe-card'
+                path: '/local/custom-lovelace/swipe-card'
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: temperature_158d0002b546e7
+                      - name: Slaapkamer Temperatuur
+                      - line_color: '#ffb414'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: humidity_158d0002b546e7
+                      - name: Slaapkamer Luchtvochtigheid
+                      - line_color: '#1427ff'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: pressure_158d0002b546e7
+                      - name: Slaapkamer Luchtdruk
+                      - line_color: '#00d8ff'
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:swipe-card'
+                path: '/local/custom-lovelace/swipe-card'
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: waterkoker_am2301_temperature
+                      - name: Keuken Temperatuur
+                      - line_color: '#ffb414'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: waterkoker_am2301_humidity
+                      - name: Keuken Luchtvochtigheid
+                      - line_color: '#1427ff'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: illumination_158d0002b7eec9
+                      - name: Bijkeuken Lichtopbrengst
+                      - line_color: '#6e01c1'
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:swipe-card'
+                path: '/local/custom-lovelace/swipe-card'
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: temperature_158d0002b54868
+                      - name: Badkamer Temperatuur
+                      - line_color: '#ffb414'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: humidity_158d0002b54868
+                      - name: Badkamer Luchtvochtigheid
+                      - line_color: '#1427ff'
+                  - type: custom:decluttering-card
+                    template: mini-graph-card
+                    variables:
+                      - entity: pressure_158d0002b54868
+                      - name: Badkamer Luchtdruk
+                      - line_color: '#00d8ff'
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Datums
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Important Dates'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  --paper-item-icon-color: black;
+                  color: black;
+                  border-radius: 12px;
+                }
+              entities:
+                - entity: sensor.wedding_countdown_days
+                  icon: mdi:ring
+                  name: Trouwdag
+                - entity: sensor.verjaardag_stephanie_days
+                  icon: mdi:gift
+                  name: Stephanie
+                - entity: sensor.verjaardag_jimmy_days
+                  name: Jimmy
+                  icon: mdi:gift
+                - entity: sensor.verjaardag_tala_days
+                  name: Tala
+                  icon: mdi:dog-side
+                - entity: sensor.verjaardag_helen_days
+                  name: Helen
+                  icon: mdi:human-female
+                - entity: sensor.verjaardag_koos_days
+                  name: Koos
+                  icon: mdi:human-male
+                - entity: sensor.verjaardag_roxanne_days
+                  name: Roxanne
+                  icon: mdi:human-female
+                - entity: sensor.verjaardag_jos_days
+                  name: Jos
+                  icon: mdi:human-male
+                - entity: sensor.verjaardag_connie_days
+                  name: Connie
+                  icon: mdi:human-female
+                - entity: sensor.verjaardag_oma_van_grootel_days
+                  name: Oma van Grootel
+                  icon: mdi:human-female
+                - entity: sensor.verjaardag_oma_schings_days
+                  name: Oma Schings
+                  icon: mdi:human-female
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Washok
+    card:                   
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Laundry Room'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: 'custom:decluttering-card'
+              template: laundry_elements
+              variables:
+                - image: washingmachine.jpg
+                - entity_status: washing_machine_status
+                - entity: wasmachine
+                - entity_energy: wasmachine_energy_power
+                - entity_energy_today: wasmachine_energy_today
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: 'custom:decluttering-card'
+              template: laundry_elements
+              variables:
+                - image: dryer.jpg
+                - entity_status: dryer_status
+                - entity: droger
+                - entity_energy: droger_energy_power
+                - entity_energy_today: droger_energy_today
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: 'custom:decluttering-card'
+              template: laundry_elements
+              variables:
+                - image: dishwasher.jpg
+                - entity_status: dishwasher_status
+                - entity: vaatwasser
+                - entity_energy: vaatwasser_energy_power
+                - entity_energy_today: vaatwasser_energy_today
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Plex
+    card:                   
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Series'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                }
+              entity: sensor.sonarr_upcoming_media
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Movies'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                }
+              entity: sensor.radarr_upcoming_media
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Plattegrond
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Floorplan'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: picture
+              style: |
+                ha-card {
+                  border-radius: 12px;
+                }
+              aspect_ratio: 1.78
+              image: /local/images/floorplan.jpg
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Links
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Waze Navigation'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                  color: black;
+                  --paper-item-icon-color: black;
+                }
+              entities:
+                - type: weblink
+                  name: Home
+                  icon: 'mdi:home-outline'
+                  url: !secret home_waze
+                - type: weblink
+                  name: Oma Schings
+                  icon: 'mdi:car'
+                  url: !secret grandma_waze
+                - type: weblink
+                  name: Camping Les Pins
+                  icon: 'mdi:tent'
+                  url: https://www.waze.com/ul?ll=44.79056320%2C1.47207170&navigate=yes&zoom=16
+                - type: weblink
+                  name: Thermen Bussloo
+                  icon: 'mdi:tree'
+                  url: https://www.waze.com/ul?ll=52.19191580%2C6.09528070&navigate=yes&zoom=16
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### iOS Shortcuts'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                  color: black;
+                  --paper-item-icon-color: black;
+                }
+              entities:
+                - type: weblink
+                  name: Outlook
+                  url: ms-outlook://
+                - type: weblink
+                  name: PostNL
+                  url: postnl://
+                - type: weblink
+                  name: Calendar
+                  url: weekcal://
+                - type: weblink
+                  name: Bunq
+                  url: bunq://
+                - type: weblink
+                  name: Maps
+                  url: maps://
+                - type: weblink
+                  name: Apple Music
+                  url: music://
+                - type: weblink
+                  name: Plex
+                  url: plex://
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 10px
+
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Updates
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Updates'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 1px 
+            - type: custom:tracker-card
+              style: |
+                ha-card {
+                  border-radius: 12px;
+                  background: dimgray;
+                }
+              title: null
+              trackers:
+                - sensor.custom_card_tracker
+                - sensor.custom_component_tracker
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 1px 
+  - type: conditional
+    conditions:
+      - entity: input_select.algemeen
+        state: Overige
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Other'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                  color: black;
+                  --paper-item-icon-color: black;
+                }
+              entities:
+                - entity: sensor.sabnzbd_status
+                  icon: 'mdi:download'
+                  name: Sabnzbd Status
+                - entity: sensor.sabnzbd_queue_count
+                  icon: 'mdi:format-list-bulleted'
+                  name: Sabnzbd Wachtrij
+                - entity: sensor.sabnzbd_left
+                  icon: 'mdi:arrow-left-bold'
+                  name: Sabnzbd Resterend
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+            - type: glance
+              style: |
+                ha-card {
+                  background: var(--homekit-white);
+                  border-radius: 12px;
+                  color: black;
+                  --paper-item-icon-color: black;
+                }
+              entities:
+                - entity: sensor.ssl_certificate_expiry
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+

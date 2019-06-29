@@ -1,0 +1,598 @@
+type: vertical-stack
+cards:
+  - type: custom:decluttering-card
+    template: header_text
+    variables:
+      - content: '##### Notifications and Events'
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: armed_home
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:alert"></ha-icon>     LET OP: Het alarm is ingeschakeld!
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: armed_away
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:alert"></ha-icon>     LET OP: Het alarm is ingeschakeld!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: "triggered"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:alert"></ha-icon>     Het Alarm is afgegaan!!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: disarmed
+      - entity: group.device_status
+        state_not: home
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 110, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:alert"></ha-icon>    Er is niemand meer thuis, schakel het alarm in!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: pending
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 166, 45, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:clock-alert-outline"></ha-icon>    Het alarm wordt ingeschakeld, verlaat het pand nu!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.door_window_sensor_158d000236f9dd 
+        state: "off"
+      - entity: binary_sensor.door_window_sensor_158d000232ac1b
+        state: "off"
+      - entity: binary_sensor.door_window_sensor_158d000238644b
+        state: "off"
+      - entity: input_select.dryer_status
+        state_not: "Clean"
+      - entity: input_select.dishwasher_status
+        state_not: "Clean"
+      - entity: input_select.washing_machine_status
+        state_not: "Clean"
+      - entity: alarm_control_panel.home_alarm
+        state: disarmed
+      - entity: group.device_status
+        state: home
+      - entity: switch.afzuigkap
+        state: "off"
+      - entity: binary_sensor.motion_sensor_158d00024e687d
+        state: "off"
+      - entity: binary_sensor.motion_sensor_158d0002b7eec9
+        state: "off"
+      - entity: binary_sensor.dafang_motion_sensor
+        state: "off"
+      - entity: input_boolean.apkjimz
+        state: "off"
+      - entity: input_boolean.apksteph
+        state: "off"
+      - entity: sensor.vacuum_cleaner_status_sensor
+        state: "Charging"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(157, 0, 255, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:check-circle"></ha-icon>     Alles is rustig, er zijn geen meldingen
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+  - type: conditional
+    conditions:
+      - entity: input_boolean.apksteph
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(163, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:car-hatchback"></ha-icon>     APK Citroën C1 verloopt op [[ sensor.citroen_c1_expdate.state ]]!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_boolean.apkjimz
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(163, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:car-hatchback"></ha-icon>     APK Daihatsu Gran Move verloopt op [[ sensor.daihatsu_gran_move_expdate.state ]]!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: switch.afzuigkap
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(29, 0, 255, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:fan"></ha-icon>     De afzuigkap staat aan
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.door_window_sensor_158d000236f9dd 
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(150, 77, 77, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:door-open"></ha-icon>    De voordeur staat open
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.door_window_sensor_158d000232ac1b
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(13, 266, 20, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:door-open"></ha-icon>     De slaapkamerdeur staat open
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.door_window_sensor_158d000238644b
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(247, 239, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:door-open"></ha-icon>     De woonkamerdeur staat open
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.dafang_motion_sensor 
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(161, 255, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:motion-sensor"></ha-icon>     Er is beweging op de gallerij
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.motion_sensor_158d0002b7eec9
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(193, 0, 29, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:motion-sensor"></ha-icon>     Er is beweging in de bijkeuken
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.motion_sensor_158d00024e687d
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(0, 221, 255, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:motion-sensor"></ha-icon>    Er is beweging op het toilet
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.smoke_sensor_158d000287ab41
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 0, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:smoke-detector"></ha-icon>     De rookmelder is afgegaan!! Onderneem actie!!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.dishwasher_status
+        state: Clean
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(9, 195, 242, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:dishwasher"></ha-icon>    De vaatwasser is klaar
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.washing_machine_status
+        state: Clean
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(216, 32, 164, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:washing-machine"></ha-icon>     De wasmachine is klaar
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: input_select.dryer_status
+        state: Clean
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(176, 66, 44, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:tumble-dryer"></ha-icon>     De droger is klaar
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: sensor.vacuum_cleaner_status_sensor
+        state: Cleaning
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(56, 43, 230, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:robot-vacuum"></ha-icon>     De robotstofzuiger is ingeschakeld
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+  - type: conditional
+    conditions:
+      - entity: sensor.vacuum_cleaner_error_sensor
+        state_not: 'No Error'
+    card:
+      type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px
+        - type: markdown
+          style: |
+            ha-card {
+              background: rgba(255, 255, 0, 0.5);
+              border-radius: 12px;
+              font-size: 13px;
+              font-family: Helvetica;
+            }
+          content: >
+            <ha-icon icon="mdi:robot-vacuum"></ha-icon>     De robotstofzuiger is vastgelopen!
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px

@@ -1,0 +1,165 @@
+title: Climate
+path: climate
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Climate Control'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - entity: climate.tado_smart_radiator_thermostat_va2898201344
+              - ambient_temperature: sensor.temperature_158d00020ed06c
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - entity: climate.tado_smart_radiator_thermostat_va1671957504
+              - ambient_temperature: sensor.printer_am2301_temperature
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.tado_woonkamer
+              - name: Woonkamer
+              - icon: radiator
+              - aspect_ratio: 2/1
+              - show_label: false
+              - margin-right: 120px
+              - size: 15%
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.tado_kleine_kamer
+              - name: Kleine Kamer
+              - icon: radiator
+              - aspect_ratio: 2/1
+              - show_label: false
+              - margin-right: 120px
+              - size: 15%
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - entity: climate.woonkamer
+              - ambient_temperature: sensor.temperature_158d0002b546e7
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - entity: climate.woonkamer
+              - ambient_temperature: sensor.waterkoker_am2301_temperature
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy2
+              - name: Slaapkamer
+              - icon: radiator
+              - aspect_ratio: 2/1
+              - show_label: false
+              - margin-right: 120px
+              - size: 15%
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy2
+              - name: Keuken
+              - icon: radiator
+              - aspect_ratio: 2/1
+              - show_label: false
+              - margin-right: 120px
+              - size: 15%
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: 'custom:mini-graph-card'
+            style: |
+              ha-card {
+                border-radius: 12px;
+                background: var(--homekit-white);
+                opacity: 0.9;
+                color: gray;
+              } 
+              ha-icon {
+                color: gray;
+              }
+            show:
+              state: false
+            name: Temperature Graph
+            icon: mdi:thermometer
+            hours_to_show: 12
+            animate: true
+            hour24: true
+            font_size: 60
+            entities:
+              - entity: sensor.temperature_158d00020ed06c
+                name: Woonkamer
+              - entity: sensor.temperature_158d0002b546e7
+                name: Slaapkamer
+              - entity: sensor.temperature_158d0002b54868
+                name: Badkamer
+              - entity: sensor.printer_am2301_temperature
+                name: Kleine Kamer
+              - entity: sensor.waterkoker_am2301_temperature
+                name: Keuken
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 10px
+    
