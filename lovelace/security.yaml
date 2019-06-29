@@ -1,0 +1,174 @@
+title: Guard
+path: security
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: "##### Camera's"
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: picture-entity
+            style: |
+              ha-card {
+                border-radius: 12px;
+                overflow: hidden;
+              }
+            entity: camera.gallerij_camera
+            title: Camera's  
+            aspect_ratio: 16x9
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: picture-entity
+            style: |
+              ha-card {
+                border-radius: 12px;
+                overflow: hidden;
+              }
+            entity: camera.woonkamer_camera
+            title: Camera's
+            aspect_ratio: 16x9
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Doors'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.door_window_sensor_158d000236f9dd
+              - name: Voordeur
+              - icon: door
+              - show_last_changed: true
+              - tap_action: more-info
+              - variable: icon
+              - spin: 'mdi:door-open'
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.door_window_sensor_158d000238644b
+              - name: Woonkamer
+              - icon: door
+              - show_last_changed: true
+              - tap_action: more-info
+              - variable: icon
+              - spin: 'mdi:door-open'
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.door_window_sensor_158d000232ac1b
+              - name: Slaapkamer
+              - icon: door
+              - show_last_changed: true
+              - tap_action: more-info
+              - variable: icon
+              - spin: 'mdi:door-open'
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Motion'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.dafang_motion_sensor
+              - name: Gallerij
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.motion_sensor_158d0002b7eec9
+              - name: Bijkeuken
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.motion_sensor_158d00024e687d
+              - name: Toilet
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Alarms'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.smoke_sensor_158d000287ab41
+              - name: Rookmelder
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 20px
