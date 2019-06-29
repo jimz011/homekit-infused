@@ -13,16 +13,17 @@
 - alias: Samsung TV Turn ON sony
   initial_state: 'true'
   trigger:
-  - entity_id: media_player.samsung_tv_remote
-    platform: state
-    to: 'on'
+    - entity_id: media_player.samsung_tv_ue65ku6000
+      platform: state
+      to: 'on'
   action:
-  - data:
-      entity_id: group.samsung_tv
-    service: homeassistant.turn_on
+    - data:
+        entity_id: group.samsung_tv
+      service: homeassistant.turn_on
+      
 
-# WHEN APPLE TV TURNS ON, TURN RECEIVER ON  
-- alias: APPLE TV Turn ON sony
+# WHEN APPLE TV TURNS ON, TURN ON EVERYTHING
+- alias: APPLE TV Turn ON everything
   initial_state: 'true'
   trigger:
   - entity_id: media_player.woonkamer_apple_tv
@@ -36,36 +37,57 @@
 - alias: APPLE TV idle turn off
   initial_state: 'true'
   trigger:
-  - entity_id: media_player.woonkamer_apple_tv
+    - entity_id: media_player.woonkamer_apple_tv
+      platform: state
+      to: 'idle'
+      for:
+        seconds: 300
+    - entity_id: media_player.woonkamer_apple_tv
+      platform: state
+      to: 'off'
+  action:
+    - data:
+        entity_id: group.samsung_tv
+      service: homeassistant.turn_off
+    - data:
+        entity_id: media_player.samsung_tv_ue65ku6000
+      service: media_player.turn_off
+    - data:
+        entity_id: switch.samsung_tv
+      service: switch.turn_off
+
+- alias: Samsung TV off turns on automation
+  initial_state: 'true'
+  trigger:
+  - entity_id: media_player.samsung_tv_ue65ku6000
     platform: state
-    to: 'idle'
-    for:
-      seconds: 300
+    to: 'off'
   action:
   - data:
-      entity_id: group.samsung_tv
-    service: homeassistant.turn_off
+      entity_id: automation.apple_tv_idle_turn_off
+    service: automation.turn_on
 
 # WHEN PHILIPS TV TURNS ON, TURN APPLE REMOTE ON  
 - alias: Philips TV Turn ON
   initial_state: 'true'
   trigger:
-  - entity_id: switch.tradfri_outlet_2
-    from: 'off'
-    platform: state
-    to: 'on'
+    - entity_id: switch.tradfri_outlet_2
+      platform: state
+      to: 'on'
   condition: []
   action:
-  - data:
-      entity_id: remote.slaapkamer_apple_tv
-    service: remote.turn_on
+    - data:
+        entity_id: remote.slaapkamer_apple_tv
+      service: remote.turn_on
+    - data:
+        entity_id: switch.receiver_slaapkamer
+      service: switch.turn_on
 
 # WHEN PHILIPS TV TURNS OFF, TURN APPLE REMOTE OFF  
 - alias: Philips TV Turn OFF
   initial_state: 'true'
   trigger:
   - entity_id: switch.tradfri_outlet_2
-    from: 'on'
     platform: state
     to: 'off'
   condition: []
@@ -73,6 +95,9 @@
   - data:
       entity_id: remote.slaapkamer_apple_tv
     service: remote.turn_off
+  - data:
+      entity_id: switch.receiver_slaapkamer
+    service: switch.turn_off
 
 # BADKAMER LAMP IEDERE 10 MINUTEN UIT/AAN
 - alias: badkamer_aan_uit
@@ -98,18 +123,6 @@
   - service: script.turn_off
     data:
       entity_id: script.badkamer_aanuit
-
-# WHEN SAMSUNG TV TURNS OFF, TURN APPLE REMOTE OFF
-- alias: Samsung TV Turn OFF button
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: media_player.samsung_tv_remote
-    to: 'off'
-  action:
-  - data:
-      entity_id: group.samsung_tv
-    service: homeassistant.turn_off
 
 # SEND MESSAGE TO IOS AFZUIGKAP ON FOR 30 MIN, BUT ONLY TO 
 - alias: Afzuigkap Alert
@@ -725,38 +738,6 @@
         push:
           sound: default
 
-
-# NOTIFY IF RECEIVER DIDN'T TURN ON DUE TO UNAVAILABLE
-- alias: Receiver Alert
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: media_player.samsung_tv_remote
-    to: 'on'
-    for:
-      seconds: 30
-  condition:
-    - condition: state
-      entity_id: switch.receiver
-      state: 'off'
-  action:
-  - service_template: >
-        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
-          notify.ios_notifier
-        {% elif is_state('person.jimmy', 'home') %}
-          notify.mobile_app_iphone_jimmy
-        {% elif is_state('person.stephanie', 'home') %}
-          notify.mobile_app_iphone_stephanie
-        {% endif %}
-    data:
-      title: "Sony Receiver"
-      message: "De Televisie staat aan, maar de receiver is niet automatisch aangegaan. Wil je deze nu inschakelen?"
-      data:
-        push:
-          sound: default
-          badge: 0
-          category: "receiver_alert"
-
 # LEAVE HOME AT NIGHTTIME
 - alias: tot ziens avond
   initial_state: 'true'
@@ -953,7 +934,7 @@
       state: 'armed_away'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}   
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}   
 
 - alias: Alarm Disarm Jimmy Home
   initial_state: 'true'
@@ -969,7 +950,7 @@
       state: 'armed_home'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
 
 - alias: Alarm Disarm Steph Away
   initial_state: 'true'
@@ -985,7 +966,7 @@
       state: 'armed_away'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
 
 - alias: Alarm Disarm Steph Home
   initial_state: 'true'
@@ -1001,13 +982,13 @@
       state: 'armed_home'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
 
 - alias: Alarm Activation Alert
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: group.device_status_2
+    entity_id: group.device_status
     from: 'home'
   condition:
     - condition: state
@@ -1635,7 +1616,7 @@
     platform: state
     to: 'on'
   condition:
-  - entity_id: group.device_status_2
+  - entity_id: group.device_status
     state: 'not_home'
     condition: state
   action:
@@ -1673,7 +1654,7 @@
       actionName: THUIS_ALARM
   action:
     service: alarm_control_panel.alarm_arm_home
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
 
 - alias: iOS Actionable Notification for Toilet
   initial_state: 'true'
@@ -1684,7 +1665,7 @@
       actionName: AFWEZIG_ALARM
   action:
     service: alarm_control_panel.alarm_arm_away
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
 
 - alias: iOS Actionable Notification for Droger_1
   initial_state: 'true'
@@ -1750,7 +1731,7 @@
       actionName: ALARM_AFWEZIG
   action:
     service: alarm_control_panel.alarm_arm_away
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
 
 - alias: iOS Actionable Notification for Alarm Thuis
   initial_state: 'true'
@@ -1761,7 +1742,7 @@
       actionName: ALARM_THUIS
   action:
     service: alarm_control_panel.alarm_arm_home
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
 
 - alias: iOS Actionable Notification for Receiver
   initial_state: 'true'
@@ -1774,17 +1755,6 @@
     service: switch.turn_on
     entity_id: switch.receiver
 
-- alias: iOS Actionable Notification for Receiver 2
-  initial_state: 'true'
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: TV_UITSCHAKELEN
-  action:
-    service: media_player.turn_off
-    entity_id: media_player.samsung_tv_remote
-    
 - alias: iOS Actionable Notification for Smoke
   initial_state: 'true'
   trigger:
@@ -1805,27 +1775,7 @@
       actionName: ALARM_UITSCHAKELEN
   action:
     service: alarm_control_panel.alarm_disarm
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOURCODEHERE"}
-
-# TV aan is ATV aan
-- alias: Samsung TV Turn ON button
-  initial_state: 'true'
-  trigger:
-    platform: event
-    event_type: call_service
-    event_data:
-      service_data:
-        entity_id: media_player.samsung_tv_remote
-      domain: media_player
-      service: toggle
-  condition:
-    condition: state
-    state: 'off'
-    entity_id: remote.woonkamer_apple_tv
-  action:
-  - data:
-      entity_id: remote.woonkamer_apple_tv
-    service: remote.turn_on
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
 
 # Dimmen/Verlichten bij film kijken
   # Woonkamer
@@ -2039,6 +1989,9 @@
         data:
           push:
             sound: default
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.apkjimz
 
 - alias: APK date expiration notification Citroen
   initial_state: 'true'
@@ -2053,6 +2006,28 @@
         data:
           push:
             sound: default
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.apksteph
+
+- alias: APK Daihatsu Boolean Reset
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.daihatsu_gran_move_expdate
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.apkjimz
+- alias: APK Citroen Boolean Reset
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.citroen_c1_expdate
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.apksteph
 
 # Rookmelder
 - alias: Smoke Alert
@@ -2485,3 +2460,62 @@
         name: test
         type: birthday
         date: 16/05/2018
+        
+# Vacuum Automations
+- id: vacuum_cleaner_error
+  alias: Vacuum Cleaner Error
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'Error'
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'In Error'
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'Charging Error'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: 'Roborock S55'
+        message: >-
+          {% if is_state('sensor.vacuum_cleaner_error_sensor', 'No Error')  %}
+            {{states.sensor.vacuum_cleaner_status_sensor.state}}
+          {% else %}
+            {{states.sensor.vacuum_cleaner_error_sensor.state}}
+          {% endif %}
+- id: vacuum_cleaner_error_solved
+  alias: Vacuum Cleaner Error Solved
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_error_sensor
+      to: 'No Error'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: 'Roborock S55'
+        message: Error Resolved
+- id: vacuum_cleaner_started
+  alias: Vacuum Cleaner Started
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'cleaning'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'Returning home'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'charging'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'paused'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'paused'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: 'Roborock S55'
+        message: >-
+          {{states.sensor.vacuum_cleaner_status_sensor.state}}

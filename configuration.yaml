@@ -38,8 +38,6 @@ http:
 discovery:
   ignore:
     - samsung_tv
-  enable:
-    - homekit
     
 # Stream
 stream:
@@ -51,7 +49,11 @@ lovelace:
 # Recorder
 recorder:
   db_url: !secret recorder
-
+  purge_keep_days: 3
+  exclude:
+    domains:
+      - automation
+  
 # Speedtest.net
 speedtestdotnet:
   scan_interval:
@@ -95,6 +97,7 @@ custom_updater:
     - https://raw.githubusercontent.com/peternijssen/lovelace-postnl/master/tracker.json
     - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
     - https://raw.githubusercontent.com/ljmerza/light-entity-card/master/custom_updater.json
+    - https://raw.githubusercontent.com/benct/lovelace-xiaomi-vacuum-card/master/tracker.json
   component_urls:
     - https://raw.githubusercontent.com/eelcohn/home-assistant-rdw/master/custom_updater.json
 
@@ -130,148 +133,14 @@ panel_iframe:
     icon: "mdi:windows"
 
 # Homekit Configuration
-homekit:
-  auto_start: False
-  filter:
-    include_domains:
-      - alarm_control_panel
-      - climate
-      - scene
-    include_entities:
-      - alarm_control_panel.home_alarm
-      - light.eettafel_lamp
-  entity_config:
-    alarm_control_panel.home_alarm:
-      code: !secret alarm_code
+homekit: !include homekit.yaml
 
 # Text to speech
 tts:
   - platform: google_translate
   
 # iOS and Notifications
-ios:
-  push:
-    categories:
-      - name: Afzuigkap Alert
-        identifier: 'afzuigkap_alert'
-        actions:
-          - identifier: 'AFZUIGKAP_UITZETTEN'
-            title: 'Afzuigkap Uitschakelen'
-          - identifier: 'AFZUIGKAP_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Alarm Alert
-        identifier: 'alarm_alert'
-        actions:
-          - identifier: 'ALARM_UITSCHAKELEN'
-            title: 'Alarm Uitschakelen'
-          - identifier: 'ALARM_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Smoke Alert
-        identifier: 'smoke_alert'
-        actions:
-          - identifier: 'SMOKE_ALARM_INSCHAKELEN'
-            title: 'Rookmelder Dempen (Tijdelijk)'
-          - identifier: 'SMOKE_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Receiver Aanzetten
-        identifier: 'receiver_alert'
-        actions:
-          - identifier: 'RECEIVER_INSCHAKELEN'
-            title: 'Receiver Inschakelen'
-          - identifier: 'TV_UITSCHAKELEN'
-            title: 'TV Uitschakelen'
-          - identifier: 'RECEIVER_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Alarm Activeren
-        identifier: 'alarm_activeren'
-        actions:
-          - identifier: 'ALARM_AFWEZIG'
-            title: 'Alarm Afwezig'
-          - identifier: 'ALARM_THUIS'
-            title: 'Alarm Thuis'
-          - identifier: 'ALARM_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Droger Alert
-        identifier: 'droger_alert'
-        actions:
-          - identifier: 'DROGER_UITSCHAKELEN'
-            title: 'Droger Uitschakelen'
-          - identifier: 'VAATWASSER_INSCHAKELEN'
-            title: 'Vaatwasser Inschakelen'
-          - identifier: 'DROGER_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Wasmachine Alert
-        identifier: 'wasmachine_alert'
-        actions:
-          - identifier: 'WASMACHINE_UITSCHAKELEN'
-            title: 'Wasmachine Uitschakelen'
-          - identifier: 'VAATWASSER_INSCHAKELEN'
-            title: 'Vaatwasser Inschakelen'
-          - identifier: 'WASMACHINE_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Vaatwasser Alert
-        identifier: 'vaatwasser_alert'
-        actions:
-          - identifier: 'VAATWASSER_UITSCHAKELEN'
-            title: 'Vaatwasser Uitschakelen'
-          - identifier: 'VAATWASSER_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Bijkeuken Alert
-        identifier: 'bijkeuken_alert'
-        actions:
-          - identifier: 'SLA_ALARM'
-            title: 'SLA ALARM'
-            destructive: yes
-          - identifier: 'AFWEZIG_ALARM'
-            title: 'Alarm Afwezig'
-            destructive: yes
-          - identifier: 'THUIS_ALARM'
-            title: 'Alarm Thuis'
-          - identifier: 'BIJKEUKEN_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Toilet Alert
-        identifier: 'toilet_alert'
-        actions:
-          - identifier: 'SLA_ALARM'
-            title: 'SLA ALARM'
-            destructive: yes
-          - identifier: 'AFWEZIG_ALARM'
-            title: 'Alarm Afwezig'
-            destructive: yes
-          - identifier: 'THUIS_ALARM'
-            title: 'Alarm Thuis'
-          - identifier: 'TOILET_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
-      - name: Meds Alert
-        identifier: 'meds_alert'
-        actions:
-          - identifier: 'MEDS_ALARM'
-            title: 'Voltooid'
-          - identifier: 'MEDS_ANNULEREN'
-            title: 'Herhaal over 20min'
-            destructive: yes
-      - name: Camera
-        identifier: 'camera'
-        actions:
-          - identifier: 'SLA_ALARM'
-            title: 'SLA ALARM'
-            destructive: yes
-            authenticationRequired: true
-          - identifier: 'AFWEZIG_ALARM'
-            title: 'Alarm Inschakelen'
-          - identifier: 'TOILET_ANNULEREN'
-            title: 'Annuleren'
-            destructive: yes
+ios: !include ios.yaml
 
 # Weather
 weather:
@@ -309,4 +178,12 @@ alarm_control_panel: !include alarms.yaml
 scene: !include scenes.yaml
 shell_command: !include shell_command.yaml
 input_select: !include input_select.yaml
+
+# Python Script (Birthday Sensor)
 python_script:
+
+# Vacuum (Roborock S55)
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.0.11
+    token: !secret roborock
