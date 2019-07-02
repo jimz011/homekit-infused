@@ -8,6 +8,7 @@ People that are looking for my previous setup and still need to use code from th
 ### Changes (02/07/2019):
 - Minor changes to the other view, the top menu button is now correctly aligned with the rest of the buttons, this was only noticable on larger screens like tablets and or desktops/laptops.
 - Moved all the views to a view folder, this change will break your setup if you don't copy this!
+- Added custom-card and custom-components to the repo, this will make understanding the setup easier.
 ### Changes (29/06/2019): 
 BREAKING CHANGES THROUGHOUT THE ENTIRE SETUP!!!! If you have previously used my setup I have to warn you that the configuration for this setup is entirely different. Yes the result looks pretty much the same, but the current config is easier to manage and most important, it is almost 2000 lines of code less than before even with the added features! Unfortunately on the outside the setup looks a lot like the previous one, that is because I am pretty happy with the current design. This release is mostly based upon optimization, speed and attention to detail and future-proofing as everything is updated with current mods/cards/etc.
 
