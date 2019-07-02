@@ -1,5 +1,5 @@
 # Home Assistant 0.95.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.95.2)
+My current Home Assistant install (current running version 0.95.4)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
 People that are looking for my previous setup and still need to use code from there you can click here: https://github.com/jimz011/homeassistant-old Please take note that I always remove older setups after a period of time.
@@ -106,8 +106,9 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Xbox One Component to control you Xbox one from Home Assistant
 
-### TO DO (*updated: 29/06/2019)
-- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress
+### TO DO (*updated: 02/07/2019)
+- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while)
+- Will remove the newly added vacuum card in favor of a plain ol' picture-elements card
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Waiting for Sensors to Arrive
 - Energy Consumption Graphs ###Postponed to a future release
