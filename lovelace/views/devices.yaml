@@ -1,0 +1,244 @@
+title: Devices
+path: devices
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Woonkamer'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.ventilator
+              - name: Ventilator
+              - icon: fan
+              - color: DodgerBlue
+              - spin: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.receiver
+              - name: Receiver
+              - icon: set-top-box
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.samsung_tv
+              - name: TV
+              - icon: television
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Slaapkamer'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.ventilator
+              - name: Ventilator
+              - icon: fan
+              - color: DodgerBlue
+              - spin: true
+              - lock: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.receiver_slaapkamer
+              - name: Receiver
+              - icon: set-top-box
+              - lock: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.tradfri_outlet_2
+              - name: TV
+              - icon: television
+              - lock: true
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Kleine Kamer'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.pc_van_stephanie
+              - name: Stephanie
+              - icon: desktop-tower-monitor
+              - lock: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.pc_van_jimmy
+              - name: Jimmy
+              - icon: desktop-tower-monitor
+              - lock: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.printer
+              - name: Printer
+              - icon: printer-wireless
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.xbox_one
+              - name: Xbox
+              - icon: xbox
+              - lock: true
+              - color: green
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Keuken'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.waterkoker
+              - name: Waterkoker
+              - icon: cup-water
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.afzuigkap
+              - name: Afzuigkap
+              - icon: fan
+              - color: DodgerBlue
+              - spin: true
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.air_fryer
+              - name: Airfryer
+              - icon: panorama-fisheye
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: horizontal-stack    
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.tradfri_outlet
+              - name: Cappumaker
+              - icon: coffee-outline
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.vaatwasser
+              - name: Vaatwasser
+              - icon: dishwasher
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Bijkeuken'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.wasmachine
+              - name: Wasmachine
+              - icon: washing-machine
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.droger
+              - name: Droger
+              - icon: tumble-dryer
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 10px
+
