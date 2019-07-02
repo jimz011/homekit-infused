@@ -4,7 +4,10 @@ This is my entirely new release with so much changes that you should read up if 
 
 People that are looking for my previous setup and still need to use code from there you can click here: https://github.com/jimz011/homeassistant-old Please take note that I always remove older setups after a period of time.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 29/06/2019)
+## Lovelace setup by jimzz011 July 2019 (*updated: 02/07/2019)
+### Changes (02/07/2019):
+- Minor changes to the other view, the top menu button is now correctly aligned with the rest of the buttons, this was only noticable on larger screens like tablets and or desktops/laptops.
+- Moved all the views to a view folder, this change will break your setup if you don't copy this!
 ### Changes (29/06/2019): 
 BREAKING CHANGES THROUGHOUT THE ENTIRE SETUP!!!! If you have previously used my setup I have to warn you that the configuration for this setup is entirely different. Yes the result looks pretty much the same, but the current config is easier to manage and most important, it is almost 2000 lines of code less than before even with the added features! Unfortunately on the outside the setup looks a lot like the previous one, that is because I am pretty happy with the current design. This release is mostly based upon optimization, speed and attention to detail and future-proofing as everything is updated with current mods/cards/etc.
 
@@ -110,8 +113,8 @@ Custom Components:
 - Energy Consumption Graphs ###Postponed to a future release
 - Other graphs related to servers/computers etc. ###Postponed to a future release
 - Rework climate view to accomodate more information ###in Progress
-- Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners
-- Add birthdays to notifications view on the frontpage
+- Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners ###High priority and next up for release
+- Add birthdays to notifications view on the frontpage ###in Progress, this will drop in the next release
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ### Questions?
