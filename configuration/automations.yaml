@@ -934,7 +934,7 @@
       state: 'armed_away'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}   
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}   
 
 - alias: Alarm Disarm Jimmy Home
   initial_state: 'true'
@@ -950,7 +950,7 @@
       state: 'armed_home'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}  
 
 - alias: Alarm Disarm Steph Away
   initial_state: 'true'
@@ -966,7 +966,7 @@
       state: 'armed_away'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}  
 
 - alias: Alarm Disarm Steph Home
   initial_state: 'true'
@@ -982,7 +982,7 @@
       state: 'armed_home'
   action:
     - service: alarm_control_panel.alarm_disarm
-      data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}  
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}  
 
 - alias: Alarm Activation Alert
   initial_state: 'true'
@@ -1654,7 +1654,7 @@
       actionName: THUIS_ALARM
   action:
     service: alarm_control_panel.alarm_arm_home
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}
 
 - alias: iOS Actionable Notification for Toilet
   initial_state: 'true'
@@ -1665,7 +1665,7 @@
       actionName: AFWEZIG_ALARM
   action:
     service: alarm_control_panel.alarm_arm_away
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}
 
 - alias: iOS Actionable Notification for Droger_1
   initial_state: 'true'
@@ -1731,7 +1731,7 @@
       actionName: ALARM_AFWEZIG
   action:
     service: alarm_control_panel.alarm_arm_away
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}
 
 - alias: iOS Actionable Notification for Alarm Thuis
   initial_state: 'true'
@@ -1742,7 +1742,7 @@
       actionName: ALARM_THUIS
   action:
     service: alarm_control_panel.alarm_arm_home
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}
 
 - alias: iOS Actionable Notification for Receiver
   initial_state: 'true'
@@ -1775,7 +1775,7 @@
       actionName: ALARM_UITSCHAKELEN
   action:
     service: alarm_control_panel.alarm_disarm
-    data: {"entity_id":"alarm_control_panel.home_alarm","code":"287743"}
+    data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}
 
 # Dimmen/Verlichten bij film kijken
   # Woonkamer
