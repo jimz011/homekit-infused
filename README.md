@@ -4,7 +4,13 @@ This is my entirely new release with so much changes that you should read up if 
 
 People that are looking for my previous setup and still need to use code from there you can click here: https://github.com/jimz011/homeassistant-old Please take note that I always remove older setups after a period of time.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 02/07/2019)
+## Lovelace setup by jimzz011 July 2019 (*updated: 04/07/2019)
+### Changes (04/07/2019):
+- Removed custom_updater in favor of HACS. BREAKING CHANGE, Warning! Do not copy/paste this if you have used parts of my setup before, you can not! Read the instructions on how to install and configure HACS https://custom-components.github.io/hacs/installation/manual/ . You will need to do this yourself and this could take a little time figuring out all the stuff. You can remove custom_updater and ALL the custom-cards previously installed if you switch to HACS. Note that custom-updater will be deprecated at some time so switching to HACS is just a matter of time. Read carefully on how to install this, you will need a github account to use this. But don't worry it is free and the instruction manual is pretty straight forward.
+- Moved the config files to a separate folder. It is now easier to manage the configuration files, just like lovelace.
+- Decluttered the notifications file, another 380 lines removed.
+- Added birthday sensor, frontend notification and automation
+- Minor fixes to the code
 ### Changes (02/07/2019):
 - Minor changes to the other view, the top menu button is now correctly aligned with the rest of the buttons, this was only noticable on larger screens like tablets and or desktops/laptops.
 - Moved all the views to a view folder, this change will break your setup if you don't copy this!
@@ -78,6 +84,7 @@ Make sure you always make a backup of your `ui-lovelace.yaml` file and other fil
 
 Try to use RAW versions of the text to avoid any kind of wrongful spaces. Remember that I warned you :D!
 
+## THIS PART IS OUTDATED, USE HACS INSTEAD, you can still use the links for non HACS supported plugins/addons. Read the HACS docs on how to install non supported plugins/addons!!
 Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
 Cards:
 * [Bar-Card](https://github.com/custom-cards/bar-card) - This one is optional, as I don't use this (yet)
@@ -107,7 +114,7 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Xbox One Component to control you Xbox one from Home Assistant
 
-### TO DO (*updated: 02/07/2019)
+### TO DO (*updated: 04/07/2019)
 - Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while)
 - Will remove the newly added vacuum card in favor of a plain ol' picture-elements card
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
@@ -116,7 +123,6 @@ Custom Components:
 - Other graphs related to servers/computers etc. ###Postponed to a future release
 - Rework climate view to accomodate more information ###in Progress
 - Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners ###High priority and next up for release
-- Add birthdays to notifications view on the frontpage ###in Progress, this will drop in the next release
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ### Questions?
