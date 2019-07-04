@@ -1,6 +1,8 @@
 title: Other
 path: information
 cards:
+
+# Main menu 
   - type: vertical-stack
     cards:
       - type: conditional
@@ -257,6 +259,8 @@ cards:
                   styles:
                     card:
                       - width: 10px
+
+# Climate Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -427,7 +431,8 @@ cards:
                     styles:
                       card:
                         - width: 10px 
-    
+
+# Birthdays/Dates Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -493,6 +498,8 @@ cards:
                   styles:
                     card:
                       - width: 10px
+
+# Laundy Room Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -564,6 +571,8 @@ cards:
                   styles:
                     card:
                       - width: 10px
+
+# Upcoming Media Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -618,6 +627,7 @@ cards:
                     card:
                       - width: 10px 
     
+# Floorplan Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -653,6 +663,8 @@ cards:
               styles:
                 card:
                   - height: 10px
+
+# Useful Links Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -752,7 +764,8 @@ cards:
               styles:
                 card:
                   - height: 10px
-    
+
+# Updates Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
@@ -786,6 +799,8 @@ cards:
                   styles:
                     card:
                       - width: 1px 
+
+# Other Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen

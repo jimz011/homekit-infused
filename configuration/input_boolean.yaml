@@ -1,0 +1,61 @@
+  dummy1:
+    name: Dummy
+    initial: off
+  lovelace_animals_tala_showbuttons:
+    name: Tala Show Buttons
+  lovelace_remote:
+    name: Lovelace Remote
+    initial: off
+  lovelace_automation:
+    name: Lovelace Automation
+    initial: off
+  lovelace_alarm_panel:
+    name: Lovelace Alarm
+    initial: off
+  lovelace_maintenance:
+    name: Lovelace Maintenance
+    initial: off
+  lovelace_now_on:
+    name: Lovelace Now On
+    initial: off
+  lovelace_scenes:
+    name: Lovelace Scenes
+    initial: off
+  lovelace_climate:
+    name: Lovelace Climate
+    initial: off
+  vacuum_cleaner:
+    name: Vacuum Cleaner
+    initial: off
+  dummy2:
+    name: Dummy2
+    initial: off
+  apksteph:
+    name: APK Stephanie
+  apkjimz:
+    name: APK Jimmy
+  verjaardag_roxanne:
+    name: Verjaardag Roxanne
+  verjaardag_stephanie:
+    name: Verjaardag Stephanie
+  verjaardag_jimmy:
+    name: Verjaardag Jimmy
+  trouwdag:
+    name: Trouwdag Stephanie & Jimmy
+
+  tado_kleine_kamer:
+    name: Tado Kleine Kamer
+  tado_woonkamer:
+    name: Tado Woonkamer
+    
+  scene_dagverlichting:
+  scene_nachtverlichting:
+  scene_avondverlichting:
+  scene_schoonmaken:
+  scene_naar_bed:
+  scene_wassen:
+  scene_klaar_met_wassen:
+  scene_koken:
+  scene_klaar_met_koken:
+  scene_welterusten:
+  scene_lichtuit:

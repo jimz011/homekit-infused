@@ -1,0 +1,173 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 22
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include configuration/customize.yaml
+  # Auth Provider
+  auth_providers: 
+   - type: trusted_networks 
+     trusted_networks: 
+      - 127.0.0.1 
+      - ::1 
+      - 192.168.0.0/24
+   - type: homeassistant
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Frontend and HTTP
+frontend:
+  themes: !include configuration/themes.yaml
+  javascript_version: auto
+
+http:
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  
+# Discover some devices automatically
+discovery:
+  ignore:
+    - samsung_tv
+    
+# Stream
+stream:
+
+# Lovelace Mode
+lovelace:
+  mode: yaml
+
+# Recorder
+recorder:
+  db_url: !secret recorder
+  purge_keep_days: 3
+  exclude:
+    domains:
+      - automation
+  
+# Speedtest.net
+speedtestdotnet:
+  scan_interval:
+    minutes: 240
+  server_id: 12372
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# Calendar
+calendar:
+  - platform: caldav
+    url: !secret url_4
+    username: !secret icloud_user
+    password: !secret icloud_app_specific_password
+    calendars:
+      - 'Schings'
+      - 'Jimmy'
+      - 'Stephanie'
+      - 'Holiday'
+
+# Tado
+tado:
+  username: !secret tado_usr
+  password: !secret tado_pwd
+
+# Sabnzbd
+sabnzbd:
+  api_key: !secret sabnzbd_api_key
+  host: 192.168.0.34
+  name: sabnzbd
+  port: 8081
+  sensors:
+    - current_status
+    - speed
+    - queue_count
+    - queue_size
+    - queue_remaining
+    - disk_size
+    - disk_free
+    - total_size
+
+# Iframe
+panel_iframe:
+  sonarr:
+    title: "Sonarr"
+    url: !secret url_2
+    icon: "mdi:television"
+  couchpotato:
+    title: "Radarr"
+    url: !secret url_3
+    icon: "mdi:sofa"
+  serveressentials:
+    title: "Windows Cloud"
+    url: !secret url_1
+    icon: "mdi:windows"
+
+# Homekit Configuration
+homekit: !include configuration/homekit.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+  
+# iOS and Notifications
+ios: !include configuration/ios.yaml
+
+# Weather
+weather:
+  - platform: darksky
+    api_key: !secret darksky
+    mode: daily
+    
+# Notify
+notify:
+  - name: ios_notifier
+    platform: group
+    services:
+      - service: mobile_app_iphone_jimmy
+      - service: mobile_app_iphone_stephanie
+      
+# Xiaomi Aqara/Mija
+xiaomi_aqara:
+  gateways:
+    - key: !secret xiaomi_gateway
+  discovery_retry: 10
+
+# All Sensors/Switches ETC.
+sensor: !include configuration/sensor.yaml
+group: !include configuration/groups.yaml
+automation: !include configuration/automations.yaml
+script: !include configuration/scripts.yaml
+camera: !include configuration/camera.yaml
+media_player: !include configuration/media_player.yaml
+light: !include configuration/light.yaml
+switch: !include configuration/switch.yaml
+input_boolean: !include configuration/input_boolean.yaml
+zone: !include configuration/zone.yaml
+device_tracker: !include configuration/device_tracker.yaml
+alarm_control_panel: !include configuration/alarms.yaml
+scene: !include configuration/scenes.yaml
+shell_command: !include configuration/shell_command.yaml
+input_select: !include configuration/input_select.yaml
+
+# Python Script (Birthday Sensor)
+python_script:
+
+# Vacuum (Roborock S55)
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.0.11
+    token: !secret roborock
+
+# HACS
+hacs:
+  token: !secret HACSS

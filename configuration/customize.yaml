@@ -1,0 +1,88 @@
+switch.ventilator:
+  icon: mdi:fan
+switch.afzuigkap:
+  icon: mdi:fan
+light.nachtkastje_stephanie_2:
+  icon: mdi:lamp
+light.nachtkastje_jimmy:
+  icon: mdi:lamp
+switch.pc_van_jimmy:
+  icon: mdi:desktop-classic
+switch.pc_van_stephanie:
+  icon: mdi:desktop-classic
+switch.waterkoker:
+  icon: mdi:coffee-outline
+light.bijkeukenlamp:
+  friendly_name: Bijkeuken
+light.balkonlamp:
+  friendly_name: Balkon
+light.toiletlamp:
+  friendly_name: Toilet
+light.keukenlamp_a:
+  friendly_name: Keuken Lamp A
+light.keukenlamp_b:
+  friendly_name: Keuken Lamp B
+light.keukenlamp_c:
+  friendly_name: Keuken Lamp C
+person.stephanie:
+  entity_picture: /local/images/stephanie_small.png
+person.jimmy:
+  entity_picture: /local/images/jimmy_small.png
+switch.samsung_tv:
+  icon: mdi:television
+light.woonkamer_led_lampen:
+  friendly_name: Woonkamer LEDs
+light.slaapkamer_led_lampen:
+  friendly_name: Slaapkamer LEDs
+light.keuken_spotjes:
+  friendly_name: Keuken Spotjes
+binary_sensor.door_window_sensor_158d000236f9dd:
+  friendly_name: Voordeur
+binary_sensor.door_window_sensor_158d000232ac1b:
+  friendly_name: Slaapkamerdeur
+binary_sensor.door_window_sensor_158d000238644b:
+  friendly_name: Woonkamer Deur
+light.gateway_light_7811dcdef324:
+  friendly_name: Xiaomi Gateway LED
+sensor.illumination_7811dcdef324:
+  friendly_name: Woonkamer Lichtopbrengst
+sensor.temperature_158d00020ed06c:
+  friendly_name: Woonkamer Temperatuur
+sensor.humidity_158d00020ed06c:
+  friendly_name: Woonkamer Luchtvochtigheid
+binary_sensor.motion_sensor_158d00024e687d:
+  friendly_name: Toilet Bewegingssensor
+sensor.illumination_158d00024e687d:
+  friendly_name: Toilet Lichtopbrengst
+media_player.samsung_tv_remote:
+  friendly_name: Samsung TV
+binary_sensor.motion_sensor_158d0002b7eec9:
+  friendly_name: Bijkeuken Bewegingssensor
+sensor.illumination_158d0002b7eec9:
+  friendly_name: Bijkeuken Lichtopbrengst
+sensor.humidity_158d0002b546e7:
+  friendly_name: Slaapkamer Luchtvochtigheid
+sensor.temperature_158d0002b546e7:
+  friendly_name: Slaapkamer Temperatuur
+binary_sensor.smoke_sensor_158d000287ab41:
+  friendly_name: Rookmelder Keuken
+sensor.humidity_158d0002b54868:
+  friendly_name: Badkamer Luchtvochtigheid
+sensor.temperature_158d0002b54868:
+  friendly_name: Badkamer Temperatuur
+sensor.pressure_158d0002b546e7:
+  friendly_name: Slaapkamer Luchtdruk
+sensor.pressure_158d0002b54868:
+  friendly_name: Badkamer Luchtdruk
+light.tradfri_bulb_e27_ws_opal_980lm_4:
+  friendly_name: Berging Lamp
+sensor.washing_machine_status:
+  icon: mdi:washing-machine
+sensor.dishwasher_status:
+  icon: mdi:dishwasher
+sensor.dryer_status:
+  icon: mdi:tumble-dryer
+media_player.samsung_tv_ue65ku6000:
+  device_class: tv
+media_player.samsung_tv_ue46es5500:
+  device_class: tv

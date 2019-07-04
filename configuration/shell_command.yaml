@@ -1,0 +1,2 @@
+  turn_off_steph_pc: net rpc shutdown -t 1 -f -I 192.168.0.xx -U DOMAIN/USR%PWD
+  turn_off_jimzz_pc: net rpc shutdown -t 1 -f -I 192.168.0.xx -U DOMAIN/USR%PWD

@@ -1,0 +1,391 @@
+  
+  - platform: postnl
+    name: PostNL Jimmy
+    username: !secret postnl_user
+    password: !secret postnl_pass
+
+  - platform: postnl
+    name: PostNL Stephanie
+    username: !secret postnl_user_2
+    password: !secret postnl_pass_2
+
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+      - date_time_iso
+      - time_date
+      - time_utc
+      - beat
+
+  - platform: sonarr
+    host: 192.168.0.34
+    api_key: !secret sonarr_api_key
+    monitored_conditions:
+      - wanted
+      - upcoming
+      - series
+      - queue
+      - diskspace
+    days: 7
+
+  - platform: sonarr_upcoming_media
+    api_key: !secret sonarr_api_key
+    host: 192.168.0.34
+    port: 8989
+    days: 7
+    max: 10
+
+  - platform: haveibeenpwned
+    email:
+      - !secret email_3
+      - !secret email_1
+
+  - platform: cert_expiry
+    host: remote.jimsteph.me
+
+  - platform: radarr
+    api_key: !secret radarr_api_key
+    host: 192.168.0.34
+    port: 7878
+    monitored_conditions:
+      - movies
+      - upcoming   
+      - status
+      - commands
+      - diskspace
+    days: 90 
+
+  - platform: radarr_upcoming_media
+    api_key: !secret radarr_api_key
+    host: 192.168.0.34
+    port: 7878
+    days: 120
+    max: 10
+
+  - platform: moon
+
+  - platform: waze_travel_time
+    name: Reistijd Jimmy
+    origin: person.jimmy
+    destination: zone.home
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Jimmy Work
+    origin: person.jimmy
+    destination: zone.vtc_best
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Stephanie
+    origin: person.stephanie
+    destination: zone.home
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Stephanie Work
+    origin: person.stephanie
+    destination: zone.ah_eindhoven
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd jimsteph
+    origin: person.stephanie
+    destination: person.jimmy
+    region: EU
+
+#  - platform: qbittorrent
+#    url: !secret qbittorrent_url
+#    username: !secret qbit_usr
+#    password: !secret qbit_pwd
+
+  - platform: template
+    sensors:
+      washing_machine_status:
+        value_template: '{{ states.input_select.washing_machine_status.state}}'
+        friendly_name: 'Wasmachine Status'
+      dishwasher_status:
+        value_template: '{{ states.input_select.dishwasher_status.state}}'
+        friendly_name: 'Vaatwasser Status'
+      dryer_status:
+        value_template: '{{ states.input_select.dryer_status.state}}'
+        friendly_name: 'Droger Status'
+
+  - platform: template
+    sensors:
+      wedding_countdown_days:
+        value_template: >-
+          {{ states.sensor.trouwdag.attributes.days }} dagen
+      verjaardag_stephanie_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_stephanie.attributes.days }} dagen 
+      verjaardag_jimmy_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_jimmy.attributes.days }} dagen
+      verjaardag_tala_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_tala.attributes.days }} dagen
+
+      verjaardag_roxanne_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_roxanne_van_duuren.attributes.days }} dagen
+      verjaardag_helen_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_helen_van_duuren.attributes.days }} dagen
+      verjaardag_koos_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_koos_van_duuren.attributes.days }} dagen
+      verjaardag_oma_van_grootel_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_oma_van_grootel.attributes.days }} dagen
+      verjaardag_oma_schings_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_oma_schings.attributes.days }} dagen
+      verjaardag_jos_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_jos_schings.attributes.days }} dagen
+      verjaardag_connie_days:
+        value_template: >-
+          {{ states.sensor.verjaardag_connie_schings.attributes.days }} dagen
+
+#  - platform: template
+#    sensors:
+#      postnl_jimmy_states:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ states.sensor.postnl_jimmy.attributes.shipments[0]['title'] }} op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+#      postnl_jimmy_tileboard_title:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ d }}
+#      postnl_jimmy_tileboard_information:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ t1 }} - {{ t2 }}
+
+#      postnl_stephanie_states:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ states.sensor.postnl_stephanie.attributes.shipments[0]['title'] }} op {{ d }} tussen {{ t1 }} en {{ t2 }}.
+#      postnl_stephanie_tileboard_title:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ d }}
+#      postnl_stephanie_tileboard_information:
+#        value_template: >-
+#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
+#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
+#          {% set d = t1.split('T')[0] %}
+#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
+#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
+#          {{ t1 }} - {{ t2 }}
+      postnl_jimmy_packages:
+        value_template: >-
+          {{ states.sensor.postnl_jimmy_delivery.state }}
+      postnl_stephanie_packages:
+        value_template: >-
+          {{ states.sensor.postnl_stephanie_delivery.state }}
+
+  - platform: darksky
+    api_key: !secret darksky
+    forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    monitored_conditions:
+      - summary
+      - temperature
+      - humidity
+      - pressure
+      - apparent_temperature
+      - precip_probability
+      - icon
+      - precip_intensity
+      - precip_accumulation
+      - dew_point
+      - wind_speed
+      - wind_gust
+      - wind_bearing
+      - cloud_cover
+      - visibility
+      - hourly_summary
+      - daily_summary
+      - temperature_high
+      - temperature_low
+      - apparent_temperature_high
+      - apparent_temperature_low
+      - moon_phase
+      - sunrise_time
+      - sunset_time
+      - ozone
+      - precip_type
+    language: nl
+
+  - platform: template
+    sensors:
+      animals_tala_fleadrops_visible:
+        value_template: "{{ state_attr('sensor.animals_tala_fleadrops', 'visible') }}"
+  - platform: template
+    sensors:
+      animals_tala_borstel_visible:
+        value_template: "{{ state_attr('sensor.animals_tala_borstel', 'visible') }}"
+  - platform: template
+    sensors:
+      animals_tala_vaccinations_visible:
+        value_template: "{{ state_attr('sensor.animals_tala_vaccinations', 'visible') }}"
+  - platform: template
+    sensors:
+      animals_tala_trim_visible:
+        value_template: "{{ state_attr('sensor.animals_tala_trim', 'visible') }}"
+  - platform: template
+    sensors:
+      animals_tala_worm_visible:
+        value_template: "{{ state_attr('sensor.animals_tala_worm', 'visible') }}"
+
+
+  - platform: template
+    sensors:
+      daihatsu_olie_visible:
+        value_template: "{{ state_attr('sensor.daihatsu_olie', 'visible') }}"
+  - platform: template
+    sensors:
+      daihatsu_banden_visible:
+        value_template: "{{ state_attr('sensor.daihatsu_banden', 'visible') }}"
+  - platform: template
+    sensors:
+      daihatsu_clean_visible:
+        value_template: "{{ state_attr('sensor.daihatsu_clean', 'visible') }}"
+  - platform: template
+    sensors:
+      daihatsu_stof_visible:
+        value_template: "{{ state_attr('sensor.daihatsu_stof', 'visible') }}"
+  - platform: template
+    sensors:
+      daihatsu_window_visible:
+        value_template: "{{ state_attr('sensor.daihatsu_window', 'visible') }}"
+
+  - platform: template
+    sensors:
+      citroen_olie_visible:
+        value_template: "{{ state_attr('sensor.citroen_olie', 'visible') }}"
+  - platform: template
+    sensors:
+      citroen_banden_visible:
+        value_template: "{{ state_attr('sensor.citroen_banden', 'visible') }}"
+  - platform: template
+    sensors:
+      citroen_stof_visible:
+        value_template: "{{ state_attr('sensor.citroen_stof', 'visible') }}"
+  - platform: template
+    sensors:
+      citroen_window_visible:
+        value_template: "{{ state_attr('sensor.citroen_window', 'visible') }}"
+  - platform: template
+    sensors:
+      citroen_clean_visible:
+        value_template: "{{ state_attr('sensor.citroen_clean', 'visible') }}"
+
+  - platform: rdw
+    name: "Daihatsu Gran Move"
+    plate: 42DHPS
+    sensors:
+      - expdate
+      - insured
+  - platform: rdw
+    name: "Citroen C1"
+    plate: 55GFF3
+    sensors:
+      - expdate
+      - insured
+
+  - platform: template
+    sensors:
+      stofzuigen_visible:
+        value_template: "{{ state_attr('sensor.stofzuigen', 'visible') }}"
+      dweilen_visible:
+        value_template: "{{ state_attr('sensor.dweilen', 'visible') }}"
+      ramen_visible:
+        value_template: "{{ state_attr('sensor.ramen', 'visible') }}"
+      badkamer_visible:
+        value_template: "{{ state_attr('sensor.badkamer', 'visible') }}"
+      toilet_clean_visible:
+        value_template: "{{ state_attr('sensor.toilet_clean', 'visible') }}"
+      stoffen_visible:
+        value_template: "{{ state_attr('sensor.stoffen', 'visible') }}"
+      gordijnen_visible:
+        value_template: "{{ state_attr('sensor.gordijnen', 'visible') }}"
+      bed_verschonen_visible:
+        value_template: "{{ state_attr('sensor.bed_verschonen', 'visible') }}"
+      bed_matras_visible:
+        value_template: "{{ state_attr('sensor.matras', 'visible') }}"
+
+  - platform: season
+    type: astronomical
+
+  - platform: imap
+    server: imap-mail.outlook.com
+    username: !secret jimzmail
+    password: !secret jimzpwd
+    port: 993
+
+  - platform: imap
+    server: imap-mail.outlook.com
+    username: !secret stephmail
+    password: !secret stephpwd
+    port: 993
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: memory_use
+      - type: memory_use_percent
+   
+  - platform: feedparser
+    name: Quote of the Day
+    feed_url: 'https://www.brainyquote.com/link/quotebr.rss'
+    date_format: '%a, %b %d %I:%M %p'
+
+  - platform: template
+    sensors:
+      vacuum_cleaner_error_sensor:
+        friendly_name: Vacuum Cleaner Error Sensor
+        value_template: >-
+          {% if states.vacuum.xiaomi_vacuum_cleaner.attributes.error is defined %}
+            {{states.vacuum.xiaomi_vacuum_cleaner.attributes.error}}
+          {% else %}
+            No Error
+          {% endif %}
+          
+  - platform: template
+    sensors:
+      vacuum_cleaner_status_sensor:
+        friendly_name: Vacuum Cleaner Status Sensor
+        value_template: >-
+          {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}

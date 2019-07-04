@@ -5,6 +5,8 @@ popup_cards:
 cards:
   - type: vertical-stack
     cards:
+
+# Weather Panel
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -26,6 +28,8 @@ cards:
             styles:
               card:
                 - width: 10px
+
+# Person Panel Left Photo
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -65,6 +69,8 @@ cards:
                 - reistijd: sensor.reistijd_stephanie_work
                 - battery: sensor.battery_level_13
                 - icon: office-building
+
+# Person Panel Right Photo
           - type: conditional
             conditions:
               - entity: person.jimmy
@@ -102,6 +108,8 @@ cards:
             styles:
               card:
                 - width: 10px
+
+# Frontpage Buttons
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -232,4 +240,6 @@ cards:
                 styles:
                   card:
                     - width: 10px
+
+  # Notifications Panel
   - !include ../notifications/notifications.yaml

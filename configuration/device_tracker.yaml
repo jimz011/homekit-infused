@@ -1,0 +1,4 @@
+  - platform: tado
+    username: !secret tado_usr
+    password: !secret tado_pwd
+    home_id: HOMEID_HERE
