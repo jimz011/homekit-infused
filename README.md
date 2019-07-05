@@ -114,15 +114,17 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Xbox One Component to control you Xbox one from Home Assistant
 
-### TO DO (*updated: 04/07/2019)
+### TO DO (*updated: 05/07/2019)
 - Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while)
-- Will remove the newly added vacuum card in favor of a plain ol' picture-elements card
+- Will remove the newly added vacuum card in favor of a plain ol' picture-elements card ###Currently in Progress
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
-- Xiaomi Plantsensor Cards ###Waiting for Sensors to Arrive
-- Energy Consumption Graphs ###Postponed to a future release
+- Xiaomi Plantsensor Cards ###Postponed to a future release
+- Dog food and water dispenser ###Products either not ordered yet or waiting for order to arrive, postponed to a future release
+- Energy Consumption Graphs ###completed, will drop in next release
 - Other graphs related to servers/computers etc. ###Postponed to a future release
-- Rework climate view to accomodate more information ###in Progress
-- Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners ###High priority and next up for release
+- Rework climate view to accomodate more information ###completed, will drop in next release
+- Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners ###Currently in Progress
+- Add more buttons to the other view (or main menu) to get all functions in one place if needed ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ### Questions?
