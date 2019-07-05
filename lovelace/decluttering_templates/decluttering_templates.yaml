@@ -1,4 +1,7 @@
 mini-graph-card:
+  default:
+    - font_size: 70
+    - height: 90
   card:
     type: 'custom:mini-graph-card'
     style: |
@@ -7,10 +10,17 @@ mini-graph-card:
         border-radius: 12px;
         color: gray;
         --paper-item-icon-color: black;
+        font-weight: bold;
+      }
     entities: 
       - sensor.[[entity]]
     hour24: true
     animate: true
+    font_size: '[[font_size]]'
+    height: '[[height]]'
+    show:
+      icon: false
+    font_size_header: 9
     line_color: '[[line_color]]'
     name: '[[name]]'
 laundry_elements:

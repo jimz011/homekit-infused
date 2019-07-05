@@ -103,7 +103,7 @@ cards:
       template: notification_card
       variables:
         - color: rgba(157, 0, 255, 0.5)
-        - icon: clock-alert-outline
+        - icon: check-box-outline
         - content: Alles is rustig, er zijn geen meldingen
 
   - type: conditional

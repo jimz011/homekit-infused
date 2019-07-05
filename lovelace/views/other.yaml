@@ -214,7 +214,7 @@ cards:
                     - entity: input_boolean.lovelace_maintenance
                     - name: Energy
                     - label: Consumption
-                    - icon: power
+                    - icon: flash
                     - show_state: false
                     - opacity: 0.9
                     - tap_action:
@@ -243,7 +243,8 @@ cards:
                   template: switch_button_card
                   variables:
                     - entity: input_boolean.lovelace_maintenance
-                    - name: Updates
+                    - name: Download
+                    - label: Manager
                     - icon: arrow-down-bold-box
                     - show_state: false
                     - opacity: 0.9
@@ -251,7 +252,7 @@ cards:
                         action: call-service
                         service: input_select.select_option
                         service_data:
-                          option: Updates
+                          option: Downloads
                           entity_id: input_select.algemeen
                         haptic: light
                 - type: 'custom:button-card'
@@ -268,169 +269,168 @@ cards:
         card:
           type: vertical-stack
           cards:
-              - type: custom:decluttering-card
-                template: header_text
-                variables:
-                  - content: '##### Climate'
-              - type: horizontal-stack
-                cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-                  - type: 'custom:swipe-card'
-                    path: '/local/custom-lovelace/swipe-card'
-                    cards:
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: temperature_158d00020ed06c
-                          - name: Woonkamer Temperatuur
-                          - line_color: '#ffb414'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: humidity_158d00020ed06c
-                          - name: Woonkamer Luchtvochtigheid
-                          - line_color: '#1427ff'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: illumination_7811dcdef324
-                          - name: Woonkamer Lichtopbrengst
-                          - line_color: '#6e01c1'
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-              - type: horizontal-stack
-                cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-                  - type: 'custom:swipe-card'
-                    path: '/local/custom-lovelace/swipe-card'
-                    cards:
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: printer_am2301_temperature
-                          - name: Kleine Kamer Temperatuur
-                          - line_color: '#ffb414'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: printer_am2301_humidity
-                          - name: Kleine Kamer Luchtvochtigheid
-                          - line_color: '#1427ff'
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-              - type: horizontal-stack
-                cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-                  - type: 'custom:swipe-card'
-                    path: '/local/custom-lovelace/swipe-card'
-                    cards:
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: temperature_158d0002b546e7
-                          - name: Slaapkamer Temperatuur
-                          - line_color: '#ffb414'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: humidity_158d0002b546e7
-                          - name: Slaapkamer Luchtvochtigheid
-                          - line_color: '#1427ff'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: pressure_158d0002b546e7
-                          - name: Slaapkamer Luchtdruk
-                          - line_color: '#00d8ff'
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-              - type: horizontal-stack
-                cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-                  - type: 'custom:swipe-card'
-                    path: '/local/custom-lovelace/swipe-card'
-                    cards:
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: waterkoker_am2301_temperature
-                          - name: Keuken Temperatuur
-                          - line_color: '#ffb414'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: waterkoker_am2301_humidity
-                          - name: Keuken Luchtvochtigheid
-                          - line_color: '#1427ff'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: illumination_158d0002b7eec9
-                          - name: Bijkeuken Lichtopbrengst
-                          - line_color: '#6e01c1'
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-              - type: horizontal-stack
-                cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
-                  - type: 'custom:swipe-card'
-                    path: '/local/custom-lovelace/swipe-card'
-                    cards:
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: temperature_158d0002b54868
-                          - name: Badkamer Temperatuur
-                          - line_color: '#ffb414'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: humidity_158d0002b54868
-                          - name: Badkamer Luchtvochtigheid
-                          - line_color: '#1427ff'
-                      - type: custom:decluttering-card
-                        template: mini-graph-card
-                        variables:
-                          - entity: pressure_158d0002b54868
-                          - name: Badkamer Luchtdruk
-                          - line_color: '#00d8ff'
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Temperature'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: temperature_158d00020ed06c
+                    - name: Woonkamer
+                    - line_color: '#ffb414'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: printer_am2301_temperature
+                    - name: Kleine Kamer
+                    - line_color: '#ffb414'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: temperature_158d0002b546e7
+                    - name: Slaapkamer
+                    - line_color: '#ffb414'
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: waterkoker_am2301_temperature
+                    - name: Keuken
+                    - line_color: '#ffb414'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: temperature_158d0002b54868
+                    - name: Badkamer
+                    - line_color: '#ffb414'
+                - type: custom:button-card
+                  color_type: blank-card
+                  aspect_ratio: 1/1
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Humidity'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: humidity_158d00020ed06c
+                    - name: Woonkamer
+                    - line_color: '#1427ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: printer_am2301_humidity
+                    - name: Kleine Kamer
+                    - line_color: '#1427ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: humidity_158d0002b546e7
+                    - name: Slaapkamer
+                    - line_color: '#1427ff'
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: waterkoker_am2301_humidity
+                    - name: Keuken
+                    - line_color: '#1427ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: temperature_158d0002b54868
+                    - name: Badkamer
+                    - line_color: '#1427ff'
+                - type: custom:button-card
+                  color_type: blank-card
+                  aspect_ratio: 1/1
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Air Pressure'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: pressure_158d0002b546e7
+                    - name: Slaapkamer
+                    - line_color: '#00d8ff'
+                    - font_size: 53
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: pressure_158d0002b54868
+                    - name: Badkamer
+                    - line_color: '#00d8ff'
+                    - font_size: 53
+                    - height: 120
+                - type: custom:button-card
+                  color_type: blank-card
+                  aspect_ratio: 1/1
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - height: 10px
 
 # Birthdays/Dates Page
       - type: conditional
@@ -765,46 +765,11 @@ cards:
                 card:
                   - height: 10px
 
-# Updates Page
+# Downloads Page
       - type: conditional
         conditions:
           - entity: input_select.algemeen
-            state: Updates
-        card:
-          type: vertical-stack
-          cards:
-            - type: custom:decluttering-card
-              template: header_text
-              variables:
-                - content: '##### Updates'
-            - type: horizontal-stack
-              cards:
-                - type: 'custom:button-card'
-                  color_type: blank-card
-                  styles:
-                    card:
-                      - width: 1px 
-                - type: custom:tracker-card
-                  style: |
-                    ha-card {
-                      border-radius: 12px;
-                      background: dimgray;
-                    }
-                  title: null
-                  trackers:
-                    - sensor.custom_card_tracker
-                    - sensor.custom_component_tracker
-                - type: 'custom:button-card'
-                  color_type: blank-card
-                  styles:
-                    card:
-                      - width: 1px 
-
-# Other Page
-      - type: conditional
-        conditions:
-          - entity: input_select.algemeen
-            state: Overige
+            state: Downloads
         card:
           type: vertical-stack
           cards:
@@ -842,6 +807,15 @@ cards:
                   styles:
                     card:
                       - width: 10px 
+
+# Other Page
+      - type: conditional
+        conditions:
+          - entity: input_select.algemeen
+            state: Overige
+        card:
+          type: vertical-stack
+          cards:
             - type: horizontal-stack
               cards:
                 - type: 'custom:button-card'
@@ -865,4 +839,233 @@ cards:
                     card:
                       - width: 10px
     
-    
+# Energy Page
+      - type: conditional
+        conditions:
+          - entity: input_select.algemeen
+            state: Energie
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Current'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_current
+                    - name: Wasmachine
+                    - line_color: '#ffb414'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_current
+                    - name: Droger
+                    - line_color: '#ffb414'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_current
+                    - name: Vaatwasser
+                    - line_color: '#ffb414'
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Power'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_power
+                    - name: Wasmachine
+                    - line_color: '#1427ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_power
+                    - name: Droger
+                    - line_color: '#1427ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_power
+                    - name: Vaatwasser
+                    - line_color: '#1427ff'
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Voltage'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_voltage
+                    - name: Wasmachine
+                    - line_color: '#00d8ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_voltage
+                    - name: Droger
+                    - line_color: '#00d8ff'
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_voltage
+                    - name: Vaatwasser
+                    - line_color: '#00d8ff'
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Energy Today'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_today
+                    - name: Wasmachine
+                    - line_color: '#bf00ff'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_today
+                    - name: Droger
+                    - line_color: '#bf00ff'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_today
+                    - name: Vaatwasser
+                    - line_color: '#bf00ff'
+                    - font_size: 45
+                    - height: 120
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Energy Yesterday'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_yesterday
+                    - name: Wasmachine
+                    - line_color: '#c20202'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_yesterday
+                    - name: Droger
+                    - line_color: '#c20202'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_yesterday
+                    - name: Vaatwasser
+                    - line_color: '#c20202'
+                    - font_size: 45
+                    - height: 120
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Energy Total'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: wasmachine_energy_total
+                    - name: Wasmachine
+                    - line_color: '#de0046'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: droger_energy_total
+                    - name: Droger
+                    - line_color: '#de0046'
+                    - font_size: 45
+                    - height: 120
+                - type: custom:decluttering-card
+                  template: mini-graph-card
+                  variables:
+                    - entity: vaatwasser_energy_total
+                    - name: Vaatwasser
+                    - line_color: '#de0046'
+                    - font_size: 45
+                    - height: 120
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px

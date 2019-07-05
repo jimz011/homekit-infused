@@ -115,43 +115,160 @@ cards:
             styles:
               card:
                 - width: 10px
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Temperature'
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
             color_type: blank-card
             styles:
               card:
+                - width: 10px 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: temperature_158d00020ed06c
+              - name: Woonkamer
+              - line_color: '#ffb414'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: printer_am2301_temperature
+              - name: Kleine Kamer
+              - line_color: '#ffb414'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: temperature_158d0002b546e7
+              - name: Slaapkamer
+              - line_color: '#ffb414'
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: waterkoker_am2301_temperature
+              - name: Keuken
+              - line_color: '#ffb414'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: temperature_158d0002b54868
+              - name: Badkamer
+              - line_color: '#ffb414'
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Humidity'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: humidity_158d00020ed06c
+              - name: Woonkamer
+              - line_color: '#1427ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: printer_am2301_humidity
+              - name: Kleine Kamer
+              - line_color: '#1427ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: humidity_158d0002b546e7
+              - name: Slaapkamer
+              - line_color: '#1427ff'
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
                 - width: 10px
-          - type: 'custom:mini-graph-card'
-            style: |
-              ha-card {
-                border-radius: 12px;
-                background: var(--homekit-white);
-                opacity: 0.9;
-                color: gray;
-              } 
-              ha-icon {
-                color: gray;
-              }
-            show:
-              state: false
-            name: Temperature Graph
-            icon: mdi:thermometer
-            hours_to_show: 12
-            animate: true
-            hour24: true
-            font_size: 60
-            entities:
-              - entity: sensor.temperature_158d00020ed06c
-                name: Woonkamer
-              - entity: sensor.temperature_158d0002b546e7
-                name: Slaapkamer
-              - entity: sensor.temperature_158d0002b54868
-                name: Badkamer
-              - entity: sensor.printer_am2301_temperature
-                name: Kleine Kamer
-              - entity: sensor.waterkoker_am2301_temperature
-                name: Keuken
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: waterkoker_am2301_humidity
+              - name: Keuken
+              - line_color: '#1427ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: temperature_158d0002b54868
+              - name: Badkamer
+              - line_color: '#1427ff'
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Air Pressure'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: pressure_158d0002b546e7
+              - name: Slaapkamer
+              - line_color: '#00d8ff'
+              - font_size: 53
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: pressure_158d0002b54868
+              - name: Badkamer
+              - line_color: '#00d8ff'
+              - font_size: 53
+              - height: 120
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
           - type: 'custom:button-card'
             color_type: blank-card
             styles:

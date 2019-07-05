@@ -2568,15 +2568,11 @@
               styles:
                 card:
                   - width: 10px
-        - type: 'custom:card-modder'
-          style:
-            --paper-card-background-color: rgba(0,0,0,0)
-          card:
-            type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - height: 10px
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 10px
 
 # Scenes Popup Card
   input_boolean.lovelace_scenes:
