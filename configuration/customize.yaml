@@ -86,3 +86,20 @@ media_player.samsung_tv_ue65ku6000:
   device_class: tv
 media_player.samsung_tv_ue46es5500:
   device_class: tv
+sensor.vacuum_battery:
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.vacuum_total_cleaned_area:
+  unit_of_measurement: 'm2'
+sensor.vacuum_cleaning_count:
+  unit_of_measurement: 'times'
+sensor.vacuum_total_cleaning_time:
+  unit_of_measurement: 'minutes'
+sensor.vacuum_main_brush_left:
+  unit_of_measurement: 'hours'
+sensor.vacuum_side_brush_left:
+  unit_of_measurement: 'hours'
+sensor.vacuum_filter_left:
+  unit_of_measurement: 'hours'
+sensor.vacuum_sensor_dirty_left:
+  unit_of_measurement: 'hours'

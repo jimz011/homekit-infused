@@ -112,44 +112,30 @@
       dryer_status:
         value_template: '{{ states.input_select.dryer_status.state}}'
         friendly_name: 'Droger Status'
-
-  - platform: template
-    sensors:
-      wedding_countdown_days:
-        value_template: >-
-          {{ states.sensor.trouwdag.attributes.days }} dagen
-      verjaardag_stephanie_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_stephanie.attributes.days }} dagen 
-      verjaardag_jimmy_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_jimmy.attributes.days }} dagen
-      verjaardag_tala_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_tala.attributes.days }} dagen
-
-      verjaardag_roxanne_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_roxanne_van_duuren.attributes.days }} dagen
-      verjaardag_helen_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_helen_van_duuren.attributes.days }} dagen
-      verjaardag_koos_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_koos_van_duuren.attributes.days }} dagen
-      verjaardag_oma_van_grootel_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_oma_van_grootel.attributes.days }} dagen
-      verjaardag_oma_schings_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_oma_schings.attributes.days }} dagen
-      verjaardag_jos_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_jos_schings.attributes.days }} dagen
-      verjaardag_connie_days:
-        value_template: >-
-          {{ states.sensor.verjaardag_connie_schings.attributes.days }} dagen
-
+      vacuum_battery:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
+        friendly_name: 'Roborock Battery Level'
+      vacuum_total_cleaned_area:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.total_cleaned_area }}'
+        friendly_name: 'Roborock Total Cleaned Area'
+      vacuum_cleaning_count:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_count }}'
+        friendly_name: 'Roborock Cleaning Count'
+      vacuum_total_cleaning_time:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.total_cleaning_time }}'
+        friendly_name: 'Roborock Total Cleaning Time'
+      vacuum_main_brush_left:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
+        friendly_name: 'Roborock Main Brush Left'
+      vacuum_side_brush_left:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
+        friendly_name: 'Roborock Side Brush Left'
+      vacuum_filter_left:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
+        friendly_name: 'Roborock Filter Left'
+      vacuum_sensor_dirty_left:
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
+        friendly_name: 'Roborock Sensor Dirty Left'
 #  - platform: template
 #    sensors:
 #      postnl_jimmy_states:
@@ -208,6 +194,7 @@
         value_template: >-
           {{ states.sensor.postnl_stephanie_delivery.state }}
 
+
   - platform: darksky
     api_key: !secret darksky
     forecast:
@@ -245,70 +232,6 @@
       - ozone
       - precip_type
     language: nl
-
-  - platform: template
-    sensors:
-      animals_tala_fleadrops_visible:
-        value_template: "{{ state_attr('sensor.animals_tala_fleadrops', 'visible') }}"
-  - platform: template
-    sensors:
-      animals_tala_borstel_visible:
-        value_template: "{{ state_attr('sensor.animals_tala_borstel', 'visible') }}"
-  - platform: template
-    sensors:
-      animals_tala_vaccinations_visible:
-        value_template: "{{ state_attr('sensor.animals_tala_vaccinations', 'visible') }}"
-  - platform: template
-    sensors:
-      animals_tala_trim_visible:
-        value_template: "{{ state_attr('sensor.animals_tala_trim', 'visible') }}"
-  - platform: template
-    sensors:
-      animals_tala_worm_visible:
-        value_template: "{{ state_attr('sensor.animals_tala_worm', 'visible') }}"
-
-
-  - platform: template
-    sensors:
-      daihatsu_olie_visible:
-        value_template: "{{ state_attr('sensor.daihatsu_olie', 'visible') }}"
-  - platform: template
-    sensors:
-      daihatsu_banden_visible:
-        value_template: "{{ state_attr('sensor.daihatsu_banden', 'visible') }}"
-  - platform: template
-    sensors:
-      daihatsu_clean_visible:
-        value_template: "{{ state_attr('sensor.daihatsu_clean', 'visible') }}"
-  - platform: template
-    sensors:
-      daihatsu_stof_visible:
-        value_template: "{{ state_attr('sensor.daihatsu_stof', 'visible') }}"
-  - platform: template
-    sensors:
-      daihatsu_window_visible:
-        value_template: "{{ state_attr('sensor.daihatsu_window', 'visible') }}"
-
-  - platform: template
-    sensors:
-      citroen_olie_visible:
-        value_template: "{{ state_attr('sensor.citroen_olie', 'visible') }}"
-  - platform: template
-    sensors:
-      citroen_banden_visible:
-        value_template: "{{ state_attr('sensor.citroen_banden', 'visible') }}"
-  - platform: template
-    sensors:
-      citroen_stof_visible:
-        value_template: "{{ state_attr('sensor.citroen_stof', 'visible') }}"
-  - platform: template
-    sensors:
-      citroen_window_visible:
-        value_template: "{{ state_attr('sensor.citroen_window', 'visible') }}"
-  - platform: template
-    sensors:
-      citroen_clean_visible:
-        value_template: "{{ state_attr('sensor.citroen_clean', 'visible') }}"
 
   - platform: rdw
     name: "Daihatsu Gran Move"
@@ -367,11 +290,6 @@
       - type: memory_use
       - type: memory_use_percent
    
-  - platform: feedparser
-    name: Quote of the Day
-    feed_url: 'https://www.brainyquote.com/link/quotebr.rss'
-    date_format: '%a, %b %d %I:%M %p'
-
   - platform: template
     sensors:
       vacuum_cleaner_error_sensor:

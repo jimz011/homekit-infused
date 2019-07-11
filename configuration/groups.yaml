@@ -26,6 +26,13 @@
     entities:
       - device_tracker.jimmys_iphone
       - device_tracker.stephanies_iphone
+
+  device_status_3:
+    name: Device Tracker with dog
+    entities:
+      - person.jimmy
+      - person.stephanie
+      - person.tala
   energy_kwh:
     name: Energy Sensors
     entities:

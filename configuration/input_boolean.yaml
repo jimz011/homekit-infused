@@ -47,7 +47,9 @@
     name: Tado Kleine Kamer
   tado_woonkamer:
     name: Tado Woonkamer
-    
+  tala_map:
+  jimmy_map:
+  stephanie_map:
   scene_dagverlichting:
   scene_nachtverlichting:
   scene_avondverlichting:
