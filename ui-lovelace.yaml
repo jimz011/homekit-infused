@@ -1,7 +1,7 @@
 # Custom Card Resources
 resources:
   !include lovelace/resources/resources.yaml
-
+ 
 # Compact Custom Header
 cch:
   menu: hide
@@ -15,7 +15,7 @@ cch:
   swipe_wrap: false
   background: 'rgba(0,0,0,0.3)'
   default_tab: 2
-  
+   
 # Decluttering Templates
 decluttering_templates:
   !include lovelace/decluttering_templates/decluttering_templates.yaml
@@ -29,4 +29,3 @@ views:
   - !include lovelace/views/main_view.yaml
   - !include lovelace/views/lights.yaml
   - !include lovelace/views/devices.yaml
-  - !include lovelace/views/other.yaml
