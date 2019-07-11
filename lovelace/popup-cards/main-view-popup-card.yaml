@@ -66,8 +66,8 @@
                 template: switch_button_card
                 variables:
                   - entity: input_select.onderhoud
-                  - name: Daihatsu
-                  - label: Gran Move
+                  - name: Peugeot
+                  - label: 207 SW 1.4
                   - icon: car
                   - color: gray
                   - show_state: false
@@ -87,8 +87,8 @@
                 template: switch_button_card
                 variables:
                   - entity: input_select.onderhoud
-                  - name: Daihatsu
-                  - label: Gran Move
+                  - name: Peugeot
+                  - label: 207 SW 1.4
                   - icon: car
                   - color: orange
                   - opacity: 1.0
@@ -268,7 +268,7 @@
               - type: custom:decluttering-card
                 template: header_text
                 variables:
-                  - content: '##### Daihatsu Gran Move 1.6CX (1999) 42-DH-PS'
+                  - content: '##### Peugeot 207 SW 1.4 VTi X-Line (2007) 21-XX-DL'
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
@@ -279,7 +279,7 @@
                   - type: markdown
                     style: |
                       ha-card {
-                        background-image: url('/local/images/daihatsu.jpg');
+                        background-image: url('/local/images/peugeot207.jpg');
                         border-radius: 12px;
                         font-size: 13px;
                         font-family: Helvetica;
