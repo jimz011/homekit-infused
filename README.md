@@ -2,11 +2,9 @@
 My current Home Assistant install (current running version 0.95.4)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-People that are looking for my previous setup and still need to use code from there you can click here: https://github.com/jimz011/homeassistant-old Please take note that I always remove older setups after a period of time.
-
 ## Lovelace setup by jimzz011 July 2019 (*updated: 11/07/2019)
 ### Changes (11/07/2019)
-Sorry for the long delay, I have actually tried to rearrange the setup for use with swipe-card, but unfortunately this is way too buggy to be any good (it looked nice though), anyways a weeks work totally useless. But no fear, I still have the promised update for you guys.
+Sorry for the long delay, I have actually tried to rearrange the setup for use with swipe-card, but unfortunately this is way too buggy to be any good (it looked nice though), anyways a weeks work totally useless. But no fear, I still have the promised update for you guys. For screenshots of this update please [Click Here](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-july-2019-ha-0-95-x-compatible/117086/131?u=jimz011)
 
 - Added a pretty cool Vacuum Control Center, this will replace the previously used xiaomi-vacuum-cleaner-card and you can safely remove that addon if you use this setup, you will need a custom card for the zone map which can be found here: https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card, the rest of the cards are just cards that you should already have if you follow this setup.
 - The maintenance/cleaning popup card no longer has the dog card
