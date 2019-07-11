@@ -8,15 +8,15 @@ cards:
       - type: conditional
         conditions:
           - entity: input_boolean.dummy2
-            state: "off"
-        card:
-          !include frontpage.yaml
-      - type: conditional
-        conditions:
-          - entity: input_boolean.dummy2
             state: "on"
         card:
           !include other.yaml
+      - type: conditional
+        conditions:
+          - entity: input_boolean.dummy2
+            state: "off"
+        card:
+          !include frontpage.yaml
   - type: conditional
     conditions:
       - entity: input_boolean.dummy2
