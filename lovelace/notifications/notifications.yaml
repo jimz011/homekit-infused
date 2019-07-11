@@ -176,7 +176,7 @@ cards:
       variables:
         - color: rgba(247, 239, 0, 0.5)
         - icon: door-open
-        - content: De woonkamer staat open
+        - content: De woonkamerdeur staat open
 
   - type: conditional
     conditions:
@@ -261,11 +261,10 @@ cards:
         - color: rgba(176, 66, 44, 0.5)
         - icon: tumble-dryer
         - content: De droger is klaar
-
   - type: conditional
     conditions:
-      - entity: sensor.vacuum_cleaner_status_sensor
-        state: Cleaning
+      - entity: vacuum.xiaomi_vacuum_cleaner
+        state: cleaning
     card:
       type: custom:decluttering-card
       template: notification_card
@@ -273,6 +272,42 @@ cards:
         - color: rgba(56, 43, 230, 0.5)
         - icon: robot-vacuum
         - content: De robotstofzuiger is ingeschakeld
+
+  - type: conditional
+    conditions:
+      - entity: vacuum.xiaomi_vacuum_cleaner
+        state: idle
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(56, 43, 230, 0.5)
+        - icon: robot-vacuum
+        - content: De robotstofzuiger staat stil
+
+  - type: conditional
+    conditions:
+      - entity: vacuum.xiaomi_vacuum_cleaner
+        state: paused
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(56, 43, 230, 0.5)
+        - icon: robot-vacuum
+        - content: De robotstofzuiger is gepauzeerd
+
+  - type: conditional
+    conditions:
+      - entity: vacuum.xiaomi_vacuum_cleaner
+        state: returning
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(56, 43, 230, 0.5)
+        - icon: robot-vacuum
+        - content: De robotstofzuiger keert terug
 
   - type: conditional
     conditions:
