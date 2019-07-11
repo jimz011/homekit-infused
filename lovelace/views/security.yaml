@@ -171,4 +171,4 @@ cards:
         color_type: blank-card
         styles:
           card:
-            - height: 20px
+            - height: 10px

@@ -1,0 +1,234 @@
+      type: vertical-stack
+      cards:
+  # Weather Panel
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:simple-weather-card
+              style: |
+                ha-card {
+                  border-radius: 12px;
+                  background: rgba(11, 11, 11, 0.6);
+                }
+              entity: weather.dark_sky
+              name: "Eindhoven"
+              backdrop: false
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+  
+  # Person Panel Left Photo
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: conditional
+              conditions:
+                - entity: person.stephanie
+                  state_not: "home"
+              card:
+                type: custom:decluttering-card
+                template: person_elements
+                variables:
+                  - name: stephanie
+                  - namesensor: !secret stephsensor
+                  - direction: left
+                  - image: '/local/images/stephanie_small.png'
+                  - postnl: sensor.postnl_stephanie_packages
+                  - reistijd: sensor.reistijd_stephanie
+                  - battery: sensor.battery_level_13
+                  - icon: home
+            - type: conditional
+              conditions:
+                - entity: person.stephanie
+                  state: "home"
+              card:
+                type: custom:decluttering-card
+                template: person_elements
+                variables:
+                  - name: stephanie
+                  - namesensor: !secret stephsensor
+                  - direction: left
+                  - image: '/local/images/stephanie_small.png'
+                  - postnl: sensor.postnl_stephanie_packages
+                  - reistijd: sensor.reistijd_stephanie_work
+                  - battery: sensor.battery_level_13
+                  - icon: office-building
+  
+  # Person Panel Right Photo
+            - type: conditional
+              conditions:
+                - entity: person.jimmy
+                  state_not: "home"
+              card:
+                type: custom:decluttering-card
+                template: person_elements
+                variables:
+                  - name: jimmy
+                  - namesensor: !secret jimsensor
+                  - direction: right
+                  - image: '/local/images/jimmy_small.png'
+                  - postnl: sensor.postnl_jimmy_packages
+                  - reistijd: sensor.reistijd_jimmy
+                  - battery: sensor.battery_level_16
+                  - icon: home
+  
+            - type: conditional
+              conditions:
+                - entity: person.jimmy
+                  state: "home"
+              card:
+                type: custom:decluttering-card
+                template: person_elements
+                variables:
+                  - name: jimmy
+                  - namesensor: !secret jimsensor
+                  - direction: right
+                  - image: '/local/images/jimmy_small.png'
+                  - postnl: sensor.postnl_jimmy_packages
+                  - reistijd: sensor.reistijd_jimmy_work
+                  - battery: sensor.battery_level_16
+                  - icon: office-building
+  
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Cleaning
+                - label: Maintenance
+                - icon: broom
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: input_boolean.lovelace_maintenance
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Apple TV
+                - label: Remote
+                - icon: remote
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: input_boolean.lovelace_remote
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Security
+                - label: Camera
+                - icon: cctv
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: camera.gallerij_camera
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Alarm
+                - label: Camera
+                - icon: shield-check
+                - show_label: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: alarm_control_panel.home_alarm
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Dog
+                - label: Tala
+                - icon: dog-side
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: input_boolean.lovelace_now_on
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Scenes
+                - label: Presets
+                - icon: google-pages
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: input_boolean.lovelace_scenes
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Vacuum
+                - label: Roborock S5
+                - icon: robot-vacuum
+                - show_state: false
+                - tap_action: 
+                    action: more-info
+                    haptic: light
+                - entity: input_boolean.vacuum_cleaner
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - name: Main Menu
+                - label: Settings
+                - icon: cogs
+                - show_state: false
+                - tap_action: 
+                    action: toggle
+                    haptic: light
+                - entity: input_boolean.dummy2
+                - margin-right: 40px
+                - opacity: 0.7
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
