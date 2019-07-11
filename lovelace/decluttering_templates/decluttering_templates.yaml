@@ -112,6 +112,9 @@ laundry_elements:
           line-height: 32px
           padding: 36px 13px
 person_elements:
+  default:
+    - tap_action:
+        action: more-info
   card:
     type: picture-elements
     style: |
@@ -124,8 +127,7 @@ person_elements:
       - type: image
         entity: person.[[name]]
         image: '[[image]]'
-        tap_action:
-          action: more-info
+        tap_action: '[[tap_action]]'
         style:
           left: 50%
           top: 50%
@@ -367,6 +369,8 @@ switch_button_card:
     - background_color: var(--homekit-white)
     - variable: spin
     - spin: false
+    - off_variable: spin
+    - off_spin: false
     - show_name: true
     - show_state: true
     - show_label: true
@@ -385,6 +389,9 @@ switch_button_card:
     - off_icon_color: gray
     - off_name_color: gray
     - off_state_color: gray
+    - off_label_color: gray
+    - label_font_size: 11px
+    - label_font_weight: normal
   card:
     type: custom:button-card
     name: '[[name]]'
@@ -435,6 +442,7 @@ switch_button_card:
         - font-weight: bold
         - font-family: Helvetica 
         - font-size: 13px
+        - color: black
     state:
       - value: "on" 
         '[[variable]]': '[[spin]]'  
@@ -446,6 +454,7 @@ switch_button_card:
           lock:
             - color: black
       - value: "off"
+        '[[off_variable]]': '[[off_spin]]'
         styles:
           card:
             - opacity: '[[opacity]]'
@@ -455,6 +464,10 @@ switch_button_card:
             - color: '[[off_name_color]]'
           state:
             - color: '[[off_state_color]]'
+          label:
+            - color: '[[off_label_color]]'
+            - font-size: '[[label_font_size]]'
+            - font-weight: '[[label_font_weight]]'
           lock:
             - color: black
       - value: "idle"
@@ -557,6 +570,10 @@ switch_button_card:
             - color: black
           state:
             - color: gray
+          label:
+            - color: '[[off_label_color]]'
+            - font-size: '[[label_font_size]]'
+            - font-weight: '[[label_font_weight]]'
       - value: "Auto Jimmy"
         styles:
           card:
@@ -565,6 +582,10 @@ switch_button_card:
             - color: black
           state:
             - color: gray
+          label:
+            - color: '[[off_label_color]]'
+            - font-size: '[[label_font_size]]'
+            - font-weight: '[[label_font_weight]]'
       - value: "Auto Stephanie"
         styles:
           card:
@@ -573,14 +594,10 @@ switch_button_card:
             - color: black
           state:
             - color: gray
-      - value: "Hond"
-        styles:
-          card:
-            - opacity: '[[opacity]]'
-          name:
-            - color: black
-          state:
-            - color: gray
+          label:
+            - color: '[[off_label_color]]'
+            - font-size: '[[label_font_size]]'
+            - font-weight: '[[label_font_weight]]'
       - value: "scening"
         styles:
           card:
@@ -617,6 +634,57 @@ switch_button_card:
             - color: gray
           lock:
             - color: black
+      - value: "Informatie"
+        styles:
+          card:
+            - opacity: '[[opacity]]'
+          name:
+            - color: black
+          state:
+            - color: gray
+      - value: "Map"
+        styles:
+          card:
+            - opacity: '[[opacity]]'
+          name:
+            - color: black
+          state:
+            - color: gray
+      - value: "Basic"
+        styles:
+          card:
+            - opacity: '[[opacity]]'
+          name:
+            - color: black
+          state:
+            - color: gray
+      - value: "Presets"
+        styles:
+          card:
+            - opacity: '[[opacity]]'
+          name:
+            - color: black
+          state:
+            - color: gray
+      - operator: 'default'
+        styles:
+          icon:
+            - color: gray
+      - operator: '<'
+        value: 10
+        styles:
+          icon:
+            - color: red
+      - operator: '<'
+        value: 25
+        styles:
+          icon:
+            - color: orange
+      - operator: '<='
+        value: 100
+        styles:
+          icon:
+            - color: green
 header_text:
   card:
     type: markdown
