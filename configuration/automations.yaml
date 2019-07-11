@@ -2524,19 +2524,91 @@
       to: 'cleaning'
     - platform: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      to: 'Returning home'
+      to: 'returning'
     - platform: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      to: 'charging'
-    - platform: state
-      entity_id: vacuum.xiaomi_vacuum_cleaner
-      to: 'paused'
+      to: 'docked'
     - platform: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
       to: 'paused'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'idle'
   action:
     - service: notify.ios_notifier
       data:
         title: 'Roborock S55'
         message: >-
           {{states.sensor.vacuum_cleaner_status_sensor.state}}
+
+- id: vacuum_fan_speed_balanced_when_docked
+  alias: Vacuum Fan Speed Balanced When Docked
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'docked'
+  action:
+   - service: input_select.select_option
+     data:
+       option: Balanced
+       entity_id: input_select.xiaomi_vacuum
+
+- id: vacuum_fan_speed_quiet
+  alias: Vacuum Fan Speed Quiet
+  trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+      to: 'Quiet'
+  action:
+   - service: vacuum.set_fan_speed
+     data:
+       entity_id: vacuum.xiaomi_vacuum_cleaner
+       fan_speed: 101
+
+- id: vacuum_fan_speed_balanced
+  alias: Vacuum Fan Speed Balanced
+  trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+      to: 'Balanced'
+  action:
+   - service: vacuum.set_fan_speed
+     data:
+       entity_id: vacuum.xiaomi_vacuum_cleaner
+       fan_speed: 102
+
+- id: vacuum_fan_speed_turbo
+  alias: Vacuum Fan Speed Turbo
+  trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+      to: 'Turbo'
+  action:
+   - service: vacuum.set_fan_speed
+     data:
+       entity_id: vacuum.xiaomi_vacuum_cleaner
+       fan_speed: 103
+
+- id: vacuum_fan_speed_max
+  alias: Vacuum Fan Speed Max
+  trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+      to: 'Max'
+  action:
+   - service: vacuum.set_fan_speed
+     data:
+       entity_id: vacuum.xiaomi_vacuum_cleaner
+       fan_speed: 104
+
+- id: vacuum_fan_speed_mop
+  alias: Vacuum Fan Speed Mop
+  trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+      to: 'Mop'
+  action:
+   - service: vacuum.set_fan_speed
+     data:
+       entity_id: vacuum.xiaomi_vacuum_cleaner
+       fan_speed: 105
