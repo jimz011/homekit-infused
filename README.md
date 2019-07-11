@@ -4,12 +4,21 @@ This is my entirely new release with so much changes that you should read up if 
 
 People that are looking for my previous setup and still need to use code from there you can click here: https://github.com/jimz011/homeassistant-old Please take note that I always remove older setups after a period of time.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 05/07/2019)
-### Changes (05/07/2019):
-- Reworked Climate Control panel (also changed this in the other view, better know as the main menu)
-- Added Energy Consumption to the setup
-- Minor fixes to the code which contained old elements no longer used (card-modder)
-- Updated github documentation
+## Lovelace setup by jimzz011 July 2019 (*updated: 11/07/2019)
+### Changes (11/07/2019)
+Sorry for the long delay, I have actually tried to rearrange the setup for use with swipe-card, but unfortunately this is way too buggy to be any good (it looked nice though), anyways a weeks work totally useless. But no fear, I still have the promised update for you guys.
+
+- Added a pretty cool Vacuum Control Center, this will replace the previously used xiaomi-vacuum-cleaner-card and you can safely remove that addon if you use this setup, you will need a custom card for the zone map which can be found here: https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card, the rest of the cards are just cards that you should already have if you follow this setup.
+- The maintenance/cleaning popup card no longer has the dog card
+- Moved around button placements of the frontpage to fit the menu button (previously this was the "other view", now you can simply press the menu button on the frontpage to show the entire menu, convenient eh?)
+- Testing conditional cards as a replacement to popup cards, so far it seems to work very well. If you want to try it out yourself you can see my code, it uses conditional cards to show the menu now whereas before you would have to go to the actual view. This should save time and makes the interface a bit easier to use, in the future I might decide to swap all popup cards in favor of conditional cards, but like I said this is something I am currently testing
+- The NOW ON and AUTOMATIONS popup buttons have been moved to the menu
+- Added a dog popup button on the frontpage, this card was moved from the maintenance/cleaning popup card. It also has a state, device tracker and location added to it. For questions about this please send me a message on the HA community forums.
+- Splitted the frontpage in multiple yaml files, this is in preparation for the conditional cards as this would clutter a single view immensely
+- Minor fixes to the code
+
+NOTE: Unfortunately all these changes (and the changes I still have in mind) keeps me from working on proper theming, themes are worked on but at a very slow pace, please have patience or use any other theme available on the community. If you do decide to use the theme I provide note that if you really need to get work done in the dev-states panel you will have to change the theme back to default as there are some black and white elements which are themed badly.
+
 ### For older changelogs please scroll down to the bottom of the page!
 
 ## Introduction
@@ -82,13 +91,12 @@ Cards:
 * [Lovelace-Markdown-Mod](https://github.com/thomasloven/lovelace-markdown-mod) - HACS Supported, install with HACS - Mods the core markdown card to be more useful. Previously useful-markdown-card was used for this
 * [Vertical-Stack-In-Card](https://github.com/custom-cards/vertical-stack-in-card) - HACS Supported, install with HACS - You do not need this and I would not recommend using it on this setup. I have modified the js to have a transparent background as this card enforces a background. I'd recommend using a regular vertical-stack for this. I only use this for my custom:check-marker-cards
 * [Mini-Media-Player](https://github.com/kalkih/mini-media-player) - HACS Supported, install with HACS - Beautiful replacement for the standard media player. I'd recommend this. The border-radius can not be set for iOS with a card-modder card on this. You will have to change the border radius in the js file of the card. Don't know what you are doing? Don't worry you can always redownload the file. Or just leave it as is.
-* [Swipe-Card](https://github.com/bramkragten/custom-ui) - HACS Supported, install with HACS - A card that makes use of swiper giving you endless swipe possibilities. For example you could make horizontal-stacks scroll horizontally and basically have an endless stack on the same space as you normally would have for 3 or 4 buttons (or maybe more depending on the size). Recommended! 
+* [Lovelace-Xiaomi-Vacuum-Map-Card](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card) - Not supported, install Manually - This is the vacuum map card I use to set up zoned cleaning or make the robot move to a certain location on the map! If you have a vacuum then this is a must and I highly recommend you to download this
 * [Calendar-Card](https://github.com/ljmerza/calendar-card) - This is the card I use to show our calendars. Recommended!
 * [Simple-Weather-Card](https://github.com/kalkih/simple-weather-card) - HACS Supported, install with HACS - This is the beautiful minimalistic weather card which is seen on the top of my home screen. I like it a lot as it takes so much less space than most weather cards and it is imo one of the least important data to know. All I need to know is, what is the Temperature and "Is it going to rain?".
 * [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - HACS Supported, install with HACS - Highly recommended if you are a Dutch citizen (all Dutch citizens use this postal service). If you are not Dutch it is no use to install this. Get a card that does fit your needs! (if there is one ofcourse)
 * [Mini-Graph-Card](https://github.com/kalkih/mini-graph-card) - HACS Supported, install with HACS - The best card for making graphs by a long shot! Highly recommended!
 * [Light-Entity-Card](https://github.com/ljmerza/light-entity-card) - HACS Supported, install with HACS - A beautiful replacement for a color wheel. Can be used as a card or as seen in my setup (see video) with a popup card.
-* [Vacuum-Card](https://github.com/benct/lovelace-xiaomi-vacuum-card) - Not supported, install Manually - A Vacuum card for Xiaomi vacuum cleaners. It probably works for other vacuum cleaners as well, but haven't really looked into it. Simple to setup, easy to use.
 * [Lovelace-Decluttering-Card](https://github.com/custom-cards/decluttering-card) - HACS Supported, install with HACS -  ESSENTIAL and VERY IMPORTANT. None of the buttons in my config will ever render without this card. All buttons except for the light buttons are based of a single template. No template means no buttons. Do not fail to install this! This card is used as a replacement to YAML anchors which I previously used in my setup. This is way more versatile and better in every way (though anchors have some benefits as well).
 * [Sun-Card](https://github.com/mishaaq/sun-card) - Not supported, install Manually - This is the sun card I use on the weather page. It tracks sunset/sunrise.
 * [check-button-card](https://github.com/Gluwc/check-button-card) - Not supported, install Manually - This is the card I use to track how long ago a specific action was done (e.g. how long ago it was when the bathroom was cleaned). They are easy to setup and it is easy to use, however I am not satisfied with the way it looks. It is in my setup right now, but will likely be removed in the future.
@@ -99,20 +107,31 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
 
-## TO DO (*updated: 05/07/2019)
-- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while)
-- Will remove the newly added vacuum card in favor of a plain ol' picture-elements card ###Currently in Progress
+## TO DO (*updated: 11/07/2019)
+- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while as this is a shitload of work and atm not the highest priority)
+- Switching out popup cards for conditional cards, I am currently testing this and it is far from certain if I will do this. ###In Progress
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Postponed to a future release
 - Dog food and water dispenser ###Products either not ordered yet or waiting for order to arrive, postponed to a future release
-- Energy Consumption Graphs ###completed, will drop in next release
 - Other graphs related to servers/computers etc. ###Postponed to a future release
-- Rework climate view to accomodate more information ###completed, will drop in next release
-- Map, Zones, Spot Cleaning and all the good stuff for vacuum cleaners ###Currently in Progress
-- Add more buttons to the other view (or main menu) to get all functions in one place if needed ###Currently in Progress
+- Declutter some more cards ###In Progress
+- Add more buttons to then menu to get all functions in one place if needed ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ## Changelog
+### Changes (11/07/2019)
+Sorry for the long delay, I have actually tried to rearrange the setup for use with swipe-card, but unfortunately this is way too buggy to be any good (it looked nice though), anyways a weeks work totally useless. But no fear, I still have the promised update for you guys.
+
+- Added a pretty cool Vacuum Control Center, this will replace the previously used xiaomi-vacuum-cleaner-card and you can safely remove that addon if you use this setup, you will need a custom card for the zone map which can be found here: https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card, the rest of the cards are just cards that you should already have if you follow this setup.
+- The maintenance/cleaning popup card no longer has the dog card
+- Moved around button placements of the frontpage to fit the menu button (previously this was the "other view", now you can simply press the menu button on the frontpage to show the entire menu, convenient eh?)
+- Testing conditional cards as a replacement to popup cards, so far it seems to work very well. If you want to try it out yourself you can see my code, it uses conditional cards to show the menu now whereas before you would have to go to the actual view. This should save time and makes the interface a bit easier to use, in the future I might decide to swap all popup cards in favor of conditional cards, but like I said this is something I am currently testing
+- The NOW ON and AUTOMATIONS popup buttons have been moved to the menu
+- Added a dog popup button on the frontpage, this card was moved from the maintenance/cleaning popup card. It also has a state, device tracker and location added to it. For questions about this please send me a message on the HA community forums.
+- Splitted the frontpage in multiple yaml files, this is in preparation for the conditional cards as this would clutter a single view immensely
+- Minor fixes to the code
+
+NOTE: Unfortunately all these changes (and the changes I still have in mind) keeps me from working on proper theming, themes are worked on but at a very slow pace, please have patience or use any other theme available on the community. If you do decide to use the theme I provide note that if you really need to get work done in the dev-states panel you will have to change the theme back to default as there are some black and white elements which are themed badly.
 ### Changes (05/07/2019):
 - Reworked Climate Control panel (also changed this in the other view, better know as the main menu)
 - Added Energy Consumption to the setup
