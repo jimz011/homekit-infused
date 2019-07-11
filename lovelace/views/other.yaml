@@ -1,76 +1,61 @@
                # Main menu 
 type: vertical-stack
 cards:
-  - type: conditional
-    conditions:
-      - entity: input_select.algemeen
-        state: Home
-    card:                   
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - type: 'custom:button-card'
-              color_type: blank-card
-              styles:
-                card:
-                  - width: 10px 
-            - type: 'custom:decluttering-card'
-              template: switch_button_card
-              variables:
-                - entity: input_boolean.dummy2
-                - name: Home
-                - icon: home
-                - aspect_ratio: 4/1
-                - show_label: false
-                - show_state: false
-                - show_icon: false
-                - opacity: 0.9
-                - tap_action:
-                    action: toggle
-                    haptic: light  
-            - type: 'custom:button-card'
-              color_type: blank-card
-              styles:
-                card:
-                  - width: 10px 
-  - type: conditional
-    conditions:
-      - entity: input_select.algemeen
-        state_not: Home
-    card:                   
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - type: 'custom:button-card'
-              color_type: blank-card
-              styles:
-                card:
-                  - width: 10px 
-            - type: 'custom:decluttering-card'
-              template: switch_button_card
-              variables:
-                - entity: input_boolean.lovelace_maintenance
-                - name: Home
-                - icon: home
-                - aspect_ratio: 4/1
-                - show_label: false
-                - show_state: false
-                - show_icon: false
-                - opacity: 0.9
-                - tap_action:
-                    action: call-service
-                    service: input_select.select_option
-                    service_data:
-                      option: Home
-                      entity_id: input_select.algemeen
-                    haptic: light     
-            - type: 'custom:button-card'
-              color_type: blank-card
-              styles:
-                card:
-                  - width: 10px 
+  - type: horizontal-stack
+    cards:   
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px 
+      - type: conditional
+        conditions:
+          - entity: input_select.algemeen
+            state: Home
+        card:      
+          type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: input_boolean.dummy2
+            - name: Home
+            - icon: home
+            - aspect_ratio: 4/1
+            - show_label: false
+            - show_state: false
+            - show_icon: false
+            - opacity: 1.0
+            - tap_action:
+                action: toggle
+                haptic: light 
+      - type: conditional
+        conditions:
+          - entity: input_select.algemeen
+            state_not: Home
+        card:         
+          type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: input_boolean.lovelace_maintenance
+            - name: Home
+            - icon: home
+            - aspect_ratio: 4/1
+            - show_label: false
+            - show_state: false
+            - show_icon: false
+            - off_name_color: black
+            - opacity: 1.0
+            - tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  option: Home
+                  entity_id: input_select.algemeen
+                haptic: light       
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px 
 
   - type: conditional
     conditions:
@@ -93,7 +78,9 @@ cards:
                 - name: Climate
                 - icon: thermometer
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -109,7 +96,8 @@ cards:
                 - label: Manager
                 - icon: arrow-down-bold-box
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -125,7 +113,8 @@ cards:
                 - label: Consumption
                 - icon: flash
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -152,7 +141,8 @@ cards:
                 - name: Floorplan
                 - icon: floor-plan
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -168,7 +158,8 @@ cards:
                 - label: Dates
                 - icon: calendar
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -184,7 +175,8 @@ cards:
                 - label: Room
                 - icon: washing-machine
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -211,7 +203,8 @@ cards:
                 - name: Links
                 - icon: link-variant
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -226,7 +219,8 @@ cards:
                 - name: Now On
                 - icon: power
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -241,7 +235,8 @@ cards:
                 - name: Other
                 - icon: information
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -268,7 +263,8 @@ cards:
                 - name: Sensors
                 - icon: smoke-detector
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -284,7 +280,8 @@ cards:
                 - label: Camera's
                 - icon: cctv
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
@@ -300,7 +297,8 @@ cards:
                 - label: Media
                 - icon: plex
                 - show_state: false
-                - opacity: 0.9
+                - off_name_color: black
+                - opacity: 1.0
                 - tap_action:
                     action: call-service
                     service: input_select.select_option
