@@ -15,6 +15,8 @@ Sorry for the long delay, I have actually tried to rearrange the setup for use w
 - The NOW ON and AUTOMATIONS popup buttons have been moved to the menu
 - Added a dog popup button on the frontpage, this card was moved from the maintenance/cleaning popup card. It also has a state, device tracker and location added to it. For questions about this please send me a message on the HA community forums.
 - Splitted the frontpage in multiple yaml files, this is in preparation for the conditional cards as this would clutter a single view immensely
+- Fixed some automations related to the Xiaomi Vacuum Cleaner
+- Fixed notifications on the frontpage related to the Xiaomi Vacuum Cleaner
 - Minor fixes to the code
 
 NOTE: Unfortunately all these changes (and the changes I still have in mind) keeps me from working on proper theming, themes are worked on but at a very slow pace, please have patience or use any other theme available on the community. If you do decide to use the theme I provide note that if you really need to get work done in the dev-states panel you will have to change the theme back to default as there are some black and white elements which are themed badly.
