@@ -25,7 +25,7 @@ Changes:
 You know what? Why don't you see for yourself what has changed?
 Video: CLICK ON THE IMAGE TO START VIDEO
 
-[![Watch Video](https://img.youtube.com/vi/NFj7gwNAYPg/0.jpg)](https://youtu.be/NFj7gwNAYPg) 
+[![Watch Video](error) 
 
 
 ### For older changelogs please scroll down to the bottom of the page!
