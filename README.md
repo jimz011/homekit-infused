@@ -1,5 +1,5 @@
-# Home Assistant 0.95.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.95.4)
+# Home Assistant 0.96.x compatible Lovelace setup.
+My current Home Assistant install (current running version 0.96.0b2)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
 ## Lovelace setup by jimzz011 July 2019 (*updated: 15/07/2019)
