@@ -71,6 +71,22 @@
       - Energie
       - Home
       - Current
+  algemeen2:
+    name: Categorie
+    options:
+      - Datums
+      - Plex
+      - Klimaat
+      - Links
+      - Overige
+      - Plattegrond
+      - Downloads
+      - Cameras
+      - Sensoren
+      - Washok
+      - Energie
+      - Home
+      - Current
   vacuum:
     name: Stofzuiger
     options:

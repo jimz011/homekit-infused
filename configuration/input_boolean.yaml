@@ -1,55 +1,71 @@
-  dummy1:
-    name: Dummy
-    initial: off
-  lovelace_animals_tala_showbuttons:
-    name: Tala Show Buttons
+# Menu Options Jimmy
   lovelace_remote:
-    name: Lovelace Remote
     initial: off
   lovelace_automation:
-    name: Lovelace Automation
     initial: off
   lovelace_alarm_panel:
-    name: Lovelace Alarm
     initial: off
   lovelace_maintenance:
-    name: Lovelace Maintenance
     initial: off
   lovelace_now_on:
-    name: Lovelace Now On
     initial: off
   lovelace_scenes:
-    name: Lovelace Scenes
     initial: off
   lovelace_climate:
-    name: Lovelace Climate
     initial: off
-  vacuum_cleaner:
-    name: Vacuum Cleaner
+  lovelace_vacuum_cleaner:
+    initial: off
+  lovelace_menu:
+    initial: off
+  person_jimmy:
+    initial: off
+  person_stephanie:
+    initial: off
+  tala_map:
+    initial: off
+
+# Menu Options Stephanie
+  lovelace_remote2:
+    initial: off
+  lovelace_automation2:
+    initial: off
+  lovelace_alarm_panel2:
+    initial: off
+  lovelace_maintenance2:
+    initial: off
+  lovelace_now_on2:
+    initial: off
+  lovelace_scenes2:
+    initial: off
+  lovelace_climate2:
+    initial: off
+  lovelace_vacuum_cleaner2:
+    initial: off
+  lovelace_menu2:
+    initial: off
+  person_jimmy2:
+    initial: off
+  person_stephanie2:
+    initial: off
+  tala_map2:
+    initial: off
+
+
+# Other
+  dummy1:
     initial: off
   dummy2:
-    name: Dummy2
     initial: off
   apksteph:
-    name: APK Stephanie
+    initial: off
   apkjimz:
-    name: APK Jimmy
-  verjaardag_roxanne:
-    name: Verjaardag Roxanne
-  verjaardag_stephanie:
-    name: Verjaardag Stephanie
-  verjaardag_jimmy:
-    name: Verjaardag Jimmy
-  trouwdag:
-    name: Trouwdag Stephanie & Jimmy
-
+    initial: off
   tado_kleine_kamer:
-    name: Tado Kleine Kamer
+    initial: off
   tado_woonkamer:
-    name: Tado Woonkamer
-  tala_map:
-  jimmy_map:
-  stephanie_map:
+    initial: off
+
+# Scenes
   scene_dagverlichting:
   scene_nachtverlichting:
   scene_avondverlichting:
