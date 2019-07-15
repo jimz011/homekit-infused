@@ -1,0 +1,58 @@
+type: vertical-stack
+cards:
+  - type: custom:decluttering-card
+    template: header_text
+    variables:
+      - content: '### Alarm Panel'
+  - type: horizontal-stack
+    cards:   
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px 
+      - type: conditional
+        conditions:
+          - entity: input_boolean.dummy2
+            state: "on"
+        card:      
+          type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: input_boolean.dummy2
+            - name: Home
+            - icon: home
+            - aspect_ratio: 4/1
+            - show_label: false
+            - show_state: false
+            - show_icon: false
+            - opacity: 1.0
+            - tap_action:
+                action: toggle
+                haptic: light     
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px 
+  - type: horizontal-stack
+    cards: 
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px
+      - type: alarm-panel
+        style: |
+          ha-card {
+            border-radius: 12px;
+            background: var(--homekit-white);
+            --label-badge-text-color: '#000000';
+            color: black;
+          }
+        entity: alarm_control_panel.home_alarm
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px    

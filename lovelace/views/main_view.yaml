@@ -1,25 +1,21 @@
 title: Home
 path: home
 popup_cards:
-  !include ../popup-cards/main-view-popup-card.yaml
+  !include ../popup-cards/weather-temporary.yaml
 cards:
   - type: vertical-stack
     cards:
-      - type: conditional
-        conditions:
-          - entity: input_boolean.dummy2
-            state: "on"
-        card:
-          !include other.yaml
-      - type: conditional
-        conditions:
-          - entity: input_boolean.dummy2
-            state: "off"
-        card:
-          !include frontpage.yaml
-  - type: conditional
-    conditions:
-      - entity: input_boolean.dummy2
-        state: "off"
-    card:
-      !include ../notifications/notifications.yaml  
+      - type: custom:state-switch
+        entity: user
+        states:
+          Jimmy:
+            !include main_view_jimmy.yaml
+          Stephanie:
+            !include main_view_stephanie.yaml
+  - type: custom:state-switch
+    entity: user
+    states:
+      Jimmy:
+        !include notifications_jimmy.yaml 
+      Stephanie:
+        !include notifications_stephanie.yaml

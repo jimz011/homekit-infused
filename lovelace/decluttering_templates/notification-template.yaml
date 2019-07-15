@@ -1,0 +1,23 @@
+card:
+  type: horizontal-stack
+  cards:
+    - type: 'custom:button-card'
+      color_type: blank-card
+      styles:
+        card:
+          - width: 10px
+    - type: markdown
+      style: |
+        ha-card {
+          background: [[color]];
+          border-radius: 12px;
+          font-size: 13px;
+          font-family: Helvetica;
+        }
+      content: >
+        <ha-icon icon="mdi:[[icon]]"></ha-icon> [[content]]
+    - type: 'custom:button-card'
+      color_type: blank-card
+      styles:
+        card:
+            - width: 10px

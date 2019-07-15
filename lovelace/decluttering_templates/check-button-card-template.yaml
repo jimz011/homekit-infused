@@ -1,0 +1,19 @@
+card:
+  type: 'custom:check-button-card'
+  title: '[[title]]'
+  entity: '[[entity]]'
+  style: |
+    ha-card {
+      border-radius: 12px;
+      background: 'rgba(0, 0, 0, 0.0)';
+      padding-bottom: 2px;
+      padding-top: 2px;
+      font-family: Helvetica;
+    }
+  severity:
+    - value: '[[value 1]]'
+      hue: '140'
+    - value: '[[value 2]]'
+      hue: '55'
+    - value: '[[value 3]]'
+      hue: '345'

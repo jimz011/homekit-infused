@@ -1,0 +1,118 @@
+default:
+  - tap_action:
+      action: more-info
+card:
+  type: picture-elements
+  style: |
+    ha-card {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  image: '[[image]]'
+  elements:
+    - type: image
+      entity: person.[[name]]
+      image: '[[image]]'
+      tap_action: '[[tap_action]]'
+      style:
+        left: 50%
+        top: 50%
+        width: 100%
+        heigth: 100%
+    - type: state-label
+      entity: person.[[name]]
+      style:
+        left: 0
+        bottom: 0
+        pointer-events: none
+        font-size: 16px
+        line-height: 24px
+        color: white
+        background-color: rgba(0, 0, 0, 0.3)
+        width: 100%
+        transform: initial
+        padding: 0 8px
+    - type: state-label
+      entity: '[[battery]]'
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 1px 35px
+    - type: icon
+      icon: mdi:cellphone-iphone
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: scale(0.8)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 8px 10px  
+    - type: state-label
+      entity: '[[namesensor]]'
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 30px 35px
+    - type: icon
+      icon: mdi:email
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: scale(0.8)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 36px 10px  
+    - type: state-label
+      entity: '[[postnl]]'
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 58px 35px
+    - type: icon
+      icon: mdi:package-variant-closed
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: scale(0.8)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 64px 10px  
+    - type: state-label
+      entity: '[[reistijd]]'
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: initial
+        font-size: 12px
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 86px 35px
+    - type: icon
+      icon: mdi:[[icon]]
+      style:
+        top: 0
+        '[[direction]]': 0
+        pointer-events: none
+        transform: scale(0.8)
+        color: rgba(255,255,255,0.8)
+        line-height: 32px
+        padding: 92px 10px

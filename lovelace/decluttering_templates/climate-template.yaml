@@ -1,0 +1,17 @@
+card:
+  type: 'custom:thermostat-card'
+  style: |
+    ha-card {
+      border-radius: 12px;
+      background: var(--homekit-white);
+    }
+  ambient_temperature: '[[ambient_temperature]]'
+  chevron_size: 100
+  pending: 1
+  entity: '[[entity]]'
+  hvac:
+    attribute: operation_mode
+    states:
+      'heat': 'heat'
+      'off': 'off'
+  step: 1

@@ -6,7 +6,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Climate Control'
+          - content: '##### Thermostat'
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'

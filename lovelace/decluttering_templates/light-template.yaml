@@ -1,0 +1,96 @@
+default:
+  - size: 30%
+  - lock: false
+  - color: auto
+  - spin: false
+  - show_state: true
+  - show_label: true
+  - show_last_changed: false
+  - tap_action: toggle
+  - hold_action: more-info
+  - aspect_ratio: 1/1
+card:
+  type: custom:button-card
+  name: '[[name]]'
+  icon: 'mdi:[[icon]]'
+  size: '[[size]]'
+  color: '[[color]]'
+  lock: '[[lock]]'
+  aspect_ratio: '[[aspect_ratio]]'
+  entity: '[[entity]]'
+  label_template: >
+    var bri = Math.round(entity.attributes.brightness / 2.55);
+    return (bri ? bri : '0') + '%';
+  show_state: '[[show_state]]'
+  show_label: '[[show_label]]'
+  show_last_changed: '[[show_last_changed]]'
+  tap_action:
+    action: '[[tap_action]]'
+    haptic: light
+  hold_action:
+    action: '[[hold_action]]'
+    haptic: success
+  styles:
+    card:
+      - border-radius: 12px
+      - --paper-card-background-color: var(--homekit-white)
+    label:
+      - color: gray
+      - font-size: 11px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+    state:
+      - font-size: 11px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+      - text-transform: capitalize
+      - font-weight: bold
+      - padding-left: 10px
+    grid:
+      - grid-template-areas: '"i" "n" "s" "l"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr min-content min-content
+    img_cell:
+      - align-self: start
+      - text-align: start
+      - margin-right: 60px
+    name:
+      - justify-self: start
+      - padding-left: 10px
+      - font-weight: bold
+      - font-family: Helvetica 
+      - font-size: 13px
+  state:
+    - value: "on" 
+      spin: '[[spin]]'  
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "off"
+      styles:
+        card:
+          - opacity: 0.4
+        icon:
+          - color: gray
+        name:
+          - color: gray
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "unavailable"
+      styles:
+        card:
+          - opacity: 0.2
+        icon:
+          - color: gray
+        state:
+          - color: gray
+        name:
+          - color: gray

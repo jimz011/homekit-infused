@@ -1,0 +1,236 @@
+type: vertical-stack
+cards:
+  - type: custom:decluttering-card
+    template: header_text
+    variables:
+      - content: '### Jimmy Schings'
+  - type: horizontal-stack
+    cards:   
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px 
+      - type: custom:state-switch
+        entity: user
+        states:
+          Jimmy:
+            type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.person_jimmy
+              - name: Home
+              - icon: home
+              - aspect_ratio: 4/1
+              - show_label: false
+              - show_state: false
+              - show_icon: false
+              - opacity: 1.0
+              - tap_action:
+                  action: toggle
+                  haptic: light
+          Stephanie:
+            type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.person_jimmy2
+              - name: Home
+              - icon: home
+              - aspect_ratio: 4/1
+              - show_label: false
+              - show_state: false
+              - show_icon: false
+              - opacity: 1.0
+              - tap_action:
+                  action: toggle
+                  haptic: light
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - width: 10px
+  - type: custom:swipe-card
+    parameters:
+      effect: 'coverflow'
+      grabCursor: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '#### Agenda >'
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: "##### Jimmy's Agenda"
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: custom:calendar-card
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    color: black;
+                    --paper-item-icon-color: black;
+                    background: var(--homekit-white);
+                  }
+                numberOfDays: 5
+                entities:
+                  - calendar.jimmy
+                  - calendar.schings
+                showColors: true
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '#### < Location >'
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Map & Location'
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: history-graph
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    color: black;
+                    --paper-item-icon-color: black;
+                    background: var(--homekit-white);
+                  }
+                entities:
+                  - person.jimmy
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: map
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    color: black;
+                    --paper-item-icon-color: black;
+                    background: var(--homekit-white);
+                    overflow: hidden;
+                    position: relative;
+                  }
+                aspect_ratio: 4x4
+                default_zoom: 15
+                entities:
+                  - person.jimmy
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '#### < Post >'
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: "##### Jimmy's Post"
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+              - type: 'custom:postnl-card'
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    color: black;
+                    --paper-item-icon-color: black;
+                    background: var(--homekit-white);
+                  }
+                delivery: sensor.postnl_jimmy_delivery
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px 
+      - type: vertical-stack
+        cards: 
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '#### < Information'
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### General Information'
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: 12px;
+                    background: var(--homekit-white);
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    color: black;
+                    --paper-item-icon-color: gray;
+                  }
+                entities:
+                  - entity: sensor.postnl_jimmy_delivery
+                    name: PostNL
+                  - entity: sensor.battery_level_16
+                    name: iPhone Batterij
+                  - entity: sensor.battery_state_16
+                    name: iPhone Status
+                  - entity: !secret jimsensor
+                    name: Ongelezen E-mails
+                  - entity: sensor.reistijd_jimmy
+                    name: Huis
+                  - entity: sensor.reistijd_jimmy_work
+                    name: Werk 
+                  - entity: !secret jimzmailsensor
+                    icon: 'mdi:email'
+                    name: Email Breaches
+              - type: 'custom:button-card'
+                color_type: blank-card
+                styles:
+                  card:
+                    - width: 10px    

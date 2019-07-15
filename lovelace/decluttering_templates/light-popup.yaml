@@ -1,0 +1,13 @@
+card:
+  type: 'custom:light-entity-card'
+  style: |
+    ha-card {
+      background: var(--homekit-white);
+      opacity: 0.7;
+      border-radius: 12px;
+      color: black;
+    }
+  entity: '[[entity]]'
+  group: false
+  persist_features: true
+  header: ' '

@@ -1,0 +1,325 @@
+default:
+  - size: 25%
+  - lock: false
+  - color: auto
+  - background_color: var(--homekit-white)
+  - variable: spin
+  - spin: false
+  - off_variable: spin
+  - off_spin: false
+  - show_name: true
+  - show_state: true
+  - show_label: true
+  - show_icon: true
+  - show_last_changed: false
+  - tap_action:
+      action: toggle
+      haptic: light
+  - hold_action:
+      action: more-info
+      haptic: success
+  - aspect_ratio: 1/1
+  - margin-right: 60px
+  - margin-left: 0px
+  - label: '&nbsp;'
+  - opacity: 0.4
+  - off_icon_color: gray
+  - off_name_color: gray
+  - off_state_color: gray
+  - off_label_color: gray
+  - label_font_size: 11px
+  - label_font_weight: normal
+card:
+  type: custom:button-card
+  name: '[[name]]'
+  icon: 'mdi:[[icon]]'
+  size: '[[size]]'
+  color: '[[color]]'
+  lock: '[[lock]]'
+  aspect_ratio: '[[aspect_ratio]]'
+  entity: '[[entity]]'
+  label: '[[label]]'
+  show_name: '[[show_name]]'
+  show_icon: '[[show_icon]]'
+  show_state: '[[show_state]]'
+  show_label: '[[show_label]]'
+  show_last_changed: '[[show_last_changed]]'
+  tap_action: '[[tap_action]]'
+  hold_action: '[[hold_action]]'
+  styles:
+    card:
+      - border-radius: 12px
+      - --paper-card-background-color: '[[background_color]]'
+    label:
+      - color: gray
+      - font-size: 11px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+    state:
+      - font-size: 11px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+      - text-transform: capitalize
+      - font-weight: bold
+      - padding-left: 10px
+      - color: gray
+    grid:
+      - grid-template-areas: '"i" "n" "s" "l"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr min-content min-content
+    img_cell:
+      - align-self: start
+      - text-align: start
+      - margin-right: '[[margin-right]]'
+      - margin-left: '[[margin-left]]'
+    name:
+      - justify-self: start
+      - padding-left: 10px
+      - font-weight: bold
+      - font-family: Helvetica 
+      - font-size: 13px
+      - color: black
+  state:
+    - value: "on" 
+      '[[variable]]': '[[spin]]'  
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "off"
+      '[[off_variable]]': '[[off_spin]]'
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        icon:
+          - color: '[[off_icon_color]]'
+        name:
+          - color: '[[off_name_color]]'
+        state:
+          - color: '[[off_state_color]]'
+        label:
+          - color: '[[off_label_color]]'
+          - font-size: '[[label_font_size]]'
+          - font-weight: '[[label_font_weight]]'
+        lock:
+          - color: black
+    - value: "idle"
+      styles:
+        card:
+          - opacity: 0.7
+        name:
+          - color: gray
+        label:
+          - color: gray
+        icon:
+          - color: gray
+    - value: "unavailable"
+      styles:
+        card:
+          - opacity: 0.2
+        icon:
+          - color: gray
+        state:
+          - color: gray
+        name:
+          - color: gray
+    - value: "disarmed"
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+          - font-weight: normal
+        icon:
+          - color: green
+    - value: "armed_home"
+      icon: "mdi:alert"
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+          - 
+        icon:
+          - color: red
+          - animation: blink 2s ease infinite
+    - value: "armed_away"
+      icon: "mdi:alert"
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+        icon:
+          - color: red
+          - animation: blink 2s ease infinite
+    - value: "pending"
+      icon: "mdi:clock-alert-outline"
+      styles:
+        name:
+          - color: black
+        state:
+          - color: gray
+        icon:
+          - color: orange
+          - animation: blink 1s ease infinite
+    - value: "Agenda"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Locatie"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Algemeen"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Post"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Schoonmaken"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+        label:
+          - color: '[[off_label_color]]'
+          - font-size: '[[label_font_size]]'
+          - font-weight: '[[label_font_weight]]'
+    - value: "Auto Jimmy"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+        label:
+          - color: '[[off_label_color]]'
+          - font-size: '[[label_font_size]]'
+          - font-weight: '[[label_font_weight]]'
+    - value: "Auto Stephanie"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+        label:
+          - color: '[[off_label_color]]'
+          - font-size: '[[label_font_size]]'
+          - font-weight: '[[label_font_weight]]'
+    - value: "scening"
+      styles:
+        card:
+          - opacity: 0.4
+        icon:
+          - color: gray
+        name:
+          - color: gray
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "Woonkamer"
+      styles:
+        card:
+          - opacity: 0.9
+        icon:
+          - color: gray
+        name:
+          - color: gray
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "Slaapkamer"
+      styles:
+        card:
+          - opacity: 0.9
+        icon:
+          - color: gray
+        name:
+          - color: gray
+        state:
+          - color: gray
+        lock:
+          - color: black
+    - value: "Informatie"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Map"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Basic"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - value: "Presets"
+      styles:
+        card:
+          - opacity: '[[opacity]]'
+        name:
+          - color: black
+        state:
+          - color: gray
+    - operator: 'default'
+      styles:
+        icon:
+          - color: gray
+    - operator: '<'
+      value: 10
+      styles:
+        icon:
+          - color: red
+    - operator: '<'
+      value: 25
+      styles:
+        icon:
+          - color: orange
+    - operator: '<='
+      value: 100
+      styles:
+        icon:
+          - color: green
