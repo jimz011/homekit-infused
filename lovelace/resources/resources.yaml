@@ -44,3 +44,5 @@
     type: module
   - url: /community_plugin/lovelace-state-switch/state-switch.js
     type: js
+  - url: /community_plugin/deep-press/deep-press.js
+    type: module
