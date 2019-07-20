@@ -3,7 +3,8 @@ import {
   html,
   fireEvent,
   defaultConfig,
-  hass
+  hass,
+  newSidebar
 } from "./compact-custom-header.js";
 
 const buttonOptions = ["show", "hide", "clock", "overflow"];
@@ -444,6 +445,20 @@ export class CchConfigEditor extends LitElement {
           Display Tab Chevrons
         </paper-toggle-button>
         <paper-toggle-button
+          style="${newSidebar ? "" : "display:none;"}"
+          class="${this.exception && this.config.disable_sidebar === undefined
+            ? "inherited"
+            : ""}"
+          ?checked="${this.getConfig("disable_sidebar") !== false ||
+            this.getConfig("kiosk_mode") !== false}"
+          .configValue="${"disable_sidebar"}"
+          @change="${this._valueChanged}"
+          title="Hides and prevents sidebar from opening."
+        >
+          Hide & Disable Sidebar
+        </paper-toggle-button>
+        <paper-toggle-button
+          style="${newSidebar ? "display:none;" : ""}"
           class="${this.exception && this.config.sidebar_closed === undefined
             ? "inherited"
             : ""}"
@@ -456,6 +471,7 @@ export class CchConfigEditor extends LitElement {
           Close Sidebar
         </paper-toggle-button>
         <paper-toggle-button
+          style="${newSidebar ? "display:none;" : ""}"
           class="${this.exception && this.config.sidebar_swipe === undefined
             ? "inherited"
             : ""}"
@@ -550,31 +566,6 @@ export class CchConfigEditor extends LitElement {
           </paper-dropdown-menu>
         </div>
         <div
-          class="${this.exception && this.config.notifications === undefined
-            ? "inherited"
-            : ""}"
-        >
-          <iron-icon icon="hass:bell"></iron-icon>
-          <paper-dropdown-menu
-            @value-changed="${this._valueChanged}"
-            label="Notifications Button:"
-            .configValue="${"notifications"}"
-          >
-            <paper-listbox
-              slot="dropdown-content"
-              .selected="${buttonOptions.indexOf(
-                this.getConfig("notifications")
-              )}"
-            >
-              ${buttonOptions.map(option => {
-                return html`
-                  <paper-item>${option}</paper-item>
-                `;
-              })}
-            </paper-listbox>
-          </paper-dropdown-menu>
-        </div>
-        <div
           class="${this.exception && this.config.voice === undefined
             ? "inherited"
             : ""}"
@@ -597,6 +588,11 @@ export class CchConfigEditor extends LitElement {
             </paper-listbox>
           </paper-dropdown-menu>
         </div>
+      </div>
+      <div
+        class="buttons side-by-side"
+        style="${newSidebar ? "width:50%;" : ""}"
+      >
         <div
           class="${this.exception && this.config.options === undefined
             ? "inherited"
@@ -613,6 +609,32 @@ export class CchConfigEditor extends LitElement {
               .selected="${overflowOptions.indexOf(this.getConfig("options"))}"
             >
               ${overflowOptions.map(option => {
+                return html`
+                  <paper-item>${option}</paper-item>
+                `;
+              })}
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+        <div
+          style="${newSidebar ? "display:none;" : ""}"
+          class="${this.exception && this.config.notifications === undefined
+            ? "inherited"
+            : ""}"
+        >
+          <iron-icon icon="hass:bell"></iron-icon>
+          <paper-dropdown-menu
+            @value-changed="${this._valueChanged}"
+            label="Notifications Button:"
+            .configValue="${"notifications"}"
+          >
+            <paper-listbox
+              slot="dropdown-content"
+              .selected="${buttonOptions.indexOf(
+                this.getConfig("notifications")
+              )}"
+            >
+              ${buttonOptions.map(option => {
                 return html`
                   <paper-item>${option}</paper-item>
                 `;

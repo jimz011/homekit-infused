@@ -69,7 +69,7 @@ class XiaomiVacuumCard extends Polymer.Element {
               </template>
             </div>
             <template is="dom-if" if="{{showButtons}}">
-              <div class="flex">
+              <div class="flex" style="[[contentText]]">
                 <template is="dom-if" if="{{_config.buttons.start}}">
                   <div class="button" on-tap="startVaccum">
                     <ha-icon icon="mdi:play"></ha-icon>

@@ -37,6 +37,7 @@ export const defaultConfig = {
   kiosk_mode: false,
   sidebar_swipe: true,
   sidebar_closed: false,
+  disable_sidebar: false,
   hide_help: false,
   hide_config: false,
   hide_unused: false,
@@ -54,15 +55,18 @@ export const defaultConfig = {
 let root = document.querySelector("home-assistant");
 root = root && root.shadowRoot;
 root = root && root.querySelector("home-assistant-main");
+const main = root;
 root = root && root.shadowRoot;
 root = root && root.querySelector("app-drawer-layout partial-panel-resolver");
 root = (root && root.shadowRoot) || root;
 root = root && root.querySelector("ha-panel-lovelace");
 root = root && root.shadowRoot;
 root = root && root.querySelector("hui-root");
-
 const lovelace = root.lovelace;
 root = root.shadowRoot;
+
+export const newSidebar = !root.querySelector("hui-notification-drawer");
+
 let notifications = notificationCount();
 const header = root.querySelector("app-header");
 let cchConfig = buildConfig(lovelace.config.cch || {});
@@ -70,7 +74,7 @@ const view = root.querySelector("ha-app-layout").querySelector('[id="view"]');
 
 let defaultTabRedirect = false;
 let sidebarClosed = false;
-let editMode = false;
+let editMode = header.className == "edit-mode";
 let firstRun = true;
 let condState = [];
 let prevColor = {};
@@ -81,22 +85,28 @@ run();
 breakingChangeNotification();
 
 function run() {
-  if (firstRun || buttons == undefined) buttons = getButtonElements();
-  if (!buttons.notifications) return;
   const disable = cchConfig.disable;
   const urlDisable = window.location.href.includes("disable_cch");
   const tabContainer = root.querySelector("paper-tabs");
   const tabs = tabContainer
     ? Array.from(tabContainer.querySelectorAll("paper-tab"))
     : [];
+  if (firstRun || buttons == undefined) {
+    buttons = getButtonElements(tabContainer);
+  }
+  if (!buttons.menu || !buttons.options || header.className == "edit-mode") {
+    return;
+  }
 
   if (!disable && !urlDisable) {
     insertEditMenu(tabs);
-    styleButtons(tabs);
-    styleHeader(tabContainer, tabs, header);
-    restoreTabs(tabs, hideTabs(tabContainer, tabs));
-    defaultTab(tabs, tabContainer);
-    sidebarMod();
+    if (!editMode) {
+      styleButtons(tabs);
+      styleHeader(tabContainer, tabs, header);
+      hideTabs(tabContainer, tabs);
+      defaultTab(tabs, tabContainer);
+    }
+    if (firstRun) sidebarMod();
     hideMenuItems();
     for (const button in buttons) {
       if (cchConfig[button] == "clock") insertClock(button);
@@ -105,7 +115,7 @@ function run() {
     if (cchConfig.swipe) swipeNavigation(tabs, tabContainer);
   }
   if (!disable && firstRun) observers(tabContainer, tabs, urlDisable, header);
-  window.dispatchEvent(new Event("resize"));
+  fireEvent(header, "iron-resize");
   firstRun = false;
 }
 
@@ -170,7 +180,7 @@ function observers(tabContainer, tabs, urlDisable, header) {
         for (let node of mutation.addedNodes) {
           if (node.nodeName == "APP-TOOLBAR") {
             editMode = false;
-            buttons = getButtonElements();
+            buttons = getButtonElements(tabContainer);
             run();
             return;
           }
@@ -205,6 +215,16 @@ function observers(tabContainer, tabs, urlDisable, header) {
 }
 
 function notificationCount() {
+  if (newSidebar) {
+    let badge = main.shadowRoot
+      .querySelector("ha-sidebar")
+      .shadowRoot.querySelector("span.notification-badge");
+    if (!badge) {
+      return 0;
+    } else {
+      return parseInt(badge.innerHTML);
+    }
+  }
   let i = 0;
   let drawer = root
     .querySelector("hui-notification-drawer")
@@ -215,13 +235,25 @@ function notificationCount() {
   return i;
 }
 
-function getButtonElements() {
+function getButtonElements(tabContainer) {
   let buttons = {};
   buttons.options = root.querySelector("paper-menu-button");
   if (!editMode) {
     buttons.menu = root.querySelector("ha-menu-button");
     buttons.voice = root.querySelector("ha-start-voice-button");
-    buttons.notifications = root.querySelector("hui-notifications-button");
+    if (!newSidebar) {
+      buttons.notifications = root.querySelector("hui-notifications-button");
+    }
+  }
+  if (buttons.menu && newSidebar) {
+    new MutationObserver(() => {
+      if (buttons.menu.style.visibility == "hidden") {
+        buttons.menu.style.display = "none";
+      } else {
+        buttons.menu.style.display = "";
+      }
+      tabContainerMargin(tabContainer);
+    }).observe(buttons.menu, { attributeFilter: ["style"] });
   }
   return buttons;
 }
@@ -316,9 +348,10 @@ function removeStyles(tabContainer, tabs, header) {
 }
 
 function styleHeader(tabContainer, tabs, header) {
-  if ((!cchConfig.header && !editMode) || cchConfig.kiosk_mode) {
+  if (!cchConfig.header || cchConfig.kiosk_mode) {
     header.style.display = "none";
-  } else if (!editMode) {
+    view.style.minHeight = "100vh";
+  } else {
     view.style.minHeight = "100vh";
     view.style.marginTop = "-48.5px";
     view.style.paddingTop = "48.5px";
@@ -328,10 +361,17 @@ function styleHeader(tabContainer, tabs, header) {
     );
     header.style.background =
       cchConfig.background || cchThemeBg || "var(--primary-color)";
+    if (!tabContainer) {
+      header.querySelector("app-toolbar").style.background =
+        cchConfig.background || cchThemeBg || "var(--primary-color)";
+    }
   }
 
+  if (newSidebar)
+    main.shadowRoot
+      .querySelector("ha-sidebar")
+      .shadowRoot.querySelector(".menu").style = "height:49px;";
   let indicator = cchConfig.tab_indicator_color;
-  let all_tabs_color = cchConfig.all_tabs_color || "var(--cch-all-tabs-color)";
   if (
     indicator &&
     !root.querySelector('[id="cch_header_colors"]') &&
@@ -373,8 +413,11 @@ function styleHeader(tabContainer, tabs, header) {
           `;
     tabContainer.appendChild(style);
   }
-
-  if (cchConfig.tab_color && Object.keys(cchConfig.tab_color).length) {
+  let all_tabs_color = cchConfig.all_tabs_color || "var(--cch-all-tabs-color)";
+  if (
+    (cchConfig.tab_color && Object.keys(cchConfig.tab_color).length) ||
+    all_tabs_color
+  ) {
     for (let i = 0; i < tabs.length; i++) {
       tabs[i].style.color = cchConfig.tab_color[i] || all_tabs_color;
     }
@@ -409,15 +452,28 @@ function styleButtons(tabs) {
   let topMargin = tabs.length > 0 ? "margin-top:111px;" : "";
   buttons = reverseObject(buttons);
   for (const button in buttons) {
+    if (!buttons[button]) continue;
     if (button == "options" && cchConfig[button] == "overflow") {
       cchConfig[button] = "show";
     }
     if (cchConfig[button] == "show" || cchConfig[button] == "clock") {
-      buttons[button].style.cssText = `
+      if (button == "menu") {
+        let paperIconButton = buttons[button].querySelector("paper-icon-button")
+          ? buttons[button].querySelector("paper-icon-button")
+          : buttons[button].shadowRoot.querySelector("paper-icon-button");
+        if (!paperIconButton) continue;
+        paperIconButton.style.cssText = `
+          z-index:1;
+          ${topMargin}
+          ${button == "options" ? "margin-right:-5px; padding:0;" : ""}
+        `;
+      } else {
+        buttons[button].style.cssText = `
               z-index:1;
               ${topMargin}
               ${button == "options" ? "margin-right:-5px; padding:0;" : ""}
             `;
+      }
     } else if (cchConfig[button] == "overflow") {
       const menu_items = buttons.options.querySelector("paper-listbox");
       let paperIconButton = buttons[button].querySelector("paper-icon-button")
@@ -437,7 +493,7 @@ function styleButtons(tabs) {
         });
         paperIconButton.style.pointerEvents = "none";
         insertMenuItem(menu_items, wrapper);
-        if (button == "notifications") {
+        if (button == "notifications" && !newSidebar) {
           let style = document.createElement("style");
           style.innerHTML = `
                 .indicator {
@@ -461,11 +517,16 @@ function styleButtons(tabs) {
     } else if (cchConfig[button] == "hide") {
       buttons[button].style.display = "none";
     }
+    if (newSidebar && (cchConfig.kiosk_mode || cchConfig.disable_sidebar)) {
+      buttons.menu.style.display = "none";
+    }
   }
 
   // Use color vars set in HA theme.
   buttons.menu.style.color = "var(--cch-button-color-menu)";
-  buttons.notifications.style.color = "var(--cch-button-color-notifications)";
+  if (!newSidebar) {
+    buttons.notifications.style.color = "var(--cch-button-color-notifications)";
+  }
   buttons.voice.style.color = "var(--cch-button-color-voice)";
   buttons.options.style.color = "var(--cch-button-color-options)";
   if (cchConfig.all_buttons_color) {
@@ -490,7 +551,7 @@ function styleButtons(tabs) {
               "var(--cch-notify-text-color), var(--primary-text-color)"};
           }
         `;
-    buttons.notifications.shadowRoot.appendChild(style);
+    if (!newSidebar) buttons.notifications.shadowRoot.appendChild(style);
   }
 }
 
@@ -520,25 +581,43 @@ function defaultTab(tabs, tabContainer) {
 
 function sidebarMod() {
   let menu = buttons.menu.querySelector("paper-icon-button");
-  let sidebar = document
-    .querySelector("home-assistant")
-    .shadowRoot.querySelector("home-assistant-main")
-    .shadowRoot.querySelector("app-drawer");
-  if (!cchConfig.sidebar_swipe || cchConfig.kiosk_mode) {
-    sidebar.removeAttribute("swipe-open");
-  }
-  if ((cchConfig.sidebar_closed || cchConfig.kiosk_mode) && !sidebarClosed) {
-    if (sidebar.hasAttribute("opened")) menu.click();
-    sidebarClosed = true;
-  }
-}
+  let sidebar = main.shadowRoot.querySelector("app-drawer");
 
-function restoreTabs(tabs, hidden_tabs) {
-  for (let i = 0; i < tabs.length; i++) {
-    let hidden = hidden_tabs.includes(i);
-    if (tabs[i].style.display == "none" && !hidden) {
-      tabs[i].style.removeProperty("display");
+  if (!newSidebar) {
+    if (!cchConfig.sidebar_swipe || cchConfig.kiosk_mode) {
+      sidebar.removeAttribute("swipe-open");
     }
+    if ((cchConfig.sidebar_closed || cchConfig.kiosk_mode) && !sidebarClosed) {
+      if (sidebar.hasAttribute("opened")) menu.click();
+      sidebarClosed = true;
+    }
+  } else if (
+    newSidebar &&
+    (cchConfig.disable_sidebar || cchConfig.kiosk_mode)
+  ) {
+    sidebar.style.display = "none";
+    sidebar.addEventListener(
+      "mouseenter",
+      function(event) {
+        event.stopPropagation();
+      },
+      true
+    );
+    let style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(
+      document.createTextNode(
+        ":host(:not([expanded])) {width: 0px !important;}"
+      )
+    );
+    main.shadowRoot.querySelector("ha-sidebar").shadowRoot.appendChild(style);
+
+    style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(
+      document.createTextNode(":host {--app-drawer-width: 0px !important;}")
+    );
+    main.shadowRoot.appendChild(style);
   }
 }
 
@@ -610,6 +689,7 @@ function insertClock(button) {
       : 80;
 
   if (
+    !newSidebar &&
     cchConfig.notifications == "clock" &&
     cchConfig.clock_date &&
     !buttons.notifications.shadowRoot.querySelector('[id="cch_indicator"]')
@@ -638,13 +718,16 @@ function insertClock(button) {
   }
 
   let clockElement = clockIronIcon.parentNode.getElementById("cch_clock");
+  if (cchConfig.menu == "clock") {
+    buttons.menu.style.marginTop = "111px";
+    buttons.menu.style.zIndex = "1";
+  }
   if (!clockElement) {
     clockIcon.style.cssText = `
               margin-right:-5px;
               width:${clockWidth}px;
               text-align: center;
             `;
-
     clockElement = document.createElement("p");
     clockElement.setAttribute("id", "cch_clock");
     let clockAlign = "center";
@@ -739,98 +822,98 @@ function conditionalStyling(tabs, header) {
     let template = styling[i].template;
     if (template) {
       if (!template.length) template = [template];
-      for (let x = 0; x < template.length; x++) {
-        templates(template[x], tabs, _hass, header);
+      template.forEach(template => {
+        templates(template, tabs, _hass, header);
+      });
+    } else {
+      let entity = styling[i].entity;
+      if (_hass.states[entity] == undefined && entity !== "notifications") {
+        console.log(`CCH conditional styling: ${entity} does not exist.`);
+        continue;
       }
-      continue;
-    }
-    let entity = styling[i].entity;
-    if (_hass.states[entity] == undefined && entity !== "notifications") {
-      console.log(`CCH conditional styling: ${entity} does not exist.`);
-      continue;
-    }
-    if (entity == "notifications") condState[i] = notifications;
-    else condState[i] = _hass.states[entity].state;
+      if (entity == "notifications") condState[i] = notifications;
+      else condState[i] = _hass.states[entity].state;
 
-    if (condState[i] !== prevState[i] || !condState.length) {
-      prevState[i] = condState[i];
-      let above = styling[i].condition.above;
-      let below = styling[i].condition.below;
+      if (condState[i] !== prevState[i] || !condState.length) {
+        prevState[i] = condState[i];
+        let above = styling[i].condition.above;
+        let below = styling[i].condition.below;
 
-      for (const obj in styling[i]) {
-        let key;
-        if (styling[i][obj]) {
-          key = Object.keys(styling[i][obj])[0];
-        }
-        if (obj == "background") {
-          elem = "background";
-          color = styling[i][obj].color;
-          bg = styling[i][obj];
-          iconElem = false;
-          if (!prevColor[obj]) {
-            prevColor[obj] = window
-              .getComputedStyle(header, null)
-              .getPropertyValue("background");
+        for (const obj in styling[i]) {
+          let key;
+          if (styling[i][obj]) {
+            key = Object.keys(styling[i][obj])[0];
           }
-        } else if (obj == "button") {
-          getElements(key, buttons, i, obj, styling);
-          if (key == "menu") {
-            iconElem = elem
-              .querySelector("paper-icon-button")
-              .shadowRoot.querySelector("iron-icon");
-          } else {
-            iconElem = elem.shadowRoot
-              .querySelector("paper-icon-button")
-              .shadowRoot.querySelector("iron-icon");
+          if (obj == "background") {
+            elem = "background";
+            color = styling[i][obj].color;
+            bg = styling[i][obj];
+            iconElem = false;
+            if (!prevColor[obj]) {
+              prevColor[obj] = window
+                .getComputedStyle(header, null)
+                .getPropertyValue("background");
+            }
+          } else if (obj == "button") {
+            if (newSidebar && key == "notifications") continue;
+            getElements(key, buttons, i, obj, styling);
+            if (key == "menu") {
+              iconElem = elem
+                .querySelector("paper-icon-button")
+                .shadowRoot.querySelector("iron-icon");
+            } else {
+              iconElem = elem.shadowRoot
+                .querySelector("paper-icon-button")
+                .shadowRoot.querySelector("iron-icon");
+            }
+          } else if (obj == "tab") {
+            getElements(key, tabs, i, obj, styling);
+            iconElem = elem.querySelector("ha-icon");
           }
-        } else if (obj == "tab") {
-          getElements(key, tabs, i, obj, styling);
-          iconElem = elem.querySelector("ha-icon");
-        }
 
-        if (condState[i] == styling[i].condition.state) {
-          styleElements();
-        } else if (
-          above !== undefined &&
-          below !== undefined &&
-          condState[i] > above &&
-          condState[i] < below
-        ) {
-          styleElements();
-        } else if (
-          above !== undefined &&
-          below == undefined &&
-          condState[i] > above
-        ) {
-          styleElements();
-        } else if (
-          above == undefined &&
-          below !== undefined &&
-          condState[i] < below
-        ) {
-          styleElements();
-        } else {
-          if (elem !== "background" && hide && elem.style.display == "none") {
-            elem.style.display = "";
-          }
-          if (bg && elem == "background") {
-            header.style.background = prevColor[obj];
+          if (condState[i] == styling[i].condition.state) {
+            styleElements();
           } else if (
-            obj !== "background" &&
-            obj !== "entity" &&
-            obj !== "condition"
+            above !== undefined &&
+            below !== undefined &&
+            condState[i] > above &&
+            condState[i] < below
           ) {
-            elem.style.color = prevColor[key];
-          }
-          if (onIcon && offIcon) {
-            iconElem.setAttribute("icon", offIcon);
+            styleElements();
+          } else if (
+            above !== undefined &&
+            below == undefined &&
+            condState[i] > above
+          ) {
+            styleElements();
+          } else if (
+            above == undefined &&
+            below !== undefined &&
+            condState[i] < below
+          ) {
+            styleElements();
+          } else {
+            if (elem !== "background" && hide && elem.style.display == "none") {
+              elem.style.display = "";
+            }
+            if (bg && elem == "background") {
+              header.style.background = prevColor[obj];
+            } else if (
+              obj !== "background" &&
+              obj !== "entity" &&
+              obj !== "condition"
+            ) {
+              elem.style.color = prevColor[key];
+            }
+            if (onIcon && offIcon) {
+              iconElem.setAttribute("icon", offIcon);
+            }
           }
         }
       }
     }
   }
   tabContainerMargin(tabContainer);
-  window.dispatchEvent(new Event("resize"));
 }
 
 function templates(template, tabs, _hass, header) {
@@ -854,44 +937,51 @@ function templates(template, tabs, _hass, header) {
   for (const condition in template) {
     if (condition == "tab") {
       for (const tab in template[condition]) {
-        for (let i = 0; i < template[condition][tab].length; i++) {
+        let tempCond = template[condition][tab];
+        if (!tempCond.length) tempCond = [tempCond];
+        tempCond.forEach(templateObj => {
           let tabIndex = parseInt(Object.keys(template[condition]));
-          let styleTarget = Object.keys(template[condition][tab][i]);
-          let tempCond = template[condition][tab][i][styleTarget];
+          let styleTarget = Object.keys(templateObj);
+          let tabTemplate = templateObj[styleTarget];
+          let tabElement = tabs[tabIndex];
           if (styleTarget == "icon") {
-            tabs[tabIndex]
+            tabElement
               .querySelector("ha-icon")
-              .setAttribute("icon", templateEval(tempCond, entity));
+              .setAttribute("icon", templateEval(tabTemplate, entity));
           } else if (styleTarget == "color") {
-            tabs[tabIndex].style.color = templateEval(tempCond, entity);
+            tabElement.style.color = templateEval(tabTemplate, entity);
           } else if (styleTarget == "display") {
-            templateEval(tempCond, entity) == "show"
-              ? (tabs[tabIndex].style.display = "")
-              : (tabs[tabIndex].style.display = "none");
+            templateEval(tabTemplate, entity) == "show"
+              ? (tabElement.style.display = "")
+              : (tabElement.style.display = "none");
           }
-        }
+        });
       }
     } else if (condition == "button") {
       for (const button in template[condition]) {
-        for (let i = 0; i < template[condition][button].length; i++) {
+        let tempCond = template[condition][button];
+        if (!tempCond.length) tempCond = [tempCond];
+        tempCond.forEach(templateObj => {
           let buttonName = Object.keys(template[condition]);
-          let styleTarget = Object.keys(template[condition][button][i]);
+          if (newSidebar && buttonName == "notifications") return;
+          let styleTarget = Object.keys(templateObj);
           let buttonElem = buttons[buttonName];
-          let iconTarget = buttonElem.shadowRoot
-            ? buttonElem.shadowRoot.querySelector("paper-icon-button")
-            : buttonElem.querySelector("paper-icon-button");
-          let target = iconTarget.shadowRoot.querySelector("iron-icon");
-          let tempCond = template[condition][button][i][styleTarget];
+          let tempCond = templateObj[styleTarget];
+          let iconTarget = buttonElem.querySelector("paper-icon-button")
+            ? buttonElem.querySelector("paper-icon-button")
+            : buttonElem.shadowRoot.querySelector("paper-icon-button");
           if (styleTarget == "icon") {
             iconTarget.setAttribute("icon", templateEval(tempCond, entity));
           } else if (styleTarget == "color") {
-            target.style.color = templateEval(tempCond, entity);
+            iconTarget.shadowRoot.querySelector(
+              "iron-icon"
+            ).style.color = templateEval(tempCond, entity);
           } else if (styleTarget == "display") {
             templateEval(tempCond, entity) == "show"
-              ? (buttons[buttonName].style.display = "")
-              : (buttons[buttonName].style.display = "none");
+              ? (buttonElem.style.display = "")
+              : (buttonElem.style.display = "none");
           }
-        }
+        });
       }
     } else if (condition == "background") {
       header.style.background = templateEval(template[condition], entity);
@@ -919,7 +1009,7 @@ function buildRanges(array) {
 
 function showEditor() {
   window.scrollTo(0, 0);
-  import("./compact-custom-header-editor.js?v=1.2.0").then(() => {
+  import("./compact-custom-header-editor.js?v=1.3.0").then(() => {
     document.createElement("compact-custom-header-editor");
   });
   if (!root.querySelector("ha-app-layout").querySelector("editor")) {
