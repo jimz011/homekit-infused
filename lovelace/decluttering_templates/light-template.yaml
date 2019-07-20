@@ -12,6 +12,7 @@ default:
 card:
   type: custom:button-card
   name: '[[name]]'
+  deep_press: true
   icon: 'mdi:[[icon]]'
   size: '[[size]]'
   color: '[[color]]'
@@ -29,7 +30,7 @@ card:
     haptic: light
   hold_action:
     action: '[[hold_action]]'
-    haptic: success
+    haptic: heavy
   styles:
     card:
       - border-radius: 12px
