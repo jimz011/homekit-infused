@@ -1,32 +1,12 @@
 # Home Assistant 0.96.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.96.0b2)
+My current Home Assistant install (current running version 0.96.2)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 15/07/2019)
-### Changes (15/07/2019)
-BREAKING CHANGE:
-- This update has a major change and that is the removal of popup cards, there are some left, but most are gone now in favor of state-switches and conditional cards. This is still experimental so it is prone to change! The reason why I removed popup cards are simple. They are hard to use when copying an entire setup as they need to be setup correctly for them to work properly, this also means that you will need to adjust all the entities first before the card will show up properly. Conditional cards solves this problem as it will just display nothing if nothing is defined and will not break all other popup cards in the chain. Another major reason is because the size of the popup cards look really awkward on tablets when using conditional cards within those popups. The location of the popup will change randomly to a point you can't even see it on your screen anymore. This is most prominent on tablets/desktops. Another major reason is iOS. When you try to run popup cards on iOS it sometimes bugs and show you a duplicate of the card within the same popup. It looks really bad and only retrying to open the card fixes the problem, this is most prominent on older hardware like an iPad Air, iPhone 6s and less on newer devices like the iPhone 8 or iPhone X.
-- So after reading the above you might think by yourself, 'Hey Jimz', 'if you use conditional cards, how will you deal with multiple users as they would clearly be visible to all users now wouldn't it?'. I'd say good question and the experimental solution is this: in this release I have added a state-switch to show views per user now.
-- 'But Jimz, that would massively increase the code now wouldn't it?', Well not necessarily. I have removed many of the input_select options I had before and removed all the buttons that came with the popup cards (the 4 buttons on top of almost every popup card). It took up a lot of code and the removal of all these lines make up for the added code discussed above.
-- 'And how would I get to those pages that were previously accessible with those buttons?' Easy, you simply swipe on the "popup" now and it will switch the page.
-
-These changes will make per user views possible and changing anything in the menu or anything else in lovelace will not affect the other user when used at the same time. This means that when I open up the vacuum control panel (which is a conditional card) will only show for me and not for my wife and vice versa. She can open the same page at the same time and she will have no interference of me using the same conditional card!
-
-Changes:
-- Removed most input_select options with the exception of a few (like the menu)
-- Removed popup-cards with the exception of weather and light page (to show a more-info window in a popup, this will be replaced by browser-mod in the next update)
-- Added conditional cards in favor of popup cards, this has changed the config A LOT, do not overwrite your config with this if you do not know what you are doing
-- Removed all buttons that used to navigate you through the popup-cards, this also affects all newly added cards like the vacuum control center card.
-- Added swipe-card in favor of the old input_select buttons, this makes one handed use on phones a breeze.
-- Added state-switch to accomodate for multi-users which was previously no problem with popup-cards. WARNING: This is a massive change and has made the setup a lot more complicated for new users. I use includes A LOT because not only will it save me a lot of time if I break a piece of the code (as most of the time only that part will not load) and is it easier to find, but also gives me the opportunity to organise the code in a way that I find suitable (and duplication of code doesn't look that bad this way, as they are in separate files).
-- Split decluttering templates, this makes it easier to manage your templates and add very long templates if needed as this won't clutter the decluttering templates file :P
-- Many minor changes to the UI to accomodate for all these changes above
-
-You know what? Why don't you see for yourself what has changed?
-Video: CLICK ON THE IMAGE TO START VIDEO
-
-[![Watch Video](https://img.youtube.com/vi/cBBTLzPO5Ag/0.jpg)](https://youtu.be/cBBTLzPO5Ag) 
-
+## Lovelace setup by jimzz011 July 2019 (*updated: 20/07/2019)
+### Changes (20/07/2019)
+Only minor changes in this update.
+- Added 3d touch to the setup, this is done with this beautiful addon called deep-press, this with special thanks to @roflcoopter. You can install this via HACS or find the link below in the addons section of this document.
+- Minor fixes.
 
 ### For older changelogs please scroll down to the bottom of the page!
 
@@ -53,7 +33,7 @@ There is SOO much going on in just 5 views that I can't possibly throw all the s
 
 Video: CLICK ON THE IMAGE TO START VIDEO
 
-[![Watch Video](https://img.youtube.com/vi/NFj7gwNAYPg/0.jpg)](https://youtu.be/NFj7gwNAYPg) 
+[![Watch Video](https://img.youtube.com/vi/cBBTLzPO5Ag/0.jpg)](https://youtu.be/cBBTLzPO5Ag)
 
 sorry for the bad filming, I had to use accessibility tools to show you where I am actually pressing or it might get really confusing. This also meant it really limited my way of interacting with the device and thus making some errors sometimes. You will have to forgive me on that.
 
@@ -131,6 +111,30 @@ Custom Components:
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ## Changelog
+### Changes (15/07/2019)
+BREAKING CHANGE:
+- This update has a major change and that is the removal of popup cards, there are some left, but most are gone now in favor of state-switches and conditional cards. This is still experimental so it is prone to change! The reason why I removed popup cards are simple. They are hard to use when copying an entire setup as they need to be setup correctly for them to work properly, this also means that you will need to adjust all the entities first before the card will show up properly. Conditional cards solves this problem as it will just display nothing if nothing is defined and will not break all other popup cards in the chain. Another major reason is because the size of the popup cards look really awkward on tablets when using conditional cards within those popups. The location of the popup will change randomly to a point you can't even see it on your screen anymore. This is most prominent on tablets/desktops. Another major reason is iOS. When you try to run popup cards on iOS it sometimes bugs and show you a duplicate of the card within the same popup. It looks really bad and only retrying to open the card fixes the problem, this is most prominent on older hardware like an iPad Air, iPhone 6s and less on newer devices like the iPhone 8 or iPhone X.
+- So after reading the above you might think by yourself, 'Hey Jimz', 'if you use conditional cards, how will you deal with multiple users as they would clearly be visible to all users now wouldn't it?'. I'd say good question and the experimental solution is this: in this release I have added a state-switch to show views per user now.
+- 'But Jimz, that would massively increase the code now wouldn't it?', Well not necessarily. I have removed many of the input_select options I had before and removed all the buttons that came with the popup cards (the 4 buttons on top of almost every popup card). It took up a lot of code and the removal of all these lines make up for the added code discussed above.
+- 'And how would I get to those pages that were previously accessible with those buttons?' Easy, you simply swipe on the "popup" now and it will switch the page.
+
+These changes will make per user views possible and changing anything in the menu or anything else in lovelace will not affect the other user when used at the same time. This means that when I open up the vacuum control panel (which is a conditional card) will only show for me and not for my wife and vice versa. She can open the same page at the same time and she will have no interference of me using the same conditional card!
+
+Changes:
+- Removed most input_select options with the exception of a few (like the menu)
+- Removed popup-cards with the exception of weather and light page (to show a more-info window in a popup, this will be replaced by browser-mod in the next update)
+- Added conditional cards in favor of popup cards, this has changed the config A LOT, do not overwrite your config with this if you do not know what you are doing
+- Removed all buttons that used to navigate you through the popup-cards, this also affects all newly added cards like the vacuum control center card.
+- Added swipe-card in favor of the old input_select buttons, this makes one handed use on phones a breeze.
+- Added state-switch to accomodate for multi-users which was previously no problem with popup-cards. WARNING: This is a massive change and has made the setup a lot more complicated for new users. I use includes A LOT because not only will it save me a lot of time if I break a piece of the code (as most of the time only that part will not load) and is it easier to find, but also gives me the opportunity to organise the code in a way that I find suitable (and duplication of code doesn't look that bad this way, as they are in separate files).
+- Split decluttering templates, this makes it easier to manage your templates and add very long templates if needed as this won't clutter the decluttering templates file :P
+- Many minor changes to the UI to accomodate for all these changes above
+
+You know what? Why don't you see for yourself what has changed?
+Video: CLICK ON THE IMAGE TO START VIDEO
+
+[![Watch Video](https://img.youtube.com/vi/cBBTLzPO5Ag/0.jpg)](https://youtu.be/cBBTLzPO5Ag) 
+
 ### Changes (11/07/2019)
 Sorry for the long delay, I have actually tried to rearrange the setup for use with swipe-card, but unfortunately this is way too buggy to be any good (it looked nice though), anyways a weeks work totally useless. But no fear, I still have the promised update for you guys.
 
@@ -221,6 +225,8 @@ Anyways have fun and see you next time!
 @kuuji
 
 @romrider
+
+@roflcoopter
 
 @everyone I forgot to mention
 
