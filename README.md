@@ -2,7 +2,15 @@
 My current Home Assistant install (current running version 0.96.2)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 20/07/2019)
+## Lovelace setup by jimzz011 July 2019 (*updated: 22/07/2019)
+### Changes (22/07/2019)
+Breaking Change:
+I am terribly sorry for everyone that just adapted my setup, but honestly (and I have mentioned it before) my last setup was experimental and so it was prone to change. In this update there is a major change that changes the way how the frontpage gets loaded for each person. I have decluttered all the double entries as a result of last updates state-switch/multi-user setup. Now every user will load the settings of a single template instead of having multiple configs per user. This makes managing the menu's a lot easier and the biggest benefit of this is that adding a user will only require you to setup additional input_booleans. (in this case I suffixed every input_boolean for a specific user with `_username`, just copy the input_booleans in your setup and change the name to add another user. Easy as it could be and it saves some 6000 lines of code (as this was the case after the experimental setup). If you have adopted the latest release you might have noticed that the performance of it went down and that it wasn't nearly as fast as of what you were used to in this setup. That was mostly due to the fact that code was duplicated for multiple users, as this is no longer the case you will find that performance is back on par with what you were used to in older configurations of this setup.
+
+Changes:
+- Massive overhaul to the way this setup handles multiple users. It is super easy to add another user to your setup!
+- Added a card-loader mod on this setup, this will fix the problem where cards would not always be loaded until a refresh. This will make the config wait for those cards to be loaded before showing them in lovelace. You will probably not notice a difference in performance.
+
 ### Changes (20/07/2019)
 Only minor changes in this update. Note: This update is mostly beneficial for iPhone users with 3d touch. If you do not have this there is no real need of updating, though you could if you want to be up-to-date ofcourse.
 - Added 3d touch to the setup, this is done with this beautiful addon called deep-press, this with special thanks to @roflcoopter. You can install this via HACS or find the link below in the addons section of the docs. This will make iphone users with 3d touch really really happy. I am sure many of you iphone users struggle to get the hold_action going on any iphone and sometimes it works and sometimes it doesn't. Yes we might have learnt to work around this, but this is not the case for our spouses that don't think it works great. This will not replace the hold action, but add a 3d touch action to the button as well. Now when you firmly press on a button (just like you would with 3d touch). The 3d touch action will start the hold_action (so if you have a more-info window on your hold_action, it would show exactly that). So no longer will you need to struggle with the hold action on iPhones that have 3d touch.
