@@ -3,273 +3,283 @@ path:  lights
 popup_cards:
   !include ../popup-cards/light-popup.yaml
 cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Woonkamer'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.woonkamer_plafond
-              - name: Plafond
-              - icon: ceiling-light
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.eettafel_lamp
-              - name: Eettafel
-              - icon: ceiling-light
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - size: 25%
-              - entity: light.tafel_lamp
-              - name: Tafellamp
-              - icon: lamp
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.vloerlamp
-              - name: Vloerlamp
-              - icon: floor-lamp
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.woonkamer_led_lampen
-              - name: LEDs
-              - icon: led-strip
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.gateway_light_7811dcdef324
-              - name: Xiaomi LED
-              - icon: led-strip
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Slaapkamer'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - size: 25%
-              - entity: light.nachtkastje_stephanie
-              - name: Stephanie
-              - icon: lamp
-              - lock: true
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - size: 25%
-              - entity: light.nachtkastje_jimmy
-              - name: Jimmy
-              - icon: lamp
-              - lock: true
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.slaapkamer_led_lampen
-              - name: LEDs
-              - icon: led-strip
-              - lock: true
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Kleine Kamer'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.kleine_kamer_plafondlampen
-              - name: Plafond
-              - icon: ceiling-light
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.officeled
-              - name: LEDs
-              - icon: led-strip
-          - type: custom:button-card
-            color_type: blank-card
-            aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Keuken'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.keuken_plafondlampen
-              - name: Plafond
-              - icon: ceiling-light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: switch.keukenspots
-              - name: Spotjes
-              - icon: track-light
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.bijkeukenlamp
-              - name: Bijkeuken
-              - icon: ceiling-light
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Hal'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: light.entree_lamp
-              - name: Entree
-              - icon: ceiling-light
-              - size: 30%
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: light.gang_lamp
-              - name: Gang
-              - icon: ceiling-light
-              - size: 30%
-          - type: custom:button-card
-            color_type: blank-card
-            aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Overige'
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: switch.koogeek_sw_056ce9
-              - name: Douche
-              - icon: ceiling-light
-              - size: 30%
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.toiletlamp
-              - name: Toilet
-              - icon: ceiling-light
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.balkonlamp
-              - name: Balkon
-              - icon: wall-sconce
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: horizontal-stack
-        cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-          - type: custom:decluttering-card
-            template: light_button_card
-            variables:
-              - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
-              - name: Berging
-              - icon: ceiling-light
-          - type: custom:button-card
-            color_type: blank-card
-            aspect_ratio: 1/1
-          - type: custom:button-card
-            color_type: blank-card
-            aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - height: 10px
+  - type: custom:card-loader
+    wait:
+      - decluttering-card
+      - button-card
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Woonkamer'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.woonkamer_plafond
+                - name: Plafond
+                - icon: ceiling-light
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.eettafel_lamp
+                - name: Eettafel
+                - icon: ceiling-light
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - size: 25%
+                - entity: light.tafel_lamp
+                - name: Tafellamp
+                - icon: lamp
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.vloerlamp
+                - name: Vloerlamp
+                - icon: floor-lamp
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.woonkamer_led_lampen
+                - name: LEDs
+                - icon: led-strip
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.gateway_light_7811dcdef324
+                - name: Xiaomi LED
+                - icon: led-strip
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Slaapkamer'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - size: 25%
+                - entity: light.nachtkastje_stephanie
+                - name: Stephanie
+                - icon: lamp
+                - lock: true
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - size: 25%
+                - entity: light.nachtkastje_jimmy
+                - name: Jimmy
+                - icon: lamp
+                - lock: true
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.slaapkamer_led_lampen
+                - name: LEDs
+                - icon: led-strip
+                - lock: true
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Kleine Kamer'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.kleine_kamer_plafondlampen
+                - name: Plafond
+                - icon: ceiling-light
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.officeled
+                - name: LEDs
+                - icon: led-strip
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+  - type: custom:card-loader
+    wait:
+      - decluttering-card
+      - button-card
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Keuken'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.keuken_plafondlampen
+                - name: Plafond
+                - icon: ceiling-light
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: switch.keukenspots
+                - name: Spotjes
+                - icon: track-light
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.bijkeukenlamp
+                - name: Bijkeuken
+                - icon: ceiling-light
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Hal'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: light.entree_lamp
+                - name: Entree
+                - icon: ceiling-light
+                - size: 30%
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: light.gang_lamp
+                - name: Gang
+                - icon: ceiling-light
+                - size: 30%
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: custom:decluttering-card
+          template: header_text
+          variables:
+            - content: '##### Overige'
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: switch_button_card
+              variables:
+                - entity: switch.koogeek_sw_056ce9
+                - name: Douche
+                - icon: ceiling-light
+                - size: 30%
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.toiletlamp
+                - name: Toilet
+                - icon: ceiling-light
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.balkonlamp
+                - name: Balkon
+                - icon: wall-sconce
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: custom:decluttering-card
+              template: light_button_card
+              variables:
+                - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
+                - name: Berging
+                - icon: ceiling-light
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 10px    

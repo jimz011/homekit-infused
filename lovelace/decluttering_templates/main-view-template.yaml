@@ -1,0 +1,105 @@
+card:
+  type: vertical-stack
+  cards:
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_maintenance_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/cleaning.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_alarm_panel_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/alarm-panel.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_remote_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/remote.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.tala_map_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/dog-tala.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_scenes_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/scenes.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.person_stephanie_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/person-stephanie.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.person_jimmy_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/person-jimmy.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_vacuum_cleaner_[[name]]
+          state: "on"
+      card:
+        !include ../popup-cards/vacuum.yaml
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_menu_[[name]]
+          state: "on"
+      card:
+        type: custom:state-switch
+        entity: user
+        states:
+          Jimmy:
+            type: custom:decluttering-card
+            template: main_menu
+            variables:
+              - entity: algemeen
+              - menu: lovelace_menu_jimmy
+          Stephanie:
+            type: custom:decluttering-card
+            template: main_menu
+            variables:
+              - entity: algemeen2
+              - menu: lovelace_menu_stephanie
+    - type: conditional
+      conditions:
+        - entity: input_boolean.lovelace_menu_[[name]]
+          state: "off"
+        - entity: input_boolean.lovelace_vacuum_cleaner_[[name]]
+          state: "off"
+        - entity: input_boolean.person_jimmy_[[name]]
+          state: "off"
+        - entity: input_boolean.person_stephanie_[[name]]
+          state: "off"
+        - entity: input_boolean.lovelace_scenes_[[name]]
+          state: "off"
+        - entity: input_boolean.tala_map_[[name]]
+          state: "off"
+        - entity: input_boolean.lovelace_remote_[[name]]
+          state: "off"
+        - entity: input_boolean.lovelace_alarm_panel_[[name]]
+          state: "off"
+        - entity: input_boolean.lovelace_maintenance_[[name]]
+          state: "off"
+      card:
+        type: custom:state-switch
+        entity: user
+        states:
+          Jimmy:
+            type: custom:decluttering-card
+            template: frontpage_template
+            variables:
+              - name: jimmy
+          Stephanie:
+            type: custom:decluttering-card
+            template: frontpage_template
+            variables:
+              - name: stephanie

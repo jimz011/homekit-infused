@@ -9,13 +9,25 @@ cards:
         entity: user
         states:
           Jimmy:
-            !include main_view_jimmy.yaml
+            type: custom:decluttering-card
+            template: main_view
+            variables:
+              - name: jimmy
           Stephanie:
-            !include main_view_stephanie.yaml
+            type: custom:decluttering-card
+            template: main_view
+            variables:
+              - name: stephanie
   - type: custom:state-switch
     entity: user
     states:
       Jimmy:
-        !include notifications_jimmy.yaml 
+        type: custom:decluttering-card
+        template: notifications_template
+        variables:
+          - name: jimmy
       Stephanie:
-        !include notifications_stephanie.yaml
+        type: custom:decluttering-card
+        template: notifications_template
+        variables:
+          - name: stephanie

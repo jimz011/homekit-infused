@@ -18,3 +18,11 @@ check_button_card:
   !include check-button-card-template.yaml
 notification_card:
   !include notification-template.yaml
+main_menu:
+  !include main-menu.yaml
+main_view:
+  !include main-view-template.yaml
+frontpage_template:
+  !include frontpage-template.yaml
+notifications_template:
+  !include notifications-template.yaml

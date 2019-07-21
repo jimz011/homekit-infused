@@ -40,9 +40,11 @@
     type: module
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js
-  - url: /community_plugin/swipe-card/swipe-card.js
+  - url: /community_plugin/lovelace-swipe-card/swipe-card.js
     type: module
   - url: /community_plugin/lovelace-state-switch/state-switch.js
     type: js
   - url: /community_plugin/deep-press/deep-press.js
     type: module
+  - url: /community_plugin/lovelace-card-loader/card-loader.js
+    type: js

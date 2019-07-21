@@ -1,6 +1,8 @@
 default:
   - tap_action:
       action: more-info
+  - hold_action:
+      action: none
 card:
   type: picture-elements
   style: |
@@ -14,6 +16,7 @@ card:
       entity: person.[[name]]
       image: '[[image]]'
       tap_action: '[[tap_action]]'
+      hold_action: '[[hold_action]]'
       style:
         left: 50%
         top: 50%

@@ -1,3 +1,11 @@
+type: custom:card-loader
+wait:
+  - state-switch
+  - swipe-card
+  - decluttering-card
+  - button-card
+  - vertical-stack-in-card
+card:
 type: vertical-stack
 cards:
   - type: custom:decluttering-card
@@ -18,7 +26,7 @@ cards:
             type: 'custom:decluttering-card'
             template: switch_button_card
             variables:
-              - entity: input_boolean.tala_map
+              - entity: input_boolean.tala_map_jimmy
               - name: Home
               - icon: home
               - aspect_ratio: 4/1
@@ -33,7 +41,7 @@ cards:
             type: 'custom:decluttering-card'
             template: switch_button_card
             variables:
-              - entity: input_boolean.tala_map2
+              - entity: input_boolean.tala_map_stephanie
               - name: Home
               - icon: home
               - aspect_ratio: 4/1
