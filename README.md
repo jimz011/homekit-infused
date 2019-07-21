@@ -1,5 +1,5 @@
 # Home Assistant 0.96.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.96.2)
+My current Home Assistant install (current running version 0.96.3)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
 ## Lovelace setup by jimzz011 July 2019 (*updated: 22/07/2019)
@@ -9,7 +9,7 @@ I am terribly sorry for everyone that just adapted my setup, but honestly (and I
 
 Changes:
 - Massive overhaul to the way this setup handles multiple users. It is super easy to add another user to your setup!
-- Added a card-loader mod on this setup, this will fix the problem where cards would not always be loaded until a refresh. This will make the config wait for those cards to be loaded before showing them in lovelace. You will probably not notice a difference in performance.
+- Added a card-loader mod on this setup, this will fix the problem where cards would not always be loaded until a refresh. This will make the config wait for those cards to be loaded before showing them in lovelace. You will probably not notice a difference in performance. You can find the link to card-loader below in the addons section of the docs.
 
 ### Changes (20/07/2019)
 Only minor changes in this update. Note: This update is mostly beneficial for iPhone users with 3d touch. If you do not have this there is no real need of updating, though you could if you want to be up-to-date ofcourse.
@@ -79,6 +79,7 @@ To make it easier on you if you want to copy it entirely is to first check the f
 
 Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
 Cards:
+* [Card-Loader](https://github.com/thomasloven/lovelace-card-loader) - Not supported, install Manually - This mod will make sure cards are loaded before they are presented. Without this cards might not load until a refresh of the page.
 * [Deep-Press](https://github.com/roflcoopter/deep-press) - HACS Supported, install with HACS - This is a great card for iphone users with 3d touch. Actually it isn't a card it modifies existing cards to support 3d touch. If you have an iphone that supports this I highly recommend you to use this. If you are not using this, remove the `deep_press: true` line from `switch-template.yaml` and `light-template.yaml`.
 * [State-Switch](https://github.com/thomasloven/lovelace-state-switch) - Not supported, install Manually - Important if you want to be able to have multiple users to use your interface. My setup is not compatible out of the box without this. If you don't care for multi user you will have to manually remove the custom:state-switch entries.
 * [Swipe-Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card) - HACS Supported, install with HACS - This is used to display the beautiful animation on the 'popup' cards and being able to swipe/flick through them. This is ESSENTIAL.
