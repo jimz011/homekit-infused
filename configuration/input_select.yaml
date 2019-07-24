@@ -71,6 +71,17 @@
       - Energie
       - Home
       - Current
+      - Climate
+      - Location
+      - Vacuum
+      - Remote
+      - Scenes
+      - Cleaning
+      - Weather
+      - Themes
+      - Lights
+      - Devices
+    initial: Home
   algemeen2:
     name: Categorie
     options:
@@ -87,6 +98,17 @@
       - Energie
       - Home
       - Current
+      - Climate
+      - Location
+      - Vacuum
+      - Remote
+      - Scenes
+      - Cleaning
+      - Weather
+      - Themes
+      - Lights
+      - Devices
+    initial: Home
   vacuum:
     name: Stofzuiger
     options:
@@ -108,3 +130,14 @@
       - Turbo
       - Max
       - Mop
+  theme_selector:
+    name: Theme Selector 
+    options:
+      - Grey Light
+      - Grey Dark
+      - Blue Light
+      - Blue Dark
+      - Blue Light Squared
+      - Blue Dark Squared
+      - Automatic (default)
+    initial: Automatic (default)

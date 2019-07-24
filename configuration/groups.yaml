@@ -180,7 +180,6 @@
       - switch.tradfri_outlet 
       - light.entree_lamp 
       - light.gang_lamp 
-      - light.gateway_light_7811dcdef324
   scene_schoonmaken_on:
     all: true
     entities:
@@ -253,3 +252,7 @@
       - switch.waterkoker
       - switch.air_fryer
       - switch.tradfri_outlet
+  theme_selector:
+    entities:
+      - automation.set_light_theme_for_the_day
+      - automation.set_light_theme_for_the_night
