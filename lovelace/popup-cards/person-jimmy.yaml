@@ -11,7 +11,7 @@ card:
     - type: custom:decluttering-card
       template: header_text
       variables:
-        - content: '### Jimmy Schings'
+        - content: '##### Jimmy Schings'
     - type: horizontal-stack
       cards:   
         - type: 'custom:button-card'
@@ -29,12 +29,21 @@ card:
                 - entity: input_boolean.person_jimmy_jimmy
                 - name: Home
                 - icon: home
+                - size: 10%
                 - aspect_ratio: 4/1
                 - show_label: false
                 - show_state: false
-                - show_icon: false
-                - opacity: 1.0
+                - justify-self-name: center
+                - padding-left-name: 0px
+                - color: var(--icon-color-off)
+                - margin-right: 0px
+                - opacity_on: 0.8
+                - on_card_color: var(--homekit-card-off)
+                - on_name_color: var(--name-color-off)
                 - tap_action:
+                    action: toggle
+                    haptic: light
+                - hold_action:
                     action: toggle
                     haptic: light
             Stephanie:
@@ -44,12 +53,21 @@ card:
                 - entity: input_boolean.person_jimmy_stephanie
                 - name: Home
                 - icon: home
+                - size: 10%
                 - aspect_ratio: 4/1
                 - show_label: false
                 - show_state: false
-                - show_icon: false
-                - opacity: 1.0
+                - justify-self-name: center
+                - padding-left-name: 0px
+                - color: var(--icon-color-off)
+                - margin-right: 0px
+                - opacity_on: 0.8
+                - on_card_color: var(--homekit-card-off)
+                - on_name_color: var(--name-color-off)
                 - tap_action:
+                    action: toggle
+                    haptic: light
+                - hold_action:
                     action: toggle
                     haptic: light
         - type: 'custom:button-card'
@@ -82,12 +100,13 @@ card:
                 - type: custom:calendar-card
                   style: |
                     ha-card {
-                      border-radius: 12px;
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
                       font-family: Helvetica;
                       font-size: 12px;
-                      color: black;
-                      --paper-item-icon-color: black;
-                      background: var(--homekit-white);
+                      opacity: 0.8;
                     }
                   numberOfDays: 5
                   entities:
@@ -119,12 +138,13 @@ card:
                 - type: history-graph
                   style: |
                     ha-card {
-                      border-radius: 12px;
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
                       font-family: Helvetica;
                       font-size: 12px;
-                      color: black;
-                      --paper-item-icon-color: black;
-                      background: var(--homekit-white);
+                      opacity: 0.8;
                     }
                   entities:
                     - person.jimmy
@@ -143,14 +163,14 @@ card:
                 - type: map
                   style: |
                     ha-card {
-                      border-radius: 12px;
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
                       font-family: Helvetica;
                       font-size: 12px;
-                      color: black;
-                      --paper-item-icon-color: black;
-                      background: var(--homekit-white);
+                      opacity: 0.8;
                       overflow: hidden;
-                      position: relative;
                     }
                   aspect_ratio: 4x4
                   default_zoom: 15
@@ -181,12 +201,13 @@ card:
                 - type: 'custom:postnl-card'
                   style: |
                     ha-card {
-                      border-radius: 12px;
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
                       font-family: Helvetica;
                       font-size: 12px;
-                      color: black;
-                      --paper-item-icon-color: black;
-                      background: var(--homekit-white);
+                      opacity: 0.8;
                     }
                   delivery: sensor.postnl_jimmy_delivery
                 - type: 'custom:button-card'
@@ -214,12 +235,13 @@ card:
                 - type: entities
                   style: |
                     ha-card {
-                      border-radius: 12px;
-                      background: var(--homekit-white);
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
                       font-family: Helvetica;
                       font-size: 12px;
-                      color: black;
-                      --paper-item-icon-color: gray;
+                      opacity: 0.8;
                     }
                   entities:
                     - entity: sensor.postnl_jimmy_delivery

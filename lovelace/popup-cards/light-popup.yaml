@@ -1,7 +1,7 @@
   light.woonkamer_plafond:
     title: Woonkamer Plafond
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -11,7 +11,7 @@
   light.woonkamer_led_lampen:
     title: Woonkamer LED Lampen
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -21,7 +21,7 @@
   light.eettafel_lamp:
     title: Eettafel Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -31,7 +31,7 @@
   light.vloerlamp:
     title: Vloer Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -41,7 +41,7 @@
   light.tafel_lamp:
     title: Tafel Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -51,7 +51,7 @@
   light.gateway_light_7811dcdef324:
     title: Xiaomi Gateway LED
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -61,7 +61,7 @@
   light.kleine_kamer_plafondlampen:
     title: Plafond Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -71,7 +71,7 @@
   light.officeled:
     title: Kleine Kamer LEDs
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -81,7 +81,7 @@
   switch.keukenspots:
     title: Keuken Spotjes
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -91,7 +91,7 @@
   light.keuken_plafondlampen:
     title: Plafond Lampen
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -101,7 +101,7 @@
   light.bijkeukenlamp:
     title: Bijkeuken Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -111,7 +111,7 @@
   light.slaapkamer_led_lampen:
     title: Slaapkamer LEDs
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -121,7 +121,7 @@
   light.nachtkastje_jimmy:
     title: Nachtkastje Jimmy
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -131,7 +131,7 @@
   light.nachtkastje_stephanie:
     title: Nachtkastje Stephanie
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -141,7 +141,7 @@
   light.entree_lamp:
     title: Entree Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -151,7 +151,7 @@
   light.gang_lamp:
     title: Gang Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -161,7 +161,7 @@
   switch.koogeek_sw_056ce9:
     title: Badkamer Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -171,7 +171,7 @@
   light.tradfri_bulb_e27_ws_opal_980lm_4:
     title: Berging Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -181,7 +181,7 @@
   light.balkonlamp:
     title: Balkon Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
@@ -191,7 +191,7 @@
   light.toiletlamp:
     title: Toilet Lamp
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card

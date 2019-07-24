@@ -22,7 +22,7 @@ cards:
             - type: picture-entity
               style: |
                 ha-card {
-                  border-radius: 12px;
+                  border-radius: var(--border-radius);
                   overflow: hidden;
                 }
               entity: camera.gallerij_camera
@@ -43,7 +43,7 @@ cards:
             - type: picture-entity
               style: |
                 ha-card {
-                  border-radius: 12px;
+                  border-radius: var(--border-radius);
                   overflow: hidden;
                 }
               entity: camera.woonkamer_camera

@@ -2,7 +2,7 @@
   weather.dark_sky:
     title: Weather
     style:
-      border-radius: 12px
+      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -17,7 +17,8 @@
             - type: 'custom:sun-card'
               style: |
                 ha-card {
-                  border-radius: 12px;
+                  border-radius: var(--border-radius);
+                  background: var(--homekit-card-off);
                 }
               name: Sun
             - type: 'custom:button-card'
@@ -35,7 +36,7 @@
             - type: iframe
               style: |
                 ha-card {
-                  border-radius: 12px;
+                  border-radius: var(--border-radius);
                   overflow: hidden;
                   box-shadow: none;
                 }

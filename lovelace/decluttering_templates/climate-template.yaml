@@ -2,8 +2,9 @@ card:
   type: 'custom:thermostat-card'
   style: |
     ha-card {
-      border-radius: 12px;
-      background: var(--homekit-white);
+      border-radius: var(--border-radius);
+      background: var(--homekit-card-off);
+      opacity: 0.8;
     }
   ambient_temperature: '[[ambient_temperature]]'
   chevron_size: 100

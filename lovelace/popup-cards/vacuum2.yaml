@@ -1,0 +1,913 @@
+type: custom:swipe-card
+parameters:
+  effect: 'coverflow'
+  grabCursor: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### Status >'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Current Status'
+      - type: custom:decluttering-card
+        template: notification_card
+        variables:
+          - color: rgba(0, 0, 0, 0.5)
+          - icon: robot-vacuum
+          - content: '[[ sensor.vacuum_cleaner_status_sensor.state ]]'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Information'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_battery
+              - name: Battery
+              - show_label: false
+              - color: auto
+              - icon: battery
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_total_cleaned_area
+              - name: Total Cleaned
+              - show_label: false
+              - color: auto
+              - icon: shape-square-plus
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_total_cleaning_time
+              - name: Total Time
+              - show_label: false
+              - color: auto
+              - icon: timetable
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Cleaning'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_main_brush_left
+              - name: Main Brush
+              - icon: broom
+              - show_label: false
+              - color: gray
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_side_brush_left
+              - name: Side Brush
+              - icon: broom
+              - show_label: false
+              - color: gray
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_filter_left
+              - name: Filter
+              - show_label: false
+              - color: auto
+              - icon: air-filter
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: sensor.vacuum_sensor_dirty_left
+              - name: Sensors
+              - icon: leak
+              - show_label: false
+              - color: gray
+              - opacity: 0.8
+              - tap_action:
+                  action: none
+              - hold_action:
+                  action: more-info
+                  haptic: heavy
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+  - type: vertical-stack
+    cards: 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### < Basic Controls >'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### General'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state: Cleaning
+            card:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Clean
+                - label: Full Clean
+                - icon: play
+                - show_state: false
+                - color: gray
+                - off_name_color: black
+                - off_icon_color: green
+                - opacity: 1.0
+                - tap_action:
+                    action: call-service
+                    service: vacuum.start
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state_not: Cleaning
+            card:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Clean
+                - label: Full Clean
+                - icon: play
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - opacity: 0.4
+                - tap_action:
+                    action: call-service
+                    service: vacuum.start
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state: Paused
+            card:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Pause
+                - icon: pause
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - off_icon_color: orange
+                - opacity: 1.0
+                - tap_action:
+                    action: call-service
+                    service: vacuum.pause
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state_not: Paused
+            card:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Pause
+                - icon: pause
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - opacity: 0.4
+                - tap_action:
+                    action: call-service
+                    service: vacuum.pause
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state: Spot cleaning
+            card:    
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Spot Clean
+                - label: Move robot first!
+                - icon: hubspot
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - off_icon_color: red
+                - opacity: 1.0
+                - tap_action:
+                    action: call-service
+                    service: vacuum.clean_spot
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state_not: Spot cleaning
+            card:    
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Spot Clean
+                - label: Move robot first!
+                - icon: hubspot
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - opacity: 0.4
+                - tap_action:
+                    action: call-service
+                    service: vacuum.clean_spot
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Locate
+              - label: Where am I?
+              - icon: map-marker
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.4
+              - tap_action:
+                  action: call-service
+                  service: vacuum.locate
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                  haptic: light
+              - hold_action:
+                  action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state: Returning home
+            card:    
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Return
+                - label: To the dock
+                - icon: power-socket-eu
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - off_icon_color: navy
+                - opacity: 1.0
+                - tap_action:
+                    action: call-service
+                    service: vacuum.return_to_base
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.vacuum_cleaner_status_sensor
+                state_not: Returning home
+            card:    
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Return
+                - label: To the dock
+                - icon: power-socket-eu
+                - show_state: 
+                - color: gray
+                - off_name_color: black
+                - opacity: 0.4
+                - tap_action:
+                    action: call-service
+                    service: vacuum.return_to_base
+                    service_data:
+                      entity_id: vacuum.xiaomi_vacuum_cleaner
+                    haptic: light
+                - hold_action:
+                    action: none
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: conditional
+        conditions:
+          - entity: vacuum.xiaomi_vacuum_cleaner
+            state_not: docked
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Fan Speed'
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state: Quiet
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Quiet
+                      - label: Mode
+                      - icon: fan
+                      - off_spin: true
+                      - size: 15%
+                      - show_state: false
+                      - off_icon_color: Dodgerblue
+                      - off_name_color: black
+                      - opacity: 1.0
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Quiet
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state_not: Quiet
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Quiet
+                      - label: Mode
+                      - icon: fan
+                      - size: 15%
+                      - show_state: false
+                      - color: gray
+                      - off_name_color: black
+                      - opacity: 0.4
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Quiet
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state: Turbo
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Turbo
+                      - label: Mode
+                      - icon: fan
+                      - size: 20%
+                      - off_spin: true
+                      - show_state: false
+                      - off_icon_color: Dodgerblue
+                      - off_name_color: black
+                      - opacity: 1.0
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Turbo
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state_not: Turbo
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Turbo
+                      - label: Mode
+                      - icon: fan
+                      - size: 20%
+                      - show_state: false
+                      - color: gray
+                      - off_name_color: black
+                      - opacity: 0.4
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Turbo
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state: Max
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Max
+                      - label: Mode
+                      - icon: fan
+                      - off_spin: true
+                      - show_state: false
+                      - off_icon_color: Dodgerblue
+                      - off_name_color: black
+                      - opacity: 1.0
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Max
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state_not: Max
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Max
+                      - label: Mode
+                      - icon: fan
+                      - show_state: false
+                      - color: gray
+                      - off_name_color: black
+                      - opacity: 0.4
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Max
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state: Balanced
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Balanced
+                      - label: Mode
+                      - icon: sync
+                      - off_spin: true
+                      - show_state: false
+                      - off_icon_color: orange
+                      - off_name_color: black
+                      - opacity: 1.0
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Balanced
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state_not: Balanced
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Balanced
+                      - label: Mode
+                      - icon: sync
+                      - show_state: false
+                      - color: gray
+                      - off_name_color: black
+                      - opacity: 0.4
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Balanced
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state: Mop
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Mop
+                      - label: Mode
+                      - icon: checkbox-multiple-blank-circle-outline
+                      - off_spin: true
+                      - show_state: false
+                      - off_icon_color: navy
+                      - off_name_color: black
+                      - opacity: 1.0
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Mop
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: conditional
+                  conditions:
+                    - entity: input_select.xiaomi_vacuum
+                      state_not: Mop
+                  card:
+                    type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Mop
+                      - label: Mode
+                      - icon: checkbox-multiple-blank-circle-outline
+                      - show_state: false
+                      - color: gray
+                      - off_name_color: black
+                      - opacity: 0.4
+                      - tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            option: Mop
+                            entity_id: input_select.xiaomi_vacuum
+                          haptic: light
+                      - hold_action:
+                          action: none
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  aspect_ratio: 1/1
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px 
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### < Zoned Cleaning >'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Floorplan'
+      - type: horizontal-stack
+        cards: 
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+          - type: custom:xiaomi-vacuum-map-card
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                background: var(--homekit-card-off);
+                color: var(--label-color-off);
+              }
+            entity: vacuum.xiaomi_vacuum_cleaner
+            map_image: '/local/images/xiaomi-map.png'
+            base_position:
+              x: 600
+              y: 300
+            reference_point:
+              x: 546
+              y: 235
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### < Presets'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Predefined Zones'
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Kleine Kamer
+              - icon: desktop-tower-monitor
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[26252,24785,29502,29035,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Woonkamer
+              - icon: sofa
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[19375,24752,26175,28752,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Slaapkamer
+              - icon: hotel
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[19207,29558,20157,33658,1],[20142,29563,21792,31063,1],[21826,29567,23426,33567,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Gang
+              - icon: glassdoor
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[23519,28738,25469,31688,1],[25427,28788,27527,30238,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Keuken
+              - icon: fridge-outline
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[26006,30366,29356,33766,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Hal
+              - icon: door
+              - show_state: false
+              - color: gray
+              - off_name_color: black
+              - opacity: 0.8
+              - tap_action:
+                  action: call-service
+                  service: vacuum.send_command
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+                    command: app_zoned_clean
+                    params: [[27462,28885,29562,30385,1]]
+                  haptic: light
+                hold_action:
+                  action: none
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - width: 10px 
+  

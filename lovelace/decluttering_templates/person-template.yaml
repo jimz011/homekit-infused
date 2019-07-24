@@ -7,7 +7,7 @@ card:
   type: picture-elements
   style: |
     ha-card {
-      border-radius: 12px;
+      border-radius: var(--border-radius);
       overflow: hidden;
     }
   image: '[[image]]'

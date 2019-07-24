@@ -6,6 +6,7 @@ cards:
       - mini-graph-card
       - decluttering-card
       - button-card
+      - thermostat-card
     card:
       type: vertical-stack
       cards:

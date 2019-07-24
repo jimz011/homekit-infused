@@ -2,10 +2,10 @@ card:
   type: 'custom:light-entity-card'
   style: |
     ha-card {
-      background: var(--homekit-white);
+      background: var(--homekit-card-off);
       opacity: 0.7;
-      border-radius: 12px;
-      color: black;
+      border-radius: var(--border-radius);
+      color: var(--name-color-off);
     }
   entity: '[[entity]]'
   group: false

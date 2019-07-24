@@ -5,237 +5,257 @@ wait:
   - decluttering-card
   - button-card
   - vertical-stack-in-card
+  - check-button-card
 card:
-type: vertical-stack
-cards:
-  - type: custom:decluttering-card
-    template: header_text
-    variables:
-      - content: '### Tala'
-  - type: horizontal-stack
-    cards:   
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - width: 10px 
-      - type: custom:state-switch
-        entity: user
-        states:
-          Jimmy:
-            type: 'custom:decluttering-card'
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.tala_map_jimmy
-              - name: Home
-              - icon: home
-              - aspect_ratio: 4/1
-              - show_label: false
-              - show_state: false
-              - show_icon: false
-              - opacity: 1.0
-              - tap_action:
-                  action: toggle
-                  haptic: light
-          Stephanie:
-            type: 'custom:decluttering-card'
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.tala_map_stephanie
-              - name: Home
-              - icon: home
-              - aspect_ratio: 4/1
-              - show_label: false
-              - show_state: false
-              - show_icon: false
-              - opacity: 1.0
-              - tap_action:
-                  action: toggle
-                  haptic: light
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - width: 10px 
-  - type: custom:swipe-card
-    parameters:
-      effect: 'coverflow'
-      grabCursor: true
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: header_text
-            variables:
-              - content: '#### Information >'
-          - type: custom:decluttering-card
-            template: header_text
-            variables:
-              - content: '##### Attendance'
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px
-              - type: picture-entity
-                style: |
-                  ha-card {
-                    border-radius: 12px;
-                    overflow: hidden;
-                  }
-                image: '/local/images/tala2.png'
-                entity: person.tala
-              - type: custom:button-card
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px
-              - type: 'custom:vertical-stack-in-card'
-                cards:
-                  - type: custom:decluttering-card
-                    template: check_button_card
-                    variables:
-                      - title: Borstelen
-                      - entity: sensor.animals_tala_borstel
-                      - value 1: 3 days
-                      - value 2: 6 days
-                      - value 3: 9 days
-                  - type: custom:decluttering-card
-                    template: check_button_card
-                    variables:
-                      - title: Vaccinaties
-                      - entity: sensor.animals_tala_vaccinations
-                      - value 1: 3 months
-                      - value 2: 6 months
-                      - value 3: 9 months
-                  - type: custom:decluttering-card
-                    template: check_button_card
-                    variables:
-                      - title: Vlooien
-                      - entity: sensor.animals_tala_fleadrops
-                      - value 1: 1 month
-                      - value 2: 3 months
-                      - value 3: 6 months
-                  - type: custom:decluttering-card
-                    template: check_button_card
-                    variables:
-                      - title: Ontwormen
-                      - entity: sensor.animals_tala_worm
-                      - value 1: 2 months
-                      - value 2: 3 months
-                      - value 3: 4 months
-                  - type: custom:decluttering-card
-                    template: check_button_card
-                    variables:
-                      - title: Trimmen
-                      - entity: sensor.animals_tala_trim
-                      - value 1: 9 months
-                      - value 2: 12 months
-                      - value 3: 18 months
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-              - type: entities
-                style: |
-                  ha-card {
-                    border-radius: 12px;
-                    background: var(--homekit-white);
-                    font-family: Helvetica;
-                    font-size: 12px;
-                    color: black;
-                    --paper-item-icon-color: gray;
-                  }
-                entities:        
-                  - type: weblink
-                    name: Nossek & Verheijden Bellen
-                    icon: 'mdi:phone'
-                    url: tel:+31402571517
-                  - type: weblink
-                    name: MedPets Voeding 
-                    icon: 'mdi:earth'
-                    url: https://www.medpets.nl/vetcomplex+digestive+dog/?lpc=478-464-355
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: header_text
-            variables:
-              - content: '#### < Location'
-          - type: custom:decluttering-card
-            template: header_text
-            variables:
-              - content: "##### History & Map"
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-              - type: history-graph
-                style: |
-                  ha-card {
-                    border-radius: 12px;
-                    font-family: Helvetica;
-                    font-size: 12px;
-                    color: black;
-                    --paper-item-icon-color: black;
-                    background: var(--homekit-white);
-                  }
-                entities:
-                  - person.tala
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px 
-              - type: map
-                style: |
-                  ha-card {
-                    border-radius: 12px;
-                    font-family: Helvetica;
-                    font-size: 12px;
-                    color: black;
-                    --paper-item-icon-color: black;
-                    background: var(--homekit-white);
-                    overflow: hidden;
-                    position: relative;
-                  }
-                aspect_ratio: 4x4
-                default_zoom: 15
-                entities:
-                  - person.tala
-              - type: 'custom:button-card'
-                color_type: blank-card
-                styles:
-                  card:
-                    - width: 10px     
+  type: vertical-stack
+  cards:
+    - type: custom:decluttering-card
+      template: header_text
+      variables:
+        - content: '##### Tala'
+    - type: horizontal-stack
+      cards:   
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+        - type: custom:state-switch
+          entity: user
+          states:
+            Jimmy:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.tala_map_jimmy
+                - name: Home
+                - icon: home
+                - size: 10%
+                - aspect_ratio: 4/1
+                - show_label: false
+                - show_state: false
+                - justify-self-name: center
+                - padding-left-name: 0px
+                - color: var(--icon-color-off)
+                - margin-right: 0px
+                - opacity_on: 0.8
+                - on_card_color: var(--homekit-card-off)
+                - on_name_color: var(--name-color-off)
+                - tap_action:
+                    action: toggle
+                    haptic: light
+                - hold_action:
+                    action: toggle
+                    haptic: light
+            Stephanie:
+              type: 'custom:decluttering-card'
+              template: switch_button_card
+              variables:
+                - entity: input_boolean.tala_map_stephanie
+                - name: Home
+                - icon: home
+                - size: 10%
+                - aspect_ratio: 4/1
+                - show_label: false
+                - show_state: false
+                - justify-self-name: center
+                - padding-left-name: 0px
+                - color: var(--icon-color-off)
+                - margin-right: 0px
+                - opacity_on: 0.8
+                - on_card_color: var(--homekit-card-off)
+                - on_name_color: var(--name-color-off)
+                - tap_action:
+                    action: toggle
+                    haptic: light
+                - hold_action:
+                    action: toggle
+                    haptic: light
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - width: 10px 
+    - type: custom:swipe-card
+      parameters:
+        effect: 'coverflow'
+        grabCursor: true
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '#### Information >'
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Attendance'
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+                - type: picture-entity
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      overflow: hidden;
+                    }
+                  image: '/local/images/tala2.png'
+                  entity: person.tala
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px
+                - type: 'custom:vertical-stack-in-card'
+                  cards:
+                    - type: custom:decluttering-card
+                      template: check_button_card
+                      variables:
+                        - title: Borstelen
+                        - entity: sensor.animals_tala_borstel
+                        - value 1: 3 days
+                        - value 2: 6 days
+                        - value 3: 9 days
+                    - type: custom:decluttering-card
+                      template: check_button_card
+                      variables:
+                        - title: Vaccinaties
+                        - entity: sensor.animals_tala_vaccinations
+                        - value 1: 3 months
+                        - value 2: 6 months
+                        - value 3: 9 months
+                    - type: custom:decluttering-card
+                      template: check_button_card
+                      variables:
+                        - title: Vlooien
+                        - entity: sensor.animals_tala_fleadrops
+                        - value 1: 1 month
+                        - value 2: 3 months
+                        - value 3: 6 months
+                    - type: custom:decluttering-card
+                      template: check_button_card
+                      variables:
+                        - title: Ontwormen
+                        - entity: sensor.animals_tala_worm
+                        - value 1: 2 months
+                        - value 2: 3 months
+                        - value 3: 4 months
+                    - type: custom:decluttering-card
+                      template: check_button_card
+                      variables:
+                        - title: Trimmen
+                        - entity: sensor.animals_tala_trim
+                        - value 1: 9 months
+                        - value 2: 12 months
+                        - value 3: 18 months
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: entities
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  entities:        
+                    - type: weblink
+                      name: Nossek & Verheijden Bellen
+                      icon: 'mdi:phone'
+                      url: tel:+31402571517
+                    - type: weblink
+                      name: MedPets Voeding 
+                      icon: 'mdi:earth'
+                      url: https://www.medpets.nl/vetcomplex+digestive+dog/?lpc=478-464-355
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '#### < Location'
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: "##### History & Map"
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: history-graph
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - person.tala
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px 
+                - type: map
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      overflow: hidden;
+                    }
+                  aspect_ratio: 4x4
+                  default_zoom: 15
+                  entities:
+                    - person.tala
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - width: 10px       

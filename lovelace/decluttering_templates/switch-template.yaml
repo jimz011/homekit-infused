@@ -2,7 +2,6 @@ default:
   - size: 25%
   - lock: false
   - color: auto
-  - background_color: var(--homekit-white)
   - variable: spin
   - spin: false
   - off_variable: spin
@@ -23,12 +22,19 @@ default:
   - margin-left: 0px
   - label: '&nbsp;'
   - opacity: 0.4
-  - off_icon_color: gray
-  - off_name_color: gray
-  - off_state_color: gray
-  - off_label_color: gray
+  - opacity_on: 1.0
+  - off_icon_color: var(--icon-color-off)
+  - off_name_color: var(--name-color-off)
+  - off_state_color: var(--state-color-off)
+  - off_label_color: var(--label-color-off)
+  - on_name_color: var(--name-color-on)
+  - on_state_color: var(--state-color-on)
+  - on_label_color: var(--label-color-on)
+  - on_card_color: var(--homekit-card-on)
   - label_font_size: 11px
   - label_font_weight: normal
+  - justify-self-name: start
+  - padding-left-name: 10px
 card:
   type: custom:button-card
   name: '[[name]]'
@@ -49,14 +55,14 @@ card:
   hold_action: '[[hold_action]]'
   styles:
     card:
-      - border-radius: 12px
-      - --paper-card-background-color: '[[background_color]]'
+      - border-radius: var(--border-radius)
+      - --ha-card-background: var(--homekit-card-off)
     label:
-      - color: gray
       - font-size: 11px
       - font-family: Helvetica
       - padding: 0px 10px
       - justify-self: start
+      - color: var(--label-color-off)
     state:
       - font-size: 11px
       - font-family: Helvetica
@@ -65,7 +71,7 @@ card:
       - text-transform: capitalize
       - font-weight: bold
       - padding-left: 10px
-      - color: gray
+      - color: var(--upcoming-color)
     grid:
       - grid-template-areas: '"i" "n" "s" "l"'
       - grid-template-columns: 1fr
@@ -76,22 +82,27 @@ card:
       - margin-right: '[[margin-right]]'
       - margin-left: '[[margin-left]]'
     name:
-      - justify-self: start
-      - padding-left: 10px
+      - color: var(--upcoming-color)
+      - justify-self: '[[justify-self-name]]'
+      - padding-left: '[[padding-left-name]]'
       - font-weight: bold
       - font-family: Helvetica 
       - font-size: 13px
-      - color: black
   state:
     - value: "on" 
       '[[variable]]': '[[spin]]'  
       styles:
+        card:
+          - --ha-card-background: '[[on_card_color]]'
+          - opacity: '[[opacity_on]]'
         name:
-          - color: black
+          - color: '[[on_name_color]]'
         state:
-          - color: gray
+          - color: '[[on_state_color]]'
         lock:
-          - color: black
+          - color: var(--lock-color-on)
+        label:
+          - color: '[[on_label_color]]'
     - value: "off"
       '[[off_variable]]': '[[off_spin]]'
       styles:
@@ -108,33 +119,42 @@ card:
           - font-size: '[[label_font_size]]'
           - font-weight: '[[label_font_weight]]'
         lock:
-          - color: black
+          - color: var(--lock-color-off)
     - value: "idle"
       styles:
         card:
-          - opacity: 0.7
+          - opacity: 0.8
         name:
-          - color: gray
+          - color: var(--name-color-off)
         label:
-          - color: gray
+          - color: var(--label-color-off)
         icon:
-          - color: gray
+          - color: var(--icon-color-off)
+        lock:
+          - color: var(--lock-color-off)
     - value: "unavailable"
       styles:
         card:
           - opacity: 0.2
-        icon:
-          - color: gray
-        state:
-          - color: gray
         name:
-          - color: gray
+          - color: var(--name-color-off)
+        label:
+          - color: var(--label-color-off)
+        state:
+          - color: var(--state-color-off)
+        icon:
+          - color: var(--icon-color-off)
+        lock:
+          - color: var(--lock-color-off)
     - value: "disarmed"
       styles:
+        card:
+          - opacity: 0.8
+          - --ha-card-background: var(--homekit-card-off)
         name:
-          - color: black
+          - color: var(--name-color-off)
         state:
-          - color: gray
+          - color: var(--state-color-off)
           - font-weight: normal
         icon:
           - color: green
@@ -142,10 +162,10 @@ card:
       icon: "mdi:alert"
       styles:
         name:
-          - color: black
+          - color: var(--name-color-on)
         state:
-          - color: gray
-          - 
+          - color: var(--label-color-on)
+          - font-weight: normal
         icon:
           - color: red
           - animation: blink 2s ease infinite
@@ -153,9 +173,10 @@ card:
       icon: "mdi:alert"
       styles:
         name:
-          - color: black
+          - color: var(--name-color-on)
         state:
-          - color: gray
+          - color: var(--label-color-on)
+          - font-weight: normal
         icon:
           - color: red
           - animation: blink 2s ease infinite
@@ -163,148 +184,13 @@ card:
       icon: "mdi:clock-alert-outline"
       styles:
         name:
-          - color: black
+          - color: var(--name-color-on)
         state:
-          - color: gray
+          - color: var(--label-color-on)
+          - font-weight: normal
         icon:
           - color: orange
           - animation: blink 1s ease infinite
-    - value: "Agenda"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Locatie"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Algemeen"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Post"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Schoonmaken"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-        label:
-          - color: '[[off_label_color]]'
-          - font-size: '[[label_font_size]]'
-          - font-weight: '[[label_font_weight]]'
-    - value: "Auto Jimmy"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-        label:
-          - color: '[[off_label_color]]'
-          - font-size: '[[label_font_size]]'
-          - font-weight: '[[label_font_weight]]'
-    - value: "Auto Stephanie"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-        label:
-          - color: '[[off_label_color]]'
-          - font-size: '[[label_font_size]]'
-          - font-weight: '[[label_font_weight]]'
-    - value: "scening"
-      styles:
-        card:
-          - opacity: 0.4
-        icon:
-          - color: gray
-        name:
-          - color: gray
-        state:
-          - color: gray
-        lock:
-          - color: black
-    - value: "Woonkamer"
-      styles:
-        card:
-          - opacity: 0.9
-        icon:
-          - color: gray
-        name:
-          - color: gray
-        state:
-          - color: gray
-        lock:
-          - color: black
-    - value: "Slaapkamer"
-      styles:
-        card:
-          - opacity: 0.9
-        icon:
-          - color: gray
-        name:
-          - color: gray
-        state:
-          - color: gray
-        lock:
-          - color: black
-    - value: "Informatie"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Map"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Basic"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
-    - value: "Presets"
-      styles:
-        card:
-          - opacity: '[[opacity]]'
-        name:
-          - color: black
-        state:
-          - color: gray
     - operator: 'default'
       styles:
         icon:

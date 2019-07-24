@@ -33,10 +33,9 @@ card:
     haptic: heavy
   styles:
     card:
-      - border-radius: 12px
-      - --paper-card-background-color: var(--homekit-white)
+      - border-radius: var(--border-radius)
+      - --ha-card-background: var(--homekit-card-off)
     label:
-      - color: gray
       - font-size: 11px
       - font-family: Helvetica
       - padding: 0px 10px
@@ -67,31 +66,39 @@ card:
     - value: "on" 
       spin: '[[spin]]'  
       styles:
+        card:
+          - --ha-card-background: var(--homekit-card-on)
         name:
-          - color: black
+          - color: var(--name-color-on)
         state:
-          - color: gray
+          - color: var(--state-color-on)
         lock:
-          - color: black
+          - color: var(--lock-color-on)
+        label:
+          - color: var(--label-color-on)
     - value: "off"
       styles:
         card:
           - opacity: 0.4
         icon:
-          - color: gray
+          - color: var(--icon-color-off)
         name:
-          - color: gray
+          - color: var(--name-color-off)
         state:
-          - color: gray
+          - color: var(--state-color-off)
         lock:
-          - color: black
+          - color: var(--lock-color-off)
+        label:
+          - color: var(--label-color-off)
     - value: "unavailable"
       styles:
         card:
           - opacity: 0.2
         icon:
-          - color: gray
-        state:
-          - color: gray
+          - color: var(--icon-color-off)
         name:
-          - color: gray
+          - color: var(--name-color-off)
+        state:
+          - color: var(--state-color-off)
+        lock:
+          - color: var(--lock-color-off)

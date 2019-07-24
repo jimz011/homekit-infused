@@ -10,7 +10,7 @@ card:
       style: |
         ha-card {
           background: [[color]];
-          border-radius: 12px;
+          border-radius: var(--border-radius);
           font-size: 13px;
           font-family: Helvetica;
         }

@@ -18,12 +18,19 @@ card:
           - type: custom:simple-weather-card
             style: |
               ha-card {
-                border-radius: 12px;
-                background: rgba(11, 11, 11, 0.6);
+                border-radius: var(--border-radius);
+                opacity: 0.8;
+                font-size: 12px;
+                font-family: Helvetica;
+                font-weight: bold;
               }
             entity: weather.dark_sky
             name: "Eindhoven"
-            backdrop: false
+            backdrop:
+              fade: true
+              day: "var(--homekit-card-on)"
+              night: "var(--homekit-card-off)"
+              text: "var(--weather-color)"
           - type: 'custom:button-card'
             color_type: blank-card
             styles:
@@ -142,9 +149,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.lovelace_maintenance_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -155,9 +165,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.lovelace_remote_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -168,9 +181,12 @@ card:
               - tap_action: 
                   action: more-info
                   haptic: light
+              - hold_action: 
+                  action: more-info
+                  haptic: light
               - entity: camera.gallerij_camera
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -184,9 +200,11 @@ card:
                   service_data:
                     entity_id: input_boolean.lovelace_alarm_panel_[[name]]
                   haptic: light
+              - hold_action:
+                  action: none
               - entity: alarm_control_panel.home_alarm
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: 'custom:button-card'
             color_type: blank-card
             styles:
@@ -209,9 +227,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.tala_map_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -222,9 +243,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.lovelace_scenes_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -235,9 +259,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.lovelace_vacuum_cleaner_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -248,9 +275,12 @@ card:
               - tap_action: 
                   action: toggle
                   haptic: light
+              - hold_action: 
+                  action: toggle
+                  haptic: light
               - entity: input_boolean.lovelace_menu_[[name]]
               - margin-right: 40px
-              - opacity: 0.7
+              - opacity: 0.8
           - type: 'custom:button-card'
             color_type: blank-card
             styles:

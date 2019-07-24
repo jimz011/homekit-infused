@@ -3,7 +3,7 @@ cards:
   - type: custom:decluttering-card
     template: header_text
     variables:
-      - content: '### Alarm Panel'
+      - content: '##### Alarm Panel'
   - type: horizontal-stack
     cards:   
       - type: 'custom:button-card'
@@ -21,12 +21,21 @@ cards:
               - entity: input_boolean.lovelace_alarm_panel_jimmy
               - name: Home
               - icon: home
+              - size: 10%
               - aspect_ratio: 4/1
               - show_label: false
               - show_state: false
-              - show_icon: false
-              - opacity: 1.0
+              - justify-self-name: center
+              - padding-left-name: 0px
+              - color: var(--icon-color-off)
+              - margin-right: 0px
+              - opacity_on: 0.8
+              - on_card_color: var(--homekit-card-off)
+              - on_name_color: var(--name-color-off)
               - tap_action:
+                  action: toggle
+                  haptic: light
+              - hold_action:
                   action: toggle
                   haptic: light
           Stephanie:
@@ -36,12 +45,21 @@ cards:
               - entity: input_boolean.lovelace_alarm_panel_stephanie
               - name: Home
               - icon: home
+              - size: 10%
               - aspect_ratio: 4/1
               - show_label: false
               - show_state: false
-              - show_icon: false
-              - opacity: 1.0
+              - justify-self-name: center
+              - padding-left-name: 0px
+              - color: var(--icon-color-off)
+              - margin-right: 0px
+              - opacity_on: 0.8
+              - on_card_color: var(--homekit-card-off)
+              - on_name_color: var(--name-color-off)
               - tap_action:
+                  action: toggle
+                  haptic: light
+              - hold_action:
                   action: toggle
                   haptic: light
       - type: 'custom:button-card'
@@ -59,10 +77,11 @@ cards:
       - type: alarm-panel
         style: |
           ha-card {
-            border-radius: 12px;
-            background: var(--homekit-white);
-            --label-badge-text-color: '#000000';
-            color: black;
+            border-radius: var(--border-radius);
+            background: var(--homekit-card-off);
+            --label-badge-text-color: var(--label-color-off);
+            color: var(--name-color-on);
+            opacity: 0.8;
           }
         entity: alarm_control_panel.home_alarm
       - type: 'custom:button-card'

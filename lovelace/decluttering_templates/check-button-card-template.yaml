@@ -4,8 +4,8 @@ card:
   entity: '[[entity]]'
   style: |
     ha-card {
-      border-radius: 12px;
-      background: 'rgba(0, 0, 0, 0.0)';
+      border-radius: var(--border-radius);
+      background: rgba(0,0,0,0.0);
       padding-bottom: 2px;
       padding-top: 2px;
       font-family: Helvetica;

@@ -5,11 +5,12 @@ card:
   type: 'custom:mini-graph-card'
   style: |
     ha-card {
-      background: var(--homekit-white);
-      border-radius: 12px;
-      color: gray;
-      --paper-item-icon-color: black;
+      background: var(--homekit-card-off);
+      border-radius: var(--border-radius);
+      color: var(--label-color-off);
+      --paper-item-icon-color: var(--icon-color-off);
       font-weight: bold;
+      opacity: 0.8;
     }
   entities: 
     - sensor.[[entity]]
