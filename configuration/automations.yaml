@@ -2612,3 +2612,145 @@
      data:
        entity_id: vacuum.xiaomi_vacuum_cleaner
        fan_speed: 105
+
+# Set theme on startup
+- alias: 'Set theme light at startup'
+  initial_state: 'true'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: 'above_horizon'
+  action:
+    service: frontend.set_theme
+    data:
+      name: homekit_light_gray
+
+- alias: 'Set theme dark at startup'
+  initial_state: 'true'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_gray
+# Theme Selector Automations
+- alias: 'theme selector input_select 1'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Grey Light'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_light_gray
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 2'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Grey Dark'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_gray
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 3'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Blue Light'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_light_blue
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 4'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Blue Dark'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_blue
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 5'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Blue Light Squared'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_light_blue_squared
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 6'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Blue Dark Squared'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_blue_squared
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.theme_selector
+- alias: 'theme selector input_select 7'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+      to: 'Automatic (default)'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_gray
+    - service: homeassistant.turn_on
+      data:
+        entity_id: group.theme_selector
+# Theme Day/Night Cycle
+- alias: 'Set dark theme for the night'
+  initial_state: true
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:00:00'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_dark_gray
+- alias: 'Set light theme for the day'
+  initial_state: true
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: '+00:00:00'
+  action:
+    - service: frontend.set_theme
+      data:
+        name: homekit_light_gray
