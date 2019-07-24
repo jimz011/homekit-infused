@@ -2,19 +2,25 @@
 My current Home Assistant install (current running version 0.96.3)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 22/07/2019)
-### Changes (22/07/2019)
+## Lovelace setup by jimzz011 July 2019 (*updated: 24/07/2019)
+### Changes (24/07/2019)
 Breaking Change:
-I am terribly sorry for everyone that just adapted my setup, but honestly (and I have mentioned it before) my last setup was experimental and so it was prone to change. In this update there is a major change that changes the way how the frontpage gets loaded for each person. I have decluttered all the double entries as a result of last updates state-switch/multi-user setup. Now every user will load the settings of a single template instead of having multiple configs per user. This makes managing the menu's a lot easier and the biggest benefit of this is that adding a user will only require you to setup additional input_booleans. (in this case I suffixed every input_boolean for a specific user with `_username`, just copy the input_booleans in your setup and change the name to add another user. Easy as it could be and it saves some 6000 lines of code (as this was the case after the experimental setup). If you have adopted the latest release you might have noticed that the performance of it went down and that it wasn't nearly as fast as of what you were used to in this setup. That was mostly due to the fact that code was duplicated for multiple users, as this is no longer the case you will find that performance is back on par with what you were used to in older configurations of this setup.
+Yet another major release and for some the release you have been eager to see. Unfortunately this comes with some breaking changes to the setup. I have added a lot of detail to the main menu (watch the renewed video in the introduction section for the full review), but to do this I did not want to duplicate all the code, nor did I want to rewrite it as a decluttering template. So instead of using a decluttering card I used a lot of !includes. This is to have the same page load on different views without the need of adding extra code, with the added benefit: change it on one page = change it on all. Most items that were previously only accessible via the homescreen will now be available in the main menu as well (the homescreen remains unchanged). This change has only added a few lines of code which is great :P.
 
-Changes:
-- Massive overhaul to the way this setup handles multiple users. It is super easy to add another user to your setup!
-- Added a card-loader mod on this setup, this will fix the problem where cards would not always be loaded until a refresh. This will make the config wait for those cards to be loaded before showing them in lovelace. You will probably not notice a difference in performance. You can find the link to card-loader below in the addons section of the docs.
+Themes:
+Finally I have gotten around at theming. Well not exactly the entire instance of HA, but just the parts we actually use every day (which is lovelace ofcourse). So to get me started much faster than I could have I have used a global theme named slate thanks to @SneakyPie. I have modified it slightly so that the header would be black (this is necessary for iphone users to have it look nice when switching themes). Unfortunately it comes with a readability downside of the HA interface (which is still easily readable but not the most pleasing). Unfortunately I do not know a way to make the header black without having some other colors change as well (which is the reason it is less readable). No worries, we only need that panel for configuration right? I have thought about this and some of the basic functions can be found in the new main menu (like restarting HA).
+So what have I themed then you might ask? Well simple, I have themed everything else in Lovelace what you can actually see (and what our spouses will use every day). And I think you might like it. The idea was to have a close relation with Apple's Homekit and having seen Homekit in iOS 13 with the new dark mode inspired me to do the same to my lovelace setup. So in this setup I have tried many different configurations but I thought to make it a lot simpler for me.
 
-### Changes (20/07/2019)
-Only minor changes in this update. Note: This update is mostly beneficial for iPhone users with 3d touch. If you do not have this there is no real need of updating, though you could if you want to be up-to-date ofcourse.
-- Added 3d touch to the setup, this is done with this beautiful addon called deep-press, this with special thanks to @roflcoopter. You can install this via HACS or find the link below in the addons section of the docs. This will make iphone users with 3d touch really really happy. I am sure many of you iphone users struggle to get the hold_action going on any iphone and sometimes it works and sometimes it doesn't. Yes we might have learnt to work around this, but this is not the case for our spouses that don't think it works great. This will not replace the hold action, but add a 3d touch action to the button as well. Now when you firmly press on a button (just like you would with 3d touch). The 3d touch action will start the hold_action (so if you have a more-info window on your hold_action, it would show exactly that). So no longer will you need to struggle with the hold action on iPhones that have 3d touch.
-- Minor fixes.
+Dark Mode:
+Yes with this theming stuff it means I can now set themes globally (and I mean just the lovelace frontend) and it is super easy to edit them. All configuration that was required is now set in all the templates/files and the result will look something like the video below. And it can be even better! Dark mode will automatically enable when the sun sets, light mode will be re-enabled when the sun rises again. Just like iOS 13 would do it and just as Homekit would show it to you. Click on the link to see the supporting video!
+
+Summary:
+- Added a lot of new menu items and shortcuts
+- Added dynamic themes
+- Optimized a lot of code
+- Minor bugfixes
+
+[![Watch Video](https://img.youtube.com/vi/bosM57vFM9s/0.jpg)](https://youtu.be/bosM57vFM9s)
 
 ### For older changelogs please scroll down to the bottom of the page!
 
@@ -22,9 +28,7 @@ Only minor changes in this update. Note: This update is mostly beneficial for iP
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
 
 ### Screenshots and Video
-
-Screenshot Summary (find more screenshots in the screenshots folder with the rest of the files):
-*Note: Screenshots/videos are a bit outdated, most views will largely still look the same, it is just more optimized now and it has had a lot more attention to small details like spacings between buttons and borders etc. I will post new screens/vids in the future.
+*Note: Screenshots are a bit outdated, most views will largely still look the same, it is just more optimized now and it has had a lot more attention to small details like spacings between buttons and borders etc. I will post new screens in the future.
 
 <img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/1.jpg" width="300" height="650">
 <img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/2.jpg" width="300" height="650">
@@ -36,14 +40,11 @@ Screenshot Summary (find more screenshots in the screenshots folder with the res
 <img src="https://github.com/jimz011/homeassistant/blob/master/screenshots/red2.jpg" width="300" height="650">
 
 #### Don't stop here! Watch the video!
-*Note: Screenshots/videos are a bit outdated, most views will largely still look the same, it is just more optimized now and it has had a lot more attention to small details like spacings between buttons and borders etc. I will post new screens/vids in the future.
 There is SOO much going on in just 5 views that I can't possibly throw all the screenshots here without making this document unreadable. Please refer to the screenshots folder for more screenshots OR watch the video below which will give you the grand tour into this setup!
 
-Video: CLICK ON THE IMAGE TO START VIDEO
+Video: CLICK ON THE IMAGE TO START VIDEO (*updated 24/07/2019)
 
-[![Watch Video](https://img.youtube.com/vi/cBBTLzPO5Ag/0.jpg)](https://youtu.be/cBBTLzPO5Ag)
-
-sorry for the bad filming, I had to use accessibility tools to show you where I am actually pressing or it might get really confusing. This also meant it really limited my way of interacting with the device and thus making some errors sometimes. You will have to forgive me on that.
+[![Watch Video](https://img.youtube.com/vi/AQwMQndGYuQ/0.jpg)](https://youtu.be/AQwMQndGYuQ)
 
 ### How to use
 
@@ -93,7 +94,7 @@ Cards:
 * [Lovelace-Markdown-Mod](https://github.com/thomasloven/lovelace-markdown-mod) - HACS Supported, install with HACS - Mods the core markdown card to be more useful. Previously useful-markdown-card was used for this
 * [Vertical-Stack-In-Card](https://github.com/custom-cards/vertical-stack-in-card) - HACS Supported, install with HACS - You do not need this and I would not recommend using it on this setup. I have modified the js to have a transparent background as this card enforces a background. I'd recommend using a regular vertical-stack for this. I only use this for my custom:check-marker-cards
 * [Mini-Media-Player](https://github.com/kalkih/mini-media-player) - HACS Supported, install with HACS - Beautiful replacement for the standard media player. I'd recommend this. The border-radius can not be set for iOS with a card-modder card on this. You will have to change the border radius in the js file of the card. Don't know what you are doing? Don't worry you can always redownload the file. Or just leave it as is.
-* [Lovelace-Xiaomi-Vacuum-Map-Card](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card) - Not supported, install Manually - This is the vacuum map card I use to set up zoned cleaning or make the robot move to a certain location on the map! If you have a vacuum then this is a must and I highly recommend you to download this
+* [Lovelace-Xiaomi-Vacuum-Map-Card](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card) - HACS Supported, install with HACS - This is the vacuum map card I use to set up zoned cleaning or make the robot move to a certain location on the map! If you have a vacuum then this is a must and I highly recommend you to download this
 * [Calendar-Card](https://github.com/ljmerza/calendar-card) - This is the card I use to show our calendars. Recommended!
 * [Simple-Weather-Card](https://github.com/kalkih/simple-weather-card) - HACS Supported, install with HACS - This is the beautiful minimalistic weather card which is seen on the top of my home screen. I like it a lot as it takes so much less space than most weather cards and it is imo one of the least important data to know. All I need to know is, what is the Temperature and "Is it going to rain?".
 * [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - HACS Supported, install with HACS - Highly recommended if you are a Dutch citizen (all Dutch citizens use this postal service). If you are not Dutch it is no use to install this. Get a card that does fit your needs! (if there is one ofcourse)
@@ -109,18 +110,30 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
 
-## TO DO (*updated: 15/07/2019)
-- Global theming to have the ability to have themes change dynamically, in automations and per user. This will include a day and night theme ###in Progress (this could take a while as this is a shitload of work and atm not the highest priority)
+## TO DO (*updated: 24/07/2019)
+- Optimize Theming. ###In Progress
 - Switching out the last popup cards for alternative cards. ###In Progress
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Postponed to a future release
-- Dog food and water dispenser ###Products either not ordered yet or waiting for order to arrive, postponed to a future release
+- Dog food and water dispenser ###Waiting for order to arrive, postponed to the first week of August.
 - Other graphs related to servers/computers etc. ###Postponed to a future release
-- Declutter some more cards ###In Progress
-- Add more buttons to then menu to get all functions in one place if needed ###Currently in Progress
+- Declutter some more cards ###Always in Progress
+- Add even more buttons to then menu to get all functions in one place ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ## Changelog
+### Changes (22/07/2019)
+Breaking Change:
+I am terribly sorry for everyone that just adapted my setup, but honestly (and I have mentioned it before) my last setup was experimental and so it was prone to change. In this update there is a major change that changes the way how the frontpage gets loaded for each person. I have decluttered all the double entries as a result of last updates state-switch/multi-user setup. Now every user will load the settings of a single template instead of having multiple configs per user. This makes managing the menu's a lot easier and the biggest benefit of this is that adding a user will only require you to setup additional input_booleans. (in this case I suffixed every input_boolean for a specific user with `_username`, just copy the input_booleans in your setup and change the name to add another user. Easy as it could be and it saves some 6000 lines of code (as this was the case after the experimental setup). If you have adopted the latest release you might have noticed that the performance of it went down and that it wasn't nearly as fast as of what you were used to in this setup. That was mostly due to the fact that code was duplicated for multiple users, as this is no longer the case you will find that performance is back on par with what you were used to in older configurations of this setup.
+
+Changes:
+- Massive overhaul to the way this setup handles multiple users. It is super easy to add another user to your setup!
+- Added a card-loader mod on this setup, this will fix the problem where cards would not always be loaded until a refresh. This will make the config wait for those cards to be loaded before showing them in lovelace. You will probably not notice a difference in performance. You can find the link to card-loader below in the addons section of the docs.
+
+### Changes (20/07/2019)
+Only minor changes in this update. Note: This update is mostly beneficial for iPhone users with 3d touch. If you do not have this there is no real need of updating, though you could if you want to be up-to-date ofcourse.
+- Added 3d touch to the setup, this is done with this beautiful addon called deep-press, this with special thanks to @roflcoopter. You can install this via HACS or find the link below in the addons section of the docs. This will make iphone users with 3d touch really really happy. I am sure many of you iphone users struggle to get the hold_action going on any iphone and sometimes it works and sometimes it doesn't. Yes we might have learnt to work around this, but this is not the case for our spouses that don't think it works great. This will not replace the hold action, but add a 3d touch action to the button as well. Now when you firmly press on a button (just like you would with 3d touch). The 3d touch action will start the hold_action (so if you have a more-info window on your hold_action, it would show exactly that). So no longer will you need to struggle with the hold action on iPhones that have 3d touch.
+- Minor fixes.
 ### Changes (15/07/2019)
 BREAKING CHANGE:
 - This update has a major change and that is the removal of popup cards, there are some left, but most are gone now in favor of state-switches and conditional cards. This is still experimental so it is prone to change! The reason why I removed popup cards are simple. They are hard to use when copying an entire setup as they need to be setup correctly for them to work properly, this also means that you will need to adjust all the entities first before the card will show up properly. Conditional cards solves this problem as it will just display nothing if nothing is defined and will not break all other popup cards in the chain. Another major reason is because the size of the popup cards look really awkward on tablets when using conditional cards within those popups. The location of the popup will change randomly to a point you can't even see it on your screen anymore. This is most prominent on tablets/desktops. Another major reason is iOS. When you try to run popup cards on iOS it sometimes bugs and show you a duplicate of the card within the same popup. It looks really bad and only retrying to open the card fixes the problem, this is most prominent on older hardware like an iPad Air, iPhone 6s and less on newer devices like the iPhone 8 or iPhone X.
@@ -193,6 +206,7 @@ Summary:
 Apple has released the first beta's of tvOS 13, the Apple component in Home Assistant will NO LONGER WORK with tvOS 13. This also means, no more state updates, no remote control, no dimming lights when started playing, no more automations possible whatsoever with the Apple TV. If you rely on this DON'T EVER UPDATE TO tvOS 13. Apple has removed a few services from the ATV which involves Home Sharing and was necessary for the pyatv component to work. They will most likely never create an alternative to this and thus you are warned. If you want to downgrade your Apple TV you can still do this until Apple stops signing that firmware so if you haven't downgraded before halfway september know that you will probably be stuck with a broken remote control in HA or broken automations that were based on the ATV's states.
 
 
+
 ### Questions?
 
 Please ask any question you have on the Home Assistant community forums.
@@ -237,6 +251,8 @@ Anyways have fun and see you next time!
 @romrider
 
 @roflcoopter
+
+@3_14 / @Piotrmachowski
 
 @everyone I forgot to mention
 
