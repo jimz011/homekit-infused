@@ -27,5 +27,13 @@ views:
   - !include lovelace/views/security.yaml
   - !include lovelace/views/climate.yaml
   - !include lovelace/views/main_view.yaml
-  - !include lovelace/views/lights.yaml
-  - !include lovelace/views/devices.yaml
+  - title: Lights
+    path:  lights
+    popup_cards:
+      !include lovelace/popup-cards/light-popup.yaml
+    cards:
+      !include lovelace/views/lights.yaml
+  - title: Devices
+    path: devices
+    cards:
+      !include lovelace/views/devices.yaml
