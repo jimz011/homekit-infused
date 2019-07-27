@@ -12,6 +12,8 @@ name-color-on: black
 state-color-on: black
 lock-color-on: black
 label-color-on: gray
+weather-day: 'rgb(100, 100, 100)'
+weather-night: 'rgb(100, 100, 100)'
 weather-color: AliceBlue
 upcoming-color: AliceBlue
 

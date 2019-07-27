@@ -1,21 +1,21 @@
 ### This is my own styling, this is the style for the lovelace interface which will be applied globally.
-background-image: 'center / cover no-repeat url("/local/images/grey-gradient.png") fixed'
-border-radius: '12px'
+background-image: 'center / cover no-repeat url("/local/images/original-homekit-wallpaper.png") fixed'
+border-radius: '0px'
+homekit-card-off: 'rgb(100, 100, 100)'
 homekit-card-on: 'rgb(255, 251, 239)'
-homekit-card-off: 'rgb(255, 251, 239)'
-icon-color-off: gray
-name-color-off: gray
-state-color-off: gray
-lock-color-off: 'rgb(80,80,80)'
-label-color-off: gray
+icon-color-off: AliceBlue
+name-color-off: AliceBlue
+state-color-off: AliceBlue
+lock-color-off: AliceBlue
+label-color-off: AliceBlue
 name-color-on: black
 state-color-on: black
 lock-color-on: black
 label-color-on: gray
-weather-day: 'rgb(255, 251, 239)'
-weather-night: 'rgb(255, 251, 239)'
-weather-color: black
-upcoming-color: black
+weather-day: 'rgb(100, 100, 100)'
+weather-night: 'rgb(100, 100, 100)'
+weather-color: AliceBlue
+upcoming-color: AliceBlue
 
 ### The Following Theme is the Slate Theme, this is the global HA theme. On my setup you will only see this in the HA menu's.
 # Main colors

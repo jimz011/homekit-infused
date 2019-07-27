@@ -1,21 +1,21 @@
 ### This is my own styling, this is the style for the lovelace interface which will be applied globally.
 background-image: 'center / cover no-repeat url("/local/images/grey-gradient.png") fixed'
-border-radius: '12px'
-homekit-card-on: 'rgb(255, 251, 239)'
-homekit-card-off: 'rgb(255, 251, 239)'
-icon-color-off: gray
-name-color-off: gray
-state-color-off: gray
-lock-color-off: 'rgb(80,80,80)'
-label-color-off: gray
+border-radius: '0px'
+homekit-card-off: 'url("/local/images/orange_button.jpg")'
+homekit-card-on: 'url("/local/images/orange_button.jpg")'
+icon-color-off: darkred
+name-color-off: darkred
+state-color-off: darkred
+lock-color-off: darkred
+label-color-off: darkred
 name-color-on: black
 state-color-on: black
 lock-color-on: black
-label-color-on: gray
-weather-day: 'rgb(255, 251, 239)'
-weather-night: 'rgb(255, 251, 239)'
-weather-color: black
-upcoming-color: black
+label-color-on: dimgray
+weather-day: orange
+weather-night: orange
+weather-color: darkred
+upcoming-color: darkred
 
 ### The Following Theme is the Slate Theme, this is the global HA theme. On my setup you will only see this in the HA menu's.
 # Main colors
@@ -47,7 +47,7 @@ paper-card-header-color: '#2980b9'
 paper-card-background-color: '#292929'
 paper-dialog-background-color: '#292929'
 paper-item-icon-color: 'var(--primary-text-color)'
-paper-item-icon-active-color: '#b58e31'
+paper-item-icon-active-color: 'darkred'
 paper-item-icon_-_color: 'green'
 paper-item-selected_-_background-color: '#292929'
 paper-tabs-selection-bar-color: 'green'

@@ -1,6 +1,6 @@
 ### This is my own styling, this is the style for the lovelace interface which will be applied globally.
-background-image: 'center / cover no-repeat url("/local/images/grey-gradient.png") fixed'
-border-radius: '12px'
+background-image: 'center / cover no-repeat url("/local/images/original-homekit-wallpaper.png") fixed'
+border-radius: '0px'
 homekit-card-on: 'rgb(255, 251, 239)'
 homekit-card-off: 'rgb(255, 251, 239)'
 icon-color-off: gray

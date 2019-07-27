@@ -12,6 +12,8 @@ name-color-on: black
 state-color-on: black
 lock-color-on: black
 label-color-on: gray
+weather-day: 'rgb(255, 251, 239)'
+weather-night: 'rgb(255, 251, 239)'
 weather-color: black
 upcoming-color: black
 

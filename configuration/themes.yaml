@@ -1,12 +1,20 @@
-homekit_light_blue:
+Blue Light Homekit:
   !include themes/homekit-light.yaml
-homekit_dark_blue:
+Blue Dark Homekit:
   !include themes/homekit-dark.yaml
-homekit_light_blue_squared:
+Blue Light Standard:
   !include themes/homekit-light-squared.yaml
-homekit_dark_blue_squared:
+Blue Dark Standard:
   !include themes/homekit-dark-squared.yaml
-homekit_light_gray:
+Gray Light Homekit:
   !include themes/original-hk-light.yaml
-homekit_dark_gray:
+Gray Dark Homekit:
   !include themes/original-hk-dark.yaml
+Gray Light Standard:
+  !include themes/original-hk-light-squared.yaml
+Gray Dark Standard:
+  !include themes/original-hk-dark-squared.yaml
+Orange Homekit:
+  !include themes/orange-homekit.yaml
+Orange Standard:
+  !include themes/orange-standard.yaml
