@@ -1,8 +1,14 @@
 # Home Assistant 0.96.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.96.3)
+My current Home Assistant install (current running version 0.96.4)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 24/07/2019)
+## Lovelace setup by jimzz011 July 2019 (*updated: 27/07/2019)
+### Changes (27/07/2019)
+Minor changes only, rearranged themes, you will have to adjust your automations to use the correct name. Naming looks better in the HA menu's now.
+- Rearranged themes, themes.yaml and themes folder have changed files, please update your automations as well.
+- Added a new theme, just for testing purposes to see how fast I can create new colors. This took me less than 10 minutes.
+- Uploaded a dummy secrets.yaml file. This should help starting this setup when copying the entire repo. It will make troubleshooting a lot easier and will help you to get you going a LOT faster!
+
 ### Changes (24/07/2019)
 Breaking Change:
 Yet another major release and for some the release you have been eager to see. Unfortunately this comes with some breaking changes to the setup. I have added a lot of detail to the main menu (watch the renewed video in the introduction section for the full review), but to do this I did not want to duplicate all the code, nor did I want to rewrite it as a decluttering template. So instead of using a decluttering card I used a lot of !includes. This is to have the same page load on different views without the need of adding extra code, with the added benefit: change it on one page = change it on all. Most items that were previously only accessible via the homescreen will now be available in the main menu as well (the homescreen remains unchanged). This change has only added a few lines of code which is great :P.
