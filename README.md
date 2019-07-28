@@ -1,4 +1,5 @@
 If you find any information on this page usefull consider buying me a coffee:
+
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 # Home Assistant 0.96.x compatible Lovelace setup.
