@@ -1,4 +1,4 @@
-If you find any information on this page usefull consider buying me a coffee:
+If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
