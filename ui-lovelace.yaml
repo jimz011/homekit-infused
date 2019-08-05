@@ -8,32 +8,58 @@ cch:
   options: hide
   notifications: hide
   voice: hide
-  header: true
+  header: false
   chevrons: false
   notify_indicator_color: "#e80000"
   swipe: true
   swipe_wrap: false
   background: 'rgba(0,0,0,0.3)'
-  default_tab: 2
+  hide_tabs: '5 to 25'
+  default_tab: 1
+  exceptions:
+    - conditions:
+        user: Home Assistant
+      config:
+        header: true
    
 # Decluttering Templates
 decluttering_templates:
   !include lovelace/decluttering_templates/decluttering_templates.yaml
        
 # Views
+# The following 5 views are swipable, the order
+# of these 5 files is the swipe order as well.
+# The first view is the page 0. In my setup
+# the interface defaults to view 2.
 title: Home
 background: var(--background-image)
 views:
-  - !include lovelace/views/security.yaml
   - !include lovelace/views/climate.yaml
   - !include lovelace/views/main_view.yaml
-  - title: Lights
-    path:  lights
-    popup_cards:
-      !include lovelace/popup-cards/light-popup.yaml
-    cards:
-      !include lovelace/views/lights.yaml
-  - title: Devices
-    path: devices
-    cards:
-      !include lovelace/views/devices.yaml
+  - !include lovelace/views/lights.yaml
+  - !include lovelace/views/devices.yaml
+  - !include lovelace/views/security.yaml
+# The views below are used as fake popup cards
+# They are non swipable and will behave just like
+# a popup card or conditional cards. The order of
+# these files will not change anything.
+  - !include lovelace/views/vacuum.yaml
+  - !include lovelace/views/alarm.yaml
+  - !include lovelace/views/jimmy.yaml
+  - !include lovelace/views/stephanie.yaml
+  - !include lovelace/views/tala.yaml
+  - !include lovelace/views/scenes.yaml
+  - !include lovelace/views/main_menu.yaml
+  - !include lovelace/views/cleaning.yaml
+  - !include lovelace/views/floorplan.yaml
+  - !include lovelace/views/remote.yaml
+  - !include lovelace/views/links.yaml
+  - !include lovelace/views/calendar.yaml
+  - !include lovelace/views/laundry.yaml
+  - !include lovelace/views/media.yaml
+  - !include lovelace/views/downloads.yaml
+  - !include lovelace/views/energy.yaml
+  - !include lovelace/views/other.yaml
+  - !include lovelace/views/currently_on.yaml
+  - !include lovelace/views/location.yaml
+  - !include lovelace/views/themes.yaml
