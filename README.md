@@ -27,6 +27,7 @@ All Changes:
 - Now when the alarm is activated, the frontpage buttons will hide and the weather panel will be changed with a quickaccess menu, this is to prevent accidental presses in the interface whilst not being home and will prevent the alarm from going off for no reason but human error. (this has never happened to me, but still this change is nice). The weather bar at the top will become a quickmenu with camera/menu/alarm buttons. So you can quickly access your camera's and alarm system. And if you really really have to whilst the alarm is activated, you can still go into the menu where you have access to everything.
 - Decluttered A LOT, this includes the blank-card I used to create a gap between the borders of the screen. Each button is now 1 line! (I have had many suggestions to use a decluttering card for this, but I actually think this is much easier as it is just a single line, just make sure the path is correct)
 - Minor changes to the vacuum control center to look better on the provided dark theme
+- Added missing wallpapers and moved all unused images to another folder. This will make searching for the right image so much easier no?
 - Many many little bugfixes and changes to detail.
 
 *Screenshots and video's are still being uploaded, please have patience.
