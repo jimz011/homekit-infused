@@ -3,34 +3,33 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 # Home Assistant 0.96.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.96.4)
+My current Home Assistant install (current running version 0.96.5)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 27/07/2019)
-### Changes (27/07/2019)
-Minor changes only, rearranged themes, you will have to adjust your automations to use the correct name. Naming looks better in the HA menu's now.
-- Rearranged themes, themes.yaml and themes folder have changed files, please update your automations as well.
-- Added a new theme, just for testing purposes to see how fast I can create new colors. This took me less than 10 minutes.
-- Uploaded a dummy secrets.yaml file. This should help starting this setup when copying the entire repo. It will make troubleshooting a lot easier and will help you to get you going a LOT faster!
+## Lovelace setup by jimzz011 July 2019 (*updated: 05/08/2019)
+### Changes (05/08/2019)
+A very very great summer to all of you, I hope you enjoy your summer. Today I have a great update for all of you. This update is massive! Why? Well remember that I wanted to experiment with conditional cards and more users? Well guess what I was not satisfied with the result. Yes I was satisfied with how it looked, but not the way it was coded. It was extremely slow to a point my old iPad Air wouldn't want to load this setup anymore. So this time around I have rewritten every single page in the setup and boy you are going to love this! (sorry for the ones that were adopting my previous setup, but this will make your life, and mine, a lot easier).
 
-### Changes (24/07/2019)
-Breaking Change:
-Yet another major release and for some the release you have been eager to see. Unfortunately this comes with some breaking changes to the setup. I have added a lot of detail to the main menu (watch the renewed video in the introduction section for the full review), but to do this I did not want to duplicate all the code, nor did I want to rewrite it as a decluttering template. So instead of using a decluttering card I used a lot of !includes. This is to have the same page load on different views without the need of adding extra code, with the added benefit: change it on one page = change it on all. Most items that were previously only accessible via the homescreen will now be available in the main menu as well (the homescreen remains unchanged). This change has only added a few lines of code which is great :P.
+So lets talk about what has changed. For this release I have changed a lot of simple stuff. My setup was way too complicated and even I got lost in it. Now it is as simple as this: Every menu item (what used to be popup cards) are now just separate views. This is far easier to maintain. Extremely easy to edit and even easier to get it running as you can now work view by view. Performance has gone up massively. It loads about 2 to 3 times faster than the previous setup whilst having added a bit more features. The setup will work EXACTLY the same as before and you might not see the difference at first glance. I have worked out a lot of small details that were bugging me and I have redesigned the top part of the screen on every page so that the setup is now consistently the same on every view.
 
-Themes:
-Finally I have gotten around at theming. Well not exactly the entire instance of HA, but just the parts we actually use every day (which is lovelace ofcourse). So to get me started much faster than I could have I have used a global theme named slate thanks to @SneakyPie. I have modified it slightly so that the header would be black (this is necessary for iphone users to have it look nice when switching themes). Unfortunately it comes with a readability downside of the HA interface (which is still easily readable but not the most pleasing). Unfortunately I do not know a way to make the header black without having some other colors change as well (which is the reason it is less readable). No worries, we only need that panel for configuration right? I have thought about this and some of the basic functions can be found in the new main menu (like restarting HA).
-So what have I themed then you might ask? Well simple, I have themed everything else in Lovelace what you can actually see (and what our spouses will use every day). And I think you might like it. The idea was to have a close relation with Apple's Homekit and having seen Homekit in iOS 13 with the new dark mode inspired me to do the same to my lovelace setup. So in this setup I have tried many different configurations but I thought to make it a lot simpler for me.
+What does this mean for multi-user setup? Well nothing! It means you don't need input_booleans and a bunch of conditional cards anymore to reach te same result. What does it mean for my old setup? Well, I suggest starting over! (I am terribly sorry). But after a week of testing, this is actually a config I am comfortable with to say I will not change the way this works. Obviously I will be continuing working on the setup. But I am actually very very happy on how the current method turned out. You might wonder if you see all those tabs in the header then? Well no, the header is hidden on smartphones now. And on an ipad/tablet the header only shows the first 5 tabs (just like it used to be). All other tabs are hidden, you will not be able to swipe to them by accident and you will not be able to access them from the header at all. Everything will look and feel exactly like it was, just better! Ofcourse for convenience the first 5 tabs (which were already there) are still swipable.
 
-Dark Mode:
-Yes with this theming stuff it means I can now set themes globally (and I mean just the lovelace frontend) and it is super easy to edit them. All configuration that was required is now set in all the templates/files and the result will look something like the video below. And it can be even better! Dark mode will automatically enable when the sun sets, light mode will be re-enabled when the sun rises again. Just like iOS 13 would do it and just as Homekit would show it to you. Click on the link to see the supporting video!
+All Changes:
+- Completely rewritten lovelace setup for performance, ease of use and code reduction
+- Removed almost 2000 lines of code (with the same end result yay)
+- Added a quickmenu to every page for quickaccess to common views, the buttons change depending on the view you are on.
+- Added a dog picture elements on the frontpage
+- Groundwork for a decent landscape tablet mode, at the moment most of the elements are already great for use on a tablet in landscape mode. Unfortunately some elements will still look better on portret mode like the vacuum control panel. But nevertheless it is looking really great for the future. For screenshots please check the home assistant community website: https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-96-x-compatible-now-with-dynamic-themes/117086
+- Removed the header on all devices. My ipad still has a header which is added to the exceptions with CCH
+- Removed all conditional-cards that functioned as a popup card to use the new views instead
+- All input_booleans that had a name are replaced with a dummy one. Buttons will now just navigate you to the right view.
+- Changed titles, headers etc to be more consistent with the rest of the setup.
+- Now when the alarm is activated, the frontpage buttons will hide and the weather panel will be changed with a quickaccess menu, this is to prevent accidental presses in the interface whilst not being home and will prevent the alarm from going off for no reason but human error. (this has never happened to me, but still this change is nice). The weather bar at the top will become a quickmenu with camera/menu/alarm buttons. So you can quickly access your camera's and alarm system. And if you really really have to whilst the alarm is activated, you can still go into the menu where you have access to everything.
+- Decluttered A LOT, this includes the blank-card I used to create a gap between the borders of the screen. Each button is now 1 line! (I have had many suggestions to use a decluttering card for this, but I actually think this is much easier as it is just a single line, just make sure the path is correct)
+- Minor changes to the vacuum control center to look better on the provided dark theme
+- Many many little bugfixes and changes to detail.
 
-Summary:
-- Added a lot of new menu items and shortcuts
-- Added dynamic themes
-- Optimized a lot of code
-- Minor bugfixes
-
-[![Watch Video](https://img.youtube.com/vi/bosM57vFM9s/0.jpg)](https://youtu.be/bosM57vFM9s)
+*Screenshots and video's are still being uploaded, please have patience.
 
 ### For older changelogs please scroll down to the bottom of the page!
 
@@ -59,7 +58,7 @@ Video: CLICK ON THE IMAGE TO START VIDEO (*updated 24/07/2019)
 ### How to use
 
 Prerequisites:
-- Home Assistant 0.94.x or 0.95.x
+- Home Assistant 0.95.x or 0.96.x
 - A bunch of custom-cards, see below for links
 - Patience
 - Some more patience
@@ -85,6 +84,7 @@ To make it easier on you if you want to copy it entirely is to first check the f
 - To start I would suggest trying a light page or even better the security page first. These are light on code and are easy to manage
 - Comment out the popup cards, they probably don't work anyways. Best to add these last when you have the basics running.
 - I can't stress out more that it is ALWAYS better to build from the ground up instead of copying a setup. I would advise you to copy snippets of the code to incorporate that into your own setup. But if you really want to dive in deep you are free to do so.
+- On some Android devices it won't accept a hold_action when deep_press: true is enabled. Remove these lines from the switch-template.yaml and light-template.yaml. It is only useful for iphone users and will do nothing for Android.
 
 ## Addons Required, you will need HACS to download them for use with this setup (you can use the older custom_updater but I would highly recommend you to use HACS instead https://custom-components.github.io/hacs/installation/manual/. Some of the addons are not available on HACS, however you can import them yourself. Read the HACS docs on how to install non supported plugins/addons!! The links provided here will help you add them quickly.
 
@@ -132,6 +132,30 @@ Custom Components:
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
 ## Changelog
+### Changes (27/07/2019)
+Minor changes only, rearranged themes, you will have to adjust your automations to use the correct name. Naming looks better in the HA menu's now.
+- Rearranged themes, themes.yaml and themes folder have changed files, please update your automations as well.
+- Added a new theme, just for testing purposes to see how fast I can create new colors. This took me less than 10 minutes.
+- Uploaded a dummy secrets.yaml file. This should help starting this setup when copying the entire repo. It will make troubleshooting a lot easier and will help you to get you going a LOT faster!
+
+### Changes (24/07/2019)
+Breaking Change:
+Yet another major release and for some the release you have been eager to see. Unfortunately this comes with some breaking changes to the setup. I have added a lot of detail to the main menu (watch the renewed video in the introduction section for the full review), but to do this I did not want to duplicate all the code, nor did I want to rewrite it as a decluttering template. So instead of using a decluttering card I used a lot of !includes. This is to have the same page load on different views without the need of adding extra code, with the added benefit: change it on one page = change it on all. Most items that were previously only accessible via the homescreen will now be available in the main menu as well (the homescreen remains unchanged). This change has only added a few lines of code which is great :P.
+
+Themes:
+Finally I have gotten around at theming. Well not exactly the entire instance of HA, but just the parts we actually use every day (which is lovelace ofcourse). So to get me started much faster than I could have I have used a global theme named slate thanks to @SneakyPie. I have modified it slightly so that the header would be black (this is necessary for iphone users to have it look nice when switching themes). Unfortunately it comes with a readability downside of the HA interface (which is still easily readable but not the most pleasing). Unfortunately I do not know a way to make the header black without having some other colors change as well (which is the reason it is less readable). No worries, we only need that panel for configuration right? I have thought about this and some of the basic functions can be found in the new main menu (like restarting HA).
+So what have I themed then you might ask? Well simple, I have themed everything else in Lovelace what you can actually see (and what our spouses will use every day). And I think you might like it. The idea was to have a close relation with Apple's Homekit and having seen Homekit in iOS 13 with the new dark mode inspired me to do the same to my lovelace setup. So in this setup I have tried many different configurations but I thought to make it a lot simpler for me.
+
+Dark Mode:
+Yes with this theming stuff it means I can now set themes globally (and I mean just the lovelace frontend) and it is super easy to edit them. All configuration that was required is now set in all the templates/files and the result will look something like the video below. And it can be even better! Dark mode will automatically enable when the sun sets, light mode will be re-enabled when the sun rises again. Just like iOS 13 would do it and just as Homekit would show it to you. Click on the link to see the supporting video!
+
+Summary:
+- Added a lot of new menu items and shortcuts
+- Added dynamic themes
+- Optimized a lot of code
+- Minor bugfixes
+
+[![Watch Video](https://img.youtube.com/vi/bosM57vFM9s/0.jpg)](https://youtu.be/bosM57vFM9s)
 ### Changes (22/07/2019)
 Breaking Change:
 I am terribly sorry for everyone that just adapted my setup, but honestly (and I have mentioned it before) my last setup was experimental and so it was prone to change. In this update there is a major change that changes the way how the frontpage gets loaded for each person. I have decluttered all the double entries as a result of last updates state-switch/multi-user setup. Now every user will load the settings of a single template instead of having multiple configs per user. This makes managing the menu's a lot easier and the biggest benefit of this is that adding a user will only require you to setup additional input_booleans. (in this case I suffixed every input_boolean for a specific user with `_username`, just copy the input_booleans in your setup and change the name to add another user. Easy as it could be and it saves some 6000 lines of code (as this was the case after the experimental setup). If you have adopted the latest release you might have noticed that the performance of it went down and that it wasn't nearly as fast as of what you were used to in this setup. That was mostly due to the fact that code was duplicated for multiple users, as this is no longer the case you will find that performance is back on par with what you were used to in older configurations of this setup.
