@@ -133,11 +133,15 @@
   theme_selector:
     name: Theme Selector 
     options:
-      - Grey Light
-      - Grey Dark
-      - Blue Light
-      - Blue Dark
-      - Blue Light Squared
-      - Blue Dark Squared
+      - Homekit Blue Light
+      - Homekit Blue Dark
+      - Homekit Gray Light
+      - Homekit Gray Dark
+      - Homekit Orange
+      - Standard Blue Light
+      - Standard Blue Dark
+      - Standard Gray Light
+      - Standard Gray Dark
+      - Standard Orange
       - Automatic (default)
     initial: Automatic (default)
