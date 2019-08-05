@@ -32,8 +32,13 @@ customElements.whenDefined('card-tools').then(() => {
         setTimeout(() =>{
         let interval = setInterval(() => {
           if(moreInfo.getAttribute('aria-hidden')) {
-            for(var k in oldStyle)
-              moreInfo.style.setProperty(k, oldStyle[k]);
+            for(var k in oldStyle) {
+              if(oldStyle[k]) {
+                moreInfo.style.setProperty(k, oldStyle[k]);
+              } else {
+                moreInfo.style.removeProperty(k);
+              }
+            }
             clearInterval(interval);
           }
         }, 100)
