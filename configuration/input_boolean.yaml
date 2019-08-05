@@ -1,56 +1,3 @@
-# Menu Options Jimmy
-  lovelace_remote_jimmy:
-    initial: off
-  lovelace_automation_jimmy:
-    initial: off
-  lovelace_alarm_panel_jimmy:
-    initial: off
-  lovelace_maintenance_jimmy:
-    initial: off
-  lovelace_now_on_jimmy:
-    initial: off
-  lovelace_scenes_jimmy:
-    initial: off
-  lovelace_climate_jimmy:
-    initial: off
-  lovelace_vacuum_cleaner_jimmy:
-    initial: off
-  lovelace_menu_jimmy:
-    initial: off
-  person_jimmy_jimmy:
-    initial: off
-  person_stephanie_jimmy:
-    initial: off
-  tala_map_jimmy:
-    initial: off
-
-# Menu Options Stephanie
-  lovelace_remote_stephanie:
-    initial: off
-  lovelace_automation_stephanie:
-    initial: off
-  lovelace_alarm_panel_stephanie:
-    initial: off
-  lovelace_maintenance_stephanie:
-    initial: off
-  lovelace_now_on_stephanie:
-    initial: off
-  lovelace_scenes_stephanie:
-    initial: off
-  lovelace_climate_stephanie:
-    initial: off
-  lovelace_vacuum_cleaner_stephanie:
-    initial: off
-  lovelace_menu_stephanie:
-    initial: off
-  person_jimmy_stephanie:
-    initial: off
-  person_stephanie_stephanie:
-    initial: off
-  tala_map_stephanie:
-    initial: off
-
-
 # Other
   dummy1:
     initial: off
@@ -77,3 +24,6 @@
   scene_klaar_met_koken:
   scene_welterusten:
   scene_lichtuit:
+
+# New input booleans
+  simple_alarm:
