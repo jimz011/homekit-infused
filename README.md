@@ -32,9 +32,13 @@ All Changes:
 - Many many little bugfixes and changes to detail.
 
 Videos from this release:
+
 Full Video: https://www.youtube.com/watch?v=Ng0EDltHujY
+
 Tablet View: https://www.youtube.com/watch?v=105sd8tp4dg (srry my tablet is slow and old)
+
 Quick Menu: https://www.youtube.com/watch?v=_4OUzDfBgIY (this is visible on all other views by default)
+
 Alarm Interface Lock: https://www.youtube.com/watch?v=wsIgwRQdPFo
 
 ### For older changelogs please scroll down to the bottom of the page!
