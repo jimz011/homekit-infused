@@ -1,0 +1,597 @@
+title: Remote
+path:  remote
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Remote Control'
+      - type: custom:swipe-card
+        parameters:
+          effect: 'coverflow'
+          grabCursor: true
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### Woonkamer >'
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Down
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-low
+                      - show_state: false
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - volume_down
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Up
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-high
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - volume_up
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Mute
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-off
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9 
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - volume_off
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: switch.samsung_tv
+                      - name: TV
+                      - icon: power
+                      - label: Samsung
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - background_color: rgb(73,73,73)
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Plex
+                      - label: App
+                      - icon: plex
+                      - off_icon_color: gold
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: plex://
+                          haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-up-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - up
+                          haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.lovelace_maintenance
+                      - name: Netflix
+                      - label: App
+                      - icon: netflix
+                      - off_icon_color: red
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: nflx://
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-left-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - left
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: selection
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - select
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-right-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - right
+                            haptic: light
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.lovelace_maintenance
+                      - name: Apple
+                      - label: Music
+                      - icon: music-circle-outline
+                      - off_icon_color: Deeppink
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: music://
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: menu
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - menu
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.woonkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-down-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.woonkamer_apple_tv
+                            command:
+                              - down
+                            haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:mini-media-player'
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        overflow: hidden;
+                        background: rgb(73, 73, 73)
+                      }
+                    entity: media_player.woonkamer_apple_tv
+                    hide:
+                      icon: true
+                      power: true
+                    artwork: cover
+                  - !include ../decluttering_templates/blank-card.yaml                
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### < Slaapkamer'
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Down
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-low
+                      - show_state: false
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - volume_down
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Up
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-high
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - volume_up
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.dummy1
+                      - name: Volume
+                      - label: Mute
+                      - background_color: rgb(73,73,73)
+                      - icon: volume-off
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9 
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - volume_off
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: switch.tradfri_outlet_2
+                      - name: TV
+                      - icon: power
+                      - label: Samsung
+                      - off_icon_color: white
+                      - off_name_color: white
+                      - show_state: false
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - background_color: rgb(73,73,73)
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.lovelace_maintenance
+                      - name: Plex
+                      - label: App
+                      - icon: plex
+                      - off_icon_color: gold
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: plex://
+                          haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-up-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - up
+                          haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.lovelace_maintenance
+                      - name: Netflix
+                      - label: App
+                      - icon: netflix
+                      - off_icon_color: red
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: nflx://
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-left-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - left
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: selection
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - select
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-right-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - right
+                            haptic: light
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: input_boolean.lovelace_maintenance
+                      - name: Apple
+                      - label: Music
+                      - icon: music-circle-outline
+                      - off_icon_color: Deeppink
+                      - off_name_color: white
+                      - show_state: false
+                      - background_color: rgb(73,73,73)
+                      - margin-right: 40px
+                      - opacity: 0.9
+                      - tap_action: 
+                          action: url
+                          url: music://
+                          haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: menu
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - menu
+                            haptic: light
+                  - type: 'custom:decluttering-card'
+                    template: switch_button_card
+                    variables:
+                      - entity: media_player.slaapkamer_apple_tv
+                      - name: ' '
+                      - icon: arrow-down-drop-circle
+                      - margin-right: 40px
+                      - show_state: false
+                      - show_label: false
+                      - color: gray
+                      - opacity: 0.9
+                      - tap_action:
+                          action: call-service
+                          service: remote.send_command
+                          service_data:
+                            entity_id: remote.slaapkamer_apple_tv
+                            command:
+                              - down
+                            haptic: light
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    aspect_ratio: 1/1
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:mini-media-player'
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        overflow: hidden;
+                        background: var(--homekit-card-off);
+                      }
+                    entity: media_player.slaapkamer_apple_tv
+                    hide:
+                      icon: true
+                      power: true
+                    artwork: cover
+                  - !include ../decluttering_templates/blank-card.yaml
+  - type: 'custom:button-card'
+    color_type: blank-card
+    styles:
+      card:
+        - height: 50px              

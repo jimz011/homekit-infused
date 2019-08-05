@@ -1,0 +1,50 @@
+  - url: /community_plugin/sun-card/sun-card.js
+    type: module
+  - url: /community_plugin/thermostat-card/thermostat-card.js
+    type: module
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
+    type: js
+  - url: /community_plugin/check-button-card/check-button-card.js
+    type: module
+  - url: /community_plugin/lovelace-popup-card/popup-card.js
+    type: js
+  - url: /community_plugin/mini-media-player/mini-media-player.js
+    type: module
+  - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
+    type: js
+  - url: /community_plugin/monster-card/monster-card.js
+    type: js
+  - url: /community_plugin/calendar-card/calendar-card.js
+    type: js
+  - url: /community_plugin/button-card/button-card.js
+    type: module
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
+  - url: /community_plugin/lovelace-markdown-mod/markdown-mod.js
+    type: module
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: module
+  - url: /community_plugin/decluttering-card/decluttering-card.js
+    type: module
+  - url: /community_plugin/simple-weather-card/simple-weather-card.js
+    type: module
+  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+    type: module
+  - url: /community_plugin/lovelace-postnl-card/postnl-card.js
+    type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card.js
+    type: module
+  - url: /community_plugin/light-entity-card/light-entity-card.js
+    type: js
+  - url: /community_plugin/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+    type: module
+  - url: /community_plugin/light-entity-card/light-entity-card.js
+    type: js
+  - url: /community_plugin/lovelace-swipe-card/swipe-card.js
+    type: module
+  - url: /community_plugin/lovelace-state-switch/state-switch.js
+    type: js
+  - url: /community_plugin/deep-press/deep-press.js
+    type: module
+  - url: /community_plugin/lovelace-card-loader/card-loader.js
+    type: js

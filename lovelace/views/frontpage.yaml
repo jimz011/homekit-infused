@@ -1,0 +1,305 @@
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: 'disarmed'
+    card:
+      type: custom:decluttering-card
+      template: frontpage_menu
+      variables:
+        - start_card: 2
+        - name1: Profile
+        - icon1: human-greeting
+        - lovelace: profile 
+        - path1: ' '
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state_not: 'disarmed'
+    card:
+      type: custom:decluttering-card
+      template: frontpage_menu
+      variables:
+        - start_card: 1
+  - type: horizontal-stack
+    cards:
+      - !include ../decluttering_templates/blank-card.yaml
+      - type: conditional
+        conditions:
+          - entity: person.stephanie
+            state_not: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: stephanie
+            - namesensor: !secret stephsensor
+            - direction: left
+            - image: '/local/images/stephanie_small.png'
+            - postnl: sensor.postnl_stephanie_packages
+            - reistijd: sensor.reistijd_stephanie
+            - battery: sensor.battery_level_13
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/stephanie
+      - type: conditional
+        conditions:
+          - entity: person.stephanie
+            state: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: stephanie
+            - namesensor: !secret stephsensor
+            - direction: left
+            - image: '/local/images/stephanie_small.png'
+            - postnl: sensor.postnl_stephanie_packages
+            - reistijd: sensor.reistijd_stephanie_work
+            - battery: sensor.battery_level_13
+            - icon: office-building
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/stephanie
+      - type: conditional
+        conditions:
+          - entity: person.jimmy
+            state_not: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: jimmy
+            - namesensor: !secret jimsensor
+            - direction: right
+            - image: '/local/images/jimmy_small.png'
+            - postnl: sensor.postnl_jimmy_packages
+            - reistijd: sensor.reistijd_jimmy
+            - battery: sensor.battery_level_16
+            - icon: home
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/jimmy
+      - type: conditional
+        conditions:
+          - entity: person.jimmy
+            state: "home"
+        card:
+          type: custom:decluttering-card
+          template: person_elements
+          variables:
+            - name: jimmy
+            - namesensor: !secret jimsensor
+            - direction: right
+            - image: '/local/images/jimmy_small.png'
+            - postnl: sensor.postnl_jimmy_packages
+            - reistijd: sensor.reistijd_jimmy_work
+            - battery: sensor.battery_level_16
+            - icon: office-building
+            - tap_action:
+                action: navigate
+                navigation_path: /lovelace/jimmy
+      - !include ../decluttering_templates/blank-card.yaml
+  - type: horizontal-stack
+    cards:
+      - !include ../decluttering_templates/blank-card.yaml
+      - type: picture-elements
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+          }
+        image: '/local/images/tala2.png'
+        elements:
+          - type: image
+            entity: person.tala
+            image: '/local/images/tala2.png'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/dog
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/dog
+            style:
+              left: 50%
+              top: 50%
+              width: 100%
+              heigth: 100%
+          - type: state-label
+            entity: person.tala
+            style:
+              left: 0
+              bottom: 0
+              pointer-events: none
+              font-size: 16px
+              line-height: 24px
+              color: white
+              background-color: rgba(0, 0, 0, 0.3)
+              width: 100%
+              transform: initial
+              padding: 0 8px
+      - !include ../decluttering_templates/blank-card.yaml
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: 'disarmed'
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../decluttering_templates/blank-card.yaml
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Climate
+            - label: control
+            - icon: thermostat
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/climate
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/climate
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Light
+            - label: Control
+            - icon: floor-lamp
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/lights
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/lights
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Device
+            - label: Control
+            - icon: power-plug
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/devices
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/devices
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Security
+            - label: Panel
+            - icon: cctv
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/security
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/security
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - !include ../decluttering_templates/blank-card.yaml
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: 'disarmed'
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../decluttering_templates/blank-card.yaml
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Cleaning
+            - label: Lists
+            - icon: broom
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/cleaning
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /lovelace/cleaning
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Scenes
+            - label: Presets
+            - icon: arrange-send-backward
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/scenes
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/scenes
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Vacuum
+            - label: Johnny S55
+            - icon: robot-vacuum
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/vacuum
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/vacuum
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - type: custom:decluttering-card
+          template: switch_button_card
+          variables:
+            - name: Menu
+            - label: All Options
+            - icon: menu
+            - show_state: false
+            - tap_action: 
+                action: navigate
+                navigation_path: /lovelace/menu
+                haptic: light
+            - hold_action: 
+                action: navigate
+                navigation_path: /lovelace/menu
+                haptic: light
+            - entity: input_boolean.dummy1
+            - margin-right: 40px
+            - opacity: 0.8
+        - !include ../decluttering_templates/blank-card.yaml

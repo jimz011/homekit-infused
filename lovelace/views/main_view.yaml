@@ -3,31 +3,26 @@ path: home
 popup_cards:
   !include ../popup-cards/weather-temporary.yaml
 cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:state-switch
-        entity: user
-        states:
-          Jimmy:
-            type: custom:decluttering-card
-            template: main_view
-            variables:
-              - name: jimmy
-          Stephanie:
-            type: custom:decluttering-card
-            template: main_view
-            variables:
-              - name: stephanie
+  - !include frontpage.yaml
   - type: custom:state-switch
     entity: user
     states:
-      Jimmy:
-        type: custom:decluttering-card
-        template: notifications_template
-        variables:
-          - name: jimmy
-      Stephanie:
-        type: custom:decluttering-card
-        template: notifications_template
-        variables:
-          - name: stephanie
+      Home Assistant:
+        type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Frontdoor Camera'
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: picture-entity
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    overflow: hidden;
+                  }
+                entity: camera.gallerij_camera
+              - !include ../decluttering_templates/blank-card.yaml
+  - !include notifications.yaml

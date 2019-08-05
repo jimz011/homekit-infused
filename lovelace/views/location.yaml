@@ -1,0 +1,49 @@
+title: Location
+path:  location
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Links
+          - icon1: link-variant
+          - path1: links
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Location'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Map'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: map
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                --paper-item-icon-color: var(--icon-color-off);
+                color: var(--name-color-off);
+                border-radius: var(--border-radius);
+                font-family: Helvetica;
+                font-size: 12px;
+                opacity: 0.8;
+                overflow: hidden;
+              }
+            aspect_ratio: 4x6
+            default_zoom: 15
+            entities:
+              - person.jimmy
+              - person.tala
+              - person.stephanie
+              - zone.home
+              - zone.ah_eindhoven
+              - zone.ouders_jim
+              - zone.ouders_steph
+              - zone.joe_mann
+              - zone.plasje_best
+              - zone.losloop_bosje
+              - zone.vtc_best
+          - !include ../decluttering_templates/blank-card.yaml

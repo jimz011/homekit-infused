@@ -1,0 +1,50 @@
+title: Media
+path:  media
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Downloads
+          - icon1: download
+          - path1: downloads
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Upcoming Media'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Series'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: 'custom:upcoming-media-card'
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                border-radius: var(--border-radius);
+                color: var(--upcoming-color);
+              }
+            entity: sensor.sonarr_upcoming_media
+          - !include ../decluttering_templates/blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Movies'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: 'custom:upcoming-media-card'
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                border-radius: var(--border-radius);
+                color: var(--upcoming-color)
+              }
+            entity: sensor.radarr_upcoming_media
+          - !include ../decluttering_templates/blank-card.yaml
+      

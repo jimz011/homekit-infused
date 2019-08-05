@@ -1,0 +1,38 @@
+title: Themes
+path:  themes
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Theme Selector'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Themes (Global)'    
+      - type: custom:decluttering-card
+        template: notification_card
+        variables:
+          - color: rgba(0, 0, 0, 0.5)
+          - icon: alert
+          - content: 'Warning! Themes that are selected through this menu are set globally for ALL users! If you wish to set a personal theme please use the theme selector in the sidepanel (at the bottom left click on your name and select a theme from there). Selecting any other theme than Automatic will disable the automatic day/night mode!'
+      - type: horizontal-stack
+        cards:    
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: entities
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                border-radius: var(--border-radius);
+                font-size: 13px;
+                font-family: Helvetica;
+                color: var(--name-color-off);
+                --paper-item-icon-color: var(--icon-color-off);
+                --primary-text-color: var(--name-color-off);
+              }
+            entities: 
+              - input_select.theme_selector
+          - !include ../decluttering_templates/blank-card.yaml

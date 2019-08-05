@@ -1,0 +1,15 @@
+card:
+  type: horizontal-stack
+  cards:
+    - !include ../decluttering_templates/blank-card.yaml
+    - type: markdown
+      style: |
+        ha-card {
+          background: [[color]];
+          border-radius: var(--border-radius);
+          font-size: 13px;
+          font-family: Helvetica;
+        }
+      content: >
+        <ha-icon icon="mdi:[[icon]]"></ha-icon> [[content]]
+    - !include ../decluttering_templates/blank-card.yaml

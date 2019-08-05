@@ -1,0 +1,33 @@
+title: Other
+path:  other
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Links
+          - icon1: link-variant
+          - path1: links
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Other'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Uncategorized'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: glance
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                --paper-item-icon-color: var(--icon-color-off);
+                color: var(--name-color-off);
+                border-radius: var(--border-radius);
+              }
+            entities:
+              - entity: sensor.ssl_certificate_expiry
+          - !include ../decluttering_templates/blank-card.yaml

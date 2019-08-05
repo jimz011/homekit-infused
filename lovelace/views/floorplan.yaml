@@ -1,0 +1,32 @@
+title: Floorplan
+path:  floorplan
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Location
+          - icon1: map
+          - path1: location
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Floorplan'
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '###### Tap and hold the image to download'
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: picture
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                  }
+                aspect_ratio: 1.78
+                image: /local/images/floorplan.jpg
+              - !include ../decluttering_templates/blank-card.yaml

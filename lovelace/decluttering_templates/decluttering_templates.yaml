@@ -1,0 +1,30 @@
+mini-graph-card:
+  !include mini-graph-template.yaml
+laundry_elements:
+  !include laundry-template.yaml
+person_elements:
+  !include person-template.yaml
+climate_card:
+  !include climate-template.yaml
+light_popup_card:
+  !include light-popup.yaml
+light_button_card:
+  !include light-template.yaml
+switch_button_card:
+  !include switch-template.yaml
+header_text:
+  !include header-template.yaml
+check_button_card:
+  !include check-button-card-template.yaml
+notification_card:
+  !include notification-template.yaml
+back_button:
+  !include back-button.yaml
+back_button_2:
+  !include back-button2.yaml
+back_button_3:
+  !include back-button3.yaml
+person_more_info:
+  !include person-more-info.yaml
+frontpage_menu:
+  !include frontpage-quickmenu.yaml

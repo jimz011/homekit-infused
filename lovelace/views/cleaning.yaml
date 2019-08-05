@@ -1,0 +1,334 @@
+title: Cleaning
+path:  cleaning
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Vacuum
+          - icon1: robot-vacuum
+          - path1: vacuum
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Cleaning Lists'
+      - type: custom:swipe-card
+        parameters:
+          effect: 'coverflow'
+          grabCursor: true
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### Cleaning >'
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '##### Checklist'
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:vertical-stack-in-card'
+                    cards:
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Stofzuigen
+                          - entity: sensor.stofzuigen
+                          - value 1: 3 days
+                          - value 2: 6 days
+                          - value 3: 9 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Dweilen
+                          - entity: sensor.dweilen
+                          - value 1: 5 days
+                          - value 2: 8 days
+                          - value 3: 11 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Stoffen
+                          - entity: sensor.stoffen
+                          - value 1: 3 days
+                          - value 2: 6 days
+                          - value 3: 9 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Spiegels
+                          - entity: sensor.spiegels
+                          - value 1: 7 days
+                          - value 2: 14 days
+                          - value 3: 21 days  
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Ramen
+                          - entity: sensor.ramen
+                          - value 1: 6 months
+                          - value 2: 12 months
+                          - value 3: 18 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Gordijnen
+                          - entity: sensor.gordijnen
+                          - value 1: 6 months
+                          - value 2: 12 months
+                          - value 3: 18 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Toilet
+                          - entity: sensor.toilet_clean
+                          - value 1: 3 days
+                          - value 2: 6 days
+                          - value 3: 9 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Badkamer
+                          - entity: sensor.badkamer
+                          - value 1: 7 days
+                          - value 2: 14 days
+                          - value 3: 21 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Bed
+                          - entity: sensor.bed_verschonen
+                          - value 1: 5 days
+                          - value 2: 9 days
+                          - value 3: 13 days
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Matras
+                          - entity: sensor.matras
+                          - value 1: 3 months
+                          - value 2: 6 months
+                          - value 3: 9 months
+                  - !include ../decluttering_templates/blank-card.yaml
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### < Car Stephanie >'
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: "##### Citroën C1 1.0 (2007) 55-GFF-3"
+              - type: horizontal-stack
+                cards:
+                  - type: 'custom:button-card'
+                    color_type: blank-card
+                    styles:
+                      card:
+                        - width: 10px
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background-image: url('/local/images/citroenc1.jpg');
+                        border-radius: var(--border-radius);
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        background-size: cover;
+                        background-position: 50% 50%;
+                        color: '#FFFFFF';
+                        height: 140px;
+                        vertical-align: baseline;
+                        margin-bottom: 2px;
+                        overflow: hidden;
+                      }
+                    content: >
+                      **APK:** [[ sensor.citroen_c1_expdate.state ]]
+        
+                      **Kenteken:** 55-GFF-3
+        
+                      **Verzekerd:** [[ sensor.citroen_c1_insured.state ]]
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:vertical-stack-in-card'
+                    cards:
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Olie
+                          - entity: sensor.citroen_olie
+                          - value 1: 3 months
+                          - value 2: 6 months
+                          - value 3: 9 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Banden
+                          - entity: sensor.citroen_banden
+                          - value 1: 3 months
+                          - value 2: 6 months
+                          - value 3: 9 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Wassen
+                          - entity: sensor.citroen_clean
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Stofzuigen
+                          - entity: sensor.citroen_stof
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Ruiten
+                          - entity: sensor.citroen_window
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: entities
+                    style: |
+                      ha-card {
+                        background: var(--homekit-card-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: var(--border-radius);
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                      }
+                    entities:        
+                      - type: weblink
+                        name: Garage Kruburg Bellen
+                        icon: 'mdi:phone'
+                        url: tel:+31402421780
+                      - type: weblink
+                        name: ANWB Bellen
+                        url: tel:+31882692222
+                        icon: 'mdi:phone'
+                  - !include ../decluttering_templates/blank-card.yaml
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### < Car Jimmy'
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '##### Peugeot 207 SW 1.4 VTi X-Line (2007) 21-XX-DL'
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background-image: url('/local/images/peugeot207.jpg');
+                        border-radius: var(--border-radius);
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        background-size: cover;
+                        background-position: 50% 50%;
+                        color: '#FFFFFF';
+                        height: 140px;
+                        vertical-align: baseline;
+                        margin-bottom: 2px;
+                        overflow: hidden;
+                      }
+                    content: >
+                      **APK:** [[ sensor.peugeot_207_expdate.state ]]
+        
+                      **Kenteken:** 21-XX-DL
+                      
+                      **Verzekerd:** [[ sensor.peugeot_207_insured.state ]]
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: 'custom:vertical-stack-in-card'
+                    cards:
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Olie
+                          - entity: sensor.daihatsu_olie
+                          - value 1: 3 months
+                          - value 2: 6 months
+                          - value 3: 9 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Banden
+                          - entity: sensor.daihatsu_banden
+                          - value 1: 3 months
+                          - value 2: 6 months
+                          - value 3: 9 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Wassen
+                          - entity: sensor.daihatsu_clean
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Stofzuigen
+                          - entity: sensor.daihatsu_stof
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                      - type: custom:decluttering-card
+                        template: check_button_card
+                        variables:
+                          - title: Ruiten
+                          - entity: sensor.daihatsu_window
+                          - value 1: 1 month
+                          - value 2: 3 months
+                          - value 3: 6 months
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: entities
+                    style: |
+                      ha-card {
+                        background: var(--homekit-card-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: var(--border-radius);
+                        font-size: 12px;
+                        opacity: 0.8;
+                      }
+                    entities:        
+                      - type: weblink
+                        name: Garage Kruburg Bellen
+                        icon: 'mdi:phone'
+                        url: tel:+31402421780
+                      - type: weblink
+                        name: ANWB Bellen
+                        url: tel:+31882692222
+                        icon: 'mdi:phone'
+                  - !include ../decluttering_templates/blank-card.yaml
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 50px              

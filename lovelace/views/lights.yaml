@@ -1,21 +1,18 @@
-- type: custom:card-loader
-  wait:
-    - decluttering-card
-    - button-card
-  card:
-    type: vertical-stack
+title: Lights
+path:  lights
+popup_cards:
+  !include ../popup-cards/light-popup.yaml
+cards:
+  - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: back_button
         variables:
-          - content: '##### Woonkamer'
+          - title: Lights
+          - name: Woonkamer
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -35,18 +32,10 @@
               - entity: light.tafel_lamp
               - name: Tafellamp
               - icon: lamp
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -65,22 +54,14 @@
               - entity: light.gateway_light_7811dcdef324
               - name: Xiaomi LED
               - icon: led-strip
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Slaapkamer'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -104,22 +85,14 @@
               - name: LEDs
               - icon: led-strip
               - lock: true
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Kleine Kamer'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -135,17 +108,8 @@
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-- type: custom:card-loader
-  wait:
-    - decluttering-card
-    - button-card
-  card:
-    type: vertical-stack
+          - !include ../decluttering_templates/blank-card.yaml
+  - type: vertical-stack
     cards:
       - type: custom:decluttering-card
         template: header_text
@@ -153,11 +117,7 @@
           - content: '##### Keuken'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -176,22 +136,14 @@
               - entity: light.bijkeukenlamp
               - name: Bijkeuken
               - icon: ceiling-light
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Hal'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -209,22 +161,14 @@
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Overige'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -244,18 +188,10 @@
               - entity: light.balkonlamp
               - name: Balkon
               - icon: wall-sconce
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: light_button_card
             variables:
@@ -268,11 +204,7 @@
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: 'custom:button-card'
         color_type: blank-card
         styles:

@@ -1,0 +1,443 @@
+title: Menu
+path: menu
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_3
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Main Menu'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### All Items'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Cleaning
+              - label: Lists
+              - icon: broom
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/cleaning
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/cleaning
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Climate
+              - label: Control
+              - icon: thermostat
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/climate
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/climate
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Devices
+              - label: All Devices
+              - icon: power-plug
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/devices
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/devices
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Download
+              - label: Manager
+              - icon: download
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/downloads
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/downloads
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Energy
+              - label: Consumption
+              - icon: flash
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/energy
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/energy
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Floorplan
+              - icon: floor-plan
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/floorplan
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/floorplan
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Important
+              - label: Dates
+              - icon: calendar
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/calendar
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/calendar
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Laundry
+              - label: Room
+              - icon: washing-machine
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/laundry
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/laundry
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Lights
+              - label: All Lights
+              - icon: lamp
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/lights
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/lights
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Links
+              - icon: link-variant
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/links
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/links
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Location
+              - label: Map
+              - icon: map
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/location
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/location
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Now On
+              - icon: power
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/currently-on
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/currently-on
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Other
+              - icon: information
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/other
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/other
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Remote
+              - label: Control
+              - icon: remote
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/remote
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/remote
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Scenes
+              - label: Presets
+              - icon: arrange-send-backward
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/scenes
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/scenes
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Security
+              - label: Camera's
+              - icon: cctv
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/security
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/security
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Themes
+              - label: Manager
+              - icon: palette
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/themes
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/themes
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Upcoming
+              - label: Media
+              - icon: plex
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/media
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/media
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Vacuum
+              - label: Control Center
+              - icon: robot-vacuum
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/vacuum
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/vacuum
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Weather
+              - label: Information
+              - icon: weather-cloudy
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/weather
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/weather
+                  haptic: light
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - !include ../decluttering_templates/blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### System Tools'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Dashboard
+              - label: HA Settings
+              - icon: settings
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /config/dashboard/
+                  haptic: light
+              - hold_action:
+                  action: none
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Developer
+              - label: Tools
+              - icon: screwdriver
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /developer-tools/info/
+                  haptic: light
+              - hold_action:
+                  action: none
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Restart
+              - label: Restart HA
+              - icon: restart
+              - lock: true
+              - show_state: false
+              - opacity: 0.8
+              - hold_action:
+                  action: call-service
+                  service: homeassistant.restart
+                  haptic: light
+              - tap_action:
+                  action: none
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 50px

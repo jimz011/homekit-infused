@@ -1,21 +1,16 @@
-- type: custom:card-loader
-  wait:
-    - decluttering-card
-    - button-card
-  card:
-    type: vertical-stack
+title: Devices
+path: devices
+cards:
+  - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: back_button
         variables:
-          - content: '##### Woonkamer'
+          - title: Devices
+          - name: Woonkamer
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -36,22 +31,14 @@
               - entity: switch.samsung_tv
               - name: TV
               - icon: television
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Slaapkamer'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -75,22 +62,14 @@
               - name: TV
               - icon: television
               - lock: true
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Kleine Kamer'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -111,18 +90,10 @@
               - entity: switch.printer
               - name: Printer
               - icon: printer-wireless
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -137,17 +108,8 @@
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
-- type: custom:card-loader
-  wait:
-    - decluttering-card
-    - button-card
-  card:
-    type: vertical-stack
+          - !include ../decluttering_templates/blank-card.yaml
+  - type: vertical-stack
     cards:
       - type: custom:decluttering-card
         template: header_text
@@ -155,11 +117,7 @@
           - content: '##### Keuken'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -180,18 +138,10 @@
               - entity: switch.air_fryer
               - name: Airfryer
               - icon: panorama-fisheye
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack    
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -207,22 +157,14 @@
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Bijkeuken'
       - type: horizontal-stack
         cards:
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -238,11 +180,7 @@
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            styles:
-              card:
-                - width: 10px
+          - !include ../decluttering_templates/blank-card.yaml
       - type: 'custom:button-card'
         color_type: blank-card
         styles:

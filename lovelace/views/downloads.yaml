@@ -1,0 +1,41 @@
+title: Downloads
+path:  downloads
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Upcoming
+          - icon1: plex
+          - path1: media
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Download Center'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### SabNZBd'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: entities
+            style: |
+              ha-card {
+                background: var(--homekit-card-off);
+                --paper-item-icon-color: var(--icon-color-off);
+                color: var(--name-color-off);
+                border-radius: var(--border-radius);
+              }
+            entities:
+              - entity: sensor.sabnzbd_status
+                icon: 'mdi:download'
+                name: Sabnzbd Status
+              - entity: sensor.sabnzbd_queue_count
+                icon: 'mdi:format-list-bulleted'
+                name: Sabnzbd Wachtrij
+              - entity: sensor.sabnzbd_left
+                icon: 'mdi:arrow-left-bold'
+                name: Sabnzbd Resterend
+          - !include ../decluttering_templates/blank-card.yaml

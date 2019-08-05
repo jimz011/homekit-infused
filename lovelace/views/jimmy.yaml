@@ -1,0 +1,23 @@
+title: Jimmy
+path:  jimmy
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Cleaning
+          - icon1: broom
+          - path1: cleaning
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Jimmy Schings'
+      - type: custom:decluttering-card
+        template: person_more_info
+        variables:
+          - name: jimmy
+          - name-s: Jimmy's
+          - namesensor: !secret jimsensor
+          - mailsensor: !secret jimzmailsensor
+          - number: '16'

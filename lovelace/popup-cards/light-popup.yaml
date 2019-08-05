@@ -1,0 +1,200 @@
+  light.woonkamer_plafond:
+    title: Woonkamer Plafond
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.woonkamer_plafond
+  light.woonkamer_led_lampen:
+    title: Woonkamer LED Lampen
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.woonkamer_led_lampen
+  light.eettafel_lamp:
+    title: Eettafel Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.eettafel_lamp
+  light.vloerlamp:
+    title: Vloer Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.vloerlamp
+  light.tafel_lamp:
+    title: Tafel Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.tafel_lamp
+  light.gateway_light_7811dcdef324:
+    title: Xiaomi Gateway LED
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.gateway_light_7811dcdef324
+  light.kleine_kamer_plafondlampen:
+    title: Plafond Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.kleine_kamer_plafondlampen
+  light.officeled:
+    title: Kleine Kamer LEDs
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.officeled
+  switch.keukenspots:
+    title: Keuken Spotjes
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: switch.keukenspots
+  light.keuken_plafondlampen:
+    title: Plafond Lampen
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.keuken_plafondlampen
+  light.bijkeukenlamp:
+    title: Bijkeuken Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.bijkeukenlamp
+  light.slaapkamer_led_lampen:
+    title: Slaapkamer LEDs
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.slaapkamer_led_lampen
+  light.nachtkastje_jimmy:
+    title: Nachtkastje Jimmy
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.nachtkastje_jimmy
+  light.nachtkastje_stephanie:
+    title: Nachtkastje Stephanie
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.nachtkastje_stephanie
+  light.entree_lamp:
+    title: Entree Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.entree_lamp
+  light.gang_lamp:
+    title: Gang Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.gang_lamp
+  switch.koogeek_sw_056ce9:
+    title: Badkamer Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: switch.koogeek_sw_056ce9
+  light.tradfri_bulb_e27_ws_opal_980lm_4:
+    title: Berging Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
+  light.balkonlamp:
+    title: Balkon Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.balkonlamp
+  light.toiletlamp:
+    title: Toilet Lamp
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: custom:decluttering-card
+      template: light_popup_card
+      variables:
+        - entity: light.toiletlamp

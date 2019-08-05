@@ -1,0 +1,54 @@
+# Weather Popup Card
+  weather.dark_sky:
+    title: Weather
+    style:
+      border-radius: var(--border-radius)
+      background: var(--background-image)
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: 'custom:sun-card'
+              style: |
+                ha-card {
+                  border-radius: var(--border-radius);
+                  background: var(--homekit-card-off);
+                }
+              name: Sun
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+            - type: iframe
+              style: |
+                ha-card {
+                  border-radius: var(--border-radius);
+                  overflow: hidden;
+                  box-shadow: none;
+                }
+              aspect_ratio: 110%
+              url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              styles:
+                card:
+                  - width: 10px
+        - type: custom:button-card
+          color_type: blank-card
+          styles:
+            card:
+              - height: 10px

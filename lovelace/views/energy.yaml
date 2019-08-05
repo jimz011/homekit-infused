@@ -1,0 +1,191 @@
+title: Energy
+path:  energy
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Laundry
+          - icon1: washing-machine
+          - path1: laundry
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Energy Consumption'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Current'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_current
+              - name: Wasmachine
+              - line_color: '#ffb414'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_current
+              - name: Droger
+              - line_color: '#ffb414'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_current
+              - name: Vaatwasser
+              - line_color: '#ffb414'
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Power'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_power
+              - name: Wasmachine
+              - line_color: '#1427ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_power
+              - name: Droger
+              - line_color: '#1427ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_power
+              - name: Vaatwasser
+              - line_color: '#1427ff'
+          - !include ../decluttering_templates/blank-card.yaml 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Voltage'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_voltage
+              - name: Wasmachine
+              - line_color: '#00d8ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_voltage
+              - name: Droger
+              - line_color: '#00d8ff'
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_voltage
+              - name: Vaatwasser
+              - line_color: '#00d8ff'
+          - !include ../decluttering_templates/blank-card.yaml 
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Energy Today'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_today
+              - name: Wasmachine
+              - line_color: '#bf00ff'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_today
+              - name: Droger
+              - line_color: '#bf00ff'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_today
+              - name: Vaatwasser
+              - line_color: '#bf00ff'
+              - font_size: 45
+              - height: 120
+          - !include ../decluttering_templates/blank-card.yaml 
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Energy Yesterday'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_yesterday
+              - name: Wasmachine
+              - line_color: '#c20202'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_yesterday
+              - name: Droger
+              - line_color: '#c20202'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_yesterday
+              - name: Vaatwasser
+              - line_color: '#c20202'
+              - font_size: 45
+              - height: 120
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Energy Total'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml 
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: wasmachine_energy_total
+              - name: Wasmachine
+              - line_color: '#00ff95'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: droger_energy_total
+              - name: Droger
+              - line_color: '#00ff95'
+              - font_size: 45
+              - height: 120
+          - type: custom:decluttering-card
+            template: mini-graph-card
+            variables:
+              - entity: vaatwasser_energy_total
+              - name: Vaatwasser
+              - line_color: '#00ff95'
+              - font_size: 45
+              - height: 120
+          - !include ../decluttering_templates/blank-card.yaml

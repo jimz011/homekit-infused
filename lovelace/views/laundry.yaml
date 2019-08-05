@@ -1,0 +1,66 @@
+title: Laundry
+path:  laundry
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Cleaning
+          - icon1: broom
+          - path1: cleaning
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Laundry Room'
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Washing Machine'
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: 'custom:decluttering-card'
+                template: laundry_elements
+                variables:
+                  - image: washingmachine.jpg
+                  - entity_status: washing_machine_status
+                  - entity: wasmachine
+                  - entity_energy: wasmachine_energy_power
+                  - entity_energy_today: wasmachine_energy_today
+              - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Tumble Dryer'
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: 'custom:decluttering-card'
+                template: laundry_elements
+                variables:
+                  - image: dryer.jpg
+                  - entity_status: dryer_status
+                  - entity: droger
+                  - entity_energy: droger_energy_power
+                  - entity_energy_today: droger_energy_today
+              - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Dishwasher' 
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: 'custom:decluttering-card'
+                template: laundry_elements
+                variables:
+                  - image: dishwasher.jpg
+                  - entity_status: dishwasher_status
+                  - entity: vaatwasser
+                  - entity_energy: vaatwasser_energy_power
+                  - entity_energy_today: vaatwasser_energy_today
+              - !include ../decluttering_templates/blank-card.yaml
+      

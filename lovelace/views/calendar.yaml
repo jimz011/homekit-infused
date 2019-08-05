@@ -1,0 +1,58 @@
+title: Calendar
+path:  calendar
+cards:    
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Links
+          - icon1: link-variant
+          - path1: links
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Important Dates'
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Important Dates'
+          - type: horizontal-stack
+            cards:
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    background: var(--homekit-card-off);
+                    --paper-item-icon-color: var(--icon-color-off);
+                    color: var(--name-color-off);
+                    border-radius: var(--border-radius);
+                  }
+                entities:
+                  - entity: sensor.anniversary_trouwdag
+                    icon: mdi:ring
+                    name: Trouwdag
+                  - entity: sensor.birthday_stephanie_schings
+                    icon: mdi:gift
+                    name: Stephanie
+                  - entity: sensor.birthday_jimmy_schings
+                    name: Jimmy
+                    icon: mdi:gift
+                  - entity: sensor.birthday_tala
+                    name: Tala
+                    icon: mdi:dog-side
+                  - entity: sensor.birthday_helen_van_duuren
+                    name: Helen
+                    icon: mdi:human-female
+                  - entity: sensor.birthday_koos_van_duuren
+                    name: Koos
+                    icon: mdi:human-male
+                  - entity: sensor.birthday_roxanne_van_duuren
+                    name: Roxanne
+                    icon: mdi:human-female
+                  - entity: sensor.birthday_jos_schings
+                    name: Jos
+                    icon: mdi:human-male
+              - !include ../decluttering_templates/blank-card.yaml
