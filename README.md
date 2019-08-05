@@ -31,27 +31,29 @@ All Changes:
 - Added missing wallpapers and moved all unused images to another folder. This will make searching for the right image so much easier no?
 - Many many little bugfixes and changes to detail.
 
-*Screenshots and video's are still being uploaded, please have patience.
+Videos from this release:
+Full Video: https://www.youtube.com/watch?v=Ng0EDltHujY
+Tablet View: https://www.youtube.com/watch?v=105sd8tp4dg (srry my tablet is slow and old)
+Quick Menu: https://www.youtube.com/watch?v=_4OUzDfBgIY (this is visible on all other views by default)
+Alarm Interface Lock: https://www.youtube.com/watch?v=wsIgwRQdPFo
 
 ### For older changelogs please scroll down to the bottom of the page!
 
 ## Introduction
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
 
-### Screenshots and Video
+### Screenshots
 *Note: Screenshots are outdated, they still reside on the server as reference. My setup has changed a lot do not look at those, look at the video instead!
 
-#### Watch the video!
-There is SOO much going on in just 5 tabs that I can't possibly throw all the screenshots here without making this document unreadable. Please refer to the screenshots folder for more screenshots OR watch the video below which will give you the grand tour into this setup!
+#### Video
+Video: CLICK ON THE IMAGE TO START VIDEO (*updated 05/08/2019)
 
-Video: CLICK ON THE IMAGE TO START VIDEO (*updated 24/07/2019)
-
-[![Watch Video](https://img.youtube.com/vi/AQwMQndGYuQ/0.jpg)](https://youtu.be/AQwMQndGYuQ)
+[![Watch Video](https://img.youtube.com/vi/Ng0EDltHujY/0.jpg)](https://youtu.be/Ng0EDltHujY)
 
 ### How to use
 
 Prerequisites:
-- Home Assistant 0.95.x or 0.96.x
+- Home Assistant 0.95.x or 0.96.x or 0.97.x (note: themes only work with automations in 0.97.x, if you copy the corresponding 4 automations, the 2 for startup and the ones that change theme from day to night and vice versa, it will just work fine out of the box)
 - A bunch of custom-cards, see below for links
 - Patience
 - Some more patience
