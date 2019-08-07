@@ -150,6 +150,11 @@
           sound: default
           badge: 0
           category: "afzuigkap_alert" 
+#  - service: xiaomi_aqara.play_ringtone
+#    data_template:
+#      ringtone_id: 10001
+#      ringtone_vol: 100
+#      gw_mac: 78:11:DC:DE:F3:24
 
 # DOORS OPEN ALERTS TO IOS
 - alias: Voordeur Alert Opened
@@ -988,6 +993,25 @@
   initial_state: 'true'
   trigger:
   - platform: state
+    entity_id: group.device_status_3
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm  
+        state: 'disarmed'
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm  
+        state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"}  
+
+- alias: Alarm Activation Dog Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
     entity_id: group.device_status
     from: 'home'
   condition:
@@ -995,15 +1019,28 @@
       entity_id: alarm_control_panel.home_alarm  
       state: 'disarmed'
   action:
-  - service: notify.ios_notifier
-    data:
-      title: "Alarm"
-      message: "Iedereen is weg, wil je het Alarm inschakelen?"
-      data:
-        push:
-          sound: default
-          badge: 0
-          category: "alarm_activeren"
+    - service: alarm_control_panel.alarm_arm_home
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"} 
+
+#simple alarm automations
+- alias: simple alarm activate
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.simple_alarm
+    to: 'on'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"} 
+- alias: simple alarm deactivate
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.simple_alarm
+    to: 'off'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {"entity_id":"alarm_control_panel.home_alarm","code":"YOUR_CODE_HERE"} 
 
 # Notify Jimmy/Stephanie when arrive home
 - alias: Jimmy Home Alert
@@ -1244,6 +1281,7 @@
       data:
         name: Homekit Gray Light
 
+# 
 #################################################################################
 #        Wasmachine, Droger en Vaatwasser Automations                           #
 #################################################################################
@@ -1634,6 +1672,11 @@
             badge: 0
             sound: default
             category: "vaatwasser_alert"
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10002
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
 
 # Wasmachine Gereed Notificatie
 - alias: Send alert when washing machine is finished
@@ -1691,6 +1734,11 @@
             badge: 0
             sound: default
             category: "wasmachine_alert" 
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10005
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
 
 # Droger Gereed Notificatie
 - alias: Send alert when dryer is finished
@@ -1748,6 +1796,11 @@
             badge: 0
             sound: default
             category: "droger_alert" 
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10003
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
 
 # Motion Detection Notificaties / Camera
 - alias: Motion detected no one home bijkeuken
@@ -2163,12 +2216,12 @@
   initial_state: 'true'
   trigger:
     - platform: template
-      value_template: "{{ ((as_timestamp(strptime(states('sensor.daihatsu_gran_move_expdate'), '%d %b %Y')) / 86400) | int) == ((as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) / 86400) | int) + 21 }} }}"
+      value_template: "{{ ((as_timestamp(strptime(states('sensor.peugeot_207_expdate'), '%d %b %Y')) / 86400) | int) == ((as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) / 86400) | int) + 21 }} }}"
   action:
     - service: notify.mobile_app_iphone_jimmy
       data_template:
-        title: 'APK Daihatsu Gran Move'
-        message: De APK op uw Daihatsu Gran Move met kenteken 42-DH-PS verloopt op {{ states.sensor.daihatsu_gran_move_expdate.state }}. Plan een keuring bij uw garage.
+        title: 'APK Peugeot 207 SW'
+        message: De APK op uw Peugeot 207 SW met kenteken 21-XX-DL verloopt op {{ states.sensor.peugeot_207_expdate.state }}. Plan een keuring bij uw garage.
         data:
           push:
             sound: default
@@ -2311,59 +2364,70 @@
           sound: default
 
 # Reset Menu's after x Seconds (used with input_select on e.g. other view)
-- alias: 'reset input_select'
+- alias: 'reset input_select_jimmy'
   initial_state: 'true'
   trigger:
   - platform: state
     entity_id: input_select.algemeen
-    to: 'Klimaat'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Updates'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Plex'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Datums'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Overige'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Plattegrond'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Links'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Energie'
-    for:
-      seconds: 20
-  - platform: state
-    entity_id: input_select.algemeen
-    to: 'Washok'
-    for:
-      seconds: 20
   action:
+  - delay:
+      seconds: 20
   - service: input_select.select_option
     data:
       entity_id: input_select.algemeen
       option: Home
+
+- alias: 'reset input_select_stephanie'
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.algemeen2
+  action:
+  - delay:
+      seconds: 20
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.algemeen2
+      option: Home
+
+- alias: 'reset main menu jimmy'
+  initial_state: 'false'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.lovelace_menu_jimmy
+    to: "on"
+  action:
+  - delay:
+      seconds: 45
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.lovelace_menu_jimmy
+- alias: 'reset main menu stephanie'
+  initial_state: 'false'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.lovelace_menu_stephanie
+    to: "on"
+  action:
+  - delay:
+      seconds: 45
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.lovelace_menu_stephanie
+
+- alias: 'reset input_select_vacuum'
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.vacuum
+    to: 'Map'
+    for:
+      seconds: 30
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.vacuum
+      option: Informatie
 
 # Tado Heating
 - alias: set tado woonkamer heat
@@ -2619,6 +2683,11 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.scene_welterusten
+#  - service: xiaomi_aqara.play_ringtone
+#    data_template:
+#      ringtone_id: 10004
+#      ringtone_vol: 100
+#      gw_mac: 78:11:DC:DE:F3:24
 - alias: scene welterusten off
   initial_state: 'true'
   trigger:
@@ -2641,16 +2710,20 @@
   action:
     - service: python_script.date_countdown
       data:
-        name: TEST
+        name: Trouwdag
+        type: anniversary
+        date: 16/06/2017
+    - service: python_script.date_countdown
+      data:
+        name: Tala
         type: birthday
-        date: 02/07/1953
-
+        date: 28/07/2013
 # Birthday Notifications
-- alias: Koos van Duuren Birthday Notification
+- alias: Tala Birthday Notification
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: sensor.birthday_koos_van_duuren
+      entity_id: sensor.birthday_tala
       to: '0'
   action:
     - delay:
@@ -2658,13 +2731,30 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "TEST viert vandaag zijn [[ states.sensor.birthday_koos_van_duuren.years ]]e verjaardag, Feliciteer hem vandaag nog!"
+        message: "Tala is vandaag [[ states.sensor.birthday_jos_schings.years ]] jaar geworden, Verwen haar maar goed vandaag!"
         data:
           push:
             sound: default
             badge: 0
 
-        
+- alias: Wedding Anniversary Notification
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.anniversary_trouwdag
+      to: '0'
+  action:
+    - delay:
+        hours: 8
+    - service: notify.ios_notifier
+      data:
+        title: "Trouwdag"
+        message: "Vandaag zijn we [[ states.sensor.anniversary_trouwdag.years ]] jaar getrouwd! Proficiat!"
+        data:
+          push:
+            sound: default
+            badge: 0
+
 # Vacuum Automations
 - id: vacuum_cleaner_error
   alias: Vacuum Cleaner Error
@@ -2795,145 +2885,3 @@
      data:
        entity_id: vacuum.xiaomi_vacuum_cleaner
        fan_speed: 105
-
-# Set theme on startup
-- alias: 'Set theme light at startup'
-  initial_state: 'true'
-  trigger:
-    - platform: homeassistant
-      event: start
-  condition:
-    condition: state
-    entity_id: sun.sun
-    state: 'above_horizon'
-  action:
-    service: frontend.set_theme
-    data:
-      name: homekit_light_gray
-
-- alias: 'Set theme dark at startup'
-  initial_state: 'true'
-  trigger:
-    - platform: homeassistant
-      event: start
-  condition:
-    condition: state
-    entity_id: sun.sun
-    state: 'below_horizon'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_gray
-# Theme Selector Automations
-- alias: 'theme selector input_select 1'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Grey Light'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_light_gray
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 2'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Grey Dark'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_gray
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 3'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Blue Light'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_light_blue
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 4'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Blue Dark'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_blue
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 5'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Blue Light Squared'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_light_blue_squared
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 6'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Blue Dark Squared'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_blue_squared
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 7'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Automatic (default)'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_gray
-    - service: homeassistant.turn_on
-      data:
-        entity_id: group.theme_selector
-# Theme Day/Night Cycle
-- alias: 'Set dark theme for the night'
-  initial_state: true
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:00:00'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_dark_gray
-- alias: 'Set light theme for the day'
-  initial_state: true
-  trigger:
-    - platform: sun
-      event: sunrise
-      offset: '+00:00:00'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: homekit_light_gray
