@@ -132,6 +132,63 @@ Custom Components:
 - Add even more buttons to then menu to get all functions in one place ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
+
+
+### Questions?
+
+Please ask any question you have on the Home Assistant community forums.
+https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086
+
+## Thank you
+
+Thank you for taking your time reading all this mess, I hope you have great fun with Home Assistant as I have and I will always try to help people out where I can, but as I said I am only an amateur so do not expect miracles :P.
+Anyways have fun and see you next time!
+
+## A very special thanks to
+@ciotlosm
+
+@thomasloven
+
+@balloob
+
+@gluwc
+
+@maykar
+
+@robbiet480
+
+@ljmerza
+
+@iantrich
+
+@kalkih
+
+@bramkragten
+
+@peternijssen
+
+@eelcohn
+
+@hunterjm
+
+@jc2k
+
+@kuuji
+
+@romrider
+
+@roflcoopter
+
+@3_14 / @Piotrmachowski
+
+@everyone I forgot to mention
+
+I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
+
+## Author
+
+Jimz011
+
 ## Changelog
 ### Changes (27/07/2019)
 Minor changes only, rearranged themes, you will have to adjust your automations to use the correct name. Naming looks better in the HA menu's now.
@@ -239,60 +296,3 @@ Summary:
 
 !Important Note!
 Apple has released the first beta's of tvOS 13, the Apple component in Home Assistant will NO LONGER WORK with tvOS 13. This also means, no more state updates, no remote control, no dimming lights when started playing, no more automations possible whatsoever with the Apple TV. If you rely on this DON'T EVER UPDATE TO tvOS 13. Apple has removed a few services from the ATV which involves Home Sharing and was necessary for the pyatv component to work. They will most likely never create an alternative to this and thus you are warned. If you want to downgrade your Apple TV you can still do this until Apple stops signing that firmware so if you haven't downgraded before halfway september know that you will probably be stuck with a broken remote control in HA or broken automations that were based on the ATV's states.
-
-
-
-### Questions?
-
-Please ask any question you have on the Home Assistant community forums.
-https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086
-
-## Thank you
-
-Thank you for taking your time reading all this mess, I hope you have great fun with Home Assistant as I have and I will always try to help people out where I can, but as I said I am only an amateur so do not expect miracles :P.
-Anyways have fun and see you next time!
-
-## A very special thanks to
-@ciotlosm
-
-@thomasloven
-
-@balloob
-
-@gluwc
-
-@maykar
-
-@robbiet480
-
-@ljmerza
-
-@iantrich
-
-@kalkih
-
-@bramkragten
-
-@peternijssen
-
-@eelcohn
-
-@hunterjm
-
-@jc2k
-
-@kuuji
-
-@romrider
-
-@roflcoopter
-
-@3_14 / @Piotrmachowski
-
-@everyone I forgot to mention
-
-I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
-
-## Author
-
-Jimz011
