@@ -2437,10 +2437,10 @@
     entity_id: input_boolean.tado_woonkamer
     to: 'on'
   action:
-  - service: climate.set_operation_mode
+  - service: climate.set_hvac_mode
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va2898201344
-      operation_mode: heat
+      hvac_mode: heat
 - alias: set tado woonkamer off
   initial_state: 'true'
   trigger:
@@ -2448,10 +2448,10 @@
     entity_id: input_boolean.tado_woonkamer
     to: 'off'
   action:
-  - service: climate.set_operation_mode
+  - service: climate.set_hvac_mode
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va2898201344
-      operation_mode: "off"
+      hvac_mode: "off"
 
 - alias: set tado kleine kamer heat
   initial_state: 'true'
@@ -2460,10 +2460,10 @@
     entity_id: input_boolean.tado_kleine_kamer
     to: 'on'
   action:
-  - service: climate.set_operation_mode
+  - service: climate.set_hvac_mode
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va1671957504
-      operation_mode: heat
+      hvac_mode: heat
 - alias: set tado kleine kamer off
   initial_state: 'true'
   trigger:
@@ -2471,10 +2471,10 @@
     entity_id: input_boolean.tado_kleine_kamer
     to: 'off'
   action:
-  - service: climate.set_operation_mode
+  - service: climate.set_hvac_mode
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va1671957504
-      operation_mode: "off"
+      hvac_mode: "off"
       
 ## Scenes Input Booleans (Work in Progress)
 - alias: scene dagverlichting on
