@@ -43,7 +43,7 @@ Quick Menu: https://www.youtube.com/watch?v=_4OUzDfBgIY (this is visible on all 
 
 Alarm Interface Lock: https://www.youtube.com/watch?v=wsIgwRQdPFo
 
-### For older changelogs please click here: https://github.com/jimz011/homeassistant/changelog.txt
+### For older changelogs please click here: https://github.com/jimz011/homeassistant/changelog
 
 ## Introduction
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
