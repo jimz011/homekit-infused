@@ -11,8 +11,8 @@ card:
   pending: 1
   entity: '[[entity]]'
   hvac:
-    attribute: operation_mode
+    attribute: hvac_action
     states:
-      'heat': 'heat'
+      'heating': 'heat'
       'off': 'off'
   step: 1
