@@ -3,6 +3,8 @@ resources:
   !include lovelace/resources/resources.yaml
  
 # Compact Custom Header
+# You will need to hide views if you want to
+# have views that behave like popup cards!
 cch:
   menu: hide
   options: hide
@@ -14,7 +16,7 @@ cch:
   swipe: true
   swipe_wrap: false
   background: 'rgba(0,0,0,0.3)'
-  hide_tabs: '5 to 25'
+  hide_tabs: '5 to 30' # Changed/Added in 0.1
   default_tab: 1
   exceptions:
     - conditions:
@@ -23,6 +25,8 @@ cch:
         header: true
    
 # Decluttering Templates
+# These are the templates used to avoid too much
+# duplicate code.
 decluttering_templates:
   !include lovelace/decluttering_templates/decluttering_templates.yaml
        
@@ -30,7 +34,7 @@ decluttering_templates:
 # The following 5 views are swipable, the order
 # of these 5 files is the swipe order as well.
 # The first view is the page 0. In my setup
-# the interface defaults to view 2.
+# the interface defaults to view 1.
 title: Home
 background: var(--background-image)
 views:
@@ -44,6 +48,7 @@ views:
 # a popup card or conditional cards. The order of
 # these files will not change anything.
   - !include lovelace/views/vacuum.yaml
+  - !include lovelace/views/vacuum-zoned-cleaning.yaml # Changed/Added in 0.1
   - !include lovelace/views/alarm.yaml
   - !include lovelace/views/jimmy.yaml
   - !include lovelace/views/stephanie.yaml
@@ -63,3 +68,9 @@ views:
   - !include lovelace/views/currently_on.yaml
   - !include lovelace/views/location.yaml
   - !include lovelace/views/themes.yaml
+  - !include lovelace/views/postnl-jimmy.yaml # Changed/Added in 0.1
+  - !include lovelace/views/postnl-stephanie.yaml # Changed/Added in 0.1
+  - !include lovelace/views/weather.yaml # Changed/Added in 0.1
+
+# Note that this order and the way this works might change in the near future.
+# It will be the removal of swipe-cards in favor of CCH swipe gestures.
