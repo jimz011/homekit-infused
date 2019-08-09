@@ -93,10 +93,12 @@ To make it easier on you if you want to copy it entirely is to first check the f
 
 Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
 Cards:
+* [Weather-Card-Graph](https://github.com/sgttrs/lovelace-weather-card-chart) - Not supported, install Manually - This card is almost the same as most weather cards for lovelace, however this one has a neat graph (and no colored icons which is in my opinion cleaner).
+* [More-Info-Card] (https://github.com/thomasloven/lovelace-more-info-card) - Not supported, install Manually - This card will show you the more-info window of an entity as a card. This is used for the weather panel in my setup.
 * [Card-Loader](https://github.com/thomasloven/lovelace-card-loader) - Not supported, install Manually - This mod will make sure cards are loaded before they are presented. Without this cards might not load until a refresh of the page.
 * [Deep-Press](https://github.com/roflcoopter/deep-press) - HACS Supported, install with HACS - This is a great card for iphone users with 3d touch. Actually it isn't a card it modifies existing cards to support 3d touch. If you have an iphone that supports this I highly recommend you to use this. If you are not using this, remove the `deep_press: true` line from `switch-template.yaml` and `light-template.yaml`.
 * [State-Switch](https://github.com/thomasloven/lovelace-state-switch) - Not supported, install Manually - Important if you want to be able to have multiple users to use your interface. My setup is not compatible out of the box without this. If you don't care for multi user you will have to manually remove the custom:state-switch entries.
-* [Swipe-Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card) - HACS Supported, install with HACS - This is used to display the beautiful animation on the 'popup' cards and being able to swipe/flick through them. This is ESSENTIAL.
+* [Swipe-Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card) - HACS Supported, install with HACS - This is used to display the beautiful animation on the 'popup' cards and being able to swipe/flick through them. This is ESSENTIAL. Note: Swipe-Card has a known issue with swiping on pages with buttons. It would register it as a tap_action while you swipe. To prevent this please download the js from my repo as this has a somewhat fix for that problem. You will need this if you do not want the buttons to be tapped while swiping. (this is due to being removed in the near future)
 * [Button-Card](https://github.com/custom-cards/button-card) - HACS Supported, install with HACS - The MOST IMPORTANT card of my setup, you will need this!!
 * [Lovelace-Card-Mod](https://github.com/thomasloven/lovelace-card-mod) - HACS Supported, install with HACS - Mods all the core cards to use CSS etc. Previously card-modder was used for this purpose.
 * [Card-Tools](https://github.com/thomasloven/lovelace-card-tools) - Not supported, install Manually - ESSENTIAL many custom-cards depend on this, including Card-Modder
@@ -124,11 +126,12 @@ Custom Components:
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
 
 ## TO DO (*updated: 24/07/2019)
-- Optimize Theming. ###In Progress
-- Switching out the last popup cards for alternative cards. ###In Progress
+- Optimize Theming (currently not working properly). ###Issue opened on github
+- Switching the swipe-card for standard views with CCH. ###Feature requested, awaiting release
+- Switching out the last popup cards for alternative cards. ###In Progress, Feature requested, awaiting release
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Postponed to a future release
-- Dog food and water dispenser ###Waiting for order to arrive, postponed to the first week of August.
+- Dog food and water dispenser ###Water dispenser arrived, waiting for sensors to accompany it.
 - Other graphs related to servers/computers etc. ###Postponed to a future release
 - Declutter some more cards ###Always in Progress
 - Add even more buttons to then menu to get all functions in one place ###Currently in Progress
