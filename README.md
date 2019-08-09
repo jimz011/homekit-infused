@@ -6,45 +6,42 @@ If you find any information on this page useful, feel free to buy me a coffee:
 My current Home Assistant install (current running version 0.97.0b3)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimzz011 July 2019 (*updated: 07/08/2019)
-### Changes (07/08/2019)
-- Replaced automations.yaml file with a current one. There seemed to be duplicate automations in the old one. Use parts from this one instead.
-- Edited climate-template.yaml to reflect the new hvac changes that were introduced in HA some time ago. Automations that go with this have been updated as well.
-- Added up to date custom cards to the community folder (yes some people seem to want to copy these instead of using HACS like I asked you to do so, so there you go)
-(*note: you can NOT copy the hacs folder from custom_components from my repo, it will NOT work, please download your own session of HACS)
-### Changes (05/08/2019) (*note: This setup will work perfectly fine with 0.97.x however themes only seem to work when I throw an automation at it (this means it will be set for all users), the dynamic standard themes (day/night) will work just fine, though for now setting a theme per user does not work. If setting globally use the lovelace button I created and the corresponding automations (or make your own)! It probably has to do with the way I have themed this and might require a rewrite.
+## Lovelace setup by jimz011 August 2019 (*updated: 09/08/2019)
+### Changes 09/08/2019:
+v. 0.1a
+- Moved the Xiaomi Vacuum Cleaner zoned cleaning map out of the swipe-card into its own view. Swipe-card would not allow for this card to be used properly.
+- Moved PostNL out of the swipe-card in the personal views so that photos of letters can now be used. Swipe-card would not allow for this card to be used properly.
+- Small changes to the quickmenu on the personal views, the left button will now take you to the PostNL view. 
+- Small changes to the quickmenu on the vacuum view, the left button will now take you to the manual zoned cleaning view.
+- Small changes to the quickmenu on the dog view, the left button will now take you to the right view.
+- Added a brand new weather view (this is not the weather view on the frontpage, that one is still up for rework)
 
-A very very great summer to all of you, I hope you enjoy your summer. Today I have a great update for all of you. This update is massive! Why? Well remember that I wanted to experiment with conditional cards and more users? Well guess what I was not satisfied with the result. Yes I was satisfied with how it looked, but not the way it was coded. It was extremely slow to a point my old iPad Air wouldn't want to load this setup anymore. So this time around I have rewritten every single page in the setup and boy you are going to love this! (sorry for the ones that were adopting my previous setup, but this will make your life, and mine, a lot easier).
+## Update Guide from 07/08/2019 to 0.1a:
+Please read this first. In all changed files there is a `# Changed/Added in 0.1`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
+This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
+I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
 
-So lets talk about what has changed. For this release I have changed a lot of simple stuff. My setup was way too complicated and even I got lost in it. Now it is as simple as this: Every menu item (what used to be popup cards) are now just separate views. This is far easier to maintain. Extremely easy to edit and even easier to get it running as you can now work view by view. Performance has gone up massively. It loads about 2 to 3 times faster than the previous setup whilst having added a bit more features. The setup will work EXACTLY the same as before and you might not see the difference at first glance. I have worked out a lot of small details that were bugging me and I have redesigned the top part of the screen on every page so that the setup is now consistently the same on every view.
+#### Added Views: (these are new views and do not require editing)
+- Added vacuum-zoned-cleaning.yaml
+- Added weather.yaml
+- Added postnl-jimmy.yaml
+- Added postnl-stephanie.yaml
 
-What does this mean for multi-user setup? Well nothing! It means you don't need input_booleans and a bunch of conditional cards anymore to reach te same result. What does it mean for my old setup? Well, I suggest starting over! (I am terribly sorry). But after a week of testing, this is actually a config I am comfortable with to say I will not change the way this works. Obviously I will be continuing working on the setup. But I am actually very very happy on how the current method turned out. You might wonder if you see all those tabs in the header then? Well no, the header is hidden on smartphones now. And on an ipad/tablet the header only shows the first 5 tabs (just like it used to be). All other tabs are hidden, you will not be able to swipe to them by accident and you will not be able to access them from the header at all. Everything will look and feel exactly like it was, just better! Ofcourse for convenience the first 5 tabs (which were already there) are still swipable.
+#### Added Resources:
+- Added weather-card-chart.js (please import this in HACS https://github.com/sgttrs/lovelace-weather-card-chart)
+- Added more-info-card.js (Please import this in HACS https://github.com/thomasloven/lovelace-more-info-card)
 
-All Changes:
-- Completely rewritten lovelace setup for performance, ease of use and code reduction
-- Removed almost 2000 lines of code (with the same end result yay)
-- Added a quickmenu to every page for quickaccess to common views, the buttons change depending on the view you are on.
-- Added a dog picture elements on the frontpage
-- Groundwork for a decent landscape tablet mode, at the moment most of the elements are already great for use on a tablet in landscape mode. Unfortunately some elements will still look better on portret mode like the vacuum control panel. But nevertheless it is looking really great for the future. For screenshots please check the home assistant community website: https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-96-x-compatible-now-with-dynamic-themes/117086
-- Removed the header on all devices. My ipad still has a header which is added to the exceptions with CCH
-- Removed all conditional-cards that functioned as a popup card to use the new views instead
-- All input_booleans that had a name are replaced with a dummy one. Buttons will now just navigate you to the right view.
-- Changed titles, headers etc to be more consistent with the rest of the setup.
-- Now when the alarm is activated, the frontpage buttons will hide and the weather panel will be changed with a quickaccess menu, this is to prevent accidental presses in the interface whilst not being home and will prevent the alarm from going off for no reason but human error e.g. phone is unlocked, in your pants and you accidentally press a light button in your pocket, light turns on, sensor gets tripped, boom alarm goes off!. (this has never happened to me, but still this change is nice). The weather bar at the top will become a quickmenu with camera/menu/alarm buttons. So you can quickly access your camera's and alarm system. And if you really really have to whilst the alarm is activated, you can still go into the menu where you have access to everything.
-- Decluttered A LOT, this includes the blank-card I used to create a gap between the borders of the screen. Each button is now 1 line! (I have had many suggestions to use a decluttering card for this, but I actually think this is much easier as it is just a single line, just make sure the path is correct)
-- Minor changes to the vacuum control center to look better on the provided dark theme
-- Added missing wallpapers and moved all unused images to another folder. This will make searching for the right image so much easier no?
-- Many many little bugfixes and changes to detail.
-
-Videos from this release:
-
-Full Video: https://www.youtube.com/watch?v=Ng0EDltHujY
-
-Tablet View: https://www.youtube.com/watch?v=105sd8tp4dg (srry my tablet is slow and old)
-
-Quick Menu: https://www.youtube.com/watch?v=_4OUzDfBgIY (this is visible on all other views by default)
-
-Alarm Interface Lock: https://www.youtube.com/watch?v=wsIgwRQdPFo
+#### Changed:
+- Changed ui-lovelace.yaml (add all the added views above to this file with !includes just like the other views)
+- Changed resources.yaml (add all the added resources above to this file, please use HACS)
+- Changed stephanie.yaml (see comments in the file)
+- Changed jimmy.yaml (see comments in the file)
+- Changed vacuum.yaml (see comments in the file and remove the complete zoned cleaning, the one with the map, vertical stack from the swipe-card)
+- Changed automations.yaml (Tado commands were broken due to the new hvac stuff from 0.96.x, this has been adjusted, for convenience these automations have been moved to the bottom of the file, please remove your old ones)
+- Changed climate-template.yaml (This fixes the hvac states on the thermostat-card for tado radiators on the HK controller, might not work for your specific radiator)
+- Changed switch-template.yaml (added a template for margin-top on a name)
+- Changed person-more-info.yaml (remove the complete PostNL vertical stack from the swipe-card)
+- Changed tala.yaml (this is the dog view, see comments in the file)
 
 ### Click here for the [Full Change Log](https://github.com/jimz011/homeassistant/blob/master/CHANGELOG.md)
 
@@ -52,12 +49,14 @@ Alarm Interface Lock: https://www.youtube.com/watch?v=wsIgwRQdPFo
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
 
 ### Screenshots
-*Note: Screenshots are outdated, they still reside on the server as reference. My setup has changed a lot do not look at those, look at the video instead!
+*Note: Screenshots are outdated, they still reside on the server as reference. My setup has changed a lot do not look at those, look at the videos instead!
 
 #### Video
 Video: CLICK ON THE IMAGE TO START VIDEO (*updated 05/08/2019)
 
 [![Watch Video](https://img.youtube.com/vi/Ng0EDltHujY/0.jpg)](https://youtu.be/Ng0EDltHujY)
+
+[![Watch Video](https://img.youtube.com/vi/105sd8tp4dg/0.jpg)](https://youtu.be/105sd8tp4dg)
 
 ### How to use
 
