@@ -11,8 +11,8 @@ card:
   pending: 1
   entity: '[[entity]]'
   hvac:
-    attribute: hvac_action
+    attribute: hvac_action # Changed/Added in 0.1
     states:
-      'heating': 'heat'
+      'heating': 'heat' # Changed/Added in 0.1
       'off': 'off'
   step: 1
