@@ -6,9 +6,9 @@ cards:
       - type: custom:decluttering-card
         template: back_button_2
         variables:
-          - name1: Cleaning
-          - icon1: broom
-          - path1: cleaning
+          - name1: PostNL # Changed/Added in 0.1
+          - icon1: package-variant-closed # Changed/Added in 0.1
+          - path1: postnl-stephanie # Changed/Added in 0.1
       - type: custom:decluttering-card
         template: header_text
         variables:

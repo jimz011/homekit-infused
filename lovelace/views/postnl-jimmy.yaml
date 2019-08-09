@@ -1,0 +1,75 @@
+title: PostNL Jimmy
+path: postnl-jimmy
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Jimmy
+          - icon1: account
+          - path1: jimmy
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Jimmy Schings'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### PostNL'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Other'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Back to personal view
+              - icon: robot-vacuum
+              - show_state: false
+              - show_icon: false
+              - color: gray
+              - opacity: 0.8
+              - justify-self-name: center
+              - padding-left-name: 0px
+              - margin-top-name: 6px
+              - margin-right: 0px
+              - aspect_ratio: 6/1
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/jimmy
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/jimmy
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Letters & Packages'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: 'custom:postnl-card'
+            style: |
+              ha-card {
+                background: none;
+                --paper-item-icon-color: var(--icon-color-off);
+                color: var(--name-color-off);
+                border-radius: var(--border-radius);
+                font-family: Helvetica;
+                font-size: 12px;
+                opacity: 0.8;
+              }
+            delivery: sensor.postnl_jimmy_delivery
+            letters: sensor.postnl_jimmy_letters
+            hide:
+              header: true
+              delivered: false
+            past_days: 14
+          - !include ../decluttering_templates/blank-card.yaml

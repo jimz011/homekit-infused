@@ -6,9 +6,9 @@ cards:
       - type: custom:decluttering-card
         template: back_button_2
         variables:
-          - name1: Cleaning
-          - icon1: broom
-          - path: cleaning
+          - name1: Zoned # Changed/Added in 0.1
+          - icon1: map # Changed/Added in 0.1
+          - path1: vacuum-zoned-cleaning # Changed/Added in 0.1 (rename path to path1, this fixed the broken link!)
       - type: custom:decluttering-card
         template: header_text
         variables:
@@ -40,11 +40,7 @@ cards:
                   - content: '##### Information'
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -85,22 +81,14 @@ cards:
                       - hold_action:
                           action: more-info
                           haptic: heavy
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               - type: custom:decluttering-card
                 template: header_text
                 variables:
                   - content: '##### Cleaning'
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -140,18 +128,10 @@ cards:
                       - hold_action:
                           action: more-info
                           haptic: heavy
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -171,11 +151,7 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
           - type: vertical-stack
             cards: 
               - type: custom:decluttering-card
@@ -188,11 +164,7 @@ cards:
                   - content: '##### General'
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: conditional
                     conditions:
                       - entity: sensor.vacuum_cleaner_status_sensor
@@ -335,18 +307,10 @@ cards:
                             haptic: light
                         - hold_action:
                             action: none
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -416,11 +380,7 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: vacuum.xiaomi_vacuum_cleaner
@@ -434,11 +394,7 @@ cards:
                         - content: '##### Fan Speed'
                     - type: horizontal-stack
                       cards:
-                        - type: 'custom:button-card'
-                          color_type: blank-card
-                          styles:
-                            card:
-                              - width: 10px 
+                        - !include ../decluttering_templates/blank-card.yaml
                         - type: conditional
                           conditions:
                             - entity: input_select.xiaomi_vacuum
@@ -596,18 +552,10 @@ cards:
                                   haptic: light
                               - hold_action:
                                   action: none
-                        - type: 'custom:button-card'
-                          color_type: blank-card
-                          styles:
-                            card:
-                              - width: 10px 
+                        - !include ../decluttering_templates/blank-card.yaml
                     - type: horizontal-stack
                       cards:
-                        - type: 'custom:button-card'
-                          color_type: blank-card
-                          styles:
-                            card:
-                              - width: 10px 
+                        - !include ../decluttering_templates/blank-card.yaml
                         - type: conditional
                           conditions:
                             - entity: input_select.xiaomi_vacuum
@@ -713,70 +661,56 @@ cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           aspect_ratio: 1/1
-                        - type: 'custom:button-card'
-                          color_type: blank-card
-                          styles:
-                            card:
-                              - width: 10px 
+                        - !include ../decluttering_templates/blank-card.yaml
                     - type: 'custom:button-card'
                       color_type: blank-card
                       styles:
                         card:
-                          - width: 10px 
-          - type: vertical-stack
-            cards:
-              - type: custom:decluttering-card
-                template: header_text
-                variables:
-                  - content: '#### < Zoned Cleaning >'
-              - type: custom:decluttering-card
-                template: header_text
-                variables:
-                  - content: '##### Floorplan'
-              - type: horizontal-stack
-                cards: 
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px
-                  - type: custom:xiaomi-vacuum-map-card
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        background: var(--homekit-card-off);
-                        color: var(--label-color-off);
-                      }
-                    entity: vacuum.xiaomi_vacuum_cleaner
-                    map_image: '/local/images/xiaomi-map.png'
-                    base_position:
-                      x: 600
-                      y: 300
-                    reference_point:
-                      x: 546
-                      y: 235
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px
+                          - height: 10px 
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
                 template: header_text
                 variables:
                   - content: '#### < Presets'
-              - type: custom:decluttering-card
-                template: header_text
-                variables:
-                  - content: '##### Predefined Zones'
+              - type: custom:decluttering-card # Changed/Added in 0.1
+                template: header_text # Changed/Added in 0.1
+                variables: # Changed/Added in 0.1
+                  - content: '##### Manual' # Changed/Added in 0.1
+              - type: horizontal-stack # Changed/Added in 0.1
+                cards: # Changed/Added in 0.1
+                  - !include ../decluttering_templates/blank-card.yaml # Changed/Added in 0.1
+                  - type: 'custom:decluttering-card' # Changed/Added in 0.1
+                    template: switch_button_card # Changed/Added in 0.1
+                    variables: # Changed/Added in 0.1
+                      - entity: input_boolean.dummy1 # Changed/Added in 0.1
+                      - name: Manual Zoned Cleaning # Changed/Added in 0.1
+                      - icon: map # Changed/Added in 0.1
+                      - show_state: false # Changed/Added in 0.1
+                      - show_icon: false # Changed/Added in 0.1
+                      - color: gray # Changed/Added in 0.1
+                      - opacity: 0.8 # Changed/Added in 0.1
+                      - justify-self-name: center # Changed/Added in 0.1
+                      - padding-left-name: 0px # Changed/Added in 0.1
+                      - margin-top-name: 6px # Changed/Added in 0.1
+                      - margin-right: 0px # Changed/Added in 0.1
+                      - aspect_ratio: 6/1 # Changed/Added in 0.1
+                      - tap_action: # Changed/Added in 0.1
+                          action: navigate # Changed/Added in 0.1
+                          navigation_path: /lovelace/vacuum-zoned-cleaning # Changed/Added in 0.1
+                          haptic: light # Changed/Added in 0.1
+                      - hold_action: # Changed/Added in 0.1
+                          action: navigate # Changed/Added in 0.1
+                          navigation_path: /lovelace/vacuum-zoned-cleaning # Changed/Added in 0.1
+                          haptic: light # Changed/Added in 0.1
+                  - !include ../decluttering_templates/blank-card.yaml # Changed/Added in 0.1
+              - type: custom:decluttering-card # Changed/Added in 0.1
+                template: header_text # Changed/Added in 0.1
+                variables: # Changed/Added in 0.1
+                  - content: '##### Automatic' # Changed/Added in 0.1
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -813,7 +747,7 @@ cards:
                             command: app_zoned_clean
                             params: [[19375,24752,26175,28752,1]]
                           haptic: light
-                        hold_action:
+                      - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
@@ -832,20 +766,12 @@ cards:
                             command: app_zoned_clean
                             params: [[19207,29558,20157,33658,1],[20142,29563,21792,31063,1],[21826,29567,23426,33567,1]]
                           haptic: light
-                        hold_action:
+                      - hold_action:
                           action: none
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -863,7 +789,7 @@ cards:
                             command: app_zoned_clean
                             params: [[23519,28738,25469,31688,1],[25427,28788,27527,30238,1]]
                           haptic: light
-                        hold_action:
+                      - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
@@ -882,7 +808,7 @@ cards:
                             command: app_zoned_clean
                             params: [[26006,30366,29356,33766,1]]
                           haptic: light
-                        hold_action:
+                      - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
@@ -901,11 +827,7 @@ cards:
                             command: app_zoned_clean
                             params: [[27462,28885,29562,30385,1]]
                           haptic: light
-                        hold_action:
+                      - hold_action:
                           action: none
-                  - type: 'custom:button-card'
-                    color_type: blank-card
-                    styles:
-                      card:
-                        - width: 10px 
+                  - !include ../decluttering_templates/blank-card.yaml
               

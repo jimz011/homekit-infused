@@ -1,0 +1,78 @@
+title: Vacuum Zoned Cleaning
+path: vacuum-zoned-cleaning
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Vacuum
+          - icon1: robot-vacuum
+          - path1: vacuum
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Johnny S55 Control Center'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '#### Zoned Cleaning'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Automatic'
+      - type: horizontal-stack
+        cards:
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: 'custom:decluttering-card'
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Back to Vacuum Control Center
+              - icon: robot-vacuum
+              - show_state: false
+              - show_icon: false
+              - color: gray
+              - opacity: 0.8
+              - justify-self-name: center
+              - padding-left-name: 0px
+              - margin-top-name: 6px
+              - margin-right: 0px
+              - aspect_ratio: 6/1
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/vacuum
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/vacuum
+                  haptic: light
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Manual'
+      - type: horizontal-stack
+        cards: 
+          - !include ../decluttering_templates/blank-card.yaml
+          - type: custom:xiaomi-vacuum-map-card
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                background: var(--homekit-card-off);
+                color: var(--label-color-off);
+              }
+            entity: vacuum.xiaomi_vacuum_cleaner
+            map_image: '/local/images/xiaomi-map.png'
+            base_position:
+              x: 600
+              y: 300
+            reference_point:
+              x: 546
+              y: 235
+          - !include ../decluttering_templates/blank-card.yaml
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 10px 

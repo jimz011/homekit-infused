@@ -1,0 +1,74 @@
+title: Weather
+path: weather
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button_2
+        variables:
+          - name1: Climate
+          - icon1: thermostat
+          - path1: climate
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Weather'
+      - type: custom:swipe-card
+        parameters:
+          effect: 'coverflow'
+          grabCursor: true
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### Overview >'
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: custom:weather-card-chart
+                    style: |
+                      ha-card {
+                        font-size: 12px;
+                        font-family: Helvetica;
+                        background: none;
+                        box-shadow: none;
+                        border-radius: var(--border-radius);
+                      }
+                    weather: weather.dark_sky
+                  - !include ../decluttering_templates/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: custom:more-info-card
+                    style: |
+                      ha-card {
+                        font-size: 12px;
+                        font-family: Helvetica;
+                        background: none;
+                        box-shadow: none;
+                        border-radius: var(--border-radius);
+                      }
+                    entity: weather.dark_sky
+                  - !include ../decluttering_templates/blank-card.yaml
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: header_text
+                variables:
+                  - content: '#### < Map'          
+              - type: horizontal-stack
+                cards:
+                  - !include ../decluttering_templates/blank-card.yaml
+                  - type: iframe
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        overflow: hidden;
+                        box-shadow: none;
+                      }
+                    aspect_ratio: 155%
+                    url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
+                  - !include ../decluttering_templates/blank-card.yaml

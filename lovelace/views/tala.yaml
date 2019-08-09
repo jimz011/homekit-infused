@@ -8,7 +8,7 @@ cards:
         variables:
           - name1: Location
           - icon1: map
-          - path: location
+          - path1: location # Changed/Added in 0.1 (rename path to path1, this fixed the broken link!)
       - type: custom:decluttering-card
         template: header_text
         variables:
