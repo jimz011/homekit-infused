@@ -6,7 +6,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 My current Home Assistant install (current running version 0.97.0b3)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimz011 August 2019 (*updated: 09/08/2019)
+## Lovelace setup by jimz011 August 2019 v 0.1a (*updated: 09/08/2019)
 ### Changes 09/08/2019:
 v. 0.1a
 - Moved the Xiaomi Vacuum Cleaner zoned cleaning map out of the swipe-card into its own view. Swipe-card would not allow for this card to be used properly.
