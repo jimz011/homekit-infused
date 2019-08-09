@@ -2428,53 +2428,6 @@
     data:
       entity_id: input_select.vacuum
       option: Informatie
-
-# Tado Heating
-- alias: set tado woonkamer heat
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.tado_woonkamer
-    to: 'on'
-  action:
-  - service: climate.set_hvac_mode
-    data:
-      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
-      hvac_mode: heat
-- alias: set tado woonkamer off
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.tado_woonkamer
-    to: 'off'
-  action:
-  - service: climate.set_hvac_mode
-    data:
-      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
-      hvac_mode: "off"
-
-- alias: set tado kleine kamer heat
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.tado_kleine_kamer
-    to: 'on'
-  action:
-  - service: climate.set_hvac_mode
-    data:
-      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
-      hvac_mode: heat
-- alias: set tado kleine kamer off
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.tado_kleine_kamer
-    to: 'off'
-  action:
-  - service: climate.set_hvac_mode
-    data:
-      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
-      hvac_mode: "off"
       
 ## Scenes Input Booleans (Work in Progress)
 - alias: scene dagverlichting on
@@ -2885,3 +2838,55 @@
      data:
        entity_id: vacuum.xiaomi_vacuum_cleaner
        fan_speed: 105
+
+
+
+
+# Changed/Added in 0.1 (Please remove the current Tado Heating automations on lines 2432 to 2478)
+# Tado Heating
+- alias: set tado woonkamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_woonkamer
+    to: 'on'
+  action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+      hvac_mode: heat
+- alias: set tado woonkamer off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_woonkamer
+    to: 'off'
+  action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+      hvac_mode: "off"
+
+- alias: set tado kleine kamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_kleine_kamer
+    to: 'on'
+  action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+      hvac_mode: heat
+- alias: set tado kleine kamer off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_kleine_kamer
+    to: 'off'
+  action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+      hvac_mode: "off"
+      
