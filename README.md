@@ -3,7 +3,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 # Home Assistant 0.97.x compatible Lovelace setup.
-My current Home Assistant install (current running version 0.97.0b3)
+My current Home Assistant install (current running version 0.97.1)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
 ## Lovelace setup by jimz011 August 2019 v 0.1b (*updated: 11/08/2019)
