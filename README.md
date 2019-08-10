@@ -78,7 +78,7 @@ Prerequisites:
 - Patience
 - Some more patience
 - A whole lot of more patience
-- Have lovelace set in `yaml` mode, it has `!includes` and is split into multiple files which are NOT supported by the UI editor. To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
+- Have lovelace set in `yaml` mode, feedback told me that it should work in storage mode (the UI editor), but I can not give support on that. To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
 ```
 lovelace:
   mode: yaml
@@ -96,17 +96,18 @@ To make it easier on you if you want to copy it entirely is to first check the f
 - Make sure you have downloaded all custom-cards with HACS (and/or imported them) before you begin.
 - Make sure you download the relevant custom-components if desired
 - I have a split config, this means saving things will not be as you are probably used to. Regular files like automation.yaml etc will behave as usual. This means changing anything in these files will require a restart or a soft restart from the UI. Lovelace behaves differently this way. Yes it is easier to manage, but it comes with a major downside. Any changes made in any of the files in lovelace will require you to save `ui-lovelace.yaml` every single time! DON'T FORGET THIS! Even if you don't make any changes to this `ui-lovelace.yaml` and have changed ONLY `main-view.yaml` you will still have to save `ui-lovelace.yaml`. Best way to do this is just to do a save all action in your favorite text editor. Know that some editors do not allow you to save if the file is unchanged (e.g. notepad++). I suggest not using any of those text editors. I would advise you to use Sublime Text Editor as it is lightweight, free, easy on the eyes and makes code look a lot more comprehensible.
-- To start I would suggest trying a light page or even better the security page first. These are light on code and are easy to manage
-- Comment out the popup cards, they probably don't work anyways. Best to add these last when you have the basics running.
-- I can't stress out more that it is ALWAYS better to build from the ground up instead of copying a setup. I would advise you to copy snippets of the code to incorporate that into your own setup. But if you really want to dive in deep you are free to do so.
+- To start I would suggest trying to get a light page working. Why? Well, lights are probably the first smart items you already have, not only that, it will also be the easiest page to setup. To start, in your `ui-lovelace.yaml` file comment out all the views except for `light.yaml`. Edit all the entities to match your own and voila you will have your first page working.
+- Uncomment views in `ui-lovelace.yaml` one by one to get the basics working. Navigation links (the ones in the quickmenu and the ones in the main menu will not work until you have uncommented all the views!)
 - On some Android devices it won't accept a hold_action when deep_press: true is enabled. Remove these lines from the switch-template.yaml and light-template.yaml. It is only useful for iphone users and will do nothing for Android.
+
+- I can't stress out more that it is ALWAYS better to build from the ground up instead of copying a setup. I would advise you to copy snippets of the code to incorporate that into your own setup. But if you really want to dive in deep you are free to do so.
 
 ## Addons Required, you will need HACS to download them for use with this setup (you can use the older custom_updater but I would highly recommend you to use HACS instead https://custom-components.github.io/hacs/installation/manual/. Some of the addons are not available on HACS, however you can import them yourself. Read the HACS docs on how to install non supported plugins/addons!! The links provided here will help you add them quickly.
 
 Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
 Cards:
 * [Weather-Card-Graph](https://github.com/sgttrs/lovelace-weather-card-chart) - Not supported, install Manually - This card is almost the same as most weather cards for lovelace, however this one has a neat graph (and no colored icons which is in my opinion cleaner).
-* [More-Info-Card] (https://github.com/thomasloven/lovelace-more-info-card) - Not supported, install Manually - This card will show you the more-info window of an entity as a card. This is used for the weather panel in my setup.
+* [More-Info-Card](https://github.com/thomasloven/lovelace-more-info-card) - Not supported, install Manually - This card will show you the more-info window of an entity as a card. This is used for the weather panel in my setup.
 * [Card-Loader](https://github.com/thomasloven/lovelace-card-loader) - Not supported, install Manually - This mod will make sure cards are loaded before they are presented. Without this cards might not load until a refresh of the page.
 * [Deep-Press](https://github.com/roflcoopter/deep-press) - HACS Supported, install with HACS - This is a great card for iphone users with 3d touch. Actually it isn't a card it modifies existing cards to support 3d touch. If you have an iphone that supports this I highly recommend you to use this. If you are not using this, remove the `deep_press: true` line from `switch-template.yaml` and `light-template.yaml`.
 * [State-Switch](https://github.com/thomasloven/lovelace-state-switch) - Not supported, install Manually - Important if you want to be able to have multiple users to use your interface. My setup is not compatible out of the box without this. If you don't care for multi user you will have to manually remove the custom:state-switch entries.
@@ -137,8 +138,8 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
 
-## TO DO (*updated: 24/07/2019)
-- Optimize Theming (currently not working properly). ###Issue opened on github (might need rework)
+## TO DO (*updated: 11/08/2019)
+- THEMES PROPER REWORK. ###Currently in Progress, this will drop with the next major release!
 - Switching the swipe-card for standard views with CCH. ###Feature requested, awaiting release
 - Switching out the last popup cards for alternative cards. ###In Progress, Feature requested, awaiting release
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
