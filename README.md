@@ -6,7 +6,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 My current Home Assistant install (current running version 0.97.0b3)
 This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
 
-## Lovelace setup by jimz011 August 2019 v 0.1a (*updated: 11/08/2019)
+## Lovelace setup by jimz011 August 2019 v 0.1b (*updated: 11/08/2019)
 ### Changes 11/08/2019:
 v. 0.1b
 - Changed back-button.yaml templating to be used everywhere instead of 4 different templates.
