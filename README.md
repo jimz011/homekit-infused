@@ -30,20 +30,19 @@ I am only human, I do this for hobby, am an amateur and bound to make mistakes. 
 
 #### Changed:
 *Templates: 
-*if you do not change templates I provide you can always just copy these files without the need of checking the code
+if you do not change templates I provide you can always just copy these files without the need of checking the code
 - Changed back-button.yaml (it was actually back-button2.yaml but renamed it to back-button.yaml, the other 2 templates have been removed. The quickmenu will now always use a single template. Easy no? Copy this file over your old one)
 - Changed back-button.yaml (now every button is configurable very easy please look at this file to see the new variables available)
 - Changed mini-graph-template.yaml (see comments in the file, added option in template to easily change between line or bars in the graph)
+
 *Views:
-*views contain information about your own entities, do not just copy this!
+views contain information about your own entities, do not just copy this!
 - Changed lights.yaml (lights with a brightness value now use the switch-template instead. ALL buttons now use a single template. Add the lines in the comments to your lights with a brightness value)
 - Changed main-view.yaml (see comments in the file, added options for tablets, it now displays a clock on the frontpage)
 - Changed energy.yaml (see comments in the file, changed graph style to bars instead of a line)
-
 - Changed climate.yaml, lights.yaml, devices.yaml, security.yaml, menu.yaml and frontpage.yaml (the quickmenu now uses a single template, you will need to change all the previous ones, what needs to be changed will be commented)
 - Changed vacuum.yaml (added tablet view)
 - Changed the same 7 files above starting from climate.yaml to vacuum.yaml (in that order). (see comments in the file, in the middle of these files a clock has been added for use with tablets. You do not need this if you don't use a tablet/browser)
-
 - Changed all views that contain a quickmenu (in all views the template name has changed from back_button_2 to back_button. This is in most files line 7, correct all of the names to this. Do not forget to copy the new back-button.yaml template. Only views in the views folder are affected with the exception of notifications.yaml and main-view.yaml and ofc the views you worked on in the changes above)
 
 #### Removed
