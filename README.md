@@ -9,6 +9,7 @@ This is my entirely new release with so much changes that you should read up if 
 ## Lovelace setup by jimz011 August 2019 v 0.1b (*updated: 11/08/2019)
 ### Changes 11/08/2019:
 v. 0.1b
+- Added missing images to the images folder
 - Changed back-button.yaml templating to be used everywhere instead of 4 different templates.
 - Changed mini-graph-template.yaml to easily change between bar styles
 - Added Clock for tablets on the 5 main views (climate, frontpage, lights, devices and security)
