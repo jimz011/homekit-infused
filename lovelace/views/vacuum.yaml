@@ -4,11 +4,11 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
-          - name1: Zoned # Changed/Added in 0.1
-          - icon1: map # Changed/Added in 0.1
-          - path1: vacuum-zoned-cleaning # Changed/Added in 0.1 (rename path to path1, this fixed the broken link!)
+          - name1: Zoned
+          - icon1: map
+          - path1: vacuum-zoned-cleaning
       - type: custom:decluttering-card
         template: header_text
         variables:
@@ -830,4 +830,46 @@ cards:
                       - hold_action:
                           action: none
                   - !include ../decluttering_templates/blank-card.yaml
-              
+
+### The following piece is for tablets only, You can leave this out if not needed. # Changed/Added in 0.1b
+  - type: custom:state-switch
+    entity: user
+    states:
+      Home Assistant:
+        type: vertical-stack
+        cards:
+          - type: markdown 
+            style: |
+              ha-card {
+                background: none;
+                color: white;
+                box-shadow: none;
+                text-align: end;
+                font-size: 45px;
+                height: 155px;
+              }
+            content: '# [[ sensor.time.state ]]'
+          - type: custom:decluttering-card
+            template: header_text
+            variables:
+              - content: '##### Manual Zoned Cleaning'
+          - type: horizontal-stack
+            cards: 
+              - !include ../decluttering_templates/blank-card.yaml
+              - type: custom:xiaomi-vacuum-map-card
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    background: var(--homekit-card-off);
+                    color: var(--label-color-off);
+                  }
+                entity: vacuum.xiaomi_vacuum_cleaner
+                map_image: '/local/images/xiaomi-map.png'
+                base_position:
+                  x: 600
+                  y: 300
+                reference_point:
+                  x: 546
+                  y: 235
+              - !include ../decluttering_templates/blank-card.yaml
+### End of tablet code. # Changed/Added in 0.1b

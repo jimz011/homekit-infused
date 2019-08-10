@@ -1,6 +1,7 @@
 default:
   - font_size: 70
   - height: 90
+  - graph: line # Changed/Added in 0.1b
 card:
   type: 'custom:mini-graph-card'
   style: |
@@ -19,6 +20,7 @@ card:
   font_size: '[[font_size]]'
   height: '[[height]]'
   show:
+    graph: '[[graph]]' # Changed/Added in 0.1b
     icon: false
   font_size_header: 9
   line_color: '[[line_color]]'

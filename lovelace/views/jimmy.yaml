@@ -4,11 +4,11 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
-          - name1: PostNL # Changed/Added in 0.1
-          - icon1: package-variant-closed # Changed/Added in 0.1
-          - path1: postnl-jimmy # Changed/Added in 0.1
+          - name1: PostNL
+          - icon1: package-variant-closed 
+          - path1: postnl-jimmy 
       - type: custom:decluttering-card
         template: header_text
         variables:

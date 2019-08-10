@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
           - name1: Laundry
           - icon1: washing-machine
@@ -26,18 +26,21 @@ cards:
               - entity: wasmachine_energy_current
               - name: Wasmachine
               - line_color: '#ffb414'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: droger_energy_current
               - name: Droger
               - line_color: '#ffb414'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: vaatwasser_energy_current
               - name: Vaatwasser
               - line_color: '#ffb414'
+              - graph: bar # Changed/Added in 0.1b
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -52,18 +55,21 @@ cards:
               - entity: wasmachine_energy_power
               - name: Wasmachine
               - line_color: '#1427ff'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: droger_energy_power
               - name: Droger
               - line_color: '#1427ff'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: vaatwasser_energy_power
               - name: Vaatwasser
               - line_color: '#1427ff'
+              - graph: bar # Changed/Added in 0.1b
           - !include ../decluttering_templates/blank-card.yaml 
       - type: custom:decluttering-card
         template: header_text
@@ -78,18 +84,21 @@ cards:
               - entity: wasmachine_energy_voltage
               - name: Wasmachine
               - line_color: '#00d8ff'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: droger_energy_voltage
               - name: Droger
               - line_color: '#00d8ff'
+              - graph: bar # Changed/Added in 0.1b
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
               - entity: vaatwasser_energy_voltage
               - name: Vaatwasser
               - line_color: '#00d8ff'
+              - graph: bar # Changed/Added in 0.1b
           - !include ../decluttering_templates/blank-card.yaml 
   - type: vertical-stack
     cards:
@@ -106,6 +115,7 @@ cards:
               - entity: wasmachine_energy_today
               - name: Wasmachine
               - line_color: '#bf00ff'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -114,6 +124,7 @@ cards:
               - entity: droger_energy_today
               - name: Droger
               - line_color: '#bf00ff'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -122,6 +133,7 @@ cards:
               - entity: vaatwasser_energy_today
               - name: Vaatwasser
               - line_color: '#bf00ff'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - !include ../decluttering_templates/blank-card.yaml 
@@ -138,6 +150,7 @@ cards:
               - entity: wasmachine_energy_yesterday
               - name: Wasmachine
               - line_color: '#c20202'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -146,6 +159,7 @@ cards:
               - entity: droger_energy_yesterday
               - name: Droger
               - line_color: '#c20202'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -154,6 +168,7 @@ cards:
               - entity: vaatwasser_energy_yesterday
               - name: Vaatwasser
               - line_color: '#c20202'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - !include ../decluttering_templates/blank-card.yaml
@@ -170,6 +185,7 @@ cards:
               - entity: wasmachine_energy_total
               - name: Wasmachine
               - line_color: '#00ff95'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -178,6 +194,7 @@ cards:
               - entity: droger_energy_total
               - name: Droger
               - line_color: '#00ff95'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - type: custom:decluttering-card
@@ -186,6 +203,7 @@ cards:
               - entity: vaatwasser_energy_total
               - name: Vaatwasser
               - line_color: '#00ff95'
+              - graph: bar # Changed/Added in 0.1b
               - font_size: 45
               - height: 120
           - !include ../decluttering_templates/blank-card.yaml

@@ -4,11 +4,11 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
           - name1: Location
           - icon1: map
-          - path1: location # Changed/Added in 0.1 (rename path to path1, this fixed the broken link!)
+          - path1: location 
       - type: custom:decluttering-card
         template: header_text
         variables:

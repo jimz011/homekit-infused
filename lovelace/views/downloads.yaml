@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
           - name1: Upcoming
           - icon1: plex

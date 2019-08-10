@@ -3,57 +3,75 @@ path:  lights
 popup_cards:
   !include ../popup-cards/light-popup.yaml
 cards:
-  - type: vertical-stack
+  - type: vertical-stack 
     cards:
-      - type: custom:decluttering-card
-        template: back_button
-        variables:
-          - title: Lights
-          - name: Woonkamer
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: back_button # Changed/Added in 0.1b
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: header_text # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - content: '## Lights' # Changed/Added in 0.1b
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: header_text # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - content: '##### Woonkamer' # Changed/Added in 0.1b
+
+
+### Changed/Added in 0.1b, below ALL light_button_card templates have been replaced with switch_button_card,
+### Now All buttons use a single template. If you have lights with a brightness value, please add the line below to those lights:
+
+### "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"  
+
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.woonkamer_plafond
               - name: Plafond
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"  
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.eettafel_lamp
               - name: Eettafel
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"   
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - size: 25%
               - entity: light.tafel_lamp
               - name: Tafellamp
               - icon: lamp
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.vloerlamp
               - name: Vloerlamp
               - icon: floor-lamp
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.woonkamer_led_lampen
               - name: LEDs
               - icon: led-strip
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.gateway_light_7811dcdef324
               - name: Xiaomi LED
               - icon: led-strip
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -63,27 +81,30 @@ cards:
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - size: 25%
               - entity: light.nachtkastje_stephanie
               - name: Stephanie
               - icon: lamp
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
               - lock: true
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - size: 25%
               - entity: light.nachtkastje_jimmy
               - name: Jimmy
               - icon: lamp
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
               - lock: true
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.slaapkamer_led_lampen
               - name: LEDs
               - icon: led-strip
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
               - lock: true
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
@@ -94,21 +115,44 @@ cards:
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.kleine_kamer_plafondlampen
               - name: Plafond
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.officeled
               - name: LEDs
               - icon: led-strip
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../decluttering_templates/blank-card.yaml
+
+### The following piece is for tablets only, You can leave this out if not needed. # Changed/Added in 0.1b
+  - type: custom:state-switch
+    entity: user
+    states:
+      Home Assistant:
+        type: vertical-stack
+        cards:
+          - type: markdown 
+            style: |
+              ha-card {
+                background: none;
+                color: white;
+                box-shadow: none;
+                text-align: end;
+                font-size: 45px;
+                height: 155px;
+              }
+            content: '# [[ sensor.time.state ]]'
+### End of tablet code. # Changed/Added in 0.1b
+
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
@@ -119,11 +163,12 @@ cards:
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.keuken_plafondlampen
               - name: Plafond
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -131,11 +176,12 @@ cards:
               - name: Spotjes
               - icon: track-light
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.bijkeukenlamp
               - name: Bijkeuken
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -177,27 +223,30 @@ cards:
               - icon: ceiling-light
               - size: 30%
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.toiletlamp
               - name: Toilet
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.balkonlamp
               - name: Balkon
               - icon: wall-sconce
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: custom:decluttering-card
-            template: light_button_card
+            template: switch_button_card
             variables:
               - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
               - name: Berging
               - icon: ceiling-light
+              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1

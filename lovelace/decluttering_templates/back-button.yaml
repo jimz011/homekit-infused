@@ -1,0 +1,109 @@
+default:
+# These are the parameters you can use, 1 is the first button to the left
+# the middle button is 2 and 3 is the last button to the right.
+  - entity1: input_boolean.dummy1
+  - name1: Scenes
+  - icon1: arrange-send-backward
+  - path1: scenes
+  - lovelace1: lovelace
+  - entity2: input_boolean.dummy1
+  - name2: Menu
+  - icon2: menu
+  - path2: menu
+  - lovelace2: lovelace
+  - entity3: input_boolean.dummy1
+  - name3: Home 
+  - icon3: home
+  - path3: home 
+  - lovelace3: lovelace
+  - show_state: false
+  - show_label: false
+  - show_name: true
+  - padding: 0px
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:decluttering-card
+      template: header_text
+      variables:
+        - content: '##### Quick Access'
+    - type: horizontal-stack
+      cards:   
+        - !include ../decluttering_templates/blank-card.yaml
+        - type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: '[[entity1]]'
+            - name: '[[name1]]'
+            - icon: '[[icon1]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: false
+            - show_state: false
+            - justify-self-name: center
+            - padding-left-name: 0px
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace1]]/[[path1]]
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /[[lovelace1]]/[[path1]]
+                haptic: light
+        - type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: '[[entity2]]'
+            - name: '[[name2]]'
+            - icon: '[[icon2]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: false
+            - show_state: false
+            - justify-self-name: center
+            - padding-left-name: 0px
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace2]]/[[path2]]
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /[[lovelace2]]/[[path2]]
+                haptic: light
+        - type: 'custom:decluttering-card'
+          template: switch_button_card
+          variables:
+            - entity: '[[entity3]]'
+            - name: '[[name3]]'
+            - icon: '[[icon3]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: '[[show_label]]'
+            - show_name: '[[show_name]]'
+            - show_state: '[[show_state]]'
+            - justify-self-name: center
+            - padding-left-name: '[[padding]]'
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace3]]/[[path3]]
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /[[lovelace3]]/[[path3]]
+                haptic: light
+        - !include ../decluttering_templates/blank-card.yaml     

@@ -1,16 +1,22 @@
 title: Climate
 path: climate
 cards:
-  - type: vertical-stack
+  - type: vertical-stack 
     cards:
-      - type: custom:decluttering-card
-        template: back_button
-        variables:
-          - title: Climate Control
-          - name: Thermostat
-          - button-name: Weather
-          - icon: weather-sunny
-          - path: weather
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: back_button # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - name1: Weather # Changed/Added in 0.1b
+          - icon1: weather-sunny # Changed/Added in 0.1b
+          - path1: weather # Changed/Added in 0.1b
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: header_text # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - content: '## Climate Control' # Changed/Added in 0.1b
+      - type: custom:decluttering-card # Changed/Added in 0.1b
+        template: header_text # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - content: '##### Thermostat' # Changed/Added in 0.1b
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
@@ -55,12 +61,12 @@ cards:
           - type: custom:decluttering-card
             template: climate_card
             variables:
-              - entity: climate.woonkamer
+              - entity: climate.tado_smart_radiator_thermostat_va2898201344
               - ambient_temperature: sensor.temperature_158d0002b546e7
           - type: custom:decluttering-card
             template: climate_card
             variables:
-              - entity: climate.woonkamer
+              - entity: climate.tado_smart_radiator_thermostat_va1671957504
               - ambient_temperature: sensor.waterkoker_am2301_temperature
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
@@ -87,6 +93,27 @@ cards:
               - margin-right: 120px
               - size: 15%
           - !include ../decluttering_templates/blank-card.yaml
+
+### The following piece is for tablets only, You can leave this out if not needed. # Changed/Added in 0.1b
+  - type: custom:state-switch
+    entity: user
+    states:
+      Home Assistant:
+        type: vertical-stack
+        cards:
+          - type: markdown 
+            style: |
+              ha-card {
+                background: none;
+                color: white;
+                box-shadow: none;
+                text-align: end;
+                font-size: 45px;
+                height: 155px;
+              }
+            content: '# [[ sensor.time.state ]]'
+### End of tablet code. # Changed/Added in 0.1b
+
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card

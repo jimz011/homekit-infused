@@ -4,7 +4,16 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_3
+        template: back_button # Changed/Added in 0.1b
+        variables: # Changed/Added in 0.1b
+          - name1: About # Changed/Added in 0.1b
+          - icon1: information # Changed/Added in 0.1b
+          - lovelace1: developer-tools # Changed/Added in 0.1b
+          - path1: info # Changed/Added in 0.1b
+          - name2: Dashboard # Changed/Added in 0.1b
+          - icon2: cogs # Changed/Added in 0.1b
+          - lovelace2: config # Changed/Added in 0.1b
+          - path2: dashboard # Changed/Added in 0.1b
       - type: custom:decluttering-card
         template: header_text
         variables:

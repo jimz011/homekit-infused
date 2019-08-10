@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button_2
+        template: back_button # Changed/Added in 0.1b
         variables:
           - name1: Jimmy
           - icon1: account
@@ -61,6 +61,7 @@ cards:
                 background: none;
                 --paper-item-icon-color: var(--icon-color-off);
                 color: var(--name-color-off);
+                box-shadow: none;
                 border-radius: var(--border-radius);
                 font-family: Helvetica;
                 font-size: 12px;

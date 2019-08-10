@@ -324,7 +324,7 @@ cards:
 
   - type: conditional
     conditions:
-      - entity: sensor.birthday_koos
+      - entity: sensor.birthday_koos_van_duuren
         state: '0'
     card:
       type: custom:decluttering-card
@@ -332,7 +332,91 @@ cards:
       variables:
         - color: rgba(204, 0, 255, 0.5)
         - icon: gift-outline
-        - content: Koos is vandaag [[ sensor.birthday_koos_van_duuren.attributes.years ]] geworden
+        - content: Koos van Duuren is vandaag [[ sensor.birthday_koos_van_duuren.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.jimmy_schings
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: gift-outline
+        - content: Jimmy Schings is vandaag [[ sensor.birthday_jimmy_schings.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_stephanie_schings
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: gift-outline
+        - content: Stephanie Schings is vandaag [[ sensor.birthday_stephanie_schings.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_ralf_vogels
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: gift-outline
+        - content: Ralf Vogels is vandaag [[ sensor.birthday_ralf_vogels.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_jos_schings
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: gift-outline
+        - content: Jos Schings is vandaag [[ sensor.birthday_jos_schings.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_tala
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: dog-side
+        - content: Tala is vandaag [[ sensor.birthday_tala.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_ad_van_dartel
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(0, 255, 157, 0.5)
+        - icon: gift-outline
+        - content: Ad van Dartel is vandaag [[ sensor.birthday_ad_van_dartel.attributes.years ]] geworden
+
+  - type: conditional
+    conditions:
+      - entity: sensor.birthday_rick_oosterbosch
+        state: '0'
+    card:
+      type: custom:decluttering-card
+      template: notification_card
+      variables:
+        - color: rgba(204, 0, 255, 0.5)
+        - icon: gift-outline
+        - content: Rick Oosterbosch is vandaag [[ sensor.birthday_rick_oosterbosch.attributes.years ]] geworden
 
   - type: conditional
     conditions:

@@ -48,3 +48,7 @@
     type: module
   - url: /community_plugin/lovelace-card-loader/card-loader.js
     type: js
+  - url: /community_plugin/lovelace-weather-card-chart/weather-card-chart.js
+    type: module
+  - url: /community_plugin/lovelace-more-info-card/more-info-card.js
+    type: js

@@ -4,12 +4,26 @@ popup_cards:
   !include ../popup-cards/weather-temporary.yaml
 cards:
   - !include frontpage.yaml
+
+### The part below is only for tablets, leave it out if you don't have or need it. # Changed/Added in 0.1b ALL OF THE LINES BELOW
   - type: custom:state-switch
     entity: user
+    default: default
     states:
       Home Assistant:
         type: vertical-stack
         cards:
+          - type: markdown
+            style: |
+              ha-card {
+                background: none;
+                color: white;
+                box-shadow: none;
+                text-align: end;
+                font-size: 45px;
+                height: 95px;
+              }
+            content: '# [[ sensor.time.state ]]'
           - type: custom:decluttering-card
             template: header_text
             variables:
@@ -25,4 +39,12 @@ cards:
                   }
                 entity: camera.gallerij_camera
               - !include ../decluttering_templates/blank-card.yaml
-  - !include notifications.yaml
+          - !include notifications.yaml
+### End of tablet part
+
+### The code below has changed to accomodate for the tablet view. If you do not use
+### a tablet or webbrowser you can leave this the way it was, no need to change this!
+      default:
+        type: vertical-stack
+        cards:
+          - !include notifications.yaml
