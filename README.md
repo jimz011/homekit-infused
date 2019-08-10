@@ -51,6 +51,7 @@ I am only human, I do this for hobby, am an amateur and bound to make mistakes. 
 - Removed back-button3.yaml
 - Removed frontpage-quickmenu.yaml
 - Removed light-template.yaml
+- Please remove these same files from your decluttering_templates.yaml file (with the exception of the back-button.yaml)
 
 Note: In every upcoming release I will change naming/folders and templates to be more consistent and easier to use. This update is one of the first which removes many templates in favor of a single one.
 
