@@ -1,4 +1,25 @@
-card:
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Name/Person (Don't capitalize uncapitalized names!)
+  - name: stephanie
+  - name-s: Jimmy's
+
+  # Email Sensor
+  - emailsensor: sensor.youremailsensor
+
+  # Battery/State Sensor (cut off at the number, if you have
+  # a sensor with a different name please change template below)
+  - number: '16'
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!card:
   type: vertical-stack
   cards:
     - type: custom:swipe-card
@@ -113,13 +134,10 @@ card:
                       name: iPhone Batterij
                     - entity: sensor.battery_state_[[number]]
                       name: iPhone Status
-                    - entity: '[[namesensor]]'
+                    - entity: '[[emailsensor]]' # Changed/Added in 0.11.0
                       name: Ongelezen E-mails
                     - entity: sensor.reistijd_[[name]]
                       name: Huis
                     - entity: sensor.reistijd_[[name]]_work
                       name: Werk 
-                    - entity: '[[mailsensor]]'
-                      icon: 'mdi:email'
-                      name: Email Breaches
                 - !include ../decluttering_templates/blank-card.yaml     

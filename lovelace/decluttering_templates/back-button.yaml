@@ -1,25 +1,51 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
 default:
-# These are the parameters you can use, 1 is the first button to the left
-# the middle button is 2 and 3 is the last button to the right.
+  # Left Button
   - entity1: input_boolean.dummy1
   - name1: Scenes
   - icon1: arrange-send-backward
   - path1: scenes
   - lovelace1: lovelace
+
+  # Middle Button
   - entity2: input_boolean.dummy1
   - name2: Menu
   - icon2: menu
   - path2: menu
   - lovelace2: lovelace
+
+  # Right Button
   - entity3: input_boolean.dummy1
   - name3: Home 
   - icon3: home
   - path3: home 
   - lovelace3: lovelace
+
+  # Hold Action (Only for the right button!)
+  - hold_action:
+      action: navigate
+      navigation_path: /lovelace/home
+      haptic: light
+
+  # Show Options
   - show_state: false
   - show_label: false
   - show_name: true
+
+  # Name Padding (left)
+  # Used for alarm entities as they are slighty
+  # off. 
   - padding: 0px
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: vertical-stack
   cards:
@@ -102,8 +128,5 @@ card:
                 action: navigate
                 navigation_path: /[[lovelace3]]/[[path3]]
                 haptic: light
-            - hold_action:
-                action: navigate
-                navigation_path: /[[lovelace3]]/[[path3]]
-                haptic: light
+            - hold_action: '[[hold_action]]'
         - !include ../decluttering_templates/blank-card.yaml     

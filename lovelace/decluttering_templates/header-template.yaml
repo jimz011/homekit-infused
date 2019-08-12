@@ -1,10 +1,25 @@
+# This is the Header you find on every page, they are used as titles
+# for all pages.
+
+# Default Config
+default:
+  # Name/Title
+  - content: content
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: markdown
+  # Line 10, the one with color has been # Changed/Added in 0.11.0
+  # Line 8, has now 'none' instead of a color. # Changed/Added in 0.11.0
   style: |
     ha-card {
       box-shadow: none;
       height: 33px;
-      background: rgba(0,0,0,0.0);
+      background: none;
       padding: 0px 10px;
+      color: white;
     }
   content: '[[content]]'

@@ -1,3 +1,25 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Title
+  - title: Your Title Here 
+
+  # Entity (make one up, this will get created when used)
+  - entity: sensor.yourowncreationhere
+
+  # Amount of months/days/hours/minutes
+  - value 1: 5 minutes
+  - value 2: 10 days
+  - value 3: 3 months
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: 'custom:check-button-card'
   title: '[[title]]'

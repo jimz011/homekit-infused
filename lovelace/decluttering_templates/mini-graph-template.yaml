@@ -1,7 +1,22 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
 default:
+  # Size (You will have to play with these to get it right
+  # for your own particular setup)
   - font_size: 70
-  - height: 90
-  - graph: line # Changed/Added in 0.1b
+  - height: 90 
+
+  # Graph Type (Choice: bar/line)
+  - graph: line
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: 'custom:mini-graph-card'
   style: |
@@ -20,7 +35,7 @@ card:
   font_size: '[[font_size]]'
   height: '[[height]]'
   show:
-    graph: '[[graph]]' # Changed/Added in 0.1b
+    graph: '[[graph]]'
     icon: false
   font_size_header: 9
   line_color: '[[line_color]]'

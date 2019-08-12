@@ -1,3 +1,20 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Icon
+  - icon: home
+
+  # Content
+  - content: This is your home!
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: horizontal-stack
   cards:
@@ -9,6 +26,7 @@ card:
           border-radius: var(--border-radius);
           font-size: 13px;
           font-family: Helvetica;
+          color: var(--text-primary-color);
         }
       content: >
         <ha-icon icon="mdi:[[icon]]"></ha-icon> [[content]]

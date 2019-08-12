@@ -1,8 +1,43 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
 default:
+  # Name/Person (Don't capitalize uncapitalized names!)
+  - name: stephanie
+
+  # Phone Battery Sensor
+  - battery: sensor.batterysensorhere
+
+  # Alignment of the icons (left or right)
+  - direction: left
+
+  # Travel Time and Icon (don't use the mdi prefix)
+  - reistijd: sensor.work_home
+  - icon: home
+
+  # Unread Emails
+  - namesensor: sensor.youremailsensor
+
+  # Image
+  - image: url('/local/yourimage.png')
+
+  # Tap and Hold action
   - tap_action:
       action: more-info
   - hold_action:
       action: none
+
+  # PostNL (Dutch Users Only)
+  - postnl: sensor.postNLsensorhere
+
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: picture-elements
   style: |

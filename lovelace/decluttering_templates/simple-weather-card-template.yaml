@@ -1,14 +1,23 @@
+# These are the parameters you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # City Name
+  - city_name: Eindhoven
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 type: vertical-stack
 cards:
-  - type: markdown
-    style: |
-      ha-card {
-        background: rgba(0,0,0,0.0);
-        box-shadow: none;
-        height: 33px;
-        padding: 0px 10px;
-      }
-    content: '##### Overview'
+  - type: custom:decluttering-card
+    template: header_text
+    variables:
+      - content: '##### Overview'
   - type: horizontal-stack
     cards:
       - !include ../decluttering_templates/blank-card.yaml
@@ -22,10 +31,13 @@ cards:
             font-weight: bold;
           }
         entity: weather.dark_sky
-        name: "Eindhoven"
+        name: '[[city_name]]' # Changed/Added in 0.11.0
         backdrop:
           fade: true
           day: "var(--weather-night)"
           night: "var(--weather-day)"
           text: "var(--weather-color)"
-      - !include ../decluttering_templates/blank-card.yaml    
+        tap_action: # Changed/Added in 0.11.0
+          action: navigate # Changed/Added in 0.11.0
+          navigation_path: /lovelace/weather # Changed/Added in 0.11.0
+      - !include ../decluttering_templates/blank-card.yaml
