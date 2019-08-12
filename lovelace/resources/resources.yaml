@@ -26,7 +26,7 @@
     type: module
   - url: /community_plugin/decluttering-card/decluttering-card.js
     type: module
-  - url: /community_plugin/simple-weather-card/simple-weather-card.js
+  - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js # Changed/Added in 0.11.0
     type: module
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
