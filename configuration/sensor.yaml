@@ -1,4 +1,4 @@
-  
+# PostNL
   - platform: postnl
     name: PostNL Jimmy
     username: !secret postnl_user
@@ -9,6 +9,7 @@
     username: !secret postnl_user_2
     password: !secret postnl_pass_2
 
+# Time and Date
   - platform: time_date
     display_options:
       - time
@@ -19,6 +20,12 @@
       - time_utc
       - beat
 
+  - platform: moon
+
+  - platform: season
+    type: astronomical
+
+# Sonarr / Radarr
   - platform: sonarr
     host: 192.168.0.34
     api_key: !secret sonarr_api_key
@@ -36,14 +43,6 @@
     port: 8989
     days: 7
     max: 10
-
-  - platform: haveibeenpwned
-    email:
-      - !secret email_3
-      - !secret email_1
-
-  - platform: cert_expiry
-    host: remote.jimsteph.me
 
   - platform: radarr
     api_key: !secret radarr_api_key
@@ -64,8 +63,7 @@
     days: 120
     max: 10
 
-  - platform: moon
-
+# Waze Travel Time
   - platform: waze_travel_time
     name: Reistijd Jimmy
     origin: person.jimmy
@@ -96,13 +94,10 @@
     destination: person.jimmy
     region: EU
 
-#  - platform: qbittorrent
-#    url: !secret qbittorrent_url
-#    username: !secret qbit_usr
-#    password: !secret qbit_pwd
-
+# Template Sensors
   - platform: template
     sensors:
+  # Washingmachine/dryer/dishwasher Template Sensors
       washing_machine_status:
         value_template: '{{ states.input_select.washing_machine_status.state}}'
         friendly_name: 'Wasmachine Status'
@@ -112,6 +107,7 @@
       dryer_status:
         value_template: '{{ states.input_select.dryer_status.state}}'
         friendly_name: 'Droger Status'
+  # Vacuum Template Sensors
       vacuum_battery:
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
         friendly_name: 'Roborock Battery Level'
@@ -136,57 +132,19 @@
       vacuum_sensor_dirty_left:
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
         friendly_name: 'Roborock Sensor Dirty Left'
-#  - platform: template
-#    sensors:
-#      postnl_jimmy_states:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ states.sensor.postnl_jimmy.attributes.shipments[0]['title'] }} op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-#      postnl_jimmy_tileboard_title:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ d }}
-#      postnl_jimmy_tileboard_information:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_jimmy.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ t1 }} - {{ t2 }}
-
-#      postnl_stephanie_states:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ states.sensor.postnl_stephanie.attributes.shipments[0]['title'] }} op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-#      postnl_stephanie_tileboard_title:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ d }}
-#      postnl_stephanie_tileboard_information:
-#        value_template: >-
-#          {% set s= states.sensor.postnl_stephanie.attributes.shipments[0]['status']['formatted']['short'] %}
-#          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-#          {% set d = t1.split('T')[0] %}
-#          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-#          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-#          {{ t1 }} - {{ t2 }}
+      vacuum_cleaner_error_sensor:
+        friendly_name: Vacuum Cleaner Error Sensor
+        value_template: >-
+          {% if states.vacuum.xiaomi_vacuum_cleaner.attributes.error is defined %}
+            {{states.vacuum.xiaomi_vacuum_cleaner.attributes.error}}
+          {% else %}
+            No Error
+          {% endif %}
+      vacuum_cleaner_status_sensor:
+        friendly_name: Vacuum Cleaner Status Sensor
+        value_template: >-
+          {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}
+  # PostNL Template Sensors
       postnl_jimmy_packages:
         value_template: >-
           {{ states.sensor.postnl_jimmy_delivery.state }}
@@ -194,7 +152,7 @@
         value_template: >-
           {{ states.sensor.postnl_stephanie_delivery.state }}
 
-
+# Weather Sensors
   - platform: darksky
     api_key: !secret darksky
     forecast:
@@ -233,9 +191,10 @@
       - precip_type
     language: nl
 
+# RDW Sensor (For Dutch users only!)
   - platform: rdw
-    name: "Daihatsu Gran Move"
-    plate: 42DHPS
+    name: "Peugeot 207"
+    plate: 21XXDL
     sensors:
       - expdate
       - insured
@@ -246,30 +205,7 @@
       - expdate
       - insured
 
-  - platform: template
-    sensors:
-      stofzuigen_visible:
-        value_template: "{{ state_attr('sensor.stofzuigen', 'visible') }}"
-      dweilen_visible:
-        value_template: "{{ state_attr('sensor.dweilen', 'visible') }}"
-      ramen_visible:
-        value_template: "{{ state_attr('sensor.ramen', 'visible') }}"
-      badkamer_visible:
-        value_template: "{{ state_attr('sensor.badkamer', 'visible') }}"
-      toilet_clean_visible:
-        value_template: "{{ state_attr('sensor.toilet_clean', 'visible') }}"
-      stoffen_visible:
-        value_template: "{{ state_attr('sensor.stoffen', 'visible') }}"
-      gordijnen_visible:
-        value_template: "{{ state_attr('sensor.gordijnen', 'visible') }}"
-      bed_verschonen_visible:
-        value_template: "{{ state_attr('sensor.bed_verschonen', 'visible') }}"
-      bed_matras_visible:
-        value_template: "{{ state_attr('sensor.matras', 'visible') }}"
-
-  - platform: season
-    type: astronomical
-
+# Imap Sensor (Please get the imap.py from my repo if you use outlook/hotmail)
   - platform: imap
     server: imap-mail.outlook.com
     username: !secret jimzmail
@@ -282,6 +218,7 @@
     password: !secret stephpwd
     port: 993
 
+# System Monitor (Scan HA resource usage)
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -289,21 +226,15 @@
       - type: memory_free
       - type: memory_use
       - type: memory_use_percent
-   
-  - platform: template
-    sensors:
-      vacuum_cleaner_error_sensor:
-        friendly_name: Vacuum Cleaner Error Sensor
-        value_template: >-
-          {% if states.vacuum.xiaomi_vacuum_cleaner.attributes.error is defined %}
-            {{states.vacuum.xiaomi_vacuum_cleaner.attributes.error}}
-          {% else %}
-            No Error
-          {% endif %}
-          
-  - platform: template
-    sensors:
-      vacuum_cleaner_status_sensor:
-        friendly_name: Vacuum Cleaner Status Sensor
-        value_template: >-
-          {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}
+
+# United Consumers Gas Prices (Dutch Users Only!)
+  - platform: scrape
+    name: Euro95 Advies
+    resource: "https://www.unitedconsumers.com/brandstofprijzen"
+    select: ".table div:nth-of-type(2) div:nth-of-type(3)"
+    value_template: "{{ value |replace('€', '') |replace(',', '.') |round(3) }}"
+    scan_interval: 3600 # be nice; once per hour only
+
+# Certificate Expiry Sensor
+  - platform: cert_expiry
+    host: remote.jimsteph.me
