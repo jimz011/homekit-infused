@@ -19,7 +19,8 @@ default:
 #### #### #### #### #### #### #### #### #### #### #### #
 
 # Card Config
-# Do NOT change this unless you know what you are doing!card:
+# Do NOT change this unless you know what you are doing!
+card:
   type: vertical-stack
   cards:
     - type: custom:swipe-card
