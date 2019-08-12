@@ -1,5 +1,5 @@
 """Sensor for PostNL packages."""
-from datetime import timedelta
+import datetime
 import logging
 
 import voluptuous as vol
@@ -10,7 +10,7 @@ from homeassistant.const import (
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity
 
-REQUIREMENTS = ['postnlpy==0.3.0']
+REQUIREMENTS = ['postnlpy==0.4.1']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ ATTRIBUTION = 'Information provided by PostNL'
 
 DEFAULT_NAME = 'postnl'
 
-SCAN_INTERVAL = timedelta(seconds=1800)
+SCAN_INTERVAL = datetime.timedelta(seconds=1800)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_USERNAME): cv.string,
@@ -166,6 +166,7 @@ class PostNLLetter(Entity):
         self._attributes = {
             ATTR_ATTRIBUTION: ATTRIBUTION,
             'letters': [],
+            'enabled': False,
         }
         self._state = None
         self._api = api
@@ -197,10 +198,13 @@ class PostNLLetter(Entity):
 
     def update(self):
         """Update device state."""
-        letters = self._api.get_letters()
+        self._attributes['enabled'] = self._api.is_letters_activated()
 
-        self._attributes['letters'] = []
+        if self._attributes['enabled']:
+            letters = self._api.get_letters()
 
-        for letter in letters:
-            self._attributes['letters'].append(vars(letter))
-        self._state = len(letters)
+            self._attributes['letters'] = []
+
+            for letter in letters:
+                self._attributes['letters'].append(vars(letter))
+            self._state = len(letters)

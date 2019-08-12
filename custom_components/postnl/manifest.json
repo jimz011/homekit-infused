@@ -3,7 +3,7 @@
   "name": "Postnl",
   "documentation": "https://www.home-assistant.io/components/postnl",
   "requirements": [
-    "postnlpy==0.3.0"
+    "postnlpy==0.4.1"
   ],
   "dependencies": [],
   "codeowners": []
