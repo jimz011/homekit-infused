@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button # Changed/Added in 0.1b
+        template: back_button
         variables:
           - name1: PostNL
           - icon1: package-variant-closed
@@ -18,6 +18,5 @@ cards:
         variables:
           - name: stephanie
           - name-s: Stephanie's
-          - namesensor: !secret stephsensor
-          - mailsensor: !secret stephmailsensor
+          - emailsensor: !secret stephsensor # Changed/Added in 0.11.0
           - number: '13'

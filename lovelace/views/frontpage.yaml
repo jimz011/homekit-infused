@@ -1,7 +1,9 @@
+# Weather Card and Quick Access Menu, These are
+# Conditional and the conditions are set on the
+# alarm. If you have a different alarm entity,
+# use that instead.
 type: vertical-stack
 cards:
-
-### The code below has been # Changed/Added in 0.1b
   - type: conditional
     conditions:
       - entity: alarm_control_panel.home_alarm
@@ -24,7 +26,15 @@ cards:
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
+############ Changed/Added in 0.11.0 Hold Action Below
+            - hold_action:
+                action: call-service
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.simple_alarm
+############ Changed/Added in 0.11.0 Hold Action Above
         - !include ../decluttering_templates/simple-weather-card-template.yaml
+
   - type: conditional
     conditions:
       - entity: alarm_control_panel.home_alarm
@@ -48,8 +58,20 @@ cards:
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
-### End of changes in 0.1b # Changed/Added in 0.1b
+############ Changed/Added in 0.11.0 Hold Action Below
+            - hold_action:
+                action: call-service
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.simple_alarm
+############ Changed/Added in 0.11.0 Hold Action Above
 
+# Frontpage Picture Elements, For variables options please
+# check the decluttering templates. These cards are conditional
+# the conditions are set on a person being home or away. Use
+# your own person entities here.
+
+  # Left Photo
   - type: horizontal-stack
     cards:
       - !include ../decluttering_templates/blank-card.yaml
@@ -91,6 +113,8 @@ cards:
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/stephanie
+
+  # Right Photo
       - type: conditional
         conditions:
           - entity: person.jimmy
@@ -130,6 +154,8 @@ cards:
                 action: navigate
                 navigation_path: /lovelace/jimmy
       - !include ../decluttering_templates/blank-card.yaml
+
+  # Photo Middle (This is the dog in my config)
   - type: horizontal-stack
     cards:
       - !include ../decluttering_templates/blank-card.yaml
@@ -169,6 +195,13 @@ cards:
               transform: initial
               padding: 0 8px
       - !include ../decluttering_templates/blank-card.yaml
+
+# Frontpage Shortcut Buttons, These are once again conditional
+# If the alarm is set to anything but disarmed these buttons
+# will hide and only the quick access menu will be accessible.
+# Remember to change the alarm entity to match your own.
+
+  # First Row
   - type: conditional
     conditions:
       - entity: alarm_control_panel.home_alarm
@@ -181,7 +214,7 @@ cards:
           template: switch_button_card
           variables:
             - name: Climate
-            - label: control
+            - label: Control
             - icon: thermostat
             - show_state: false
             - tap_action: 
@@ -250,6 +283,8 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - !include ../decluttering_templates/blank-card.yaml
+
+  # Second Row
   - type: conditional
     conditions:
       - entity: alarm_control_panel.home_alarm

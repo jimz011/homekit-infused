@@ -3,20 +3,20 @@ path: security
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: back_button # Changed/Added in 0.1b
-        variables: # Changed/Added in 0.1b
-          - name1: Alarm # Changed/Added in 0.1b
-          - icon1: shield-home # Changed/Added in 0.1b
-          - path1: alarm # Changed/Added in 0.1b
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: header_text # Changed/Added in 0.1b
-        variables: # Changed/Added in 0.1b
-          - content: '## Security' # Changed/Added in 0.1b
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: header_text # Changed/Added in 0.1b
-        variables: # Changed/Added in 0.1b
-          - content: "##### Camera's" # Changed/Added in 0.1b
+      - type: custom:decluttering-card
+        template: back_button
+        variables:
+          - name1: Alarm
+          - icon1: shield-home
+          - path1: alarm
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Security'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: "##### Camera's"
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
@@ -44,7 +44,7 @@ cards:
             aspect_ratio: 16x9
           - !include ../decluttering_templates/blank-card.yaml
 
-### The following piece is for tablets only, You can leave this out if not needed. # Changed/Added in 0.1b
+### The following piece is for tablets only, You can leave this out if not needed.
   - type: custom:state-switch
     entity: user
     states:
@@ -62,7 +62,7 @@ cards:
                 height: 155px;
               }
             content: '# [[ sensor.time.state ]]'
-### End of tablet code. # Changed/Added in 0.1b
+### End of tablet code.
 
   - type: vertical-stack
     cards:

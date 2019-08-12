@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button # Changed/Added in 0.1b
+        template: back_button
         variables:
           - name1: Security
           - icon1: cctv

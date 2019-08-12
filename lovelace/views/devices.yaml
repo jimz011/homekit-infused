@@ -3,16 +3,16 @@ path: devices
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: back_button # Changed/Added in 0.1b
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: header_text # Changed/Added in 0.1b
-        variables: # Changed/Added in 0.1b
-          - content: '## Lights' # Changed/Added in 0.1b
-      - type: custom:decluttering-card # Changed/Added in 0.1b
-        template: header_text # Changed/Added in 0.1b
-        variables: # Changed/Added in 0.1b
-          - content: '##### Woonkamer' # Changed/Added in 0.1b
+      - type: custom:decluttering-card
+        template: back_button
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Devices'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Woonkamer'
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
@@ -115,7 +115,7 @@ cards:
             aspect_ratio: 1/1
           - !include ../decluttering_templates/blank-card.yaml
 
-### The following piece is for tablets only, You can leave this out if not needed. # Changed/Added in 0.1b
+### The following piece is for tablets only, You can leave this out if not needed.
   - type: custom:state-switch
     entity: user
     states:
@@ -133,7 +133,7 @@ cards:
                 height: 155px;
               }
             content: '# [[ sensor.time.state ]]'
-### End of tablet code. # Changed/Added in 0.1b
+### End of tablet code.
 
   - type: vertical-stack
     cards:

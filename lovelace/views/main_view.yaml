@@ -1,15 +1,17 @@
 title: Home
 path: home
-popup_cards:
-  !include ../popup-cards/weather-temporary.yaml
+# Changed/Added in 0.11.0 (Here used to be the weather popup, remove this line entirely)
 cards:
+
+  # This is the actual frontpage, edit the frontpage in frontpage.yaml, This file is used
+  # to easily create extra cards for tablets. Use frontpage.yaml instead.
   - !include frontpage.yaml
 
-### The part below is only for tablets, leave it out if you don't have or need it. # Changed/Added in 0.1b ALL OF THE LINES BELOW
   - type: custom:state-switch
     entity: user
     default: default
     states:
+### The part below is only for tablets, leave it out if you don't have or need it.
       Home Assistant:
         type: vertical-stack
         cards:
@@ -42,8 +44,9 @@ cards:
           - !include notifications.yaml
 ### End of tablet part
 
-### The code below has changed to accomodate for the tablet view. If you do not use
-### a tablet or webbrowser you can leave this the way it was, no need to change this!
+# Notifications Panel for the frontpage for all users that are not
+# user: Home Assistant. You need this if you want notifications on
+# the frontpage!
       default:
         type: vertical-stack
         cards:

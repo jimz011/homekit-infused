@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button # Changed/Added in 0.1b
+        template: back_button
         variables:
           - name1: Climate
           - icon1: thermostat
@@ -29,28 +29,32 @@ cards:
                 cards:
                   - !include ../decluttering_templates/blank-card.yaml
                   - type: custom:weather-card-chart
+                 # Changed/Added in 0.11.0 Below
                     style: |
                       ha-card {
                         font-size: 12px;
                         font-family: Helvetica;
-                        background: none;
-                        box-shadow: none;
+                        background: var(--homekit-card-off);
+                        opacity: 0.8;
                         border-radius: var(--border-radius);
                       }
+                 # Changed/Added in 0.11.0 Above
                     weather: weather.dark_sky
                   - !include ../decluttering_templates/blank-card.yaml
               - type: horizontal-stack
                 cards:
                   - !include ../decluttering_templates/blank-card.yaml
                   - type: custom:more-info-card
+                 # Changed/Added in 0.11.0 Below
                     style: |
                       ha-card {
                         font-size: 12px;
                         font-family: Helvetica;
-                        background: none;
-                        box-shadow: none;
+                        background: var(--homekit-card-off);
+                        opacity: 0.8;
                         border-radius: var(--border-radius);
                       }
+                 # Changed/Added in 0.11.0 Above
                     entity: weather.dark_sky
                   - !include ../decluttering_templates/blank-card.yaml
           - type: vertical-stack
