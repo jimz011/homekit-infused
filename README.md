@@ -28,7 +28,6 @@ I am only human, I do this for hobby, am an amateur and bound to make mistakes. 
 *views contain information about your own entities, do not just copy this!
 - Changed enery.yaml (it now shows min/max values, enable this by setting extrema to true, see comments in the file. Warning this might impact lovelace performance)
 
-## Lovelace setup by jimz011 August 2019 v 0.11.0 (*updated: 13/08/2019)
 ### Changes 13/08/2019:
 v. 0.11.0
 - The simple weather card now has a tap_action available! Special thanks to @kalkih
