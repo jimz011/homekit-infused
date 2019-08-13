@@ -12,6 +12,7 @@ v. 0.11.1
 - Fixed some bugs with simple-weather-card.yaml (Cityname can only be hardcoded as this file is an !include, my bad)
 - Added more options in mini-graph-template.yaml (it has now a ton of extra variables so you don't have to template yourself)
 - Changed energy.yaml (now entities have a min/max state shown, you can do this with the new 'extrema' mode, feedback told me it might impact performance)
+- Fixed typo in person-more-info.yaml (this would cause Lovelace to show an error and not load the page)
 
 ## Update Guide from 0.11.0 to 0.11.1:
 Please read this first. In all changed files there is a `# Changed/Added in 0.11.1`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
