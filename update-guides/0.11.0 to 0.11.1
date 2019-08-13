@@ -1,0 +1,27 @@
+## Lovelace setup by jimz011 August 2019 v 0.11.1 (*updated: 13/08/2019)
+### Changes 13/08/2019:
+v. 0.11.1
+- Fixed some bugs with simple-weather-card.yaml (Cityname can only be hardcoded as this file is an !include, my bad)
+- Added more options in mini-graph-template.yaml (it has now a ton of extra variables so you don't have to template yourself)
+- Changed energy.yaml (now entities have a min/max state shown, you can do this with the new 'extrema' mode, feedback told me it might impact performance)
+- Fixed typo in person-more-info.yaml (this would cause Lovelace to show an error and not load the page)
+
+## Update Guide from 0.11.0 to 0.11.1:
+Please read this first. In all changed files there is a `# Changed/Added in 0.11.1`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
+This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
+I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
+
+#### Added Views: No additions in this release
+
+#### Added Resources: No extra resources in this release
+
+#### Added Templates: No additions in this release
+
+#### Changed:
+*Templates: 
+*if you do not change templates I provide you can always just copy these files without the need of checking the code, Unless when there are added variables!
+- Changed mini-graph-template.yaml (now it has more variables set to use with your decluttering cards, just copying this will not have any impact on your current config. Unless you have changed this file before)
+- Changed simple-weather-card-template.yaml (hardcoded the cityname back in and changed description of the file)
+*Views:
+*views contain information about your own entities, do not just copy this!
+- Changed enery.yaml (it now shows min/max values, enable this by setting extrema to true, see comments in the file. Warning this might impact lovelace performance)
