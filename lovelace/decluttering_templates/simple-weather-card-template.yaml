@@ -1,12 +1,8 @@
-# These are the parameters you can use in your quickmenu
-# The ones you see here are the default ones, use any of
-# these variables in your config. (Do not change this file
-# unless you know what you are doing!)
+# Changed/Added in 0.11.1
 
-# Default Config
-default:
-  # City Name
-  - city_name: Eindhoven
+# This is an !include file, no templates in here. Please
+# Change the hardcoded cityname into your own. Line 28
+# of this file!
 
 #### #### #### #### #### #### #### #### #### #### #### #
 
@@ -31,13 +27,13 @@ cards:
             font-weight: bold;
           }
         entity: weather.dark_sky
-        name: '[[city_name]]' # Changed/Added in 0.11.0
+        name: Eindhoven # Changed/Added in 0.11.1
         backdrop:
           fade: true
           day: "var(--weather-night)"
           night: "var(--weather-day)"
           text: "var(--weather-color)"
-        tap_action: # Changed/Added in 0.11.0
-          action: navigate # Changed/Added in 0.11.0
-          navigation_path: /lovelace/weather # Changed/Added in 0.11.0
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/weather
       - !include ../decluttering_templates/blank-card.yaml
