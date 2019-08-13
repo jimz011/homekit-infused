@@ -1,4 +1,12 @@
 # Changelog
+
+### Changes 13/08/2019:
+v. 0.11.1
+- Fixed some bugs with simple-weather-card.yaml (Cityname can only be hardcoded as this file is an !include, my bad)
+- Added more options in mini-graph-template.yaml (it has now a ton of extra variables so you don't have to template yourself)
+- Changed energy.yaml (now entities have a min/max state shown, you can do this with the new 'extrema' mode, feedback told me it might impact performance)
+- Fixed typo in person-more-info.yaml (this would cause Lovelace to show an error and not load the page)
+
 ### Changes 13/08/2019:
 v. 0.11.0
 - The simple weather card now has a tap_action available! Special thanks to @kalkih
@@ -10,44 +18,6 @@ v. 0.11.0
 - Version names of these releases will now have the same notations as that HA did/does use. (e.g. 0.11.0)
 - PostNL custom_component updated, but I still urge you to get it from @peternijssen's own repo!
 
-## Update Guide from 0.1b to 0.11.0:
-Please read this first. In all changed files there is a `# Changed/Added in 0.11.0`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
-This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
-I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
-
-#### Added Views: No additions in this release
-
-#### Added Resources: No extra resources in this release
-
-#### Added Templates: No additions in this release
-
-#### Changed:
-*Templates: if you do not change templates I provide you can always just copy these files without the need of checking the code, Unless when there are added variables!
-- Changed person-more-info.yaml (renamed namesensor to emailsensor, removed mailsensor as haveibeenpwned no longer works without paying)
-- Changed header-template.yaml (hardcoded a white color, only do this if you do not use light wallpapers)
-- Changed simple-weather-card-template.yaml (hardcoded tap_action with navigation, you can change the navigation path in this card)
-- Changed simple-weather-card-template.yaml (now has the theme colors coded in to make it more consistent with the rest of the theme)
-- Changed back-button.yaml (the hold_action is now back on the third button as requested)
-- Changed ALL decluttering templates to have more detailed information and defaults (also you can find all usable variables here. You do not need this if you update, it is only informative, all changes you do need are marked with # Changed/Added in 0.11.0)
-
-*Views: views contain information about your own entities, do not just copy this!
-- Changed jimmy.yaml (removed mailsensor and renamed namesensor to emailsensor)
-- Changed stephanie.yaml (removed mailsensor and renamed namesensor to emailsensor)
-- Changed main-view.yaml (removed popup cards leading to the weather card, You must remove this or paths get broken and lovelace will not load unless you still have the original file it led to)
-- Changed main-view.yaml (added hold_action to the third button of the quick access menu)
-
-*Resources: if you use the exact same cards, you can use this config!
-- Changed resources.yaml (simple-weather-card.js has been renamed to simple-weather-card-bundle.js)
-
-*Configuration: you probably do not need to copy this, I just upload it for my personal reference.
-- Changed sensor.yaml (removed all unused/non-working sensors/platforms)
-
-*Themes: if you do not touch themes, you can safely copy this over your old one.
-- Changed original-hk-light.yaml (this is the original Homekit theme I made, now menu/dashboard and dev-state colors are light instead of dark when this theme is active)
-
-#### Removed
-- Removed weather-temporary.yaml (well the name said it, it was temporary. The fixes in simple-weather-card made this card no longer needed)
-
 ### Changes 11/08/2019:
 v. 0.1b
 - Added missing images to the images folder
@@ -56,45 +26,6 @@ v. 0.1b
 - Added Clock for tablets on the 5 main views (climate, frontpage, lights, devices and security)
 - Changed vacuum.yaml for tablets
 - Changed graph type in energy.yaml
-
-## Update Guide from 0.1a to 0.1b:
-Please read this first. In all changed files there is a `# Changed/Added in 0.1b`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
-This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
-I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
-
-#### Added Views: No additions in this release
-
-#### Added Resources: No extra resources in this release
-
-#### Added Templates
-- Added simple-weather-card-template (the purpose of this and some of the changes below is to make the frontpage easier to configure)
-
-#### Changed:
-*Templates: 
-if you do not change templates I provide you can always just copy these files without the need of checking the code
-- Changed back-button.yaml (it was actually back-button2.yaml but renamed it to back-button.yaml, the other 2 templates have been removed. The quickmenu will now always use a single template. Easy no? Copy this file over your old one)
-- Changed back-button.yaml (now every button is configurable very easy please look at this file to see the new variables available)
-- Changed mini-graph-template.yaml (see comments in the file, added option in template to easily change between line or bars in the graph)
-
-*Views:
-views contain information about your own entities, do not just copy this!
-- Changed lights.yaml (lights with a brightness value now use the switch-template instead. ALL buttons now use a single template. Add the lines in the comments to your lights with a brightness value)
-- Changed main-view.yaml (see comments in the file, added options for tablets, it now displays a clock on the frontpage)
-- Changed energy.yaml (see comments in the file, changed graph style to bars instead of a line)
-- Changed climate.yaml, lights.yaml, devices.yaml, security.yaml, menu.yaml and frontpage.yaml (the quickmenu now uses a single template, you will need to change all the previous ones, what needs to be changed will be commented)
-- Changed vacuum.yaml (added tablet view)
-- Changed the same 7 files above starting from climate.yaml to vacuum.yaml (in that order). (see comments in the file, in the middle of these files a clock has been added for use with tablets. You do not need this if you don't use a tablet/browser)
-- Changed all views that contain a quickmenu (in all views the template name has changed from back_button_2 to back_button. This is in most files line 7, correct all of the names to this. Do not forget to copy the new back-button.yaml template. Only views in the views folder are affected with the exception of notifications.yaml and main-view.yaml and ofc the views you worked on in the changes above)
-
-#### Removed
-- Removed back-button.yaml (replace this with the new one from this release)
-- Removed back-button2.yaml
-- Removed back-button3.yaml
-- Removed frontpage-quickmenu.yaml
-- Removed light-template.yaml
-- Please remove these same files from your decluttering_templates.yaml file (with the exception of the back-button.yaml)
-
-Note: In every upcoming release I will change naming/folders and templates to be more consistent and easier to use. This update is one of the first which removes many templates in favor of a single one.
 
 ### Changes 09/08/2019:
 v. 0.1a
@@ -105,35 +36,9 @@ v. 0.1a
 - Small changes to the quickmenu on the dog view, the left button will now take you to the right view.
 - Added a brand new weather view (this is not the weather view on the frontpage, that one is still up for rework)
 
-## Update Guide from 07/08/2019 to 0.1a:
-Please read this first. In all changed files there is a `# Changed/Added in 0.1`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
-This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
-I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
-
-#### Added Views: (these are new views and do not require editing)
-- Added vacuum-zoned-cleaning.yaml
-- Added weather.yaml
-- Added postnl-jimmy.yaml
-- Added postnl-stephanie.yaml
-
-#### Added Resources:
-- Added weather-card-chart.js (please import this in HACS https://github.com/sgttrs/lovelace-weather-card-chart)
-- Added more-info-card.js (Please import this in HACS https://github.com/thomasloven/lovelace-more-info-card)
-
-#### Changed:
-- Changed ui-lovelace.yaml (add all the added views above to this file with !includes just like the other views)
-- Changed resources.yaml (add all the added resources above to this file, please use HACS)
-- Changed stephanie.yaml (see comments in the file)
-- Changed jimmy.yaml (see comments in the file)
-- Changed vacuum.yaml (see comments in the file and remove the complete zoned cleaning, the one with the map, vertical stack from the swipe-card)
-- Changed automations.yaml (Tado commands were broken due to the new hvac stuff from 0.96.x, this has been adjusted, for convenience these automations have been moved to the bottom of the file, please remove your old ones)
-- Changed climate-template.yaml (This fixes the hvac states on the thermostat-card for tado radiators on the HK controller, might not work for your specific radiator)
-- Changed switch-template.yaml (added a template for margin-top on a name)
-- Changed person-more-info.yaml (remove the complete PostNL vertical stack from the swipe-card)
-- Changed tala.yaml (this is the dog view, see comments in the file)
-
 ### Changes (07/08/2019)
 - Replaced automations.yaml file with a current one. There seemed to be duplicate automations in the old one. Use parts from this one instead.
+
 ### Changes (05/08/2019) (*note: This setup will work perfectly fine with 0.97.x however themes only seem to work when I throw an automation at it (this means it will be set for all users), the dynamic standard themes (day/night) will work just fine, though for now setting a theme per user does not work. If setting globally use the lovelace button I created and the corresponding automations (or make your own)! It probably has to do with the way I have themed this and might require a rewrite.
 
 A very very great summer to all of you, I hope you enjoy your summer. Today I have a great update for all of you. This update is massive! Why? Well remember that I wanted to experiment with conditional cards and more users? Well guess what I was not satisfied with the result. Yes I was satisfied with how it looked, but not the way it was coded. It was extremely slow to a point my old iPad Air wouldn't want to load this setup anymore. So this time around I have rewritten every single page in the setup and boy you are going to love this! (sorry for the ones that were adopting my previous setup, but this will make your life, and mine, a lot easier).
