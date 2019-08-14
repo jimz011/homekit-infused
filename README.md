@@ -1,8 +1,6 @@
 If you find any information on this page useful, feel free to buy me a coffee:
-
-<a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/old%20images/paypal-donate-button.png" ></a>
-
+<a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 # Home Assistant 0.97.x compatible Lovelace setup August 2019 v 0.11.2 (*updated: 14/08/2019)
 My current Home Assistant install (current running version 0.97.2)
 This is my current Home Assistant configuration with Lovelace, new users please skip to the introduction.
