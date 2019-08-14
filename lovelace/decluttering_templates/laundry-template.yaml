@@ -1,3 +1,30 @@
+# These are the variables you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Switch Bottom Right and State Label
+  # (switch. is already predefined)
+  - entity: yourswitchhere
+  
+  # Label Bottom Left 
+  # (sensor. is already predefined)
+  - entity_status: yoursensorhere
+
+  # Energy Current
+  # (sensor. is already predefined)
+  - entity_energy: yoursensorhere
+
+  # Energy Today
+  # (sensor. is already predefined)
+  - entity_energy_today: yoursensorhere
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: picture-elements
   style: |

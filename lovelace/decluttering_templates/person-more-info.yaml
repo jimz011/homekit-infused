@@ -1,4 +1,4 @@
-# These are the parameters you can use in your quickmenu
+# These are the variables you can use in your quickmenu
 # The ones you see here are the default ones, use any of
 # these variables in your config. (Do not change this file
 # unless you know what you are doing!)
@@ -70,22 +70,6 @@ card:
                 - content: '##### Map & Location'
             - type: horizontal-stack
               cards:
-                - !include ../decluttering_templates/blank-card.yaml 
-                - type: history-graph
-                  style: |
-                    ha-card {
-                      background: var(--homekit-card-off);
-                      --paper-item-icon-color: var(--icon-color-off);
-                      color: var(--name-color-off);
-                      border-radius: var(--border-radius);
-                      font-family: Helvetica;
-                      opacity: 0.8;
-                    }
-                  entities:
-                    - person.[[name]]
-                - !include ../decluttering_templates/blank-card.yaml
-            - type: horizontal-stack
-              cards:
                 - !include ../decluttering_templates/blank-card.yaml
                 - type: map
                   style: |
@@ -99,7 +83,7 @@ card:
                       opacity: 0.8;
                       overflow: hidden;
                     }
-                  aspect_ratio: 4x4
+                  aspect_ratio: 4x6
                   default_zoom: 15
                   entities:
                     - person.[[name]]
@@ -135,7 +119,7 @@ card:
                       name: iPhone Batterij
                     - entity: sensor.battery_state_[[number]]
                       name: iPhone Status
-                    - entity: '[[emailsensor]]' # Changed/Added in 0.11.0
+                    - entity: '[[emailsensor]]'
                       name: Ongelezen E-mails
                     - entity: sensor.reistijd_[[name]]
                       name: Huis

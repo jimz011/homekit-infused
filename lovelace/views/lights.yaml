@@ -15,7 +15,6 @@ cards:
         template: header_text
         variables:
           - content: '##### Woonkamer'
-
       - type: horizontal-stack
         cards:
           - !include ../decluttering_templates/blank-card.yaml
@@ -25,14 +24,18 @@ cards:
               - entity: light.woonkamer_plafond
               - name: Plafond
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"  
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.eettafel_lamp
               - name: Eettafel
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"   
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2   
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -40,7 +43,9 @@ cards:
               - entity: light.tafel_lamp
               - name: Tafellamp
               - icon: lamp
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -51,21 +56,27 @@ cards:
               - entity: light.vloerlamp
               - name: Vloerlamp
               - icon: floor-lamp
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.woonkamer_led_lampen
               - name: LEDs
               - icon: led-strip
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.gateway_light_7811dcdef324
               - name: Xiaomi LED
               - icon: led-strip
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -81,7 +92,9 @@ cards:
               - entity: light.nachtkastje_stephanie
               - name: Stephanie
               - icon: lamp
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
               - lock: true
           - type: custom:decluttering-card
             template: switch_button_card
@@ -90,7 +103,9 @@ cards:
               - entity: light.nachtkastje_jimmy
               - name: Jimmy
               - icon: lamp
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
               - lock: true
           - type: custom:decluttering-card
             template: switch_button_card
@@ -98,7 +113,9 @@ cards:
               - entity: light.slaapkamer_led_lampen
               - name: LEDs
               - icon: led-strip
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
               - lock: true
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
@@ -114,14 +131,18 @@ cards:
               - entity: light.kleine_kamer_plafondlampen
               - name: Plafond
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.officeled
               - name: LEDs
               - icon: led-strip
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
@@ -162,20 +183,26 @@ cards:
               - entity: light.keuken_plafondlampen
               - name: Plafond
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: switch.keukenspots
               - name: Spotjes
               - icon: track-light
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.bijkeukenlamp
               - name: Bijkeuken
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -191,6 +218,8 @@ cards:
               - name: Entree
               - icon: ceiling-light
               - size: 30%
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -198,6 +227,8 @@ cards:
               - name: Gang
               - icon: ceiling-light
               - size: 30%
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
@@ -216,20 +247,26 @@ cards:
               - name: Douche
               - icon: ceiling-light
               - size: 30%
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.toiletlamp
               - name: Toilet
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: light.balkonlamp
               - name: Balkon
               - icon: wall-sconce
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -240,7 +277,9 @@ cards:
               - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
               - name: Berging
               - icon: ceiling-light
-              - label: "[[[ var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; ]]]"
+              - label: !include ../includes/brightness-label.yaml # Changed/Added in 0.11.2
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1

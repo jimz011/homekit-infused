@@ -27,7 +27,9 @@ cards:
               - name: Wasmachine
               - line_color: '#ffb414'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -35,7 +37,9 @@ cards:
               - name: Droger
               - line_color: '#ffb414'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -43,7 +47,9 @@ cards:
               - name: Vaatwasser
               - line_color: '#ffb414'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -59,7 +65,9 @@ cards:
               - name: Wasmachine
               - line_color: '#1427ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -67,7 +75,9 @@ cards:
               - name: Droger
               - line_color: '#1427ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -75,7 +85,9 @@ cards:
               - name: Vaatwasser
               - line_color: '#1427ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml 
       - type: custom:decluttering-card
         template: header_text
@@ -91,7 +103,9 @@ cards:
               - name: Wasmachine
               - line_color: '#00d8ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -99,7 +113,9 @@ cards:
               - name: Droger
               - line_color: '#00d8ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -107,7 +123,9 @@ cards:
               - name: Vaatwasser
               - line_color: '#00d8ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml 
   - type: vertical-stack
     cards:
@@ -125,9 +143,9 @@ cards:
               - name: Wasmachine
               - line_color: '#bf00ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -135,9 +153,9 @@ cards:
               - name: Droger
               - line_color: '#bf00ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -145,9 +163,9 @@ cards:
               - name: Vaatwasser
               - line_color: '#bf00ff'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml 
       - type: custom:decluttering-card
         template: header_text
@@ -163,9 +181,9 @@ cards:
               - name: Wasmachine
               - line_color: '#c20202'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -173,9 +191,9 @@ cards:
               - name: Droger
               - line_color: '#c20202'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -183,9 +201,9 @@ cards:
               - name: Vaatwasser
               - line_color: '#c20202'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -201,9 +219,9 @@ cards:
               - name: Wasmachine
               - line_color: '#00ff95'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -211,9 +229,9 @@ cards:
               - name: Droger
               - line_color: '#00ff95'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: mini-graph-card
             variables:
@@ -221,7 +239,12 @@ cards:
               - name: Vaatwasser
               - line_color: '#00ff95'
               - graph: bar
-              - extrema: true # Changed/Added in 0.11.1
-              - font_size: 45
-              - height: 120
+              - extrema: true
+              - decimals: 0 # Changed/Added in 0.11.2
+              - font_size: 65 # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
+      - type: custom:button-card # Changed/Added in 0.11.2
+        color_type: blank-card # Changed/Added in 0.11.2
+        style: # Changed/Added in 0.11.2
+          card: # Changed/Added in 0.11.2
+            - height: 10px # Changed/Added in 0.11.2

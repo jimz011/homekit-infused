@@ -132,6 +132,7 @@ cards:
                       card:
                         - width: 10px
                   - type: markdown
+                                    # Changed/Added in 0.11.2 (color had changed to white)
                     style: |
                       ha-card {
                         background-image: url('/local/images/citroenc1.jpg');
@@ -140,7 +141,7 @@ cards:
                         font-family: Helvetica;
                         background-size: cover;
                         background-position: 50% 50%;
-                        color: '#FFFFFF';
+                        color: white;
                         height: 140px;
                         vertical-align: baseline;
                         margin-bottom: 2px;
@@ -237,6 +238,7 @@ cards:
                 cards:
                   - !include ../decluttering_templates/blank-card.yaml
                   - type: markdown
+                  # Changed/Added in 0.11.2 (color had changed to white)
                     style: |
                       ha-card {
                         background-image: url('/local/images/peugeot207.jpg');
@@ -245,7 +247,7 @@ cards:
                         font-family: Helvetica;
                         background-size: cover;
                         background-position: 50% 50%;
-                        color: '#FFFFFF';
+                        color: white;
                         height: 140px;
                         vertical-align: baseline;
                         margin-bottom: 2px;

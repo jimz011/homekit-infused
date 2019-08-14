@@ -1,6 +1,5 @@
 title: Home
 path: home
-# Changed/Added in 0.11.0 (Here used to be the weather popup, remove this line entirely)
 cards:
 
   # This is the actual frontpage, edit the frontpage in frontpage.yaml, This file is used

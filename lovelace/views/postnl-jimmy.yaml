@@ -56,9 +56,10 @@ cards:
         cards:
           - !include ../decluttering_templates/blank-card.yaml
           - type: 'custom:postnl-card'
+          # Changed/Added in 0.11.2 background color changed to match theme
             style: |
               ha-card {
-                background: none;
+                background: var(--homekit-card-off);
                 --paper-item-icon-color: var(--icon-color-off);
                 color: var(--name-color-off);
                 box-shadow: none;

@@ -1,0 +1,52 @@
+# These are the variables you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Notification Options
+  - border-radius: var(--border-radius)
+  - icon: home
+  - size: 25%
+  - lock: false
+  - label: yourcontenthere
+  - card_color: red
+  - hold_action:
+      action: call-service
+      service: switch.turn_off
+      service_data:
+        entity_id: switch.afzuigkap
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+card:
+  type: custom:button-card
+  name: notification
+  deep_press: true
+  icon: 'mdi:[[icon]]'
+  size: '[[size]]'
+  lock: '[[lock]]'
+  aspect_ratio: 8/1
+  entity: input_boolean.dummy1
+  label: '[[label]]'
+  show_name: false
+  show_icon: true
+  show_state: false
+  show_label: true
+  show_last_changed: false
+  tap_action: none
+  hold_action: '[[hold_action]]'
+  layout: icon_label
+  styles:
+    card:
+      - border-radius: '[[border-radius]]'
+      - --ha-card-background: '[[card_color]]'
+    label:
+      - font-size: 11px
+      - font-family: Helvetica
+      - padding: 0px 10px
+      - justify-self: start
+      - color: white

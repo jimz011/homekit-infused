@@ -1,5 +1,3 @@
-# Changed/Added in 0.11.1
-
 # This is an !include file, no templates in here. Please
 # Change the hardcoded cityname into your own. Line 28
 # of this file!
@@ -27,7 +25,7 @@ cards:
             font-weight: bold;
           }
         entity: weather.dark_sky
-        name: Eindhoven # Changed/Added in 0.11.1
+        name: Eindhoven
         backdrop:
           fade: true
           day: "var(--weather-night)"

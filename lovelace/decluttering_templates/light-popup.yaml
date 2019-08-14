@@ -1,3 +1,17 @@
+# These are the variables you can use in your quickmenu
+# The ones you see here are the default ones, use any of
+# these variables in your config. (Do not change this file
+# unless you know what you are doing!)
+
+# Default Config
+default:
+  # Entity
+  - entity: light.yourentity
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
 card:
   type: 'custom:light-entity-card'
   style: |

@@ -26,13 +26,11 @@ cards:
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
-############ Changed/Added in 0.11.0 Hold Action Below
             - hold_action:
                 action: call-service
                 service: input_boolean.toggle
                 service_data:
                   entity_id: input_boolean.simple_alarm
-############ Changed/Added in 0.11.0 Hold Action Above
         - !include ../decluttering_templates/simple-weather-card-template.yaml
 
   - type: conditional
@@ -50,21 +48,18 @@ cards:
         - type: custom:decluttering-card
           template: back_button
           variables:
-            - name1: Profile
-            - icon1: human-greeting
-            - lovelace1: profile
-            - path1: ' '
+            - name1: Security # Changed/Added in 0.11.2
+            - icon1: cctv # Changed/Added in 0.11.2
+            - path1: security # Changed/Added in 0.11.2
             - entity3: alarm_control_panel.home_alarm
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
-############ Changed/Added in 0.11.0 Hold Action Below
             - hold_action:
                 action: call-service
                 service: input_boolean.toggle
                 service_data:
                   entity_id: input_boolean.simple_alarm
-############ Changed/Added in 0.11.0 Hold Action Above
 
 # Frontpage Picture Elements, For variables options please
 # check the decluttering templates. These cards are conditional

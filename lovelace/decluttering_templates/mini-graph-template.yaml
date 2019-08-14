@@ -1,6 +1,4 @@
-# Changed/Added in 0.11.1
-
-# These are the parameters you can use in your quickmenu
+# These are the variables you can use in your quickmenu
 # The ones you see here are the default ones, use any of
 # these variables in your config. (Do not change this file
 # unless you know what you are doing!)
@@ -45,11 +43,11 @@ default:
 # Do NOT change this unless you know what you are doing!
 card:
   type: 'custom:mini-graph-card'
+  # Changed/Added in 0.11.2 Removed hardcoded white color below in the styles # Changed/Added in 0.11.2
   style: |
     ha-card {
       background: var(--homekit-card-off);
       border-radius: var(--border-radius);
-      color: white;
       --paper-item-icon-color: var(--icon-color-off);
       font-weight: bold;
       opacity: 0.8;

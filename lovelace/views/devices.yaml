@@ -24,6 +24,8 @@ cards:
               - icon: fan
               - color: DodgerBlue
               - spin: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -36,6 +38,8 @@ cards:
               - entity: switch.samsung_tv
               - name: TV
               - icon: television
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -53,6 +57,8 @@ cards:
               - color: DodgerBlue
               - spin: true
               - lock: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -60,6 +66,8 @@ cards:
               - name: Receiver
               - icon: set-top-box
               - lock: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -67,6 +75,8 @@ cards:
               - name: TV
               - icon: television
               - lock: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -82,6 +92,8 @@ cards:
               - name: Stephanie
               - icon: desktop-tower-monitor
               - lock: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -89,12 +101,16 @@ cards:
               - name: Jimmy
               - icon: desktop-tower-monitor
               - lock: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: switch.printer
               - name: Printer
               - icon: printer-wireless
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -107,6 +123,8 @@ cards:
               - icon: xbox
               - lock: true
               - color: green
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
@@ -150,6 +168,8 @@ cards:
               - entity: switch.waterkoker
               - name: Waterkoker
               - icon: cup-water
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -158,12 +178,16 @@ cards:
               - icon: fan
               - color: DodgerBlue
               - spin: true
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: switch.air_fryer
               - name: Airfryer
               - icon: panorama-fisheye
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - !include ../decluttering_templates/blank-card.yaml
       - type: horizontal-stack    
         cards:
@@ -174,12 +198,16 @@ cards:
               - entity: switch.tradfri_outlet
               - name: Cappumaker
               - icon: coffee-outline
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: switch.vaatwasser
               - name: Vaatwasser
               - icon: dishwasher
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
@@ -197,12 +225,16 @@ cards:
               - entity: switch.wasmachine
               - name: Wasmachine
               - icon: washing-machine
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
               - entity: switch.droger
               - name: Droger
               - icon: tumble-dryer
+              - grid: # Changed/Added in 0.11.2
+                  !include ../includes/light-devices-grid.yaml # Changed/Added in 0.11.2
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
