@@ -94,10 +94,9 @@ Custom Components:
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
 
-## TO DO (*updated: 11/08/2019)
-- THEMES PROPER REWORK. ###Currently in Progress, this will drop with the next major release!
+## TO DO (*updated: 14/08/2019)
+- THEMES PROPER REWORK. ###Currently in Progress, will not drop before 0.15.0!
 - Switching the swipe-card for standard views with CCH. ###Feature requested, awaiting release
-- Switching out the last popup cards for alternative cards. ###In Progress, Feature requested, awaiting release
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Postponed to a future release
 - Dog food and water dispenser ###Water dispenser arrived, waiting for sensors to accompany it.
