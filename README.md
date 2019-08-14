@@ -2,82 +2,16 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-# Home Assistant 0.97.x compatible Lovelace setup.
+# Home Assistant 0.97.x compatible Lovelace setup August 2019 v 0.11.2 (*updated: 14/08/2019)
 My current Home Assistant install (current running version 0.97.2)
-This is my entirely new release with so much changes that you should read up if you already use parts from my setup! If you are new to this please continue to the introduction below the changes.
+This is my current Home Assistant configuration with Lovelace, new users please skip to the introduction.
+Existing users can either update or copy new snippets of code.
 
-## Lovelace setup by jimz011 August 2019 v 0.11.1 (*updated: 13/08/2019)
-### Changes 13/08/2019:
-v. 0.11.1
-- Fixed some bugs with simple-weather-card.yaml (Cityname can only be hardcoded as this file is an !include, my bad)
-- Added more options in mini-graph-template.yaml (it has now a ton of extra variables so you don't have to template yourself)
-- Changed energy.yaml (now entities have a min/max state shown, you can do this with the new 'extrema' mode, feedback told me it might impact performance)
-- Fixed typo in person-more-info.yaml (this would cause Lovelace to show an error and not load the page)
-
-## Update Guide from 0.11.0 to 0.11.1:
-Please read this first. In all changed files there is a `# Changed/Added in 0.11.1`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
-This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
-I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
-
-#### Changed:
-*Templates: 
-*if you do not change templates I provide you can always just copy these files without the need of checking the code, Unless when there are added variables!
-- Changed mini-graph-template.yaml (now it has more variables set to use with your decluttering cards, just copying this will not have any impact on your current config. Unless you have changed this file before)
-- Changed simple-weather-card-template.yaml (hardcoded the cityname back in and changed description of the file)
-*Views:
-*views contain information about your own entities, do not just copy this!
-- Changed enery.yaml (it now shows min/max values, enable this by setting extrema to true, see comments in the file. Warning this might impact lovelace performance)
-
-### Changes 13/08/2019:
-v. 0.11.0
-- The simple weather card now has a tap_action available! Special thanks to @kalkih
-- Deep Press (3d Touch) has been updated and now fixes the double click. (please update this component via HACS) Special thanks to @roflcoopter
-- Added descriptive text on ALL decluttering-templates
-- Changed Homekit Gray Light theme to be light in the dashboard/config as well
-- Re-added a hold action to the third quick access menu button
-- Removed weather popup (it will now navigate you to the weather page)
-- Version names of these releases will now have the same notations as that HA did/does use. (e.g. 0.11.0)
-- PostNL custom_component updated, but I still urge you to get it from @peternijssen's own repo!
-
-## Update Guide from 0.1b to 0.11.0:
-Please read this first. In all changed files there is a `# Changed/Added in 0.11.0`. Change/Add these lines in your own files. With the exception of vacuum.yaml these are relatively small changes and mostly be just 3 to 5 lines each page. Find these tags in any of the files that have changed so you can easily change/add your own lines/files.
-This is true for every file below. Note: If it says a file has changed but there are no comments, than it is most likely you only need to remove lines. Below you can read which lines/stacks you will need to remove.
-I am only human, I do this for hobby, am an amateur and bound to make mistakes. If you find anything missing to the information below feel free to make suggestions.
-
-#### Added Views: No additions in this release
-
-#### Added Resources: No extra resources in this release
-
-#### Added Templates: No additions in this release
-
-#### Changed:
-*Templates: if you do not change templates I provide you can always just copy these files without the need of checking the code, Unless when there are added variables!
-- Changed person-more-info.yaml (renamed namesensor to emailsensor, removed mailsensor as haveibeenpwned no longer works without paying)
-- Changed header-template.yaml (hardcoded a white color, only do this if you do not use light wallpapers)
-- Changed simple-weather-card-template.yaml (hardcoded tap_action with navigation, you can change the navigation path in this card)
-- Changed simple-weather-card-template.yaml (now has the theme colors coded in to make it more consistent with the rest of the theme)
-- Changed back-button.yaml (the hold_action is now back on the third button as requested)
-- Changed ALL decluttering templates to have more detailed information and defaults (also you can find all usable variables here. You do not need this if you update, it is only informative, all changes you do need are marked with # Changed/Added in 0.11.0)
-
-*Views: views contain information about your own entities, do not just copy this!
-- Changed jimmy.yaml (removed mailsensor and renamed namesensor to emailsensor)
-- Changed stephanie.yaml (removed mailsensor and renamed namesensor to emailsensor)
-- Changed main-view.yaml (removed popup cards leading to the weather card, You must remove this or paths get broken and lovelace will not load unless you still have the original file it led to)
-- Changed main-view.yaml (added hold_action to the third button of the quick access menu)
-
-*Resources: if you use the exact same cards, you can use this config!
-- Changed resources.yaml (simple-weather-card.js has been renamed to simple-weather-card-bundle.js)
-
-*Configuration: you probably do not need to copy this, I just upload it for my personal reference.
-- Changed sensor.yaml (removed all unused/non-working sensors/platforms)
-
-*Themes: if you do not touch themes, you can safely copy this over your old one.
-- Changed original-hk-light.yaml (this is the original Homekit theme I made, now menu/dashboard and dev-state colors are light instead of dark when this theme is active)
-
-#### Removed
-- Removed weather-temporary.yaml (well the name said it, it was temporary. The fixes in simple-weather-card made this card no longer needed)
+#### Note: When updating please update from version to version, do NOT skip any version or you will find yourself with a broken lovelace setup. If you fall behind in updates you can find older releases/update guides in the links below. Changes will no longer be shown on this frontpage. Watch this repo or follow me on the [Home Assistant Community Forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086) if you want to stay up-to-date.
 
 ### Click here for the [Full Change Log](https://github.com/jimz011/homeassistant/blob/master/CHANGELOG.md)
+### Click here for the [Update Guides](https://github.com/jimz011/homeassistant/tree/master/update-guides)
+### Click here for all [Releases](https://github.com/jimz011/homeassistant/releases)
 
 ## Introduction
 Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
