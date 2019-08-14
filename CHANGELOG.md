@@ -1,5 +1,15 @@
 # Changelog
 
+### Changes Overview 14/08/2019:
+v. 0.11.2
+- Fixed colors for white themes on graphs and headers
+- Changed colors in weather/postnl to match theme colors
+- Changed grid on light/device buttons (state and label are now aligned horizontally)
+- Added buienradar iframe
+- Fixed security button not showing when alarm was armed
+- Changed the way of showing brightness (it now only shows if a light is on), Special thanks to @Jeroen Klompen and @Mars Warrior (tweakers.net) for sharing this code.
+- White themes now have a white dashboard/configuration/sidebar
+
 ### Changes 13/08/2019:
 v. 0.11.1
 - Fixed some bugs with simple-weather-card.yaml (Cityname can only be hardcoded as this file is an !include, my bad)
