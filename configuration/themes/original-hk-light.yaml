@@ -16,6 +16,7 @@ weather-day: 'rgb(255, 251, 239)'
 weather-night: 'rgb(255, 251, 239)'
 weather-color: black
 upcoming-color: black
+header-color: white # Changed/Added in 0.11.2
 
 ### All the lines below have been # Changed/Added in 0.11.0
 primary-color: '#000000'

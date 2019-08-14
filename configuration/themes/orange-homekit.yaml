@@ -16,6 +16,7 @@ weather-day: orange
 weather-night: orange
 weather-color: darkred
 upcoming-color: darkred
+header-color: white # Changed/Added in 0.11.2
 
 ### The Following Theme is the Slate Theme, this is the global HA theme. On my setup you will only see this in the HA menu's.
 # Main colors

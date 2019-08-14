@@ -16,6 +16,7 @@ weather-day: 'rgb(100, 100, 100)'
 weather-night: 'rgb(100, 100, 100)'
 weather-color: AliceBlue
 upcoming-color: AliceBlue
+header-color: white # Changed/Added in 0.11.2
 
 ### The Following Theme is the Slate Theme, this is the global HA theme. On my setup you will only see this in the HA menu's.
 # Main colors
@@ -39,7 +40,7 @@ table-row-background-color: '#292929'
 table-row-alternative-background-color: '#292929'
 # Nav Menu
 paper-listbox-color: '#777777'
-paper-listbox-background-color: '#141414'
+paper-listbox-background-color: '#222222'
 paper-grey-50: 'var(--primary-text-color)'
 paper-grey-200: '#222222'
 # Paper card
