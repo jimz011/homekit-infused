@@ -27,7 +27,6 @@ I am only human, I do this for hobby, am an amateur and bound to make mistakes. 
 - Changed person-more-info.yaml (renamed namesensor to emailsensor, removed mailsensor as haveibeenpwned no longer works without paying)
 - Changed header-template.yaml (hardcoded a white color, only do this if you do not use light wallpapers)
 - Changed simple-weather-card-template.yaml (hardcoded tap_action with navigation, you can change the navigation path in this card)
-- Changed simple-weather-card-template.yaml (now has the theme colors coded in to make it more consistent with the rest of the theme)
 - Changed back-button.yaml (the hold_action is now back on the third button as requested)
 - Changed ALL decluttering templates to have more detailed information and defaults (also you can find all usable variables here. You do not need this if you update, it is only informative, all changes you do need are marked with # Changed/Added in 0.11.0)
 
@@ -36,7 +35,8 @@ I am only human, I do this for hobby, am an amateur and bound to make mistakes. 
 - Changed jimmy.yaml (removed mailsensor and renamed namesensor to emailsensor)
 - Changed stephanie.yaml (removed mailsensor and renamed namesensor to emailsensor)
 - Changed main-view.yaml (removed popup cards leading to the weather card, You must remove this or paths get broken and lovelace will not load unless you still have the original file it led to)
-- Changed main-view.yaml (added hold_action to the third button of the quick access menu)
+- Changed frontpage.yaml (added hold_action to the third button of the quick access menu)
+- Changed weather.yaml (now has the theme colors coded in to make it more consistent with the rest of the theme)
 
 *Configuration:
 *you probably do not need to copy this, I just upload it for my personal reference.
