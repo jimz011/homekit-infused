@@ -2,7 +2,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/old%20images/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Home Assistant 0.97.x compatible Lovelace setup August 2019 v 0.11.2 (*updated: 14/08/2019)
+# Homekit Inspired Lovelace by Jimz011 August 2019 v 0.12.0 (*updated: 20/08/2019)
 My current Home Assistant install (current running version 0.97.2)
 This is my current Home Assistant configuration with Lovelace, new users please skip to the introduction.
 Existing users can either update or copy new snippets of code.
@@ -62,6 +62,7 @@ To make it easier on you if you want to copy it entirely is to first check the f
 
 Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
 Cards:
+* [Lovelace-Auto-Entities](https://github.com/thomasloven/lovelace-auto-entities) - Not supported, install Manually - This card does what monster-card does but slightly different. Use it to make entities/cards show up/hide depending on a domains/entities state.
 * [Weather-Card-Graph](https://github.com/sgttrs/lovelace-weather-card-chart) - Not supported, install Manually - This card is almost the same as most weather cards for lovelace, however this one has a neat graph (and no colored icons which is in my opinion cleaner).
 * [More-Info-Card](https://github.com/thomasloven/lovelace-more-info-card) - Not supported, install Manually - This card will show you the more-info window of an entity as a card. This is used for the weather panel in my setup.
 * [Card-Loader](https://github.com/thomasloven/lovelace-card-loader) - Not supported, install Manually - This mod will make sure cards are loaded before they are presented. Without this cards might not load until a refresh of the page.
