@@ -25,5 +25,25 @@
   scene_welterusten:
   scene_lichtuit:
 
-# New input booleans
+# Testing Purposes
   simple_alarm:
+
+# Notification input_booleans # Changed/Added in 0.12.0
+  notification_afzuigkap:
+  notification_slaapkamer_deur:
+  notification_voordeur:
+  notification_woonkamer_deur:
+  notification_wasmachine:
+  notification_droger:
+  notification_vaatwasser:
+  notification_alarm:
+  notification_alles_rustig:
+  notification_smoke_detector:
+  notification_tala:
+  notification_motion_gallerij:
+  notification_motion_toilet:
+  notification_motion_bijkeuken:
+  notification_vacuum:
+  notification_anniversary:
+  notification_birthday:
+  notification_apk:
