@@ -19,7 +19,7 @@ cards:
           - content: '##### Series'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: 'custom:upcoming-media-card'
             style: |
               ha-card {
@@ -28,7 +28,7 @@ cards:
                 color: var(--upcoming-color);
               }
             entity: sensor.sonarr_upcoming_media
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
@@ -37,7 +37,7 @@ cards:
           - content: '##### Movies'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: 'custom:upcoming-media-card'
             style: |
               ha-card {
@@ -46,5 +46,6 @@ cards:
                 color: var(--upcoming-color)
               }
             entity: sensor.radarr_upcoming_media
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
       

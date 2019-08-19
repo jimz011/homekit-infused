@@ -19,7 +19,7 @@ cards:
           - content: '##### Map'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: map
             style: |
               ha-card {
@@ -46,4 +46,5 @@ cards:
               - zone.plasje_best
               - zone.losloop_bosje
               - zone.vtc_best
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

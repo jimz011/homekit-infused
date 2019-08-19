@@ -30,7 +30,7 @@ cards:
                   - content: '##### Attendance'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
@@ -73,10 +73,10 @@ cards:
                           - value 1: 9 months
                           - value 2: 12 months
                           - value 3: 18 months
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: entities
                     style: |
                       ha-card {
@@ -97,7 +97,8 @@ cards:
                         name: MedPets Voeding 
                         icon: 'mdi:earth'
                         url: https://www.medpets.nl/vetcomplex+digestive+dog/?lpc=478-464-355
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
+              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
@@ -110,23 +111,7 @@ cards:
                   - content: "##### History & Map"
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
-                  - type: history-graph
-                    style: |
-                      ha-card {
-                        background: var(--homekit-card-off);
-                        --paper-item-icon-color: var(--icon-color-off);
-                        color: var(--name-color-off);
-                        border-radius: var(--border-radius);
-                        font-family: Helvetica;
-                        opacity: 0.8;
-                      }
-                    entities:
-                      - person.tala
-                  - !include ../decluttering_templates/blank-card.yaml
-              - type: horizontal-stack
-                cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: map
                     style: |
                       ha-card {
@@ -136,10 +121,12 @@ cards:
                         border-radius: var(--border-radius);
                         font-family: Helvetica;
                         font-size: 12px;
+                        opacity: 0.8;
                         overflow: hidden;
                       }
-                    aspect_ratio: 4x4
+                    aspect_ratio: 4x6
                     default_zoom: 15
                     entities:
                       - person.tala
-                  - !include ../decluttering_templates/blank-card.yaml    
+                  - !include ../includes/blank-card.yaml
+              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

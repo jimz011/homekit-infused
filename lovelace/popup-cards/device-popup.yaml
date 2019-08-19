@@ -1,5 +1,5 @@
-  light.woonkamer_plafond:
-    title: Woonkamer Plafond
+  switch.ventilator:
+    title: Ventilator
     style:
       color: white
       border-radius: var(--border-radius)
@@ -13,12 +13,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.woonkamer_plafond
+                - entity: switch.ventilator
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.woonkamer_led_lampen:
-    title: Woonkamer LED Lampen
+  switch.receiver:
+    title: Woonkamer Receiver
     style:
       color: white
       border-radius: var(--border-radius)
@@ -32,12 +32,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.woonkamer_led_lampen
+                - entity: switch.receiver
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.eettafel_lamp:
-    title: Eettafel Lamp
+  switch.air_fryer:
+    title: AirFryer
     style:
       color: white
       border-radius: var(--border-radius)
@@ -51,12 +51,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.eettafel_lamp
+                - entity: switch.air_fryer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.vloerlamp:
-    title: Vloer Lamp
+  switch.afzuigkap:
+    title: Afzuigkap
     style:
       color: white
       border-radius: var(--border-radius)
@@ -70,12 +70,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.vloerlamp
+                - entity: switch.afzuigkap
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.tafel_lamp:
-    title: Tafel Lamp
+  switch.samsung_tv:
+    title: Woonkamer TV
     style:
       color: white
       border-radius: var(--border-radius)
@@ -89,12 +89,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.tafel_lamp
+                - entity: switch.samsung_tv
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.gateway_light_7811dcdef324:
-    title: Xiaomi Gateway LED
+  switch.receiver_slaapkamer:
+    title: Slaapkamer Receiver
     style:
       color: white
       border-radius: var(--border-radius)
@@ -108,12 +108,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.gateway_light_7811dcdef324
+                - entity: switch.receiver_slaapkamer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.kleine_kamer_plafondlampen:
-    title: Plafond Lamp
+  switch.tradfri_outlet_2:
+    title: Slaapkamer TV
     style:
       color: white
       border-radius: var(--border-radius)
@@ -127,12 +127,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.kleine_kamer_plafondlampen
+                - entity: switch.tradfri_outlet_2
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.officeled:
-    title: Kleine Kamer LEDs
+  switch.pc_van_stephanie:
+    title: PC Stephanie
     style:
       color: white
       border-radius: var(--border-radius)
@@ -146,12 +146,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.officeled
+                - entity: switch.pc_van_stephanie
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  switch.keukenspots:
-    title: Keuken Spotjes
+  switch.pc_van_jimmy:
+    title: PC Jimmy
     style:
       color: white
       border-radius: var(--border-radius)
@@ -165,12 +165,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: switch.keukenspots
+                - entity: switch.pc_van_jimmy
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.keuken_plafondlampen:
-    title: Plafond Lampen
+  switch.printer:
+    title: Printer
     style:
       color: white
       border-radius: var(--border-radius)
@@ -184,12 +184,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.keuken_plafondlampen
+                - entity: switch.printer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.bijkeukenlamp:
-    title: Bijkeuken Lamp
+  switch.xbox_one:
+    title: Xbox One
     style:
       color: white
       border-radius: var(--border-radius)
@@ -203,12 +203,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.bijkeukenlamp
+                - entity: switch.xbox_one
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.slaapkamer_led_lampen:
-    title: Slaapkamer LEDs
+  switch.waterkoker:
+    title: Waterkoker
     style:
       color: white
       border-radius: var(--border-radius)
@@ -222,12 +222,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.slaapkamer_led_lampen
+                - entity: switch.waterkoker
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.nachtkastje_jimmy:
-    title: Nachtkastje Jimmy
+  switch.tradfri_outlet:
+    title: Cappumaker
     style:
       color: white
       border-radius: var(--border-radius)
@@ -241,12 +241,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.nachtkastje_jimmy
+                - entity: switch.tradfri_outlet
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.nachtkastje_stephanie:
-    title: Nachtkastje Stephanie
+  switch.vaatwasser:
+    title: Vaatwasser
     style:
       color: white
       border-radius: var(--border-radius)
@@ -260,12 +260,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.nachtkastje_stephanie
+                - entity: switch.vaatwasser
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.entree_lamp:
-    title: Entree Lamp
+  switch.wasmachine:
+    title: Wasmachine
     style:
       color: white
       border-radius: var(--border-radius)
@@ -279,12 +279,12 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.entree_lamp
+                - entity: switch.wasmachine
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.gang_lamp:
-    title: Gang Lamp
+  switch.droger:
+    title: Droger
     style:
       color: white
       border-radius: var(--border-radius)
@@ -298,82 +298,6 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.gang_lamp
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
-
-  switch.koogeek_sw_056ce9:
-    title: Badkamer Lamp
-    style:
-      color: white
-      border-radius: var(--border-radius)
-      background: var(--background-image)
-    card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: switch.koogeek_sw_056ce9
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
-
-  light.tradfri_bulb_e27_ws_opal_980lm_4:
-    title: Berging Lamp
-    style:
-      color: white
-      border-radius: var(--border-radius)
-      background: var(--background-image)
-    card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
-
-  light.balkonlamp:
-    title: Balkon Lamp
-    style:
-      color: white
-      border-radius: var(--border-radius)
-      background: var(--background-image)
-    card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: light.balkonlamp
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
-
-  light.toiletlamp:
-    title: Toilet Lamp
-    style:
-      color: white
-      border-radius: var(--border-radius)
-      background: var(--background-image)
-    card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: light.toiletlamp
+                - entity: switch.droger
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml

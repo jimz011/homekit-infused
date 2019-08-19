@@ -26,7 +26,7 @@
     type: module
   - url: /community_plugin/decluttering-card/decluttering-card.js
     type: module
-  - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js # Changed/Added in 0.11.0
+  - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
     type: module
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
@@ -52,3 +52,5 @@
     type: module
   - url: /community_plugin/lovelace-more-info-card/more-info-card.js
     type: js
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js # Changed/Added in 0.12.0
+    type: js # Changed/Added in 0.12.0

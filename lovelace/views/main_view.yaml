@@ -1,5 +1,7 @@
 title: Home
 path: home
+popup_cards:
+  !include ../popup-cards/notification-popup.yaml
 cards:
 
   # This is the actual frontpage, edit the frontpage in frontpage.yaml, This file is used
@@ -31,7 +33,7 @@ cards:
               - content: '##### Frontdoor Camera'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml # Changed/Added in 0.12.0
               - type: picture-entity
                 style: |
                   ha-card {
@@ -39,8 +41,8 @@ cards:
                     overflow: hidden;
                   }
                 entity: camera.gallerij_camera
-              - !include ../decluttering_templates/blank-card.yaml
-          - !include notifications.yaml
+              - !include ../includes/blank-card.yaml # Changed/Added in 0.12.0
+          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
 ### End of tablet part
 
 # Notifications Panel for the frontpage for all users that are not
@@ -49,4 +51,4 @@ cards:
       default:
         type: vertical-stack
         cards:
-          - !include notifications.yaml
+          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0

@@ -24,7 +24,7 @@ cards:
           - content: '##### All Items'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -76,10 +76,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/devices
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -130,10 +130,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/floorplan
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -185,10 +185,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/lights
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -238,10 +238,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/currently-on
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -292,10 +292,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/scenes
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -347,10 +347,10 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/media
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -388,7 +388,7 @@ cards:
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
@@ -397,7 +397,7 @@ cards:
           - content: '##### System Tools'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -444,9 +444,5 @@ cards:
                   haptic: light
               - tap_action:
                   action: none
-          - !include ../decluttering_templates/blank-card.yaml
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - height: 50px
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

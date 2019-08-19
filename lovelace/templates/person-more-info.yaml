@@ -1,0 +1,144 @@
+# These are the variables you can use in your decluttering
+# card. Add one or more variables in your decluttering-card.
+# The variables you see below are the default ones. 
+#
+# A standard decluttering-card config would look like:
+# - type: custom:decluttering-card
+#   template: this_templates_name
+#   variables:
+#     - entity: switch.test
+#     - name: test
+# 
+# All the variables you can use are within the default config
+# below. The variables you can use are the first word after each
+# dash -.
+#
+# If you omit adding variables to your decluttering-card
+# it will use defaults instead, which are defined below as well.
+# You can change the default config below. If you only enter a
+# few of the variables it will only use defaults for undefined
+# variables.
+
+# Default Config
+default:
+  # Name/Person (Don't capitalize uncapitalized names!)
+  - name: stephanie
+  - name-s: Jimmy's
+
+  # Email Sensor
+  - emailsensor: sensor.youremailsensor
+
+  # Battery/State Sensor (cut off at the number, if you have
+  # a sensor with a different name please change template below)
+  - number: '16'
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:swipe-card
+      parameters:
+        effect: 'coverflow'
+        grabCursor: true
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '#### Agenda >'
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: "##### [[name-s]] Agenda"
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:calendar-card
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  numberOfDays: 5
+                  entities:
+                    - calendar.[[name]]
+                    - calendar.schings
+                  showColors: true
+                - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '#### < Location >'
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### Map & Location'
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: map
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  aspect_ratio: 4x6
+                  default_zoom: 15
+                  entities:
+                    - person.[[name]]
+                - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards: 
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '#### < Information'
+            - type: custom:decluttering-card
+              template: header_text
+              variables:
+                - content: '##### General Information'
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: entities
+                  style: |
+                    ha-card {
+                      background: var(--homekit-card-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: var(--border-radius);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - entity: sensor.postnl_[[name]]_delivery
+                      name: PostNL
+                    - entity: sensor.battery_level_[[number]]
+                      name: iPhone Batterij
+                    - entity: sensor.battery_state_[[number]]
+                      name: iPhone Status
+                    - entity: '[[emailsensor]]'
+                      name: Ongelezen E-mails
+                    - entity: sensor.reistijd_[[name]]
+                      name: Huis
+                    - entity: sensor.reistijd_[[name]]_work
+                      name: Werk 
+                - !include ../includes/blank-card.yaml     

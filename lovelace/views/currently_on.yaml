@@ -15,145 +15,52 @@ cards:
           - content: '##### Currently ON'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml 
-          - type: entity-filter
+          - !include ../includes/blank-card.yaml
+          - type: 'custom:auto-entities'
             card:
               type: glance
+              columns: 3
+              show_empty: true
               style: |
                 ha-card {
+                  border-radius: var(--border-radius);
                   background: var(--homekit-card-off);
                   color: var(--name-color-off);
-                  border-radius: var(--border-radius);
                   font-size: 12px;
                   font-family: Helvetica;
                 }
-            show_empty: true
-            columns: 4
-            entities:
-              - entity: switch.receiver
-                icon: 'mdi:set-top-box'
-              - entity: switch.samsung_tv
-                name: Samsung TV
-                icon: 'mdi:television'
-              - entity: switch.xbox_one
-                icon: 'mdi:xbox'
-                name: Xbox One
-              - entity: switch.waterkoker
-                icon: 'mdi:cup-water'
-                name: Waterkoker
-              - entity: switch.afzuigkap
-                icon: 'mdi:fan'
-                name: Afzuigkap
-              - entity: switch.air_fryer
-                icon: 'mdi:panorama-fisheye'
-                name: Airfryer
-              - entity: switch.printer
-                icon: 'mdi:printer-wireless'
-                name: Printer
-              - entity: switch.ventilator
-                icon: 'mdi:fan'
-                name: Ventilator
-              - entity: switch.pc_van_stephanie
-                icon: 'mdi:desktop-tower-monitor'
-                name: Stephanie
-              - entity: switch.pc_van_jimmy
-                icon: 'mdi:desktop-tower-monitor'
-                name: Jimmy
-              - entity: light.vloerlamp
-                icon: 'mdi:floor-lamp'
-                name: Vloer
-              - entity: light.tafel_lamp
-                icon: 'mdi:lamp'
-                name: Tafel
-              - entity: light.woonkamer_plafond
-                icon: 'mdi:ceiling-light'
-                name: Woonkamer
-              - entity: light.eettafel_lamp
-                icon: 'mdi:ceiling-light'
-                name: Eettafel
-              - entity: light.gateway_light_7811dcdef324
-                icon: 'mdi:led-off'
-                name: Xiaomi
-              - entity: switch.keukenspots
-                icon: 'mdi:track-light'
-                name: Keuken
-              - entity: light.nachtkastje_jimmy
-                name: Jimmy
-              - entity: light.nachtkastje_stephanie
-                name: Stephanie
-              - entity: binary_sensor.motion_sensor_158d00024e687d
-                name: Toilet
-              - entity: binary_sensor.motion_sensor_158d0002b7eec9
-                name: Bijkeuken
-              - entity: binary_sensor.dafang_motion_sensor
-                name: Gallerij
-              - entity: switch.koogeek_sw_056ce9
-                icon: 'mdi:ceiling-light'
-                name: Badkamer
-              - entity: binary_sensor.smoke_sensor_158d000287ab41
-                icon: 'mdi:smoke-detector'
-                name: Rook
-              - entity: light.slaapkamer_led_lampen
-                icon: 'mdi:led-strip'
-                name: Slaapkamer
-              - entity: light.woonkamer_led_lampen
-                icon: 'mdi:led-strip'
-                name: Woonkamer
-              - entity: light.officeled
-                icon: 'mdi:led-strip'
-                name: Kleine Kamer
-              - entity: light.kleine_kamer_plafondlampen
-                icon: 'mdi:ceiling-light'
-                name: Kleine Kamer
-              - entity: light.keuken_plafondlampen
-                icon: 'mdi:ceiling-light'
-                name: Keuken
-              - entity: light.bijkeukenlamp
-                icon: 'mdi:ceiling-light'
-                name: Bijkeuken
-              - entity: light.toiletlamp
-                icon: 'mdi:ceiling-light'
-                name: Toilet
-              - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
-                icon: 'mdi:ceiling-light'
-                name: Berging
-              - entity: binary_sensor.door_window_sensor_158d000236f9dd
-                icon: 'mdi:door'
-                name: Voordeur
-              - entity: binary_sensor.door_window_sensor_158d000238644b
-                icon: 'mdi:door'
-                name: Woonkamer
-              - entity: binary_sensor.door_window_sensor_158d000232ac1b
-                icon: 'mdi:door'
-                name: Slaapkamer
-              - entity: switch.wasmachine
-                icon: 'mdi:washing-machine'
-              - entity: switch.vaatwasser
-                icon: 'mdi:dishwasher'
-              - entity: switch.droger
-                icon: 'mdi:tumble-dryer'
-              - entity: light.balkonlamp
-                name: Balkon
-              - entity: switch.tradfri_outlet
-                icon: 'mdi:coffee-outline'
-                name: Cappu
-              - entity: switch.tradfri_outlet_2
-                icon: 'mdi:television'
-                name: Philips TV
-              - entity: light.entree_lamp
-                icon: 'mdi:ceiling-light'
-                name: Entree
-              - entity: light.gang_lamp
-                icon: 'mdi:ceiling-light'
-                name: Gang
-              - entity: vacuum.xiaomi_vacuum_cleaner
-                icon: 'mdi:robot-vacuum'
-                name: Roborock S55
-            state_filter:
-              - 'on'
-          - !include ../decluttering_templates/blank-card.yaml
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - height: 50px
+            filter:
+              include:
+                - state: 'on'
+              exclude:
+                - entity_id: '*tools_*'
+                - domain: scene
+                - domain: automation
+                - domain: group
+                - domain: input_boolean
+                - entity_id: sensor.dafang_light_sensor
+                - entity_id: switch.dafang_blue_led
+                - entity_id: switch.dafang_h264_rtsp_server
+                - entity_id: switch.dafang_ir_filter
+                - entity_id: switch.dafang_ir_led
+                - entity_id: switch.dafang_mjpeg_rtsp_server
+                - entity_id: switch.dafang_motion_detection
+                - entity_id: switch.dafang_motion_send_mail
+                - entity_id: switch.dafang_motion_send_telegram
+                - entity_id: switch.dafang_motion_tracking
+                - entity_id: switch.dafang_night_mode
+                - entity_id: switch.dafang_night_mode_auto
+                - entity_id: switch.dafang_yellow_led
+                - entity_id: light.bankled
+                - entity_id: light.tvled
+                - entity_id: light.dressoirled
+                - entity_id: light.vloerled
+                - entity_id: light.bedled
+                - entity_id: light.keukenlamp_a
+                - entity_id: light.keukenlamp_b
+                - entity_id: light.keukenlamp_c
+                - entity_id: light.kleine_kamer_lamp_a
+                - entity_id: light.kleine_kamer_lamp_b
+                - entity_id: light.kleine_kamer_lamp_c                                                            
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

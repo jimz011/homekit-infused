@@ -21,7 +21,7 @@ cards:
               - content: '###### Tap and hold the image to download'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: picture
                 style: |
                   ha-card {
@@ -29,4 +29,4 @@ cards:
                   }
                 aspect_ratio: 1.78
                 image: /local/images/floorplan.jpg
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml

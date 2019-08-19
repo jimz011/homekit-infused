@@ -21,7 +21,7 @@ cards:
               - content: '##### Important Dates'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: entities
                 style: |
                   ha-card {
@@ -55,4 +55,5 @@ cards:
                   - entity: sensor.birthday_jos_schings
                     name: Jos
                     icon: mdi:human-male
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
+          - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

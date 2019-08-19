@@ -19,7 +19,7 @@ cards:
           - content: '##### Uncategorized'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: glance
             style: |
               ha-card {
@@ -30,4 +30,4 @@ cards:
               }
             entities:
               - entity: sensor.ssl_certificate_expiry
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml

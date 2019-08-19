@@ -23,7 +23,7 @@ cards:
           - content: '##### Other'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: 'custom:decluttering-card'
             template: switch_button_card
             variables:
@@ -47,16 +47,15 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/stephanie
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Letters & Packages'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: 'custom:postnl-card'
-          # Changed/Added in 0.11.2 background color changed to match theme
             style: |
               ha-card {
                 background: var(--homekit-card-off);
@@ -74,4 +73,5 @@ cards:
               header: true
               delivered: false
             past_days: 14
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

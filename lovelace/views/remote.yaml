@@ -1,3 +1,5 @@
+## Creation of this view is on hold until the Apple TV works with HA again. (worst case scenario means never.)
+
 title: Remote
 path:  remote
 cards:
@@ -22,7 +24,7 @@ cards:
                   - content: '#### Woonkamer >'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -99,10 +101,10 @@ cards:
                       - margin-right: 40px
                       - opacity: 0.9
                       - background_color: rgb(73,73,73)
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -145,10 +147,10 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -223,10 +225,10 @@ cards:
                             command:
                               - right
                             haptic: light
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -285,10 +287,10 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:mini-media-player'
                     style: |
                       ha-card {
@@ -301,7 +303,7 @@ cards:
                       icon: true
                       power: true
                     artwork: cover
-                  - !include ../decluttering_templates/blank-card.yaml                
+                  - !include ../includes/blank-card.yaml                
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
@@ -310,7 +312,7 @@ cards:
                   - content: '#### < Slaapkamer'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -387,10 +389,10 @@ cards:
                       - margin-right: 40px
                       - opacity: 0.9
                       - background_color: rgb(73,73,73)
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -433,10 +435,10 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -511,10 +513,10 @@ cards:
                             command:
                               - right
                             haptic: light
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -573,10 +575,10 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:mini-media-player'
                     style: |
                       ha-card {
@@ -589,9 +591,5 @@ cards:
                       icon: true
                       power: true
                     artwork: cover
-                  - !include ../decluttering_templates/blank-card.yaml
-  - type: 'custom:button-card'
-    color_type: blank-card
-    styles:
-      card:
-        - height: 50px              
+                  - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0         

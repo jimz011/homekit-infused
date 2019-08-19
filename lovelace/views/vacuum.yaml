@@ -28,19 +28,29 @@ cards:
                 template: header_text
                 variables:
                   - content: '##### Current Status'
-              - type: custom:decluttering-card
-                template: notification_card
-                variables:
-                  - color: rgba(0, 0, 0, 0.5)
-                  - icon: robot-vacuum
-                  - content: '[[ sensor.vacuum_cleaner_status_sensor.state ]]'
+              - type: horizontal-stack
+                cards:
+          ### # Changed/Added in 0.12.0 Below
+                  - !include ../includes/blank-card.yaml
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: var(--border-radius);
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }              
+                    content: '<ha-icon icon="mdi:robot-vacuum"></ha-icon> [[ sensor.vacuum_cleaner_status_sensor.state ]]'
+                  - !include ../includes/blank-card.yaml
+          ### # Changed/Added in 0.12.0 Above
               - type: custom:decluttering-card
                 template: header_text
                 variables:
                   - content: '##### Information'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -81,14 +91,14 @@ cards:
                       - hold_action:
                           action: more-info
                           haptic: heavy
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
                 template: header_text
                 variables:
                   - content: '##### Cleaning'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -128,10 +138,10 @@ cards:
                       - hold_action:
                           action: more-info
                           haptic: heavy
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -151,7 +161,7 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
           - type: vertical-stack
             cards: 
               - type: custom:decluttering-card
@@ -164,7 +174,7 @@ cards:
                   - content: '##### General'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: conditional
                     conditions:
                       - entity: sensor.vacuum_cleaner_status_sensor
@@ -307,10 +317,10 @@ cards:
                             haptic: light
                         - hold_action:
                             action: none
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -380,7 +390,7 @@ cards:
                   - type: 'custom:button-card'
                     color_type: blank-card
                     aspect_ratio: 1/1
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: vacuum.xiaomi_vacuum_cleaner
@@ -394,7 +404,7 @@ cards:
                         - content: '##### Fan Speed'
                     - type: horizontal-stack
                       cards:
-                        - !include ../decluttering_templates/blank-card.yaml
+                        - !include ../includes/blank-card.yaml
                         - type: conditional
                           conditions:
                             - entity: input_select.xiaomi_vacuum
@@ -552,10 +562,10 @@ cards:
                                   haptic: light
                               - hold_action:
                                   action: none
-                        - !include ../decluttering_templates/blank-card.yaml
+                        - !include ../includes/blank-card.yaml
                     - type: horizontal-stack
                       cards:
-                        - !include ../decluttering_templates/blank-card.yaml
+                        - !include ../includes/blank-card.yaml
                         - type: conditional
                           conditions:
                             - entity: input_select.xiaomi_vacuum
@@ -661,7 +671,7 @@ cards:
                         - type: 'custom:button-card'
                           color_type: blank-card
                           aspect_ratio: 1/1
-                        - !include ../decluttering_templates/blank-card.yaml
+                        - !include ../includes/blank-card.yaml
                     - type: 'custom:button-card'
                       color_type: blank-card
                       styles:
@@ -679,7 +689,7 @@ cards:
                   - content: '##### Manual'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -703,14 +713,14 @@ cards:
                           action: navigate
                           navigation_path: /lovelace/vacuum-zoned-cleaning
                           haptic: light
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
                 template: header_text
                 variables:
                   - content: '##### Automatic'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -768,10 +778,10 @@ cards:
                           haptic: light
                       - hold_action:
                           action: none
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
                     template: switch_button_card
                     variables:
@@ -829,7 +839,7 @@ cards:
                           haptic: light
                       - hold_action:
                           action: none
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
 
 ### The following piece is for tablets only, You can leave this out if not needed.
   - type: custom:state-switch
@@ -855,7 +865,7 @@ cards:
               - content: '##### Manual Zoned Cleaning'
           - type: horizontal-stack
             cards: 
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: custom:xiaomi-vacuum-map-card
                 style: |
                   ha-card {
@@ -871,5 +881,5 @@ cards:
                 reference_point:
                   x: 546
                   y: 235
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
 ### End of tablet code.

@@ -19,7 +19,7 @@ cards:
           - content: '##### Keypad'
       - type: horizontal-stack
         cards: 
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: alarm-panel
             style: |
               ha-card {
@@ -30,4 +30,4 @@ cards:
                 opacity: 0.8;
               }
             entity: alarm_control_panel.home_alarm
-          - !include ../decluttering_templates/blank-card.yaml  
+          - !include ../includes/blank-card.yaml  

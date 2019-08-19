@@ -30,7 +30,7 @@ cards:
                   - content: '##### Checklist'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
@@ -113,7 +113,8 @@ cards:
                           - value 1: 3 months
                           - value 2: 6 months
                           - value 3: 9 months
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
+              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0    
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
@@ -132,7 +133,6 @@ cards:
                       card:
                         - width: 10px
                   - type: markdown
-                                    # Changed/Added in 0.11.2 (color had changed to white)
                     style: |
                       ha-card {
                         background-image: url('/local/images/citroenc1.jpg');
@@ -153,10 +153,10 @@ cards:
                       **Kenteken:** 55-GFF-3
         
                       **Verzekerd:** [[ sensor.citroen_c1_insured.state ]]
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
@@ -199,10 +199,10 @@ cards:
                           - value 1: 1 month
                           - value 2: 3 months
                           - value 3: 6 months
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: entities
                     style: |
                       ha-card {
@@ -223,7 +223,8 @@ cards:
                         name: ANWB Bellen
                         url: tel:+31882692222
                         icon: 'mdi:phone'
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
+              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
@@ -236,9 +237,8 @@ cards:
                   - content: '##### Peugeot 207 SW 1.4 VTi X-Line (2007) 21-XX-DL'
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: markdown
-                  # Changed/Added in 0.11.2 (color had changed to white)
                     style: |
                       ha-card {
                         background-image: url('/local/images/peugeot207.jpg');
@@ -259,10 +259,10 @@ cards:
                       **Kenteken:** 21-XX-DL
                       
                       **Verzekerd:** [[ sensor.peugeot_207_insured.state ]]
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
@@ -305,10 +305,10 @@ cards:
                           - value 1: 1 month
                           - value 2: 3 months
                           - value 3: 6 months
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
-                  - !include ../decluttering_templates/blank-card.yaml
+                  - !include ../includes/blank-card.yaml
                   - type: entities
                     style: |
                       ha-card {
@@ -328,9 +328,5 @@ cards:
                         name: ANWB Bellen
                         url: tel:+31882692222
                         icon: 'mdi:phone'
-                  - !include ../decluttering_templates/blank-card.yaml
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - height: 50px              
+                  - !include ../includes/blank-card.yaml
+              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0            

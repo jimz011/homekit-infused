@@ -1,0 +1,14 @@
+# This is used as a spacer between the screen
+# edge (of a mobile device) and the card/button.
+# Use this to create a small gap so that the
+# buttons won't touch the end of the screen.
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+type: 'custom:button-card'
+color_type: blank-card
+styles:
+  card:
+    - width: 10px

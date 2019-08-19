@@ -31,7 +31,7 @@ cards:
                 service: input_boolean.toggle
                 service_data:
                   entity_id: input_boolean.simple_alarm
-        - !include ../decluttering_templates/simple-weather-card-template.yaml
+        - !include ../includes/simple-weather-card.yaml # Changed/Added in 0.12.0
 
   - type: conditional
     conditions:
@@ -44,13 +44,13 @@ cards:
         effect: 'coverflow'
         grabCursor: true
       cards:
-        - !include ../decluttering_templates/simple-weather-card-template.yaml
+        - !include ../includes/simple-weather-card.yaml # Changed/Added in 0.12.0
         - type: custom:decluttering-card
           template: back_button
           variables:
-            - name1: Security # Changed/Added in 0.11.2
-            - icon1: cctv # Changed/Added in 0.11.2
-            - path1: security # Changed/Added in 0.11.2
+            - name1: Security
+            - icon1: cctv
+            - path1: security
             - entity3: alarm_control_panel.home_alarm
             - name3: Alarm 
             - icon3: shield-check
@@ -69,7 +69,7 @@ cards:
   # Left Photo
   - type: horizontal-stack
     cards:
-      - !include ../decluttering_templates/blank-card.yaml
+      - !include ../includes/blank-card.yaml
       - type: conditional
         conditions:
           - entity: person.stephanie
@@ -148,12 +148,12 @@ cards:
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/jimmy
-      - !include ../decluttering_templates/blank-card.yaml
+      - !include ../includes/blank-card.yaml
 
   # Photo Middle (This is the dog in my config)
   - type: horizontal-stack
     cards:
-      - !include ../decluttering_templates/blank-card.yaml
+      - !include ../includes/blank-card.yaml
       - type: picture-elements
         style: |
           ha-card {
@@ -189,7 +189,7 @@ cards:
               width: 100%
               transform: initial
               padding: 0 8px
-      - !include ../decluttering_templates/blank-card.yaml
+      - !include ../includes/blank-card.yaml
 
 # Frontpage Shortcut Buttons, These are once again conditional
 # If the alarm is set to anything but disarmed these buttons
@@ -204,7 +204,7 @@ cards:
     card:
       type: horizontal-stack
       cards:
-        - !include ../decluttering_templates/blank-card.yaml
+        - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
           template: switch_button_card
           variables:
@@ -277,7 +277,7 @@ cards:
             - entity: input_boolean.dummy1
             - margin-right: 40px
             - opacity: 0.8
-        - !include ../decluttering_templates/blank-card.yaml
+        - !include ../includes/blank-card.yaml
 
   # Second Row
   - type: conditional
@@ -287,7 +287,7 @@ cards:
     card:
       type: horizontal-stack
       cards:
-        - !include ../decluttering_templates/blank-card.yaml
+        - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
           template: switch_button_card
           variables:
@@ -360,4 +360,4 @@ cards:
             - entity: input_boolean.dummy1
             - margin-right: 40px
             - opacity: 0.8
-        - !include ../decluttering_templates/blank-card.yaml
+        - !include ../includes/blank-card.yaml

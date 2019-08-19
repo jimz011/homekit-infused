@@ -21,7 +21,7 @@ cards:
               - content: '##### Washing Machine'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
                 template: laundry_elements
                 variables:
@@ -30,14 +30,14 @@ cards:
                   - entity: wasmachine
                   - entity_energy: wasmachine_energy_power
                   - entity_energy_today: wasmachine_energy_today
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: header_text
             variables:
               - content: '##### Tumble Dryer'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
                 template: laundry_elements
                 variables:
@@ -46,14 +46,14 @@ cards:
                   - entity: droger
                   - entity_energy: droger_energy_power
                   - entity_energy_today: droger_energy_today
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: header_text
             variables:
               - content: '##### Dishwasher' 
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
                 template: laundry_elements
                 variables:
@@ -62,5 +62,5 @@ cards:
                   - entity: vaatwasser
                   - entity_energy: vaatwasser_energy_power
                   - entity_energy_today: vaatwasser_energy_today
-              - !include ../decluttering_templates/blank-card.yaml
-      
+              - !include ../includes/blank-card.yaml
+          - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

@@ -19,7 +19,7 @@ cards:
           - content: '##### SabNZBd'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: entities
             style: |
               ha-card {
@@ -38,4 +38,4 @@ cards:
               - entity: sensor.sabnzbd_left
                 icon: 'mdi:arrow-left-bold'
                 name: Sabnzbd Resterend
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml

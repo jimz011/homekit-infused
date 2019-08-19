@@ -19,7 +19,7 @@ cards:
           - content: '##### Presets'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -46,7 +46,7 @@ cards:
                   action: call-service
                   service: scene.turn_on
                   service_data:
-                    entity_id: scene.avond_verlichting
+                    entity_id: scene.avondverlichting
                   haptic: light
           - type: custom:decluttering-card
             template: switch_button_card
@@ -62,10 +62,10 @@ cards:
                   service_data:
                     entity_id: scene.nachtverlichting
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -106,10 +106,10 @@ cards:
                   service_data:
                     entity_id: scene.lichtuit
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -149,10 +149,10 @@ cards:
                   service_data:
                     entity_id: scene.naarbed
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -195,4 +195,5 @@ cards:
                   service_data:
                     entity_id: scene.welterusten
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml          
+          - !include ../includes/blank-card.yaml 
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

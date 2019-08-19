@@ -23,7 +23,7 @@ cards:
           - content: '##### Automatic'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: 'custom:decluttering-card'
             template: switch_button_card
             variables:
@@ -47,14 +47,14 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/vacuum
                   haptic: light
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
         variables:
           - content: '##### Manual'
       - type: horizontal-stack
         cards: 
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: custom:xiaomi-vacuum-map-card
             style: |
               ha-card {
@@ -70,9 +70,5 @@ cards:
             reference_point:
               x: 546
               y: 235
-          - !include ../decluttering_templates/blank-card.yaml
-      - type: 'custom:button-card'
-        color_type: blank-card
-        styles:
-          card:
-            - height: 10px 
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

@@ -21,7 +21,7 @@ cards:
               - content: '##### Waze Navigation'
           - type: horizontal-stack
             cards:
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
               - type: entities
                 style: |
                   ha-card {
@@ -47,7 +47,7 @@ cards:
                     name: Thermen Bussloo
                     icon: 'mdi:tree'
                     url: https://www.waze.com/ul?ll=52.19191580%2C6.09528070&navigate=yes&zoom=16
-              - !include ../decluttering_templates/blank-card.yaml
+              - !include ../includes/blank-card.yaml
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
@@ -56,7 +56,7 @@ cards:
           - content: '##### iOS Shortcuts'
       - type: horizontal-stack
         cards:
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
           - type: entities
             style: |
               ha-card {
@@ -87,4 +87,5 @@ cards:
               - type: weblink
                 name: Plex
                 url: plex://
-          - !include ../decluttering_templates/blank-card.yaml
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
