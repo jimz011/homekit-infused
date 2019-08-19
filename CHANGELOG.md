@@ -1,5 +1,18 @@
 # Changelog
 
+### Changes Overview 20/08/2019:
+v. 0.12.0
+- A completely revamped notifications system for the frontpage, now notifications are dynamic and interactive
+- Fixed icloud caldav (remove your url in configuration.yaml or secrets.yaml and change it to 'https://caldav.icloud.com')
+- Fixed Tile device_tracker (this fix comes from the official HA github and will be pushed into HA 0.98.x, if you can't wait just copy the custom_component into your own folders. All config will stay the same)
+- Added energy-usage to some button-cards (Special thanks to @ jeroenklompen, tweakers.net, unfortunately I do not know his community/github name to properly thank him)
+- Changed currently on view with a auto-entities card, no longer will you need to hardcode entities on this page. (Special thanks to @xMrVizzy for sharing the code)
+- Moved/renamed files to make navigating folders more easy
+- Split some of the config for the same reason as above
+- A lot of style fixes
+- Added some more tablet code
+- Many small fixes and changes, for full changes see the update guides
+
 ### Changes Overview 14/08/2019:
 v. 0.11.2
 - Fixed colors for white themes on graphs and headers
