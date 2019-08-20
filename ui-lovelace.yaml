@@ -6,24 +6,13 @@ resources:
 # You will need to hide views if you want to
 # have views that behave like popup cards!
 cch:
-  menu: hide
-  options: hide
-  notifications: hide
-  voice: hide
-  header: false
-  chevrons: false
-  notify_indicator_color: "#e80000"
-  swipe: true
-  swipe_wrap: false
-  background: 'rgba(0,0,0,0.3)'
-  hide_tabs: '5 to 30'
-  default_tab: 1
-   
+  !include lovelace/cch/compact-custom-header.yaml # Changed/Added in 0.12.0, this is now separated from this file to lovelace/cch/
+
 # Decluttering Templates
 # These are the templates used to avoid too much
 # duplicate code.
 decluttering_templates:
-  !include lovelace/decluttering_templates/decluttering_templates.yaml
+  !include lovelace/templates/decluttering-templates.yaml # Changed/Added in 0.12.0
        
 # Views
 # The following 5 views are swipable, the order
@@ -31,7 +20,7 @@ decluttering_templates:
 # The first view is the page 0. In my setup
 # the interface defaults to view 1.
 title: Home
-background: var(--background-image)
+background: var(--background-image) # This is the background image that will be used in all the views. (currently backgrounds are set in themes, dont edit this if you want themes to work)
 views:
   - !include lovelace/views/climate.yaml
   - !include lovelace/views/main_view.yaml
@@ -66,6 +55,5 @@ views:
   - !include lovelace/views/postnl-jimmy.yaml
   - !include lovelace/views/postnl-stephanie.yaml
   - !include lovelace/views/weather.yaml
-
 # Note that this order and the way this works might change in the near future.
 # It will be the removal of swipe-cards in favor of CCH swipe gestures.
