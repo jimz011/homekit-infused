@@ -6,14 +6,14 @@ resources:
 # You will need to hide views if you want to
 # have views that behave like popup cards!
 cch:
-  !include lovelace/cch/compact-custom-header.yaml # Changed/Added in 0.12.0, this is now separated from this file to lovelace/cch/
+  !include lovelace/cch/compact-custom-header.yaml
 
 # Decluttering Templates
 # These are the templates used to avoid too much
 # duplicate code.
 decluttering_templates:
-  !include lovelace/templates/decluttering-templates.yaml # Changed/Added in 0.12.0
-       
+  !include lovelace/templates/decluttering-templates.yaml
+  
 # Views
 # The following 5 views are swipable, the order
 # of these 5 files is the swipe order as well.
