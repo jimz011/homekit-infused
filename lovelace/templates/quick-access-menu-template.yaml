@@ -1,0 +1,148 @@
+# These are the variables you can use in your decluttering
+# card. Add one or more variables in your decluttering-card.
+# The variables you see below are the default ones. 
+#
+# A standard decluttering-card config would look like:
+# - type: custom:decluttering-card
+#   template: this_templates_name
+#   variables:
+#     - entity: switch.test
+#     - name: test
+# 
+# All the variables you can use are within the default config
+# below. The variables you can use are the first word after each
+# dash -.
+#
+# If you omit adding variables to your decluttering-card
+# it will use defaults instead, which are defined below as well.
+# You can change the default config below. If you only enter a
+# few of the variables it will only use defaults for undefined
+# variables.
+
+# Default Config
+default:
+  # Left Button
+  - entity1: input_boolean.dummy1
+  - name1: Scenes
+  - icon1: arrange-send-backward
+  - path1: scenes
+  - lovelace1: lovelace
+
+  # Middle Button
+  - entity2: input_boolean.dummy1
+  - name2: Menu
+  - icon2: menu
+  - path2: menu
+  - lovelace2: lovelace
+
+  # Right Button
+  - entity3: input_boolean.dummy1
+  - name3: Home 
+  - icon3: home
+  - path3: home 
+  - lovelace3: lovelace
+
+  # Hold Action (Only for the right button!)
+  - hold_action:
+      action: navigate
+      navigation_path: /lovelace/home
+      haptic: light
+
+  # Show Options
+  - show_state: false
+  - show_label: false
+  - show_name: true
+
+  # Name Padding (left)
+  # Used for alarm entities as they are slighty
+  # off. 
+  - padding: 0px
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:decluttering-card
+      template: header # Changed/Added in 0.12.2
+      variables:
+        - content: '##### Quick Access'
+    - type: horizontal-stack
+      cards:   
+        - !include ../includes/blank-card.yaml
+        - type: 'custom:decluttering-card'
+          template: button # Changed/Added in 0.12.2
+          variables:
+            - entity: '[[entity1]]'
+            - name: '[[name1]]'
+            - icon: '[[icon1]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: false
+            - show_state: false
+            - justify-self-name: center
+            - padding-left-name: 0px
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace1]]/[[path1]]
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /[[lovelace1]]/[[path1]]
+                haptic: light
+        - type: 'custom:decluttering-card'
+          template: button # Changed/Added in 0.12.2
+          variables:
+            - entity: '[[entity2]]'
+            - name: '[[name2]]'
+            - icon: '[[icon2]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: false
+            - show_state: false
+            - justify-self-name: center
+            - padding-left-name: 0px
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace2]]/[[path2]]
+                haptic: light
+            - hold_action:
+                action: navigate
+                navigation_path: /[[lovelace2]]/[[path2]]
+                haptic: light
+        - type: 'custom:decluttering-card'
+          template: button # Changed/Added in 0.12.2
+          variables:
+            - entity: '[[entity3]]'
+            - name: '[[name3]]'
+            - icon: '[[icon3]]'
+            - size: 15%
+            - aspect_ratio: 2/1
+            - border-radius: 0px
+            - show_label: '[[show_label]]'
+            - show_name: '[[show_name]]'
+            - show_state: '[[show_state]]'
+            - justify-self-name: center
+            - padding-left-name: '[[padding]]'
+            - color: var(--icon-color-off)
+            - margin-right: 0px
+            - opacity: 0.8
+            - off_name_color: var(--name-color-off)
+            - tap_action:
+                action: navigate
+                navigation_path: /[[lovelace3]]/[[path3]]
+                haptic: light
+            - hold_action: '[[hold_action]]'
+        - !include ../includes/blank-card.yaml     

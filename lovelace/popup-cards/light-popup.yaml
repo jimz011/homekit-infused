@@ -11,7 +11,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.woonkamer_plafond
             - !include ../includes/blank-card.yaml
@@ -30,7 +30,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.woonkamer_led_lampen
             - !include ../includes/blank-card.yaml
@@ -49,7 +49,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.eettafel_lamp
             - !include ../includes/blank-card.yaml
@@ -68,7 +68,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.vloerlamp
             - !include ../includes/blank-card.yaml
@@ -87,7 +87,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.tafel_lamp
             - !include ../includes/blank-card.yaml
@@ -106,7 +106,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.gateway_light_7811dcdef324
             - !include ../includes/blank-card.yaml
@@ -125,7 +125,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.kleine_kamer_plafondlampen
             - !include ../includes/blank-card.yaml
@@ -144,7 +144,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.officeled
             - !include ../includes/blank-card.yaml
@@ -163,7 +163,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.keukenspots
             - !include ../includes/blank-card.yaml
@@ -182,7 +182,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.keuken_plafondlampen
             - !include ../includes/blank-card.yaml
@@ -201,7 +201,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.bijkeukenlamp
             - !include ../includes/blank-card.yaml
@@ -220,7 +220,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.slaapkamer_led_lampen
             - !include ../includes/blank-card.yaml
@@ -239,7 +239,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.nachtkastje_jimmy
             - !include ../includes/blank-card.yaml
@@ -258,7 +258,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.nachtkastje_stephanie
             - !include ../includes/blank-card.yaml
@@ -277,7 +277,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.entree_lamp
             - !include ../includes/blank-card.yaml
@@ -296,7 +296,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.gang_lamp
             - !include ../includes/blank-card.yaml
@@ -315,7 +315,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.koogeek_sw_056ce9
             - !include ../includes/blank-card.yaml
@@ -334,7 +334,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
             - !include ../includes/blank-card.yaml
@@ -353,7 +353,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.balkonlamp
             - !include ../includes/blank-card.yaml
@@ -372,7 +372,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: light.toiletlamp
             - !include ../includes/blank-card.yaml

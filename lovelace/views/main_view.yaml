@@ -28,12 +28,12 @@ cards:
               }
             content: '# [[ sensor.time.state ]]'
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Frontdoor Camera'
           - type: horizontal-stack
             cards:
-              - !include ../includes/blank-card.yaml # Changed/Added in 0.12.0
+              - !include ../includes/blank-card.yaml
               - type: picture-entity
                 style: |
                   ha-card {
@@ -41,8 +41,8 @@ cards:
                     overflow: hidden;
                   }
                 entity: camera.gallerij_camera
-              - !include ../includes/blank-card.yaml # Changed/Added in 0.12.0
-          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
+              - !include ../includes/blank-card.yaml
+          - !include ../notifications/notifications.yaml
 ### End of tablet part
 
 # Notifications Panel for the frontpage for all users that are not
@@ -51,4 +51,4 @@ cards:
       default:
         type: vertical-stack
         cards:
-          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
+          - !include ../notifications/notifications.yaml

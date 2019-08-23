@@ -16,7 +16,7 @@ cards:
         grabCursor: true
       cards:
         - type: custom:decluttering-card
-          template: back_button
+          template: quick-access-menu # Changed/Added in 0.12.2
           variables:
             - name1: Profile
             - icon1: human-greeting
@@ -26,12 +26,7 @@ cards:
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
-            - hold_action:
-                action: call-service
-                service: input_boolean.toggle
-                service_data:
-                  entity_id: input_boolean.simple_alarm
-        - !include ../includes/simple-weather-card.yaml # Changed/Added in 0.12.0
+        - !include ../includes/simple-weather-card.yaml 
 
   - type: conditional
     conditions:
@@ -44,9 +39,9 @@ cards:
         effect: 'coverflow'
         grabCursor: true
       cards:
-        - !include ../includes/simple-weather-card.yaml # Changed/Added in 0.12.0
+        - !include ../includes/simple-weather-card.yaml 
         - type: custom:decluttering-card
-          template: back_button
+          template: quick-access-menu # Changed/Added in 0.12.2
           variables:
             - name1: Security
             - icon1: cctv
@@ -76,7 +71,7 @@ cards:
             state_not: "home"
         card:
           type: custom:decluttering-card
-          template: person_elements
+          template: person  # Changed/Added in 0.12.2
           variables:
             - name: stephanie
             - namesensor: !secret stephsensor
@@ -95,7 +90,7 @@ cards:
             state: "home"
         card:
           type: custom:decluttering-card
-          template: person_elements
+          template: person  # Changed/Added in 0.12.2
           variables:
             - name: stephanie
             - namesensor: !secret stephsensor
@@ -116,7 +111,7 @@ cards:
             state_not: "home"
         card:
           type: custom:decluttering-card
-          template: person_elements
+          template: person  # Changed/Added in 0.12.2
           variables:
             - name: jimmy
             - namesensor: !secret jimsensor
@@ -135,7 +130,7 @@ cards:
             state: "home"
         card:
           type: custom:decluttering-card
-          template: person_elements
+          template: person  # Changed/Added in 0.12.2
           variables:
             - name: jimmy
             - namesensor: !secret jimsensor
@@ -206,7 +201,7 @@ cards:
       cards:
         - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Climate
             - label: Control
@@ -224,7 +219,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Light
             - label: Control
@@ -242,7 +237,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Device
             - label: Control
@@ -260,7 +255,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Security
             - label: Panel
@@ -289,7 +284,7 @@ cards:
       cards:
         - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Cleaning
             - label: Lists
@@ -307,7 +302,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Scenes
             - label: Presets
@@ -325,7 +320,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Vacuum
             - label: Johnny S55
@@ -343,7 +338,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: switch_button_card
+          template: button # Changed/Added in 0.12.2
           variables:
             - name: Menu
             - label: All Options

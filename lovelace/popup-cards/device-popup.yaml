@@ -11,7 +11,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.ventilator
             - !include ../includes/blank-card.yaml
@@ -30,7 +30,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.receiver
             - !include ../includes/blank-card.yaml
@@ -49,7 +49,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.air_fryer
             - !include ../includes/blank-card.yaml
@@ -68,7 +68,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.afzuigkap
             - !include ../includes/blank-card.yaml
@@ -87,7 +87,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.samsung_tv
             - !include ../includes/blank-card.yaml
@@ -106,7 +106,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.receiver_slaapkamer
             - !include ../includes/blank-card.yaml
@@ -125,7 +125,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.tradfri_outlet_2
             - !include ../includes/blank-card.yaml
@@ -144,7 +144,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.pc_van_stephanie
             - !include ../includes/blank-card.yaml
@@ -163,7 +163,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.pc_van_jimmy
             - !include ../includes/blank-card.yaml
@@ -182,7 +182,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.printer
             - !include ../includes/blank-card.yaml
@@ -201,7 +201,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.xbox_one
             - !include ../includes/blank-card.yaml
@@ -220,7 +220,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.waterkoker
             - !include ../includes/blank-card.yaml
@@ -239,12 +239,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: light_popup_card
+              template: more-info-popup  # Changed/Added in 0.12.2
               variables:
                 - entity: switch.tradfri_outlet
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
+### Everything Below # Changed/Added in 0.12.2
   switch.vaatwasser:
     title: Vaatwasser
     style:
@@ -252,17 +253,11 @@
       border-radius: var(--border-radius)
       background: var(--background-image)
     card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: switch.vaatwasser
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
+      type: custom:decluttering-card
+      template: energy-usage
+      variables:
+        - device_name: vaatwasser
+        - icon: dishwasher
 
   switch.wasmachine:
     title: Wasmachine
@@ -271,17 +266,11 @@
       border-radius: var(--border-radius)
       background: var(--background-image)
     card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: switch.wasmachine
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
+      type: custom:decluttering-card
+      template: energy-usage
+      variables:
+        - device_name: wasmachine
+        - icon: washing-machine
 
   switch.droger:
     title: Droger
@@ -290,14 +279,8 @@
       border-radius: var(--border-radius)
       background: var(--background-image)
     card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - !include ../includes/blank-card.yaml
-            - type: custom:decluttering-card
-              template: light_popup_card
-              variables:
-                - entity: switch.droger
-            - !include ../includes/blank-card.yaml
-        - !include ../includes/bottom-card.yaml
+      type: custom:decluttering-card
+      template: energy-usage
+      variables:
+        - device_name: droger
+        - icon: tumble-dryer

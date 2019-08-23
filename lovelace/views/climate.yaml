@@ -4,29 +4,29 @@ cards:
   - type: vertical-stack 
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Weather
           - icon1: weather-sunny
           - path1: weather
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Climate Control'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Thermostat'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: climate_card
+            template: climate  # Changed/Added in 0.12.2
             variables:
               - entity: climate.tado_smart_radiator_thermostat_va2898201344
               - ambient_temperature: sensor.temperature_158d00020ed06c
           - type: custom:decluttering-card
-            template: climate_card
+            template: climate  # Changed/Added in 0.12.2
             variables:
               - entity: climate.tado_smart_radiator_thermostat_va1671957504
               - ambient_temperature: sensor.printer_am2301_temperature
@@ -35,7 +35,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: input_boolean.tado_woonkamer
               - name: Woonkamer
@@ -45,7 +45,7 @@ cards:
               - margin-right: 120px
               - size: 15%
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: input_boolean.tado_kleine_kamer
               - name: Kleine Kamer
@@ -59,12 +59,12 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: climate_card
+            template: climate  # Changed/Added in 0.12.2
             variables:
               - entity: climate.tado_smart_radiator_thermostat_va2898201344
               - ambient_temperature: sensor.temperature_158d0002b546e7
           - type: custom:decluttering-card
-            template: climate_card
+            template: climate  # Changed/Added in 0.12.2
             variables:
               - entity: climate.tado_smart_radiator_thermostat_va1671957504
               - ambient_temperature: sensor.waterkoker_am2301_temperature
@@ -73,7 +73,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: input_boolean.dummy2
               - name: Slaapkamer
@@ -83,7 +83,7 @@ cards:
               - margin-right: 120px
               - size: 15%
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: input_boolean.dummy2
               - name: Keuken
@@ -117,121 +117,177 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Temperature'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: temperature_158d00020ed06c
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.temperature_158d00020ed06c
               - name: Woonkamer
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: printer_am2301_temperature
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.printer_am2301_temperature
               - name: Kleine Kamer
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: temperature_158d0002b546e7
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.temperature_158d0002b546e7
               - name: Slaapkamer
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - !include ../includes/blank-card.yaml 
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: waterkoker_am2301_temperature
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.waterkoker_am2301_temperature
               - name: Keuken
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: temperature_158d0002b54868
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.temperature_158d0002b54868
               - name: Badkamer
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Humidity'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: humidity_158d00020ed06c
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.humidity_158d00020ed06c
               - name: Woonkamer
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: printer_am2301_humidity
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.printer_am2301_humidity
               - name: Kleine Kamer
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: humidity_158d0002b546e7
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.humidity_158d0002b546e7
               - name: Slaapkamer
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: waterkoker_am2301_humidity
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.waterkoker_am2301_humidity
               - name: Keuken
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: temperature_158d0002b54868
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.temperature_158d0002b54868
               - name: Badkamer
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Air Pressure'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: pressure_158d0002b546e7
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.pressure_158d0002b546e7
               - name: Slaapkamer
               - line_color: '#00d8ff'
               - font_size: 53
-              - height: 120
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: pressure_158d0002b54868
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.pressure_158d0002b54868
               - name: Badkamer
               - line_color: '#00d8ff'
               - font_size: 53
-              - height: 120
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+      - !include ../includes/bottom-card.yaml
         

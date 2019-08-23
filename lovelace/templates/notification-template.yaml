@@ -21,24 +21,30 @@
 
 # Default Config
 default:
-  # Notification Options
+  # Entity (you don't need to change this if you do everything with a service-call)
   - entity: input_boolean.dummy1
+
+  # Style Config
   - border-radius: var(--border-radius)
   - icon: home
   - lock: false
   - size: 100%
-  - label: yourcontenthere
-  - name: yourcontenthere
   - card_color: var(--homekit-card-off)
-  - tap_action: none
-  - hold_action:
-      action: more-info
-      haptic: light
   - margin-right: 0px
   - margin-left: 15px
   - spin: false
   - icon_color: white
   - name_color: white
+
+  # Content (I only use name in my config, use label if you want to display more or prefer the label color)
+  - label: yourcontenthere
+  - name: yourcontenthere
+
+  # Tap and Hold actions (I disabled the tap_action as I don't want it to get activated by accident on the frontpage)
+  - tap_action: none
+  - hold_action:
+      action: more-info
+      haptic: light
 
 #### #### #### #### #### #### #### #### #### #### #### #
 

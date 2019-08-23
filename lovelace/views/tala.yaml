@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Location
           - icon1: map
           - path1: location 
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Tala'
       - type: custom:swipe-card
@@ -21,11 +21,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### Information >'
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Attendance'
               - type: horizontal-stack
@@ -34,7 +34,7 @@ cards:
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
-                        template: check_button_card
+                        template: check-button # Changed/Added in 0.12.2
                         variables:
                           - title: Borstelen
                           - entity: sensor.animals_tala_borstel
@@ -42,7 +42,7 @@ cards:
                           - value 2: 6 days
                           - value 3: 9 days
                       - type: custom:decluttering-card
-                        template: check_button_card
+                        template: check-button # Changed/Added in 0.12.2
                         variables:
                           - title: Vaccinaties
                           - entity: sensor.animals_tala_vaccinations
@@ -50,7 +50,7 @@ cards:
                           - value 2: 6 months
                           - value 3: 9 months
                       - type: custom:decluttering-card
-                        template: check_button_card
+                        template: check-button # Changed/Added in 0.12.2
                         variables:
                           - title: Vlooien
                           - entity: sensor.animals_tala_fleadrops
@@ -58,7 +58,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 6 months
                       - type: custom:decluttering-card
-                        template: check_button_card
+                        template: check-button # Changed/Added in 0.12.2
                         variables:
                           - title: Ontwormen
                           - entity: sensor.animals_tala_worm
@@ -66,7 +66,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 4 months
                       - type: custom:decluttering-card
-                        template: check_button_card
+                        template: check-button # Changed/Added in 0.12.2
                         variables:
                           - title: Trimmen
                           - entity: sensor.animals_tala_trim
@@ -98,15 +98,15 @@ cards:
                         icon: 'mdi:earth'
                         url: https://www.medpets.nl/vetcomplex+digestive+dog/?lpc=478-464-355
                   - !include ../includes/blank-card.yaml
-              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+              - !include ../includes/bottom-card.yaml
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### < Location'
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: "##### History & Map"
               - type: horizontal-stack
@@ -129,4 +129,4 @@ cards:
                     entities:
                       - person.tala
                   - !include ../includes/blank-card.yaml
-              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+              - !include ../includes/bottom-card.yaml

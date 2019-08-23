@@ -4,19 +4,19 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Links
           - icon1: link-variant
           - path1: links
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Important Dates'
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Important Dates'
           - type: horizontal-stack
@@ -56,4 +56,4 @@ cards:
                     name: Jos
                     icon: mdi:human-male
               - !include ../includes/blank-card.yaml
-          - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+          - !include ../includes/bottom-card.yaml

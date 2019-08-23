@@ -8,14 +8,14 @@ input_boolean.notification_afzuigkap:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -31,7 +31,7 @@ input_boolean.notification_afzuigkap:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -49,7 +49,7 @@ input_boolean.notification_afzuigkap:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -75,14 +75,14 @@ input_boolean.notification_woonkamer_deur:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -100,7 +100,7 @@ input_boolean.notification_woonkamer_deur:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -126,14 +126,14 @@ input_boolean.notification_slaapkamer_deur:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -151,7 +151,7 @@ input_boolean.notification_slaapkamer_deur:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -177,14 +177,14 @@ input_boolean.notification_voordeur:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - entity: light.entree_lamp
               - icon_color: var(--upcoming-color)
@@ -208,14 +208,14 @@ input_boolean.notification_wasmachine:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -231,7 +231,7 @@ input_boolean.notification_wasmachine:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -249,7 +249,76 @@ input_boolean.notification_wasmachine:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
+            variables:
+              - icon_color: var(--upcoming-color)
+              - name_color: var(--upcoming-color)
+              - entity: scene.klaar_met_wassen
+              - icon: arrange-send-backward
+              - name: Scene Klaar met Wassen
+              - card_color: var(--homekit-card-off)
+              - tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.klaar_met_wassen
+                  haptic: light
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml
+
+# Code below # Added in 0.12.2
+input_boolean.notification_vaatwasser:
+  title: Vaatwasser
+  style:
+    color: white
+    border-radius: var(--border-radius)
+    background: var(--background-image)
+  card:
+    type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header
+        variables:
+          - content: '##### Actions'
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: notification
+            variables:
+              - icon_color: var(--upcoming-color)
+              - name_color: var(--upcoming-color)
+              - entity: switch.vaatwasser
+              - icon: power
+              - name: Vaatwasser Uitschakelen
+              - card_color: var(--homekit-card-off)
+              - tap_action:
+                  action: toggle
+                  haptic: light
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: notification
+            variables:
+              - icon_color: var(--upcoming-color)
+              - name_color: var(--upcoming-color)
+              - icon: arrange-send-backward
+              - name: Scene Wassen
+              - card_color: var(--homekit-card-off)
+              - tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.wassen
+                  haptic: light
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: notification
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -276,14 +345,14 @@ input_boolean.notification_droger:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -299,7 +368,7 @@ input_boolean.notification_droger:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -318,7 +387,7 @@ input_boolean.notification_droger:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -345,7 +414,7 @@ input_boolean.notification_vacuum:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
@@ -368,14 +437,14 @@ input_boolean.notification_alles_rustig:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Apple music
               - icon: music-circle-outline
@@ -388,7 +457,7 @@ input_boolean.notification_alles_rustig:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Plex
               - icon: plex
@@ -401,7 +470,7 @@ input_boolean.notification_alles_rustig:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Netflix
               - icon: netflix
@@ -411,14 +480,14 @@ input_boolean.notification_alles_rustig:
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Scenes'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -437,7 +506,7 @@ input_boolean.notification_alles_rustig:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -456,7 +525,7 @@ input_boolean.notification_alles_rustig:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -483,14 +552,14 @@ input_boolean.notification_smoke_detector:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Bel de Brandweer
               - icon: phone
@@ -511,55 +580,52 @@ input_boolean.notification_alarm:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Alarm Uitschakelen
               - icon: shield-check
               - tap_action:
                   action: call-service
-                  service: alarm_control_panel.alarm_disarm
-                  service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+                  service: automation.trigger  # Changed/Added in 0.12.2
+                  service_data:  # Changed/Added in 0.12.2
+                    entity_id: automation.alarm_disarm_jimmy_away  # Changed/Added in 0.12.2
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Alarm Inschakelen Afwezig
               - icon: alert
               - tap_action:
                   action: call-service
-                  service: alarm_control_panel.alarm_arm_away
-                  service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+                  service: automation.trigger  # Changed/Added in 0.12.2
+                  service_data:  # Changed/Added in 0.12.2
+                    entity_id: automation.alarm_activation_alert  # Changed/Added in 0.12.2
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Alarm Inschakelen Thuis
               - icon: alert
-              - tap_action:
-                  action: call-service
-                  service: alarm_control_panel.alarm_arm_home
-                  service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+              - tap_action:  
+                  action: call-service 
+                  service: automation.trigger  # Changed/Added in 0.12.2
+                  service_data:  # Changed/Added in 0.12.2
+                    entity_id: automation.alarm_activation_dog_home  # Changed/Added in 0.12.2
                   haptic: light
           - !include ../includes/blank-card.yaml
       - !include ../includes/bottom-card.yaml
@@ -574,7 +640,7 @@ input_boolean.notification_motion_gallerij:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
@@ -603,14 +669,14 @@ input_boolean.notification_motion_toilet:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Lamp Inschakelen
               - icon: ceiling-light
@@ -625,7 +691,7 @@ input_boolean.notification_motion_toilet:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - name: Lamp Uitschakelen
               - icon: ceiling-light
@@ -648,14 +714,14 @@ input_boolean.notification_motion_bijkeuken:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -673,7 +739,7 @@ input_boolean.notification_motion_bijkeuken:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -699,14 +765,14 @@ input_boolean.notification_tala:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -730,14 +796,14 @@ input_boolean.notification_apk:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -753,7 +819,7 @@ input_boolean.notification_apk:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -777,14 +843,14 @@ input_boolean.notification_anniversary:
     type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Actions'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -800,7 +866,7 @@ input_boolean.notification_anniversary:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: notification_template
+            template: notification # Changed/Added in 0.12.2
             variables:
               - icon_color: var(--upcoming-color)
               - name_color: var(--upcoming-color)
@@ -829,7 +895,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Koos 
             - phone_number: !secret phone_koos
@@ -839,7 +905,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Jimmy 
             - phone_number: !secret phone_jimmy
@@ -849,7 +915,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Stephanie 
             - phone_number: !secret phone_stephanie
@@ -859,7 +925,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Ralf 
             - phone_number: !secret phone_ralf
@@ -869,7 +935,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Jos
             - phone_number: !secret phone_jos
@@ -879,7 +945,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Rick
             - phone_number: !secret phone_rick
@@ -889,7 +955,7 @@ input_boolean.notification_birthday:
             state: '0'
         card:
           type: custom:decluttering-card
-          template: birthday_notification
+          template: birthday # Changed/Added in 0.12.2
           variables:
             - name: Ad
             - phone_number: !secret phone_ad

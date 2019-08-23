@@ -4,26 +4,26 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Cleaning
           - icon1: broom
           - path1: cleaning
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Laundry Room'
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Washing Machine'
           - type: horizontal-stack
             cards:
               - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
-                template: laundry_elements
+                template: laundry # Changed/Added in 0.12.2
                 variables:
                   - image: washingmachine.jpg
                   - entity_status: washing_machine_status
@@ -32,14 +32,14 @@ cards:
                   - entity_energy_today: wasmachine_energy_today
               - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Tumble Dryer'
           - type: horizontal-stack
             cards:
               - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
-                template: laundry_elements
+                template: laundry # Changed/Added in 0.12.2
                 variables:
                   - image: dryer.jpg
                   - entity_status: dryer_status
@@ -48,14 +48,14 @@ cards:
                   - entity_energy_today: droger_energy_today
               - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Dishwasher' 
           - type: horizontal-stack
             cards:
               - !include ../includes/blank-card.yaml
               - type: 'custom:decluttering-card'
-                template: laundry_elements
+                template: laundry # Changed/Added in 0.12.2
                 variables:
                   - image: dishwasher.jpg
                   - entity_status: dishwasher_status
@@ -63,4 +63,4 @@ cards:
                   - entity_energy: vaatwasser_energy_power
                   - entity_energy_today: vaatwasser_energy_today
               - !include ../includes/blank-card.yaml
-          - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+          - !include ../includes/bottom-card.yaml

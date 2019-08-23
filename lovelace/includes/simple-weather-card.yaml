@@ -9,7 +9,7 @@
 type: vertical-stack
 cards:
   - type: custom:decluttering-card
-    template: header_text
+    template: header # Changed/Added in 0.12.2
     variables:
       - content: '##### Overview'
   - type: horizontal-stack

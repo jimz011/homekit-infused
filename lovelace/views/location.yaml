@@ -4,17 +4,17 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Links
           - icon1: link-variant
           - path1: links
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Location'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Map'
       - type: horizontal-stack
@@ -47,4 +47,4 @@ cards:
               - zone.losloop_bosje
               - zone.vtc_best
           - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+      - !include ../includes/bottom-card.yaml

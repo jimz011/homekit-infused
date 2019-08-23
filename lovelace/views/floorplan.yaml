@@ -4,19 +4,19 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Location
           - icon1: map
           - path1: location
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Floorplan'
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '###### Tap and hold the image to download'
           - type: horizontal-stack

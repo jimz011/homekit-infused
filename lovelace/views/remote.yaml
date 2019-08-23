@@ -6,9 +6,9 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Remote Control'
       - type: custom:swipe-card
@@ -19,14 +19,14 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### Woonkamer >'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -47,7 +47,7 @@ cards:
                               - volume_down
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -68,7 +68,7 @@ cards:
                               - volume_up
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -89,7 +89,7 @@ cards:
                               - volume_off
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: switch.samsung_tv
                       - name: TV
@@ -106,7 +106,7 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Plex
@@ -126,7 +126,7 @@ cards:
                     color_type: blank-card
                     aspect_ratio: 1/1
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -152,9 +152,9 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
-                      - entity: input_boolean.lovelace_maintenance
+                      - entity: input_boolean.dummy1  # Changed/Added in 0.12.2
                       - name: Netflix
                       - label: App
                       - icon: netflix
@@ -169,7 +169,7 @@ cards:
                           url: nflx://
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -188,7 +188,7 @@ cards:
                               - left
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -207,7 +207,7 @@ cards:
                               - select
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -230,9 +230,9 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
-                      - entity: input_boolean.lovelace_maintenance
+                      - entity: input_boolean.dummy1  # Changed/Added in 0.12.2
                       - name: Apple
                       - label: Music
                       - icon: music-circle-outline
@@ -247,7 +247,7 @@ cards:
                           url: music://
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -266,7 +266,7 @@ cards:
                               - menu
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.woonkamer_apple_tv
                       - name: ' '
@@ -307,14 +307,14 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### < Slaapkamer'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -335,7 +335,7 @@ cards:
                               - volume_down
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -356,7 +356,7 @@ cards:
                               - volume_up
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Volume
@@ -377,7 +377,7 @@ cards:
                               - volume_off
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: switch.tradfri_outlet_2
                       - name: TV
@@ -394,9 +394,9 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
-                      - entity: input_boolean.lovelace_maintenance
+                      - entity: input_boolean.dummy1  # Changed/Added in 0.12.2
                       - name: Plex
                       - label: App
                       - icon: plex
@@ -414,7 +414,7 @@ cards:
                     color_type: blank-card
                     aspect_ratio: 1/1
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -440,9 +440,9 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
-                      - entity: input_boolean.lovelace_maintenance
+                      - entity: input_boolean.dummy1  # Changed/Added in 0.12.2
                       - name: Netflix
                       - label: App
                       - icon: netflix
@@ -457,7 +457,7 @@ cards:
                           url: nflx://
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -476,7 +476,7 @@ cards:
                               - left
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -495,7 +495,7 @@ cards:
                               - select
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -518,9 +518,9 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
-                      - entity: input_boolean.lovelace_maintenance
+                      - entity: input_boolean.dummy1  # Changed/Added in 0.12.2
                       - name: Apple
                       - label: Music
                       - icon: music-circle-outline
@@ -535,7 +535,7 @@ cards:
                           url: music://
                           haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -554,7 +554,7 @@ cards:
                               - menu
                             haptic: light
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button  # Changed/Added in 0.12.2
                     variables:
                       - entity: media_player.slaapkamer_apple_tv
                       - name: ' '
@@ -592,4 +592,4 @@ cards:
                       power: true
                     artwork: cover
                   - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0         
+      - !include ../includes/bottom-card.yaml   

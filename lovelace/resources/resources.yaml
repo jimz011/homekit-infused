@@ -52,5 +52,5 @@
     type: module
   - url: /community_plugin/lovelace-more-info-card/more-info-card.js
     type: js
-  - url: /community_plugin/lovelace-auto-entities/auto-entities.js # Changed/Added in 0.12.0
-    type: js # Changed/Added in 0.12.0
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: js

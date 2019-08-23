@@ -4,28 +4,28 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Vacuum
           - icon1: robot-vacuum
           - path1: vacuum
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Johnny S55 Control Center'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '#### Zoned Cleaning'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Automatic'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: 'custom:decluttering-card'
-            template: switch_button_card
+            template: button  # Changed/Added in 0.12.2
             variables:
               - entity: input_boolean.dummy1
               - name: Back to Vacuum Control Center
@@ -49,7 +49,7 @@ cards:
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Manual'
       - type: horizontal-stack
@@ -71,4 +71,4 @@ cards:
               x: 546
               y: 235
           - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+      - !include ../includes/bottom-card.yaml

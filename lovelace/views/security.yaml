@@ -4,17 +4,17 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Alarm
           - icon1: shield-home
           - path1: alarm
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Security'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: "##### Camera's"
       - type: horizontal-stack
@@ -29,7 +29,7 @@ cards:
             entity: camera.gallerij_camera
             title: Camera's  
             aspect_ratio: 16x9
-            deep_press: true # Changed/Added in 0.12.0
+            deep_press: true
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -43,7 +43,7 @@ cards:
             entity: camera.woonkamer_camera
             title: Camera's
             aspect_ratio: 16x9
-            deep_press: true # Changed/Added in 0.12.0
+            deep_press: true
           - !include ../includes/blank-card.yaml
 
 ### The following piece is for tablets only, You can leave this out if not needed.
@@ -69,14 +69,14 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Doors'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.door_window_sensor_158d000236f9dd
               - name: Voordeur
@@ -86,7 +86,7 @@ cards:
               - variable: icon
               - spin: 'mdi:door-open'
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.door_window_sensor_158d000238644b
               - name: Woonkamer
@@ -96,7 +96,7 @@ cards:
               - variable: icon
               - spin: 'mdi:door-open'
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.door_window_sensor_158d000232ac1b
               - name: Slaapkamer
@@ -107,14 +107,14 @@ cards:
               - spin: 'mdi:door-open'
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Motion'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.dafang_motion_sensor
               - name: Gallerij
@@ -122,7 +122,7 @@ cards:
               - show_last_changed: true
               - tap_action: more-info
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.motion_sensor_158d0002b7eec9
               - name: Bijkeuken
@@ -130,7 +130,7 @@ cards:
               - show_last_changed: true
               - tap_action: more-info
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.motion_sensor_158d00024e687d
               - name: Toilet
@@ -139,14 +139,14 @@ cards:
               - tap_action: more-info
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Alarms'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: switch_button_card
+            template: button # Changed/Added in 0.12.2
             variables:
               - entity: binary_sensor.smoke_sensor_158d000287ab41
               - name: Rookmelder
@@ -160,4 +160,4 @@ cards:
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+      - !include ../includes/bottom-card.yaml

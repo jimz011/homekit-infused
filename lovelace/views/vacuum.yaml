@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Zoned
           - icon1: map
           - path1: vacuum-zoned-cleaning
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Johnny S55 Control Center'
       - type: custom:swipe-card
@@ -21,16 +21,15 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### Status >'
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Current Status'
               - type: horizontal-stack
                 cards:
-          ### # Changed/Added in 0.12.0 Below
                   - !include ../includes/blank-card.yaml
                   - type: markdown
                     style: |
@@ -43,16 +42,15 @@ cards:
                       }              
                     content: '<ha-icon icon="mdi:robot-vacuum"></ha-icon> [[ sensor.vacuum_cleaner_status_sensor.state ]]'
                   - !include ../includes/blank-card.yaml
-          ### # Changed/Added in 0.12.0 Above
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Information'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_battery
                       - name: Battery
@@ -66,7 +64,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_total_cleaned_area
                       - name: Total Cleaned
@@ -79,7 +77,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_total_cleaning_time
                       - name: Total Time
@@ -93,14 +91,14 @@ cards:
                           haptic: heavy
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Cleaning'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_main_brush_left
                       - name: Main Brush
@@ -113,7 +111,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_side_brush_left
                       - name: Side Brush
@@ -126,7 +124,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_filter_left
                       - name: Filter
@@ -143,7 +141,7 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: sensor.vacuum_sensor_dirty_left
                       - name: Sensors
@@ -165,11 +163,11 @@ cards:
           - type: vertical-stack
             cards: 
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### < Basic Controls >'
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### General'
               - type: horizontal-stack
@@ -181,7 +179,7 @@ cards:
                         state: Cleaning
                     card:
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Clean
@@ -206,7 +204,7 @@ cards:
                         state_not: Cleaning
                     card:
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Clean
@@ -229,7 +227,7 @@ cards:
                         state: Paused
                     card:
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Pause
@@ -253,7 +251,7 @@ cards:
                         state_not: Paused
                     card:
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Pause
@@ -275,7 +273,7 @@ cards:
                         state: Spot cleaning
                     card:    
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Spot Clean
@@ -300,7 +298,7 @@ cards:
                         state_not: Spot cleaning
                     card:    
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Spot Clean
@@ -322,7 +320,7 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Locate
@@ -345,7 +343,7 @@ cards:
                         state: Returning home
                     card:    
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Return
@@ -370,7 +368,7 @@ cards:
                         state_not: Returning home
                     card:    
                       type: 'custom:decluttering-card'
-                      template: switch_button_card
+                      template: button # Changed/Added in 0.12.2
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Return
@@ -399,7 +397,7 @@ cards:
                   type: vertical-stack
                   cards:
                     - type: custom:decluttering-card
-                      template: header_text
+                      template: header # Changed/Added in 0.12.2
                       variables:
                         - content: '##### Fan Speed'
                     - type: horizontal-stack
@@ -411,7 +409,7 @@ cards:
                               state: Quiet
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Quiet
@@ -438,7 +436,7 @@ cards:
                               state_not: Quiet
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Quiet
@@ -464,7 +462,7 @@ cards:
                               state: Turbo
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Turbo
@@ -491,7 +489,7 @@ cards:
                               state_not: Turbo
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Turbo
@@ -517,7 +515,7 @@ cards:
                               state: Max
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Max
@@ -543,7 +541,7 @@ cards:
                               state_not: Max
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Max
@@ -572,7 +570,7 @@ cards:
                               state: Balanced
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Balanced
@@ -598,7 +596,7 @@ cards:
                               state_not: Balanced
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Balanced
@@ -623,7 +621,7 @@ cards:
                               state: Mop
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Mop
@@ -649,7 +647,7 @@ cards:
                               state_not: Mop
                           card:
                             type: 'custom:decluttering-card'
-                            template: switch_button_card
+                            template: button # Changed/Added in 0.12.2
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Mop
@@ -680,18 +678,18 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### < Presets'
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Manual'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Manual Zoned Cleaning
@@ -715,14 +713,14 @@ cards:
                           haptic: light
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Automatic'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Kleine Kamer
@@ -741,7 +739,7 @@ cards:
                         hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Woonkamer
@@ -760,7 +758,7 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Slaapkamer
@@ -783,7 +781,7 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Gang
@@ -802,7 +800,7 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Keuken
@@ -821,7 +819,7 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: switch_button_card
+                    template: button # Changed/Added in 0.12.2
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Hal
@@ -860,7 +858,7 @@ cards:
               }
             content: '# [[ sensor.time.state ]]'
           - type: custom:decluttering-card
-            template: header_text
+            template: header # Changed/Added in 0.12.2
             variables:
               - content: '##### Manual Zoned Cleaning'
           - type: horizontal-stack

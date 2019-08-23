@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
         variables:
           - name1: Climate
           - icon1: thermostat
           - path1: climate
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Weather'
       - type: custom:swipe-card
@@ -21,7 +21,7 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### Overview >'
               - !include ../includes/blank-card.yaml
@@ -41,7 +41,7 @@ cards:
                     title: Eindhoven
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Detailed Information'  
               - type: horizontal-stack
@@ -58,15 +58,15 @@ cards:
                       }
                     entity: weather.dark_sky
                   - !include ../includes/blank-card.yaml
-              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+              - !include ../includes/bottom-card.yaml
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '#### < Map'  
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Buienradar'  
               - type: horizontal-stack
@@ -83,7 +83,7 @@ cards:
                     url: https://gadgets.buienradar.nl/gadget/zoommap/?lat=51.28583&lng=5.74861&overname=2&zoom=11&naam=Nederweert&size=3b&voor=1 # Please use your own location here, I have set mine off by quite a bit as the iframe doesn't fit nicely when using a smaller version of the frame.
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header_text
+                template: header # Changed/Added in 0.12.2
                 variables:
                   - content: '##### Windy'  
               - type: horizontal-stack
@@ -99,4 +99,4 @@ cards:
                     aspect_ratio: 100%
                     url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
                   - !include ../includes/blank-card.yaml
-              - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+              - !include ../includes/bottom-card.yaml

@@ -12,4 +12,4 @@ type: 'custom:button-card'
 color_type: blank-card
 styles:
   card:
-    - height: 10px # Changed/Added in 0.12.2 (now it has the same size as the blank-card)
+    - height: 100px

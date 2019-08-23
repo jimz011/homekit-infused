@@ -4,19 +4,18 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: back_button
+        template: quick-access-menu # Changed/Added in 0.12.2
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '## Theme Selector'
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Themes (Global)'  
       - type: horizontal-stack
         cards:    
           - !include ../includes/blank-card.yaml
-          ### # Changed/Added in 0.12.0 Below
           - type: markdown
             style: |
               ha-card {
@@ -28,7 +27,6 @@ cards:
               }              
             content: '<ha-icon icon="mdi:alert"></ha-icon> Warning! Themes that are selected through this menu are set globally for ALL users! If you wish to set a personal theme please use the theme selector in the sidepanel (at the bottom left click on your name and select a theme from there). Selecting any other theme than Automatic will disable the automatic day/night mode!'
           - !include ../includes/blank-card.yaml
-          ### # Changed/Added in 0.12.0 Above
       - type: horizontal-stack
         cards:    
           - !include ../includes/blank-card.yaml
