@@ -119,6 +119,10 @@ Custom Components:
 - Add even more buttons to then menu to get all functions in one place ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
 
+## Requested Features (all requested features will appear here, I make no promises, but I will try to add these)
+- p2000 monitor (for Dutch citizens)
+- Fuel prices
+- Newsfeed
 
 
 ### Questions?
