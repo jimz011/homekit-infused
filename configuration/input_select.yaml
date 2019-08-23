@@ -1,4 +1,4 @@
-  dishwasher_status:
+  vaatwasser_status:
     name: Vaatwasser Status
     options:
       - Idle
@@ -7,7 +7,7 @@
       - Clean
       - Power OFF
     initial: Idle
-  washing_machine_status:
+  wasmachine_status:
     name: Wasmachine Status
     options:
       - Idle
@@ -16,7 +16,7 @@
       - Clean
       - Power OFF
     initial: Idle
-  dryer_status:
+  droger_status:
     name: Droger Status
     options:
       - Idle

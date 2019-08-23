@@ -97,15 +97,15 @@
 # Template Sensors
   - platform: template
     sensors:
-  # Washingmachine/dryer/dishwasher Template Sensors
-      washing_machine_status:
-        value_template: '{{ states.input_select.washing_machine_status.state}}'
+  # Washingmachine/droger/vaatwasser Template Sensors
+      wasmachine_status:
+        value_template: '{{ states.input_select.wasmachine_status.state}}'
         friendly_name: 'Wasmachine Status'
-      dishwasher_status:
-        value_template: '{{ states.input_select.dishwasher_status.state}}'
+      vaatwasser_status:
+        value_template: '{{ states.input_select.vaatwasser_status.state}}'
         friendly_name: 'Vaatwasser Status'
-      dryer_status:
-        value_template: '{{ states.input_select.dryer_status.state}}'
+      droger_status:
+        value_template: '{{ states.input_select.droger_status.state}}'
         friendly_name: 'Droger Status'
   # Vacuum Template Sensors
       vacuum_battery:
