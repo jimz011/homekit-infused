@@ -1,9 +1,0 @@
-{
-  "domain": "feedparser",
-  "name": "Feedparser",
-  "documentation": "https://github.com/custom-components/sensor.feedparser/blob/master/README.md",
-  "dependencies": [],
-  "codeowners": ["@iantrich"],
-  "requirements": ["feedparser==5.2.1"]
-}
-
