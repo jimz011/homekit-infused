@@ -123,7 +123,9 @@ Custom Components:
 - p2000 monitor (for Dutch citizens)
 - Fuel prices
 - Newsfeed
-
+- Afvalwijzer (for Dutch citizens)
+- Public Transport (for Dutch citizens)
+- Flight Information
 
 ### Questions?
 
