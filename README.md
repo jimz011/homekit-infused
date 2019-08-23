@@ -34,11 +34,13 @@ Prerequisites:
 - Patience
 - Some more patience
 - A whole lot of more patience
-- Have lovelace set in `yaml` mode, feedback told me that it should work in storage mode (the UI editor), but I can not give support on that. To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
+- Have lovelace set in `yaml` mode, !includes are NOT supported in storage mode. To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
 ```
 lovelace:
   mode: yaml
 ```
+- Basic knowledge of lovelace (if you do not have this, don't even start)
+- Know how to use includes and decluttering-cards/templates (see explanation below)
 To use this Lovelace setup I highly recommend it that you only try this on a test environment or have at least basic knowledge of how to use Lovelace and custom cards. If you don't know how to work in Lovelace you could seriously hurt your setup to the point it will no longer render the page until you fix the error.
 ```
 ALWAYS MAKE BACKUPS!!!!!!!!!
@@ -57,6 +59,14 @@ To make it easier on you if you want to copy it entirely is to first check the f
 - On some Android devices it won't accept a hold_action when deep_press: true is enabled. Remove these lines from the switch-template.yaml and light-template.yaml. It is only useful for iphone users and will do nothing for Android.
 - LEARN how to use decluttering-cards, click on the link below at the addons and read the documentation. My config really has a lot of those and knowing how to use them will save you a lot of time, headache and mostly a lot of duplicate code! This is important, please do not flood me with questions about this card if you haven't read the documentation.
 - LEARN how to use popup-cards, click on the link below at the addons and read the documentation. I use popup-cards occasionally on some views and they are not easy or straightforward to setup. If you do not know what you are doing these cards will just never work and you will be presented with the standard more-info window that HA offers out of the box. Any config I have made in these cards will not work until you learn how to use these. My advise is to do this last as they are one of the least important features and 95% of the config will work just fine without these working yet.
+- Know how to use !includes, includes can seriously be a pain in the behind when any of the paths are wrong or missing. Lovelace will not load and it will always show you a states-ui view if any of the paths are missing or wrong. I stress out that you will ALWAYS have to make SURE that the paths in your files are correct. e.g. if a file refers to another file with an include, make sure the path exists.
+```
+type: vertical-stack
+cards:
+  - !include lovelace/blank-card.yaml
+```
+If the path /lovelace/blank-card.yaml does not exist or is incorrect lovelace will not load (no matter if it is the only thing that is wrong). If the file `blank-card.yaml` does not exist it will not load.
+I stress this because this will make people cry really hard as there is NO error checker and you will have to go through all the files manually. (The error checker will be available in HA 0.98.x and so this will become easier to troubleshoot in the future)
 
 - I can't stress out more that it is ALWAYS better to build from the ground up instead of copying a setup. I would advise you to copy snippets of the code to incorporate that into your own setup. But if you really want to dive in deep you are free to do so.
 
