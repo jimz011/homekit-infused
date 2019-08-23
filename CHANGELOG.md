@@ -1,5 +1,16 @@
 # Changelog
 
+### Changes Overview 23/08/2019:
+v. 0.12.2
+- Renamed most decluttering-templates and files that come with that
+- Renamed all template names in EVERY file in the lovelace folder, please read the update guide for more information
+- Added option for multiple entities in the mini-graph-template
+- Added new feature, entities with energy readings have a new popup window with energy usage (Warning: for Tasmota Energy devices only)
+
+### Changes Overview 20/08/2019:
+v. 0.12.1
+- v.0.12.0 had a problem with ui-lovelace.yaml, this release is essentially the same as 0.12.0 but with a different ui-lovelace.yaml. If you have updated to 0.12.0 you can simply download the ui-lovelace.yaml file and replace the current.
+
 ### Changes Overview 20/08/2019:
 v. 0.12.0
 - A completely revamped notifications system for the frontpage, now notifications are dynamic and interactive
