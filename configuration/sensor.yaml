@@ -237,4 +237,4 @@
 
 # Certificate Expiry Sensor
   - platform: cert_expiry
-    host: remote.jimsteph.me
+    host: mail.outlook.com
