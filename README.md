@@ -30,7 +30,7 @@ Video: CLICK ON THE IMAGE TO START VIDEO (*updated 05/08/2019)
 ### How to use
 
 Prerequisites:
-- Home Assistant 0.95.x or 0.96.x or 0.97.x or 0.98.x (note: themes only work with automations in 0.97.x and higher, if you copy the corresponding 4 automations, the 2 for startup and the ones that change theme from day to night and vice versa, it will just work fine out of the box)
+- Home Assistant 0.96.x or 0.97.x or 0.98.x (note: personal themes are broken since 0.97.x if you want to use themes you will have to set them globally! This means the theme will change for ALL users. It might be my own mistake of having weird css or it might be an error in HA itself. Only time will tell)
 - A bunch of custom-cards, see below for links
 - Patience
 - Some more patience
@@ -51,7 +51,7 @@ Make sure you always make a backup of your `ui-lovelace.yaml` file and other fil
 Try to use RAW versions of the text to avoid any kind of wrongful spaces. Remember that I warned you :D!
 
 To make it easier on you if you want to copy it entirely is to first check the following:
-- Make sure to either remove or replace ALL `!secret` entries as it won't start if they are undefined. I'd suggest commenting out the lines in lovelace and replacing them with your own config in `configuration.yaml`.
+- Make sure to either remove or replace ALL `!secret` entries as it won't start if they are undefined. I'd suggest commenting out the lines in lovelace and replacing them with your own config in `configuration.yaml`. For your convenience an example of `secrets.yaml` is provided so you could build from that.
 - Make sure you have downloaded all custom-cards with HACS (and/or imported them) before you begin.
 - Make sure you download the relevant custom-components if desired
 - I have a split config, this means saving things will not be as you are probably used to. Regular files like automation.yaml etc will behave as usual. This means changing anything in these files will require a restart or a soft restart from the UI. Lovelace behaves differently this way. Yes it is easier to manage, but it comes with a major downside. Any changes made in any of the files in lovelace will require you to save `ui-lovelace.yaml` every single time! DON'T FORGET THIS! Even if you don't make any changes to this `ui-lovelace.yaml` and have changed ONLY `main-view.yaml` you will still have to save `ui-lovelace.yaml`. Best way to do this is just to do a save all action in your favorite text editor. Know that some editors do not allow you to save if the file is unchanged (e.g. notepad++). I suggest not using any of those text editors. I would advise you to use Sublime Text Editor as it is lightweight, free, easy on the eyes and makes code look a lot more comprehensible.
