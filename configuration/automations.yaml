@@ -71,7 +71,7 @@
 - alias: Philips TV Turn ON
   initial_state: 'true'
   trigger:
-    - entity_id: switch.tradfri_outlet_2
+    - entity_id: switch.tv_slaapkamer
       platform: state
       to: 'on'
   condition: []
@@ -87,7 +87,7 @@
 - alias: Philips TV Turn OFF
   initial_state: 'true'
   trigger:
-  - entity_id: switch.tradfri_outlet_2
+  - entity_id: switch.tv_slaapkamer
     platform: state
     to: 'off'
   condition: []
@@ -161,7 +161,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    entity_id: binary_sensor.voordeur
     to: 'on'
   action:
   - service_template: >
@@ -183,7 +183,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    entity_id: binary_sensor.voordeur
     to: 'off'
   action:
   - service_template: >
@@ -206,7 +206,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000238644b
+    entity_id: binary_sensor.woonkamer_deur
     to: 'on'
   action:
   - service_template: >
@@ -228,7 +228,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000238644b
+    entity_id: binary_sensor.woonkamer_deur
     to: 'off'
   action:
   - service_template: >
@@ -251,7 +251,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    entity_id: binary_sensor.slaapkamer_deur
     to: 'on'
   action:
   - service_template: >
@@ -273,7 +273,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+    entity_id: binary_sensor.slaapkamer_deur
     to: 'off'
   action:
   - service_template: >
@@ -296,7 +296,7 @@
   alias: Keukenlamp turns off Keukenspotjes
   initial_state: 'true'
   trigger:
-  - entity_id: light.keukenlamp_b
+  - entity_id: light.keuken
     from: 'on'
     platform: state
     to: 'off'
@@ -311,7 +311,7 @@
   alias: Keukenspotjes aan
   initial_state: 'true'
   trigger:
-  - entity_id: light.keukenlamp_b
+  - entity_id: light.keuken
     platform: state
     to: 'on'
   condition:
@@ -331,13 +331,13 @@
 - alias: keuken_bijkeuken_uit
   initial_state: 'true'
   trigger:
-  - entity_id: light.keukenlamp_a
+  - entity_id: light.keuken
     from: 'on'
     platform: state
     to: 'off'
   action:
   - service: light.turn_off
-    entity_id: light.bijkeukenlamp
+    entity_id: light.bijkeuken
 
 # TURN LEDLAMPEN WOONKAMER AND KLEINE KAMER ON AT SUNSET
 - alias: leds_aan_at_sunset
@@ -363,7 +363,7 @@
     entity_id: group.nachtkastjes
   condition:
   - condition: state
-    entity_id: switch.tradfri_outlet_2  
+    entity_id: switch.tv_slaapkamer  
     state: 'off'
   action:
   - data:
@@ -378,7 +378,7 @@
     entity_id: group.nachtkastjes
   condition:
     condition: state
-    entity_id: switch.tradfri_outlet_2  
+    entity_id: switch.tv_slaapkamer  
     state: 'off'
   action:
   - data:
@@ -394,7 +394,7 @@
     entity_id: switch.waterkoker
   action:
   - data:
-      entity_id: switch.tradfri_outlet
+      entity_id: switch.cappumaker
     service: switch.turn_on
 
 # WATERKOKER TURNS OFF CAPU MAKER
@@ -406,7 +406,7 @@
     entity_id: switch.waterkoker
   action:
   - data:
-      entity_id: switch.tradfri_outlet
+      entity_id: switch.cappumaker
     service: switch.turn_off
 
 # TURN ALL LEDS OFF AT SUNRISE
@@ -439,9 +439,6 @@
   - data:
       entity_id: switch.pc_van_jimmy
     service: switch.turn_on
-  - data:
-      entity_id: media_player.xbox_one
-    service: media_player.turn_on
 
 # PC TURNS OFF = XBOX TURNS OFF
 - alias: pc_off_xbox_off
@@ -456,18 +453,6 @@
   - data:
       entity_id: media_player.xbox_one
     service: media_player.turn_off
-
-# PC TURNS ON = XBOX TURNS ON
-- alias: pc_on_xbox_on
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: switch.pc_van_jimmy
-    to: 'on'
-  action:
-  - data:
-      entity_id: media_player.xbox_one
-    service: media_player.turn_on
 
 # WHEN IPHONEVANSTEPH IS HOME, TURN ON PC VAN STEPHANIE
 - alias: turn_on_stephanie_pc
@@ -488,7 +473,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    entity_id: binary_sensor.motion_toilet
     to: 'on'
   condition:
   - condition: time
@@ -504,7 +489,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    entity_id: binary_sensor.motion_toilet
     to: 'off'
   action:
   - data:
@@ -516,7 +501,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d00024e687d
+    entity_id: binary_sensor.motion_toilet
     to: 'on'
   condition:
   - condition: time
@@ -532,7 +517,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    entity_id: binary_sensor.motion_bijkeuken
     to: 'on'
   action:
   - data:
@@ -544,7 +529,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+    entity_id: binary_sensor.motion_bijkeuken
     to: 'off'
   action:
   - data:
@@ -560,19 +545,19 @@
   initial_state: 'true'
   hide_entity: True
   trigger:
-  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+  - entity_id: binary_sensor.voordeur
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+  - entity_id: binary_sensor.slaapkamer_deur
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.door_window_sensor_158d000238644b
+  - entity_id: binary_sensor.woonkamer_deur
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.motion_sensor_158d00024e687d
+  - entity_id: binary_sensor.motion_toilet
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+  - entity_id: binary_sensor.motion_bijkeuken
     platform: state
     to: 'on'
   condition:
@@ -589,13 +574,13 @@
   initial_state: 'true'
   hide_entity: True
   trigger:
-  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+  - entity_id: binary_sensor.voordeur
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.door_window_sensor_158d000232ac1b
+  - entity_id: binary_sensor.slaapkamer_deur
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.door_window_sensor_158d000238644b
+  - entity_id: binary_sensor.woonkamer_deur
     platform: state
     to: 'on'
   condition:
@@ -612,7 +597,7 @@
   initial_state: 'true'
   hide_entity: True
   trigger:
-  - entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+  - entity_id: binary_sensor.voordeur
     platform: state
     to: 'on'
   condition:
@@ -828,7 +813,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    entity_id: binary_sensor.voordeur
     to: 'on'
     from: 'off'
   condition:
@@ -848,7 +833,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    entity_id: binary_sensor.voordeur
     to: 'off'
     from: 'on'
   action:
@@ -863,7 +848,7 @@
   initial_state: 'true'
   trigger:
   - platform: state
-    entity_id: binary_sensor.door_window_sensor_158d000236f9dd
+    entity_id: binary_sensor.voordeur
     to: 'on'
     from: 'off'
   action:
@@ -1806,7 +1791,7 @@
 - alias: Motion detected no one home bijkeuken
   initial_state: 'true'
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d0002b7eec9
+  - entity_id: binary_sensor.motion_bijkeuken
     platform: state
     to: 'on'
   condition:
@@ -1827,7 +1812,7 @@
 - alias: Motion detected no one home toilet
   initial_state: 'true'
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d00024e687d
+  - entity_id: binary_sensor.motion_toilet
     platform: state
     to: 'on'
   condition:
@@ -1980,17 +1965,6 @@
     service: alarm_control_panel.alarm_arm_home
     data: !secret alarmcode
 
-- alias: iOS Actionable Notification for Receiver
-  initial_state: 'true'
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: RECEIVER_INSCHAKELEN
-  action:
-    service: switch.turn_on
-    entity_id: switch.receiver
-
 - alias: iOS Actionable Notification for Smoke
   initial_state: 'true'
   trigger:
@@ -2000,8 +1974,8 @@
       actionName: SMOKE_UITSCHAKELEN
   action:
     service: homeassistant.turn_off
-    entity_id: binary_sensor.smoke_sensor_158d000287ab41
-
+    entity_id: binary_sensor.fire_30
+    
 - alias: iOS Actionable Notification for Alarm
   initial_state: 'true'
   trigger:
@@ -2067,154 +2041,6 @@
       service: scene.turn_on
       entity_id: scene.slaapkamer_movie
 
-##### Waarschuwing, onderstaande code werkt alleen met de officiele Home Assistant PostNL component,
-##### het gaat niet werken met Ptnijssen's custom PostNL component. Deze automations staan er enkel
-##### nog in voor referentie.
-
-# PostNL Notificatie 1 pakketje
-- alias: PostNL Jimmy
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: sensor.postnl_jimmy
-  condition:
-    condition: and
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.postnl_jimmy
-        above: 0
-      - condition: numeric_state
-        entity_id: sensor.postnl_jimmy
-        below: 2
-  action:
-    - service: notify.mobile_app_iphone
-      data_template:
-        message: >-
-          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
-          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-          {% set d = t1.split('T')[0] %}
-          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-          Er is {{ trigger.to_state.state }} pakketje onderweg voor Jimmy van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-        title: 'PostNL Jimmy'
-        data:
-          push:
-            sound: default
-
-- alias: PostNL Stephanie
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: sensor.postnl_stephanie
-  condition:
-    condition: and
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.postnl_stephanie
-        above: 0
-      - condition: numeric_state
-        entity_id: sensor.postnl_stephanie
-        below: 2
-  action:
-    - service: notify.ios_notifier
-      data_template:
-        message: >-
-          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
-          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-          {% set d = t1.split('T')[0] %}
-          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-          Er is {{ trigger.to_state.state }} pakketje onderweg voor Stephanie van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-        title: 'PostNL Stephanie'
-        data:
-          push:
-            sound: default
-
-# PostNL Notificatie meerdere pakketjes
-- alias: PostNL Jimmy Meer
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: sensor.postnl_jimmy
-  condition:
-    - condition: numeric_state
-      entity_id: sensor.postnl_jimmy
-      above: 1
-  action:
-    - service: notify.mobile_app_iphone
-      data_template:
-        message: >-
-          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
-          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-          {% set d = t1.split('T')[0] %}
-          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-          Er zijn {{ trigger.to_state.state }} pakketjes onderweg voor Jimmy van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-        title: 'PostNL Jimmy'
-        data:
-          push:
-            sound: default
-
-- alias: PostNL Stephanie Meer
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: sensor.postnl_stephanie
-  condition:
-    - condition: numeric_state
-      entity_id: sensor.postnl_stephanie
-      above: 2
-  action:
-    - service: notify.ios_notifier
-      data_template:
-        message: >-
-          {% set s= trigger.to_state.attributes.shipments[0]['status']['formatted']['short'] %}
-          {% set t1 = (s|regex_findall_index('time:[^T]*T[^+-]*',0)).replace('time:','') %}
-          {% set d = t1.split('T')[0] %}
-          {% set t1 = t1.split('T')[1].rsplit(':',1)[0] %}
-          {% set t2 = (s|regex_findall_index('time:[^T]*T[^+-]*',1)).replace('time:','').split('T')[1].rsplit(':',1)[0] %}
-          Er zijn {{ trigger.to_state.state }} pakketjes onderweg voor Stephanie van {{ trigger.to_state.attributes.shipments[0]['title'] }}. Bezorgtijd op {{ d }} tussen {{ t1 }} en {{ t2 }}.
-        title: 'PostNL Stephanie'
-        data:
-          push:
-            sound: default
-
-- alias: Email Breach Jimmy
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: !secret jimzmailsensor
-  condition:
-    - condition: numeric_state
-      entity_id: !secret jimzmailsensor
-      above: 0
-  action:
-    - service: notify.mobile_app_iphone
-      data:
-        message: "WAARSCHUWING: Er zijn belangrijke gegevens gelekt, uw e-mailadres is bekend en uw wachtwoord kan gestolen zijn. Verander uw wachtwoorden zo snel mogelijk!! NEGEER DIT BERICHT NIET! Voor meer informatie open de HA app en ga naar informatie."
-        title: 'Email/Password Breach'
-        data:
-          push:
-            sound: default
-
-- alias: Email Breach Stephanie
-  initial_state: 'true'
-  trigger:
-    - platform: state
-      entity_id: !secret stephmailsensor
-  condition:
-    - condition: numeric_state
-      entity_id: !secret stephmailsensor
-      above: 1
-  action:
-    - service: notify.mobile_app_iphone_stephanie
-      data:
-        message: "WAARSCHUWING: Er zijn belangrijke gegevens gelekt, uw e-mailadres is bekend en uw wachtwoord kan gestolen zijn. Verander uw wachtwoorden zo snel mogelijk!! NEGEER DIT BERICHT NIET! Voor meer informatie open de HA app en ga naar informatie."
-        title: 'Email/Password Breach'
-        data:
-          push:
-            sound: default
-
 - alias: APK date expiration notification Peugeot
   initial_state: 'true'
   trigger:
@@ -2249,7 +2075,7 @@
       data:
         entity_id: input_boolean.apksteph
 
-- alias: APK Daihatsu Boolean Reset
+- alias: APK Peugeot Boolean Reset
   initial_state: 'true'
   trigger:
     - platform: state
@@ -2366,72 +2192,6 @@
         push:
           sound: default
 
-# Reset Menu's after x Seconds (used with input_select on e.g. other view)
-- alias: 'reset input_select_jimmy'
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_select.algemeen
-  action:
-  - delay:
-      seconds: 20
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.algemeen
-      option: Home
-
-- alias: 'reset input_select_stephanie'
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_select.algemeen2
-  action:
-  - delay:
-      seconds: 20
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.algemeen2
-      option: Home
-
-- alias: 'reset main menu jimmy'
-  initial_state: 'false'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.lovelace_menu_jimmy
-    to: "on"
-  action:
-  - delay:
-      seconds: 45
-  - service: input_boolean.turn_off
-    data:
-      entity_id: input_boolean.lovelace_menu_jimmy
-- alias: 'reset main menu stephanie'
-  initial_state: 'false'
-  trigger:
-  - platform: state
-    entity_id: input_boolean.lovelace_menu_stephanie
-    to: "on"
-  action:
-  - delay:
-      seconds: 45
-  - service: input_boolean.turn_off
-    data:
-      entity_id: input_boolean.lovelace_menu_stephanie
-
-- alias: 'reset input_select_vacuum'
-  initial_state: 'true'
-  trigger:
-  - platform: state
-    entity_id: input_select.vacuum
-    to: 'Map'
-    for:
-      seconds: 30
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.vacuum
-      option: Informatie
-
 # Tado Heating
 - alias: set tado woonkamer heat
   initial_state: 'true'
@@ -2467,6 +2227,7 @@
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va1671957504
       hvac_mode: heat
+
 - alias: set tado kleine kamer off
   initial_state: 'true'
   trigger:
@@ -2770,7 +2531,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Tala is vandaag [[ states.sensor.birthday_jos_schings.years ]] jaar geworden, Verwen haar maar goed vandaag!"
+        message: "Tala is vandaag {{ states.sensor.birthday_jos_schings.attributes.years }} jaar geworden, Verwen haar maar goed vandaag!"
         data:
           push:
             sound: default
@@ -2788,7 +2549,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Jos Schings is vandaag [[ states.sensor.birthday_jos_schings.years ]] jaar geworden, Feliciteer hem vandaag nog!"
+        message: "Jos Schings is vandaag {{ states.sensor.birthday_jos_schings.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!"
         data:
           push:
             sound: default
@@ -2806,7 +2567,7 @@
     - service: notify.ios_notifier
       data:
         title: "Trouwdag"
-        message: "Vandaag zijn we [[ states.sensor.anniversary_trouwdag.years ]] jaar getrouwd! Proficiat!"
+        message: "Vandaag zijn we {{ states.sensor.anniversary_trouwdag.attributes.years }} jaar getrouwd! Proficiat!"
         data:
           push:
             sound: default
@@ -2824,7 +2585,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Stephanie Schings is vandaag [[ states.sensor.birthday_stephanie_schings.years ]] jaar geworden!"
+        message: "Stephanie Schings is vandaag {{ states.sensor.birthday_stephanie_schings.attributes.years }} jaar geworden!"
         data:
           push:
             sound: default
@@ -2842,7 +2603,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Jimmy Schings is vandaag [[ states.sensor.birthday_jimmy_schings.years ]] jaar geworden!"
+        message: "Jimmy Schings is vandaag {{ states.sensor.birthday_jimmy_schings.attributes.years }} jaar geworden!"
         data:
           push:
             sound: default
@@ -2860,7 +2621,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Koos van Duuren is vandaag [[ states.sensor.birthday_koos_van_duuren.years ]] jaar geworden, Feliciteer hem vandaag nog!"
+        message: "Koos van Duuren is vandaag {{ states.sensor.birthday_koos_van_duuren.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!"
         data:
           push:
             sound: default
@@ -2878,7 +2639,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Ad van Dartel is vandaag [[ states.sensor.birthday_ad_van_dartel.years ]] jaar geworden, Feliciteer hem vandaag nog!"
+        message: "Ad van Dartel is vandaag {{ states.sensor.birthday_ad_van_dartel.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!"
         data:
           push:
             sound: default
@@ -2896,7 +2657,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Ralf Vogels is vandaag [[ states.sensor.birthday_ralf_vogels.years ]] jaar geworden, Feliciteer hem vandaag nog!"
+        message: "Ralf Vogels is vandaag {{ states.sensor.birthday_ralf_vogels.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!"
         data:
           push:
             sound: default
@@ -2914,7 +2675,7 @@
     - service: notify.ios_notifier
       data:
         title: "Verjaardag"
-        message: "Rick Oosterbosch is vandaag [[ states.sensor.birthday_rick_oosterbosch.years ]] jaar geworden, Feliciteer hem vandaag nog!"
+        message: "Rick Oosterbosch is vandaag {{ states.sensor.birthday_rick_oosterbosch.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!"
         data:
           push:
             sound: default
@@ -3050,3 +2811,83 @@
      data:
        entity_id: vacuum.xiaomi_vacuum_cleaner
        fan_speed: 105
+
+# deCONZ automations IKEA TRADFRI Remote
+- alias: 'AB Keuken Midden'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 1002
+  action:
+    service: light.toggle
+    entity_id: light.keuken
+- alias: 'AB Keuken Omhoog'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 2002
+  action:
+    service: switch.toggle
+    entity_id: switch.keukenspots
+- alias: 'AB Keuken Omlaag'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 3002
+  action:
+    service: scene.turn_on
+    entity_id: scene.wassen
+- alias: 'AB Keuken Links'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 4002
+  action:
+    service: scene.turn_on
+    entity_id: scene.klaar_met_koken
+- alias: 'AB Keuken Rechts'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 5002
+  action:
+    service: scene.turn_on
+    entity_id: scene.koken
+
+- alias: 'AB Slaapkamer Links'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer
+      event: 4002
+  action:
+    service: light.toggle
+    entity_id: light.nachtkastje_stephanie
+- alias: 'AB Slaapkamer Rechts'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer
+      event: 5002
+  action:
+    service: light.toggle
+    entity_id: light.nachtkastje_jimmy

@@ -22,7 +22,7 @@ xiaomi_alarm_siren:
       data_template:
         ringtone_id: 7
         ringtone_vol: 100
-        gw_mac: MAC_HERE
+        gw_mac: 78:11:DC:DE:F3:24
     - delay:
 #### time for siren to play before restarting 
         seconds: 14
@@ -117,7 +117,7 @@ bijkeukenlamp:
         entity_id: script.bijkeukenlamp_off
     - service: light.turn_on
       data:
-        entity_id: light.bijkeukenlamp
+        entity_id: light.bijkeuken
         brightness_pct: 100
 
 bijkeukenlamp_off:
@@ -130,7 +130,7 @@ bijkeukenlamp_off:
         seconds: 10
     - service: light.turn_off
       data:
-        entity_id: light.bijkeukenlamp
+        entity_id: light.bijkeuken
 
 # STEPHANIE MEDICATION NOTIFY SCRIPT/REPEAT
 stephnotification:

@@ -3,6 +3,7 @@
     entities:
       - sensor.reistijd_werk_jimmy
       - sensor.reistijd_werk_stephanie
+
   sunset_sunrise_leds:
     name: Ledlampen die aan/uit gaan sunset/sunrise
     entities:
@@ -15,6 +16,7 @@
       - light.woonkamer_led_lampen
       - light.slaapkamer_led_lampen
       - light.officeled
+
   device_status:
     name: Status en Locatie
     entities:
@@ -33,6 +35,7 @@
       - person.jimmy
       - person.stephanie
       - person.tala
+
   energy_kwh:
     name: Energy Sensors
     entities:
@@ -95,16 +98,16 @@
   scene_dagverlichting_off:
     entities:
       - switch.keukenspots
-      - light.keuken_plafondlampen
+      - light.keuken
       - light.slaapkamer_led_lampen
       - light.entree_lamp
       - light.gang_lamp
-      - light.kleine_kamer_plafondlampen
-      - light.bijkeukenlamp
-      - light.eettafel_lamp
+      - light.kleine_kamer
+      - light.bijkeuken
+      - light.eettafel
       - light.vloerlamp
-      - light.tafel_lamp
-      - light.woonkamer_plafond
+      - light.tafellamp
+      - light.plafond
       - light.woonkamer_led_lampen
       - light.gateway_light_7811dcdef324
       
@@ -115,17 +118,17 @@
       - light.gateway_light_7811dcdef324
       - light.officeled
       - switch.keukenspots
-      - light.kleine_kamer_plafondlampen
+      - light.kleine_kamer
       - light.vloerlamp
-      - light.tafel_lamp
+      - light.tafellamp
   scene_avondverlichting_off:
     entities:
-      - light.keuken_plafondlampen
+      - light.keuken
       - light.entree_lamp
       - light.gang_lamp
-      - light.bijkeukenlamp
-      - light.eettafel_lamp
-      - light.woonkamer_plafond
+      - light.bijkeuken
+      - light.eettafel
+      - light.plafond
 
   scene_nachtverlichting_on:
     all: true
@@ -136,15 +139,15 @@
       - switch.keukenspots
   scene_nachtverlichting_off:
     entities:
-      - light.keuken_plafondlampen
+      - light.keuken
       - light.entree_lamp
       - light.gang_lamp
-      - light.bijkeukenlamp
-      - light.eettafel_lamp
-      - light.woonkamer_plafond
-      - light.kleine_kamer_plafondlampen
+      - light.bijkeuken
+      - light.eettafel
+      - light.plafond
+      - light.kleine_kamer
       - light.vloerlamp
-      - light.tafel_lamp
+      - light.tafellamp
       
   scene_welterusten_on:
     all: true
@@ -152,22 +155,22 @@
       - light.gateway_light_7811dcdef324
   scene_welterusten_off:
     entities:
-      - light.woonkamer_plafond
+      - light.plafond
       - light.woonkamer_led_lampen
-      - light.eettafel_lamp
+      - light.eettafel
       - light.vloerlamp
-      - light.tafel_lamp
-      - light.kleine_kamer_plafondlampen 
+      - light.tafellamp
+      - light.kleine_kamer
       - light.officeled
       - switch.keukenspots 
       - light.nachtkastje_jimmy
       - light.nachtkastje_stephanie
       - light.slaapkamer_led_lampen
-      - light.keuken_plafondlampen 
-      - light.bijkeukenlamp
-      - light.toiletlamp 
+      - light.keuken 
+      - light.bijkeuken
+      - light.toiletlamp
       - light.balkonlamp
-      - light.tradfri_bulb_e27_ws_opal_980lm_4
+      - light.berging
       - switch.koogeek_sw_056ce9 
       - switch.receiver 
       - switch.waterkoker 
@@ -176,45 +179,45 @@
       - switch.printer 
       - switch.ventilator
       - switch.samsung_tv
-      - switch.tradfri_outlet_2 
-      - switch.tradfri_outlet 
+      - switch.tv_slaapkamer
+      - switch.cappumaker
       - light.entree_lamp 
       - light.gang_lamp 
   scene_schoonmaken_on:
     all: true
     entities:
-      - light.woonkamer_plafond
+      - light.plafond
       - light.woonkamer_led_lampen
-      - light.eettafel_lamp
+      - light.eettafel
       - light.vloerlamp
-      - light.tafel_lamp
+      - light.tafellamp
       - light.gateway_light_7811dcdef324
-      - light.kleine_kamer_plafondlampen
+      - light.kleine_kamer
       - light.officeled
       - light.nachtkastje_jimmy
       - light.nachtkastje_stephanie
       - light.slaapkamer_led_lampen
-      - light.keuken_plafondlampen
-      - light.bijkeukenlamp
+      - light.keuken
+      - light.bijkeuken
       - light.toiletlamp 
       - switch.koogeek_sw_056ce9 
       - light.entree_lamp 
       - light.gang_lamp
   scene_schoonmaken_off:
     entities:
-      - light.woonkamer_plafond
+      - light.plafond
       - light.woonkamer_led_lampen
-      - light.eettafel_lamp
+      - light.eettafel
       - light.vloerlamp
-      - light.tafel_lamp
+      - light.tafellamp
       - light.gateway_light_7811dcdef324
-      - light.kleine_kamer_plafondlampen
+      - light.kleine_kamer
       - light.officeled
       - light.nachtkastje_jimmy
       - light.nachtkastje_stephanie
       - light.slaapkamer_led_lampen
-      - light.keuken_plafondlampen
-      - light.bijkeukenlamp
+      - light.keuken
+      - light.bijkeuken
       - light.toiletlamp 
       - switch.koogeek_sw_056ce9 
       - light.entree_lamp 
@@ -241,14 +244,14 @@
     all: true
     entities:
       - switch.keukenspots
-      - light.keuken_plafondlampen
+      - light.keuken
       - switch.waterkoker
       - switch.air_fryer
       - switch.tradfri_outlet
   scene_koken_off:
     entities:
       - switch.keukenspots
-      - light.keuken_plafondlampen
+      - light.keuken
       - switch.waterkoker
       - switch.air_fryer
       - switch.tradfri_outlet

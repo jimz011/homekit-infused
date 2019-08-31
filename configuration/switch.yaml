@@ -1,16 +1,22 @@
   - platform: wake_on_lan
-    mac_address: "MAC_HERE"
+    mac_address: "d0-50-99-1b-74-88"
     name: PC van Stephanie
     host: "192.168.0.41"
     turn_off:
-      service: shell_command.turn_off_steph_pc
+      service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: pc_stephanie
 
   - platform: wake_on_lan
-    mac_address: "MAC_HERE"
+    mac_address: "74-d4-35-fe-8e-88"
     name: PC van Jimmy
     host: "192.168.0.40"
     turn_off:
-      service: shell_command.turn_off_jimzz_pc
+      service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: pc_jimmy
 
   - platform: template
     switches:

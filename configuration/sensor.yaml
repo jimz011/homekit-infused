@@ -27,7 +27,7 @@
 
 # Sonarr / Radarr
   - platform: sonarr
-    host: 192.168.0.34
+    host: 192.168.0.32
     api_key: !secret sonarr_api_key
     monitored_conditions:
       - wanted
@@ -39,14 +39,14 @@
 
   - platform: sonarr_upcoming_media
     api_key: !secret sonarr_api_key
-    host: 192.168.0.34
+    host: 192.168.0.32
     port: 8989
     days: 7
     max: 10
 
   - platform: radarr
     api_key: !secret radarr_api_key
-    host: 192.168.0.34
+    host: 192.168.0.32
     port: 7878
     monitored_conditions:
       - movies
@@ -58,7 +58,7 @@
 
   - platform: radarr_upcoming_media
     api_key: !secret radarr_api_key
-    host: 192.168.0.34
+    host: 192.168.0.32
     port: 7878
     days: 120
     max: 10
@@ -97,6 +97,19 @@
 # Template Sensors
   - platform: template
     sensors:
+  # Motion Sensor Temperature Sensors
+      motion_toilet_temperature:
+        value_template: '{{ states.binary_sensor.motion_toilet.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Toilet Temperatuur
+      motion_bijkeuken_temperature:
+        value_template: '{{ states.binary_sensor.motion_bijkeuken.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Bijkeuken Temperatuur
+      voordeur_temperature:
+        value_template: '{{ states.binary_sensor.voordeur.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Hal Temperatuur
   # Washingmachine/droger/vaatwasser Template Sensors
       wasmachine_status:
         value_template: '{{ states.input_select.wasmachine_status.state}}'
@@ -111,6 +124,22 @@
       vacuum_battery:
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
         friendly_name: 'Roborock Battery Level'
+        device_class: 'battery'
+        unit_of_measurement: '%'
+        icon_template: >-
+          {% set battery_level = states('sensor.vacuum_battery')|int('unknown') %}
+          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+          {% if battery_level == 'unknown' %}
+            mdi:battery-unknown
+          {% else %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+          {% endif %}
       vacuum_total_cleaned_area:
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.total_cleaned_area }}'
         friendly_name: 'Roborock Total Cleaned Area'
@@ -237,4 +266,4 @@
 
 # Certificate Expiry Sensor
   - platform: cert_expiry
-    host: mail.outlook.com
+    host: !secret certificate_url
