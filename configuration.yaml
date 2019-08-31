@@ -1,15 +1,7 @@
+# Changed/Added in 0.12.3 (now compatible with interface configuration of the Home Location, No you still can't use the GUI to build your interface!)
+
+# Home Assistant Config 
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude
-  longitude: !secret longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 22
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Amsterdam
   # Customization file
   customize: !include configuration/customize.yaml
   # Auth Provider
@@ -24,7 +16,11 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Frontend and HTTP
+# HACS
+hacs:
+  token: !secret HACS
+
+# Frontend & SSL
 frontend:
   themes: !include configuration/themes.yaml
   javascript_version: auto
@@ -70,11 +66,6 @@ calendar:
     url: !secret url_4
     username: !secret icloud_user
     password: !secret icloud_app_specific_password
-    calendars:
-      - 'Schings'
-      - 'Jimmy'
-      - 'Stephanie'
-      - 'Holiday'
 
 # Tado
 tado:
@@ -84,9 +75,9 @@ tado:
 # Sabnzbd
 sabnzbd:
   api_key: !secret sabnzbd_api_key
-  host: 192.168.0.34
+  host: 192.168.0.33
   name: sabnzbd
-  port: 8081
+  port: 8080
   sensors:
     - current_status
     - speed
@@ -133,7 +124,7 @@ notify:
   - name: ios_notifier
     platform: group
     services:
-      - service: mobile_app_iphone_jimmy
+      - service: mobile_app_iphone
       - service: mobile_app_iphone_stephanie
       
 # Xiaomi Aqara/Mija
@@ -168,6 +159,8 @@ vacuum:
     host: 192.168.0.11
     token: !secret roborock
 
-# HACS
-hacs:
-  token: !secret HACSS
+# Browser-Mod
+browser_mod:
+  devices:
+    5b4e295f-d8a2f862:
+      name: Jimmy
