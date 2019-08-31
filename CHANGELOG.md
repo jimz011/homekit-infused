@@ -1,5 +1,12 @@
 # Changelog
 
+### Changes Overview 31/08/2019:
+v. 0.12.3
+- Renamed decluttering-template FILES and removed decluttering-templates.yaml (Special thanks to @xMrVizzy for this great tip!)
+- Fixed theme on the second swipe on the vacuum page
+- Fixed weird colors in notifications (this fix will be temporary)
+- Minor bugfixes
+
 ### Changes Overview 23/08/2019:
 v. 0.12.2
 - Renamed most decluttering-templates and files that come with that
