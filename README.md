@@ -9,6 +9,7 @@ Existing users can either update or copy new snippets of code.
 
 #### Note: When updating please update from version to version, do NOT skip any version or you will find yourself with a broken lovelace setup. If you fall behind in updates you can find older releases/update guides in the links below. Changes will no longer be shown on this frontpage. Watch this repo or follow me on the [Home Assistant Community Forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086) if you want to stay up-to-date.
 
+# Click [here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
 ### Click here for the [Full Change Log](https://github.com/jimz011/homeassistant/blob/master/CHANGELOG.md)
 ### Click here for the [Update Guides](https://github.com/jimz011/homeassistant/tree/master/update-guides)
 ### Click here for all [Releases](https://github.com/jimz011/homeassistant/releases)
