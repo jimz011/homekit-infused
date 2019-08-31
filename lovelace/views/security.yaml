@@ -4,17 +4,17 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Alarm
           - icon1: shield-home
           - path1: alarm
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Security'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: "##### Camera's"
       - type: horizontal-stack
@@ -69,16 +69,16 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Doors'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.door_window_sensor_158d000236f9dd
+              - entity: binary_sensor.voordeur
               - name: Voordeur
               - icon: door
               - show_last_changed: true
@@ -86,9 +86,9 @@ cards:
               - variable: icon
               - spin: 'mdi:door-open'
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.door_window_sensor_158d000238644b
+              - entity: binary_sensor.woonkamer_deur
               - name: Woonkamer
               - icon: door
               - show_last_changed: true
@@ -96,9 +96,9 @@ cards:
               - variable: icon
               - spin: 'mdi:door-open'
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.door_window_sensor_158d000232ac1b
+              - entity: binary_sensor.slaapkamer_deur
               - name: Slaapkamer
               - icon: door
               - show_last_changed: true
@@ -107,14 +107,14 @@ cards:
               - spin: 'mdi:door-open'
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Motion'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: binary_sensor.dafang_motion_sensor
               - name: Gallerij
@@ -122,33 +122,33 @@ cards:
               - show_last_changed: true
               - tap_action: more-info
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.motion_sensor_158d0002b7eec9
+              - entity: binary_sensor.motion_bijkeuken
               - name: Bijkeuken
               - icon: motion-sensor
               - show_last_changed: true
               - tap_action: more-info
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.motion_sensor_158d00024e687d
+              - entity: binary_sensor.motion_toilet
               - name: Toilet
               - icon: motion-sensor
               - show_last_changed: true
               - tap_action: more-info
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Alarms'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
-              - entity: binary_sensor.smoke_sensor_158d000287ab41
+              - entity: binary_sensor.fire_30
               - name: Rookmelder
               - icon: smoke-detector
               - show_last_changed: true

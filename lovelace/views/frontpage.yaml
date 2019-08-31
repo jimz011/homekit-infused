@@ -16,12 +16,11 @@ cards:
         grabCursor: true
       cards:
         - type: custom:decluttering-card
-          template: quick-access-menu # Changed/Added in 0.12.2
+          template: quick-access-menu 
           variables:
-            - name1: Profile
-            - icon1: human-greeting
-            - lovelace1: profile
-            - path1: ' '
+            - name1: dev-tools
+            - icon1: tools
+            - path1: developer-tools
             - entity3: alarm_control_panel.home_alarm
             - name3: Alarm 
             - icon3: shield-check
@@ -41,7 +40,7 @@ cards:
       cards:
         - !include ../includes/simple-weather-card.yaml 
         - type: custom:decluttering-card
-          template: quick-access-menu # Changed/Added in 0.12.2
+          template: quick-access-menu 
           variables:
             - name1: Security
             - icon1: cctv
@@ -71,7 +70,7 @@ cards:
             state_not: "home"
         card:
           type: custom:decluttering-card
-          template: person  # Changed/Added in 0.12.2
+          template: person  
           variables:
             - name: stephanie
             - namesensor: !secret stephsensor
@@ -79,7 +78,7 @@ cards:
             - image: '/local/images/stephanie_small.png'
             - postnl: sensor.postnl_stephanie_packages
             - reistijd: sensor.reistijd_stephanie
-            - battery: sensor.battery_level_13
+            - battery: sensor.battery_level
             - icon: home
             - tap_action:
                 action: navigate
@@ -90,7 +89,7 @@ cards:
             state: "home"
         card:
           type: custom:decluttering-card
-          template: person  # Changed/Added in 0.12.2
+          template: person  
           variables:
             - name: stephanie
             - namesensor: !secret stephsensor
@@ -98,7 +97,7 @@ cards:
             - image: '/local/images/stephanie_small.png'
             - postnl: sensor.postnl_stephanie_packages
             - reistijd: sensor.reistijd_stephanie_work
-            - battery: sensor.battery_level_13
+            - battery: sensor.battery_level
             - icon: office-building
             - tap_action:
                 action: navigate
@@ -111,7 +110,7 @@ cards:
             state_not: "home"
         card:
           type: custom:decluttering-card
-          template: person  # Changed/Added in 0.12.2
+          template: person  
           variables:
             - name: jimmy
             - namesensor: !secret jimsensor
@@ -119,7 +118,7 @@ cards:
             - image: '/local/images/jimmy_small.png'
             - postnl: sensor.postnl_jimmy_packages
             - reistijd: sensor.reistijd_jimmy
-            - battery: sensor.battery_level_16
+            - battery: sensor.battery_level_2
             - icon: home
             - tap_action:
                 action: navigate
@@ -130,7 +129,7 @@ cards:
             state: "home"
         card:
           type: custom:decluttering-card
-          template: person  # Changed/Added in 0.12.2
+          template: person  
           variables:
             - name: jimmy
             - namesensor: !secret jimsensor
@@ -138,7 +137,7 @@ cards:
             - image: '/local/images/jimmy_small.png'
             - postnl: sensor.postnl_jimmy_packages
             - reistijd: sensor.reistijd_jimmy_work
-            - battery: sensor.battery_level_16
+            - battery: sensor.battery_level_2
             - icon: office-building
             - tap_action:
                 action: navigate
@@ -201,7 +200,7 @@ cards:
       cards:
         - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Climate
             - label: Control
@@ -219,7 +218,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Light
             - label: Control
@@ -237,7 +236,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Device
             - label: Control
@@ -255,7 +254,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Security
             - label: Panel
@@ -284,7 +283,7 @@ cards:
       cards:
         - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Cleaning
             - label: Lists
@@ -302,7 +301,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Scenes
             - label: Presets
@@ -320,7 +319,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Vacuum
             - label: Johnny S55
@@ -338,7 +337,7 @@ cards:
             - margin-right: 40px
             - opacity: 0.8
         - type: custom:decluttering-card
-          template: button # Changed/Added in 0.12.2
+          template: button 
           variables:
             - name: Menu
             - label: All Options

@@ -1,4 +1,4 @@
-  light.woonkamer_plafond:
+  light.plafond:
     title: Woonkamer Plafond
     style:
       color: white
@@ -11,9 +11,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.woonkamer_plafond
+                - entity: light.plafond
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -30,13 +30,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.woonkamer_led_lampen
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.eettafel_lamp:
+  light.eettafel:
     title: Eettafel Lamp
     style:
       color: white
@@ -49,9 +49,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.eettafel_lamp
+                - entity: light.eettafel
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -68,13 +68,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.vloerlamp
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.tafel_lamp:
+  light.tafellamp:
     title: Tafel Lamp
     style:
       color: white
@@ -87,9 +87,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.tafel_lamp
+                - entity: light.tafellamp
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -106,13 +106,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.gateway_light_7811dcdef324
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.kleine_kamer_plafondlampen:
+  light.kleine_kamer:
     title: Plafond Lamp
     style:
       color: white
@@ -125,9 +125,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.kleine_kamer_plafondlampen
+                - entity: light.kleine_kamer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -144,7 +144,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.officeled
             - !include ../includes/blank-card.yaml
@@ -163,13 +163,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: switch.keukenspots
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.keuken_plafondlampen:
+  light.keuken:
     title: Plafond Lampen
     style:
       color: white
@@ -182,13 +182,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.keuken_plafondlampen
+                - entity: light.keuken
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.bijkeukenlamp:
+  light.bijkeuken:
     title: Bijkeuken Lamp
     style:
       color: white
@@ -201,9 +201,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.bijkeukenlamp
+                - entity: light.bijkeuken
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -220,7 +220,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.slaapkamer_led_lampen
             - !include ../includes/blank-card.yaml
@@ -239,7 +239,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.nachtkastje_jimmy
             - !include ../includes/blank-card.yaml
@@ -258,7 +258,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.nachtkastje_stephanie
             - !include ../includes/blank-card.yaml
@@ -277,7 +277,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.entree_lamp
             - !include ../includes/blank-card.yaml
@@ -296,7 +296,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: light.gang_lamp
             - !include ../includes/blank-card.yaml
@@ -315,13 +315,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
                 - entity: switch.koogeek_sw_056ce9
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.tradfri_bulb_e27_ws_opal_980lm_4:
+  light.berging:
     title: Berging Lamp
     style:
       color: white
@@ -334,13 +334,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.tradfri_bulb_e27_ws_opal_980lm_4
+                - entity: light.berging
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.balkonlamp:
+  light.balkon:
     title: Balkon Lamp
     style:
       color: white
@@ -353,13 +353,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.balkonlamp
+                - entity: light.balkon
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.toiletlamp:
+  light.toilet:
     title: Toilet Lamp
     style:
       color: white
@@ -372,8 +372,8 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup 
               variables:
-                - entity: light.toiletlamp
+                - entity: light.toilet
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml

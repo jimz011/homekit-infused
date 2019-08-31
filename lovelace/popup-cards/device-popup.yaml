@@ -11,7 +11,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.ventilator
             - !include ../includes/blank-card.yaml
@@ -30,7 +30,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.receiver
             - !include ../includes/blank-card.yaml
@@ -49,7 +49,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.air_fryer
             - !include ../includes/blank-card.yaml
@@ -68,7 +68,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.afzuigkap
             - !include ../includes/blank-card.yaml
@@ -87,7 +87,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.samsung_tv
             - !include ../includes/blank-card.yaml
@@ -106,13 +106,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.receiver_slaapkamer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  switch.tradfri_outlet_2:
+  switch.tv_slaapkamer:
     title: Slaapkamer TV
     style:
       color: white
@@ -125,9 +125,9 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
-                - entity: switch.tradfri_outlet_2
+                - entity: switch.tv_slaapkamer
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
@@ -144,7 +144,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.pc_van_stephanie
             - !include ../includes/blank-card.yaml
@@ -163,7 +163,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.pc_van_jimmy
             - !include ../includes/blank-card.yaml
@@ -182,7 +182,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.printer
             - !include ../includes/blank-card.yaml
@@ -201,7 +201,7 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.xbox_one
             - !include ../includes/blank-card.yaml
@@ -220,13 +220,13 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
                 - entity: switch.waterkoker
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  switch.tradfri_outlet:
+  switch.cappumaker:
     title: Cappumaker
     style:
       color: white
@@ -239,13 +239,12 @@
           cards:
             - !include ../includes/blank-card.yaml
             - type: custom:decluttering-card
-              template: more-info-popup  # Changed/Added in 0.12.2
+              template: more-info-popup  
               variables:
-                - entity: switch.tradfri_outlet
+                - entity: switch.cappumaker
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-### Everything Below # Changed/Added in 0.12.2
   switch.vaatwasser:
     title: Vaatwasser
     style:

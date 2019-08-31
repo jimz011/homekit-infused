@@ -1,5 +1,5 @@
-  - url: /community_plugin/sun-card/sun-card.js
-    type: module
+## Changed/Added in 0.12.3 - Resources that were unused have been removed!
+
   - url: /community_plugin/thermostat-card/thermostat-card.js
     type: module
   - url: /community_plugin/lovelace-card-tools/card-tools.js
@@ -8,11 +8,9 @@
     type: module
   - url: /community_plugin/lovelace-popup-card/popup-card.js
     type: js
-  - url: /community_plugin/mini-media-player/mini-media-player.js
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
-    type: js
-  - url: /community_plugin/monster-card/monster-card.js
     type: js
   - url: /community_plugin/calendar-card/calendar-card.js
     type: js
@@ -32,7 +30,7 @@
     type: module
   - url: /community_plugin/lovelace-postnl-card/postnl-card.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js

@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Vacuum
           - icon1: robot-vacuum
           - path1: vacuum
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Cleaning Lists'
       - type: custom:swipe-card
@@ -21,11 +21,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### Cleaning >'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Checklist'
               - type: horizontal-stack
@@ -34,7 +34,7 @@ cards:
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Stofzuigen
                           - entity: sensor.stofzuigen
@@ -42,7 +42,7 @@ cards:
                           - value 2: 6 days
                           - value 3: 9 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Dweilen
                           - entity: sensor.dweilen
@@ -50,7 +50,7 @@ cards:
                           - value 2: 8 days
                           - value 3: 11 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Stoffen
                           - entity: sensor.stoffen
@@ -58,7 +58,7 @@ cards:
                           - value 2: 6 days
                           - value 3: 9 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Spiegels
                           - entity: sensor.spiegels
@@ -66,7 +66,7 @@ cards:
                           - value 2: 14 days
                           - value 3: 21 days  
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Ramen
                           - entity: sensor.ramen
@@ -74,7 +74,7 @@ cards:
                           - value 2: 12 months
                           - value 3: 18 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Gordijnen
                           - entity: sensor.gordijnen
@@ -82,7 +82,7 @@ cards:
                           - value 2: 12 months
                           - value 3: 18 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Toilet
                           - entity: sensor.toilet_clean
@@ -90,7 +90,7 @@ cards:
                           - value 2: 6 days
                           - value 3: 9 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Badkamer
                           - entity: sensor.badkamer
@@ -98,7 +98,7 @@ cards:
                           - value 2: 14 days
                           - value 3: 21 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Bed
                           - entity: sensor.bed_verschonen
@@ -106,7 +106,7 @@ cards:
                           - value 2: 9 days
                           - value 3: 13 days
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Matras
                           - entity: sensor.matras
@@ -118,11 +118,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### < Car Stephanie >'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: "##### Citroën C1 1.0 (2007) 55-GFF-3"
               - type: horizontal-stack
@@ -160,7 +160,7 @@ cards:
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Olie
                           - entity: sensor.citroen_olie
@@ -168,7 +168,7 @@ cards:
                           - value 2: 6 months
                           - value 3: 9 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Banden
                           - entity: sensor.citroen_banden
@@ -176,7 +176,7 @@ cards:
                           - value 2: 6 months
                           - value 3: 9 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Wassen
                           - entity: sensor.citroen_clean
@@ -184,7 +184,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 6 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Stofzuigen
                           - entity: sensor.citroen_stof
@@ -192,7 +192,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 6 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Ruiten
                           - entity: sensor.citroen_window
@@ -228,11 +228,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### < Car Jimmy'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Peugeot 207 SW 1.4 VTi X-Line (2007) 21-XX-DL'
               - type: horizontal-stack
@@ -266,7 +266,7 @@ cards:
                   - type: 'custom:vertical-stack-in-card'
                     cards:
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Olie
                           - entity: sensor.daihatsu_olie
@@ -274,7 +274,7 @@ cards:
                           - value 2: 6 months
                           - value 3: 9 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Banden
                           - entity: sensor.daihatsu_banden
@@ -282,7 +282,7 @@ cards:
                           - value 2: 6 months
                           - value 3: 9 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Wassen
                           - entity: sensor.daihatsu_clean
@@ -290,7 +290,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 6 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Stofzuigen
                           - entity: sensor.daihatsu_stof
@@ -298,7 +298,7 @@ cards:
                           - value 2: 3 months
                           - value 3: 6 months
                       - type: custom:decluttering-card
-                        template: check-button # Changed/Added in 0.12.2
+                        template: check-button
                         variables:
                           - title: Ruiten
                           - entity: sensor.daihatsu_window

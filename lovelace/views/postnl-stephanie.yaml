@@ -4,28 +4,28 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Stephanie
           - icon1: account
           - path1: stephanie
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Stephanie Schings'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '#### PostNL'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Other'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: 'custom:decluttering-card'
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Back to personal view
@@ -49,7 +49,7 @@ cards:
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Letters & Packages'
       - type: horizontal-stack

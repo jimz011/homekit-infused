@@ -4,19 +4,19 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Links
           - icon1: link-variant
           - path1: links
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Important Dates'
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: header # Changed/Added in 0.12.2
+            template: header
             variables:
               - content: '##### Important Dates'
           - type: horizontal-stack

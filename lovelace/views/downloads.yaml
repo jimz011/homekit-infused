@@ -4,17 +4,17 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Upcoming
           - icon1: plex
           - path1: media
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Download Center'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### SabNZBd'
       - type: horizontal-stack

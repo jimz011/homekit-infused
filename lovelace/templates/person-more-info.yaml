@@ -28,10 +28,9 @@ default:
   # Email Sensor
   - emailsensor: sensor.youremailsensor
 
-  # Battery/State Sensor (cut off at the number, if you have
-  # a sensor with a different name please change template below)
-  - number: '16'
-
+  # Battery/State Sensor
+  - sensor_battery_state: sensor.battery_state # Changed/Added in 0.12.3 
+  - sensor_battery_level: sensor.battery_level # Changed/Added in 0.12.3 
 #### #### #### #### #### #### #### #### #### #### #### #
 
 # Card Config
@@ -47,11 +46,11 @@ card:
         - type: vertical-stack
           cards:
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: '#### Agenda >'
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: "##### [[name-s]] Agenda"
             - type: horizontal-stack
@@ -77,11 +76,11 @@ card:
         - type: vertical-stack
           cards:
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: '#### < Location >'
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: '##### Map & Location'
             - type: horizontal-stack
@@ -107,11 +106,11 @@ card:
         - type: vertical-stack
           cards: 
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: '#### < Information'
             - type: custom:decluttering-card
-              template: header_text
+              template: header
               variables:
                 - content: '##### General Information'
             - type: horizontal-stack
@@ -131,9 +130,9 @@ card:
                   entities:
                     - entity: sensor.postnl_[[name]]_delivery
                       name: PostNL
-                    - entity: sensor.battery_level_[[number]]
+                    - entity: '[[sensor_battery_level]]' # Changed/Added in 0.12.3
                       name: iPhone Batterij
-                    - entity: sensor.battery_state_[[number]]
+                    - entity: '[[sensor_battery_state]]' # Changed/Added in 0.12.3
                       name: iPhone Status
                     - entity: '[[emailsensor]]'
                       name: Ongelezen E-mails

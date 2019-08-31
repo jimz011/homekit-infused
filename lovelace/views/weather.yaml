@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu 
         variables:
           - name1: Climate
           - icon1: thermostat
           - path1: climate
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header 
         variables:
           - content: '## Weather'
       - type: custom:swipe-card
@@ -21,7 +21,7 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header 
                 variables:
                   - content: '#### Overview >'
               - !include ../includes/blank-card.yaml
@@ -41,7 +41,7 @@ cards:
                     title: Eindhoven
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header 
                 variables:
                   - content: '##### Detailed Information'  
               - type: horizontal-stack
@@ -62,11 +62,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header 
                 variables:
                   - content: '#### < Map'  
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header 
                 variables:
                   - content: '##### Buienradar'  
               - type: horizontal-stack
@@ -83,7 +83,7 @@ cards:
                     url: https://gadgets.buienradar.nl/gadget/zoommap/?lat=51.28583&lng=5.74861&overname=2&zoom=11&naam=Nederweert&size=3b&voor=1 # Please use your own location here, I have set mine off by quite a bit as the iframe doesn't fit nicely when using a smaller version of the frame.
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header 
                 variables:
                   - content: '##### Windy'  
               - type: horizontal-stack

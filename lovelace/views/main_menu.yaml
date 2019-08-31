@@ -4,7 +4,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: About
           - icon1: information
@@ -15,18 +15,18 @@ cards:
           - lovelace2: config
           - path2: dashboard
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Main Menu'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### All Items'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Cleaning
@@ -43,7 +43,7 @@ cards:
                   navigation_path: /lovelace/cleaning
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Climate
@@ -60,7 +60,7 @@ cards:
                   navigation_path: /lovelace/climate
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Devices
@@ -81,7 +81,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Download
@@ -98,7 +98,7 @@ cards:
                   navigation_path: /lovelace/downloads
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Energy
@@ -115,7 +115,7 @@ cards:
                   navigation_path: /lovelace/energy
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Floorplan
@@ -135,7 +135,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Important
@@ -152,7 +152,7 @@ cards:
                   navigation_path: /lovelace/calendar
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Laundry
@@ -169,7 +169,7 @@ cards:
                   navigation_path: /lovelace/laundry
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Lights
@@ -190,7 +190,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Links
@@ -206,7 +206,7 @@ cards:
                   navigation_path: /lovelace/links
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Location
@@ -223,7 +223,7 @@ cards:
                   navigation_path: /lovelace/location
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Now On
@@ -243,7 +243,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Other
@@ -259,7 +259,7 @@ cards:
                   navigation_path: /lovelace/other
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Remote
@@ -276,7 +276,7 @@ cards:
                   navigation_path: /lovelace/remote
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Scenes
@@ -297,7 +297,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Security
@@ -314,7 +314,7 @@ cards:
                   navigation_path: /lovelace/security
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Themes
@@ -331,7 +331,7 @@ cards:
                   navigation_path: /lovelace/themes
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Upcoming
@@ -352,7 +352,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Vacuum
@@ -369,7 +369,7 @@ cards:
                   navigation_path: /lovelace/vacuum
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Weather
@@ -392,14 +392,14 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### System Tools'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Dashboard
@@ -414,7 +414,7 @@ cards:
               - hold_action:
                   action: none
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Developer
@@ -429,7 +429,7 @@ cards:
               - hold_action:
                   action: none
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button
             variables:
               - entity: input_boolean.dummy1
               - name: Restart

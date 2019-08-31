@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Zoned
           - icon1: map
           - path1: vacuum-zoned-cleaning
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Johnny S55 Control Center'
       - type: custom:swipe-card
@@ -21,11 +21,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### Status >'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Current Status'
               - type: horizontal-stack
@@ -43,20 +43,21 @@ cards:
                     content: '<ha-icon icon="mdi:robot-vacuum"></ha-icon> [[ sensor.vacuum_cleaner_status_sensor.state ]]'
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Information'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_battery
                       - name: Battery
                       - show_label: false
-                      - color: auto
                       - icon: battery
+                      - color: auto
+                      - icon: auto
                       - opacity: 0.8
                       - tap_action:
                           action: none
@@ -64,7 +65,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_total_cleaned_area
                       - name: Total Cleaned
@@ -77,7 +78,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_total_cleaning_time
                       - name: Total Time
@@ -91,14 +92,14 @@ cards:
                           haptic: heavy
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Cleaning'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_main_brush_left
                       - name: Main Brush
@@ -111,7 +112,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_side_brush_left
                       - name: Side Brush
@@ -124,7 +125,7 @@ cards:
                           action: more-info
                           haptic: heavy
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_filter_left
                       - name: Filter
@@ -141,7 +142,7 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: sensor.vacuum_sensor_dirty_left
                       - name: Sensors
@@ -163,11 +164,11 @@ cards:
           - type: vertical-stack
             cards: 
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### < Basic Controls >'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### General'
               - type: horizontal-stack
@@ -179,15 +180,17 @@ cards:
                         state: Cleaning
                     card:
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Clean
                         - label: Full Clean
                         - icon: play
-                        - show_state: false
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
+                        - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                         - off_name_color: black
+                        - off_label_color: gray # Changed/Added in 0.12.3
                         - off_icon_color: green
                         - opacity: 1.0
                         - tap_action:
@@ -204,13 +207,13 @@ cards:
                         state_not: Cleaning
                     card:
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Clean
                         - label: Full Clean
                         - icon: play
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
                         - opacity: 0.4
                         - tap_action:
@@ -227,14 +230,16 @@ cards:
                         state: Paused
                     card:
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Pause
                         - icon: pause
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
+                        - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                         - off_name_color: black
+                        - off_label_color: gray # Changed/Added in 0.12.3
                         - off_icon_color: orange
                         - opacity: 1.0
                         - tap_action:
@@ -251,12 +256,12 @@ cards:
                         state_not: Paused
                     card:
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Pause
                         - icon: pause
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
                         - opacity: 0.4
                         - tap_action:
@@ -273,15 +278,17 @@ cards:
                         state: Spot cleaning
                     card:    
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Spot Clean
                         - label: Move robot first!
                         - icon: hubspot
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
+                        - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                         - off_name_color: black
+                        - off_label_color: gray # Changed/Added in 0.12.3
                         - off_icon_color: red
                         - opacity: 1.0
                         - tap_action:
@@ -298,13 +305,13 @@ cards:
                         state_not: Spot cleaning
                     card:    
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Spot Clean
                         - label: Move robot first!
                         - icon: hubspot
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
                         - opacity: 0.4
                         - tap_action:
@@ -320,13 +327,13 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Locate
                       - label: Where am I?
                       - icon: map-marker
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.4
                       - tap_action:
@@ -343,15 +350,17 @@ cards:
                         state: Returning home
                     card:    
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Return
                         - label: To the dock
                         - icon: power-socket-eu
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
+                        - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                         - off_name_color: black
+                        - off_label_color: gray # Changed/Added in 0.12.3
                         - off_icon_color: navy
                         - opacity: 1.0
                         - tap_action:
@@ -368,13 +377,13 @@ cards:
                         state_not: Returning home
                     card:    
                       type: 'custom:decluttering-card'
-                      template: button # Changed/Added in 0.12.2
+                      template: button
                       variables:
                         - entity: input_boolean.dummy1
                         - name: Return
                         - label: To the dock
                         - icon: power-socket-eu
-                        - show_state: 
+                        - show_state: false # Changed/Added in 0.12.3
                         - color: gray
                         - opacity: 0.4
                         - tap_action:
@@ -397,7 +406,7 @@ cards:
                   type: vertical-stack
                   cards:
                     - type: custom:decluttering-card
-                      template: header # Changed/Added in 0.12.2
+                      template: header
                       variables:
                         - content: '##### Fan Speed'
                     - type: horizontal-stack
@@ -409,7 +418,7 @@ cards:
                               state: Quiet
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Quiet
@@ -417,9 +426,11 @@ cards:
                               - icon: fan
                               - off_spin: true
                               - size: 15%
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
+                              - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                               - off_icon_color: Dodgerblue
                               - off_name_color: black
+                              - off_label_color: gray # Changed/Added in 0.12.3
                               - opacity: 1.0
                               - tap_action:
                                   action: call-service
@@ -436,16 +447,15 @@ cards:
                               state_not: Quiet
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Quiet
                               - label: Mode
                               - icon: fan
                               - size: 15%
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
                               - color: gray
-                              - off_name_color: black
                               - opacity: 0.4
                               - tap_action:
                                   action: call-service
@@ -462,7 +472,7 @@ cards:
                               state: Turbo
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Turbo
@@ -470,9 +480,11 @@ cards:
                               - icon: fan
                               - size: 20%
                               - off_spin: true
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
+                              - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                               - off_icon_color: Dodgerblue
                               - off_name_color: black
+                              - off_label_color: gray # Changed/Added in 0.12.3
                               - opacity: 1.0
                               - tap_action:
                                   action: call-service
@@ -489,16 +501,15 @@ cards:
                               state_not: Turbo
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Turbo
                               - label: Mode
                               - icon: fan
                               - size: 20%
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
                               - color: gray
-                              - off_name_color: black
                               - opacity: 0.4
                               - tap_action:
                                   action: call-service
@@ -515,16 +526,18 @@ cards:
                               state: Max
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Max
                               - label: Mode
                               - icon: fan
                               - off_spin: true
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
+                              - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                               - off_icon_color: Dodgerblue
                               - off_name_color: black
+                              - off_label_color: gray # Changed/Added in 0.12.3
                               - opacity: 1.0
                               - tap_action:
                                   action: call-service
@@ -541,15 +554,14 @@ cards:
                               state_not: Max
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Max
                               - label: Mode
                               - icon: fan
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
                               - color: gray
-                              - off_name_color: black
                               - opacity: 0.4
                               - tap_action:
                                   action: call-service
@@ -570,16 +582,18 @@ cards:
                               state: Balanced
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Balanced
                               - label: Mode
                               - icon: sync
                               - off_spin: true
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
+                              - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                               - off_icon_color: orange
                               - off_name_color: black
+                              - off_label_color: gray # Changed/Added in 0.12.3
                               - opacity: 1.0
                               - tap_action:
                                   action: call-service
@@ -596,15 +610,14 @@ cards:
                               state_not: Balanced
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Balanced
                               - label: Mode
                               - icon: sync
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
                               - color: gray
-                              - off_name_color: black
                               - opacity: 0.4
                               - tap_action:
                                   action: call-service
@@ -621,16 +634,18 @@ cards:
                               state: Mop
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Mop
                               - label: Mode
                               - icon: checkbox-multiple-blank-circle-outline
                               - off_spin: true
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
+                              - ha-card-background: var(--homekit-card-on) # Changed/Added in 0.12.3
                               - off_icon_color: navy
                               - off_name_color: black
+                              - off_label_color: gray # Changed/Added in 0.12.3
                               - opacity: 1.0
                               - tap_action:
                                   action: call-service
@@ -647,15 +662,14 @@ cards:
                               state_not: Mop
                           card:
                             type: 'custom:decluttering-card'
-                            template: button # Changed/Added in 0.12.2
+                            template: button
                             variables:
                               - entity: input_boolean.dummy1
                               - name: Mop
                               - label: Mode
                               - icon: checkbox-multiple-blank-circle-outline
-                              - show_state: false
+                              - show_state: false # Changed/Added in 0.12.3
                               - color: gray
-                              - off_name_color: black
                               - opacity: 0.4
                               - tap_action:
                                   action: call-service
@@ -678,23 +692,23 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '#### < Presets'
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Manual'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Manual Zoned Cleaning
                       - icon: map
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - show_icon: false
                       - color: gray
                       - opacity: 0.8
@@ -713,19 +727,19 @@ cards:
                           haptic: light
                   - !include ../includes/blank-card.yaml
               - type: custom:decluttering-card
-                template: header # Changed/Added in 0.12.2
+                template: header
                 variables:
                   - content: '##### Automatic'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Kleine Kamer
                       - icon: desktop-tower-monitor
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -739,12 +753,12 @@ cards:
                         hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Woonkamer
                       - icon: sofa
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -758,12 +772,12 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Slaapkamer
                       - icon: hotel
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -781,12 +795,12 @@ cards:
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Gang
                       - icon: glassdoor
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -800,12 +814,12 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Keuken
                       - icon: fridge-outline
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -819,12 +833,12 @@ cards:
                       - hold_action:
                           action: none
                   - type: 'custom:decluttering-card'
-                    template: button # Changed/Added in 0.12.2
+                    template: button
                     variables:
                       - entity: input_boolean.dummy1
                       - name: Hal
                       - icon: door
-                      - show_state: false
+                      - show_state: false # Changed/Added in 0.12.3
                       - color: gray
                       - opacity: 0.8
                       - tap_action:
@@ -858,7 +872,7 @@ cards:
               }
             content: '# [[ sensor.time.state ]]'
           - type: custom:decluttering-card
-            template: header # Changed/Added in 0.12.2
+            template: header
             variables:
               - content: '##### Manual Zoned Cleaning'
           - type: horizontal-stack

@@ -4,24 +4,24 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu 
         variables:
           - name1: Lights
           - icon1: floor-lamp
           - path1: lights
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header 
         variables:
           - content: '## Scenes'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header 
         variables:
           - content: '##### Presets'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_dagverlichting
               - name: Dag
@@ -35,7 +35,7 @@ cards:
                     entity_id: scene.dagverlichting
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_avondverlichting
               - name: Avond
@@ -49,7 +49,7 @@ cards:
                     entity_id: scene.avondverlichting
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_nachtverlichting
               - name: Nacht
@@ -67,7 +67,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: group.scene_schoonmaken_on
               - name: Schoonmaken
@@ -80,7 +80,7 @@ cards:
                     entity_id: scene.schoonmaken
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.dummy1
               - name: Film Kijken
@@ -93,7 +93,7 @@ cards:
                     entity_id: scene.living_movie
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_lichtuit
               - name: Alle Lampen
@@ -111,7 +111,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: group.scene_koken_on
               - name: Koken
@@ -124,7 +124,7 @@ cards:
                     entity_id: scene.koken
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: group.scene_wassen_on
               - name: Wassen
@@ -137,7 +137,7 @@ cards:
                     entity_id: scene.wassen
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: group.scene_naarbed
               - name: Naar Bed
@@ -154,7 +154,7 @@ cards:
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_klaar_met_koken
               - name: Klaar met
@@ -168,7 +168,7 @@ cards:
                     entity_id: scene.klaar_met_koken
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_klaar_met_wassen
               - name: Klaar met
@@ -182,7 +182,7 @@ cards:
                     entity_id: scene.klaar_met_wassen
                   haptic: light
           - type: custom:decluttering-card
-            template: button # Changed/Added in 0.12.2
+            template: button 
             variables:
               - entity: input_boolean.scene_welterusten
               - name: Welterusten

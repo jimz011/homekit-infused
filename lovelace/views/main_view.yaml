@@ -28,7 +28,7 @@ cards:
               }
             content: '# [[ sensor.time.state ]]'
           - type: custom:decluttering-card
-            template: header # Changed/Added in 0.12.2
+            template: header
             variables:
               - content: '##### Frontdoor Camera'
           - type: horizontal-stack

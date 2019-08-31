@@ -4,26 +4,26 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2
+        template: quick-access-menu
         variables:
           - name1: Laundry
           - icon1: washing-machine
           - path1: laundry
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Energy Consumption'
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Current'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_current
               - name: Wasmachine
               - line_color: '#ffb414'
@@ -32,9 +32,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_current
               - name: Droger
               - line_color: '#ffb414'
@@ -43,9 +43,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_current
               - name: Vaatwasser
               - line_color: '#ffb414'
@@ -55,16 +55,16 @@ cards:
               - font_size: 65
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Power'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_power
               - name: Wasmachine
               - line_color: '#1427ff'
@@ -73,9 +73,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_power
               - name: Droger
               - line_color: '#1427ff'
@@ -84,9 +84,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_power
               - name: Vaatwasser
               - line_color: '#1427ff'
@@ -96,16 +96,16 @@ cards:
               - font_size: 65
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Voltage'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_voltage
               - name: Wasmachine
               - line_color: '#00d8ff'
@@ -114,9 +114,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_voltage
               - name: Droger
               - line_color: '#00d8ff'
@@ -125,9 +125,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_voltage
               - name: Vaatwasser
               - line_color: '#00d8ff'
@@ -160,16 +160,16 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Energy Today'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_today
               - name: Wasmachine
               - line_color: '#bf00ff'
@@ -178,9 +178,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_today
               - name: Droger
               - line_color: '#bf00ff'
@@ -189,9 +189,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_today
               - name: Vaatwasser
               - line_color: '#bf00ff'
@@ -201,16 +201,16 @@ cards:
               - font_size: 65
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Energy Yesterday'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_yesterday
               - name: Wasmachine
               - line_color: '#c20202'
@@ -219,9 +219,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_yesterday
               - name: Droger
               - line_color: '#c20202'
@@ -230,9 +230,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_yesterday
               - name: Vaatwasser
               - line_color: '#c20202'
@@ -242,16 +242,16 @@ cards:
               - font_size: 65
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '##### Energy Total'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.wasmachine_energy_total
               - name: Wasmachine
               - line_color: '#00ff95'
@@ -260,9 +260,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.droger_energy_total
               - name: Droger
               - line_color: '#00ff95'
@@ -271,9 +271,9 @@ cards:
               - decimals: 0
               - font_size: 65
           - type: custom:decluttering-card
-            template: mini-graph  # Changed/Added in 0.12.2
+            template: mini-graph 
             variables:
-              - entities: # Changed/Added in 0.12.2
+              - entities:
                   - sensor.vaatwasser_energy_total
               - name: Vaatwasser
               - line_color: '#00ff95'

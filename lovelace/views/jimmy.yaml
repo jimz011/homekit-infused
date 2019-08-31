@@ -4,13 +4,13 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: quick-access-menu # Changed/Added in 0.12.2 
+        template: quick-access-menu 
         variables:
           - name1: PostNL
           - icon1: package-variant-closed 
           - path1: postnl-jimmy 
       - type: custom:decluttering-card
-        template: header # Changed/Added in 0.12.2
+        template: header
         variables:
           - content: '## Jimmy Schings'
       - type: custom:decluttering-card
@@ -19,4 +19,5 @@ cards:
           - name: jimmy
           - name-s: Jimmy's
           - emailsensor: !secret jimsensor
-          - number: '16'
+          - sensor_battery_state: sensor.battery_state_2 # Changed/Added in 0.12.3
+          - sensor_battery_level: sensor.battery_level_2 # Changed/Added in 0.12.3
