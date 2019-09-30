@@ -1,91 +1,147 @@
+# Lights
+light.nachtkastje_jimmy:
+  icon: mdi:lamp
+  friendly_name: Jimmy
+light.nachtkastje_stephanie:
+  icon: mdi:lamp
+  friendly_name: Stephanie
+light.bijkeuken:
+  icon: mdi:ceiling-light
+light.balkonlamp:
+  icon: mdi:wall-sconce
+light.toiletlamp:
+  icon: mdi:ceiling-light
+light.woonkamer_led_lampen:
+  friendly_name: Woonkamer
+  icon: mdi:led-strip
+light.slaapkamer_led_lampen:
+  friendly_name: Slaapkamer
+  icon: mdi:led-strip
+light.gateway_light_7811dcdef324:
+  friendly_name: Gateway LED
+  icon: mdi:led-strip
+light.officeled:
+  friendly_name: Kleine Kamer
+  icon: mdi:led-strip
+light.plafond:
+  icon: mdi:ceiling-light
+  friendly_name: Woonkamer
+light.eettafel:
+  icon: mdi:ceiling-light
+light.vloerlamp:
+  icon: mdi:floor-lamp
+light.tafellamp:
+  icon: mdi:lamp
+light.gang_lamp:
+  icon: mdi:ceiling-light
+light.entree_lamp:
+  icon: mdi:ceiling-light
+light.berging:
+  icon: mdi:ceiling-light
+light.kleine_kamer:
+  icon: mdi:ceiling-light
+light.keuken:
+  icon: mdi:ceiling-light
+light.keukenspots:
+  friendly_name: Spotjes
+  icon: mdi:track-light
+switch.koogeek_sw_056ce9:
+  friendly_name: Badkamer
+  icon: mdi:ceiling-light
+light.slaapkamer_kast:
+  icon: mdi:ceiling-light
+light.slaapkamer_bed:
+  icon: mdi:ceiling-light
+
+# Devices
+switch.pc_van_jimmy:
+  icon: mdi:desktop-tower-monitor
+switch.pc_van_stephanie:
+  icon: mdi:desktop-tower-monitor
+switch.windows_server_2016:
+  icon: mdi:server-network
+switch.windows_server_2016_backup:
+  icon: mdi:server-network
+switch.hyper_v_server_2016:
+  icon: mdi:server-network
+switch.media_server:
+  icon: mdi:server-network
+switch.waterkoker:
+  icon: mdi:cup-water
+switch.samsung_tv:
+  icon: mdi:television
+  friendly_name: TV Woonkamer
+switch.tv_slaapkamer:
+  icon: mdi:television
 switch.ventilator:
   icon: mdi:fan
 switch.afzuigkap:
   icon: mdi:fan
-light.nachtkastje_stephanie_2:
-  icon: mdi:lamp
-light.nachtkastje_jimmy:
-  icon: mdi:lamp
-switch.pc_van_jimmy:
-  icon: mdi:desktop-classic
-switch.pc_van_stephanie:
-  icon: mdi:desktop-classic
-switch.waterkoker:
+switch.receiver:
+  icon: mdi:set-top-box
+switch.receiver_slaapkamer:
+  icon: mdi:set-top-box
+switch.printer:
+  icon: mdi:printer-wireless
+switch.xbox_one:
+  icon: mdi:xbox 
+switch.air_fryer:
+  icon: mdi:panorama-fisheye
+switch.cappumaker:
   icon: mdi:coffee-outline
-light.bijkeukenlamp:
-  friendly_name: Bijkeuken
-light.balkonlamp:
-  friendly_name: Balkon
-light.toiletlamp:
-  friendly_name: Toilet
-light.keukenlamp_a:
-  friendly_name: Keuken Lamp A
-light.keukenlamp_b:
-  friendly_name: Keuken Lamp B
-light.keukenlamp_c:
-  friendly_name: Keuken Lamp C
+switch.vaatwasser:
+  icon: mdi:dishwasher
+switch.droger:
+  icon: mdi:tumble-dryer
+switch.wasmachine:
+  icon: mdi:washing-machine
+switch.oven:
+  icon: mdi:toaster-oven
+
+# Sensors
+binary_sensor.voordeur:
+  icon: mdi:door
+binary_sensor.woonkamer_deur:
+  icon: mdi:door
+binary_sensor.slaapkamer_deur:
+  icon: mdi:door
+binary_sensor.dafang_motion_sensor:
+  friendly_name: Gallerij
+  icon: mdi:walk
+binary_sensor.motion_bijkeuken:
+  icon: mdi:walk
+binary_sensor.motion_toilet:
+  icon: mdi:walk
+binary_sensor.tradfri_motion_sensor:
+  icon: mdi:walk
+binary_sensor.fire_30:
+  icon: mdi:smoke-detector
+
+# Person
 person.stephanie:
   entity_picture: /local/images/stephanie_small.png
 person.jimmy:
   entity_picture: /local/images/jimmy_small.png
-switch.samsung_tv:
-  icon: mdi:television
-light.woonkamer_led_lampen:
-  friendly_name: Woonkamer LEDs
-light.slaapkamer_led_lampen:
-  friendly_name: Slaapkamer LEDs
-light.keuken_spotjes:
-  friendly_name: Keuken Spotjes
-binary_sensor.door_window_sensor_158d000236f9dd:
-  friendly_name: Voordeur
-binary_sensor.door_window_sensor_158d000232ac1b:
-  friendly_name: Slaapkamerdeur
-binary_sensor.door_window_sensor_158d000238644b:
-  friendly_name: Woonkamer Deur
-light.gateway_light_7811dcdef324:
-  friendly_name: Xiaomi Gateway LED
-sensor.illumination_7811dcdef324:
-  friendly_name: Woonkamer Lichtopbrengst
-sensor.temperature_158d00020ed06c:
-  friendly_name: Woonkamer Temperatuur
-sensor.humidity_158d00020ed06c:
-  friendly_name: Woonkamer Luchtvochtigheid
-binary_sensor.motion_sensor_158d00024e687d:
-  friendly_name: Toilet Bewegingssensor
-sensor.illumination_158d00024e687d:
-  friendly_name: Toilet Lichtopbrengst
-media_player.samsung_tv_remote:
-  friendly_name: Samsung TV
-binary_sensor.motion_sensor_158d0002b7eec9:
-  friendly_name: Bijkeuken Bewegingssensor
-sensor.illumination_158d0002b7eec9:
-  friendly_name: Bijkeuken Lichtopbrengst
-sensor.humidity_158d0002b546e7:
-  friendly_name: Slaapkamer Luchtvochtigheid
-sensor.temperature_158d0002b546e7:
-  friendly_name: Slaapkamer Temperatuur
-binary_sensor.smoke_sensor_158d000287ab41:
-  friendly_name: Rookmelder Keuken
-sensor.humidity_158d0002b54868:
-  friendly_name: Badkamer Luchtvochtigheid
-sensor.temperature_158d0002b54868:
-  friendly_name: Badkamer Temperatuur
-sensor.pressure_158d0002b546e7:
-  friendly_name: Slaapkamer Luchtdruk
-sensor.pressure_158d0002b54868:
-  friendly_name: Badkamer Luchtdruk
-light.tradfri_bulb_e27_ws_opal_980lm_4:
-  friendly_name: Berging Lamp
-sensor.washing_machine_status:
-  icon: mdi:washing-machine
-sensor.dishwasher_status:
-  icon: mdi:dishwasher
-sensor.dryer_status:
-  icon: mdi:tumble-dryer
+person.tala:
+  entity_picture: /local/images/tala.png
+
+# Afvalbeheer
+sensor.cure_gft:
+  entity_picture: /local/images/afvalbeheer/afval_gft_small.png
+sensor.cure_pmd:
+  entity_picture: /local/images/afvalbeheer/afval_pmd_small.png
+sensor.cure_papier:
+  entity_picture: /local/images/afvalbeheer/afval_papier_small.png
+sensor.cure_restafval:
+  entity_picture: /local/images/afvalbeheer/afval_rest_small.png
+
+# Media Players
 media_player.samsung_tv_ue65ku6000:
   device_class: tv
 media_player.samsung_tv_ue46es5500:
   device_class: tv
+
+# Template Sensors
 sensor.vacuum_battery:
   device_class: battery
   unit_of_measurement: '%'

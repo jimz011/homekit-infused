@@ -25,10 +25,10 @@
   scene_welterusten:
   scene_lichtuit:
 
-# Testing Purposes
+# Frontpage Alarm Button
   simple_alarm:
 
-# Notification input_booleans # Changed/Added in 0.12.0
+# Notification input_booleans
   notification_afzuigkap:
   notification_slaapkamer_deur:
   notification_voordeur:
@@ -47,3 +47,8 @@
   notification_anniversary:
   notification_birthday:
   notification_apk:
+  notification_motion_gang: # Changed/Added in 0.13.0
+  notification_current_lights: # Changed/Added in 0.13.0
+  notification_current_devices: # Changed/Added in 0.13.0
+  notification_current_radiators: # Changed/Added in 0.13.0
+  notification_current_sensors: # Changed/Added in 0.13.0

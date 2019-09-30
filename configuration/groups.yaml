@@ -97,7 +97,7 @@
       - light.officeled
   scene_dagverlichting_off:
     entities:
-      - switch.keukenspots
+      - light.keukenspots
       - light.keuken
       - light.slaapkamer_led_lampen
       - light.entree_lamp
@@ -117,7 +117,7 @@
       - light.woonkamer_led_lampen
       - light.gateway_light_7811dcdef324
       - light.officeled
-      - switch.keukenspots
+      - light.keukenspots
       - light.kleine_kamer
       - light.vloerlamp
       - light.tafellamp
@@ -136,7 +136,7 @@
       - light.woonkamer_led_lampen
       - light.gateway_light_7811dcdef324
       - light.officeled
-      - switch.keukenspots
+      - light.keukenspots
   scene_nachtverlichting_off:
     entities:
       - light.keuken
@@ -162,7 +162,7 @@
       - light.tafellamp
       - light.kleine_kamer
       - light.officeled
-      - switch.keukenspots 
+      - light.keukenspots 
       - light.nachtkastje_jimmy
       - light.nachtkastje_stephanie
       - light.slaapkamer_led_lampen
@@ -183,6 +183,7 @@
       - switch.cappumaker
       - light.entree_lamp 
       - light.gang_lamp 
+      - switch.oven
   scene_schoonmaken_on:
     all: true
     entities:
@@ -243,19 +244,26 @@
   scene_koken_on:
     all: true
     entities:
-      - switch.keukenspots
+      - light.keukenspots
       - light.keuken
       - switch.waterkoker
       - switch.air_fryer
-      - switch.tradfri_outlet
+      - switch.afzuigkap
+      - switch.oven
   scene_koken_off:
     entities:
-      - switch.keukenspots
+      - light.keukenspots
       - light.keuken
       - switch.waterkoker
       - switch.air_fryer
-      - switch.tradfri_outlet
+      - switch.oven
+      - switch.afzuigkap
   theme_selector:
     entities:
       - automation.set_light_theme_for_the_day
       - automation.set_light_theme_for_the_night
+
+  televisions:
+    entities:
+      - media_player.samsung_tv_ue46es5500
+      - media_player.samsung_tv_ue65ku6000

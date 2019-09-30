@@ -18,54 +18,63 @@
       to: 'on'
   action:
     - data:
-        entity_id: group.samsung_tv
-      service: homeassistant.turn_on
-      
-
-# WHEN APPLE TV TURNS ON, TURN ON EVERYTHING
-- alias: APPLE TV Turn ON everything
+        entity_id: switch.receiver
+      service: switch.turn_on
+- alias: Samsung TV Turn OFF sony
   initial_state: 'true'
   trigger:
-  - entity_id: media_player.woonkamer_apple_tv
-    platform: state
-    from: 'off'
-  action:
-  - data:
-      entity_id: group.samsung_tv
-    service: homeassistant.turn_on
-
-- alias: APPLE TV idle turn off
-  initial_state: 'true'
-  trigger:
-    - entity_id: media_player.woonkamer_apple_tv
-      platform: state
-      to: 'idle'
-      for:
-        seconds: 300
-    - entity_id: media_player.woonkamer_apple_tv
+    - entity_id: media_player.samsung_tv_ue65ku6000
       platform: state
       to: 'off'
   action:
     - data:
-        entity_id: group.samsung_tv
-      service: homeassistant.turn_off
-    - data:
-        entity_id: media_player.samsung_tv_ue65ku6000
-      service: media_player.turn_off
-    - data:
-        entity_id: switch.samsung_tv
+        entity_id: switch.receiver
       service: switch.turn_off
 
-- alias: Samsung TV off turns on automation
-  initial_state: 'true'
-  trigger:
-  - entity_id: media_player.samsung_tv_ue65ku6000
-    platform: state
-    to: 'off'
-  action:
-  - data:
-      entity_id: automation.apple_tv_idle_turn_off
-    service: automation.turn_on
+# WHEN APPLE TV TURNS ON, TURN ON EVERYTHING
+#- alias: APPLE TV Turn ON everything
+#  initial_state: 'true'
+#  trigger:
+#  - entity_id: media_player.woonkamer_apple_tv
+#    platform: state
+#    from: 'off'
+#  action:
+#  - data:
+#      entity_id: group.samsung_tv
+#    service: homeassistant.turn_on
+#
+#- alias: APPLE TV idle turn off
+#  initial_state: 'true'
+#  trigger:
+#    - entity_id: media_player.woonkamer_apple_tv
+#      platform: state
+#      to: 'idle'
+#      for:
+#        seconds: 300
+#    - entity_id: media_player.woonkamer_apple_tv
+#      platform: state
+#      to: 'off'
+#  action:
+#    - data:
+#        entity_id: group.samsung_tv
+#      service: homeassistant.turn_off
+#    - data:
+#        entity_id: media_player.samsung_tv_ue65ku6000
+#      service: media_player.turn_off
+#    - data:
+#        entity_id: switch.samsung_tv
+#      service: switch.turn_off
+
+# - alias: Samsung TV off turns on automation
+#   initial_state: 'true'
+#   trigger:
+#   - entity_id: media_player.samsung_tv_ue65ku6000
+#     platform: state
+#     to: 'off'
+#   action:
+#   - data:
+#       entity_id: automation.apple_tv_idle_turn_off
+#     service: automation.turn_on
 
 # WHEN PHILIPS TV TURNS ON, TURN APPLE REMOTE ON  
 - alias: Philips TV Turn ON
@@ -74,11 +83,7 @@
     - entity_id: switch.tv_slaapkamer
       platform: state
       to: 'on'
-  condition: []
   action:
-    - data:
-        entity_id: remote.slaapkamer_apple_tv
-      service: remote.turn_on
     - data:
         entity_id: switch.receiver_slaapkamer
       service: switch.turn_on
@@ -90,11 +95,7 @@
   - entity_id: switch.tv_slaapkamer
     platform: state
     to: 'off'
-  condition: []
   action:
-  - data:
-      entity_id: remote.slaapkamer_apple_tv
-    service: remote.turn_off
   - data:
       entity_id: switch.receiver_slaapkamer
     service: switch.turn_off
@@ -291,21 +292,6 @@
         push:
           sound: default
     
-# WHEN KEUKENLAMP TURNS OFF, KEUKENSPOTS TURNS OFF
-- id: '1533498185749'
-  alias: Keukenlamp turns off Keukenspotjes
-  initial_state: 'true'
-  trigger:
-  - entity_id: light.keuken
-    from: 'on'
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - data:
-      entity_id: switch.keukenspots
-    service: switch.turn_off
-    
 # WHEN KEUKENLAMP TURNS ON, TURN KEUKENSPOTS ON (FROM 19.00H-06.00H)
 - id: '1533504863293'
   alias: Keukenspotjes aan
@@ -324,8 +310,8 @@
         condition: sun
   action:
   - data:
-      entity_id: switch.keukenspots
-    service: switch.turn_on
+      entity_id: light.keukenspots
+    service: light.turn_on
 
 # WHEN KEUKENLAMP TURNS OFF, BIJKEUKENLAMP TURNS OFF
 - alias: keuken_bijkeuken_uit
@@ -1072,6 +1058,7 @@
           latitude: !secret latitude1
           longitude: !secret longitude1
 
+# Changed/Added in 0.13.0 below
 # Set theme on startup
 - alias: 'Set theme light at startup'
   initial_state: 'true'
@@ -1085,7 +1072,7 @@
   action:
     service: frontend.set_theme
     data:
-      name: Homekit Gray Light
+      name: Silver
 
 - alias: 'Set theme dark at startup'
   initial_state: 'true'
@@ -1099,18 +1086,18 @@
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Dark
+        name: Space Gray
 # Theme Selector Automations
 - alias: 'theme selector input_select 1'
   initial_state: true
   trigger:
     - platform: state
       entity_id: input_select.theme_selector
-      to: 'Homekit Gray Light'
+      to: 'Silver'
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Light
+        name: Silver
     - service: homeassistant.turn_off
       data:
         entity_id: group.theme_selector
@@ -1119,11 +1106,11 @@
   trigger:
     - platform: state
       entity_id: input_select.theme_selector
-      to: 'Homekit Gray Dark'
+      to: 'Space Gray'
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Dark
+        name: Space Gray
     - service: homeassistant.turn_off
       data:
         entity_id: group.theme_selector
@@ -1132,90 +1119,64 @@
   trigger:
     - platform: state
       entity_id: input_select.theme_selector
-      to: 'Homekit Blue Light'
+      to: 'Sweet Pink'
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Blue Light
+        name: Sweet Pink
     - service: homeassistant.turn_off
       data:
         entity_id: group.theme_selector
-- alias: 'theme selector input_select 4'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Homekit Blue Dark'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Homekit Blue Dark
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 5'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Standard Blue Light'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Standard Blue Light
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 6'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Standard Blue Dark'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Standard Blue Dark
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
+# - alias: 'theme selector input_select 4'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.theme_selector
+#       to: 'Red'
+#   action:
+#     - service: frontend.set_theme
+#       data:
+#         name: Red
+#     - service: homeassistant.turn_off
+#       data:
+#         entity_id: group.theme_selector
+# - alias: 'theme selector input_select 5'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.theme_selector
+#       to: 'Blue Light'
+#   action:
+#     - service: frontend.set_theme
+#       data:
+#         name: Blue Light
+#     - service: homeassistant.turn_off
+#       data:
+#         entity_id: group.theme_selector
+# - alias: 'theme selector input_select 6'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.theme_selector
+#       to: 'Blue Dark'
+#   action:
+#     - service: frontend.set_theme
+#       data:
+#         name: Blue Dark
+#     - service: homeassistant.turn_off
+#       data:
+#         entity_id: group.theme_selector
 - alias: 'theme selector input_select 7'
   initial_state: true
   trigger:
     - platform: state
       entity_id: input_select.theme_selector
-      to: 'Automatic (default)'
+      to: 'Auto (default)'
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Dark
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 8'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Standard Gray Light'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Standard Gray Light
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
-- alias: 'theme selector input_select 9'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Standard Gray Dark'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Standard Gray Dark
-    - service: homeassistant.turn_off
+        name: Space Gray
+    - service: homeassistant.turn_on
       data:
         entity_id: group.theme_selector
 - alias: 'theme selector input_select 10'
@@ -1223,27 +1184,15 @@
   trigger:
     - platform: state
       entity_id: input_select.theme_selector
-      to: 'Homekit Orange'
+      to: 'Disable'
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Orange
+        name: Disable
     - service: homeassistant.turn_off
       data:
         entity_id: group.theme_selector
-- alias: 'theme selector input_select 11'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id: input_select.theme_selector
-      to: 'Standard Orange'
-  action:
-    - service: frontend.set_theme
-      data:
-        name: Standard Orange
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.theme_selector
+
 # Theme Day/Night Cycle
 - alias: 'Set dark theme for the night'
   initial_state: true
@@ -1254,7 +1203,7 @@
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Dark
+        name: Space Gray
 - alias: 'Set light theme for the day'
   initial_state: true
   trigger:
@@ -1264,7 +1213,8 @@
   action:
     - service: frontend.set_theme
       data:
-        name: Homekit Gray Light
+        name: Silver
+# Changed/Added in 0.13.0 Above
 
 # 
 #################################################################################
@@ -1974,7 +1924,7 @@
       actionName: SMOKE_UITSCHAKELEN
   action:
     service: homeassistant.turn_off
-    entity_id: binary_sensor.fire_30
+    entity_id: binary_sensor.lumi_sensor_smoke
     
 - alias: iOS Actionable Notification for Alarm
   initial_state: 'true'
@@ -2099,7 +2049,7 @@
   initial_state: 'true'
   trigger:
     - platform: state
-      entity_id: binary_sensor.smoke_sensor_158d000287ab41
+      entity_id: binary_sensor.lumi_sensor_smoke
       to: 'on'
   action:
     - service: notify.ios_notifier
@@ -2216,6 +2166,27 @@
       entity_id: climate.tado_smart_radiator_thermostat_va2898201344
       hvac_mode: "off"
 
+- alias: set tado woonkamer heat other methods
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+    to: 'heat'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.tado_woonkamer
+- alias: set tado woonkamer off other methods
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+    to: 'off'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.tado_woonkamer
+
 - alias: set tado kleine kamer heat
   initial_state: 'true'
   trigger:
@@ -2227,7 +2198,6 @@
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va1671957504
       hvac_mode: heat
-
 - alias: set tado kleine kamer off
   initial_state: 'true'
   trigger:
@@ -2239,6 +2209,27 @@
     data:
       entity_id: climate.tado_smart_radiator_thermostat_va1671957504
       hvac_mode: "off"
+      
+- alias: set tado kleine kamer heat other methods
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+    to: 'heat'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.tado_kleine_kamer
+- alias: set tado kleine kamer off other methods
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+    to: 'off'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.tado_kleine_kamer
       
 ## Scenes Input Booleans (Work in Progress)
 - alias: scene dagverlichting on
@@ -2397,6 +2388,9 @@
   - platform: state
     entity_id: group.scene_koken_on
     to: 'on'
+  - platform: state
+    entity_id: group.scene_koken_off
+    to: 'on'
   action:
   - service: input_boolean.turn_off
     data:
@@ -2417,6 +2411,9 @@
   trigger:
   - platform: state
     entity_id: group.scene_wassen_on
+    to: 'on'
+  - platform: state 
+    entity_id: group.scene_wassen_off
     to: 'on'
   action:
   - service: input_boolean.turn_off
@@ -2812,7 +2809,7 @@
        entity_id: vacuum.xiaomi_vacuum_cleaner
        fan_speed: 105
 
-# deCONZ automations IKEA TRADFRI Remote
+# deCONZ automations IKEA TRADFRI Remote (deCONZ)
 - alias: 'AB Keuken Midden'
   initial_state: 'on'
   trigger:
@@ -2833,8 +2830,8 @@
       id: ab_keuken
       event: 2002
   action:
-    service: switch.toggle
-    entity_id: switch.keukenspots
+    service: light.toggle
+    entity_id: light.keukenspots
 - alias: 'AB Keuken Omlaag'
   initial_state: 'on'
   trigger:
@@ -2869,6 +2866,21 @@
     service: scene.turn_on
     entity_id: scene.koken
 
+- alias: 'AB Slaapkamer Center'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer
+      event: 1002
+  action:
+    - service: light.toggle
+      entity_id: light.slaapkamer
+    - service: light.turn_off
+      entity_id:
+        - light.slaapkamer_kast
+        - light.slaapkamer_bed
 - alias: 'AB Slaapkamer Links'
   initial_state: 'on'
   trigger:
@@ -2891,3 +2903,388 @@
   action:
     service: light.toggle
     entity_id: light.nachtkastje_jimmy
+- alias: 'AB Slaapkamer Boven'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer
+      event: 2001
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.slaapkamer
+        brightness: >
+          {% set bri = state_attr('light.slaapkamer', 'brightness') | int %}
+          {{ [bri+30, 249] | min }}
+- alias: 'AB Slaapkamer Onder'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer
+      event: 3001
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.slaapkamer
+        brightness: >
+          {% set bri = state_attr('light.slaapkamer', 'brightness') | int %}
+          {{ [bri-30, 0] | max }}
+
+# Philips Remote Dimmers (deCONZ)
+
+  # Kleine Kamer
+- alias: 'AB Kleine Kamer Muur Boven'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 1002
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.kleine_kamer
+      - light.officeled
+- alias: 'AB Kleine Kamer Muur Boven Long Press'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 1001
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.officeled
+- alias: 'AB Kleine Kamer Muur 2nd Button'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 2001
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.kleine_kamer
+        brightness: >
+          {% set bri = state_attr('light.kleine_kamer', 'brightness') | int %}
+          {{ [bri+30, 249] | min }}
+- alias: 'AB Kleine Kamer Muur 3d Button'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 3001
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.kleine_kamer
+        brightness: >
+          {% set bri = state_attr('light.kleine_kamer', 'brightness') | int %}
+          {{ [bri-30, 0] | max }}
+- alias: 'AB Kleine Kamer Muur Onder'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 4002
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.kleine_kamer
+- alias: 'AB Kleine Kamer Muur Onder Long Press'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_kleine_kamer_muur
+      event: 4001
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.officeled
+
+  # Slaapkamer
+- alias: 'AB Slaapkamer Muur Boven'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 1002
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.nachtkastje_jimmy
+      - light.nachtkastje_stephanie
+      - light.vloerled
+      - light.bedled
+      - light.slaapkamer_bed
+      - light.slaapkamer_kast
+- alias: 'AB Slaapkamer Muur Boven Long Press'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 1001
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.vloerled
+      - light.bedled
+- alias: 'AB Slaapkamer Muur 2nd Button'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 2002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.slaapkamer_kast
+- alias: 'AB Slaapkamer Muur 2nd Button Long Press'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 2001
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.nachtkastje_stephanie
+- alias: 'AB Slaapkamer Muur 3d Button'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 3002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.slaapkamer_bed
+- alias: 'AB Slaapkamer Muur 3d Button Long Press'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 3001
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.nachtkastje_jimmy
+- alias: 'AB Slaapkamer Muur Onder'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 4002
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.nachtkastje_jimmy
+      - light.nachtkastje_stephanie
+      - light.vloerled
+      - light.bedled
+      - light.slaapkamer_bed
+      - light.slaapkamer_kast
+# Grocy Test Automations
+- alias: Dishwasher consume tablet clean
+  trigger:
+    - platform: state
+      entity_id: sensor.vaatwasser_status_2
+      to: Clean
+      for:
+        minutes: 5
+  action:
+    - service: grocy.consume_product
+      data:
+        product_id: 3
+        amount: 1
+        spoiled: false
+        transaction_type: CONSUME
+
+
+# Changed/Added in 0.13.0 Below
+# Input Select Beautifier
+- alias: input select beautifier 1 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: None
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: none
+- alias: input select beautifier 2 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: Small
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: 1px 1px 1px 0px rgba(0,0,0,0.75)
+- alias: input select beautifier 3 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: Standard
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: 2px 2px 2px 0px rgba(0,0,0,0.75)
+- alias: input select beautifier 4 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: Medium
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: 3px 3px 3px 0px rgba(0,0,0,0.75)
+- alias: input select beautifier 5 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: Large
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: 5px 5px 5px 0px rgba(0,0,0,0.75)
+- alias: input select beautifier 6 box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+    to: Huge
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.box_shadow
+      option: 7px 7px 7px 0px rgba(0,0,0,0.75)
+
+- alias: input select beautifier 1 border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.border_radius_selector
+    to: None
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.border_radius
+      option: 0px
+- alias: input select beautifier 2 border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.border_radius_selector
+    to: Small
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.border_radius
+      option: 6px
+- alias: input select beautifier 3 border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.border_radius_selector
+    to: Standard
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.border_radius
+      option: 12px
+- alias: input select beautifier 4 border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.border_radius_selector
+    to: Large
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.border_radius
+      option: 18px
+
+- alias: input select beautifier 1 qam-border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.qam_border_radius_selector
+    to: None
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.qam_border_radius
+      option: 0px
+- alias: input select beautifier 2 qam-border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.qam_border_radius_selector
+    to: Small
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.qam_border_radius
+      option: 3px
+- alias: input select beautifier 3 qam-border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.qam_border_radius_selector
+    to: Standard
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.qam_border_radius
+      option: 6px
+- alias: input select beautifier 4 qam-border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.qam_border_radius_selector
+    to: Large
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.qam_border_radius
+      option: 9px
