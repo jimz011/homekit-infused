@@ -1,8 +1,0 @@
-{
-    "domain": "plex_recently_added",
-    "name": "Plex Recently Added",
-    "documentation": "https://github.com/custom-components/sensor.plex_recently_added",
-    "dependencies": [],
-    "codeowners": ["@maykar"],
-    "requirements": []
-  }
