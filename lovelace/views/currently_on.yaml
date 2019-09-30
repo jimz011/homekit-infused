@@ -1,66 +1,78 @@
-title: Currently On
-path:  currently-on
-cards:    
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '## Device Events'
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Currently ON'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: 'custom:auto-entities'
-            card:
-              type: glance
-              columns: 3
-              show_empty: true
-              style: |
-                ha-card {
-                  border-radius: var(--border-radius);
-                  background: var(--homekit-card-off);
-                  color: var(--name-color-off);
-                  font-size: 12px;
-                  font-family: Helvetica;
-                }
-            filter:
-              include:
-                - state: 'on'
-              exclude:
-                - entity_id: '*tools_*'
-                - domain: scene
-                - domain: automation
-                - domain: group
-                - domain: input_boolean
-                - entity_id: sensor.dafang_light_sensor
-                - entity_id: switch.dafang_blue_led
-                - entity_id: switch.dafang_h264_rtsp_server
-                - entity_id: switch.dafang_ir_filter
-                - entity_id: switch.dafang_ir_led
-                - entity_id: switch.dafang_mjpeg_rtsp_server
-                - entity_id: switch.dafang_motion_detection
-                - entity_id: switch.dafang_motion_send_mail
-                - entity_id: switch.dafang_motion_send_telegram
-                - entity_id: switch.dafang_motion_tracking
-                - entity_id: switch.dafang_night_mode
-                - entity_id: switch.dafang_night_mode_auto
-                - entity_id: switch.dafang_yellow_led
-                - entity_id: light.bankled
-                - entity_id: light.tvled
-                - entity_id: light.dressoirled
-                - entity_id: light.vloerled
-                - entity_id: light.bedled
-                - entity_id: light.keukenlamp_a
-                - entity_id: light.keukenlamp_b
-                - entity_id: light.keukenlamp_c
-                - entity_id: light.kleine_kamer_lamp_a
-                - entity_id: light.kleine_kamer_lamp_b
-                - entity_id: light.kleine_kamer_lamp_c                                                            
-          - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml
+- title: Currently On
+  path:  currently-on
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '## Device Events'
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Currently ON'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:auto-entities'
+              card:
+                type: glance
+                columns: 3
+                show_empty: true
+                style: |
+                  ha-card {
+                    background: var(--card-color-off);
+                    color: var(--name-color-off);
+                    border-radius: {{ states('input_select.border_radius') }};
+                    box-shadow: {{ states('input_select.box_shadow') }};
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    opacity: 0.8;
+                  }
+              filter:
+                include:
+                  - state: 'on'
+                exclude:
+                  - entity_id: '*tools_*'
+                  - domain: scene
+                  - domain: automation
+                  - domain: group
+                  - domain: input_boolean
+                  - domain: calendar
+                  - entity_id: sensor.dafang_light_sensor
+                  - entity_id: switch.dafang_blue_led
+                  - entity_id: switch.dafang_h264_rtsp_server
+                  - entity_id: switch.dafang_ir_filter
+                  - entity_id: switch.dafang_ir_led
+                  - entity_id: switch.dafang_mjpeg_rtsp_server
+                  - entity_id: switch.dafang_motion_detection
+                  - entity_id: switch.dafang_motion_send_mail
+                  - entity_id: switch.dafang_motion_send_telegram
+                  - entity_id: switch.dafang_motion_tracking
+                  - entity_id: switch.dafang_night_mode
+                  - entity_id: switch.dafang_night_mode_auto
+                  - entity_id: switch.dafang_yellow_led
+                  - entity_id: light.bankled
+                  - entity_id: light.tvled
+                  - entity_id: light.dressoirled
+                  - entity_id: light.vloerled
+                  - entity_id: light.bedled
+                  - entity_id: light.keuken_1
+                  - entity_id: light.keuken_2
+                  - entity_id: light.keuken_3
+                  - entity_id: light.kleine_kamer_1
+                  - entity_id: light.kleine_kamer_2
+                  - entity_id: light.kleine_kamer_3  
+                  - entity_id: light.tradfri_remote_control_19
+                  - entity_id: light.tradfri_remote_control_2
+                  - entity_id: light.woonkamer
+                  - entity_id: light.slaapkamer
+                  - entity_id: light.toilet
+                  - entity_id: light.balkon
+                  - entity_id: light.berging_2  
+                  - entity_id: light.7d7bd7a8_afe98ecf 
+                  - entity_id: light.e061ed37_e1d8f461     
+            - !include ../includes/blank-card.yaml
+        - !include ../includes/bottom-card.yaml  

@@ -19,7 +19,7 @@ cards:
   # All Clear
   - type: conditional
     conditions:
-      - entity: binary_sensor.fire_30
+      - entity: binary_sensor.lumi_sensor_smoke
         state: "off"
       - entity: binary_sensor.voordeur
         state: "off"
@@ -59,7 +59,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_alles_rustig
-            - icon: check-box-outline
+            - icon: mdi:check-box-outline # Changed/Added in 0.13.0
             - name: Alles is rustig, er zijn geen meldingen
             - card_color: 'rgba(157, 0, 255, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -67,7 +67,7 @@ cards:
   # Smoke Detector Triggered
   - type: conditional
     conditions:
-      - entity: binary_sensor.fire_30
+      - entity: binary_sensor.lumi_sensor_smoke
         state: "on"
     card:
       type: horizontal-stack
@@ -77,7 +77,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_smoke_detector
-            - icon: smoke-detector
+            - icon: mdi:smoke-detector # Changed/Added in 0.13.0
             - name: Er is rook gesignaleerd in de keuken!!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
@@ -96,7 +96,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_alarm
-            - icon: alert
+            - icon: mdi:alert # Changed/Added in 0.13.0
             - name: LET OP! Het alarm is afgegaan, LET OP!
             - card_color: 'rgba(255, 0, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -116,7 +116,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_alarm
-            - icon: alert
+            - icon: mdi:alert # Changed/Added in 0.13.0
             - name: LET OP! Het alarm is ingeschakeld!
             - card_color: 'rgba(255, 0, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -136,7 +136,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_alarm
-            - icon: alert
+            - icon: mdi:alert # Changed/Added in 0.13.0
             - name: Er is niemand meer thuis, schakel het alarm in!
             - card_color: 'rgba(255, 110, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -154,7 +154,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_alarm
-            - icon: clock-alert-outline
+            - icon: mdi:clock-alert-outline # Changed/Added in 0.13.0
             - name: Het alarm wordt ingeschakeld, verlaat het pand!
             - card_color: 'rgba(255, 90, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -172,7 +172,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_afzuigkap
-            - icon: fan
+            - icon: mdi:fan # Changed/Added in 0.13.0
             - name: De afzuigkap staat aan!
             - card_color: 'rgba(0, 245, 224, 0.5)'
             - spin: true
@@ -191,7 +191,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_voordeur
-            - icon: door
+            - icon: mdi:door # Changed/Added in 0.13.0
             - name: De voordeur staat open!
             - card_color: 'rgba(160, 40, 40, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -209,7 +209,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_woonkamer_deur
-            - icon: door
+            - icon: mdi:door # Changed/Added in 0.13.0
             - name: De woonkamerdeur staat open!
             - card_color: 'rgba(193, 2, 214, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -227,7 +227,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_slaapkamer_deur
-            - icon: door
+            - icon: mdi:door # Changed/Added in 0.13.0
             - name: De slaapkamerdeur staat open!
             - card_color: 'rgba(13, 266, 20, 0.5)'
         - !include ../includes/blank-card.yaml     
@@ -245,7 +245,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_droger
-            - icon: tumble-dryer
+            - icon: mdi:tumble-dryer # Changed/Added in 0.13.0
             - name: De droger is klaar!
             - card_color: 'rgba(176, 66, 44, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -263,7 +263,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_wasmachine
-            - icon: washing-machine
+            - icon: mdi:washing-machine # Changed/Added in 0.13.0
             - name: De wasmachine is klaar!
             - card_color: 'rgba(225, 237, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -281,7 +281,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vaatwasser
-            - icon: dishwasher
+            - icon: mdi:dishwasher # Changed/Added in 0.13.0
             - name: De vaatwasser is klaar!
             - card_color: 'rgba(9, 195, 242, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -299,7 +299,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_tala
-            - icon: dog-side
+            - icon: mdi:dog-side # Changed/Added in 0.13.0
             - name: Tala is niet thuis!
             - card_color: 'rgba(0, 255, 251, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -317,7 +317,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_motion_gallerij
-            - icon: motion-sensor
+            - icon: mdi:motion-sensor # Changed/Added in 0.13.0
             - name: Er is beweging op de gallerij
             - card_color: 'rgba(161, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -335,7 +335,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_motion_bijkeuken
-            - icon: motion-sensor
+            - icon: mdi:motion-sensor # Changed/Added in 0.13.0
             - name: Er is beweging in de bijkeuken
             - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -353,9 +353,27 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_motion_toilet
-            - icon: motion-sensor
+            - icon: mdi:motion-sensor # Changed/Added in 0.13.0
             - name: Er is beweging op het toilet
             - card_color: 'rgba(0, 221, 255, 0.5)'
+        - !include ../includes/blank-card.yaml
+
+  # Motion Gang
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.tradfri_motion_sensor
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification
+          variables:
+            - entity: input_boolean.notification_motion_gang
+            - icon: mdi:motion-sensor # Changed/Added in 0.13.0
+            - name: Er is beweging in de gang
+            - card_color: 'rgba(225, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
   # Vacuum Notification (Cleaning)
@@ -371,7 +389,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - name: Johnny is ingechakeld
             - card_color: 'rgba(56, 43, 230, 0.5)'
             - spin: true
@@ -390,7 +408,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - name: Johnny staat stil
             - card_color: 'rgba(56, 43, 230, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -408,7 +426,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - name: Johnny is gepauzeerd
             - card_color: 'rgba(56, 43, 230, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -426,7 +444,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - name: Johnny keert terug naar de dock
             - card_color: 'rgba(56, 43, 230, 0.5)'
             - spin: true
@@ -445,7 +463,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - name: Johnny is vastgelopen
             - card_color: 'rgba(255, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -463,7 +481,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_apk
-            - icon: steering
+            - icon: mdi:steering # Changed/Added in 0.13.0
             - name: "[[[ return `APK Citroën C1 verloopt op ${states['sensor.citroen_c1_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
@@ -482,7 +500,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_apk
-            - icon: steering
+            - icon: mdi:steering # Changed/Added in 0.13.0
             - name: "[[[ return `APK Peugeot 207 SW verloopt op ${states['sensor.peugeot_207_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
@@ -501,7 +519,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_anniversary
-            - icon: steering
+            - icon: mdi:steering # Changed/Added in 0.13.0
             - name: "[[[ return `Vandaag zijn we ${states['sensor.anniversary_trouwdag'].attributes.years} jaar getrouwd!` ]]]"
             - card_color: 'rgba(255, 0, 115, 0.5)'
             - spin: true
@@ -522,7 +540,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: gift-outline
+            - icon: mdi:gift-outline # Changed/Added in 0.13.0
             - name: "[[[ return `Koos van Duuren is vandaag ${states['sensor.birthday_koos_van_duuren'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -540,7 +558,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: gift-outline
+            - icon: mdi:gift-outline # Changed/Added in 0.13.0
             - name: "[[[ return `Jimmy Schings is vandaag ${states['sensor.birthday_jimmy_schings'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -558,7 +576,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: gift-outline
+            - icon: mdi:gift-outline # Changed/Added in 0.13.0
             - name: "[[[ return `Stephanie Schings is vandaag ${states['sensor.birthday_stephanie_schings'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -576,7 +594,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: gift-outline
+            - icon: mdi:gift-outline # Changed/Added in 0.13.0
             - name: "[[[ return `Ralf Vogels is vandaag ${states['sensor.birthday_ralf_vogels'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -594,7 +612,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: gift-outline
+            - icon: mdi:gift-outline # Changed/Added in 0.13.0
             - name: "[[[ return `Jos Schings is vandaag ${states['sensor.birthday_jos_schings'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -612,7 +630,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_tala
-            - icon: dog-side
+            - icon: mdi:dog-side # Changed/Added in 0.13.0
             - name: "[[[ return `Tala is vandaag ${states['sensor.birthday_jimmy_schings'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
             - hold_action:
@@ -632,7 +650,7 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: dog-side
+            - icon: mdi:dog-side # Changed/Added in 0.13.0
             - name: "[[[ return `Ad van Dartel is vandaag ${states['sensor.birthday_ad_van_dartel'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
@@ -650,9 +668,77 @@ cards:
           template: notification
           variables:
             - entity: input_boolean.notification_birthday
-            - icon: dog-side
+            - icon: mdi:dog-side # Changed/Added in 0.13.0
             - name: "[[[ return `Rick Oosterbosch is vandaag ${states['sensor.birthday_rick_oosterbosch'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
+
+
+# Changed/Added in 0.13.0 below # Notifications below only show when the Home Alarm is set to anything other than "disarmed"
+# These notifications do not serve any purpose when the alarm is disarmed as these will not be shown. Why? Well because if the
+# alarm is disarmed then the amount of lights/devices that are currently on are displayed in the buttons in the form of a 
+# notification badge, this makes a second notification in the notifications panel unnecessary and so these will only show when
+# the alarm is set to anything other than "disarmed".
+
+  # Current Lights
+  - type: conditional
+    conditions:
+      - entity: sensor.current_lights_on
+        state_not: "0"
+      - entity: alarm_control_panel.home_alarm
+        state_not: "disarmed"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification
+          variables:
+            - entity: input_boolean.notification_current_lights
+            - icon: mdi:lightbulb # Changed/Added in 0.13.0
+            - name: "[[[ if (states['sensor.current_lights_on'].state < 2) return `Er is 1 lamp ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} lampen ingeschakeld`  ]]]"
+            - card_color: 'rgba(79, 255, 161, 0.5)'
+        - !include ../includes/blank-card.yaml
+
+  # Current Devices
+  - type: conditional
+    conditions:
+      - entity: sensor.current_devices_on
+        state_not: "0"
+      - entity: alarm_control_panel.home_alarm
+        state_not: "disarmed"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification
+          variables:
+            - entity: input_boolean.notification_current_devices
+            - icon: mdi:power-plug # Changed/Added in 0.13.0
+            - name: "[[[ if (states['sensor.current_devices_on'].state < 2) return `Er is 1 apparaat ingeschakeld`; else return `Er zijn ${states['sensor.current_devices_on'].state} apparaten ingeschakeld` ]]]"
+            - card_color: 'rgba(18, 180, 255, 0.5)'
+        - !include ../includes/blank-card.yaml
+
+  # Current Radiator Valves
+  - type: conditional
+    conditions:
+      - entity: sensor.current_radiator_valves_on
+        state_not: "0"
+      - entity: alarm_control_panel.home_alarm
+        state_not: "disarmed"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification
+          variables:
+            - entity: input_boolean.notification_current_radiators
+            - icon: mdi:thermostat # Changed/Added in 0.13.0
+            - name: "[[[ if (states['sensor.current_radiator_valves_on'].state < 2) return `Er is 1 verwarming ingeschakeld`; else return `Er zijn ${states['sensor.current_radiator_valves_on'].state} verwarmingen ingeschakeld`  ]]]"
+            - card_color: 'rgba(255, 0, 76, 0.5)'
+        - !include ../includes/blank-card.yaml
+# Changed/Added in 0.13.0 above
 
   - !include ../includes/bottom-card.yaml

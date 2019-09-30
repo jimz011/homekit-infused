@@ -1,51 +1,51 @@
-title: Media
-path:  media
-cards:    
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu
-        variables:
-          - name1: Downloads
-          - icon1: download
-          - path1: downloads
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '## Upcoming Media'
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Series'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: 'custom:upcoming-media-card'
-            style: |
-              ha-card {
-                background: var(--homekit-card-off);
-                border-radius: var(--border-radius);
-                color: var(--upcoming-color);
-              }
-            entity: sensor.sonarr_upcoming_media
-          - !include ../includes/blank-card.yaml
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Movies'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: 'custom:upcoming-media-card'
-            style: |
-              ha-card {
-                background: var(--homekit-card-off);
-                border-radius: var(--border-radius);
-                color: var(--upcoming-color)
-              }
-            entity: sensor.radarr_upcoming_media
-          - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml
-      
+- title: Media
+  path:  media
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+          variables:
+            - name1: Downloads
+            - icon1: mdi:download # Changed/Added in 0.13.0
+            - path1: downloads
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '## Upcoming Media'
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Series'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entity: sensor.sonarr_upcoming_media
+            - !include ../includes/blank-card.yaml
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Movies'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entity: sensor.radarr_upcoming_media
+            - !include ../includes/blank-card.yaml
+        - !include ../includes/bottom-card.yaml
+          

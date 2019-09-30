@@ -1,4 +1,4 @@
-## Changed/Added in 0.12.3 - Resources that were unused have been removed!
+# Resources Page
 
   - url: /community_plugin/thermostat-card/thermostat-card.js
     type: module
@@ -52,3 +52,13 @@
     type: js
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
+  - url: /community_plugin/bar-card/bar-card.js # Changed/Added in 0.13.0
+    type: js
+  - url: /community_plugin/air-visual-card/air-visual-card.js # Changed/Added in 0.13.0
+    type: js
+  - url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js # Changed/Added in 0.13.0
+    type: js 
+  - url: /community_plugin/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js # Changed/Added in 0.13.0
+    type: js
+  - url: /community_plugin/lovelace-animated-background/animated-background.js # Changed/Added in 0.13.0
+    type: module

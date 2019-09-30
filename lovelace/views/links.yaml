@@ -1,91 +1,99 @@
-title: Links
-path:  links
-cards:    
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu 
-        variables:
-          - name1: Location
-          - icon1: map
-          - path1: location
-      - type: custom:decluttering-card
-        template: header 
-        variables:
-          - content: '## Links'
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: header 
-            variables:
-              - content: '##### Waze Navigation'
-          - type: horizontal-stack
-            cards:
-              - !include ../includes/blank-card.yaml
-              - type: entities
-                style: |
-                  ha-card {
-                    background: var(--homekit-card-off);
-                    --paper-item-icon-color: var(--icon-color-off);
-                    color: var(--name-color-off);
-                    border-radius: var(--border-radius);
-                  }
-                entities:
-                  - type: weblink
-                    name: Home
-                    icon: 'mdi:home-outline'
-                    url: !secret home_waze
-                  - type: weblink
-                    name: Oma Schings
-                    icon: 'mdi:car'
-                    url: !secret grandma_waze
-                  - type: weblink
-                    name: Camping Les Pins
-                    icon: 'mdi:tent'
-                    url: https://www.waze.com/ul?ll=44.79056320%2C1.47207170&navigate=yes&zoom=16
-                  - type: weblink
-                    name: Thermen Bussloo
-                    icon: 'mdi:tree'
-                    url: https://www.waze.com/ul?ll=52.19191580%2C6.09528070&navigate=yes&zoom=16
-              - !include ../includes/blank-card.yaml
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header 
-        variables:
-          - content: '##### iOS Shortcuts'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: entities
-            style: |
-              ha-card {
-                background: var(--homekit-card-off);
-                --paper-item-icon-color: var(--icon-color-off);
-                color: var(--name-color-off);
-                border-radius: var(--border-radius);
-              }
-            entities:
-              - type: weblink
-                name: Outlook
-                url: ms-outlook://
-              - type: weblink
-                name: PostNL
-                url: postnl://
-              - type: weblink
-                name: Calendar
-                url: weekcal://
-              - type: weblink
-                name: Bunq
-                url: bunq://
-              - type: weblink
-                name: Maps
-                url: maps://
-              - type: weblink
-                name: Apple Music
-                url: music://
-              - type: weblink
-                name: Plex
-                url: plex://
-          - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml
+- title: Links
+  path:  links
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu 
+          variables:
+            - name1: Location
+            - icon1: mdi:map # Changed/Added in 0.13.0
+            - path1: location
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '## Links'
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header 
+              variables:
+                - content: '##### Waze Navigation'
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: entities
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      --paper-item-icon-color: var(--icon-color-off);
+                      color: var(--name-color-off);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  entities:
+                    - type: weblink
+                      name: Home
+                      icon: 'mdi:home-outline'
+                      url: !secret home_waze
+                    - type: weblink
+                      name: Oma Schings
+                      icon: 'mdi:car'
+                      url: !secret grandma_waze
+                    - type: weblink
+                      name: Camping Les Pins
+                      icon: 'mdi:tent'
+                      url: https://www.waze.com/ul?ll=44.79056320%2C1.47207170&navigate=yes&zoom=16
+                    - type: weblink
+                      name: Thermen Bussloo
+                      icon: 'mdi:tree'
+                      url: https://www.waze.com/ul?ll=52.19191580%2C6.09528070&navigate=yes&zoom=16
+                - !include ../includes/blank-card.yaml
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '##### iOS Shortcuts'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  --paper-item-icon-color: var(--icon-color-off);
+                  color: var(--name-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-family: Helvetica;
+                  font-size: 12px;
+                  opacity: 0.8;
+                }
+              entities:
+                - type: weblink
+                  name: Outlook
+                  url: ms-outlook://
+                - type: weblink
+                  name: PostNL
+                  url: postnl://
+                - type: weblink
+                  name: Calendar
+                  url: weekcal://
+                - type: weblink
+                  name: Bunq
+                  url: bunq://
+                - type: weblink
+                  name: Maps
+                  url: maps://
+                - type: weblink
+                  name: Apple Music
+                  url: music://
+                - type: weblink
+                  name: Plex
+                  url: plex://
+            - !include ../includes/blank-card.yaml
+        - !include ../includes/bottom-card.yaml  

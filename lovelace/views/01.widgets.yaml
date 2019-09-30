@@ -1,0 +1,69 @@
+- title: Widgets
+  path:  widgets
+  cards:
+    - type: vertical-stack 
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+          variables:
+            - name1: Weather
+            - icon1: mdi:weather-sunny # Changed/Added in 0.13.0
+            - path1: weather
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Glances'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:air-visual-card
+              style: |
+                ha-card {
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  overflow: hidden;
+                }
+              air_pollution_level: sensor.u_s_air_pollution_level
+              air_quality_index: sensor.u_s_air_quality_index
+              main_pollutant: sensor.u_s_main_pollutant
+              temp: weather.dark_sky
+              city: 'Eindhoven'
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: glance
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  --paper-item-icon-color: var(--icon-color-off);
+                  color: var(--name-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-family: Helvetica;
+                  font-size: 12px;
+                  opacity: 0.8;
+                }
+              #title: Afvalwijzer
+              entities:
+                - entity: sensor.cure_restafval
+                  name: Rest
+                - entity: sensor.cure_gft
+                  name: GFT
+                - entity: sensor.cure_papier
+                  name: Papier
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:xiaomi-vacuum-card
+              style: |
+                ha-card {
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entity: vacuum.xiaomi_vacuum_cleaner
+              image: /local/images/vacuum.png
+              name: Xiaomi Vacuum
+              buttons: true
+            - !include ../includes/blank-card.yaml

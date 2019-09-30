@@ -1,77 +1,78 @@
-title: PostNL Stephanie
-path: postnl-stephanie
-cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu
-        variables:
-          - name1: Stephanie
-          - icon1: account
-          - path1: stephanie
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '## Stephanie Schings'
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '#### PostNL'
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Other'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: 'custom:decluttering-card'
-            template: button
-            variables:
-              - entity: input_boolean.dummy1
-              - name: Back to personal view
-              - icon: robot-vacuum
-              - show_state: false
-              - show_icon: false
-              - color: gray
-              - opacity: 0.8
-              - justify-self-name: center
-              - padding-left-name: 0px
-              - margin-top-name: 6px
-              - margin-right: 0px
-              - aspect_ratio: 6/1
-              - tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/stephanie
-                  haptic: light
-              - hold_action:
-                  action: navigate
-                  navigation_path: /lovelace/stephanie
-                  haptic: light
-          - !include ../includes/blank-card.yaml
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Letters & Packages'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: 'custom:postnl-card'
-            style: |
-              ha-card {
-                background: var(--homekit-card-off);
-                --paper-item-icon-color: var(--icon-color-off);
-                color: var(--name-color-off);
-                box-shadow: none;
-                border-radius: var(--border-radius);
-                font-family: Helvetica;
-                font-size: 12px;
-                opacity: 0.8;
-              }
-            delivery: sensor.postnl_stephanie_delivery
-            letters: sensor.postnl_stephanie_letters
-            hide:
-              header: true
-              delivered: false
-            past_days: 14
-          - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml
+- title: PostNL Stephanie
+  path: postnl-stephanie
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+          variables:
+            - name1: Stephanie
+            - icon1: mdi:account # Changed/Added in 0.13.0
+            - path1: stephanie
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '## Stephanie Schings'
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '#### PostNL'
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Other'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:decluttering-card'
+              template: button
+              variables:
+                - entity: input_boolean.dummy1
+                - name: Back to personal view
+                - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
+                - show_state: false
+                - show_icon: false
+                - color: gray
+                - opacity: 0.8
+                - justify-self-name: center
+                - padding-left-name: 0px
+                - margin-top-name: 6px
+                - margin-right: 0px
+                - aspect_ratio: 6/1
+                - tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/stephanie
+                    haptic: light
+                - hold_action:
+                    action: navigate
+                    navigation_path: /lovelace/stephanie
+                    haptic: light
+            - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Letters & Packages'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:postnl-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  --paper-item-icon-color: var(--icon-color-off);
+                  color: var(--name-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-family: Helvetica;
+                  font-size: 12px;
+                  opacity: 0.8;
+                  box-shadow: none;
+                }
+              delivery: sensor.postnl_stephanie_delivery
+              letters: sensor.postnl_stephanie_letters
+              hide:
+                header: true
+                delivered: false
+              past_days: 14
+            - !include ../includes/blank-card.yaml
+        - !include ../includes/bottom-card.yaml  

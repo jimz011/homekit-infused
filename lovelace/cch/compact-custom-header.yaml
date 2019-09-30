@@ -54,6 +54,6 @@ notify_indicator_color: "#e80000"
 swipe: true
 swipe_wrap: false
 background: 'rgba(0,0,0,0.3)'
-hide_tabs: '5 to 30'
+hide_tabs: '4 to 60' # Changed/Added in 0.13.0
 default_tab: 1
- 
+redirect: false

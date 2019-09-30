@@ -1,32 +1,33 @@
-title: Floorplan
-path:  floorplan
-cards:    
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu 
-        variables:
-          - name1: Location
-          - icon1: map
-          - path1: location
-      - type: custom:decluttering-card
-        template: header 
-        variables:
-          - content: '## Floorplan'
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: header 
-            variables:
-              - content: '###### Tap and hold the image to download'
-          - type: horizontal-stack
-            cards:
-              - !include ../includes/blank-card.yaml
-              - type: picture
-                style: |
-                  ha-card {
-                    border-radius: var(--border-radius);
-                  }
-                aspect_ratio: 1.78
-                image: /local/images/floorplan.jpg
-              - !include ../includes/blank-card.yaml
+- title: Floorplan
+  path:  floorplan
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu 
+          variables:
+            - name1: Location
+            - icon1: mdi:map # Changed/Added in 0.13.0
+            - path1: location
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '## Floorplan'
+        - type: vertical-stack
+          cards:
+            - type: custom:decluttering-card
+              template: header 
+              variables:
+                - content: '###### Tap and hold the image to download'
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: picture
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  aspect_ratio: 1.78
+                  image: /local/images/floorplan.jpg
+                - !include ../includes/blank-card.yaml  

@@ -1,0 +1,97 @@
+- title: Computers
+  path: computers
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu 
+          variables:
+            - name1: Energy
+            - icon1: mdi:flash
+            - path1: energy
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '## Computers'
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '##### Personal Computers'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.pc_van_stephanie
+                - name: Stephanie
+                - icon: mdi:desktop-tower-monitor
+                - lock: true
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.pc_van_jimmy
+                - name: Jimmy
+                - icon: mdi:desktop-tower-monitor
+                - lock: true
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - type: 'custom:button-card'
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: header 
+          variables:
+            - content: '##### Servers'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.hyper_v_server_2016
+                - name: Hyper-V
+                - icon: "[[[ if (entity.state === 'on') return 'mdi:server-network'; else return 'mdi:server-network-off'; ]]]"
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.windows_server_2016
+                - name: Server 2016
+                - icon: "[[[ if (entity.state === 'on') return 'mdi:server-network'; else return 'mdi:server-network-off'; ]]]"
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.windows_server_2016_backup
+                - name: Server 2016
+                - label: Backup
+                - icon: "[[[ if (entity.state === 'on') return 'mdi:server-network'; else return 'mdi:server-network-off'; ]]]"
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:decluttering-card
+              template: button 
+              variables:
+                - entity: switch.media_server
+                - name: Media Server
+                - label: Ubuntu 18.04
+                - icon: "[[[ if (entity.state === 'on') return 'mdi:server-network'; else return 'mdi:server-network-off'; ]]]"
+                - grid:
+                    !include ../includes/light-devices-grid.yaml
+            - type: 'custom:button-card'
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - !include ../includes/blank-card.yaml
+        - !include ../includes/bottom-card.yaml  

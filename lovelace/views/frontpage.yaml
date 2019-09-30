@@ -9,51 +9,28 @@ cards:
       - entity: alarm_control_panel.home_alarm
         state: 'disarmed'
     card:
-      type: custom:swipe-card
-      start_card: 2
-      parameters:
-        effect: 'coverflow'
-        grabCursor: true
-      cards:
-        - type: custom:decluttering-card
-          template: quick-access-menu 
-          variables:
-            - name1: dev-tools
-            - icon1: tools
-            - path1: developer-tools
-            - entity3: alarm_control_panel.home_alarm
-            - name3: Alarm 
-            - icon3: shield-check
-            - path3: alarm
-        - !include ../includes/simple-weather-card.yaml 
+      !include ../includes/simple-weather-card.yaml 
 
   - type: conditional
     conditions:
       - entity: alarm_control_panel.home_alarm
         state_not: 'disarmed'
     card:
-      type: custom:swipe-card
-      start_card: 2
-      parameters:
-        effect: 'coverflow'
-        grabCursor: true
-      cards:
-        - !include ../includes/simple-weather-card.yaml 
-        - type: custom:decluttering-card
-          template: quick-access-menu 
-          variables:
-            - name1: Security
-            - icon1: cctv
-            - path1: security
-            - entity3: alarm_control_panel.home_alarm
-            - name3: Alarm 
-            - icon3: shield-check
-            - path3: alarm
-            - hold_action:
-                action: call-service
-                service: input_boolean.toggle
-                service_data:
-                  entity_id: input_boolean.simple_alarm
+      type: custom:decluttering-card
+      template: quick-access-menu 
+      variables:
+        - name1: Security
+        - icon1: mdi:cctv # Changed/Added in 0.13.0
+        - path1: security
+        - entity3: alarm_control_panel.home_alarm
+        - name3: Alarm 
+        - icon3: mdi:shield-check # Changed/Added in 0.13.0
+        - path3: alarm
+        - hold_action:
+            action: call-service
+            service: input_boolean.toggle
+            service_data:
+              entity_id: input_boolean.simple_alarm
 
 # Frontpage Picture Elements, For variables options please
 # check the decluttering templates. These cards are conditional
@@ -72,14 +49,14 @@ cards:
           type: custom:decluttering-card
           template: person  
           variables:
-            - name: stephanie
-            - namesensor: !secret stephsensor
+            - person: person.stephanie # Changed/Added in 0.13.0
+            - email: !secret stephsensor # Changed/Added in 0.13.0
             - direction: left
             - image: '/local/images/stephanie_small.png'
             - postnl: sensor.postnl_stephanie_packages
-            - reistijd: sensor.reistijd_stephanie
+            - travel_time: sensor.reistijd_stephanie # Changed/Added in 0.13.0
             - battery: sensor.battery_level
-            - icon: home
+            - icon: mdi:home # Changed/Added in 0.13.0
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/stephanie
@@ -91,14 +68,14 @@ cards:
           type: custom:decluttering-card
           template: person  
           variables:
-            - name: stephanie
-            - namesensor: !secret stephsensor
+            - person: person.stephanie # Changed/Added in 0.13.0
+            - email: !secret stephsensor # Changed/Added in 0.13.0
             - direction: left
             - image: '/local/images/stephanie_small.png'
             - postnl: sensor.postnl_stephanie_packages
-            - reistijd: sensor.reistijd_stephanie_work
+            - travel_time: sensor.reistijd_stephanie_work # Changed/Added in 0.13.0
             - battery: sensor.battery_level
-            - icon: office-building
+            - icon: mdi:office-building # Changed/Added in 0.13.0
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/stephanie
@@ -112,14 +89,14 @@ cards:
           type: custom:decluttering-card
           template: person  
           variables:
-            - name: jimmy
-            - namesensor: !secret jimsensor
+            - person: person.jimmy # Changed/Added in 0.13.0
+            - email: !secret jimsensor # Changed/Added in 0.13.0
             - direction: right
             - image: '/local/images/jimmy_small.png'
             - postnl: sensor.postnl_jimmy_packages
-            - reistijd: sensor.reistijd_jimmy
+            - travel_time: sensor.reistijd_jimmy # Changed/Added in 0.13.0
             - battery: sensor.battery_level_2
-            - icon: home
+            - icon: mdi:home # Changed/Added in 0.13.0
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/jimmy
@@ -131,14 +108,14 @@ cards:
           type: custom:decluttering-card
           template: person  
           variables:
-            - name: jimmy
-            - namesensor: !secret jimsensor
+            - person: person.jimmy # Changed/Added in 0.13.0
+            - email: !secret jimsensor # Changed/Added in 0.13.0
             - direction: right
             - image: '/local/images/jimmy_small.png'
             - postnl: sensor.postnl_jimmy_packages
-            - reistijd: sensor.reistijd_jimmy_work
+            - travel_time: sensor.reistijd_jimmy_work # Changed/Added in 0.13.0
             - battery: sensor.battery_level_2
-            - icon: office-building
+            - icon: mdi:office-building # Changed/Added in 0.13.0
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/jimmy
@@ -151,7 +128,8 @@ cards:
       - type: picture-elements
         style: |
           ha-card {
-            border-radius: var(--border-radius);
+            border-radius: {{ states('input_select.border_radius') }};
+            box-shadow: {{ states('input_select.box_shadow') }};
             overflow: hidden;
           }
         image: '/local/images/tala2.png'
@@ -200,77 +178,129 @@ cards:
       cards:
         - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
-          template: button 
+          template: button
           variables:
             - name: Climate
             - label: Control
-            - icon: thermostat
+            - icon: mdi:thermostat # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
                 navigation_path: /lovelace/climate
                 haptic: light
             - hold_action: 
-                action: navigate
-                navigation_path: /lovelace/climate
+                action: more-info # Changed/Added in 0.13.0
                 haptic: light
-            - entity: input_boolean.dummy1
+            - entity: input_boolean.notification_current_radiators # Changed/Added in 0.13.0
             - margin-right: 40px
             - opacity: 0.8
+            - notification: "[[[ if (states['sensor.current_radiator_valves_on'].state > 0) return `${states['sensor.current_radiator_valves_on'].state}`; else return '&nbsp' ]]]" # Changed/Added in 0.13.0
+            - custom_fields:  # Changed/Added in 0.13.0 below
+                notification:
+                  - background-color: "[[[ if (states['sensor.current_radiator_valves_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                  - color: var(--notification-badge-color)
+                  - border-radius: 50%
+                  - overflow: visible
+                  - position: absolute
+                  - right: 7%
+                  - top: 7%
+                  - height: 22px
+                  - width: 22px
+                  - font-size: 11px
+                  - line-height: 20px
         - type: custom:decluttering-card
-          template: button 
+          template: button
           variables:
             - name: Light
             - label: Control
-            - icon: floor-lamp
+            - icon: mdi:floor-lamp # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
                 navigation_path: /lovelace/lights
                 haptic: light
             - hold_action: 
-                action: navigate
-                navigation_path: /lovelace/lights
+                action: more-info # Changed/Added in 0.13.0
                 haptic: light
-            - entity: input_boolean.dummy1
+            - entity: input_boolean.notification_current_lights # Changed/Added in 0.13.0
             - margin-right: 40px
             - opacity: 0.8
+            - notification: "[[[ if (states['sensor.current_lights_on'].state > 0) return `${states['sensor.current_lights_on'].state}`; else return '&nbsp' ]]]" # Changed/Added in 0.13.0
+            - custom_fields:  # Changed/Added in 0.13.0 below
+                notification:
+                  - background-color: "[[[ if (states['sensor.current_lights_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                  - color: var(--notification-badge-color)
+                  - border-radius: 50%
+                  - overflow: visible
+                  - position: absolute
+                  - right: 7%
+                  - top: 7%
+                  - height: 22px
+                  - width: 22px
+                  - font-size: 11px
+                  - line-height: 20px
         - type: custom:decluttering-card
-          template: button 
+          template: button
           variables:
             - name: Device
             - label: Control
-            - icon: power-plug
+            - icon: mdi:power-plug # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
                 navigation_path: /lovelace/devices
                 haptic: light
             - hold_action: 
-                action: navigate
-                navigation_path: /lovelace/devices
+                action: more-info # Changed/Added in 0.13.0
                 haptic: light
-            - entity: input_boolean.dummy1
+            - entity: input_boolean.notification_current_devices # Changed/Added in 0.13.0
             - margin-right: 40px
             - opacity: 0.8
+            - notification: "[[[ if (states['sensor.current_devices_on'].state > 0) return `${states['sensor.current_devices_on'].state}`; else return '&nbsp' ]]]" # Changed/Added in 0.13.0
+            - custom_fields:  # Changed/Added in 0.13.0 below
+                notification:
+                  - background-color: "[[[ if (states['sensor.current_devices_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                  - color: var(--notification-badge-color)
+                  - border-radius: 50%
+                  - overflow: visible
+                  - position: absolute
+                  - right: 7%
+                  - top: 7%
+                  - height: 22px
+                  - width: 22px
+                  - font-size: 11px
+                  - line-height: 20px
         - type: custom:decluttering-card
-          template: button 
+          template: button
           variables:
             - name: Security
             - label: Panel
-            - icon: cctv
+            - icon: mdi:cctv # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
                 navigation_path: /lovelace/security
                 haptic: light
             - hold_action: 
-                action: navigate
-                navigation_path: /lovelace/security
+                action: more-info # Changed/Added in 0.13.0
                 haptic: light
-            - entity: input_boolean.dummy1
+            - entity: input_boolean.notification_current_sensors # Changed/Added in 0.13.0
             - margin-right: 40px
             - opacity: 0.8
+            - notification: "[[[ if (states['sensor.current_sensors_on'].state > 0) return `${states['sensor.current_sensors_on'].state}`; else return '&nbsp' ]]]" # Changed/Added in 0.13.0
+            - custom_fields: # Changed/Added in 0.13.0 below
+                notification:
+                  - background-color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                  - color: var(--notification-badge-color)
+                  - border-radius: 50%
+                  - overflow: visible
+                  - position: absolute
+                  - right: 7%
+                  - top: 7%
+                  - height: 22px
+                  - width: 22px
+                  - font-size: 11px
+                  - line-height: 20px
         - !include ../includes/blank-card.yaml
 
   # Second Row
@@ -282,30 +312,58 @@ cards:
       type: horizontal-stack
       cards:
         - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: button 
-          variables:
-            - name: Cleaning
-            - label: Lists
-            - icon: broom
-            - show_state: false
-            - tap_action: 
-                action: navigate
-                navigation_path: /lovelace/cleaning
-                haptic: light
-            - hold_action:
-                action: navigate
-                navigation_path: /lovelace/cleaning
-                haptic: light
-            - entity: input_boolean.dummy1
-            - margin-right: 40px
-            - opacity: 0.8
+        - type: conditional
+          conditions:
+            - entity: group.televisions
+              state: 'off'
+          card:
+            type: custom:decluttering-card
+            template: button 
+            variables:
+              - name: Cleaning
+              - label: Lists
+              - icon: mdi:broom # Changed/Added in 0.13.0
+              - show_state: false
+              - tap_action: 
+                  action: navigate
+                  navigation_path: /lovelace/cleaning
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/cleaning
+                  haptic: light
+              - entity: input_boolean.dummy1
+              - margin-right: 40px
+              - opacity: 0.8
+        - type: conditional
+          conditions:
+            - entity: group.televisions
+              state: 'on'
+          card:
+            type: custom:decluttering-card
+            template: button 
+            variables:
+              - name: Remote
+              - label: Control
+              - icon: mdi:remote # Changed/Added in 0.13.0
+              - show_state: false
+              - tap_action: 
+                  action: navigate
+                  navigation_path: /lovelace/remote
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/remote
+                  haptic: light
+              - entity: input_boolean.dummy1
+              - margin-right: 40px
+              - opacity: 0.8
         - type: custom:decluttering-card
           template: button 
           variables:
             - name: Scenes
             - label: Presets
-            - icon: arrange-send-backward
+            - icon: mdi:arrange-send-backward # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
@@ -323,7 +381,7 @@ cards:
           variables:
             - name: Vacuum
             - label: Johnny S55
-            - icon: robot-vacuum
+            - icon: mdi:robot-vacuum # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate
@@ -341,7 +399,7 @@ cards:
           variables:
             - name: Menu
             - label: All Options
-            - icon: menu
+            - icon: mdi:menu # Changed/Added in 0.13.0
             - show_state: false
             - tap_action: 
                 action: navigate

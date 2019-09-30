@@ -18,19 +18,19 @@ cards:
       - type: custom:simple-weather-card
         style: |
           ha-card {
-            border-radius: var(--border-radius);
+            border-radius: {{ states('input_select.border_radius') }};
+            box-shadow: {{ states('input_select.box_shadow') }};
             opacity: 0.8;
             font-size: 12px;
             font-family: Helvetica;
-            font-weight: bold;
           }
         entity: weather.dark_sky
         name: Eindhoven
         backdrop:
           fade: true
-          day: "var(--weather-night)"
-          night: "var(--weather-day)"
-          text: "var(--weather-color)"
+          day: "var(--weather-color-day)"
+          night: "var(--weather-color-night)"
+          text: "var(--weather-color-text)"
         tap_action:
           action: navigate
           navigation_path: /lovelace/weather

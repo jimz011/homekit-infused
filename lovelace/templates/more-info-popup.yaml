@@ -1,0 +1,41 @@
+# These are the variables you can use in your decluttering
+# card. Add one or more variables in your decluttering-card.
+# The variables you see below are the default ones. 
+#
+# A standard decluttering-card config would look like:
+# - type: custom:decluttering-card
+#   template: this_templates_name
+#   variables:
+#     - entity: switch.test
+#     - name: test
+# 
+# All the variables you can use are within the default config
+# below. The variables you can use are the first word after each
+# dash -.
+#
+# If you omit adding variables to your decluttering-card
+# it will use defaults instead, which are defined below as well.
+# You can change the default config below. If you only enter a
+# few of the variables it will only use defaults for undefined
+# variables.
+
+# Default Config
+default:
+  # Entity
+  - entity: light.yourentity
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+card:
+  type: 'custom:more-info-card'
+  style: |
+    ha-card {
+      background: var(--card-color-off);
+      opacity: 0.7;
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+      font-family: Helvetica;
+    }
+  entity: '[[entity]]'

@@ -1,46 +1,58 @@
-title: Themes
-path:  themes
-cards:    
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '## Theme Selector'
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '##### Themes (Global)'  
-      - type: horizontal-stack
-        cards:    
-          - !include ../includes/blank-card.yaml
-          - type: markdown
-            style: |
-              ha-card {
-                background: rgba(0, 0, 0, 0.5);
-                border-radius: var(--border-radius);
-                font-size: 13px;
-                font-family: Helvetica;
-                color: white;
-              }              
-            content: '<ha-icon icon="mdi:alert"></ha-icon> Warning! Themes that are selected through this menu are set globally for ALL users! If you wish to set a personal theme please use the theme selector in the sidepanel (at the bottom left click on your name and select a theme from there). Selecting any other theme than Automatic will disable the automatic day/night mode!'
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:    
-          - !include ../includes/blank-card.yaml
-          - type: entities
-            style: |
-              ha-card {
-                background: var(--homekit-card-off);
-                border-radius: var(--border-radius);
-                font-size: 13px;
-                font-family: Helvetica;
-                color: var(--name-color-off);
-                --paper-item-icon-color: var(--icon-color-off);
-                --primary-text-color: var(--name-color-off);
-              }
-            entities: 
-              - input_select.theme_selector
-          - !include ../includes/blank-card.yaml
+- title: Themes
+  path:  themes
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '## Theme Selector'
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Themes (Global)'  
+        - type: horizontal-stack
+          cards:    
+            - !include ../includes/blank-card.yaml
+            - type: markdown
+              style: |
+                ha-card {
+                  background: rgba(0, 0, 0, 0.5);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  font-size: 13px;
+                  font-family: Helvetica;
+                  color: white;
+                }              
+              content: '<ha-icon icon="mdi:alert"></ha-icon> Warning! Themes that are selected through this menu are set globally for ALL users! Selecting other themes than automatic will disable day/night mode!'
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:    
+            - !include ../includes/blank-card.yaml
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entities: 
+                - entity: input_select.theme_selector
+                  name: Theme
+#                - entity: input_select.wallpaper_selector
+#                  name: Wallpaper
+                - entity: input_select.border_radius_selector
+                  name: Border
+                - entity: input_select.qam_border_radius_selector
+                  name: QAM Border
+                - entity: input_select.box_shadow_selector
+                  name: Shadow
+            - !include ../includes/blank-card.yaml
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1

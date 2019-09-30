@@ -1,23 +1,23 @@
-title: Stephanie
-path:  stephanie
-cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: quick-access-menu
-        variables:
-          - name1: PostNL
-          - icon1: package-variant-closed
-          - path1: postnl-stephanie
-      - type: custom:decluttering-card
-        template: header
-        variables:
-          - content: '## Stephanie Schings'
-      - type: custom:decluttering-card
-        template: person-more-info
-        variables:
-          - name: stephanie
-          - name-s: Stephanie's
-          - emailsensor: !secret stephsensor
-          - sensor_battery_state: sensor.battery_state # Changed/Added in 0.12.3
-          - sensor_battery_level: sensor.battery_level # Changed/Added in 0.12.3
+- title: Stephanie
+  path:  stephanie
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: quick-access-menu
+          variables:
+            - name1: PostNL
+            - icon1: mdi:package-variant-closed # Changed/Added in 0.13.0
+            - path1: postnl-stephanie
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '## Stephanie Schings'
+        - type: custom:decluttering-card
+          template: person-more-info
+          variables:
+            - name: stephanie
+            - name-s: Stephanie's
+            - emailsensor: !secret stephsensor
+            - sensor_battery_state: sensor.battery_state 
+            - sensor_battery_level: sensor.battery_level   

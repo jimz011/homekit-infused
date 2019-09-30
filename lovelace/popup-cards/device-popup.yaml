@@ -2,7 +2,6 @@
     title: Ventilator
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -21,7 +20,6 @@
     title: Woonkamer Receiver
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -40,7 +38,6 @@
     title: AirFryer
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -59,7 +56,6 @@
     title: Afzuigkap
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -78,7 +74,6 @@
     title: Woonkamer TV
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -97,7 +92,6 @@
     title: Slaapkamer Receiver
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -116,7 +110,6 @@
     title: Slaapkamer TV
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -135,7 +128,6 @@
     title: PC Stephanie
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -154,7 +146,6 @@
     title: PC Jimmy
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -169,11 +160,11 @@
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
+# Printer Popup Page # Changed/Added in 0.13.0 below
   switch.printer:
     title: Printer
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -186,13 +177,77 @@
               variables:
                 - entity: switch.printer
             - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: entities
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  --paper-item-icon-color: var(--icon-color-off);
+                  color: var(--name-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  opacity: 0.7;
+                }
+              entities:
+                - entity: sensor.printer_pages
+                  icon: mdi:printer
+                  name: Total Pages Printed
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:bar-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  --paper-item-icon-color: var(--icon-color-off);
+                  color: var(--name-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  opacity: 0.7;
+                }
+              title_style:
+                color: var(--name-color-on);
+                font-size: 12px
+                text-transform: capitalize
+              columns: 4
+              direction: up
+              entities:
+                - color: Black
+                  entity: sensor.printer_ink_black
+                  icon: mdi:water
+                  title: Black
+                - color: MediumTurquoise
+                  entity: sensor.printer_ink_color
+                  icon: mdi:water
+                  title: Cyan
+                - color: MediumOrchid
+                  entity: sensor.printer_ink_color
+                  icon: mdi:water
+                  title: Magenta
+                - color: Gold
+                  entity: sensor.printer_ink_color
+                  icon: mdi:water
+                  title: Yellow
+              height: 200px
+              max: 100
+              min: 0
+              padding: 2px
+              target: 20
+              title_position: bottom
+              icon_position: inside
+              unit_of_measurement: '%'
+              width: 100%
+            - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
+# Changed/Added in 0.13.0 Above
 
   switch.xbox_one:
     title: Xbox One
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -211,7 +266,6 @@
     title: Waterkoker
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -230,7 +284,6 @@
     title: Cappumaker
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: vertical-stack
@@ -249,37 +302,34 @@
     title: Vaatwasser
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
       template: energy-usage
       variables:
         - device_name: vaatwasser
-        - icon: dishwasher
+        - icon: mdi:dishwasher # Changed/Added 0.13.0
 
   switch.wasmachine:
     title: Wasmachine
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
       template: energy-usage
       variables:
         - device_name: wasmachine
-        - icon: washing-machine
+        - icon: mdi:washing-machine # Changed/Added 0.13.0
 
   switch.droger:
     title: Droger
     style:
       color: white
-      border-radius: var(--border-radius)
       background: var(--background-image)
     card:
       type: custom:decluttering-card
       template: energy-usage
       variables:
         - device_name: droger
-        - icon: tumble-dryer
+        - icon: mdi:tumble-dryer # Changed/Added 0.13.0

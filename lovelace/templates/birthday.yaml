@@ -1,0 +1,88 @@
+# These are the variables you can use in your decluttering
+# card. Add one or more variables in your decluttering-card.
+# The variables you see below are the default ones. 
+#
+# A standard decluttering-card config would look like:
+# - type: custom:decluttering-card
+#   template: this_templates_name
+#   variables:
+#     - entity: switch.test
+#     - name: test
+# 
+# All the variables you can use are within the default config
+# below. The variables you can use are the first word after each
+# dash -.
+#
+# If you omit adding variables to your decluttering-card
+# it will use defaults instead, which are defined below as well.
+# You can change the default config below. If you only enter a
+# few of the variables it will only use defaults for undefined
+# variables.
+
+# Default Config
+default:
+  # Name
+  - name: John Doe
+
+  # Phone Number
+  - phone_number: +31612345678
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:decluttering-card
+      template: header
+      variables:
+        - content: '##### [[name]]'
+    - type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - icon_color: var(--icon-color-off)
+            - name_color: var(--label-color-off)
+            - icon: mdi:phone # Changed/Added in 0.13.0
+            - name: Bel [[name]]
+            - card_color: var(--card-color-off)
+            - tap_action:
+                action: url
+                url: tel://'[[phone_number]]'
+                haptic: light
+        - !include ../includes/blank-card.yaml
+    - type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - icon_color: var(--icon-color-off)
+            - name_color: var(--label-color-off)
+            - icon: mdi:message-processing # Changed/Added in 0.13.0
+            - name: Stuur [[name]] een tekstbericht
+            - card_color: var(--card-color-off)
+            - tap_action:
+                action: url
+                url: sms://'[[phone_number]]'
+                haptic: light
+        - !include ../includes/blank-card.yaml
+    - type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - icon_color: var(--icon-color-off)
+            - name_color: var(--label-color-off)
+            - icon: mdi:whatsapp # Changed/Added in 0.13.0
+            - name: Feliciteer [[name]] met Whatsapp
+            - card_color: var(--card-color-off)
+            - tap_action:
+                action: url
+                url: whatsapp://send?text=Gefeliciteerd%met%je%verjaardag!
+                haptic: light
+        - !include ../includes/blank-card.yaml
