@@ -1,8 +1,0 @@
-{
-    "domain": "radarr_upcoming_media",
-    "name": "Radarr Upcoming Media",
-    "documentation": "https://github.com/custom-components/sensor.radarr_upcoming_media",
-    "dependencies": [],
-    "codeowners": ["@maykar"],
-    "requirements": []
-}
