@@ -60,5 +60,3 @@
     type: js 
   - url: /community_plugin/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js # Changed/Added in 0.13.0
     type: js
-  - url: /community_plugin/lovelace-animated-background/animated-background.js # Changed/Added in 0.13.0
-    type: module
