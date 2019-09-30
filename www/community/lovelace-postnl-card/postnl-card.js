@@ -7426,7 +7426,7 @@
     set hass(e) {
       this._hass = e, this.config.delivery && (this.deliveryObject = e.states[this.config.delivery]), this.config.distribution && (this.distributionObject = e.states[this.config.distribution]), this.config.letters && (this.letterObject = e.states[this.config.letters]), this.config.hide && (this._hide = { ...this._hide,
         ...this.config.hide
-      }), "string" == typeof this.config.name ? this.name = this.config.name : this.name = "PostNL", this.config.icon ? this.icon = this.config.icon : this.icon = "mdi:mailbox", this.config.date_format ? this.date_format = this.config.date_format : this.date_format = "DD MMM YYYY", this.config.time_format ? this.time_format = this.config.time_format : this.time_format = "HH:mm", this.config.past_days ? this.past_days = parseInt(this.config.past_days, 10) : this.past_days = 1, this._language = e.language, "nl" !== this._language && (this._language = "en"), this.delivery_enroute = [], this.delivery_delivered = [], this.distribution_enroute = [], this.distribution_delivered = [], this.letters = [], this.letterObject && Object.entries(this.letterObject.attributes.letters).sort((e, t) => new Date(t[1].delivery_date) - new Date(e[1].delivery_date)).map(([e, t]) => {
+      }), "string" == typeof this.config.name ? this.name = this.config.name : this.name = "PostNL", this.config.icon ? this.icon = this.config.icon : this.icon = "mdi:mailbox", this.config.date_format ? this.date_format = this.config.date_format : this.date_format = "DD MMM YYYY", this.config.time_format ? this.time_format = this.config.time_format : this.time_format = "HH:mm", void 0 !== this.config.past_days ? this.past_days = parseInt(this.config.past_days, 10) : this.past_days = 1, this._language = e.language, "nl" !== this._language && (this._language = "en"), this.delivery_enroute = [], this.delivery_delivered = [], this.distribution_enroute = [], this.distribution_delivered = [], this.letters = [], this.letterObject && Object.entries(this.letterObject.attributes.letters).sort((e, t) => new Date(t[1].delivery_date) - new Date(e[1].delivery_date)).map(([e, t]) => {
         oe(t.delivery_date).isBefore(oe().subtract(this.past_days, "days").startOf("day")) || this.letters.push(t);
       }), this.deliveryObject && (Object.entries(this.deliveryObject.attributes.enroute).sort((e, t) => new Date(t[1].planned_date) - new Date(e[1].planned_date)).map(([e, t]) => {
         this.delivery_enroute.push(t);
@@ -7468,8 +7468,7 @@
             padding: 16px 0;
           }
           .info-body,
-          .detail-body,
-          .img-body {
+          .detail-body {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
