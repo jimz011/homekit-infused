@@ -1,5 +1,27 @@
 # Changelog
 
+### Changes Overview 30/09/2019:
+v. 0.13.0
+- Completely rewritten themes (with a very very special thanks to @marswarrior for the inspiration)
+- Ability to have icon and color templates within buttons
+- Fixed some older templates for issues that people had when having a too different entity name
+- New printer popup with ink levels (thanks to @ Jeroen Klompen and Stephan for sharing their code)
+- New air quality sensor and card
+- New afvalbeheer (dutch garbagecollection) sensors and cards
+- New widgetpanel (in the style of Apple's own widgets, experimental)
+- New theme editor with awesome real-time card switchers (add shadow, change border-radius and/or add glow with an easy drop-down menu)
+- Fixed remote control panel (the ATV finally works with tvOS 13, although only semi-working, sufficient for using it with a remote again)
+- Dynamic frontpage button depending on state (e.g. when the tv turns on, the 'cleaning' button will change to a 'remote control' button. This is experimental)
+- Added Computers/Servers page in the menu (early stage)
+- Added Automations to menu (for some reason this hasn't been in HKI since a while, I never thought of it until I needed it, if you had this from a very old setup, well it is back and fixed)
+- Reworked download center (it has a graph and more sensors now, experimental)
+- New theme: disable global themes. Use this theme if you prefer to have personal themes instead of a backend-selected theme. (in this version border-radius, shadows and glow can not be set with a personal theme, this will change in the future)
+- Added New Valetudo live vacuum map for Xiaomi robots (You NEED to root your vacuum for this, without rooting this is not going to work and you should omit the changes that come with this, thanks @ Chris Smit for telling me how to root the vacuum)
+- Added notification badge to the frontpage to the 4 buttons on the first row, it will show you how many devices are currently on in that specific category
+- Added new popup to those same 4 buttons, if a hold_action/deep_press is done on any of those 4 buttons you will see a popup with all the lights that are currently on
+- And many many fixes and improvements overall, as usual you should read the update guide for a detailed overview of the changes.
+- All lovelace addons can be fully updated again as all developers have fixed their addons for use with iOS 13, yay!
+
 ### Changes Overview 31/08/2019:
 v. 0.12.3
 - Renamed decluttering-template FILES and removed decluttering-templates.yaml (Special thanks to @xMrVizzy for this great tip!)
