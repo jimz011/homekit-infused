@@ -1,0 +1,180 @@
+### Theme Valentine for Homekit Infused v0.13.x or newer
+
+## Lovelace Theme
+
+# Wallpaper/Background Image
+background-image: 'center / cover no-repeat url("/local/images/wallpapers/pink-flowers.jpg") fixed'
+
+# Card Borders/Shadows
+border-radius: 12px
+box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75)
+
+# Card Theme Colors
+card-color-on: 'rgba(255, 255, 255, 1.0)'
+area-color-on: 'Gray'
+icon-color-on: 'Gray'
+label-color-on: 'Gray'
+lock-color-on: 'Gray'
+name-color-on: 'Black'
+state-color-on: 'Black'
+
+card-color-off: 'linear-gradient(to bottom right, #ffffff, LightPink)'
+area-color-off: 'var(--mdc-grey-darken-1)'
+icon-color-off: 'var(--mdc-grey-darken-1)'
+label-color-off: 'var(--mdc-grey-darken-1)'
+lock-color-off: 'var(--mdc-grey-darken-1)'
+name-color-off: 'var(--mdc-grey-darken-1)'
+state-color-off: 'var(--mdc-grey-darken-1)'
+
+# Lovelace Header Text
+header-color: 'Purple'
+
+# Weather Card
+weather-color-text: 'Black' 
+weather-color-day: 'LightPink'
+weather-color-night: '#FFFFFF'
+
+# Notification Badge
+notification-badge-color: 'white'
+notification-popup-action-color: 'black'
+
+
+## Main Home Assistant Colors
+
+# Base colors
+primary-color: 'Pink'
+accent-color: 'var(--md-teal-A700)'
+dark-primary-color: 'var(--md-teal-900)'
+light-primary-color: 'var(--md-teal-400)'
+
+# Text colors
+primary-text-color: 'var(--mdc-grey-darken-4)'
+text-primary-color: 'var(--primary-text-color)'
+secondary-text-color: 'var(--md-purple-900)'
+disabled-text-color: 'var(--mdc-grey-darken-2)'
+label-badge-border-color: 'var(--md-purple-900)'
+
+# Sidebar
+sidebar-icon-color: 'var(--mdc-grey-darken-2)'
+
+# Background colors
+primary-background-color: 'var(--md-grey-120)'
+secondary-background-color: 'var(--mdc-grey-lighten-5)'
+divider-color: 'rgba(0, 0, 0, .12)'
+table-row-background-color: '#f0f0f0'
+table-row-alternative-background-color: '#d9d9d9'
+
+# Navigation Menu
+paper-listbox-color: 'var(--mdc-grey-darken-2)'
+paper-listbox-background-color: 'var(--mdc-grey-lighten-5)'
+paper-grey-50: 'var(--primary-text-color)'
+paper-grey-200: 'var(--mdc-grey-lighten-4)'
+
+# Paper card
+paper-card-header-color: 'var(--primary-color)'
+# ha-card-background-color: 'var(--light-primary-color)'
+paper-card-background-color: 'var(--md-white)'
+paper-dialog-background-color: 'var(--md-white)'
+paper-item-icon-color: 'var(--primary-text-color)'
+paper-item-icon-active-color: '#b58e31'
+paper-item-icon_-_color: 'var(--secondary-text-color)'
+paper-item-selected_-_background-color: 'var(--mdc-grey-lighten-3)'
+paper-tabs-selection-bar-color: 'var(--secondary-text-color)'
+
+# Labels
+label-badge-red: 'var(--primary-color)'
+label-badge-text-color: 'var(--primary-text-color)'
+label-badge-background-color: 'var(--mdc-grey-lighten-4)'
+
+# Switches
+paper-toggle-button-checked-button-color: 'var(--primary-color)'
+paper-toggle-button-checked-bar-color: 'var(--primary-color)'
+paper-toggle-button-checked-ink-color: 'var(--primary-color)'
+paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
+paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
+paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)'
+
+# Sliders
+paper-slider-knob-color: 'var(--primary-color)'
+paper-slider-knob-start-color: 'var(--primary-color)'
+paper-slider-pin-color: 'var(--primary-color)'
+paper-slider-active-color: 'var(--primary-color)'
+paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
+paper-slider-secondary-color: 'var(--secondary-background-color)'
+paper-slider-disabled-active-color: 'var(--disabled-text-color)'
+paper-slider-disabled-secondary-color: 'var(--disabled-text-color)'
+
+# Google colors
+google-red-500: '#de0000'
+google-green-500: 'gray'
+
+# History/Logbook
+lumo-primary-text-color: 'var(--primary-color)'
+lumo-secondary-text-color: 'var(--primary-color)'
+lumo-primary-color: 'var(--primary-color)'
+lumo-body-text-color: 'var(--dark-primary-color)' # Calendar Day
+lumo-base-color: 'var(--mdc-grey-lighten-4)' #Calendar/Date-Picker Background
+lumo-header-text-color: 'var(--lumo-body-text-color)' #Month/Year header
+#DayOfWeek Header
+lumo-tertiary-text-color: 'var(--lumo-body-text-color)'
+lumo-shade: 'var(--mdc-grey-lighten-4)'
+lumo-shade-90pct: 'rgba(245, 245, 245, .9)'
+lumo-shade-80pct: 'rgba(245, 245, 245, .8)'
+lumo-shade-70pct: 'rgba(245, 245, 245, .7)'
+lumo-shade-60pct: 'rgba(245, 245, 245, .6)'
+lumo-shade-50pct: 'rgba(245, 245, 245, .5)'
+lumo-shade-40pct: 'rgba(245, 245, 245, .4)'
+lumo-shade-30pct: 'rgba(245, 245, 245, .3)'
+lumo-shade-20pct: 'rgba(245, 245, 245, .2)'
+lumo-shade-10pct: 'rgba(245, 245, 245, .1)'
+lumo-shade-5pct: 'rgba(245, 245, 245, .05)'
+lumo-tint-5pct: 'var(--mdc-grey-lighten-4)'
+
+## Material Design Colors (special thanks to @marswarrior)
+
+md-teal-100: '#B2DFDB'
+md-teal-300: '#4DB6AC'
+md-teal-400: '#26A69A'
+md-teal-600: '#00897B'
+md-teal-700: '#00797B'
+md-teal-900: '#004D40'
+md-teal-a400: '#1DE9B6'
+md-teal-a700: '#00BFA5'
+
+md-purple-200: '#CE93D8'
+md-purple-900: '#000000'
+
+mdc-orange-lighten-5: '#FFF3E0'
+mdc-orange-lighten-4: '#FFE0B2'
+mdc-orange-lighten-3: '#FFCC80'
+mdc-orange-lighten-2: '#FFB74D'
+mdc-orange-lighten-1: '#FFA726'
+mdc-orange-base: '#FF9800'
+mdc-orange-darken-1: '#FB8C00'
+mdc-orange-darken-2: '#F57C00'
+mdc-orange-darken-3: '#EF6C00'
+mdc-orange-darken-4: '#E65100'
+mdc-orange-accent-1: '#FFD180'
+mdc-orange-accent-2: '#FFAB40'
+mdc-orange-accent-3: '#FF9100'
+mdc-orange-accent-4: '#FF6D00'
+
+md-grey-0: '#FFFFFFF'
+md-grey-30: '#FCFCFC'
+mdc-grey-lighten-5: '#FAFAFA'
+mdc-grey-lighten-4: '#F5F5F5'
+md-grey-120: '#F3F3F3'
+md-grey-150: '#F0F0F0'
+mdc-grey-lighten-3: '#EEEEEE'
+mdc-grey-lighten-2: '#E0E0E0'
+mdc-grey-lighten-1: '#BDBDBD'
+mdc-grey-base: '#9E9E9E'
+mdc-grey-darken-1: '#757575'
+mdc-grey-darken-2: '#616161'
+mdc-grey-darken-3: '#424242'
+mdc-grey-darken-3_5: '#303030'
+mdc-grey-darken-4: Gray
+mdc-grey-darken-4_5: '#111111'
+
+md-black: '#000000'
+md-white: '#FFFFFF'
