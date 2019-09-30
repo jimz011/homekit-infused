@@ -12,7 +12,7 @@ cch:
 # These are the templates used to avoid too much
 # duplicate code.
 decluttering_templates:
-  !include_dir_named lovelace/templates # Changed/Added in 0.12.3
+  !include_dir_named lovelace/templates
   
 # Views
 # The following 5 views are swipable, the order
@@ -22,39 +22,10 @@ decluttering_templates:
 title: Home
 background: var(--background-image) # This is the background image that will be used in all the views. (currently backgrounds are set in themes, dont edit this if you want themes to work)
 views:
-  - !include lovelace/views/climate.yaml
-  - !include lovelace/views/main_view.yaml
-  - !include lovelace/views/lights.yaml
-  - !include lovelace/views/devices.yaml
-  - !include lovelace/views/security.yaml
-# The views below are used as fake popup cards
-# They are non swipable and will behave just like
-# a popup card or conditional cards. The order of
-# these files will not change anything.
-  - !include lovelace/views/vacuum.yaml
-  - !include lovelace/views/vacuum-zoned-cleaning.yaml
-  - !include lovelace/views/alarm.yaml
-  - !include lovelace/views/jimmy.yaml
-  - !include lovelace/views/stephanie.yaml
-  - !include lovelace/views/tala.yaml
-  - !include lovelace/views/scenes.yaml
-  - !include lovelace/views/main_menu.yaml
-  - !include lovelace/views/cleaning.yaml
-  - !include lovelace/views/floorplan.yaml
-  - !include lovelace/views/remote.yaml
-  - !include lovelace/views/links.yaml
-  - !include lovelace/views/calendar.yaml
-  - !include lovelace/views/laundry.yaml
-  - !include lovelace/views/media.yaml
-  - !include lovelace/views/downloads.yaml
-  - !include lovelace/views/energy.yaml
-  - !include lovelace/views/other.yaml
-  - !include lovelace/views/currently_on.yaml
-  - !include lovelace/views/location.yaml
-  - !include lovelace/views/themes.yaml
-  - !include lovelace/views/postnl-jimmy.yaml
-  - !include lovelace/views/postnl-stephanie.yaml
-  - !include lovelace/views/weather.yaml
-# Note that this order and the way this works might change in the near future.
-# It will be the removal of swipe-cards in favor of CCH swipe gestures.
-# - !include lovelace/views/developer-tools.yaml
+  !include_dir_merge_list lovelace/views/ # Changed/Added in 0.13.0 (The views I want to be swipable are now prefixed with a the view number that should come first. E.g. 01.lights.yaml or 04.remote.yaml)
+                                          # The lowest number will always be the first view. I have hidden views 5 to 50 so I only have 4 views that are swipable. If you want more/less swipable views you
+                                          # should configure the views you want to show/hide in the CCH config (which you can find in folder lovelace/cch). WARNING! If you DO use the header, then you probably
+                                          # want to give all views a prefixed name or use the old method instead. This config takes in account that you will not use the header (which is hidden in my config)
+                                          # therefor it is only needed to number the views you want to swipe on. The old method will work absolutely fine though. The only difference is, if you want to add a
+                                          # view you will not have to set it in this list anymore as it will find it automatically. If for whatever reason you find this unnecessary or too hard to do, please
+                                          # use the old method! There is absolutely no benefit to this other than not having to hardcode the views in a list!!

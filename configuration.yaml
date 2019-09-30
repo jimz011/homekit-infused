@@ -1,5 +1,3 @@
-# Changed/Added in 0.12.3 (now compatible with interface configuration of the Home Location, No you still can't use the GUI to build your interface!)
-
 # Home Assistant Config 
 homeassistant:
   # Customization file
@@ -22,7 +20,7 @@ hacs:
 
 # Frontend & SSL
 frontend:
-  themes: !include configuration/themes.yaml
+  themes: !include_dir_named configuration/themes # Changed/Added in 0.13.0
   javascript_version: auto
 
 http:
@@ -49,6 +47,8 @@ recorder:
   exclude:
     domains:
       - automation
+    entities:
+      - sensor.xiaomi_map
   
 # Speedtest.net
 speedtestdotnet:
@@ -72,32 +72,20 @@ tado:
   username: !secret tado_usr
   password: !secret tado_pwd
 
-# Sabnzbd
-sabnzbd:
-  api_key: !secret sabnzbd_api_key
-  host: 192.168.0.33
-  name: sabnzbd
-  port: 8080
-  sensors:
-    - current_status
-    - speed
-    - queue_count
-    - queue_size
-    - queue_remaining
-    - disk_size
-    - disk_free
-    - total_size
-
 # Iframe
 panel_iframe:
   sonarr:
     title: "Sonarr"
     url: !secret url_2
     icon: "mdi:television"
-  couchpotato:
+  radarr:
     title: "Radarr"
     url: !secret url_3
     icon: "mdi:sofa"
+  nzbget:
+    title: "NZBGet"
+    url: !secret url_6
+    icon: "mdi:download"
   serveressentials:
     title: "Windows Cloud"
     url: !secret url_1
@@ -164,3 +152,27 @@ browser_mod:
   devices:
     5b4e295f-d8a2f862:
       name: Jimmy
+
+# Grocy # Changed/Added in 0.13.0
+grocy:
+  url: !secret grocy_url
+  api_key: !secret grocy_api
+  sensor:
+    - enabled: true
+
+# Apple TV (MRP) # Changed/Added in 0.13.0
+apple_tv_mrp:
+  - name: Woonkamer Apple TV
+    host: 192.168.0.95
+    port: 49153
+#    credentials: !secret atv_pwd
+  - name: Slaapkamer Apple TV
+    host: 192.168.0.96
+    port: 49152
+
+# Plex # Changed/Added in 0.13.0
+plex:
+  host: 192.168.0.31
+  token: !secret plex
+  media_player:
+    use_episode_art: false
