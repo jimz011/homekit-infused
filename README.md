@@ -2,8 +2,8 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/old%20images/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 August 2019 v 0.12.3 (*updated: 30/08/2019)
-My current Home Assistant install (current running version 0.99.0b3)
+# Homekit Infused (Lovelace) by Jimz011 August 2019 v 0.13.0 (*updated: 30/09/2019)
+My current Home Assistant install (current running version 0.99.3)
 This is my current Home Assistant configuration with Lovelace, new users please skip to the introduction.
 Existing users can either update or copy new snippets of code.
 
@@ -30,7 +30,7 @@ Video: CLICK ON THE IMAGE TO START VIDEO (*updated 05/08/2019)
 ### How to use
 
 Prerequisites:
-- Home Assistant 0.96.x or 0.97.x or 0.98.x (note: personal themes are broken since 0.97.x if you want to use themes you will have to set them globally! This means the theme will change for ALL users. It might be my own mistake of having weird css or it might be an error in HA itself. Only time will tell)
+- Home Assistant 0.98.x or 0.99.x (note: personal themes are broken since 0.97.x if you want to use themes you will have to set them globally! This means the theme will change for ALL users. It might be my own mistake of having weird css or it might be an error in HA itself. Only time will tell)
 - A bunch of custom-cards, see below for links
 - Patience
 - Some more patience
