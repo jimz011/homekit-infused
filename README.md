@@ -35,7 +35,8 @@ Prerequisites:
 - Patience
 - Some more patience
 - A whole lot of more patience
-- Have lovelace set in `yaml` mode, !includes are NOT supported in storage mode. To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
+- Have lovelace set in `yaml` mode, !includes and !secrets are NOT supported in storage mode. 
+To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
 ```
 lovelace:
   mode: yaml
@@ -60,7 +61,7 @@ To make it easier on you if you want to copy it entirely is to first check the f
 - On some Android devices it won't accept a hold_action when deep_press: true is enabled. Remove these lines from the switch-template.yaml and light-template.yaml. It is only useful for iphone users and will do nothing for Android.
 - LEARN how to use decluttering-cards, click on the link below at the addons and read the documentation. My config really has a lot of those and knowing how to use them will save you a lot of time, headache and mostly a lot of duplicate code! This is important, please do not flood me with questions about this card if you haven't read the documentation.
 - LEARN how to use popup-cards, click on the link below at the addons and read the documentation. I use popup-cards occasionally on some views and they are not easy or straightforward to setup. If you do not know what you are doing these cards will just never work and you will be presented with the standard more-info window that HA offers out of the box. Any config I have made in these cards will not work until you learn how to use these. My advise is to do this last as they are one of the least important features and 95% of the config will work just fine without these working yet.
-- Know how to use !includes, includes can seriously be a pain in the behind when any of the paths are wrong or missing. Lovelace will not load and it will always show you a states-ui view if any of the paths are missing or wrong. I stress out that you will ALWAYS have to make SURE that the paths in your files are correct. e.g. if a file refers to another file with an include, make sure the path exists.
+- Know how to use !includes, includes can seriously be a pain in the behind when any of the paths are wrong or missing. Lovelace will not load and it will always show you a states-ui view if any of the paths are missing or wrong. I stress out that you will ALWAYS have to make SURE that the paths in your files are correct. e.g. if a file refers to another file with an include, make sure the path exists. Luckily since HA 0.98.x it has become easier to find missing includes as the error handler will now tell you in lovelace.
 ```
 type: vertical-stack
 cards:
@@ -101,21 +102,26 @@ Cards:
 * [Light-Entity-Card](https://github.com/ljmerza/light-entity-card) - HACS Supported, install with HACS - A beautiful replacement for a color wheel. Can be used as a card or as seen in my setup (see video) with a popup card.
 * [Lovelace-Decluttering-Card](https://github.com/custom-cards/decluttering-card) - HACS Supported, install with HACS -  ESSENTIAL and VERY IMPORTANT. None of the buttons in my config will ever render without this card. All buttons except for the light buttons are based of a single template. No template means no buttons. Do not fail to install this! This card is used as a replacement to YAML anchors which I previously used in my setup. This is way more versatile and better in every way (though anchors have some benefits as well).
 * [check-button-card](https://github.com/Gluwc/check-button-card) - Not supported, install Manually - This is the card I use to track how long ago a specific action was done (e.g. how long ago it was when the bathroom was cleaned). They are easy to setup and it is easy to use, however I am not satisfied with the way it looks. It is in my setup right now, but will likely be removed in the future.
+* [bar-card](https://github.com/custom-cards/bar-card) - HACS Supported, install with HACS - used in the printer ink levels. I might use this card more often in the future.
+* [air-visual-card](https://github.com/dnguyen800/air-visual-card) - HACS Supported, install with HACS - a beautiful air quality card with the current outside temperature. I use this on the widgets and weather views.
+* [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - HACS Supported, install with HACS - the great card that imports livemaps from a rooted xiaomi roborock with valetudo.
+* [lovelace-xiaomi-vacuum-card](https://github.com/benct/lovelace-xiaomi-vacuum-card) - HACS Supported, install with HACS - Used only on the widgets page. You don't need this if you don't want this as a widget.
 
 Custom Components:
 * [RDW-Sensor](https://github.com/eelcohn/home-assistant-rdw) - Not supported, install Manually - Only useful for Dutch citizens. Used for car license plates, APK and Insurrance tracking.
 * [Sonarr-Upcoming-Media](https://github.com/custom-components/sensor.sonarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
 * [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
-* [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - Not supported, install Manually - You will need this to use with the PostNL lovelace card. Without this component the card is useless! Configuration remains the same as if you would use the official PostNL component. Just download the entire folder to your custom_components folder.
+* [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - Not supported, install Manually - You will need this to use with the PostNL lovelace card. Without this component the card is useless! Configuration remains the same as if you would use the official PostNL component. Just download the entire folder from my repo to your custom_components folder.
+* [Apple-TV-Fix](https://github.com/chamberlain2007/apple_tv_mrp) - Not supported, install Manually - This is a component that aims to fix the ATV problems that came with tvOS 13. Some functions work, some don't. Use at your own risk. If HA will have this component updated I will remove this again. But for now it suits my needs.
 
-## TO DO (*updated: 14/08/2019)
-- THEMES PROPER REWORK. ###Currently in Progress, will not drop before 0.15.0!
-- Switching the swipe-card for standard views with CCH. ###Feature requested, awaiting release
+## TO DO (*updated: 30/09/2019)
+- Finetuning themes and add new ones ###In Progress
+- Switching the swipe-card for standard views with CCH. ###Feature request has been released, so this can go in to production
 - Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
 - Xiaomi Plantsensor Cards ###Postponed to a future release
-- Dog food and water dispenser ###Water dispenser arrived, waiting for sensors to accompany it.
-- Other graphs related to servers/computers etc. ###Postponed to a future release
+- Dog food and water dispenser ###Water dispenser died, waiting on RMA
+- Other graphs related to servers/computers etc. ###Prework Done
 - Declutter some more cards ###Always in Progress
 - Add even more buttons to then menu to get all functions in one place ###Currently in Progress
 - And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
@@ -124,7 +130,6 @@ Custom Components:
 - p2000 monitor (for Dutch citizens)
 - Fuel prices
 - Newsfeed
-- Afvalwijzer (for Dutch citizens)
 - Public Transport (for Dutch citizens)
 - Flight Information
 
@@ -176,6 +181,8 @@ Anyways have fun and see you next time!
 @3_14 / @Piotrmachowski
 
 @xMrVizzy
+
+@MarsWarrior
 
 @everyone I forgot to mention
 
