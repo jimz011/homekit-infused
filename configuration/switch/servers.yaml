@@ -1,0 +1,19 @@
+- platform: wake_on_lan
+  mac_address: "MAC_ADDRESS_HERE"
+  name: Windows Server 2016 (Backup)
+  host: "192.168.0.30"
+
+- platform: wake_on_lan
+  mac_address: "MAC_ADDRESS_HERE"
+  name: Windows Server 2016
+  host: "192.168.0.32"
+
+- platform: wake_on_lan
+  mac_address: "MAC_ADDRESS_HERE"
+  name: Hyper-V Server 2016
+  host: "192.168.0.31"
+
+- platform: wake_on_lan
+  mac_address: "MAC_ADDRESS_HERE"
+  name: Media Server
+  host: "192.168.0.33"

@@ -1,0 +1,7 @@
+  - name: YOUR_ZONE
+    latitude: YOUR_LATITUDE
+    longitude: YOUR_LONGITUDE
+    radius: 100
+    icon: mdi:home
+
+
