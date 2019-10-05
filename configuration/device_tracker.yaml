@@ -1,8 +1,0 @@
-  - platform: tado
-    username: !secret tado_usr
-    password: !secret tado_pwd
-    home_id: 284167
-
-  - platform: tile
-    username: !secret tile_usr
-    password: !secret tile_pwd
