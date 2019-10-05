@@ -1,7 +1,0 @@
-# Media Players
-media_player.samsung_tv_ue65ku6000:
-  friendly_name: Woonkamer TV
-  device_class: tv
-media_player.samsung_tv_ue46es5500:
-  friendly_name: Slaapkamer TV
-  device_class: tv
