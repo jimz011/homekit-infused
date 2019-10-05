@@ -1,7 +1,7 @@
 # Home Assistant Config 
 homeassistant:
   # Customization file
-  customize: !include configuration/customize.yaml
+  customize: !include_dir_merge_named configuration/customize/ # Changed/Added in 0.13.2
   # Auth Provider
   auth_providers: 
    - type: trusted_networks 
@@ -14,15 +14,18 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+
+
 # HACS
 hacs:
   token: !secret HACS
 
-# Frontend & SSL
+# Frontend Themes
 frontend:
-  themes: !include_dir_named configuration/themes # Changed/Added in 0.13.0
+  themes: !include_dir_named configuration/themes/
   javascript_version: auto
 
+# SSL
 http:
   base_url: !secret base_url
   ssl_certificate: !secret ssl_certificate
@@ -92,14 +95,14 @@ panel_iframe:
     icon: "mdi:windows"
 
 # Homekit Configuration
-homekit: !include configuration/homekit.yaml
+homekit: !include configuration/homekit/homekit.yaml # Changed/Added in 0.13.2
 
 # Text to speech
 tts:
   - platform: google_translate
   
 # iOS and Notifications
-ios: !include configuration/ios.yaml
+ios: !include configuration/ios/ios.yaml # Changed/Added in 0.13.2
 
 # Weather
 weather:
@@ -122,21 +125,21 @@ xiaomi_aqara:
   discovery_retry: 10
 
 # All Sensors/Switches ETC.
-sensor: !include configuration/sensor.yaml
-group: !include configuration/groups.yaml
-automation: !include configuration/automations.yaml
-script: !include configuration/scripts.yaml
-camera: !include configuration/camera.yaml
-media_player: !include configuration/media_player.yaml
-light: !include configuration/light.yaml
-switch: !include configuration/switch.yaml
-input_boolean: !include configuration/input_boolean.yaml
-zone: !include configuration/zone.yaml
-device_tracker: !include configuration/device_tracker.yaml
-alarm_control_panel: !include configuration/alarms.yaml
-scene: !include configuration/scenes.yaml
-shell_command: !include configuration/shell_command.yaml
-input_select: !include configuration/input_select.yaml
+sensor: !include_dir_merge_list configuration/sensor/
+group: !include_dir_merge_named configuration/groups/ # Changed/Added in 0.13.2
+automation: !include_dir_merge_list configuration/automations/
+script: !include_dir_merge_named configuration/scripts/
+camera: !include configuration/camera/camera.yaml # Changed/Added in 0.13.2
+media_player: !include configuration/media_player/media_player.yaml # Changed/Added in 0.13.2
+light: !include configuration/light/light.yaml # Changed/Added in 0.13.2
+switch: !include_dir_merge_list configuration/switch/
+input_boolean: !include_dir_merge_named configuration/input_boolean/ # Changed/Added in 0.13.2
+zone: !include configuration/zone/zone.yaml # Changed/Added in 0.13.2
+device_tracker: !include configuration/device_tracker/device_tracker.yaml # Changed/Added in 0.13.2
+alarm_control_panel: !include configuration/alarm_control_panel/alarms.yaml # Changed/Added in 0.13.2
+scene: !include_dir_merge_list configuration/scenes/
+shell_command: !include configuration/shell_command/shell_command.yaml # Changed/Added in 0.13.2
+input_select: !include_dir_merge_named configuration/input_select/ # Changed/Added in 0.13.2
 
 # Python Script (Birthday Sensor)
 python_script:
@@ -150,7 +153,7 @@ vacuum:
 # Browser-Mod
 browser_mod:
   devices:
-    5b4e295f-d8a2f862:
+    24cb89cc-be714b7d:
       name: Jimmy
 
 # Grocy # Changed/Added in 0.13.0
@@ -176,3 +179,11 @@ plex:
   token: !secret plex
   media_player:
     use_episode_art: false
+
+# NZBget
+nzbget:
+  host: !secret url_5
+  port: 9090
+  ssl: true
+  username: !secret nzbget_usr
+  password: !secret nzbget_pwd
