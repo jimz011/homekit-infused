@@ -24,7 +24,7 @@
               template: mini-graph 
               variables:
                 - entities: 
-                    - sensor.nzbget_speed
+                    - sensor.nzbget_download_rate
                 - name: Current Speed
                 - line_color: '#ffb414'
                 - font_size: 53
@@ -35,7 +35,7 @@
               template: mini-graph 
               variables:
                 - entities: 
-                    - sensor.nzbget_average_speed
+                    - sensor.nzbget_average_download_rate
                 - name: Average Speed
                 - line_color: '#ffb414'
                 - font_size: 53
@@ -60,22 +60,22 @@
                 }
               columns: 3
               entities:
-                - entity: sensor.nzbget_speed
+                - entity: sensor.nzbget_download_rate
                   icon: 'mdi:download'
                   name: Speed
                 - entity: sensor.nzbget_uptime
                   icon: 'mdi:download'
                   name: Uptime
-                - entity: sensor.nzbget_average_speed
+                - entity: sensor.nzbget_average_download_rate
                   icon: 'mdi:download'
                   name: Average Speed 
-                - entity: sensor.nzbget_queue_size
+                - entity: sensor.nzbget_remaining_size
                   icon: 'mdi:download'
                   name: Queue Size
-                - entity: sensor.nzbget_size
+                - entity: sensor.nzbget_download_size
                   icon: 'mdi:download'
                   name: Total Size
-                - entity: sensor.nzbget_disk_free
+                - entity: sensor.nzbget_free_disk_space
                   icon: 'mdi:download'
                   name: Disk Free 
                 - entity: sensor.nzbget_article_cache
@@ -84,7 +84,7 @@
                 - entity: sensor.nzbget_download_paused
                   icon: 'mdi:download'
                   name: Download Paused
-                - entity: sensor.nzbget_post_processing_paused
+                - entity: sensor.nzbget_post_paused
                   icon: 'mdi:download'
                   name: Post Processing Paused
             - !include ../includes/blank-card.yaml  

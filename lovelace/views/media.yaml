@@ -12,11 +12,51 @@
         - type: custom:decluttering-card
           template: header
           variables:
-            - content: '## Upcoming Media'
+            - content: '## Media Center'
         - type: custom:decluttering-card
           template: header
           variables:
-            - content: '##### Series'
+            - content: '##### Recently Added Series'
+
+# Added in 0.13.2 Plex Recently Added (you will need a custom_component which can be found in HACS)
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entity: sensor.recently_added_tv
+            - !include ../includes/blank-card.yaml 
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Recently Added Movies'
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: 'custom:upcoming-media-card'
+              style: |
+                ha-card {
+                  background: var(--card-color-off);
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                }
+              entity: sensor.recently_added_movies
+            - !include ../includes/blank-card.yaml 
+# End of Changes in 0.13.2
+
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: header
+          variables:
+            - content: '##### Upcoming Series'
         - type: horizontal-stack
           cards:
             - !include ../includes/blank-card.yaml
@@ -34,7 +74,7 @@
         - type: custom:decluttering-card
           template: header
           variables:
-            - content: '##### Movies'
+            - content: '##### Upcoming Movies'
         - type: horizontal-stack
           cards:
             - !include ../includes/blank-card.yaml
@@ -48,4 +88,5 @@
               entity: sensor.radarr_upcoming_media
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
+
           

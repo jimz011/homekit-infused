@@ -48,26 +48,6 @@
               deep_press: true
             - !include ../includes/blank-card.yaml
   
-  ### The following piece is for tablets only, You can leave this out if not needed.
-    - type: custom:state-switch
-      entity: user
-      states:
-        Home Assistant:
-          type: vertical-stack
-          cards:
-            - type: markdown 
-              style: |
-                ha-card {
-                  background: none;
-                  color: white;
-                  box-shadow: none;
-                  text-align: end;
-                  font-size: 45px;
-                  height: 155px;
-                }
-              content: '# [[ sensor.time.state ]]'
-  ### End of tablet code.
-  
     - type: vertical-stack
       cards:
         - type: custom:decluttering-card
@@ -133,6 +113,24 @@
                 - icon: "[[[ if (entity.state === 'on') return 'mdi:motion-sensor'; else return 'mdi:walk'; ]]]" # Changed/Added in 0.13.0
                 - show_last_changed: true
                 - tap_action: more-info
+            - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:decluttering-card
+              template: button
+              variables:
+                - entity: binary_sensor.tradfri_motion_sensor
+                - name: Gang
+                - icon: "[[[ if (entity.state === 'on') return 'mdi:motion-sensor'; else return 'mdi:walk'; ]]]" # Changed/Added in 0.13.0
+                - show_last_changed: true
+                - tap_action: more-info
+            - type: 'custom:button-card'
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: 'custom:button-card'
+              color_type: blank-card
+              aspect_ratio: 1/1
             - !include ../includes/blank-card.yaml
         - type: custom:decluttering-card
           template: header

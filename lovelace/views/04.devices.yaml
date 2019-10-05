@@ -22,8 +22,6 @@
               template: button 
               variables:
                 - entity: switch.ventilator
-                - name: Ventilator
-                - icon: mdi:fan # Changed/Added in 0.13.0
                 - color: DodgerBlue
                 - spin: true
                 - grid:
@@ -33,7 +31,6 @@
               variables:
                 - entity: switch.receiver
                 - name: Receiver
-                - icon: mdi:set-top-box # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - type: custom:decluttering-card
@@ -41,7 +38,6 @@
               variables:
                 - entity: switch.samsung_tv
                 - name: TV
-                - icon: mdi:television # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - !include ../includes/blank-card.yaml
@@ -56,8 +52,6 @@
               template: button 
               variables:
                 - entity: switch.ventilator
-                - name: Ventilator
-                - icon: mdi:fan # Changed/Added in 0.13.0
                 - color: DodgerBlue
                 - spin: true
                 - lock: true
@@ -68,7 +62,6 @@
               variables:
                 - entity: switch.receiver_slaapkamer
                 - name: Receiver
-                - icon: mdi:set-top-box # Changed/Added in 0.13.0
                 - lock: true
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -77,7 +70,6 @@
               variables:
                 - entity: switch.tv_slaapkamer
                 - name: TV
-                - icon: mdi:television # Changed/Added in 0.13.0
                 - lock: true
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -93,8 +85,6 @@
               template: button 
               variables:
                 - entity: switch.pc_van_stephanie
-                - name: Stephanie
-                - icon: mdi:desktop-tower-monitor # Changed/Added in 0.13.0
                 - lock: true
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -102,8 +92,6 @@
               template: button 
               variables:
                 - entity: switch.pc_van_jimmy
-                - name: Jimmy
-                - icon: mdi:desktop-tower-monitor # Changed/Added in 0.13.0
                 - lock: true
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -111,7 +99,6 @@
               template: button 
               variables:
                 - entity: switch.printer
-                - name: Printer
                 - icon: mdi:printer-wireless # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -123,8 +110,6 @@
               template: button 
               variables:
                 - entity: switch.xbox_one
-                - name: Xbox
-                - icon: mdi:xbox # Changed/Added in 0.13.0
                 - lock: true
                 - color: green
                 - grid:
@@ -136,26 +121,6 @@
               color_type: blank-card
               aspect_ratio: 1/1
             - !include ../includes/blank-card.yaml
-  
-  ### The following piece is for tablets only, You can leave this out if not needed.
-    - type: custom:state-switch
-      entity: user
-      states:
-        Home Assistant:
-          type: vertical-stack
-          cards:
-            - type: markdown 
-              style: |
-                ha-card {
-                  background: none;
-                  color: white;
-                  box-shadow: none;
-                  text-align: end;
-                  font-size: 45px;
-                  height: 155px;
-                }
-              content: '# [[ sensor.time.state ]]'
-  ### End of tablet code.
   
     - type: vertical-stack
       cards:
@@ -170,16 +135,12 @@
               template: button 
               variables:
                 - entity: switch.waterkoker
-                - name: Waterkoker
-                - icon: mdi:cup-water # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - type: custom:decluttering-card
               template: button 
               variables:
                 - entity: switch.afzuigkap
-                - name: Afzuigkap
-                - icon: mdi:fan # Changed/Added in 0.13.0
                 - color: DodgerBlue
                 - spin: true
                 - grid:
@@ -188,8 +149,6 @@
               template: button 
               variables:
                 - entity: switch.air_fryer
-                - name: Airfryer
-                - icon: mdi:panorama-fisheye # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - !include ../includes/blank-card.yaml
@@ -200,24 +159,18 @@
               template: button 
               variables:
                 - entity: switch.cappumaker
-                - name: Cappumaker
-                - icon: mdi:coffee-outline # Changed/Added in 0.13.0
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - type: custom:decluttering-card
               template: button 
               variables:
                 - entity: switch.oven
-                - name: Oven
-                - icon: mdi:toaster-oven
                 - grid:
                     !include ../includes/light-devices-grid.yaml
             - type: custom:decluttering-card
               template: button 
               variables:
                 - entity: switch.vaatwasser
-                - name: Vaatwasser
-                - icon: mdi:dishwasher # Changed/Added in 0.13.0
                 - label: "[[[ if (states['sensor.vaatwasser_energy_power'].state > 0) return `${states['sensor.vaatwasser_energy_power'].state} W`; else return '&nbsp;' ]]]"
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -233,8 +186,6 @@
               template: button 
               variables:
                 - entity: switch.wasmachine
-                - name: Wasmachine
-                - icon: mdi:washing-machine # Changed/Added in 0.13.0
                 - label: "[[[ if (states['sensor.wasmachine_energy_power'].state > 0) return `${states['sensor.wasmachine_energy_power'].state} W`; else return '&nbsp;' ]]]"
                 - grid:
                     !include ../includes/light-devices-grid.yaml
@@ -242,8 +193,6 @@
               template: button 
               variables:
                 - entity: switch.droger
-                - name: Droger
-                - icon: mdi:tumble-dryer # Changed/Added in 0.13.0
                 - label: "[[[ if (states['sensor.droger_energy_power'].state > 0) return `${states['sensor.droger_energy_power'].state} W`; else return '&nbsp;' ]]]"
                 - grid: 
                     !include ../includes/light-devices-grid.yaml

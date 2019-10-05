@@ -136,27 +136,7 @@
                 - decimals: 0
                 - font_size: 65 
             - !include ../includes/blank-card.yaml 
-  
-  ### The following piece is for tablets only, You can leave this out if not needed.
-    - type: custom:state-switch
-      entity: user
-      states:
-        Home Assistant:
-          type: vertical-stack
-          cards:
-            - type: markdown 
-              style: |
-                ha-card {
-                  background: none;
-                  color: white;
-                  box-shadow: none;
-                  text-align: end;
-                  font-size: 45px;
-                  height: 155px;
-                }
-              content: '# [[ sensor.time.state ]]'
-  ### End of tablet code. 
-  
+
     - type: vertical-stack
       cards:
         - type: custom:decluttering-card

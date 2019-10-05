@@ -871,64 +871,17 @@
                       style: |
                         ha-card {
                           border-radius: {{ states('input_select.border_radius') }};
-                          --paper-card-icon-color: black;
                         }
                       entity: sensor.xiaomi_map
                       floor_color: '--valetudo-map-floor-color'
                       obstacle_weak_color: '--valetudo-map-obstacle-weak-color'
                       obstacle_strong_color: '--valetudo-map-obstacle-strong-color'
                       path_color: '--valetudo-map-path-color'
-                      map_scale: 1.75
+                      map_scale: 1.5
                       rotate: 270
                       crop:
                         top: 0
-                        bottom: 100
-                        left: 290
+                        bottom: 0
+                        left: 125
                         right: 0
                     - !include ../includes/blank-card.yaml
-# Changed/Added in 0.13.0 Above
-
-  ### The following piece is for tablets only, You can leave this out if not needed.
-    - type: custom:state-switch
-      entity: user
-      states:
-        Home Assistant:
-          type: vertical-stack
-          cards:
-            - type: markdown 
-              style: |
-                ha-card {
-                  background: none;
-                  color: white;
-                  box-shadow: none;
-                  text-align: end;
-                  font-size: 45px;
-                  height: 155px;
-                }
-              content: '# [[ sensor.time.state ]]'
-            - type: custom:decluttering-card
-              template: header
-              variables:
-                - content: '##### Manual Zoned Cleaning'
-            - type: horizontal-stack
-              cards: 
-                - !include ../includes/blank-card.yaml
-                - type: custom:xiaomi-vacuum-map-card
-                  style: |
-                    ha-card {
-                      border-radius: {{ states('input_select.border_radius') }};
-                      background: var(--card-color-off);
-                      box-shadow: {{ states('input_select.box_shadow') }};
-                      color: var(--label-color-off);
-                    }
-                  entity: vacuum.xiaomi_vacuum_cleaner
-                  map_image: '/local/images/xiaomi-map.png'
-                  base_position:
-                    x: 600
-                    y: 300
-                  reference_point:
-                    x: 546
-                    y: 235
-                - !include ../includes/blank-card.yaml
-  ### End of tablet code.
-  

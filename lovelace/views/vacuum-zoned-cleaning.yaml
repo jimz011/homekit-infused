@@ -57,11 +57,24 @@
                 }
               entity: vacuum.xiaomi_vacuum_cleaner
               map_image: '/local/images/xiaomi-map.png'
-              base_position:
-                x: 600
-                y: 300
-              reference_point:
-                x: 546
-                y: 235
+              calibration_points:
+                - vacuum:
+                    x: 25500
+                    y: 25500
+                  map:
+                    x: 300
+                    y: 600
+                - vacuum:
+                    x: 26500
+                    y: 26500
+                  map:
+                    x: 546
+                    y: 235
+                - vacuum:
+                    x: 25500
+                    y: 26500
+                  map:
+                    x: 546
+                    y: 300
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml  
