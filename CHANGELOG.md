@@ -1,5 +1,14 @@
 # Changelog
 
+### Changes Overview 05/10/2019:
+v. 0.13.2
+- Split entire configuration
+- Renewed a lot of automations with a simpler template (because they are split now they can be found faster)
+- Minor changes to the button template
+- Removed tablet config (in preparation for a separate tablet view!)
+- Merged main_view.yaml and frontpage.yaml (there was too much confusion around this!)
+- New theme Valentine (experimental)
+
 ### Changes Overview 30/09/2019:
 v. 0.13.0
 - Completely rewritten themes (with a very very special thanks to @marswarrior for the inspiration)
