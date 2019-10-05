@@ -1,0 +1,20 @@
+# Device Trackers and Person Groups
+
+device_status:
+  name: Status en Locatie
+  entities:
+    - person.jimmy
+    - person.stephanie
+
+device_status_2:
+  name: Tado iPhone Tracker
+  entities:
+    - device_tracker.jimmys_iphone
+    - device_tracker.stephanies_iphone
+
+device_status_3:
+  name: Device Tracker with dog
+  entities:
+    - person.jimmy
+    - person.stephanie
+    - person.tala

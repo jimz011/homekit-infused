@@ -1,0 +1,73 @@
+# Sensor Notifications
+
+# Motion Detection Notificaties / Camera
+- alias: Motion detected no one home
+  initial_state: 'true'
+  trigger:
+  - entity_id: binary_sensor.motion_bijkeuken
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.motion_toilet
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: group.device_status
+    state: 'not_home'
+    condition: state
+  action:
+  - service: notify.ios_notifier
+    data_template:
+      title: "Motion"
+      message: >
+        {% if is_state('binary_sensor.motion_bijkeuken', 'on') %}
+          Er is beweging gedetecteerd in de bijkeuken terwijl er niemand thuis is! Wat wil je doen?
+        {% elif is_state('binary_sensor.motion_toilet', 'on') %}
+          Er is beweging gedetecteerd in het toilet terwijl er niemand thuis is! Wat wil je doen?
+        {% endif %}
+      data:
+        push:
+          badge: 0
+          sound: default
+          category: "bijkeuken_alert"
+
+- alias: Motion detected no one home gallerij
+  initial_state: 'false'
+  trigger:
+  - entity_id: binary_sensor.dafang_motion_sensor
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: group.device_status
+    state: 'not_home'
+    condition: state
+  action:
+  - service: notify.ios_notifier
+    data:
+      message: 'Er is beweging gedetecteerd op de gallerij! '
+      title: 'Motion'
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          badge: 0
+          sound: default
+          category: camera 
+        entity_id: camera.gallerij_camera
+
+# Smoke Detector
+- alias: Smoke Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.lumi_sensor_smoke
+    to: 'on'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: "Rookmelder"
+        message: "Attentie, Er is rook gesignaleerd in de Keuken, onderneem nu actie!"
+        data:
+          push:
+            sound: default
+            badge: 0
+            category: "smoke_alert"

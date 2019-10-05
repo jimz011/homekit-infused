@@ -1,0 +1,13 @@
+# Afvalbeheer
+sensor.cure_gft:
+  friendly_name: GFT
+  entity_picture: /local/images/afvalbeheer/afval_gft_small.png
+sensor.cure_pmd:
+  friendly_name: PMD
+  entity_picture: /local/images/afvalbeheer/afval_pmd_small.png
+sensor.cure_papier:
+  friendly_name: Papier
+  entity_picture: /local/images/afvalbeheer/afval_papier_small.png
+sensor.cure_restafval:
+  friendly_name: Restafval
+  entity_picture: /local/images/afvalbeheer/afval_rest_small.png

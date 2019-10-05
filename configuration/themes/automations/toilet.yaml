@@ -1,0 +1,45 @@
+# Toilet Automations
+
+# WHEN TOILET MOTION SENSOR TURNS ON, RUN TOILETLAMP_ SCRIPT
+- alias: toiletlamp_turn_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_toilet
+    to: 'on'
+  condition:
+  - condition: time
+    after: '06:30:00'
+    before: '01:00:00'
+  action:
+  - data:
+      entity_id: script.toiletlamp_1
+    service: script.turn_on
+
+# WHEN TOILET MOTION SENSOR TURNS OFF, RUN TOILETLAMP_OFF SCRIPT
+- alias: toiletlamp_turn_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_toilet
+    to: 'off'
+  action:
+  - data:
+      entity_id: script.toiletlamp_off
+    service: script.turn_on
+
+# WHEN TOILET @ NIGHT MOTION SENSOR TURNS ON, RUN TOILETLAMP SCRIPT
+- alias: toiletlamp_turn_on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_toilet
+    to: 'on'
+  condition:
+  - condition: time
+    after: '01:00:00'
+    before: '06:30:00'
+  action:
+  - data:
+      entity_id: script.toiletlamp_1_night
+    service: script.turn_on

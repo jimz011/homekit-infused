@@ -1,0 +1,61 @@
+# Devices
+switch.pc_van_jimmy:
+  friendly_name: PC Jimmy
+  icon: mdi:desktop-tower-monitor
+switch.pc_van_stephanie:
+  friendly_name: PC Stephanie
+  icon: mdi:desktop-tower-monitor
+switch.windows_server_2016:
+  friendly_name: Windows Server 2016
+  icon: mdi:server-network
+switch.windows_server_2016_backup:
+  friendly_name: Windows Server 2016 Backup
+  icon: mdi:server-network
+switch.hyper_v_server_2016:
+  friendly_name: Windows Hyper-V Server
+  icon: mdi:server-network
+switch.waterkoker:
+  friendly_name: Waterkoker
+  icon: mdi:cup-water
+switch.samsung_tv:
+  friendly_name: Woonkamer TV
+  icon: mdi:television
+switch.tv_slaapkamer:
+  friendly_name: Slaapkamer TV
+  icon: mdi:television
+switch.ventilator:
+  friendly_name: Ventilator
+  icon: mdi:fan
+switch.afzuigkap:
+  friendly_name: Afzuigkap
+  icon: mdi:fan
+switch.receiver:
+  friendly_name: Woonkamer Receiver
+  icon: mdi:set-top-box
+switch.receiver_slaapkamer:
+  friendly_name: Slaapkamer Receiver
+  icon: mdi:set-top-box
+switch.printer:
+  friendly_name: HP Printer
+  icon: mdi:printer-wireless
+switch.xbox_one:
+  friendly_name: Xbox One
+  icon: mdi:xbox 
+switch.air_fryer:
+  friendly_name: Airfryer
+  icon: mdi:panorama-fisheye
+switch.cappumaker:
+  friendly_name: Cappumaker
+  icon: mdi:coffee-outline
+switch.vaatwasser:
+  friendly_name: Vaatwasser
+  icon: mdi:dishwasher
+switch.droger:
+  friendly_name: Droger
+  icon: mdi:tumble-dryer
+switch.wasmachine:
+  friendly_name: Wasmachine
+  icon: mdi:washing-machine
+switch.oven:
+  friendly_name: Oven
+  icon: mdi:toaster-oven

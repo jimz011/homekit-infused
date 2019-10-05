@@ -1,0 +1,29 @@
+# Light Groups
+
+sunset_sunrise_leds:
+  name: Ledlampen die aan/uit gaan sunset/sunrise
+  entities:
+    - light.woonkamer_led_lampen
+    - light.officeled
+
+all_leds:
+  name: Alle LEDs
+  entities:
+    - light.woonkamer_led_lampen
+    - light.slaapkamer_led_lampen
+    - light.officeled
+
+light_group:
+  name: ganglampen
+  entities:
+    - light.entree_lamp
+    - light.gang_lamp
+
+nachtkastjes:
+  name: Slaapkamer Nachtkastjes
+  icon: mdi:lightbulb
+  entities:
+    - light.nachtkastje_jimmy
+    - light.nachtkastje_stephanie
+
+

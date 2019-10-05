@@ -1,0 +1,37 @@
+# Bathroom Script to turn on/off lights after 10 minutes. This is to give you
+# an indication on how long you currently are in the bathroom. I don't have a
+# clock there XD.
+
+# BADKAMER AAN/UIT SCRIPT
+badkamer_aanuit:
+  alias: Badkamer om de 10 minuten uit
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.koogeek_sw_056ce9
+    - delay:
+        seconds: 1
+    - service: switch.turn_on
+      data:
+        entity_id: switch.koogeek_sw_056ce9
+
+# MOTION BADKAMER SCRIPT
+badkamerlamp_on:
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.badkamerlamp_off
+    - service: switch.turn_on
+      data:
+        entity_id: switch.koogeek_sw_056ce9
+
+badkamerlamp_off:
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.badkamerlamp_on
+    - delay:
+        seconds: 60
+    - service: switch.turn_off
+      data:
+        entity_id: switch.koogeek_sw_056ce9

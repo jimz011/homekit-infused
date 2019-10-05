@@ -1,0 +1,8 @@
+xiaomi_vacuum:
+  name: Xiaomi Vacuum
+  options:
+    - Quiet
+    - Balanced
+    - Turbo
+    - Max
+    - Mop

@@ -1,0 +1,312 @@
+# Alarm Automations
+
+######################################################################
+### MANUAL ALARM PANEL                                             ###
+######################################################################
+
+# ALARM FOR AWAY
+- alias: Alarm Away
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.voordeur
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.slaapkamer_deur
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.woonkamer_deur
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.motion_toilet
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.motion_bijkeuken
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_away'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+# ALARM FOR AT HOME
+- alias: Alarm Home
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.voordeur
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.slaapkamer_deur
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.woonkamer_deur
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_home'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+# ALARM FOR AT NIGHT
+- alias: Alarm Night
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: binary_sensor.voordeur
+    platform: state
+    to: 'on'
+  condition:
+  - entity_id: alarm_control_panel.home_alarm
+    state: 'armed_night'
+    condition: state
+  action:
+  - data:
+      entity_id: alarm_control_panel.home_alarm
+    service: alarm_control_panel.alarm_trigger
+
+################################################################
+### ALARM TRIGGERS                                             #
+################################################################
+- alias: Triggered Flash
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    to: 'triggered'
+  action:
+  - data:
+      entity_id: script.light_flash
+    service: script.turn_on
+  - data:
+      entity_id: script.xiaomi_alarm_siren
+    service: script.turn_on
+
+################################################################
+### ALARM DISARMED                                             #
+################################################################
+- alias: Disarmed Off
+  initial_state: 'true'
+  hide_entity: True
+  trigger:
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    to: 'disarmed'
+  action:
+  - data:
+      entity_id: script.light_flash
+    service: script.turn_off
+  - data:
+      entity_id: script.xiaomi_alarm_siren
+    service: script.turn_off
+  - data:
+      entity_id: script.xiaomi_alarm_siren_loop
+    service: script.turn_off
+#  - data:
+#      entity_id: script.all_lights_turn_on
+#    service: script.turn_on
+
+- alias: Alarm Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'triggered'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "ALARM ALARM !Het Alarm is afgegaan! ALARM ALARM"
+      data:
+        push:
+          sound: default
+          badge: 0
+          category: "alarm_alert"
+
+- alias: Alarm Away Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_away'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor Afwezig!"
+      data:
+        push:
+          sound: default 
+
+- alias: Alarm Home Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_home'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor Thuis!"
+      data:
+        push:
+          sound: default
+
+- alias: Alarm Night Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'armed_night'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is ingeschakeld voor de Nacht!"
+      data:
+        push:
+          sound: default
+
+- alias: Alarm Disarm Notification
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: 'disarmed'
+  action:
+  - service: notify.ios_notifier
+    data:
+      title: "Home Alarm"
+      message: "Het Alarm is uitgeschakeld!"  
+      data:
+        push:
+          sound: default
+
+# Alarm Notifications/Automatic Disarm
+- alias: Alarm Disarm Jimmy Away
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_away'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: !secret alarmcode   
+
+- alias: Alarm Disarm Jimmy Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: !secret alarmcode  
+
+- alias: Alarm Disarm Steph Away
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_away'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: !secret alarmcode  
+
+- alias: Alarm Disarm Steph Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 30
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: !secret alarmcode  
+
+- alias: Alarm Activation Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status_3
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm  
+        state: 'disarmed'
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm  
+        state: 'armed_home'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data: !secret alarmcode  
+
+- alias: Alarm Activation Dog Home
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    from: 'home'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm  
+      state: 'disarmed'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data: !secret alarmcode 
+
+#simple alarm automations
+- alias: simple alarm activate
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.simple_alarm
+    to: 'on'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data: !secret alarmcode 
+- alias: simple alarm deactivate
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.simple_alarm
+    to: 'off'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: !secret alarmcode 
+

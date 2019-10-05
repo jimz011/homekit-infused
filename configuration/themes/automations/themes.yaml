@@ -1,0 +1,109 @@
+# Input Select Automations Used for Theme Selector
+
+# Theme Selector
+- alias: 'themes'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: input_select.theme_selector
+    - platform: homeassistant
+      event: start
+    - platform: sun
+      event: sunset
+      offset: '+00:00:00'
+    - platform: sun
+      event: sunrise
+      offset: '+00:00:00'
+    - platform: state
+      entity_id: sensor.anniversary_anniversary
+      to: '0'
+  action:
+    - service: frontend.set_theme
+      data_template:
+        name: >
+          {% if is_state('input_select.theme_selector', 'Silver') %}
+            Silver
+          {% elif is_state('input_select.theme_selector', 'Space Gray') %}
+            Space Gray
+          {% elif is_state('input_select.theme_selector', 'Sweet Pink') %}
+            Sweet Pink
+          {% elif is_state('input_select.theme_selector', 'Valentine') %}
+            Valentine
+          {% elif is_state('input_select.theme_selector', 'Disable (use theme per user)') %}
+            Disable
+          {% elif (is_state('sensor.anniversary_anniversary', '0')) and (is_state('input_select.theme_selector', 'Auto (default)'))  %}
+            Valentine
+          {% elif (is_state('sun.sun', 'above_horizon')) and (is_state('input_select.theme_selector', 'Auto (default)'))  %}
+            Silver
+          {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_select.theme_selector', 'Auto (default)'))  %}
+            Space Gray
+          {% endif %}
+
+# Box Shadow Selector
+- alias: input select beautifier box-shadow
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.box_shadow_selector
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.box_shadow
+      option: >
+        {% if is_state('input_select.box_shadow_selector', 'None') %}
+          none
+        {% elif is_state('input_select.box_shadow_selector', 'Small') %}
+          1px 1px 1px 0px rgba(0,0,0,0.75)
+        {% elif is_state('input_select.box_shadow_selector', 'Standard') %}
+          2px 2px 2px 0px rgba(0,0,0,0.75)
+        {% elif is_state('input_select.box_shadow_selector', 'Medium') %}
+          3px 3px 3px 0px rgba(0,0,0,0.75)
+        {% elif is_state('input_select.box_shadow_selector', 'Large') %}
+          5px 5px 5px 0px rgba(0,0,0,0.75)
+        {% elif is_state('input_select.box_shadow_selector', 'Huge') %}
+          7px 7px 7px 0px rgba(0,0,0,0.75)
+        {% endif %}
+
+# Border Radius Selector
+- alias: input select beautifier border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.border_radius_selector
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.border_radius
+      option: >
+        {% if is_state('input_select.border_radius_selector', 'None') %}
+          0px
+        {% elif is_state('input_select.border_radius_selector', 'Small') %}
+          6px
+        {% elif is_state('input_select.border_radius_selector', 'Standard') %}
+          12px
+        {% elif is_state('input_select.border_radius_selector', 'Large') %}
+          18px
+        {% endif %}
+
+  # Quick Access Menu Border Radius Selector
+- alias: input select beautifier qam border-radius
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.qam_border_radius_selector
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.qam_border_radius
+      option: >
+        {% if is_state('input_select.qam_border_radius_selector', 'None') %}
+          0px
+        {% elif is_state('input_select.qam_border_radius_selector', 'Small') %}
+          3px
+        {% elif is_state('input_select.qam_border_radius_selector', 'Standard') %}
+          6px
+        {% elif is_state('input_select.qam_border_radius_selector', 'Large') %}
+          9px
+        {% endif %}
+
+#

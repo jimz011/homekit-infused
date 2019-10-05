@@ -1,0 +1,24 @@
+# Automation Groups
+film_kijken_automation:
+  name: Film Kijken
+  entities:
+    - automation.media_player_playing
+    - automation.media_player_paused_stopped
+
+vaatwasser_starten:
+  name: Vaatwasser Starten
+  entities:
+    - automation.vaatwasser_starten_na_drogen
+    - automation.vaatwasser_starten_na_wassen
+
+deur_notifications:
+  name: Deur Bericht
+  entities:
+    - automation.voordeur
+    - automation.slaapkamer_deur
+    - automation.woonkamer_deur
+
+entree_automation:
+  name: Entree Automations
+  entities:
+    - automation.welkom_avond_entree

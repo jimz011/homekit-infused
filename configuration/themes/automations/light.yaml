@@ -1,0 +1,33 @@
+# Light Automations
+
+# TURN LEDLAMPEN WOONKAMER AND KLEINE KAMER ON AT SUNSET
+- alias: leds_aan_at_sunset
+  initial_state: 'true'
+  trigger:
+    platform: sun    
+    event: sunset
+    offset: '-00:30:00'
+  action:
+  - data:
+      entity_id: light.woonkamer_led_lampen
+    service: light.turn_on
+  - data:
+      entity_id: light.officeled
+    service: light.turn_on
+
+# TURN ALL LEDS OFF AT SUNRISE
+- alias: leds_uit_at_sunrise
+  initial_state: 'true'
+  trigger:
+  - platform: sun
+    event: 'sunrise'
+  action:
+  - data:
+      entity_id: light.woonkamer_led_lampen
+    service: light.turn_off
+  - data:
+      entity_id: light.officeled
+    service: light.turn_off
+  - data:
+      entity_id: light.slaapkamer_led_lampen
+    service: light.turn_off

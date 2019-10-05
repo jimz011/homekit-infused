@@ -1,0 +1,134 @@
+# Birthday Automations
+
+# Birthday Python Script (this is needed to create the sensor, it will create a sensor that does a day countdown as well as an age indicator)
+- alias: Reminder - Refresh date countdown sensors
+  initial_state: on
+  trigger:
+    - platform: time
+      at: '00:00:01'
+    - platform: homeassistant
+      event: start
+  action:
+    - service: python_script.date_countdown
+      data:
+        name: Jimmy Schings
+        type: birthday
+        date: 04/11/1986
+    - service: python_script.date_countdown
+      data:
+        name: Trouwdag
+        type: anniversary
+        date: 16/06/2017
+    - service: python_script.date_countdown
+      data:
+        name: Anniversary
+        type: anniversary
+        date: 06/10/2010
+    - service: python_script.date_countdown
+      data:
+        name: Stephanie Schings
+        type: birthday
+        date: 16/06/1989
+    - service: python_script.date_countdown
+      data:
+        name: Tala
+        type: birthday
+        date: 28/07/2013
+    - service: python_script.date_countdown
+      data:
+        name: Jos Schings
+        type: birthday
+        date: 12/05/1951
+    - service: python_script.date_countdown
+      data:
+        name: Ad van Dartel
+        type: birthday
+        date: 20/06/1989
+    - service: python_script.date_countdown
+      data:
+        name: Koos van Duuren
+        type: birthday
+        date: 02/07/1953
+    - service: python_script.date_countdown
+      data:
+        name: Ralf Vogels
+        type: birthday
+        date: 20/08/1989
+    - service: python_script.date_countdown
+      data:
+        name: Rick Oosterbosch
+        type: birthday
+        date: 05/07/1991
+
+# Birthday Notifications to IOS App 2.0
+- alias: Birthday Notification
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.birthday_tala
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_jos_schings
+      to: '0'
+    - platform: state
+      entity_id: sensor.anniversary_trouwdag
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_stephanie_schings
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_jimmy_schings
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_koos_van_duuren
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_koos_van_duuren
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_ralf_vogels
+      to: '0'
+    - platform: state
+      entity_id: sensor.birthday_rick_oosterbosch
+      to: '0'
+  action:
+    - delay:
+        hours: 8
+    - service: notify.ios_notifier
+      data_template:
+        title: >
+          {% if is_state('sensor.anniversary_trouwdag', '0') %}
+            Trouwdag
+          {% else %}
+            Verjaardag
+          {% endif %}
+        message: >
+          {% if is_state('sensor.birthday_tala', '0') %}
+            Tala is vandaag {{ states.sensor.birthday_tala.attributes.years }} jaar geworden, Verwen haar maar goed vandaag!
+
+          {% elif is_state('sensor.birthday_jos_schings', '0') %}
+            Jos Schings is vandaag {{ states.sensor.birthday_jos_schings.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!
+
+          {% elif is_state('sensor.anniversary_trouwdag', '0') %}
+            Vandaag zijn we {{ states.sensor.anniversary_trouwdag.attributes.years }} jaar getrouwd! Proficiat!
+
+          {% elif is_state('sensor.birthday_stephanie_schings', '0') %}
+            Stephanie Schings is vandaag {{ states.sensor.birthday_stephanie_schings.attributes.years }} jaar geworden!
+
+          {% elif is_state('sensor.birthday_jimmy_schings', '0') %}
+            Jimmy Schings is vandaag {{ states.sensor.birthday_jimmy_schings.attributes.years }} jaar geworden!
+
+          {% elif is_state('sensor.birthday_koos_van_duuren', '0') %}
+            Koos van Duuren is vandaag {{ states.sensor.birthday_koos_van_duuren.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!
+
+          {% elif is_state('sensor.birthday_ralf_vogels', '0') %}
+            Ad van Dartel is vandaag {{ states.sensor.birthday_ad_van_dartel.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!
+
+          {% elif is_state('sensor.birthday_rick_oosterbosch', '0') %}
+            Rick Oosterbosch is vandaag {{ states.sensor.birthday_rick_oosterbosch.attributes.years }} jaar geworden, Feliciteer hem vandaag nog!
+
+          {% endif %}
+        data:
+          push:
+            sound: default
+            badge: 0

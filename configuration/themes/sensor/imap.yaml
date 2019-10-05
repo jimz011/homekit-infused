@@ -1,0 +1,12 @@
+# Imap Sensor (Please get the imap.py from my repo if you use outlook/hotmail)
+  - platform: imap
+    server: imap-mail.outlook.com
+    username: !secret jimzmail
+    password: !secret jimzpwd
+    port: 993
+
+  - platform: imap
+    server: imap-mail.outlook.com
+    username: !secret stephmail
+    password: !secret stephpwd
+    port: 993

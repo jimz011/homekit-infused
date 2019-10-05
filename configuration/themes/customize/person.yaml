@@ -1,0 +1,10 @@
+# Person
+person.stephanie:
+  entity_picture: /local/images/stephanie_small.png
+  friendly_name: Stephanie Schings
+person.jimmy:
+  entity_picture: /local/images/jimmy_small.png
+  friendly_name: Jimmy Schings
+person.tala:
+  entity_picture: /local/images/tala.png
+  friendly_name: Tala

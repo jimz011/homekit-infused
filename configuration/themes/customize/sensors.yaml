@@ -1,0 +1,25 @@
+# Sensors
+binary_sensor.voordeur:
+  friendly_name: Voordeur
+  icon: mdi:door
+binary_sensor.woonkamer_deur:
+  friendly_name: Woonkamer
+  icon: mdi:door
+binary_sensor.slaapkamer_deur:
+  friendly_name: Slaapkamer
+  icon: mdi:door
+binary_sensor.dafang_motion_sensor:
+  friendly_name: Gallerij
+  icon: mdi:walk
+binary_sensor.motion_bijkeuken:
+  friendly_name: Bijkeuken
+  icon: mdi:walk
+binary_sensor.motion_toilet:
+  friendly_name: Toilet
+  icon: mdi:walk
+binary_sensor.tradfri_motion_sensor:
+  friendly_name: Gang
+  icon: mdi:walk
+binary_sensor.fire_30:
+  friendly_name: Rookmelder
+  icon: mdi:smoke-detector

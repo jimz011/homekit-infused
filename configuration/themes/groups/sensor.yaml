@@ -1,0 +1,13 @@
+# Sensors
+energy_kwh:
+  name: Energy Sensors
+  entities:
+    - sensor.droger_energy_today
+    - sensor.vaatwasser_energy_today
+    - sensor.wasmachine_energy_today
+
+reistijd:
+  name: Reistijden
+  entities:
+    - sensor.reistijd_werk_jimmy
+    - sensor.reistijd_werk_stephanie

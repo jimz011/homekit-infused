@@ -1,0 +1,230 @@
+## Scenes Input Booleans (Work in Progress)
+- alias: scene dagverlichting on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: group.scene_dagverlichting_on
+      to: 'on'
+    - platform: state
+      entity_id: group.scene_dagverlichting_off
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_dagverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_dagverlichting_on
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.scene_dagverlichting
+      
+- alias: scene dagverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_dagverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_dagverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_dagverlichting
+      
+- alias: scene nachtverlichting on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: group.scene_nachtverlichting_on
+      to: 'on'
+    - platform: state
+      entity_id: group.scene_nachtverlichting_off
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_nachtverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_nachtverlichting_on
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.scene_nachtverlichting
+      
+- alias: scene nachtverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_nachtverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_nachtverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_nachtverlichting
+      
+- alias: scene avondverlichting on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_avondverlichting_on
+    to: 'on'
+  - platform: state
+    entity_id: group.scene_avondverlichting_off
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.scene_avondverlichting_off
+        state: 'off'
+      - condition: state
+        entity_id: group.scene_avondverlichting_on
+        state: 'on'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_avondverlichting
+      
+- alias: scene avondverlichting off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_avondverlichting_on
+    to: 'off'
+  - platform: state
+    entity_id: group.scene_avondverlichting_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_avondverlichting
+
+- alias: scene schoonmaken on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_on
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+      
+- alias: scene schoonmaken off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+
+- alias: scene schoonmaken input_boolean
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_schoonmaken_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_lichtuit
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_schoonmaken
+
+- alias: scene koken on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_koken_on
+    to: 'on'
+  - platform: state
+    entity_id: group.scene_koken_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_klaar_met_koken
+
+- alias: scene koken off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_koken_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_klaar_met_koken
+      
+- alias: scene wassen on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_wassen_on
+    to: 'on'
+  - platform: state 
+    entity_id: group.scene_wassen_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_klaar_met_wassen
+
+- alias: scene wassen off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_wassen_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_klaar_met_wassen
+      
+- alias: scene welterusten on
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_welterusten_off
+    to: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.scene_welterusten
+#  - service: xiaomi_aqara.play_ringtone
+#    data_template:
+#      ringtone_id: 10004
+#      ringtone_vol: 100
+#      gw_mac: 78:11:DC:DE:F3:24
+
+- alias: scene welterusten off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.scene_welterusten_off
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.scene_welterusten
