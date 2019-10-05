@@ -1,0 +1,21 @@
+  - platform: mjpeg
+    mjpeg_url: http://192.168.0.31:8082/video.mjpg
+    name: Woonkamer Camera
+
+  - platform: generic
+    stream_source: rtsp://192.168.0.75:8554/unicast
+    still_image_url: https://192.168.0.75/cgi-bin/currentpic.cgi
+    name: Gallerij Camera
+    verify_ssl: false
+    username: !secret xiaofang_usr
+    password: !secret xiaofang_pwd
+
+  - platform: generic
+    name: Jimmy Locatie
+    still_image_url: !secret googleapi_jimmy
+    limit_refetch_to_url_change: false
+
+  - platform: generic
+    name: Stephanie Locatie
+    still_image_url: !secret googleapi_stephanie
+    limit_refetch_to_url_change: true

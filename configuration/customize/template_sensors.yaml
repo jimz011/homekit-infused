@@ -1,0 +1,31 @@
+# Template Sensors
+sensor.vacuum_battery:
+  friendly_name: Xiaomi Vacuum Battery Level
+  unit_of_measurement: '%'
+sensor.vacuum_total_cleaned_area:
+  friendly_name: Xiaomi Vacuum Total Cleaned Area
+  unit_of_measurement: 'm2'
+sensor.vacuum_cleaning_count:
+  friendly_name: Xiaomi Vacuum Cleaning Count
+  unit_of_measurement: 'times'
+sensor.vacuum_total_cleaning_time:
+  friendly_name: Xiaomi Vacuum Total Cleaning Time
+  unit_of_measurement: 'minutes'
+sensor.vacuum_main_brush_left:
+  friendly_name: Xiaomi Vacuum Main Brush Left
+  unit_of_measurement: 'hours'
+sensor.vacuum_side_brush_left:
+  friendly_name: Xiaomi Vacuum Side Brush Left
+  unit_of_measurement: 'hours'
+sensor.vacuum_filter_left:
+  friendly_name: Xiaomi Vacuum Filter Left
+  unit_of_measurement: 'hours'
+sensor.vacuum_sensor_dirty_left:
+  friendly_name: Xiaomi Vacuum Sensor Dirty Left
+  unit_of_measurement: 'hours'
+sensor.vacuum_cleaner_error_sensor:
+  friendly_name: Xiaomi Vacuum Error Sensor
+sensor.vacuum_cleaner_status_sensor:
+  friendly_name: Xiaomi Vacuum Status Sensor
+sensor.xiaomi_vacuum_fan_speed_state:
+  friendly_name: Xiaomi Vacuum Fan Speed State

@@ -1,0 +1,67 @@
+# Tado Heating
+
+# Woonkamer Climate
+- alias: set tado woonkamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_woonkamer
+  action:
+    service: climate.set_hvac_mode
+    data_template:
+      entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+      hvac_mode: >
+        {% if is_state('input_boolean.tado_woonkamer', 'on') %}
+          heat
+        {% elif is_state('input_boolean.tado_woonkamer', 'off') %}
+          off
+        {% endif %}
+
+# Woonkamer Input Boolean
+- alias: set tado woonkamer heat input boolean
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va2898201344
+  action:
+    service_template: >
+        {% if is_state('climate.tado_smart_radiator_thermostat_va2898201344', 'heat') %}
+          input_boolean.turn_on
+        {% elif is_state('climate.tado_smart_radiator_thermostat_va2898201344', 'off') %}
+          input_boolean.turn_off
+        {% endif %}
+    data:
+      entity_id: input_boolean.tado_woonkamer
+
+# Kleine Kamer Climate
+- alias: set tado kleine kamer heat
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_boolean.tado_kleine_kamer
+  action:
+    service: climate.set_hvac_mode
+    data_template:
+      entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+      hvac_mode: >
+        {% if is_state('input_boolean.tado_kleine_kamer', 'on') %}
+          heat
+        {% elif is_state('input_boolean.tado_kleine_kamer', 'off') %}
+          off
+        {% endif %}
+
+# Kleine Kamer Input Boolean
+- alias: set tado kleine kamer heat input boolean
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: climate.tado_smart_radiator_thermostat_va1671957504
+  action:
+    service_template: >
+        {% if is_state('climate.tado_smart_radiator_thermostat_va1671957504', 'heat') %}
+          input_boolean.turn_on
+        {% elif is_state('climate.tado_smart_radiator_thermostat_va1671957504', 'off') %}
+          input_boolean.turn_off
+        {% endif %}
+    data:
+      entity_id: input_boolean.tado_kleine_kamer

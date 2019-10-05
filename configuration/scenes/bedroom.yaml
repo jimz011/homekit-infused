@@ -1,0 +1,99 @@
+- name: naarbed
+  entities:
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 2
+      brightness_pct: 100
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 2
+      brightness_pct: 25
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 2
+      brightness_pct: 25
+
+- name: slaapkamer normal
+  entities:
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.slaapkamer_kast: on
+    light.slaapkamer_bed: on
+
+- name: slaapkamer off
+  entities:
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 2
+      brightness_pct: 0
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 2
+      brightness_pct: 0
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 2
+      brightness_pct: 0
+    light.slaapkamer_kast: off
+    light.slaapkamer_bed: off
+
+- name: slaapkamer romantic
+  entities:
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 2
+      brightness_pct: 1
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 2
+      brightness_pct: 1
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 2
+      brightness_pct: 50
+    light.slaapkamer_kast: off
+    light.slaapkamer_bed: off
+
+- name: slaapkamer movie
+  entities:
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 5
+      brightness_pct: 0
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 5
+      brightness_pct: 0
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 5
+      brightness_pct: 50
+    light.slaapkamer_kast: off
+    light.slaapkamer_bed: off
+
+- name: slaapkamer dim
+  entities:
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 2
+      brightness_pct: 65
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 2
+      brightness_pct: 65
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 2
+      brightness_pct: 65
+    light.slaapkamer_kast: off
+    light.slaapkamer_bed: off

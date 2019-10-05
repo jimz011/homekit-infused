@@ -1,0 +1,142 @@
+# Actionable Notifications for iOS
+- alias: iOS Actionable Notification for Afzuigkap
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: AFZUIGKAP_UITZETTEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.afzuigkap
+
+- alias: iOS Actionable Notification for Bijkeuken
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: THUIS_ALARM
+  action:
+    service: alarm_control_panel.alarm_arm_home
+    data: !secret alarmcode
+
+- alias: iOS Actionable Notification for Toilet
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: AFWEZIG_ALARM
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data: !secret alarmcode
+
+- alias: iOS Actionable Notification for Droger_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_INSCHAKELEN
+  action:
+    service: switch.turn_on
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Droger_2
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: DROGER_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.droger
+
+- alias: iOS Actionable Notification for Wasmachine_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_INSCHAKELEN
+  action:
+    service: switch.turn_on
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Wasmachine_2
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: WASMACHINE_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.wasmachine
+
+- alias: iOS Actionable Notification for Vaatwasser_1
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: VAATWASSER_UITSCHAKELEN
+  action:
+    service: switch.turn_off
+    entity_id: switch.vaatwasser
+
+- alias: iOS Actionable Notification for Alarm Afwezig
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_AFWEZIG
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data: !secret alarmcode
+
+- alias: iOS Actionable Notification for Alarm Thuis
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_THUIS
+  action:
+    service: alarm_control_panel.alarm_arm_home
+    data: !secret alarmcode
+
+- alias: iOS Actionable Notification for Smoke
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SMOKE_UITSCHAKELEN
+  action:
+    service: homeassistant.turn_off
+    entity_id: binary_sensor.lumi_sensor_smoke
+    
+- alias: iOS Actionable Notification for Alarm
+  initial_state: 'true'
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALARM_UITSCHAKELEN
+  action:
+    service: alarm_control_panel.alarm_disarm
+    data: !secret alarmcode
+
+- alias: iOS Actionable Notification for meds alert
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: MEDS_ALARM
+  action:
+    service: script.turn_off
+    entity_id: script.stephnotification

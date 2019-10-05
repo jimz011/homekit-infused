@@ -1,0 +1,114 @@
+### Philips Hue dimmers for use with deCONZ
+### The icons in the description are the icons
+### shown on the actual remote for convenience
+
+## Bedroom
+
+# Button 1 tap_action
+- alias: 'Bedroom Philips button 1 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 1002
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.nachtkastje_jimmy
+      - light.nachtkastje_stephanie
+      - light.vloerled
+      - light.bedled
+      - light.slaapkamer_bed
+      - light.slaapkamer_kast
+
+# Button 1 hold_action
+- alias: 'Bedroom Philips button 1 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 1001
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.vloerled
+      - light.bedled
+
+# Button 2 tap_action
+- alias: 'Bedroom Philips button 2 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 2002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.slaapkamer_kast
+
+# Button 2 hold_action
+- alias: 'Bedroom Philips button 2 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 2001
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.nachtkastje_stephanie
+
+# Button 3 tap_action
+- alias: 'Bedroom Philips button 3 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 3002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.slaapkamer_bed
+
+# Button 3 hold_action
+- alias: 'Bedroom Philips button 3 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 3001
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.nachtkastje_jimmy
+
+# Button 4 tap_action
+- alias: 'Bedroom Philips button 4 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_slaapkamer_muur
+      event: 4002
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.nachtkastje_jimmy
+      - light.nachtkastje_stephanie
+      - light.vloerled
+      - light.bedled
+      - light.slaapkamer_bed
+      - light.slaapkamer_kast

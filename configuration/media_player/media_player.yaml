@@ -1,0 +1,13 @@
+  - platform: samsungtv
+    name: Samsung TV ue46es5500
+    host: 192.168.0.97
+  - platform: samsungtv
+    name: Samsung TV ue65ku6000
+    host: 192.168.0.99
+    port: 8001
+    mac: 68:27:37:65:f6:89
+
+  - platform: xboxone
+    device: FD00FBD1DB59E6B4
+    name: Xbox One
+    ip_address: 192.168.0.98

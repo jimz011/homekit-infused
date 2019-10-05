@@ -1,0 +1,67 @@
+# Lights
+light.nachtkastje_jimmy:
+  icon: mdi:lamp
+  friendly_name: Jimmy
+light.nachtkastje_stephanie:
+  icon: mdi:lamp
+  friendly_name: Stephanie
+light.bijkeuken:
+  friendly_name: Bijkeuken
+  icon: mdi:ceiling-light
+light.balkonlamp:
+  friendly_name: Balkon
+  icon: mdi:wall-sconce
+light.toiletlamp:
+  friendly_name: Toilet
+  icon: mdi:ceiling-light
+light.woonkamer_led_lampen:
+  friendly_name: Woonkamer
+  icon: mdi:led-strip
+light.slaapkamer_led_lampen:
+  friendly_name: Slaapkamer
+  icon: mdi:led-strip
+light.gateway_light_7811dcdef324:
+  friendly_name: Gateway LED
+  icon: mdi:led-strip
+light.officeled:
+  friendly_name: Kleine Kamer
+  icon: mdi:led-strip
+light.plafond:
+  icon: mdi:ceiling-light
+  friendly_name: Woonkamer
+light.eettafel:
+  friendly_name: Eettafel
+  icon: mdi:ceiling-light
+light.vloerlamp:
+  friendly_name: Vloerlamp 
+  icon: mdi:floor-lamp
+light.tafellamp:
+  friendly_name: Tafellamp
+  icon: mdi:lamp
+light.gang_lamp:
+  friendly_name: Gang
+  icon: mdi:ceiling-light
+light.entree_lamp:
+  friendly_name: Entree
+  icon: mdi:ceiling-light
+light.berging:
+  friendly_name: Berging
+  icon: mdi:ceiling-light
+light.kleine_kamer:
+  friendly_name: Kleine Kamer
+  icon: mdi:ceiling-light
+light.keuken:
+  friendly_name: Keuken
+  icon: mdi:ceiling-light
+light.keukenspots:
+  friendly_name: Spotjes
+  icon: mdi:track-light
+switch.koogeek_sw_056ce9:
+  friendly_name: Badkamer
+  icon: mdi:ceiling-light
+light.slaapkamer_kast:
+  friendly_name: Slaapkamer Kast
+  icon: mdi:ceiling-light
+light.slaapkamer_bed:
+  friendly_name: Slaapkamer Bed
+  icon: mdi:ceiling-light

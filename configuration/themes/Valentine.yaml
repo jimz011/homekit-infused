@@ -1,9 +1,9 @@
-### Theme Space Gray for Homekit Infused v0.13.x or newer
+### Theme Valentine for Homekit Infused v0.13.x or newer
 
 ## Lovelace Theme
 
 # Wallpaper/Background Image
-background-image: 'center / cover no-repeat url("/local/images/wallpapers/gray-wood.png") fixed'
+background-image: 'center / cover no-repeat url("/local/images/wallpapers/valentine-test1.jpg") fixed'
 
 # Card Borders/Shadows
 border-radius: 12px
@@ -18,25 +18,25 @@ lock-color-on: 'Gray'
 name-color-on: 'Black'
 state-color-on: 'Black'
 
-card-color-off: 'linear-gradient(to bottom right, #646464, #464646)'
-area-color-off: 'AliceBlue'
-icon-color-off: 'AliceBlue'
-label-color-off: 'AliceBlue'
-lock-color-off: 'AliceBlue'
-name-color-off: 'AliceBlue'
-state-color-off: 'AliceBlue'
+card-color-off: 'linear-gradient(to bottom right, #e0e0e0, #910039)'
+area-color-off: 'white'
+icon-color-off: 'white'
+label-color-off: 'white'
+lock-color-off: 'white'
+name-color-off: 'white'
+state-color-off: 'white'
 
 # Lovelace Header Text
 header-color: 'white'
 
 # Weather Card
-weather-color-text: 'AliceBlue' 
-weather-color-day: '#646464'
-weather-color-night: '#464646'
+weather-color-text: '#2b2b2b' 
+weather-color-day: '#e0e0e0'
+weather-color-night: '#e0e0e0'
 
 # Notification Badge
-notification-badge-color: 'Black'
-notification-popup-action-color: 'AliceBlue'
+notification-badge-color: 'black'
+notification-popup-action-color: 'white'
 
 # Valetudo Map Card
 valetudo-map-floor-color: 'gray'
@@ -48,7 +48,7 @@ valetudo-map-path-color: 'var(--primary-text-color)'
 ## Main Home Assistant Colors
 
 # Base colors
-primary-color: '#161616'
+primary-color: '#910039'
 accent-color: 'var(--md-teal-A400)'
 dark-primary-color: 'var(--md-teal-600)'
 light-primary-color: 'var(--md-teal-100)'
@@ -83,7 +83,7 @@ paper-grey-200: 'var(--mdc-grey-darken-4)'
 # Paper card
 paper-card-header-color: 'var(--light-primary-color)'
 # ha-card-background-color: 'var(--light-primary-color)'
-paper-card-background-color: 'linear-gradient(to bottom right, #646464, #464646)'
+paper-card-background-color: 'linear-gradient(to bottom right, #e0e0e0, #910039)'
 paper-dialog-background-color: 'rgba(100, 100, 100, 1.0)'
 paper-item-icon-color: 'var(--primary-text-color)'
 paper-item-icon-active-color: '#b58e31'

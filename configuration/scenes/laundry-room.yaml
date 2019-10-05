@@ -1,0 +1,11 @@
+- name: wassen
+  entities:
+    switch.droger: on
+    switch.vaatwasser: on
+    switch.wasmachine: on
+
+- name: klaar met wassen
+  entities:
+    switch.droger: off
+    switch.vaatwasser: off
+    switch.wasmachine: off

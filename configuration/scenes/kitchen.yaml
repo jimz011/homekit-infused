@@ -1,0 +1,37 @@
+- name: koken
+  entities:
+    light.keukenspots: on
+    light.keuken: on
+    switch.waterkoker: on
+    switch.afzuigkap: on
+    switch.air_fryer: on
+    switch.cappumaker: on
+    switch.oven: on
+
+- name: klaar met koken
+  entities:
+    light.keukenspots: off
+    light.keuken: off
+    switch.waterkoker: off
+    switch.afzuigkap: off
+    switch.air_fryer: off
+    switch.cappumaker: off
+    switch.oven: off
+
+- name: keukenlampen
+  entities:
+    light.keukenspots: on
+    light.bijkeuken:
+      state: on
+      transition: 2
+      brightness_pct: 100
+    light.keuken:
+      state: on
+      transition: 2
+      brightness_pct: 100
+
+- name: keukenlampen off
+  entities:
+    light.keukenspots: off
+    light.bijkeuken: off
+    light.keuken: off

@@ -1,0 +1,43 @@
+# Turn Computers On/Off with automations
+
+# WHEN IPHONEVANJIMMY IS HOME, TURN ON PC VAN JIMMY
+- alias: turn_on_jimz_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_jimmy
+    service: switch.turn_on
+
+# PC TURNS OFF = XBOX TURNS OFF
+- alias: pc_off_xbox_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.pc_van_jimmy
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+  - data:
+      entity_id: media_player.xbox_one
+    service: media_player.turn_off
+
+# WHEN IPHONEVANSTEPH IS HOME, TURN ON PC VAN STEPHANIE
+- alias: turn_on_stephanie_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_stephanie
+    service: switch.turn_on

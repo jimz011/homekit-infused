@@ -1,0 +1,30 @@
+# Waze Travel Time
+  - platform: waze_travel_time
+    name: Reistijd Jimmy
+    origin: person.jimmy
+    destination: zone.home
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Jimmy Work
+    origin: person.jimmy
+    destination: zone.vtc_best
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Stephanie
+    origin: person.stephanie
+    destination: zone.home
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd Stephanie Work
+    origin: person.stephanie
+    destination: zone.ah_eindhoven
+    region: EU
+
+  - platform: waze_travel_time
+    name: Reistijd jimsteph
+    origin: person.stephanie
+    destination: person.jimmy
+    region: EU

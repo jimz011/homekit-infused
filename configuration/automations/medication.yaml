@@ -1,0 +1,12 @@
+# Medicijnen Stephanie Notificatie
+- alias: Start notify script Stephanie
+  initial_state: 'true'
+  trigger:
+    - platform: time
+      at: '22:00:00'
+  action:
+    - service: script.turn_on
+      data:
+        entity_id: script.stephnotification
+
+

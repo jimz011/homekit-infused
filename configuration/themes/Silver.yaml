@@ -40,9 +40,9 @@ notification-popup-action-color: 'black'
 
 # Valetudo Map Card
 valetudo-map-floor-color: 'lightgrey'
-valetudo-map-obstacle-weak-color: 'var(--state-color-off)'
-valetudo-map-obstacle-strong-color: 'var(--state-color-on)'
-valetudo-map-path-color: 'var(--primary-text-color)'
+valetudo-map-obstacle-weak-color: 'black'
+valetudo-map-obstacle-strong-color: 'black'
+valetudo-map-path-color: 'black'
 
 
 ## Main Home Assistant Colors
@@ -79,7 +79,7 @@ paper-grey-200: 'var(--mdc-grey-lighten-4)'
 # Paper card
 paper-card-header-color: 'var(--primary-color)'
 # ha-card-background-color: 'var(--light-primary-color)'
-paper-card-background-color: 'var(--md-white)'
+paper-card-background-color: 'linear-gradient(to bottom right, #e0e0e0, #fffbef)'
 paper-dialog-background-color: 'var(--md-white)'
 paper-item-icon-color: 'var(--primary-text-color)'
 paper-item-icon-active-color: '#b58e31'

@@ -1,0 +1,26 @@
+# Scripts used in the laundry room
+
+# MOTION SENSOR LAUNDRY ROOM
+bijkeukenlamp:
+  alias: "Turn on lamp and cancel script"
+  sequence:
+    # Cancel ev. old scripts
+    - service: script.turn_off
+      data:
+        entity_id: script.bijkeukenlamp_off
+    - service: light.turn_on
+      data:
+        entity_id: light.bijkeuken
+        brightness_pct: 100
+
+bijkeukenlamp_off:
+  alias: "Turn off lamp"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.bijkeukenlamp
+    - delay:
+        seconds: 10
+    - service: light.turn_off
+      data:
+        entity_id: light.bijkeuken

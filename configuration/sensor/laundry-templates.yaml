@@ -1,0 +1,12 @@
+# Laundry Room Template Sensors
+  - platform: template
+    sensors:
+      wasmachine_status:
+        value_template: '{{ states.input_select.wasmachine_status.state}}'
+        friendly_name: 'Wasmachine Status'
+      vaatwasser_status:
+        value_template: '{{ states.input_select.vaatwasser_status.state}}'
+        friendly_name: 'Vaatwasser Status'
+      droger_status:
+        value_template: '{{ states.input_select.droger_status.state}}'
+        friendly_name: 'Droger Status'

@@ -1,0 +1,24 @@
+# Notification input_booleans
+notification_afzuigkap:
+notification_slaapkamer_deur:
+notification_voordeur:
+notification_woonkamer_deur:
+notification_wasmachine:
+notification_droger:
+notification_vaatwasser:
+notification_alarm:
+notification_alles_rustig:
+notification_smoke_detector:
+notification_tala:
+notification_motion_gallerij:
+notification_motion_toilet:
+notification_motion_bijkeuken:
+notification_vacuum:
+notification_anniversary:
+notification_birthday:
+notification_apk:
+notification_motion_gang: 
+notification_current_lights: 
+notification_current_devices: 
+notification_current_radiators: 
+notification_current_sensors: 

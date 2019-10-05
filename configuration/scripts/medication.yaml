@@ -1,0 +1,37 @@
+# Medication Scripts
+
+# STEPHANIE MEDICATION NOTIFY SCRIPT/REPEAT
+stephnotification:
+  alias: "Steph meds notify"
+  sequence:
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen."
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "meds_alert"
+    - delay:
+        minutes: 20
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen, dit is de eerste herinnering."
+        data:
+          push:
+            badge: 0
+            category: "meds_alert"
+            sound: default
+    - delay:
+        minutes: 20
+    - service: notify.mobile_app_iphone_stephanie
+      data:
+        title: "Medicijnen"
+        message: "Goede avond, het is tijd om je medicijnen in te nemen, dit is de tweede en tevens laatste herinnering."
+        data:
+          push:
+            badge: 0
+            sound: default
+            category: "meds_alert"

@@ -1,0 +1,64 @@
+- name: schoonmaken
+  entities:
+    light.plafond:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.woonkamer_led_lampen:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.eettafel:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.vloerlamp:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.tafellamp:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.gateway_light_7811dcdef324:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.kleine_kamer:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.officeled:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.keukenspots: on
+    light.nachtkastje_jimmy:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.nachtkastje_stephanie:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.slaapkamer_led_lampen:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.keuken:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.bijkeuken:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    light.toiletlamp:
+      state: on
+      transition: 0
+      brightness_pct: 100
+    switch.koogeek_sw_056ce9: on
+    light.entree_lamp: on
+    light.gang_lamp: on
+    light.slaapkamer_kast: on
+    light.slaapkamer_bed: on

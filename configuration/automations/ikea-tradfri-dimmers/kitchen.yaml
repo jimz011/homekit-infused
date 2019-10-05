@@ -1,0 +1,68 @@
+### IKEA Tradfri dimmers for use with deCONZ
+### The icons in the description are the icons
+### shown on the actual remote for convenience
+
+# Button Middle (power icon)
+- alias: 'Kitchen IKEA button middle tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 1002
+  action:
+    service: light.toggle
+    entity_id: light.keuken
+
+# Button Left (left-arrow icon)
+- alias: 'Kitchen IKEA button left tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 2002
+  action:
+    service: light.toggle
+    entity_id: light.keukenspots
+
+# Button Right (right-arrow icon)
+- alias: 'Kitchen IKEA button right tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 3002
+  action:
+    service: scene.turn_on
+    entity_id: scene.wassen
+
+# Button Top (brightness-up icon)
+- alias: 'Kitchen IKEA button top tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 4002
+  action:
+    service: scene.turn_on
+    entity_id: scene.klaar_met_koken
+
+# Button Down (brightness-down icon)
+- alias: 'Kitchen IKEA button down tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_keuken
+      event: 5002
+  action:
+    service: scene.turn_on
+    entity_id: scene.koken

@@ -1,0 +1,14 @@
+# Media Player Groups
+
+samsung_tv:
+  name: Samsung TV
+  entities:
+    - media_player.samsung_tv_ue65ku6000
+    - media_player.woonkamer_apple_tv
+    - remote.woonkamer_apple_tv
+    - switch.receiver
+
+televisions:
+  entities:
+    - media_player.samsung_tv_ue46es5500
+    - media_player.samsung_tv_ue65ku6000
