@@ -24,12 +24,21 @@ default:
   # Button Options
   - lock: false
   - aspect_ratio: 1/1
-  - opacity: 0.4
+  - opacity: 0.5
   - opacity_on: 1.0
+
+  # Theme Options (if you do not wish to use my provided theme-selector please change the following config to the config that is commented!)
   - border-radius: "[[[ return states['input_select.border_radius'].state ]]]" # Changed/Added in 0.13.0
   - ha-card-background: var(--card-color-off) # Changed/Added in 0.13.0
   - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]" # Changed/Added in 0.13.0
-  
+
+# - border-radius: var(--border-radius)
+# - ha-card-background: var(--card-color-off)
+# - box-shadow: none
+
+  # Name
+  - name: # Changed/Added in 0.13.2 (removed config so it can use the default entity name if no name is set in decluttering-cards)
+
   # Label
   - label: '&nbsp;'
 
@@ -42,7 +51,7 @@ default:
   - spin: false
   - off_variable: spin
   - off_spin: false
-  - icon: mdi:home  # Changed/Added in 0.13.0
+  - icon: # Changed/Added in 0.13.2 (removed config so it can use the default entity icon if no icon is set in decluttering-cards)
 
   # Show Options
   - show_name: true
@@ -137,7 +146,7 @@ card:
       - margin-right: '[[margin-right]]'
       - margin-left: '[[margin-left]]'
     name:
-      - color: var(--upcoming-color)
+#      - color: var(--upcoming-color) # Removed in 0.13.2
       - justify-self: '[[justify-self-name]]'
       - padding-left: '[[padding-left-name]]'
       - font-weight: bold
@@ -154,6 +163,9 @@ card:
           - --ha-card-background: '[[on_card_color]]'
           - opacity: '[[opacity_on]]'
           - box-shadow: none # Changed/Added 0.13.0
+          - border-style: solid
+          - border-width: 1px
+          - border-color: black
         name:
           - color: '[[on_name_color]]'
         state:
@@ -196,15 +208,15 @@ card:
         card:
           - opacity: 0.2
         name:
-          - color: var(--name-color-na) # Changed/Added in 0.13.0
+          - color: var(--name-color-off) # Changed/Added in 0.13.2
         label:
-          - color: var(--label-color-na) # Changed/Added in 0.13.0
+          - color: var(--label-color-off) # Changed/Added in 0.13.2
         state:
-          - color: var(--state-color-na) # Changed/Added in 0.13.0
+          - color: var(--state-color-off) # Changed/Added in 0.13.2
         icon:
-          - color: var(--icon-color-na) # Changed/Added in 0.13.0
+          - color: var(--icon-color-off) # Changed/Added in 0.13.2
         lock:
-          - color: var(--lock-color-na) # Changed/Added in 0.13.0
+          - color: var(--lock-color-off) # Changed/Added in 0.13.2
     - value: "disarmed"
       styles:
         card:
