@@ -28,16 +28,16 @@ default:
   - opacity_on: 1.0
 
   # Theme Options (if you do not wish to use my provided theme-selector please change the following config to the config that is commented!)
-  - border-radius: "[[[ return states['input_select.border_radius'].state ]]]" # Changed/Added in 0.13.0
-  - ha-card-background: var(--card-color-off) # Changed/Added in 0.13.0
-  - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]" # Changed/Added in 0.13.0
+  - border-radius: "[[[ return states['input_select.border_radius'].state ]]]" 
+  - ha-card-background: var(--card-color-off) 
+  - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]" 
 
 # - border-radius: var(--border-radius)
 # - ha-card-background: var(--card-color-off)
 # - box-shadow: none
 
   # Name
-  - name: # Changed/Added in 0.13.2 (removed config so it can use the default entity name if no name is set in decluttering-cards)
+  - name: # Leave this empty if you want to be able to use names defined in customize.yaml (default is empty!)
 
   # Label
   - label: '&nbsp;'
@@ -51,7 +51,7 @@ default:
   - spin: false
   - off_variable: spin
   - off_spin: false
-  - icon: # Changed/Added in 0.13.2 (removed config so it can use the default entity icon if no icon is set in decluttering-cards)
+  - icon: # Leave this empty if you want to be able to use icons defined in customize.yaml (default is empty!)
 
   # Show Options
   - show_name: true
@@ -69,16 +69,16 @@ default:
       haptic: heavy
   
   # Button 'Off' Options
-  - off_icon_color: var(--icon-color-off) # Changed/Added in 0.13.0
-  - off_name_color: var(--name-color-off) # Changed/Added in 0.13.0
-  - off_state_color: var(--state-color-off) # Changed/Added in 0.13.0
-  - off_label_color: var(--label-color-off) # Changed/Added in 0.13.0
+  - off_icon_color: var(--icon-color-off) 
+  - off_name_color: var(--name-color-off) 
+  - off_state_color: var(--state-color-off) 
+  - off_label_color: var(--label-color-off) 
 
   # Button 'On' Options
-  - on_name_color: var(--name-color-on) # Changed/Added in 0.13.0
-  - on_state_color: var(--state-color-on) # Changed/Added in 0.13.0
-  - on_label_color: var(--label-color-on) # Changed/Added in 0.13.0
-  - on_card_color: var(--card-color-on) # Changed/Added in 0.13.0
+  - on_name_color: var(--name-color-on) 
+  - on_state_color: var(--state-color-on) 
+  - on_label_color: var(--label-color-on) 
+  - on_card_color: var(--card-color-on) 
 
   # Name and Label Options
   - margin-top-name: 0px
@@ -93,9 +93,25 @@ default:
       - grid-template-columns: 1fr 
       - grid-template-rows: 1fr min-content min-content
 
-  # Custom Fields # Changed/Added in 0.13.0 (This should be left empty!)
+  # Custom Fields # Changed/Added in 0.13.3 
+  - notification: "[[[ return '&nbsp'; ]]]"
   - custom_fields:
-  - notification:
+      notification:
+        - background-color: "[[[ return 'var(--card-color-off)'; ]]]"
+        - color: var(--notification-badge-color)
+        - border-radius: 50%
+        - overflow: visible
+        - position: absolute
+        - right: 7%
+        - top: 7%
+        - height: 22px
+        - width: 22px
+        - font-size: 11px
+        - line-height: 20px
+        
+  # Lock # Changed/Added in 0.13.3
+  - lock: false
+
 #### #### #### #### #### #### #### #### #### #### #### #
 
 # Card Config
@@ -104,10 +120,14 @@ card:
   type: custom:button-card
   name: '[[name]]'
   deep_press: true
-  icon: '[[icon]]' # Changed/Added in 0.13.0
+  icon: '[[icon]]' 
   size: '[[size]]'
   color: '[[color]]'
-  lock: '[[lock]]'
+# Lock config below # Changed/Added in 0.13.3  
+  lock:
+    enabled: '[[lock]]'
+    unlock: hold
+    duration: 5
   aspect_ratio: '[[aspect_ratio]]'
   entity: '[[entity]]'
   label: '[[label]]'
@@ -122,13 +142,13 @@ card:
     card:
       - border-radius: '[[border-radius]]'
       - --ha-card-background: '[[ha-card-background]]'
-      - box-shadow: '[[box-shadow]]' # Changed/Added in 0.13.0
+      - box-shadow: '[[box-shadow]]' 
     label:
       - font-size: 11px
       - font-family: Helvetica
       - padding: 0px 10px
       - justify-self: start
-      - color: var(--label-color-off) # Changed/Added in 0.13.0
+      - color: var(--label-color-off) 
     state:
       - font-size: 11px
       - font-family: Helvetica
@@ -137,24 +157,23 @@ card:
       - text-transform: capitalize
       - font-weight: bold
       - padding-left: 10px
-      - color: var(--state-color-off) # Changed/Added in 0.13.0
+      - color: var(--state-color-off) 
     grid: '[[grid]]'
-    custom_fields: '[[custom_fields]]' # Changed/Added in 0.13.0
+    custom_fields: '[[custom_fields]]' 
     img_cell:
       - align-self: start
       - text-align: start
       - margin-right: '[[margin-right]]'
       - margin-left: '[[margin-left]]'
     name:
-#      - color: var(--upcoming-color) # Removed in 0.13.2
       - justify-self: '[[justify-self-name]]'
       - padding-left: '[[padding-left-name]]'
       - font-weight: bold
       - font-family: Helvetica 
       - font-size: 13px
       - margin-top: '[[margin-top-name]]'
-  custom_fields: # Changed/Added in 0.13.0
-    notification: '[[notification]]' # Changed/Added in 0.13.0
+  custom_fields: 
+    notification: '[[notification]]' 
   state:
     - value: "on" 
       '[[variable]]': '[[spin]]'  
@@ -162,7 +181,7 @@ card:
         card:
           - --ha-card-background: '[[on_card_color]]'
           - opacity: '[[opacity_on]]'
-          - box-shadow: none # Changed/Added 0.13.0
+          - box-shadow: none
           - border-style: solid
           - border-width: 1px
           - border-color: black
@@ -171,7 +190,7 @@ card:
         state:
           - color: '[[on_state_color]]'
         lock:
-          - color: var(--lock-color-on) # Changed/Added in 0.13.0
+          - color: var(--lock-color-on) 
         label:
           - color: '[[on_label_color]]'
     - value: "off"
@@ -190,42 +209,42 @@ card:
           - font-size: '[[label_font_size]]'
           - font-weight: '[[label_font_weight]]'
         lock:
-          - color: var(--lock-color-off) # Changed/Added in 0.13.0 
+          - color: var(--lock-color-off)  
     - value: "idle"
       styles:
         card:
           - opacity: 0.8
         name:
-          - color: var(--name-color-off) # Changed/Added in 0.13.0 
+          - color: var(--name-color-off)  
         label:
-          - color: var(--label-color-off) # Changed/Added in 0.13.0 
+          - color: var(--label-color-off)  
         icon:
-          - color: var(--icon-color-off) # Changed/Added in 0.13.0 
+          - color: var(--icon-color-off)  
         lock:
-          - color: var(--lock-color-off) # Changed/Added in 0.13.0 
+          - color: var(--lock-color-off)  
     - value: "unavailable"
       styles:
         card:
           - opacity: 0.2
         name:
-          - color: var(--name-color-off) # Changed/Added in 0.13.2
+          - color: var(--name-color-off)
         label:
-          - color: var(--label-color-off) # Changed/Added in 0.13.2
+          - color: var(--label-color-off)
         state:
-          - color: var(--state-color-off) # Changed/Added in 0.13.2
+          - color: var(--state-color-off)
         icon:
-          - color: var(--icon-color-off) # Changed/Added in 0.13.2
+          - color: var(--icon-color-off)
         lock:
-          - color: var(--lock-color-off) # Changed/Added in 0.13.2
+          - color: var(--lock-color-off)
     - value: "disarmed"
       styles:
         card:
           - opacity: 0.8
-          - --ha-card-background: var(--card-color-off) # Changed/Added in 0.13.0
+          - --ha-card-background: var(--card-color-off) 
         name:
-          - color: var(--name-color-off) # Changed/Added in 0.13.0
+          - color: var(--name-color-off) 
         state:
-          - color: var(--state-color-off) # Changed/Added in 0.13.0
+          - color: var(--state-color-off) 
           - justify-self: '[[justify-self-name]]'
           - padding-left: '[[padding-left-name]]'
           - font-weight: bold
@@ -237,11 +256,11 @@ card:
       icon: "mdi:alert"
       styles:
         card:
-          - --ha-card-background: var(--card-color-on) # Changed/Added in 0.13.0
+          - --ha-card-background: var(--card-color-on) 
         name:
-          - color: var(--name-color-on) # Changed/Added in 0.13.0
+          - color: var(--name-color-on) 
         state:
-          - color: var(--label-color-on) # Changed/Added in 0.13.0
+          - color: var(--label-color-on) 
           - justify-self: '[[justify-self-name]]'
           - padding-left: '[[padding-left-name]]'
         icon:
@@ -251,11 +270,11 @@ card:
       icon: "mdi:alert"
       styles:
         card:
-          - --ha-card-background: var(--card-color-on) # Changed/Added in 0.13.0
+          - --ha-card-background: var(--card-color-on) 
         name:
-          - color: var(--name-color-on) # Changed/Added in 0.13.0
+          - color: var(--name-color-on) 
         state:
-          - color: var(--label-color-on) # Changed/Added in 0.13.0
+          - color: var(--label-color-on) 
           - justify-self: '[[justify-self-name]]'
           - padding-left: '[[padding-left-name]]'
         icon:
@@ -265,11 +284,11 @@ card:
       icon: "mdi:clock-alert-outline"
       styles:
         card:
-          - --ha-card-background: var(--card-color-on) # Changed/Added in 0.13.0
+          - --ha-card-background: var(--card-color-on) 
         name:
-          - color: var(--name-color-on) # Changed/Added in 0.13.0
+          - color: var(--name-color-on) 
         state:
-          - color: var(--label-color-on) # Changed/Added in 0.13.0
+          - color: var(--label-color-on) 
           - justify-self: '[[justify-self-name]]'
           - padding-left: '[[padding-left-name]]'
         icon:
@@ -290,4 +309,4 @@ card:
           - font-size: '[[label_font_size]]'
           - font-weight: '[[label_font_weight]]'
         lock:
-          - color: --var(--lock-color-off) # Changed/Added in 0.13.0
+          - color: --var(--lock-color-off) 
