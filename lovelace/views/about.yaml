@@ -26,7 +26,7 @@
                   font-family: Helvetica;
                 }              
               content: >
-                <ha-icon icon="mdi:information"></ha-icon> Homekit Infused v0.13.1
+                <ha-icon icon="mdi:information"></ha-icon> Homekit Infused v0.13.3
         
 
                 <ha-icon icon="mdi:youtube"></ha-icon> Follow me on [YouTube](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)
