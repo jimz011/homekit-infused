@@ -1,16 +1,16 @@
 # Homekit Infused Installation and Configuration Manual
 
 ## Contents
-- Intro
-- Preparation
-- Installation
-- Configuration
-- Tips & Tricks
-- Important Notes
-- Issues
-- Feature Requests
-- Special Thanks
-- Questions?
+- [Intro](https://github.com/jimz011/homeassistant/tree/development#intro)
+- [Preparation](https://github.com/jimz011/homeassistant/tree/development#preparation)
+- [Installation](https://github.com/jimz011/homeassistant/tree/development#installation)
+- [Configuration](https://github.com/jimz011/homeassistant/tree/development#configuration)
+- [Tips & Tricks](https://github.com/jimz011/homeassistant/tree/development#tips--tricks)
+- [Important Notes](https://github.com/jimz011/homeassistant/tree/development#important-notes)
+- [Issues](https://github.com/jimz011/homeassistant/tree/development#issues)
+- [Feature Requests](https://github.com/jimz011/homeassistant/tree/development#feature-requests)
+- [Special Thanks](https://github.com/jimz011/homeassistant/tree/development#special-thanks)
+- [Questions?](https://github.com/jimz011/homeassistant/tree/development#questions)
 
 # INTRO
 
