@@ -1,195 +1,254 @@
-If you find any information on this page useful, feel free to buy me a coffee:
+# Homekit Infused Installation and Configuration Manual
 
-<a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/old%20images/paypal-donate-button.png" ></a>
-<a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 October 2019 v 0.13.3 (*updated: 28//12/2019)
-# WARNING!!!!!!! PLEASE READ THIS, THIS PROJECT IS GOING TO GET AN UPDATE VERY SOON! BASICALLY ALL THE CODE ON THIS REPO WILL BECOME OBSOLETE AFTER THE UPDATE!!! YES THIS IS STILL VERY MUCH USABLE AND WILL STILL WORK WITH THE LATEST HOME ASSISTANT VERSIONS, HOWEVER I WILL NOT CONTINUE TO SUPPORT THIS. THE DOCS WILL BE UPDATED REAL SOON AND VERSION 1.0 IS ALMOST READY FOR UPLOAD! USE THIS AT YOUR OWN RISK!
+## Contents
+- Intro
+- Preparation
+- Installation
+- Configuration
+- Tips & Tricks
+- Important Notes
+- Issues
+- Feature Requests
+- Special Thanks
+- Questions?
 
-My current Home Assistant install (current running version 0.103.2)
-This is my current Home Assistant configuration with Lovelace, new users please skip to the introduction.
-Existing users can either update or copy new snippets of code.
+# INTRO
 
-#### Note: When updating please update from version to version, do NOT skip any version or you will find yourself with a broken lovelace setup. If you fall behind in updates you can find older releases/update guides in the links below. Changes will no longer be shown on this frontpage. Watch this repo or follow me on the [Home Assistant Community Forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086) if you want to stay up-to-date.
+Hello everyone my name is Jimmy (jimz011) and I proudly present to you the latest version of Homekit Infused.
+I know there was a long 'silence' before I came with an update. I can certainly tell you why. Homekit Infused has been completely rewritten from the ground up.
+It took me months to rewrite all of it but it is finally done. (Take in account that I have a full-time job so time is a luxury product)
 
-# Click [here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
-### Click here for the [Full Change Log](https://github.com/jimz011/homeassistant/blob/master/CHANGELOG.md)
-### Click here for the [Update Guides](https://github.com/jimz011/homeassistant/tree/master/update-guides)
-### Click here for all [Releases](https://github.com/jimz011/homeassistant/releases)
+So to start off, I must sadly announce that there is no upgrade path from previous versions of HKI, the reason for this is simple. The code has changed too much!
+It would be like trying to release the youtube app as an update to the facebook app. This is obviously not ideal and I had to choose to either continue the old project, or create a new one that should be better, especially considering the future.
+So I chose to rewrite everything and boy it was a lot of work, not only did I rewrite it, I also found ways for a lot of the config to be easier to set up. As a non-developer (I am a bartender) you can imagine all the headaches it caused me to figure out a way to do this.
+But I have found ways, they might not always seem very beautiful, because remember I'm not a programmer. But hey it works, which is all that counts.
 
-## Introduction
-Hello fellow home assistant users, I have started using Home Assistant almost a year ago and I absolutely love it. It is very addictive (as I think many of the people viewing this will know that feeling). Anyways I had done some basic HTML in the early 2000's but that was basically it. So I went into this software and this is what I have got to share. Bare in mind that I am just an amateur hobbyist that has no clue of what he's writing but I just try to read up on the community forums. It is not always as easy as it sounds knowing that Home Assistant changes fast, and I mean really fast. Things written down 2 months ago might already be outdated. So this is the code I came up with messing around with it and it works pretty good :P, ofcourse this is a work in progress and I will try to better the code, make it cleaner and look for details. For now I hope someone can make use of this.
+One of the major changes, which I might consider the biggest change of all is the removal of decluttering-cards. All templates are now handled through lovelace_gen as well as global configuration. Lovelace_gen was a requirement for a global config to happen.
+For all the users that made lots of customizations with this project not all hope is lost. All old decluttering-templates and cards can be cut/paste in the new config just like it was in the old one. So if you did make customizations you could still use them, but it might require you some extra work to put them on the right places.
+I will however advise you to switch over to lovelace_gen templates in the long term as this is the mod that we will see more and more in the future on other HA setups, mark my words. You can find tutorials on how to do this in the future in these docs.
+Why did I change to lovelace_gen? Well first and foremost it is a mod and not a card, it modifies the yaml parser and allows us to do templating stuff in lovelace. It also allows us to create decluttering style templates that can be used in a similar fashion that decluttering-card used.
+But it is more than that, it is currently also the only way I know of that is capable of building a global config. That is what this entire update is about, simplification. In the end only a few files will need to be edited to get you up and running fairly quickly.
 
-### Screenshots
-*Note: Screenshots are outdated, they still reside on the server as reference. My setup has changed a lot do not look at those, look at the videos instead!
+Anyways, lets not make this any longer than it should be and get into the project as I would love to tell you more about myself and why I use Home Assistant, but you can find a lengthy interview of me that I did a while back https://gadget-freakz.com/interview-with-jimz011/.
+It isn't very recent anymore, but you will certainly get the idea.
 
-#### Video
-Video: CLICK ON THE IMAGE TO START VIDEO (*updated 05/08/2019)
+I hope you enjoy this release,
 
-[![Watch Video](https://img.youtube.com/vi/Ng0EDltHujY/0.jpg)](https://youtu.be/Ng0EDltHujY)
+Yours Sincerely,
 
-[![Watch Video](https://img.youtube.com/vi/105sd8tp4dg/0.jpg)](https://youtu.be/105sd8tp4dg)
+Jimz011
 
-### How to use
+## Changes since HKI 0.13.3:
+  - Completely rewritten from the ground up
+  - Removed decluttering-card
+  - Added a neat header
+  - New notification window
+  - New popup cards system-wide which include brightness, color and switch popups
+  - New thermostat view and cards
+  - New design for several views
+  - Footer
+  - Dynamic Icons system-wide
+  - More compact design on personal and vacuum views
+  - Easier to configure
+  - Auto filling of basic views (cameras/lights/devices/climate/binary_sensors) by filling in the provided group file, popup cards will be added automatically to their respective entities automatically
+  - Waze traffic info view
+  - Removed swipe-card on most views in favor of state-switch (srry but no more swiping as it would make the frontend crash too often)
+  - Made code more compact, 3000 lines less than HKI 0.13.3 but more features as mentioned above!
+  - Removed widgets page (proved to be useless)
+  - Changed first view to the homepage (this way after a refresh it would open the frontpage instead of the climate view)
+  - A lot of small fixes to the design in general (you might not even notice them, but they are there!)
 
-Prerequisites:
-- Home Assistant 0.98.x or 0.99.x (note: personal themes are broken since 0.97.x if you want to use themes you will have to set them globally! This means the theme will change for ALL users. It might be my own mistake of having weird css or it might be an error in HA itself. Only time will tell)
-- A bunch of custom-cards, see below for links
-- Patience
-- Some more patience
-- A whole lot of more patience
-- Have lovelace set in `yaml` mode, !includes and !secrets are NOT supported in storage mode. 
-To set lovelace to use the yaml mode put the following line into your `configuration.yaml`:
-```
-lovelace:
-  mode: yaml
-```
-- Basic knowledge of lovelace (if you do not have this, don't even start)
-- Know how to use includes and decluttering-cards/templates (see explanation below)
-To use this Lovelace setup I highly recommend it that you only try this on a test environment or have at least basic knowledge of how to use Lovelace and custom cards. If you don't know how to work in Lovelace you could seriously hurt your setup to the point it will no longer render the page until you fix the error.
-```
-ALWAYS MAKE BACKUPS!!!!!!!!!
-```
-Make sure you always make a backup of your `ui-lovelace.yaml` file and other files if needed. I can not give guarantees that the setup works for anyone but myself. Everyone has different entities and more or less switches/sensors/camera's etc. If you happen to have a quite similar setup like I have you might get away with just changing the entity ID's but I highly recommend you to only use snippets of the setup and not just blatantly copy the entire thing and complain that it doesn't work. Because trust me, it isn't going to work :D. If you do decide to take the risk and copy everything, then make sure you at least remove ALL of the !secret entries and replace them with values of your own, and if you do not have those values yet, comment them out! Fail to do this and it won't start. Next is making sure you have every custom card setup, do this with HACS, find the link and instructions below. One day I might make a version that is more like a template and will only require changing basic stuff, but that day is far away (if ever). Though recent changes have put this setup in the right direction.
 
-Try to use RAW versions of the text to avoid any kind of wrongful spaces. Remember that I warned you :D!
+# PREPARATION
+HKI is easy to configure as long as you have prepared yourself well. My advise is to use another computer, pi or create a vm to install this and test it first before moving over to production.
+If you do decide to take the leap on your production device immediately I will highly suggest you make BACKUPS!!! I can't stress out enough that you should always do this unless you really don't care.
+I cannot guarantee that this setup will work as great for everyone and I cannot if the setup will even work for you at all. Backing up your current system prevents yourself from being left empty handed!
 
-To make it easier on you if you want to copy it entirely is to first check the following:
-- Make sure to either remove or replace ALL `!secret` entries as it won't start if they are undefined. I'd suggest commenting out the lines in lovelace and replacing them with your own config in `configuration.yaml`. For your convenience an example of `secrets.yaml` is provided so you could build from that.
-- Make sure you have downloaded all custom-cards with HACS (and/or imported them) before you begin.
-- Make sure you download the relevant custom-components if desired
-- I have a split config, this means saving things will not be as you are probably used to. Regular files like automation.yaml etc will behave as usual. This means changing anything in these files will require a restart or a soft restart from the UI. Lovelace behaves differently this way. Yes it is easier to manage, but it comes with a major downside. Any changes made in any of the files in lovelace will require you to save `ui-lovelace.yaml` every single time! DON'T FORGET THIS! Even if you don't make any changes to this `ui-lovelace.yaml` and have changed ONLY `main-view.yaml` you will still have to save `ui-lovelace.yaml`. Best way to do this is just to do a save all action in your favorite text editor. Know that some editors do not allow you to save if the file is unchanged (e.g. notepad++). I suggest not using any of those text editors. I would advise you to use Sublime Text Editor as it is lightweight, free, easy on the eyes and makes code look a lot more comprehensible.
-- To start I would suggest trying to get a light page working. Why? Well, lights are probably the first smart items you already have, not only that, it will also be the easiest page to setup. To start, in your `ui-lovelace.yaml` file comment out all the views except for `light.yaml`. Edit all the entities to match your own and voila you will have your first page working.
-- Uncomment views in `ui-lovelace.yaml` one by one to get the basics working. Navigation links (the ones in the quickmenu and the ones in the main menu will not work until you have uncommented all the views!)
-- On some Android devices it won't accept a hold_action when deep_press: true is enabled. Remove these lines from the switch-template.yaml and light-template.yaml. It is only useful for iphone users and will do nothing for Android.
-- LEARN how to use decluttering-cards, click on the link below at the addons and read the documentation. My config really has a lot of those and knowing how to use them will save you a lot of time, headache and mostly a lot of duplicate code! This is important, please do not flood me with questions about this card if you haven't read the documentation.
-- LEARN how to use popup-cards, click on the link below at the addons and read the documentation. I use popup-cards occasionally on some views and they are not easy or straightforward to setup. If you do not know what you are doing these cards will just never work and you will be presented with the standard more-info window that HA offers out of the box. Any config I have made in these cards will not work until you learn how to use these. My advise is to do this last as they are one of the least important features and 95% of the config will work just fine without these working yet.
-- Know how to use !includes, includes can seriously be a pain in the behind when any of the paths are wrong or missing. Lovelace will not load and it will always show you a states-ui view if any of the paths are missing or wrong. I stress out that you will ALWAYS have to make SURE that the paths in your files are correct. e.g. if a file refers to another file with an include, make sure the path exists. Luckily since HA 0.98.x it has become easier to find missing includes as the error handler will now tell you in lovelace.
-```
-type: vertical-stack
-cards:
-  - !include lovelace/blank-card.yaml
-```
-If the path /lovelace/blank-card.yaml does not exist or is incorrect lovelace will not load (no matter if it is the only thing that is wrong). If the file `blank-card.yaml` does not exist it will not load.
-I stress this because this will make people cry really hard as there is NO error checker and you will have to go through all the files manually. (The error checker will be available in HA 0.98.x and so this will become easier to troubleshoot in the future)
+Preparation Checklist:
+  - Time, I estimate the project to be installed within a few hours (I might be waaay off but I wouldn't know as I haven't installed it this way, It might be done in a relatively short time I am sure but that really depends on your current state with HA and ofc your experience with HA/Lovelace)
+  - Install Home Assistant or create a backup of your current setup.
+  - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually. If you use tasmota, please use autodiscovery instead of hardcoding each device in your configuration, please do it if you don't use it already!)
+  - The prefered way would be to do a clean install, however I can imagine you don't want to do this. Make sure that if you have older versions of Home Assistant that you have the correct components loaded. Most components are loaded within the `default_config:` however older setups might lack this line. Setting up location is also preferred to be done through the UI instead of hardcoding.
+  - Create person entities in the UI go to configuration>persons and create all the persons in your house. Add the device_trackers you have to the person entities. Do not use device_trackers in lovelace unless you really need to.
+  - Patience, do not rush something like this. Imagine all the months of work I have put into this? So taking some extra time to undertake this is not such a bad idea.
+  - There are some entities which might be required, you will be guided through the global setup guide on where and how to do this.
 
-- I can't stress out more that it is ALWAYS better to build from the ground up instead of copying a setup. I would advise you to copy snippets of the code to incorporate that into your own setup. But if you really want to dive in deep you are free to do so.
+# INSTALLATION
+Installing HKI can be quite an undertaking as you will need a lot of custom-cards and custom-components. I will try to guide you through on how to go at this.
+  - First create github account if you do not already have one
+  - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
+  - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this, either the proper way or the quick and dirty way.
+    The proper way would be to install each and every custom component and card manually through HACS. You can do this by going to the sidebar>HACS (it could also be called community).
+    Search for each of the addons listed below and install them one by one.
+    The quick and dirty way would be copying the entire www/community folder from the HKI project to your own.
+    There are pro's and cons for both methods. The proper way will allow you to update the addons through HACS and be notified about them, however it might break the setup if I haven't fixed the code for breaking changes.
+    The quick and dirty way allows for a 100% working one with the current downloaded project. However HACS won't know you have these files and you are not able to update them through HACS.
+    If you are lazy for whatever reason, you could use the quick and dirty method and search for the addons in HACS later on (it will simply overwrite the old card and it would give the ability to update again)
+    Your choice. Depending on the choice this can take from 2 minutes to a whopping 30 minutes to install. It really depends on a lot of factors and chosen method on how long this might take. Remember I talked about not rushing it!
+    
+    Find the following addons on HACS (you do not need to add them to the resources, I have already done this for you!)
+    In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
+    If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Press repository to go to their respective pages.
 
-## Addons Required
-#### You will need HACS to download them for use with this setup (you can use the older custom_updater but I would highly recommend you to use HACS instead https://custom-components.github.io/hacs/installation/manual/). Some of the addons are not available on HACS, however you can import them yourself. Read the HACS docs on how to install non supported plugins/addons!! The links provided here will help you add them quickly. Some addons can not be imported directly because the developer did not put the addon in a folder in the root of the directory. When this happens you can either choose to copy the files from my repo or clone the corresponding repo get the folder you need and upload it to the root of your own github project (it does not matter which repo you use for it as long as it is in the root your repository) You can then import the custom card from your own repo into HACS.
+    ### Plugins (click on plugins tab in HACS)
+      Required Plugins:
+        - Layout Card
+        - RGB Light Card
+        - Light Entity Card
+        - Card Tools
+        - Check Button Card (Requires MQTT)
+        - Mini Media Player Card
+        - Calendar Card (Requires calendar sensors)
+        - Button Card
+        - Vertical-Stack-in-Card
+        - Card-Mod
+        - Simple Weather Card
+        - Custom Header (This is the replacement for Custom Compact Header, don't confuse them!)
+        - Mini Graph Card
+        - Swipe Card
+        - State-Switch
+        - Weather Card 
+        - Auto Entities
+        - Air Visual Card (Requires Air Visual account and a sensor, it is free!)
+        - Waze Travel Card
+        - Lovelace More Info Card (required)
 
-Now lets get into the custom-cards and components you will need (components are optional as they might not apply to you).
-Cards:
-* [Lovelace-Auto-Entities](https://github.com/thomasloven/lovelace-auto-entities) - Not supported, install Manually - This card does what monster-card does but slightly different. Use it to make entities/cards show up/hide depending on a domains/entities state.
-* [Weather-Card-Graph](https://github.com/sgttrs/lovelace-weather-card-chart) - Not supported, install Manually - This card is almost the same as most weather cards for lovelace, however this one has a neat graph (and no colored icons which is in my opinion cleaner).
-* [More-Info-Card](https://github.com/thomasloven/lovelace-more-info-card) - Not supported, install Manually - This card will show you the more-info window of an entity as a card. This is used for the weather panel in my setup.
-* [Card-Loader](https://github.com/thomasloven/lovelace-card-loader) - Not supported, install Manually - This mod will make sure cards are loaded before they are presented. Without this cards might not load until a refresh of the page.
-* [Deep-Press](https://github.com/roflcoopter/deep-press) - Not supported, install Manually - This is a great card for iphone users with 3d touch. Actually it isn't a card it modifies existing cards to support 3d touch. If you have an iphone that supports this I highly recommend you to use this. If you are not using this, remove the `deep_press: true` line from `switch-template.yaml` and `light-template.yaml`.
-* [State-Switch](https://github.com/thomasloven/lovelace-state-switch) - Not supported, install Manually - Important if you want to be able to have multiple users to use your interface. My setup is not compatible out of the box without this. If you don't care for multi user you will have to manually remove the custom:state-switch entries.
-* [Swipe-Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card) - Not supported, install the file from my repo! - This is used to display the beautiful animation on the 'popup' cards and being able to swipe/flick through them. This is ESSENTIAL. Note: Swipe-Card has a known issue with swiping on pages with buttons. It would register it as a tap_action while you swipe. To prevent this please download the js from my repo instead of the official one as this has a somewhat fix for that problem. You will need this if you do not want the buttons to be tapped while swiping.
-* [Button-Card](https://github.com/custom-cards/button-card) - HACS Supported, install with HACS - The MOST IMPORTANT card of my setup, you will need this!!
-* [Lovelace-Card-Mod](https://github.com/thomasloven/lovelace-card-mod) - HACS Supported, install with HACS - Mods all the core cards to use CSS etc. Previously card-modder was used for this purpose.
-* [Card-Tools](https://github.com/thomasloven/lovelace-card-tools) - Not supported, install Manually - ESSENTIAL many custom-cards depend on this, including Card-Modder
-* [Compact-Custom-Header](https://github.com/maykar/compact-custom-header) - HACS Supported, install with HACS - Not essential, however one of my most favorite cards, it makes swipe navigation possible in lovelace as well as the ability to tweak the header just the way you want! I recommend to install this.
-* [Popup-Card](https://github.com/thomasloven/lovelace-popup-card) - Not supported, install Manually - This card is no longer essential, if you had it before you can keep it. This will no longer be used in the future. However it is still used on some pages. Though the pages will load fine without this.
-* [Thermostat-Card](https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card) - Not supported, install Manually -  You will need to clone this card to your own repository as HACS can't read subfolders on github repo's or find someone that has it.
-* [Upcoming-Media-Card](https://github.com/custom-cards/upcoming-media-card) - HACS Supported, install with HACS - Required if you want the upcoming media card. You will require a custom component for Sonarr and Radarr as well. If you do not run something like Kodi/Plex and get the films/series yourself you will have no use for this.
-* [Lovelace-Markdown-Mod](https://github.com/thomasloven/lovelace-markdown-mod) - HACS Supported, install with HACS - Mods the core markdown card to be more useful. Previously useful-markdown-card was used for this
-* [Vertical-Stack-In-Card](https://github.com/custom-cards/vertical-stack-in-card) - HACS Supported, install with HACS - You do not need this and I would not recommend using it on this setup. I have modified the js to have a transparent background as this card enforces a background. I'd recommend using a regular vertical-stack for this. I only use this for my custom:check-marker-cards
-* [Mini-Media-Player](https://github.com/kalkih/mini-media-player) - HACS Supported, install with HACS - Beautiful replacement for the standard media player. I'd recommend this. The border-radius can not be set for iOS with a card-modder card on this. You will have to change the border radius in the js file of the card. Don't know what you are doing? Don't worry you can always redownload the file. Or just leave it as is.
-* [Lovelace-Xiaomi-Vacuum-Map-Card](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-Xiaomi-Vacuum-Map-card) - HACS Supported, install with HACS - This is the vacuum map card I use to set up zoned cleaning or make the robot move to a certain location on the map! If you have a vacuum then this is a must and I highly recommend you to download this
-* [Calendar-Card](https://github.com/ljmerza/calendar-card) - HACS Supported, install with HACS - This is the card I use to show our calendars. Recommended!
-* [Simple-Weather-Card](https://github.com/kalkih/simple-weather-card) - HACS Supported, install with HACS - This is the beautiful minimalistic weather card which is seen on the top of my home screen. I like it a lot as it takes so much less space than most weather cards and it is imo one of the least important data to know. All I need to know is, what is the Temperature and "Is it going to rain?".
-* [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - HACS Supported, install with HACS - Highly recommended if you are a Dutch citizen (all Dutch citizens use this postal service). If you are not Dutch it is no use to install this. Get a card that does fit your needs! (if there is one ofcourse). You will also need to install the Custom Component, you can find this on my repo.
-* [Mini-Graph-Card](https://github.com/kalkih/mini-graph-card) - HACS Supported, install with HACS - The best card for making graphs by a long shot! Highly recommended!
-* [Light-Entity-Card](https://github.com/ljmerza/light-entity-card) - HACS Supported, install with HACS - A beautiful replacement for a color wheel. Can be used as a card or as seen in my setup (see video) with a popup card.
-* [Lovelace-Decluttering-Card](https://github.com/custom-cards/decluttering-card) - HACS Supported, install with HACS -  ESSENTIAL and VERY IMPORTANT. None of the buttons in my config will ever render without this card. All buttons except for the light buttons are based of a single template. No template means no buttons. Do not fail to install this! This card is used as a replacement to YAML anchors which I previously used in my setup. This is way more versatile and better in every way (though anchors have some benefits as well).
-* [check-button-card](https://github.com/Gluwc/check-button-card) - Not supported, install Manually - This is the card I use to track how long ago a specific action was done (e.g. how long ago it was when the bathroom was cleaned). They are easy to setup and it is easy to use, however I am not satisfied with the way it looks. It is in my setup right now, but will likely be removed in the future.
-* [bar-card](https://github.com/custom-cards/bar-card) - HACS Supported, install with HACS - used in the printer ink levels. I might use this card more often in the future.
-* [air-visual-card](https://github.com/dnguyen800/air-visual-card) - HACS Supported, install with HACS - a beautiful air quality card with the current outside temperature. I use this on the widgets and weather views.
-* [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - HACS Supported, install with HACS - the great card that imports livemaps from a rooted xiaomi roborock with valetudo.
-* [lovelace-xiaomi-vacuum-card](https://github.com/benct/lovelace-xiaomi-vacuum-card) - HACS Supported, install with HACS - Used only on the widgets page. You don't need this if you don't want this as a widget.
+      Optional Plugins:
+        - Upcoming Media Card (Plex, Sonarr and/or Radarr required)
+        - Xiaomi Vacuum Map Card (Requires Xiaomi Robot Vacuum)
+        - Valetudo Map Card (Requires Xiaomi Robot Vacuum that is Rooted!)
+        - Swipe Navigation (Used for swiping between views on mobile phones)
+        - GUI Sandbox Card (optional, brings ui-editor to yaml mode. You won't be able to save, but you can create cards visually and copy code later on. recommended for tinkerers)
 
-Custom Components:
-* [RDW-Sensor](https://github.com/eelcohn/home-assistant-rdw) - Not supported, install Manually - Only useful for Dutch citizens. Used for car license plates, APK and Insurrance tracking.
-* [Sonarr-Upcoming-Media](https://github.com/custom-components/sensor.sonarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
-* [Radarr-Upcoming-Media](https://github.com/custom-components/sensor.radarr_upcoming_media) - HACS Supported, install with HACS - Required to use with Upcoming Media Card.
-* [XboxOne](https://github.com/hunterjm/hassio-addons/tree/master/xboxone) - Not supported, install Manually - Xbox One Component to control you Xbox one from Home Assistant
-* [Lovelace-PostNL](https://github.com/peternijssen/lovelace-postnl) - Not supported, install Manually - You will need this to use with the PostNL lovelace card. Without this component the card is useless! Configuration remains the same as if you would use the official PostNL component. Just download the entire folder from my repo to your custom_components folder.
-* [Apple-TV-Fix](https://github.com/chamberlain2007/apple_tv_mrp) - Not supported, install Manually - This is a component that aims to fix the ATV problems that came with tvOS 13. Some functions work, some don't. Use at your own risk. If HA will have this component updated I will remove this again. But for now it suits my needs.
+      Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
+      Add all the repositories below as a 'plugin', choose it from the dropdown menu
+        - Popup Card (optional, deprecated though for visual uniformity still the only way to create the same popups everywhere) (https://github.com/thomasloven/lovelace-popup-card)
+        - Custom Light Popup Card (required) (https://github.com/DBuit/light-popup-card)
+        - Thermostat Popup Card (required) (https://github.com/DBuit/thermostat-popup-card)
+        - Deep-Press-Mod (optional, requires an Apple device, if you have a mixed household Apple/Android you can safely install this) (https://github.com/roflcoopter/deep-press)
 
-## TO DO (*updated: 30/09/2019)
-- Finetuning themes and add new ones ###In Progress
-- Switching the swipe-card for standard views with CCH. ###Feature request has been released, so this can go in to production
-- Scenes (continue the testing of my automations and where needed change) ###Postponed for later evaluation
-- Xiaomi Plantsensor Cards ###Postponed to a future release
-- Dog food and water dispenser ###Water dispenser died, waiting on RMA
-- Other graphs related to servers/computers etc. ###Prework Done
-- Declutter some more cards ###Always in Progress
-- Add even more buttons to then menu to get all functions in one place ###Currently in Progress
-- And many more, which I can't think of at the moment and trust me it is probably a lot! ###Always in Progress
+    ### Components (click on integrations tab in HACS)
+      Required Components:
+        - Browser_mod
+        - Lovelace_gen
+    
+      Optional Components:
+        - Afvalbeheer (for Dutch waste collection)
+        - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
+        - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
 
-## Requested Features (all requested features will appear here, I make no promises, but I will try to add these)
-- p2000 monitor (for Dutch citizens)
-- Fuel prices
-- Newsfeed
-- Public Transport (for Dutch citizens)
-- Flight Information
+      Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
+      Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
+        - Imap (optional, only required if using outlook/hotmail/live email addresses, copy this from my repo into your folder)
+        - Apple TV MRP (optional, if you have an Apple TV you might want this until the core version is fixed!) (https://github.com/chamberlain2007/apple_tv_mrp)
+        - RDW (optional, Dutch Car Registration Sensor, copy this from my repo into your folder)
+        - Xbox One (optional, if you own an Xbox you can use this component to control it, visit the following link on how to install this on either hassio or standard ha) (https://github.com/hunterjm/hassio-addons/tree/master/xboxone)
+        - Custom-UI (optional, gives you the ability to template icons/names/etc in customize.yaml, editing this file will be discussed further down the guide. This is not required but if you want system-wide dynamic icons you will want this) (https://github.com/andrey-git/home-assistant-custom-ui)
+        - Customizer (optional, required when using Custom-UI, when installing Custom-UI you will need this component as well)
 
-### Questions?
+  - For safe results I suggest restarting Home Assistant at this point.
+  - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
+    Copy every file and folder to your own directory with the exception of `configuration.yaml`. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
+    Replace your `configuration.yaml` file (not the backup obviously) with the one from HKI and copy all the relevant stuff from your backup file back into this one. (do NOT copy switches, sensors, binary_sensors, lights, camera's, automations, input_booleans, input_selects, alarm_control_panel, device_tracker, script and shell_command configs!!!! I will get to that in a minute).
+    Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config? Find examples in the provided `configuration.yaml` file.
+    Copy your own config in the corresponding folders in configuration/ (e.g. configuration/automations). Notice that in `configuration.yaml` they are all called in a different way. This is because automations requires to be listed and groups require to be named.
+    Copy the relevant setup that you have (e.g. switches, lights, camera's) to the right folders, look in the examples on how to indent your config. If you have an automations.yaml file you can simply drop this inside the configuration/automations folder as there is no file named automations.yaml (hm that easy? yeah, that easy!)
+    Do this for all the config you had (either in separate files or in configuration.yaml). Note that when creating new files you do not need to care about the name of the file if the domain is included in either of these ways in `configuration.yaml`. Either !include_dir_merge_list or !include_dir_merge_named.
+    In both cases you can simply create a new file and start creating new groups, automations etc without needing to worry about the filename.
 
-Please ask any question you have on the Home Assistant community forums.
-https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/117086
+I am pretty sure you are already quite some time at this, maybe you should take a break now? XD!
 
-## Thank you
+# CONFIGURATION
+Configuring Homekit Infused after the initial install is pretty straightforward. Open the files as instructed below and edit them. Editing these files alone will help you get up and running really quickly.
+Basically all you would need to configure are these 3 files unless you want some customization to the frontend (obviously). For some things you will need a template sensor or automation but if you have copied the required files you will already have them.
+Some files might need little editing for localization but I will guide you through that process.
 
-Thank you for taking your time reading all this mess, I hope you have great fun with Home Assistant as I have and I will always try to help people out where I can, but as I said I am only an amateur so do not expect miracles :P.
-Anyways have fun and see you next time!
+  - Fill in the `customize.yaml` file from the HKI project with your own entities (instructions can be found inside the `customize.yaml` file as well as examples)
+  - Fill in the `homekit_infused_groups.yaml` file from the HKI project with your own entities (these are the groups that will auto fill your entities inside lovelace, configuring this is pretty straightforward!)
+  - Fill in the `global_config.yaml` file from the HKI project (this is the global and last config of HKI, fill this file with your own data, instructions can be found inside the file)
+    Warning! this file is pretty lengthy, I suggest to start with changing the frontpage info to your needs and then see if it works. You will need to restart Home Assistant after making changes in `global_config.yaml` so take your time for this!
+  - Congratulations, you have installed and setup Homekit Infused for basic use. For advanced use please refer to the tips & tricks section. Theoretically if you have done everything right the setup should work without too much trouble.
 
-## A very special thanks to
-@ciotlosm
+# TIPS & TRICKS
+This page will contain tutorials, tips and tricks on how to edit certain views, cards, elements and more for Homekit Infused. Unfortunately this will take time to write and will stay under construction for the time being.
+If you want to help, please help me write tutorials on how you have edited Homekit Infused in a way that others might understand. Press on issues on Github and open a request for adding a tutorial. Tutorials that are unreadable to the average user will not be accepted.
+I thank all of you in advance for sharing your tips and tricks for Homekit Infused here to not only help me getting better documentation (and less support questions) but also all of the users that would love to share configs.
+Sharing a tutorial, trick or tip here with us will give it a better place than on the HA forums as it will fade away into the background because of all the messages. Info will always stand out here and thus easier to find for new and existing users.
+Thanks again for sharing your experiences.
 
-@thomasloven
+# IMPORTANT NOTES
+First of all I want to thank you all for your patience and support, it really means a lot to me. Though I do want to ask you to help each other out as well and not spam me constantly with support questions.
+Remember I am only a bartender and I am not a programmer, nor do I have the experience or time to know everything XD.
+  - I do not guarantee this setup will work for you
+  - The setup has only been tested on an iPhone X (though it should not work differently on other smartphones)
+  - I am trying to make updates as easy as possible hence all the templates and global config. Though it could still occur that I need to update a file that you have edited. I will create a guide for those specific files if it would ever be needed.
+  - Future releases will probably not deviate too much from the current design and will probably only hold bugfixes, component/plugin updates and ofcourse new views and themes!
+  - Questions asked without reading the documentation have the chance to not being answered. Read before you need (help)! I will however post video's on YT in the future
 
-@balloob
+# ISSUES
+If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better.
+Saying things like, "I have an issue, my lights view wont show" is not a good issue explanation as I will still be completely clueless as to why it won't show for you. Issues like these will be closed without an answer!
 
-@gluwc
+Known Issues:
+  - Sometimes the HA app reloads after going to another tab
+  - Sometimes the HA app needs a refresh (pull down to refresh)
+  - Sometimes icons will not show the template when using Custom-UI, solution is a refresh
+  - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it)
+  - Entities card takes more time to load than others (this seems to me like a card-mod problem as it only does it with entities cards, even with a single line config it would still do this)
+  - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that
 
-@maykar
+To Do:
+  - Fix themes (some themes need tweaking)
+  - Add themes
+  - Add new views (for example garden/plant view)
+  - Rework scenes for use with the latest Home Assistant
+  - Computer/Server monitor view
 
-@robbiet480
+# FEATURE REQUESTS
+If you think there are features missing or that I should really implement a new feature/view please open an issue on GitHub with the title `FR` or `Feature Request`. In the comment field please state what features you would want to see,
+and motivate your answer. Tell me why you think I should add it and what benefits it would have for other users. I will not create personal requests that would only suit a single user as that would be madness!
 
-@ljmerza
+Current Feature Requests:
+  - Afvalbeheer Card (this was actually in 0.13.3 but removed for the 1.0a version as the widgets page has been removed, it will return soon)
+  - P2000 (requested some months ago, though not sure if it will make the cut)
+  - Flight Information (currently there are no known components/addons that can do this, I will add this if this ever comes)
+  - News (seems a bit too heavy for Home Assistant to have this running all the time, but I will look into it)
 
-@iantrich
-
-@kalkih
-
-@bramkragten
-
-@peternijssen
-
-@eelcohn
-
-@hunterjm
-
-@jc2k
-
-@kuuji
-
-@romrider
-
-@roflcoopter
-
-@3_14 / @Piotrmachowski
-
-@xMrVizzy
-
-@MarsWarrior
-
-@everyone I forgot to mention
+# SPECIAL THANKS
+I wanted to thank everyone for supporting me, watching and subscribing to my channels, donating, downloading etc.
+All of you really, thank you. Here are a few names I want to specially thank!
+  - @ciotlosm
+  - @thomasloven
+  - @balloob
+  - @gluwc
+  - @maykar
+  - @robbiet480
+  - @ljmerza
+  - @iantrich
+  - @kalkih
+  - @bramkragten
+  - @peternijssen
+  - @eelcohn
+  - @hunterjm
+  - @jc2k
+  - @kuuji
+  - @romrider
+  - @roflcoopter
+  - @3_14 / @Piotrmachowski
+  - @xMrVizzy
+  - @MarsWarrior
+  - @Dwains
+  - @Sander_Abbink
+  - @FranckNijhof
+  - @Dbuit
+  - @everyone I forgot to mention
 
 I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
 
-## Author
+# QUESTIONS?
 
-Jimz011
+Please ask any question you have on the Home Assistant community forums, follow the link to go to my thread [HA Community Forum](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimzz011-may-2019-ha-0-93-x-0-94-x-compatible/)
+
+
+Thank you and I hope you've enjoyed this release (please leave a comment on the forum/yt or privately so I can estimate what people think of the project)
+Thanks once again!
