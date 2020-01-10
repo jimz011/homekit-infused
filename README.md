@@ -38,7 +38,7 @@ Yours Sincerely,
 
 Jimz011
 
-## Changes since HKI 0.13.3:
+### Changes since HKI 0.13.3:
   - Completely rewritten from the ground up
   - Removed decluttering-card
   - Added a neat header
@@ -64,7 +64,7 @@ HKI is easy to configure as long as you have prepared yourself well. My advise i
 If you do decide to take the leap on your production device immediately I will highly suggest you make BACKUPS!!! I can't stress out enough that you should always do this unless you really don't care.
 I cannot guarantee that this setup will work as great for everyone and I cannot if the setup will even work for you at all. Backing up your current system prevents yourself from being left empty handed!
 
-Preparation Checklist:
+### Preparation Checklist
   - Time, I estimate the project to be installed within a few hours (I might be waaay off but I wouldn't know as I haven't installed it this way, It might be done in a relatively short time I am sure but that really depends on your current state with HA and ofc your experience with HA/Lovelace)
   - Install Home Assistant or create a backup of your current setup.
   - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually. If you use tasmota, please use autodiscovery instead of hardcoding each device in your configuration, please do it if you don't use it already!)
@@ -75,6 +75,8 @@ Preparation Checklist:
 
 # INSTALLATION
 Installing HKI can be quite an undertaking as you will need a lot of custom-cards and custom-components. I will try to guide you through on how to go at this.
+
+### Prerequisites
   - First create github account if you do not already have one
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
   - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this, either the proper way or the quick and dirty way.
@@ -90,62 +92,63 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
     In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
     If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Press repository to go to their respective pages.
 
-    ### Plugins (click on plugins tab in HACS)
-      Required Plugins:
-        - Layout Card
-        - RGB Light Card
-        - Light Entity Card
-        - Card Tools
-        - Check Button Card (Requires MQTT)
-        - Mini Media Player Card
-        - Calendar Card (Requires calendar sensors)
-        - Button Card
-        - Vertical-Stack-in-Card
-        - Card-Mod
-        - Simple Weather Card
-        - Custom Header (This is the replacement for Custom Compact Header, don't confuse them!)
-        - Mini Graph Card
-        - Swipe Card
-        - State-Switch
-        - Weather Card 
-        - Auto Entities
-        - Air Visual Card (Requires Air Visual account and a sensor, it is free!)
-        - Waze Travel Card
-        - Lovelace More Info Card (required)
+### Plugins (click on plugins tab in HACS)
+Required Plugins:
+  - Layout Card
+  - RGB Light Card
+  - Light Entity Card
+  - Card Tools
+  - Check Button Card (Requires MQTT)
+  - Mini Media Player Card
+  - Calendar Card (Requires calendar sensors)
+  - Button Card
+  - Vertical-Stack-in-Card
+  - Card-Mod
+  - Simple Weather Card
+  - Custom Header (This is the replacement for Custom Compact Header, don't confuse them!)
+  - Mini Graph Card
+  - Swipe Card
+  - State-Switch
+  - Weather Card 
+  - Auto Entities
+  - Air Visual Card (Requires Air Visual account and a sensor, it is free!)
+  - Waze Travel Card
+  - Lovelace More Info Card (required)
 
-      Optional Plugins:
-        - Upcoming Media Card (Plex, Sonarr and/or Radarr required)
-        - Xiaomi Vacuum Map Card (Requires Xiaomi Robot Vacuum)
-        - Valetudo Map Card (Requires Xiaomi Robot Vacuum that is Rooted!)
-        - Swipe Navigation (Used for swiping between views on mobile phones)
-        - GUI Sandbox Card (optional, brings ui-editor to yaml mode. You won't be able to save, but you can create cards visually and copy code later on. recommended for tinkerers)
+Optional Plugins:
+  - Upcoming Media Card (Plex, Sonarr and/or Radarr required)
+  - Xiaomi Vacuum Map Card (Requires Xiaomi Robot Vacuum)
+  - Valetudo Map Card (Requires Xiaomi Robot Vacuum that is Rooted!)
+  - Swipe Navigation (Used for swiping between views on mobile phones)
+  - GUI Sandbox Card (optional, brings ui-editor to yaml mode. You won't be able to save, but you can create cards visually and copy code later on. recommended for tinkerers)
 
-      Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
-      Add all the repositories below as a 'plugin', choose it from the dropdown menu
-        - Popup Card (optional, deprecated though for visual uniformity still the only way to create the same popups everywhere) (https://github.com/thomasloven/lovelace-popup-card)
-        - Custom Light Popup Card (required) (https://github.com/DBuit/light-popup-card)
-        - Thermostat Popup Card (required) (https://github.com/DBuit/thermostat-popup-card)
-        - Deep-Press-Mod (optional, requires an Apple device, if you have a mixed household Apple/Android you can safely install this) (https://github.com/roflcoopter/deep-press)
+Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
+Add all the repositories below as a 'plugin', choose it from the dropdown menu
+  - Popup Card (optional, deprecated though for visual uniformity still the only way to create the same popups everywhere) (https://github.com/thomasloven/lovelace-popup-card)
+  - Custom Light Popup Card (required) (https://github.com/DBuit/light-popup-card)
+  - Thermostat Popup Card (required) (https://github.com/DBuit/thermostat-popup-card)
+  - Deep-Press-Mod (optional, requires an Apple device, if you have a mixed household Apple/Android you can safely install this) (https://github.com/roflcoopter/deep-press)
 
-    ### Components (click on integrations tab in HACS)
-      Required Components:
-        - Browser_mod
-        - Lovelace_gen
-    
-      Optional Components:
-        - Afvalbeheer (for Dutch waste collection)
-        - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
-        - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
+### Components (click on integrations tab in HACS)
+Required Components:
+  - Browser_mod
+  - Lovelace_gen
 
-      Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
-      Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
-        - Imap (optional, only required if using outlook/hotmail/live email addresses, copy this from my repo into your folder)
-        - Apple TV MRP (optional, if you have an Apple TV you might want this until the core version is fixed!) (https://github.com/chamberlain2007/apple_tv_mrp)
-        - RDW (optional, Dutch Car Registration Sensor, copy this from my repo into your folder)
-        - Xbox One (optional, if you own an Xbox you can use this component to control it, visit the following link on how to install this on either hassio or standard ha) (https://github.com/hunterjm/hassio-addons/tree/master/xboxone)
-        - Custom-UI (optional, gives you the ability to template icons/names/etc in customize.yaml, editing this file will be discussed further down the guide. This is not required but if you want system-wide dynamic icons you will want this) (https://github.com/andrey-git/home-assistant-custom-ui)
-        - Customizer (optional, required when using Custom-UI, when installing Custom-UI you will need this component as well)
+Optional Components:
+  - Afvalbeheer (for Dutch waste collection)
+  - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
+  - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
 
+Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
+Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
+  - Imap (optional, only required if using outlook/hotmail/live email addresses, copy this from my repo into your folder)
+  - Apple TV MRP (optional, if you have an Apple TV you might want this until the core version is fixed!) (https://github.com/chamberlain2007/apple_tv_mrp)
+  - RDW (optional, Dutch Car Registration Sensor, copy this from my repo into your folder)
+  - Xbox One (optional, if you own an Xbox you can use this component to control it, visit the following link on how to install this on either hassio or standard ha) (https://github.com/hunterjm/hassio-addons/tree/master/xboxone)
+  - Custom-UI (optional, gives you the ability to template icons/names/etc in customize.yaml, editing this file will be discussed further down the guide. This is not required but if you want system-wide dynamic icons you will want this) (https://github.com/andrey-git/home-assistant-custom-ui)
+  - Customizer (optional, required when using Custom-UI, when installing Custom-UI you will need this component as well)
+
+### Copying Files
   - For safe results I suggest restarting Home Assistant at this point.
   - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
     Copy every file and folder to your own directory with the exception of `configuration.yaml`. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
@@ -163,6 +166,7 @@ Configuring Homekit Infused after the initial install is pretty straightforward.
 Basically all you would need to configure are these 3 files unless you want some customization to the frontend (obviously). For some things you will need a template sensor or automation but if you have copied the required files you will already have them.
 Some files might need little editing for localization but I will guide you through that process.
 
+### Global Configuration
   - Fill in the `customize.yaml` file from the HKI project with your own entities (instructions can be found inside the `customize.yaml` file as well as examples)
   - Fill in the `homekit_infused_groups.yaml` file from the HKI project with your own entities (these are the groups that will auto fill your entities inside lovelace, configuring this is pretty straightforward!)
   - Fill in the `global_config.yaml` file from the HKI project (this is the global and last config of HKI, fill this file with your own data, instructions can be found inside the file)
@@ -189,7 +193,7 @@ Remember I am only a bartender and I am not a programmer, nor do I have the expe
 If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better.
 Saying things like, "I have an issue, my lights view wont show" is not a good issue explanation as I will still be completely clueless as to why it won't show for you. Issues like these will be closed without an answer!
 
-Known Issues:
+### Known Issues
   - Sometimes the HA app reloads after going to another tab
   - Sometimes the HA app needs a refresh (pull down to refresh)
   - Sometimes icons will not show the template when using Custom-UI, solution is a refresh
@@ -197,7 +201,7 @@ Known Issues:
   - Entities card takes more time to load than others (this seems to me like a card-mod problem as it only does it with entities cards, even with a single line config it would still do this)
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that
 
-To Do:
+### To Do
   - Fix themes (some themes need tweaking)
   - Add themes
   - Add new views (for example garden/plant view)
@@ -208,7 +212,7 @@ To Do:
 If you think there are features missing or that I should really implement a new feature/view please open an issue on GitHub with the title `FR` or `Feature Request`. In the comment field please state what features you would want to see,
 and motivate your answer. Tell me why you think I should add it and what benefits it would have for other users. I will not create personal requests that would only suit a single user as that would be madness!
 
-Current Feature Requests:
+### Current Feature Requests
   - Afvalbeheer Card (this was actually in 0.13.3 but removed for the 1.0a version as the widgets page has been removed, it will return soon)
   - P2000 (requested some months ago, though not sure if it will make the cut)
   - Flight Information (currently there are no known components/addons that can do this, I will add this if this ever comes)
