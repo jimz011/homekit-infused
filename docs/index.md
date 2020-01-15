@@ -186,11 +186,11 @@ Add all the repositories (where applicable) as an 'integration', choose it from 
   - For safe results I suggest restarting Home Assistant at this point.
   - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
 
-#### Method 1 (HKI Structure, recommended, best for people new to HA)
-    Copy every file and folder to your own directory with the exception of `configuration.yaml`. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
-    Replace your `configuration.yaml` file (not the backup obviously) with the one from HKI and copy all the relevant stuff from your backup file back into this one. (do NOT copy switches, sensors, binary_sensors, lights, camera's, automations, input_booleans, input_selects, alarm_control_panel, device_tracker, script and shell_command configs!!!! I will get to that in a minute). Remember we are still talking about the `configuration.yaml` file!
-    Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config? Find examples in the provided `configuration.yaml` file.
-    Copy your own config in the corresponding folders in configuration/ (e.g. configuration/automations). Notice that in `configuration.yaml` they are all called in a different way (e.g. !include_merge_dir and !include_merge_list). This is because automations requires to be listed and groups require to be named.
+### Method 1 (HKI Structure, recommended, best for people new to HA)
+Copy every file and folder to your own directory with the exception of `configuration.yaml`. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
+Replace your `configuration.yaml` file (not the backup obviously) with the one from HKI and copy all the relevant stuff from your backup file back into this one. (do NOT copy switches, sensors, binary_sensors, lights, camera's, automations, input_booleans, input_selects, alarm_control_panel, device_tracker, script and shell_command configs!!!! I will get to that in a minute). Remember we are still talking about the `configuration.yaml` file!
+Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config? Find examples in the provided `configuration.yaml` file.
+Copy your own config in the corresponding folders in configuration/ (e.g. configuration/automations). Notice that in `configuration.yaml` they are all called in a different way (e.g. !include_merge_dir and !include_merge_list). This is because automations requires to be listed and groups require to be named.
     If you had this in `configuration.yaml`
     ```
     light:
@@ -200,14 +200,14 @@ Add all the repositories (where applicable) as an 'integration', choose it from 
           - light.bed_led
           - light.floor_led
     ```
-    You should copy your config that you had (without the leading `light:`) into `configuration/light/light.yaml`.
-    Do this for all the config you had (either in separate files or in configuration.yaml). When creating new files you do not need to care about the name of the file if that specific folder is included in `configuration.yaml` as !include_dir_merge_list or !include_dir_merge_named.
-    In both cases you can simply create a new file and start creating new groups, automations etc without needing to worry about the filename. This allows for split files in e.g. automations and groups which can make management of those files a bit easier (and most of all easier to find again in the future).
-    If you have an automations.yaml file you can simply drop this inside the `configuration/automations` folder as there is no file named automations.yaml in Homekit Infused (hm that easy? yeah, that easy!)
-    After having done this you are done copying (you do not need to touch the ui-lovelace.yaml file and the `lovelace/` folder just yet)
+You should copy your config that you had (without the leading `light:`) into `configuration/light/light.yaml`.
+Do this for all the config you had (either in separate files or in configuration.yaml). When creating new files you do not need to care about the name of the file if that specific folder is included in `configuration.yaml` as !include_dir_merge_list or !include_dir_merge_named.
+In both cases you can simply create a new file and start creating new groups, automations etc without needing to worry about the filename. This allows for split files in e.g. automations and groups which can make management of those files a bit easier (and most of all easier to find again in the future).
+If you have an automations.yaml file you can simply drop this inside the `configuration/automations` folder as there is no file named automations.yaml in Homekit Infused (hm that easy? yeah, that easy!)
+After having done this you are done copying (you do not need to touch the ui-lovelace.yaml file and the `lovelace/` folder just yet)
 
-#### Method 2 (Your own structure, for advanced users only)
-    Instead of using the first method you could simply use your existing config and do it the other way around (so instead of copying my entire structure, you will only copy the relevant config into your own files) You will need to copy everything from the files in the `configuration/` folder that are prefixed with `hki_` (e.g. `hki_automations.yaml` or `hki_input_select.yaml`) into your own files. Remember that you might need files that do not exist in your setup yet (like the previously talked about `customize.yaml`). Do this for all the necessary files. Don't forget `configuration.yaml`! Copy all other files to your root folder (don't forget files, but do NOT copy the `configuration/` folder and `configuration.yaml` as we've already copied this stuff!)
+### Method 2 (Your own structure, for advanced users only)
+Instead of using the first method you could simply use your existing config and do it the other way around (so instead of copying my entire structure, you will only copy the relevant config into your own files) You will need to copy everything from the files in the `configuration/` folder that are prefixed with `hki_` (e.g. `hki_automations.yaml` or `hki_input_select.yaml`) into your own files. Remember that you might need files that do not exist in your setup yet (like the previously talked about `customize.yaml`). Do this for all the necessary files. Don't forget `configuration.yaml`! Copy all other files to your root folder (don't forget files, but do NOT copy the `configuration/` folder and `configuration.yaml` as we've already copied this stuff!)
 
 I am pretty sure you are already quite some time at this, maybe you should take a break now? XD!
 
