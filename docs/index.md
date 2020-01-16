@@ -9,7 +9,7 @@
 - [Important Notes](https://github.com/jimz011/homeassistant/tree/development#important-notes)
 - [Issues](https://github.com/jimz011/homeassistant/tree/development#issues)
 - [Feature Requests](https://github.com/jimz011/homeassistant/tree/development#feature-requests)
-- [Special Thanks](https://github.com/jimz011/homeassistant/tree/development#special-thanks)
+- [Thanks](https://github.com/jimz011/homeassistant/tree/development#thanks)
 - [Questions?](https://github.com/jimz011/homeassistant/tree/development#questions)
 
 # INTRO
@@ -46,7 +46,7 @@ Jimz011
   - New popup cards system-wide which include brightness, color and switch popups
   - New thermostat view and cards
   - New design for several views
-  - Footer
+  - Added a footer
   - Dynamic Icons system-wide
   - More compact design on personal and vacuum views
   - Easier to configure
@@ -124,8 +124,9 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
     
     Find the following addons on HACS (you do not need to add them to the resources, I have already done this for you!)
     In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
-    If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Press repository to go to their respective pages.
+    If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Remember that you need to check out the documenatation of how to use them for each plugin or component. Plugins are not so important to know how they work straight away as they will work fine without you knowing how to use them, however I do recommend you to read the custom-components documentation of each component as they are all different and some of the components will need some of your user input (it usually isn't that much).
 
+Press repository to go to their respective pages.
 ### Plugins (click on plugins tab in HACS)
 Required Plugins:
   - Layout Card
@@ -167,11 +168,14 @@ Add all the repositories below as a 'plugin', choose it from the dropdown menu
 Required Components:
   - Browser_mod
   - Lovelace_gen
+  - Average Sensor
 
 Optional Components:
   - Afvalbeheer (for Dutch waste collection)
   - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
   - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
+  - Xbox One (add the following repository to your hassio addons https://github.com/hunterjm/hassio-addons, this component will work for non hassio installs as well)
+  - ESPHome (add the following repository to your hassio addons https://github.com/esphome/hassio, I have not tested this on a non hassio install)
 
 Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
 Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
@@ -186,10 +190,15 @@ Add all the repositories (where applicable) as an 'integration', choose it from 
   - For safe results I suggest restarting Home Assistant at this point.
   - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
 
+NOTE: Homekit Infused makes heavy use of lovelace_gen, split files and it supports the use of !secrets. Unfortunately to achieve this we have to run lovelace in yaml mode (you can do this by reading up the following part and copy the relevant config from `configuration.yaml`). There is a major downside of running this in YAML mode especially when you are used to using the UI-editor for lovelace cards. In YAML mode the menu that shows RAW Editor, Refresh, Unused Entities and UI editor will become useless (and therefor is hidden in this setup). Now for new users this might sound very daunting and it probably is a little. When you convert to YAML mode your storage mode lovelace config will no longer be used. There is an upside to this, storage mode lovelace and YAML mode lovelace do not store their information in the same file. If you have used storage mode (default HA) and want to try out YAML mode you can easily revert this change by just removing the lines from `configuration.yaml`. So to get the most out of this you will probably want to learn the basics of lovelace. If you know the basics of lovelace and you liked the UI editor I do have some good news. If you have installed the GUI-sandbox-tool in the previous steps then you will get a button that gives you exactly that UI editor you were already used to. The only difference is, is that you can't save cards with the UI editor and you will need to copy the code from the editor into the respective files.
+Lovelace_gen is heavily used in this setup and is a requirement to run this at all. Lovelace_gen is what decluttering-card did in the older HKI versions but much more is possible with this. To get the most out of HKI (and if you want to start editing this yourself) You will have to learn lovelace_gen. It isn't really that hard, but it housed more features than to declutter some templates so keep that in mind. It makes global configuration possible, it can do templates (just like decluttering-card could, and config for that is pretty similar), it can make macro's and much more. Basically it brings jinja2 templating to the frontend without the need for an extra card! https://github.com/thomasloven/hass-lovelace_gen. You do not need to know how YAML mode and lovelace_gen works straight away. HKI should work without you knowing how to use them, but I highly recommend you to learn it as it isn't that difficult and will benefit you a lot in creating modifications to this setup.
+
+Lets not dwell any longer and get into the copying part. There are two methods I will describe on how you can do this.
+
 ### Method 1 (HKI Structure, recommended, best for people new to HA)
-Copy every file and folder to your own directory with the exception of `configuration.yaml`. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
+Copy every file and folder to your own directory with the exception of `configuration.yaml` and `customize.yaml` unless you did not do the `customize.yaml` step at the preparation section of this guide. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
 Replace your `configuration.yaml` file (not the backup obviously) with the one from HKI and copy all the relevant stuff from your backup file back into this one. (do NOT copy switches, sensors, binary_sensors, lights, camera's, automations, input_booleans, input_selects, alarm_control_panel, device_tracker, script and shell_command configs!!!! I will get to that in a minute). Remember we are still talking about the `configuration.yaml` file!
-Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config? Find examples in the provided `configuration.yaml` file.
+Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config
 Copy your own config in the corresponding folders in configuration/ (e.g. configuration/automations). Notice that in `configuration.yaml` they are all called in a different way (e.g. !include_merge_dir and !include_merge_list). This is because automations requires to be listed and groups require to be named.
     If you had this in `configuration.yaml`
     ```
@@ -200,7 +209,7 @@ Copy your own config in the corresponding folders in configuration/ (e.g. config
           - light.bed_led
           - light.floor_led
     ```
-You should copy your config that you had (without the leading `light:`) into `configuration/light/light.yaml`.
+    You should copy your config that you had (without the leading `light:`) into `configuration/light/light.yaml`.
 Do this for all the config you had (either in separate files or in configuration.yaml). When creating new files you do not need to care about the name of the file if that specific folder is included in `configuration.yaml` as !include_dir_merge_list or !include_dir_merge_named.
 In both cases you can simply create a new file and start creating new groups, automations etc without needing to worry about the filename. This allows for split files in e.g. automations and groups which can make management of those files a bit easier (and most of all easier to find again in the future).
 If you have an automations.yaml file you can simply drop this inside the `configuration/automations` folder as there is no file named automations.yaml in Homekit Infused (hm that easy? yeah, that easy!)
@@ -243,6 +252,7 @@ Remember I am only a bartender and I am not a programmer, nor do I have the expe
 # ISSUES
 If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better.
 Saying things like, "I have an issue, my lights view wont show" is not a good issue explanation as I will still be completely clueless as to why it won't show for you. Issues like these will be closed without an answer!
+The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 ### Known Issues
   - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team)
@@ -269,7 +279,7 @@ and motivate your answer. Tell me why you think I should add it and what benefit
   - Flight Information (currently there are no known components/addons that can do this, I will add this if this ever comes)
   - News (seems a bit too heavy for Home Assistant to have this running all the time, but I will look into it)
 
-# SPECIAL THANKS
+# THANKS
 I wanted to thank everyone for supporting me, watching and subscribing to my channels, donating, downloading etc.
 All of you really, thank you. Here are a few names I want to specially thank!
   - @ciotlosm
@@ -289,13 +299,14 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @kuuji
   - @romrider
   - @roflcoopter
-  - @3_14 / @Piotrmachowski
+  - @Piotrmachowski
   - @xMrVizzy
   - @MarsWarrior
   - @Dwains
   - @Sander_Abbink
   - @FranckNijhof
   - @Dbuit
+  - @martinvdm
   - @everyone I forgot to mention
 
 I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
