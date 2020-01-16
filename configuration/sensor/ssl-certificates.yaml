@@ -1,3 +1,0 @@
-# Certificate Expiry Sensor
-  - platform: cert_expiry
-    host: !secret certificate_url
