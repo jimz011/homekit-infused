@@ -1,6 +1,0 @@
-# Download Sensors
-
-  - platform: qbittorrent
-    url: !secret qbittorrent_url
-    username: !secret qbit_usr
-    password: !secret qbit_pwd

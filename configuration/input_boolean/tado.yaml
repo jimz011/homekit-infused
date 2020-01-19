@@ -1,5 +1,0 @@
-# Tado Input Booleans (needed for buttons on climate view)
-tado_kleine_kamer:
-  initial: off
-tado_woonkamer:
-  initial: off
