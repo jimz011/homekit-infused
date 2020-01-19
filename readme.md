@@ -1,4 +1,4 @@
-Homekit Infused, Currently this project is pending an update.
+Homekit Infused, Currently this project has a pending update, all files have been pulled until the update is complete.
 
 ETA: 24 to 72 hours as of 20/01/2020
 
