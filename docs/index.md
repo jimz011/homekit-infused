@@ -2,14 +2,14 @@
 
 ## Contents
 - [Intro](intro.md)
+- [Important Notes](notes.md)
 - [Preparation](preparation.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Tips & Tricks](tips.md)
-- [Important Notes](notes.md)
 - [Feature Requests](requests.md)
-- [Thanks](thanks.md)
 - [Issues & Questions](issues.md)
+- [Thanks](thanks.md)
 
 # INTRO
 
@@ -246,19 +246,9 @@ Remember I am only a bartender and I am not a programmer, nor do I have the expe
   - The setup has only been tested on an iPhone X (though it should not work differently on other smartphones)
   - I am trying to make updates as easy as possible hence all the templates and global config. Though it could still occur that I need to update a file that you have edited. I will create a guide for those specific files if it would ever be needed.
   - Future releases will probably not deviate too much from the current design and will probably only hold bugfixes, component/plugin updates and ofcourse new views and themes!
+  - The UI-editor is no longer available. To run HKI you will NEED to have it set to YAML mode. This means that you will either have to accept what you are getting, or learn how to use lovelace! (and in particular lovelace with lovelace_gen)
+  - By installing this you accept that you will respect the developer regardless if it works for you or not and accept the risks that come with code like this.
   - Questions asked without reading the documentation have the chance to not being answered. Read before you need (help)! I will however post video's on YT in the future
-
-# ISSUES
-If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better.
-Saying things like, "I have an issue, my lights view wont show" is not a good issue explanation as I will still be completely clueless as to why it won't show for you. Issues like these will be closed without an answer!
-The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
-
-### Known Issues
-  - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team)
-  - Sometimes icons will not show the template when using Custom-UI, solution is a refresh
-  - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it)
-  - Entities card takes more time to load than others (this seems to me like a card-mod problem as it only does it with entities cards, even with a single line config it would still do this)
-  - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue
 
 ### To Do
   - Fix themes (some themes need tweaking)
