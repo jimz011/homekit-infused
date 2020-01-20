@@ -60,6 +60,7 @@ If all went well you should now have a working Homekit Infused setup with at lea
 - remote (if you have an Apple TV)
 - weather
 - themes
+- battery
 
 Other pages will probably work just as fine, but they will most probably require your editing skills to create an actual usable view as most of those views I have either not really put much effort in, or is lacking cards to your likings (which is almost certain)
 Edit all the other views not mentioned in the list above yourself. Popups should work for most buttons and should work for at least all:
