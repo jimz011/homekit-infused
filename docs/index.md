@@ -10,7 +10,7 @@
 - [Issues](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#issues)
 - [Feature Requests](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#feature-requests)
 - [Thanks](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#thanks)
-- [Questions?](questions.md)
+- [Questio           ?](questions.md)
 
 # INTRO
 
