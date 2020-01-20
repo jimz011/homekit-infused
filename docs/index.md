@@ -1,16 +1,15 @@
 # Homekit Infused
 
 ## Contents
-- [Intro](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#intro)
-- [Preparation](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#preparation)
-- [Installation](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#installation)
-- [Configuration](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#configuration)
-- [Tips & Tricks](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#tips--tricks)
-- [Important Notes](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#important-notes)
-- [Issues](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#issues)
-- [Feature Requests](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#feature-requests)
-- [Thanks](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#thanks)
-- [Questio           ?](questions.md)
+- [Intro](intro.md)
+- [Preparation](preparation.md)
+- [Installation](installation.md)
+- [Configuration](configuration.md)
+- [Tips & Tricks](tips.md)
+- [Important Notes](notes.md)
+- [Feature Requests](requests.md)
+- [Thanks](thanks.md)
+- [Issues & Questions](issues.md)
 
 # INTRO
 
