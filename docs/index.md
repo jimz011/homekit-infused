@@ -1,4 +1,4 @@
-# Homekit Infused Installation and Configuration Manual
+# Homekit Infused
 
 ## Contents
 - [Intro](https://github.com/jimz011/homeassistant/tree/master/docs/index.md#intro)
