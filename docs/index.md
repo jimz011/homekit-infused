@@ -1,16 +1,16 @@
 # Homekit Infused Installation and Configuration Manual
 
 ## Contents
-- [Intro](https://github.com/jimz011/homeassistant/tree/development#intro)
-- [Preparation](https://github.com/jimz011/homeassistant/tree/development#preparation)
-- [Installation](https://github.com/jimz011/homeassistant/tree/development#installation)
-- [Configuration](https://github.com/jimz011/homeassistant/tree/development#configuration)
-- [Tips & Tricks](https://github.com/jimz011/homeassistant/tree/development#tips--tricks)
-- [Important Notes](https://github.com/jimz011/homeassistant/tree/development#important-notes)
-- [Issues](https://github.com/jimz011/homeassistant/tree/development#issues)
-- [Feature Requests](https://github.com/jimz011/homeassistant/tree/development#feature-requests)
-- [Thanks](https://github.com/jimz011/homeassistant/tree/development#thanks)
-- [Questions?](https://github.com/jimz011/homeassistant/tree/development#questions)
+- [Intro](https://github.com/jimz011/homeassistant/tree/master/docs#intro)
+- [Preparation](https://github.com/jimz011/homeassistant/tree/master/docs#preparation)
+- [Installation](https://github.com/jimz011/homeassistant/tree/master/docs#installation)
+- [Configuration](https://github.com/jimz011/homeassistant/tree/master/docs#configuration)
+- [Tips & Tricks](https://github.com/jimz011/homeassistant/tree/master/docs#tips--tricks)
+- [Important Notes](https://github.com/jimz011/homeassistant/tree/master/docs#important-notes)
+- [Issues](https://github.com/jimz011/homeassistant/tree/master/docs#issues)
+- [Feature Requests](https://github.com/jimz011/homeassistant/tree/master/docs#feature-requests)
+- [Thanks](https://github.com/jimz011/homeassistant/tree/master/docs#thanks)
+- [Questions?](https://github.com/jimz011/homeassistant/tree/master/docs#questions)
 
 # INTRO
 
