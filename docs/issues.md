@@ -2,14 +2,14 @@
 
 ## Contents
 - [Intro](intro.md)
+- [Important Notes](notes.md)
 - [Preparation](preparation.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Tips & Tricks](tips.md)
-- [Important Notes](notes.md)
 - [Feature Requests](requests.md)
-- [Thanks](thanks.md)
 - [Issues & Questions](issues.md)
+- [Thanks](thanks.md)
 
 # ISSUES
 If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better.
