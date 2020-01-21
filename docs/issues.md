@@ -23,6 +23,7 @@ The docs might be incomplete or not completely comprehensible for all. Remember 
   - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it)
   - Entities card takes more time to load than others (this seems to me like a card-mod problem as it only does it with entities cards, even with a single line config it would still do this)
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue
+  - Deep_press might not work so well if you don't have an iPhone. The solution to this would simply be to unistall deep-press (also remove it from your resources)
 
 # QUESTIONS?
 
