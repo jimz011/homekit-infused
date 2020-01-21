@@ -14,10 +14,7 @@ Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.0 Alph
 It has been a while since I have updated my repo with some new and awesome stuff, but I am back and today I will present to you Homekit Infused 1.0 Alpha (I'll call it alpha as it is untested!). I know it has been a long time but the reasons for this are simple. I have rewritten the project entirely from the ground up and it has a ton of new features. A lot of old features that have been optimised or simplified. And much much more which I won't get into detail right now. For all that you want to know about either my project or about myself I will refer to the documentation link that can be found above. All I will say is, I really hope you will enjoy this release of HKI! Have a good one!
 
 #### Video
-Video: CLICK ON THE IMAGE TO START VIDEO (*updated 07/01/2020).
-The video is a week old and some things have changed a bit, I will upload a new one very very soon.
-
-[Watch Video](https://www.youtube.com/watch?v=Pz1gaPEABvA&t=40s)
+Video: CLICK ON THE IMAGE TO START VIDEO (coming soon!)
 
 
 ### Questions?
