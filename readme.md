@@ -5,7 +5,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 # Homekit Infused (Lovelace) by Jimz011 January 2020 v 1.0 Alpha (*updated: 21/01/2020)
 My current Home Assistant version is 0.104.2
 
-# Click [here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
+# Click here for my [YouTube](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) channel
 ### Click here for [Documentation](https://jimz011.github.io/homeassistant/)
 ### Click here for older [Releases](https://github.com/jimz011/homeassistant/releases)
 
