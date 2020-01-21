@@ -29,6 +29,8 @@ Warning:
 ### Changes since HKI 0.13.3:
   - Completely rewritten from the ground up
   - Removed decluttering-card
+  - Switched from CCH to CH
+  - Removed swipe-navigation (this doesn't seem to play well anymore, CH doesn't have it included either anymore)
   - Added a neat header
   - New notification window
   - New popup cards system-wide which include brightness, color and switch popups
@@ -36,7 +38,7 @@ Warning:
   - New design for several views
   - Added a footer
   - Dynamic Icons system-wide
-  - More compact design on personal and vacuum views
+  - More compact design on several views
   - Easier to configure
   - Auto filling of basic views (cameras/lights/devices/climate/binary_sensors) by filling in the provided group file, popup cards will be added automatically to their respective entities automatically
   - Waze traffic info view
