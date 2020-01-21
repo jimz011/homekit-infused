@@ -1,0 +1,15 @@
+# Grocy Automations
+- alias: Dishwasher consume tablet clean
+  trigger:
+    - platform: state
+      entity_id: sensor.vaatwasser_status_2
+      to: Clean
+      for:
+        minutes: 5
+  action:
+    - service: grocy.consume_product
+      data:
+        product_id: 3
+        amount: 1
+        spoiled: false
+        transaction_type: CONSUME

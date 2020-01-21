@@ -1,0 +1,142 @@
+# Stay/Leave Automations
+
+# LEAVE HOME AT NIGHTTIME
+- alias: tot ziens avond
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: scene.turn_on
+    entity_id: scene.tot_ziens_avond
+
+# LEAVE HOME AT DAYTIME
+- alias: tot ziens overdag
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    from: 'home'
+  condition:
+    condition: or
+    conditions:
+      - after: sunrise
+        condition: sun
+      - before: sunset
+        condition: sun
+        before_offset: "-01:00:00"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.tot_ziens_overdag
+
+# ARRIVE HOME WITH DAY SCENE
+- alias: welkom overdag
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    condition: or
+    conditions:
+      - after: sunrise
+        condition: sun
+      - before: sunset
+        condition: sun
+        before_offset: "-01:00:00"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.dagverlichting
+
+# ARRIVE HOME WITH NIGHT SCENE
+- alias: welkom avond
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: group.device_status
+    to: 'home'
+    for:
+      seconds: 90
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: scene.turn_on
+    entity_id: scene.nachtverlichting
+
+# ARRIVE HOME WITH NIGHT SCENE ENTREE
+- alias: welkom avond entree
+  initial_state: 'false'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.voordeur
+    to: 'on'
+    from: 'off'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - service: light.turn_on
+    entity_id: light.entree_lamp
+
+- alias: deur dicht lichten uit
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.voordeur
+    to: 'off'
+    from: 'on'
+  action:
+  - delay:
+      seconds: 20
+  - service: light.turn_off
+    entity_id: light.entree_lamp
+  - service: light.turn_off
+    entity_id: light.gang_lamp
+
+- alias: turn_off_automation_light
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.voordeur
+    to: 'on'
+    from: 'off'
+  action:
+  - delay:
+      seconds: 10
+  - entity_id: automation.welkom_avond_entree
+    service: automation.turn_off
+
+- alias: turn_on_automation_light
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+  action:
+  - entity_id: automation.welkom_avond_entree
+    service: automation.turn_on

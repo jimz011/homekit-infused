@@ -1,0 +1,11 @@
+#  - platform: mjpeg
+#    mjpeg_url: http://192.168.0.31:8082/video.mjpg
+#    name: Woonkamer Camera
+
+#  - platform: generic
+#    stream_source: rtsp://192.168.0.38:8554/unicast
+#    still_image_url: https://192.168.0.38/cgi-bin/currentpic.cgi
+#    name: Gallerij Camera
+#    verify_ssl: false
+#    username: !secret xiaofang_usr
+#    password: !secret xiaofang_pwd

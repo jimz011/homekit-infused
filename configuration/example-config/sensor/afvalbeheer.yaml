@@ -1,0 +1,12 @@
+# Afvalbeheer (Cure)
+  - platform: afvalbeheer
+    wastecollector: Cure
+    resources:
+      - restafval
+      - gft
+      - papier
+      - pmd
+    postcode: !secret postcode
+    streetnumber: 70
+    upcomingsensor: 1
+    dateformat: '%d %b'

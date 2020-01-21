@@ -1,0 +1,9 @@
+# Air Visual
+  - platform: airvisual
+    api_key: !secret air_visual_api_key
+    monitored_conditions:
+      - us
+    show_on_map: false
+    scan_interval: 300
+    latitude: !secret latitude
+    longitude: !secret longitude

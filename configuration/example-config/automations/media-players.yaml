@@ -1,0 +1,76 @@
+# WHEN SAMSUNG TV TURNS ON, TOGGLE RECEIVER (Living Room)
+- alias: Samsung TV Living Toggle Receiver
+  initial_state: 'true'
+  trigger:
+    - entity_id: media_player.samsung_tv_ue65ku6000
+      platform: state
+  action:
+    - service_template: >
+        {% if is_state('media_player.samsung_tv_ue65ku6000', 'on') %}
+          switch.turn_on
+        {% elif is_state('media_player.samsung_tv_ue65ku6000', 'off') %}
+          switch.turn_off
+        {% endif %}
+      data:
+        entity_id: switch.receiver
+
+# WHEN SAMSUNG TV TURNS ON, TOGGLE RECEIVER (Bedroom)
+- alias: Samsung TV Bedroom Toggle Receiver
+  initial_state: 'true'
+  trigger:
+    - entity_id: switch.tv_slaapkamer
+      platform: state
+  action:
+    - service_template: >
+        {% if is_state('switch.tv_slaapkamer', 'on') %}
+          switch.turn_on
+        {% elif is_state('switch.tv_slaapkamer', 'off') %}
+          switch.turn_off
+        {% endif %}
+      data:
+        entity_id: switch.receiver_slaapkamer
+
+# Dim Lights When ATV Starts Playing
+  # Woonkamer
+- alias: "Media player paused/stopped"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: media_player.woonkamer_apple_tv
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: light.plafond
+        state: 'off'
+  action:
+    service: scene.turn_on
+    data_template:
+      entity_id: >
+        {% if is_state('media_player.woonkamer_apple_tv', 'playing') %}
+          scene.living_movie
+        {% else %}
+          scene.living_dim_2
+        {% endif %}
+
+- alias: "Media player paused/stopped bedroom"
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: media_player.slaapkamer_apple_tv
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: scene.turn_on
+    data_template:
+      entity_id: >
+        {% if is_state('media_player.slaapkamer_apple_tv', 'playing') %}
+          scene.slaapkamer_movie
+        {% else %}
+          scene.slaapkamer_dim
+        {% endif %}

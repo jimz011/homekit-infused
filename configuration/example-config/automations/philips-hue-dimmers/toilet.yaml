@@ -1,0 +1,84 @@
+### Philips Hue dimmers for use with deCONZ
+### The icons in the description are the icons
+### shown on the actual remote for convenience
+
+## Toilet Remote
+
+# Button 1 tap_action (power-on icon)
+- alias: 'Toilet Philips button 1 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_toilet_muur
+        event: 1002
+  action:
+    - service: light.turn_on
+      entity_id: light.toilet
+    - service: automation.turn_off
+      entity_id: automation.toiletlamp_turn_off
+    - delay:
+        minutes: 15
+    - service: light.turn_off
+      entity_id: light.toilet
+    - service: automation.turn_on
+      entity_id: automation.toiletlamp_turn_off
+
+# Button 2 tap_action (brightness-up icon)
+- alias: 'Toilet Philips button 2 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_toilet_muur
+        event: 2002
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.toiletlamp
+        brightness_pct: 100
+
+# Button 3 tap_action (brightness-down icon)
+- alias: 'Toilet Philips button 3 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_toilet_muur
+        event: 3002
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.toiletlamp
+        brightness_pct: 50
+
+# Button 4 tap_action (power-off icon)
+- alias: 'Toilet Philips button 4 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_toilet_muur
+        event: 4002
+  action:
+    - service: automation.turn_on
+      entity_id: automation.toiletlamp_turn_off
+    - service: light.turn_off
+      entity_id: light.toilet
+
+# Button 4 hold_action (power-off icon)
+- alias: 'Toilet Philips button 4 hold_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_toilet_muur
+        event: 4001
+  action:
+    - service: automation.turn_on
+      entity_id: automation.toiletlamp_turn_off

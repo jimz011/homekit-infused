@@ -1,0 +1,24 @@
+       
+- alias: remote selector living
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.samsung_tv
+      to: "on"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.remote_control
+        option: Livingroom
+
+- alias: remote selector bedroom
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.tv_slaapkamer
+      to: "on"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.remote_control
+        option: Bedroom

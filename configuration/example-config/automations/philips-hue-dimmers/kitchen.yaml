@@ -1,0 +1,102 @@
+### Philips Hue dimmers for use with deCONZ
+### The icons in the description are the icons
+### shown on the actual remote for convenience
+
+## Kitchen
+
+# Button 1 tap_action (power-on icon)
+- alias: 'Kitchen Philips button 1 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 1002
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.keuken
+        - light.keuken_spotjes
+
+# Button 1 hold_action (power-on icon)
+- alias: 'Kitchen Philips button 1 hold_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 1001
+  action:
+    - service: scene.turn_on
+      entity_id: 
+        - scene.koken
+
+# Button 2 tap_action (brightness-up icon)
+- alias: 'Kitchen Philips button 2 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 2002
+  action:
+    - service: light.toggle
+      entity_id: light.keuken_spotjes
+
+# Button 3 tap_action (brightness-down icon)
+- alias: 'Kitchen Philips button 3 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 3002
+  action:
+    - service: scene.turn_on
+      entity_id: scene.wassen
+
+# Button 3 hold_action (brightness-down icon)
+- alias: 'Kitchen Philips button 3 hold_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 3001
+  action:
+    - service: scene.turn_on
+      entity_id: scene.klaar_met_wassen
+
+# Button 4 tap_action (power-off icon)
+- alias: 'Kitchen Philips button 4 tap_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 4002
+  action:
+    - service: light.turn_off
+      entity_id: 
+        - light.keuken
+        - light.keuken_spotjes
+
+# Button 4 hold_action (power-off icon)
+- alias: 'Kitchen Philips button 4 hold_action'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: ab_keuken_muur
+        event: 4001
+  action:
+    - service: scene.turn_on
+      entity_id: 
+        - scene.klaar_met_koken

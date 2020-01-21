@@ -1,0 +1,580 @@
+# Laundry Room Automations
+
+# WHEN BIJKEUKEN MOTION SENSOR TOGGLES, RUN BIJKEUKENLAMP SCRIPT
+- alias: bijkeukenlamp_script_turn_on_off
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_bijkeuken
+  action:
+  - service: script.turn_on
+    data_template:
+      entity_id: >
+        {% if is_state('binary_sensor.motion_bijkeuken', 'on') %}
+          script.bijkeukenlamp
+        {% elif is_state('binary_sensor.motion_bijkeuken', 'off') %}
+          script.bijkeukenlamp_off
+        {% endif %}
+
+# Washing Machine, Tumble-Dryer and Dishwasher Automations
+
+# When we detect power being drawn from the vaatwasser,
+# mark the vaatwasser as using power
+ 
+- alias: Set vaatwasser active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Running
+ 
+# When the power level drops below 10, and the vaatwasser is set to
+# the 'Running' state, mark the vaatwasser as Finished
+ 
+- alias: Set vaatwasser drying when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_power
+      below: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Drying
+ 
+# Once the vaatwasser status has been 'Drying' for 30 minutes, mark the
+# vaatwasser as clean
+ 
+- alias: Set vaatwasser clean
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.vaatwasser_status
+      to: Drying
+      for:
+        minutes: 15
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Clean
+ 
+# When the power drops and the vaatwasser is Clean or Drying, someone has
+# turned the vaatwasser off and emptied it. We should do this when the state
+# of the vaatwasser is clean or Finishing, just incase someone opens the
+# vaatwasser before the 30 minute timeout has been reached.
+ 
+- alias: Set vaatwasser dirty when power off
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.vaatwasser_power
+      below: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.vaatwasser_power
+        below: 1
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.vaatwasser_status
+          state: Clean
+        - condition: state
+          entity_id: input_select.vaatwasser_status
+          state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Idle
+ 
+# When power is detected, and the washing machine is not in 
+# the Running state, change the status of the washing machine
+# to Running. 
+# The status check will ensure we don't try to put the state 
+# to Running each time the power level changes, and we're already
+# in the Running state.
+ 
+- alias: Set washing machine active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.wasmachine_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.wasmachine_status
+        option: Running
+ 
+# When the power drops, move the state of the washing machine to 
+# Finishing.
+ 
+- alias: Set washing machine finished when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.wasmachine_power
+      below: 6
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.wasmachine_status
+        option: Finishing
+ 
+# Wait 8 minutes for us to be in the Finishing state before we
+# decide the washing machine has finished. This way, if the 
+# washing machine is in between cycles and the power drops, we 
+# won't mark the washing machine cycle as finished too early.
+ 
+- alias: Set washing machine clean after timeout
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.wasmachine_status
+      to: Finishing
+      for:
+        minutes: 8
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.wasmachine_status
+        option: Clean
+ 
+- alias: Set vaatwasser to POWER OFF when power is OFF
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.vaatwasser
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Power OFF
+
+- alias: Set vaatwasser to idle when powered ON
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.vaatwasser
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.vaatwasser_status
+        option: Idle
+
+- alias: Set washing machine dirty when door opens
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.wasmachine
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.wasmachine_status
+        option: Power OFF
+
+- alias: Set washingmachine to POWER OFF when powered off
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.wasmachine
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.wasmachine_status
+        option: Idle
+ 
+- alias: Set droger active when power detected
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.droger_power
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Idle
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.droger_status
+        option: Running
+ 
+- alias: Set washing machine finished when power drops
+  initial_state: 'true'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.droger_power
+      below: 6
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.droger_status
+        option: Finishing
+
+- alias: Set droger clean after timeout
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.droger_status
+      to: Finishing
+      for:
+        minutes: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Finishing
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.droger_status
+        option: Clean
+
+- alias: Set droger to POWER OFF when turned OFF
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.droger
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.droger_status
+        option: Power OFF
+
+- alias: Set droger idle when turned on
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: switch.droger
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Power OFF
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.droger_status
+        option: Idle
+
+# Vaatwasser Gereed Notificatie
+- alias: Send alert when vaatwasser is clean
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: input_select.vaatwasser_status
+      to: Clean
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:30:00'
+        after: '08:29:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.vaatwasser_status
+        state: Clean
+      # Don't send this alert if it was last triggered less than 30 minutes ago (1,800 seconds)
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_vaatwasser_is_clean.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_vaatwasser_is_clean.attributes.last_triggered) | int > 3600 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Vaatwasser heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Vaatwasser'
+        data:
+          push:
+            badge: 0
+            sound: "dishwasher_ready.wav"
+            category: "vaatwasser_alert"
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10002
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
+
+# Wasmachine Gereed Notificatie
+- alias: Send alert when washing machine is finished
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.wasmachine_status
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '01:30:00'
+        after: '08:30:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.wasmachine_status
+        state: Clean
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_wasmachine_is_finished.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_wasmachine_is_finished.attributes.last_triggered) | int > 1800 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Wasmachine heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Wasmachine'
+        data:
+          push:
+            badge: 0
+            sound: "washing_machine_ready.wav"
+            category: "wasmachine_alert" 
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10005
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
+
+# Droger Gereed Notificatie
+- alias: Send alert when droger is finished
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: sensor.droger_status
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.jimmy
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: person.stephanie
+      to: 'home'
+      for:
+        minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '01:30:00'
+        after: '08:30:00'
+      - condition: state
+        entity_id: group.device_status
+        state: 'home'
+      - condition: state
+        entity_id: input_select.droger_status
+        state: Clean
+      - condition: template
+        value_template: >
+          {% if states.automation.send_alert_when_droger_is_finished.last_triggered is not none %}
+            {% if as_timestamp(now()) | int   -  as_timestamp(states.automation.send_alert_when_droger_is_finished.attributes.last_triggered) | int > 1800 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+      data:
+        message: 'De Droger heeft zijn programma voltooid en kan leeggemaakt worden!'
+        title: 'Droger'
+        data:
+          push:
+            badge: 0
+            sound: "dryer_ready.wav"
+            category: "droger_alert" 
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        ringtone_id: 10003
+#        ringtone_vol: 100
+#        gw_mac: 78:11:DC:DE:F3:24
+
+# Vaatwasser starten na een wasprogramma
+- alias: Vaatwasser Starten na Drogen
+  initial_state: 'false'
+  trigger:
+    - platform: state
+      entity_id: sensor.droger_status
+      to: Clean
+      for:
+        minutes: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.vaatwasser
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.droger
+    - service: switch.turn_on
+      data:
+        entity_id: switch.vaatwasser
+
+- alias: Vaatwasser Starten na Wassen
+  initial_state: 'false'
+  trigger:
+    - platform: state
+      entity_id: sensor.wasmachine_status
+      to: Clean
+      for:
+        minutes: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.vaatwasser
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wasmachine
+    - service: switch.turn_on
+      data:
+        entity_id: switch.vaatwasser

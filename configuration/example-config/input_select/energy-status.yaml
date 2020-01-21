@@ -1,0 +1,26 @@
+vaatwasser_status:
+  name: Vaatwasser Status
+  options:
+    - Idle
+    - Running
+    - Drying
+    - Clean
+    - Power OFF
+
+wasmachine_status:
+  name: Wasmachine Status
+  options:
+    - Idle
+    - Running
+    - Finishing
+    - Clean
+    - Power OFF
+    
+droger_status:
+  name: Droger Status
+  options:
+    - Idle
+    - Running
+    - Finishing
+    - Clean
+    - Power OFF

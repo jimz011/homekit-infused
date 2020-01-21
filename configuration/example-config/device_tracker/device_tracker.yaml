@@ -1,0 +1,12 @@
+# - platform: tado
+#   username: !secret tado_usr
+#   password: !secret tado_pwd
+#   home_id: 123456
+# 
+# - platform: tile
+#   username: !secret tile_usr
+#   password: !secret tile_pwd
+# 
+# - platform: tile
+#   username: !secret tile_usr_2
+#   password: !secret tile_pwd_2

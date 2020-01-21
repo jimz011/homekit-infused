@@ -1,0 +1,16 @@
+# Template Temperature Sensors
+
+  - platform: template
+    sensors:
+      motion_toilet_temperature:
+        value_template: '{{ states.binary_sensor.motion_toilet.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Toilet
+      motion_bijkeuken_temperature:
+        value_template: '{{ states.binary_sensor.motion_bijkeuken.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Bijkeuken
+      voordeur_temperature:
+        value_template: '{{ states.binary_sensor.voordeur.attributes.temperature }}'
+        unit_of_measurement: '°C'
+        friendly_name: Hal

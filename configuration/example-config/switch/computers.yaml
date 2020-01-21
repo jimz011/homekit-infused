@@ -1,0 +1,19 @@
+- platform: wake_on_lan
+  mac: "00-00-00-00-00-00"
+  name: PC van Stephanie
+  host: "192.168.0.9"
+  turn_off:
+    service: hassio.addon_stdin
+    data:
+      addon: core_rpc_shutdown
+      input: pc_stephanie
+
+- platform: wake_on_lan
+  mac: "00-00-00-00-00-00"
+  name: PC van Jimmy
+  host: "192.168.0.8"
+  turn_off:
+    service: hassio.addon_stdin
+    data:
+      addon: core_rpc_shutdown
+      input: pc_jimmy

@@ -1,0 +1,81 @@
+# Turn Computers On/Off with automations
+
+# WHEN IPHONEVANJIMMY IS HOME, TURN ON PC VAN JIMMY
+- alias: turn_on_jimz_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.jimmy
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_jimmy
+    service: switch.turn_on
+
+# WHEN IPHONEVANSTEPH IS HOME, TURN ON PC VAN STEPHANIE
+- alias: turn_on_stephanie_pc
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: person.stephanie
+    to: 'home'
+    for:
+      seconds: 180
+  action:
+  - data:
+      entity_id: switch.pc_van_stephanie
+    service: switch.turn_on
+
+# WHEN PC STEPHANIE TURNS ON, TURN ON MONITORS
+- alias: turn_on_stephanie_monitors
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.pc_van_stephanie
+    to: 'on'
+  action:
+  - data:
+      entity_id: switch.monitors_stephanie
+    service: switch.turn_on
+
+# WHEN PC JIMMY TURNS ON, TURN ON MONITORS
+- alias: turn_on_jimmy_monitors
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.pc_van_jimmy
+    to: 'on'
+  action:
+  - data:
+      entity_id: switch.monitors_jimmy
+    service: switch.turn_on
+
+# WHEN PC JIMMY TURNS ON, TURN ON MONITORS
+- alias: turn_on_jimmy_monitors
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_office
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: switch.pc_van_jimmy
+        state: 'on'
+      - condition: state
+        entity_id: switch.pc_van_stephanie
+        state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: >
+          {% if (is_state('switch.pc_van_jimmy', 'on')) and (is_state('switch.pc_van_stephanie', 'on'))  %}
+            group.monitors
+          {% elif (is_state('switch.pc_van_jimmy', 'off')) and (is_state('switch.pc_van_stephanie', 'on'))  %}
+            switch.monitors_stephanie
+          {% elif (is_state('switch.pc_van_jimmy', 'on')) and (is_state('switch.pc_van_stephanie', 'off'))  %}
+            switch.monitors_jimmy
+          {% endif %}

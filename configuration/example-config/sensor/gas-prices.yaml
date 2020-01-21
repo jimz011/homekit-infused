@@ -1,0 +1,7 @@
+# United Consumers Gas Prices (Dutch Users Only!)
+  - platform: scrape
+    name: Euro95 Advies
+    resource: "https://www.unitedconsumers.com/brandstofprijzen"
+    select: ".table div:nth-of-type(2) div:nth-of-type(3)"
+    value_template: "{{ value |replace('€', '') |replace(',', '.') |round(3) }}"
+    scan_interval: 3600 # be nice; once per hour only

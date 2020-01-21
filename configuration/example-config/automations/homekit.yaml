@@ -1,0 +1,9 @@
+# HOMEKIT START DELAY
+- alias: Start Homekit
+  initial_state: 'true'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: 00:03
+    - service: homekit.start

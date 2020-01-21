@@ -1,0 +1,13 @@
+- platform: group
+  name: Woonkamer LED Lampen
+  entities:
+    - light.tv_led
+    - light.dressoir_led
+    - light.bank_led
+
+- platform: group
+  name: Slaapkamer LED Lampen
+  entities:
+    - light.bed_led
+    - light.vloer_led
+

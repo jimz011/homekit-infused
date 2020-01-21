@@ -1,0 +1,119 @@
+### Philips Hue dimmers for use with deCONZ
+### The icons in the description are the icons
+### shown on the actual remote for convenience
+
+## Hallway Remote
+
+# Button 1 tap_action (power-on icon)
+- alias: 'Hallway Philips button 1 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 1002
+  action:
+    service: light.turn_on
+    entity_id: 
+      - light.gang_lamp
+      - light.entree_lamp
+
+# Button 1 hold_action (power-on icon)
+- alias: 'Hallway Philips button 1 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 1001
+  action:
+    service: scene.turn_on
+    entity_id: 
+      - scene.schoonmaken
+
+# Button 2 tap_action (brightness-up icon)
+- alias: 'Hallway Philips button 2 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 2002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.gang_lamp
+
+# Button 2 hold_action (brightness-up icon)
+- alias: 'Hallway Philips button 2 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 2001
+  action:
+    service: vacuum.start
+    entity_id: 
+      - vacuum.xiaomi_vacuum_cleaner
+
+# Button 3 tap_action (brightness-down icon)
+- alias: 'Hallway Philips button 3 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 3002
+  action:
+    service: light.toggle
+    entity_id: 
+      - light.entree_lamp
+
+# Button 3 hold_action (brightness-down icon)
+- alias: 'Hallway Philips button 3 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 3001
+  action:
+    service: vacuum.return_to_base
+    entity_id: 
+      - vacuum.xiaomi_vacuum_cleaner
+
+# Button 4 tap_action (power-off icon)
+- alias: 'Hallway Philips button 4 tap_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 4002
+  action:
+    service: light.turn_off
+    entity_id: 
+      - light.gang_lamp
+      - light.entree_lamp
+
+# Button 4 hold_action (power-off icon)
+- alias: 'Hallway Philips button 4 hold_action'
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ab_gang_muur
+      event: 4001
+  action:
+    service: scene.turn_on
+    entity_id: 
+      - scene.lichtuit

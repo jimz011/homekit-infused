@@ -1,0 +1,116 @@
+# Vacuum Automations
+- id: vacuum_cleaner_error
+  alias: Vacuum Cleaner Error
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'Error'
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'In Error'
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_status_sensor
+      to: 'Charging Error'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: 'Roborock S55'
+        message: >-
+          {% if is_state('sensor.vacuum_cleaner_error_sensor', 'No Error')  %}
+            {{states.sensor.vacuum_cleaner_status_sensor.state}}
+          {% else %}
+            {{states.sensor.vacuum_cleaner_error_sensor.state}}
+          {% endif %}
+
+- id: vacuum_cleaner_error_solved
+  alias: Vacuum Cleaner Error Solved
+  trigger:
+    - platform: state
+      entity_id: sensor.vacuum_cleaner_error_sensor
+      to: 'No Error'
+  action:
+    - service: notify.nobody
+      data:
+        title: 'Roborock S55'
+        message: Error Resolved
+        
+- id: vacuum_cleaner_started
+  alias: Vacuum Cleaner Started
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'cleaning'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'returning'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'docked'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'paused'
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'idle'
+  action:
+    - service: notify.ios_notifier
+      data:
+        title: 'Roborock S55'
+        message: >-
+          {{states.sensor.vacuum_cleaner_status_sensor.state}}
+
+- id: vacuum_fan_speed_balanced_when_docked
+  alias: Vacuum Fan Speed Balanced When Docked
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: 'docked'
+  action:
+   - service: input_select.select_option
+     data:
+       option: Balanced
+       entity_id: input_select.xiaomi_vacuum
+
+# Xiaomi Fan Speed
+- alias: xiaomi vacuum set fan speed
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: input_select.xiaomi_vacuum
+  action:
+    service: vacuum.set_fan_speed
+    data_template:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      fan_speed: >
+        {% if is_state('input_select.xiaomi_vacuum', 'Quiet') %}
+          Quiet
+        {% elif is_state('input_select.xiaomi_vacuum', 'Balanced') %}
+          Balanced
+        {% elif is_state('input_select.xiaomi_vacuum', 'Turbo') %}
+          Turbo
+        {% elif is_state('input_select.xiaomi_vacuum', 'Max') %}
+          Max
+        {% elif is_state('input_select.xiaomi_vacuum', 'Mop') %}
+          105
+        {% endif %}
+
+# Xiaomi Fan Speed Input Select
+- alias: xiaomi vacuum set fan speed
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: sensor.xiaomi_vacuum_fan_speed_state
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.xiaomi_vacuum
+      option: >
+        {% if is_state('sensor.xiaomi_vacuum_fan_speed_state', 'Quiet') %}
+          Quiet
+        {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', 'Balanced') %}
+          Balanced
+        {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', 'Turbo') %}
+          Turbo
+        {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', 'Max') %}
+          Max
+        {% endif %}

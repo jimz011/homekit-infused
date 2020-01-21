@@ -1,0 +1,82 @@
+# Kitchen Automations
+
+# WATERKOKER TURNS ON CAPU MAKER
+- alias: waterkoker_cap_on
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: switch.waterkoker
+  action:
+  - service_template: >
+      {% if is_state('switch.waterkoker', 'on') %}
+        switch.turn_on
+      {% elif is_state('switch.waterkoker', 'off') %}
+        switch.turn_off
+      {% endif %}
+    data:
+      entity_id: switch.cappumaker
+
+# WHEN KEUKENLAMP TURNS ON, TURN KEUKENSPOTS ON (FROM 19.00H-06.00H)
+- id: '1533504863293'
+  alias: Keukenspotjes aan
+  initial_state: 'true'
+  trigger:
+  - entity_id: light.keuken
+    platform: state
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - after: sunset
+        condition: sun
+        after_offset: "-01:00:00"
+      - before: sunrise
+        condition: sun
+  action:
+  - data:
+      entity_id: light.keuken_spotjes
+    service: light.turn_on
+
+# WHEN KEUKENLAMP TURNS OFF, BIJKEUKENLAMP TURNS OFF
+- alias: keuken_bijkeuken_uit
+  initial_state: 'true'
+  trigger:
+  - entity_id: light.keuken
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - service: light.turn_off
+    entity_id: light.bijkeuken
+
+# SEND MESSAGE TO IOS AFZUIGKAP ON FOR 30 MIN, BUT ONLY TO 
+- alias: Afzuigkap Alert
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: switch.afzuigkap
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+  - service_template: >
+        {% if (is_state('person.jimmy', 'home')) and (is_state('person.stephanie', 'home'))  %}
+          notify.ios_notifier
+        {% elif is_state('person.jimmy', 'home') %}
+          notify.mobile_app_iphone
+        {% elif is_state('person.stephanie', 'home') %}
+          notify.mobile_app_iphone_stephanie
+        {% endif %}
+    data:
+      title: "Afzuigkap"
+      message: "Ik sta al 30 minuten aan, zou je me niet eens uitzetten?"
+      data:
+        push:
+          sound: "afzuigkap.wav"
+          badge: 0
+          category: "afzuigkap_alert" 
+#  - service: xiaomi_aqara.play_ringtone
+#    data_template:
+#      ringtone_id: 10001
+#      ringtone_vol: 100
+#      gw_mac: 78:11:DC:DE:F3:24
