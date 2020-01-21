@@ -1,0 +1,138 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        color_type: blank-card
+        aspect_ratio: 1/1
+      - type: custom:button-card
+        name: Options
+        icon: mdi:cogs 
+        size: 100%
+        color: auto
+        entity: input_boolean.light_options
+        show_name: false
+        deep_press: true
+        show_state: false
+        show_label: false
+        tap_action:
+          action: toggle
+          haptic: light
+        hold_action:
+          action: toggle
+          haptic: light
+        styles:
+          card:
+            - --ha-card-background: transparant
+            - box-shadow: none
+            - width: 30px
+            - height: 30px
+          img_cell:
+            - align-self: start
+            - text-align: start
+          icon:
+            - color: white
+      - !include ../includes/blank-card-wide.yaml
+  - type: conditional
+    conditions:
+      - entity: input_boolean.light_options
+        state: "off"
+    card:
+      type: entities
+      style: |
+        ha-card {
+          --ha-card-background: transparant;
+          background: transparant;
+          box-shadow: none;
+          margin-top: -15px;
+        }
+      entities:
+        - type: custom:light-popup-card
+          entity: {{ entity }}
+          brightnessWidth: 110px
+          brightnessHeight: 410px
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 11px
+        - type: 'custom:rgb-light-card'
+          entity: {{ entity }}
+          colors:
+            - rgb_color:
+                - 255
+                - 136
+                - 0
+              transition: 2
+            - rgb_color:
+                - 255
+                - 0
+                - 95
+              transition: 2
+            - rgb_color:
+                - 40
+                - 255
+                - 0
+              transition: 2
+          justify: center
+        - type: 'custom:rgb-light-card'
+          entity: {{ entity }}
+          colors:
+            - rgb_color:
+                - 0
+                - 160
+                - 255
+              transition: 2
+            - rgb_color:
+                - 131
+                - 0
+                - 255
+              transition: 2
+            - rgb_color:
+                - 3
+                - 0
+                - 255
+              transition: 2
+          justify: center
+  - type: conditional
+    conditions:
+      - entity: input_boolean.light_options
+        state: "on"
+    card:
+      type: entities
+      style: |
+        ha-card {
+          --ha-card-background: transparant;
+          background: transparant;
+          box-shadow: none !important;
+          --paper-slider-knob-color: white !important;
+          --paper-slider-knob-start-color: white !important;
+          --paper-slider-pin-color: white !important;
+          --paper-slider-active-color: white !important;
+        }
+      entities:
+        - type: custom:light-entity-card
+          style: |
+            ha-card {
+              border-radius: none;
+              box-shadow: none;
+            }
+          entity: {{ entity }}
+          brightness: false
+          persist_features: true
+          show_slider_percent: true
+          smooth_color_wheel: true
+          header: false
+          effects_list:
+            - None
+            - Strobe
+            - Flicker
+            - Random
+        - type: 'custom:button-card'
+          color_type: blank-card
+          styles:
+            card:
+              - height: 150px

@@ -1,0 +1,54 @@
+# lovelace_gen
+
+# Card 
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    box-shadow: none;
+    background: var(--primary-color);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .card-content {
+    padding: 0
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: horizontal-stack
+        cards:
+          - !include
+            - header_text.yaml
+            - content: '## {{ content }}'
+          - !include
+            - button_header_badge.yaml
+            - icon: mdi:door
+              background_color: "[[[ if (states['sensor.current_doors_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_doors_open'].state < 1) return '&nbsp;'; else return states['sensor.current_doors_open'].state ]]]"
+              size: 100%
+              entity: group.all_door_sensors
+          - !include
+            - button_header_badge.yaml
+            - icon: mdi:window-closed
+              background_color: "[[[ if (states['sensor.current_windows_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_windows_open'].state < 1) return '&nbsp;'; else return states['sensor.current_windows_open'].state ]]]"
+              entity: group.all_window_sensors
+          - !include
+            - button_header_badge.yaml
+            - icon: far:sensor
+              background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
+              entity: group.all_motion_smoke_sensors
+          - !include ../includes/blank-card.yaml  
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - !include
+            - notification_template.yaml
+            - name: "{{ name|default('test') }}"
+              icon: "{{ icon|default('mdi:home') }}"
+              entity: {{ entity|default('input_boolean.dummy1') }}
+              spin: {{ spin|default('false') }}
+              font_weight: {{ font_weight|default('normal') }}
+          - !include ../includes/blank-card.yaml

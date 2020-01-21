@@ -1,0 +1,87 @@
+- title: Climate
+  path: climate
+  cards:
+    - type: vertical-stack 
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Climate Control
+            icon: mdi:thermostat 
+            name: "[[[ return `The average temperature is ${states['sensor.average_temperature'].state}°C` ]]]"
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### Presets"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 4
+              max_columns: 4
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_service_call.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Power
+                    label: All On
+                    icon: mdi:power
+                    service: climate.turn_on
+                    service_entity: all
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call_option.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Frost
+                    label: Protection
+                    icon: mdi:snowflake-variant
+                    service: climate.set_temperature
+                    service_entity: all
+                    extra: temperature
+                    option: 13
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call_option.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Heat All
+                    label: Default
+                    icon: mdi:fire
+                    service: climate.set_temperature
+                    service_entity: all
+                    extra: temperature
+                    option: 21
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Power
+                    label: All Off
+                    icon: mdi:power
+                    service: climate.turn_off
+                    service_entity: all
+                    margin_right: 40px
+                    opacity_off: 0.8
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - template: button_thermostat.yaml
+            group: group.all_radiator_valves
+            content: Thermostat
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_temperature_sensors
+            content: Temperature
+            color: red
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_humidity_sensors
+            content: Humidity
+            color: blue
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_air_pressure_sensors
+            content: Air Pressure
+            color: purple
+        - !include ../includes/bottom-card.yaml
+                        

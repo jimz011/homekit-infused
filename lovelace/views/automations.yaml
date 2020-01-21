@@ -1,0 +1,12 @@
+- title: Automations
+  path: automations
+  icon: mdi:alpha-a-box
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Automations
+            icon: mdi:alpha-a-box
+            name: Turn Automations On or Off
+        - !include ../includes/bottom-card.yaml  

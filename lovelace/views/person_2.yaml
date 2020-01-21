@@ -1,0 +1,321 @@
+- title: Person 2
+  path: person_2
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - content: Jimmy Schings
+            name: "[[[ return `${states['input_select.person_menu_2'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.person_menu_2
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Overview"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                min_columns: 2
+                justify_content: start
+                layout: horizontal
+                column_width: [133, 517]
+                cards:
+                  - type: picture
+                    style: |
+                      ha-card {
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        overflow: hidden;
+                        height: 123px;
+                      }
+                    image: '/local/images/jimmy_small.png'
+                  - type: custom:calendar-card
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                        height: 120px;
+                      }
+                    numberOfDays: 1
+                    hideHeader: true
+                    entities:
+                      - calendar.jimmy
+                      - calendar.schings
+                    showColors: true
+              - type: custom:layout-card
+                min_columns: 1
+                justify_content: start
+                layout: horizontal
+                cards:
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                        text-align: center;
+                      }
+                    content: |
+                      <ha-icon icon="fas:car"></ha-icon> Uw APK verloopt op {{ states('sensor.peugeot_207_expdate') }}
+              - type: custom:layout-card
+                min_columns: 2
+                justify_content: start
+                layout: horizontal
+                cards:
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                        height: 169px;
+                      }
+                    content: |
+                      <ha-icon icon="mdi:cellphone-iphone"></ha-icon> {{ states('sensor.battery_level_2') }} %
+        
+                      <ha-icon icon="mdi:battery"></ha-icon> {{ states('sensor.battery_state_2') }}
+        
+                      <ha-icon icon="mdi:email"></ha-icon>  {{ states('!secret email_1') }} Emails
+        
+                      <ha-icon icon="mdi:truck"></ha-icon>  {{ states('sensor.postnl_combined_packages') }} Packages
+                  - type: map
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                        height: 169px;
+                      }
+                    default_zoom: 15
+                    entities:
+                      - person.jimmy
+              - type: custom:layout-card
+                min_columns: 1
+                justify_content: start
+                layout: horizontal
+                cards:
+                  - type: custom:ha-card-waze-travel-time
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                      }
+                      .ha-card-waze td {
+                        color: var(--name-color-off) !important;
+                      }
+                    columns:
+                      - to
+                      - duration
+                      - distance
+                      - icon
+                    header: 'true'
+                    name: Travel Time
+                    destinations:
+                      - entity: sensor.reistijd_jimmy
+                        to: "Home"
+                      - entity: sensor.reistijd_jimmy_work
+                        to: "Work"
+                      - entity: sensor.reistijd_jimsteph
+                        to: "Stephanie"
+              - type: custom:layout-card
+                min_columns: 2
+                justify_content: start
+                layout: horizontal
+                cards:
+                  - !include
+                    - '../templates/button.yaml'
+                    - entity: input_boolean.dummy1
+                      name: Ping Keys
+                      icon: mdi:key-variant
+                      size: 15%
+                      margin_right: 128px
+                      show_state: false
+                      opacity_off: 0.8
+                      aspect_ratio: 2/1
+                      url: shortcuts://run-shortcut?name=Waar%20zijn%20mijn%20sleutels
+                  - !include
+                    - '../templates/button.yaml'
+                    - entity: input_boolean.dummy1
+                      name: Ping Dog Leash
+                      icon: mdi:dog-side
+                      size: 15%
+                      margin_right: 128px
+                      show_state: false
+                      opacity_off: 0.8
+                      aspect_ratio: 2/1
+                      url: shortcuts://run-shortcut?name=Waar%20is%20Tala%20d’r%20riempje?
+              - !include ../includes/bottom-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Vehicle"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        background-image: url('/local/images/peugeot207.jpg');
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        background-size: cover;
+                        background-position: 50% 50%;
+                        color: white;
+                        height: 140px;
+                        vertical-align: baseline;
+                        margin-bottom: 2px;
+                        overflow: hidden;
+                      }
+                    content: >
+                      **APK:** {{ states('sensor.peugeot_207_expdate') }}
+            
+                      **Kenteken:** 21-XX-DL
+                      
+                      **Verzekerd:** {{ states('sensor.peugeot_207_insured') }}
+                  - type: 'custom:vertical-stack-in-card'
+                    cards:
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: Olie
+                          entity: sensor.daihatsu_olie
+                          value_1: 3 months
+                          value_2: 6 months
+                          value_3: 9 months
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: Banden
+                          entity: sensor.daihatsu_banden
+                          value_1: 3 months
+                          value_2: 6 months
+                          value_3: 9 months
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: Wassen
+                          entity: sensor.daihatsu_clean
+                          value_1: 1 month
+                          value_2: 3 months
+                          value_3: 6 months
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: Stofzuigen
+                          entity: sensor.daihatsu_stof
+                          value_1: 1 month
+                          value_2: 3 months
+                          value_3: 6 months
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: Ruiten
+                          entity: sensor.daihatsu_window
+                          value_1: 1 month
+                          value_2: 3 months
+                          value_3: 6 months
+                  - type: entities
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                      }
+                    entities:        
+                      - type: weblink
+                        name: ANWB Bellen
+                        url: tel:+31882692222
+                        icon: 'mdi:cellphone-iphone'
+              - !include ../includes/bottom-card.yaml  
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Location"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - type: map
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                      }
+                    aspect_ratio: 4x7
+                    default_zoom: 15
+                    entities:
+                      - person.jimmy
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Calendar"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - type: custom:calendar-card
+                    style: |
+                      ha-card {
+                        background: var(--card-color-off);
+                        --paper-item-icon-color: var(--icon-color-off);
+                        color: var(--name-color-off);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-family: Helvetica;
+                        font-size: 12px;
+                        opacity: 0.8;
+                        overflow: hidden;
+                      }
+                    numberOfDays: 14
+                    hideHeader: true
+                    entities:
+                      - calendar.jimmy
+                      - calendar.schings
+                    showColors: true
+

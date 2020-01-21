@@ -1,0 +1,39 @@
+# lovelace_gen
+
+- title: Location
+  path: location
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Location
+            icon: mdi:navigation
+            spin: true
+            name: Where is everyone?
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: map
+                  {% raw %}
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      --paper-item-icon-color: black;
+                      color: black;
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  {% endraw %}
+                  aspect_ratio: 4x7
+                  default_zoom: 15
+                  entities:
+                    - {{ _global.location[0] }}
+                    - {{ _global.location[1] }}
+                    - {{ _global.location[2] }}
+        - !include ../includes/bottom-card.yaml  

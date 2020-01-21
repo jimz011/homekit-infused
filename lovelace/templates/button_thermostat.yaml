@@ -1,0 +1,176 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+deep_press: {{ deep_press|default('true') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: "[[[ return `${states['{{entity}}'].attributes.temperature}°` ]]]"
+show_icon: false
+show_name: true
+show_label: true
+show_state: true
+tap_action:
+  action: toggle
+  haptic: light
+hold_action: 
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              name: Options
+              icon: mdi:cogs 
+              size: 100%
+              color: auto
+              entity: input_boolean.light_options
+              show_name: false
+              deep_press: true
+              show_state: false
+              show_label: false
+              tap_action:
+                action: toggle
+                haptic: light
+              hold_action:
+                action: toggle
+                haptic: light
+              styles:
+                card:
+                  - --ha-card-background: transparant
+                  - box-shadow: none
+                  - width: 30px
+                  - height: 30px
+                img_cell:
+                  - align-self: start
+                  - text-align: start
+                icon:
+                  - color: white
+            - !include ../includes/blank-card-wide.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.light_options
+              state: "off"
+          card:
+            type: custom:thermostat-popup-card
+            entity: {{ entity }}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.light_options
+              state: "on"
+          card:
+            type: entities
+            style: |
+              ha-card {
+                --ha-card-background: transparant;
+                background: transparant;
+                box-shadow: none;
+                --paper-slider-knob-color: white;
+                --paper-slider-knob-start-color: white;
+                --paper-slider-pin-color: white;
+                --paper-slider-active-color: white;
+                --paper-item-icon-color: white !important;
+                --primary-text-color: white !important;
+                --text-primary-color: white !important;
+              }
+            entities:
+              - type: custom:more-info-card
+                style: |
+                  ha-card {
+                    border-radius: none;
+                    box-shadow: none;
+                  }
+                entity: {{ entity }}
+                title: ' '
+        - type: custom:button-card
+          color_type: blank-card
+          styles:
+            card:
+              - height: 150px
+    deviceID:
+      - this
+  haptic: heavy
+styles:
+  card:
+    - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+    - --ha-card-background: var(--card-color-off)
+    - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+    - opacity: 0.5
+  label:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - color: var(--label-color-off)
+  state:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+    - padding-left: 10px
+    - color: var(--state-color-off)
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: 40px
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: Helvetica 
+    - font-size: 13px
+    - color: var(--name-color-off)
+  grid:
+    - grid-template-areas: '"i i" "n n" "area area" "s l"'
+    - grid-template-columns: 1fr lfr
+    - grid-template-rows: 1fr min-content min-content min-content
+  custom_fields:
+    notification:
+      - background-color: var(--label-color-off)
+      - color: var(--notification-badge-color)
+      - font-weight: bold
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - left: 12%
+      - top: 12%
+      - height: 32px
+      - width: 32px
+      - font-size: 10px
+      - line-height: 32px
+custom_fields: 
+  notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
+state:
+  - value: "heat"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: var(--card-color-on)
+      name:
+        - color: var(--name-color-on)
+      label:
+        - color: var(--label-color-on)
+      state:
+        - color: var(--state-color-on)
+      custom_fields:
+        notification:
+          - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66` ]]]"
+          - color: white

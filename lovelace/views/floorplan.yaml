@@ -1,0 +1,23 @@
+- title: Floorplan
+  path: floorplan
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Floorplan
+            icon: mdi:floorplan
+            name: Tap and hold the image to download
+            hold_action: none
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: picture
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  aspect_ratio: 1.78
+                  image: /local/images/floorplan.jpg

@@ -1,0 +1,12 @@
+- title: Calendar
+  path: calendar
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Calendar
+            icon: mdi:calendar
+            name: Your Calendar Here
+            hold_action: none
+        - !include ../includes/bottom-card.yaml  

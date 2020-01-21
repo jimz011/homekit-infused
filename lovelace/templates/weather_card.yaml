@@ -1,0 +1,24 @@
+# lovelace_gen
+
+# card
+type: custom:simple-weather-card
+{% raw %}
+style: |
+  ha-card {
+    border-radius: {{ states('input_select.border_radius') }};
+    box-shadow: {{ states('input_select.box_shadow') }};
+    opacity: 0.8;
+    font-size: 12px;
+    font-family: Helvetica;
+  }
+{% endraw %}
+entity: {{ entity|default('weather.dark_sky') }}
+name: {{ city_name|default('Eindhoven') }}
+backdrop:
+  fade: false
+  day: "var(--weather-color-day)"
+  night: "var(--weather-color-night)"
+  text: "var(--weather-color-text)"
+tap_action:
+  action: navigate
+  navigation_path: /lovelace/weather

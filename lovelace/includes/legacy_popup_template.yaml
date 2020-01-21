@@ -1,0 +1,6 @@
+background: rgba(0, 0, 0, 0.5)
+"--iron-icon-fill-color": "#FFF"
+"--primary-text-color": "white !important"
+"--text-primary-color": "white !important"
+"--iron-icon": "#FFF"
+color: white !important

@@ -1,0 +1,43 @@
+# lovelace_gen
+
+- title: Laundry
+  path: laundry
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Laundry Room
+            icon: mdi:washing-machine
+            hold_action: none
+            name: "[[[ if (states['sensor.current_laundry_devices_on'].state == 0) return `All devices are off`; if (states['sensor.current_laundry_devices_on'].state == 1) return `1 device is turned on`; else return `${states['sensor.current_laundry_devices_on'].state} devices are turned on` ]]]"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 1
+              justify_content: start
+              layout: vertical
+              cards:
+                - !include
+                  - '../templates/laundry_picture_elements.yaml'
+                  - image: {{ _global.laundry[0] }}
+                    entity_status: {{ _global.laundry[1] }}
+                    entity_switch: {{ _global.laundry[2] }}
+                    entity_wattage: {{ _global.laundry[3] }}
+                    entity_voltage: {{ _global.laundry[4] }}
+                - !include
+                  - '../templates/laundry_picture_elements.yaml'
+                  - image: {{ _global.laundry[5] }}
+                    entity_status: {{ _global.laundry[6] }}
+                    entity_switch: {{ _global.laundry[7] }}
+                    entity_wattage: {{ _global.laundry[8] }}
+                    entity_voltage: {{ _global.laundry[9] }}
+                - !include
+                  - '../templates/laundry_picture_elements.yaml'
+                  - image: {{ _global.laundry[10] }}
+                    entity_status: {{ _global.laundry[11] }}
+                    entity_switch: {{ _global.laundry[12] }}
+                    entity_wattage: {{ _global.laundry[13] }}
+                    entity_voltage: {{ _global.laundry[14] }}
+        - !include ../includes/bottom-card.yaml  

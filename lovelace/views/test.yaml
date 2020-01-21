@@ -1,0 +1,11 @@
+- title: Test Page
+  path: test
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Test View
+            icon: mdi:wrench
+            name: This view is meant to test/create new cards
+        - type: custom:gui-sandbox

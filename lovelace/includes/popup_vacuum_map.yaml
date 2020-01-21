@@ -1,0 +1,19 @@
+# lovelace_gen
+
+# card
+type: custom:layout-card
+cards:
+  - type: custom:xiaomi-vacuum-map-card
+    {% raw %}
+    style: |
+      ha-card {
+        border-radius: {{ states('input_select.border_radius') }};
+        background: var(--card-color-off);
+        color: var(--label-color-off);
+        box-shadow: {{ states('input_select.box_shadow') }};
+      }
+    {% endraw %}
+    entity: {{ _global.vacuum[0] }}
+    map_{{type|default('image')}}: {{ _global.vacuum[30] }}
+    calibration_points:
+      !include ../includes/vacuum_calibration.yaml

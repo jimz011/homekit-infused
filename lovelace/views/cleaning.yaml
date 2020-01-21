@@ -1,0 +1,89 @@
+# lovelace_gen
+
+- title: Cleaning
+  path: cleaning
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Cleaning
+            icon: mdi:spray-bottle
+            name: Cleaning Lists
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: 'custom:vertical-stack-in-card'
+                  cards:
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[0] }}
+                        entity: sensor.clean_vacuum
+                        value_1: 3 days
+                        value_2: 6 days
+                        value_3: 9 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[1] }}
+                        entity: sensor.clean_mopping
+                        value_1: 5 days
+                        value_2: 8 days
+                        value_3: 11 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[2] }}
+                        entity: sensor.clean_dusting
+                        value_1: 3 days
+                        value_2: 6 days
+                        value_3: 9 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[3] }}
+                        entity: sensor.clean_mirrors
+                        value_1: 7 days
+                        value_2: 14 days
+                        value_3: 21 days  
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[4] }}
+                        entity: sensor.clean_windows
+                        value_1: 6 months
+                        value_2: 12 months
+                        value_3: 18 months
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[5] }}
+                        entity: sensor.clean_curtains
+                        value_1: 6 months
+                        value_2: 12 months
+                        value_3: 18 months
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[6] }}
+                        entity: sensor.clean_toilet
+                        value_1: 3 days
+                        value_2: 6 days
+                        value_3: 9 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[7] }}
+                        entity: sensor.clean_bathroom
+                        value_1: 7 days
+                        value_2: 14 days
+                        value_3: 21 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[8] }}
+                        entity: sensor.clean_bed
+                        value_1: 5 days
+                        value_2: 9 days
+                        value_3: 13 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: {{ _global.cleaning[9] }}
+                        entity: sensor.turn_around_mattress
+                        value_1: 3 months
+                        value_2: 6 months
+                        value_3: 9 months
+            - !include ../includes/bottom-card.yaml              

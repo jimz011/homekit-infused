@@ -1,0 +1,160 @@
+# lovelace_gen
+
+- title: Home
+  path: home
+  icon: mdi:home
+  cards: 
+    - type: vertical-stack
+      cards:
+        - !include '../templates/frontpage_header.yaml'
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - !include
+                  - '../templates/weather_card.yaml'
+                  - city_name: {{ _global.frontpage[0] }}
+                    entity: {{ _global.frontpage[1] }}
+                - type: horizontal-stack
+                  cards:
+                      # Person 1 (Left Photo)
+                    - !include
+                      - '../templates/picture_elements_frontpage.yaml'
+                      - entity: {{ _global.frontpage[2] }}
+                        image: {{ _global.frontpage[3] }}
+                        alignment: left
+                        email_sensor_entity: {{ _global.frontpage[4] }}
+                        travel_time_to_home: {{ _global.frontpage[5] }}
+                        travel_time_to_work: {{ _global.frontpage[6] }}
+                        battery_entity: {{ _global.frontpage[7] }}
+                        navigation_path: /lovelace/person_1
+                        padding_mail: 35px 5px
+                      # Person 2 (Right Photo)
+                    - !include
+                      - '../templates/picture_elements_frontpage.yaml'
+                      - entity: {{ _global.frontpage[8] }}
+                        image: {{ _global.frontpage[9] }}
+                        alignment: right
+                        email_sensor_entity: {{ _global.frontpage[10] }}
+                        travel_time_to_home: {{ _global.frontpage[11] }}
+                        travel_time_to_work: {{ _global.frontpage[12] }}
+                        battery_entity: {{ _global.frontpage[13] }}
+                        navigation_path: /lovelace/person_2
+                        padding_phone: 7px 1px
+                  # Person 3 (Middle Photo) if you don't need this, remove line 48 up to and including line 53!
+                - !include
+                  - '../templates/wide_picture_elements_template.yaml'
+                  - entity: {{ _global.frontpage[14] }}
+                    image: {{ _global.frontpage[15] }}
+                    navigation_path: /lovelace/person_3
+                - type: custom:state-switch
+                  entity: {{ _global.frontpage[16] }}
+                  default: default
+                  states:
+                    default:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards:
+                            # Button Row 1 (These are the default buttons and stay preferably unchanged, if you do want to change them then please learn how to use the template that includes a badge or change the template to '../templates/button_nav.yaml)'
+                            - !include
+                              - '../templates/button_small_badge.yaml'
+                              - name: Climate
+                                label: Control
+                                icon: mdi:thermometer
+                                navigation_path: /lovelace/climate
+                                entity_badge: group.all_radiator_valves
+                                notification: "[[[ if (states['sensor.current_radiator_valves_on'].state > 0) return `${states['sensor.current_radiator_valves_on'].state}`; else return '&nbsp' ]]]"
+                                background_color: "[[[ if (states['sensor.current_radiator_valves_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                            - !include
+                              - '../templates/button_small_badge.yaml'
+                              - name: Light
+                                label: Control
+                                icon: mdi:floor-lamp
+                                navigation_path: /lovelace/light
+                                entity_badge: group.all_lighting
+                                notification: "[[[ if (states['sensor.current_lights_on'].state > 0) return `${states['sensor.current_lights_on'].state}`; else return '&nbsp' ]]]" 
+                                background_color: "[[[ if (states['sensor.current_lights_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                            - !include
+                              - '../templates/button_small_badge.yaml'
+                              - name: Device
+                                label: Control
+                                icon: mdi:power-plug
+                                navigation_path: /lovelace/devices
+                                entity_badge: group.all_device_switches
+                                notification: "[[[ if (states['sensor.current_devices_on'].state > 0) return `${states['sensor.current_devices_on'].state}`; else return '&nbsp' ]]]" 
+                                background_color: "[[[ if (states['sensor.current_devices_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                            - !include
+                              - '../templates/button_small_badge.yaml'
+                              - name: Security
+                                label: Panel
+                                icon: mdi:cctv
+                                navigation_path: /lovelace/security
+                                entity_badge: group.all_binary_sensors
+                                notification: "[[[ if (states['sensor.current_binary_sensors_on'].state > 0) return `${states['sensor.current_binary_sensors_on'].state}`; else return '&nbsp' ]]]"
+                                background_color: "[[[ if (states['sensor.current_binary_sensors_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                        - type: horizontal-stack
+                          cards:
+                            # Button Row 2 (This row can be changed at will, change name, label, icon and navigation_paths here)
+                            - !include
+                              - '../templates/button_nav.yaml'
+                              - name: Cleaning
+                                label: Lists
+                                icon: mdi:calendar-text
+                                navigation_path: /lovelace/cleaning
+                                margin_right: 40px
+                            - !include
+                              - '../templates/button_nav.yaml'
+                              - name: Scenes
+                                label: Presets
+                                icon: mdi:arrange-send-backward
+                                navigation_path: /lovelace/scenes
+                                margin_right: 40px
+                            - !include
+                              - '../templates/button_nav.yaml'
+                              - name: Vacuum
+                                label: Control
+                                icon: mdi:robot-vacuum
+                                navigation_path: /lovelace/vacuum
+                                margin_right: 40px
+                            - !include
+                              - '../templates/button_small_badge.yaml'
+                              - name: Remote
+                                label: Control
+                                icon: mdi:remote
+                                navigation_path: /lovelace/remote
+                                entity_badge: group.all_tvs
+                                notification: "[[[ if (states['sensor.current_tvs_on'].state > 0) return `${states['sensor.current_tvs_on'].state}`; else return '&nbsp' ]]]"
+                                background_color: "[[[ if (states['sensor.current_tvs_on'].state == 0) return 'var(--card-color-off)'; else return 'var(--label-color-off)'; ]]]"
+                    armed_away:
+                      type: horizontal-stack
+                      cards:
+                        - type: picture-entity
+                          {% raw %}
+                          style: |
+                            ha-card {
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                              overflow: hidden;
+                            }
+                          {% endraw %}
+                          entity: {{ _global.frontpage[17] }} # enter your own camera entity_id here (preferably the camera you deem most important to look at while not at home)
+                          title: Camera's  
+                          aspect_ratio: 16x9
+                    armed_home:
+                      type: horizontal-stack
+                      cards:
+                        - type: picture-entity
+                          {% raw %}
+                          style: |
+                            ha-card {
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                              overflow: hidden;
+                            }
+                          {% endraw %}
+                          entity: {{ _global.frontpage[17] }} # enter your own camera entity_id here (preferably the camera you deem most important to look at while not at home)
+                          title: Camera's  
+                          aspect_ratio: 16x9
+  
+                         

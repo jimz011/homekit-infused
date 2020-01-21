@@ -1,0 +1,76 @@
+- title: Media
+  path: media
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Media Center
+            icon: mdi:plex
+            name: Upcoming and Recently Added Media
+            hold_action: none
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### Recently Added Series"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: 'custom:upcoming-media-card'
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  entity: sensor.recently_added_tv 
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### Recently Added Movies"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: 'custom:upcoming-media-card'
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  entity: sensor.recently_added_movies 
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### Upcoming Series"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: 'custom:upcoming-media-card'
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  entity: sensor.sonarr_upcoming_media
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### Upcoming Movies"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: 'custom:upcoming-media-card'
+                  style: |
+                    ha-card {
+                      background: var(--card-color-off);
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  entity: sensor.radarr_upcoming_media
+        - !include ../includes/bottom-card.yaml
+
+          

@@ -1,0 +1,126 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+deep_press: {{ deep_press|default('true') }}
+icon: {{ icon }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('true') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: {{ tap_action|default('toggle') }}
+  haptic: light
+hold_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      position: fixed
+      z-index: 999
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      display: block
+      align-items: center
+      justify-content: center
+      background: rgba(0, 0, 0, 0.5)
+      "--iron-icon-fill-color": "#FFF"
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('switch_popup.yaml') }}
+          - entity: {{ entity }}
+    deviceID:
+      - this
+  haptic: heavy
+styles:
+  card:
+    - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+    - --ha-card-background: "var(--card-color-off)"
+    - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+  label:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - color: var(--label-color-off) 
+  state:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+    - padding-left: 10px
+    - color: var(--state-color-off) 
+  grid: {{ grid }}
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('60px') }}
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: Helvetica 
+    - font-size: 13px
+state:
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: var(--card-color-on)
+        - opacity: 1.0
+        - box-shadow: none
+      name:
+        - color: var(--name-color-on)
+      state:
+        - color: var(--state-color-on)
+      lock:
+        - color: var(--lock-color-on) 
+      label:
+        - color: var(--label-color-on)
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.5') }}
+      icon:
+        - color: var(--icon-color-off)
+      name:
+        - color: var(--name-color-off)
+      state:
+        - color: var(--state-color-off)
+      label:
+        - color: var(--label-color-off)
+      lock:
+        - color: var(--lock-color-off)
+  - value: "unavailable"
+    styles:
+      card:
+        - opacity: 0.4
+      icon:
+        - color: var(--icon-color-off)
+      name:
+        - color: var(--name-color-off)
+      state:
+        - color: hsl(0, 100%, 50%)
+      label:
+        - color: var(--label-color-off)
+      lock:
+        - color: var(--lock-color-off)  

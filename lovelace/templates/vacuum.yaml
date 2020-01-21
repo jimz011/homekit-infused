@@ -1,0 +1,388 @@
+# lovelace_gen
+
+# Card
+type: vertical-stack
+cards:
+  - type: markdown
+    style: |
+      ha-card {
+        box-shadow: none;
+        height: 33px;
+        background: none;
+        padding: 0px -10px;
+        color: var(--header-color);
+      }
+    content: '##### Overview'
+  - type: custom:layout-card
+    min_columns: 2
+    max_columns: 2
+    justify_content: start
+    layout: horizontal
+    cards:
+      - !include
+        - button_vacuum_popup.yaml
+        - entity: input_boolean.dummy1
+          name: info
+          icon: mdi:information-outline
+          size: 11%
+          aspect_ratio: 3/1
+          show_label: false
+          show_state: false
+          margin_right: 128px
+          template: popup_vacuum_info.yaml
+      - !include
+        - button_vacuum_popup.yaml
+        - entity: input_boolean.dummy1
+          name: Zoned Cleaning
+          icon: mdi:map
+          size: 11%
+          aspect_ratio: 3/1
+          show_label: false
+          show_state: false
+          margin_right: 128px
+          template: popup_vacuum_map.yaml
+  - type: custom:layout-card
+    min_columns: 4
+    max_columns: 4
+    justify_content: start
+    layout: horizontal
+    cards:
+      - type: custom:state-switch
+        entity: {{ service_entity }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Start
+              icon: mdi:play-circle-outline
+              service: vacuum.start
+              service_entity: {{ service_entity }}
+              margin_right: 40px
+          cleaning:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Start
+              icon: mdi:play-circle-outline
+              service: vacuum.start
+              service_entity: {{ service_entity }}
+              opacity_off: 1.0
+              margin_right: 40px
+              card_color_off: 'var(--card-color-on)'
+              icon_color_off: 'Green'
+              name_color_off: 'var(--name-color-on)'
+              label_color_off: 'var(--label-color-on)'
+              animation: blink 2s ease infinite
+      - type: custom:state-switch
+        entity: {{ service_entity }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Pause
+              icon: mdi:pause-circle-outline
+              service: vacuum.pause
+              service_entity: {{ service_entity }}
+              margin_right: 40px
+          paused:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Pause
+              icon: mdi:pause-circle-outline
+              service: vacuum.pause
+              service_entity: {{ service_entity }}
+              opacity_off: 1.0
+              margin_right: 40px
+              card_color_off: 'var(--card-color-on)'
+              icon_color_off: 'Orange'
+              name_color_off: 'var(--name-color-on)'
+              label_color_off: 'var(--label-color-on)'
+              animation: blink 2s ease infinite
+      - type: custom:state-switch
+        entity: {{ service_entity }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Stop
+              icon: mdi:stop-circle-outline
+              service: vacuum.return_to_base
+              service_entity: {{ service_entity }}
+              margin_right: 40px
+          returning:
+            !include
+            - button_service_call.yaml
+            - entity: input_boolean.dummy1
+              name: Stop
+              icon: mdi:stop-circle-outline
+              service: vacuum.return_to_base
+              service_entity: {{ service_entity }}
+              opacity_off: 1.0
+              margin_right: 40px
+              card_color_off: 'var(--card-color-on)'
+              icon_color_off: 'Red'
+              name_color_off: 'var(--name-color-on)'
+              label_color_off: 'var(--label-color-on)'
+              animation: blink 2s ease infinite
+      - !include
+        - button_service_call.yaml
+        - entity: input_boolean.dummy1
+          name: Locate
+          icon: mdi:map-marker
+          service: vacuum.locate
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          icon_color_off: MediumVioletRed
+  - type: markdown
+    style: |
+      ha-card {
+        box-shadow: none;
+        height: 33px;
+        background: none;
+        padding: 0px -10px;
+        color: var(--header-color);
+      }
+    content: '##### Mode'
+  - type: custom:layout-card
+    min_columns: 4
+    max_columns: 4
+    justify_content: start
+    layout: horizontal
+    cards:
+      - type: custom:state-switch
+        entity: {{ input_select }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Quiet
+              icon: mdi:fan
+              size: 15%
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              option: Quiet
+          Quiet:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Quiet
+              icon: mdi:fan
+              size: 15%
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              spin_off: true
+              option: Quiet
+      - type: custom:state-switch
+        entity: {{ input_select }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Turbo
+              icon: mdi:fan
+              size: 20%
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              option: Turbo
+          Turbo:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Turbo
+              icon: mdi:fan
+              size: 20%
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              spin_off: true
+              option: Turbo
+      - type: custom:state-switch
+        entity: {{ input_select }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Max
+              icon: mdi:fan
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              option: Max
+          Max:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Max
+              icon: mdi:fan
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              spin_off: true
+              option: Max
+      - type: custom:state-switch
+        entity: {{ input_select }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Balanced
+              icon: mdi:sync
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              option: Balanced
+          Balanced:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Balanced
+              icon: mdi:sync
+              service_entity: {{ input_select }}
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `Orange`; else return `var(--icon-color-off)` ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              spin_off: true
+              option: Balanced
+  - type: custom:layout-card
+    min_columns: 1
+    max_columns: 1
+    justify_content: start
+    layout: horizontal
+    cards:
+      - type: custom:state-switch
+        entity: {{ input_select }}
+        default: default
+        states:
+          default:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Mop
+              icon: mdi:blur-radial
+              size: 8%
+              aspect_ratio: 6/1
+              show_label: false
+              show_state: false
+              service_entity: {{ input_select }}
+              margin_right: 300px
+              option: Mop
+          Mop:
+            !include
+            - button_service_call_option.yaml
+            - entity: input_boolean.dummy1
+              name: Mop
+              icon: mdi:blur-radial
+              size: 8%
+              aspect_ratio: 6/1
+              show_label: false
+              show_state: false
+              service_entity: {{ input_select }}
+              margin_right: 300px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `Navy`; else return `var(--icon-color-off)` ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              spin_off: true
+              option: Mop
+  - type: markdown
+    style: |
+      ha-card {
+        box-shadow: none;
+        height: 33px;
+        background: none;
+        padding: 0px -10px;
+        color: var(--header-color);
+      }
+    content: '##### Presets'
+  - type: custom:layout-card
+    min_columns: 4
+    max_columns: 4
+    justify_content: start
+    layout: horizontal
+    cards:
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_1|default('Office') }}
+          icon: {{ icon_button_1|default('mdi:desktop-tower-monitor') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_1 }}"
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_2|default('Living') }}
+          icon: {{ icon_button_2|default('mdi:sofa') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_2 }}"
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_3|default('Bed') }}
+          icon: {{ icon_button_3|default('mdi:bed-king-outline') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_3 }}"
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_4|default('Kitchen') }}
+          icon: {{ icon_button_4|default('mdi:fridge-outline') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_4 }}"
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_5|default('Hall') }}
+          icon: {{ icon_button_5|default('mdi:vector-square') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_5 }}"
+      - !include
+        - button_service_call_command_params.yaml
+        - entity: input_boolean.dummy1
+          name: {{ name_button_6|default('Entrance') }}
+          icon: {{ icon_button_6|default('mdi:door') }}
+          service_entity: {{ service_entity }}
+          margin_right: 40px
+          opacity_off: 0.8
+          params: "{{ params_button_6 }}"
+

@@ -1,0 +1,35 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            border-radius: none;
+            box-shadow: none;
+            opacity: 0.8;
+            font-size: 12px;
+            font-family: Helvetica;
+            --paper-item-icon-color: white !important;
+            --primary-text-color: white !important;
+            --text-primary-color: white !important;
+          }
+        entities:
+          - entity: {{ _global.vacuum[19] }}
+          - entity: {{ _global.vacuum[20] }}
+          - entity: {{ _global.vacuum[21] }}
+          - entity: {{ _global.vacuum[22] }}
+          - entity: {{ _global.vacuum[23] }}
+          - entity: {{ _global.vacuum[24] }}
+          - type: divider
+          - entity: {{ _global.vacuum[25] }}
+          - entity: {{ _global.vacuum[26] }}
+          - entity: {{ _global.vacuum[27] }}
+          - entity: {{ _global.vacuum[28] }}
+          - type: divider
+          - entity: {{ _global.vacuum[29] }}

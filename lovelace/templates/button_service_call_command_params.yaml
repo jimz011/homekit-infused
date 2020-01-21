@@ -1,0 +1,94 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+deep_press: {{ deep_press|default('true') }}
+icon: {{ icon }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: call-service
+  service: {{ service|default('vacuum.send_command') }}
+  service_data:
+    entity_id: {{ service_entity }}
+    command: {{ command|default('app_zoned_clean') }}
+    params: "{{ params }}"
+  haptic: heavy
+hold_action:
+  action: none
+styles:
+  card:
+    - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+    - --ha-card-background: "var(--card-color-off)"
+    - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+  label:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - color: var(--label-color-off) 
+  state:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+    - padding-left: 10px
+    - color: var(--state-color-off) 
+  grid: {{ grid }}
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('60px') }}
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: Helvetica 
+    - font-size: 13px
+state:
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: var(--card-color-on)
+        - opacity: 1.0
+        - box-shadow: none
+      name:
+        - color: var(--name-color-on)
+      state:
+        - color: var(--state-color-on)
+      lock:
+        - color: var(--lock-color-on) 
+      label:
+        - color: var(--label-color-on)
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.5') }}
+        - --ha-card-background: "{{ card_color_off|default('var(--card-color-off') }}"
+      icon:
+        - color: "{{ icon_color_off|default('var(--icon-color-off)') }}"
+      name:
+        - color: "{{ name_color_off|default('var(--name-color-off)') }}"
+      state:
+        - color: "{{ state_color_off|default('var(--state-color-off)') }}"
+      label:
+        - color: "{{ label_color_off|default('var(--label-color-off)') }}"
+      lock:
+        - color: var(--lock-color-off)  

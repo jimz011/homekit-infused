@@ -1,0 +1,12 @@
+- title: Energy
+  path: energy
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Energy
+            icon: mdi:chart-line
+            name: Energy Usage
+            hold_action: none
+        - !include ../includes/bottom-card.yaml   

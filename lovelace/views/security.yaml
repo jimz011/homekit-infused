@@ -1,0 +1,34 @@
+# lovelace_gen
+
+- title: Security
+  icon: mdi:cctv
+  path: security
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - content: Security
+            icon: mdi:alert
+            name: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `The alarm is disarmed!`; else return `The alarm is armed!` ]]]"
+        - !include
+          - '../templates/auto_fill_camera_template.yaml'
+          - content: {{ _global.security[0] }}
+            group: group.all_cameras
+        - !include
+          - '../templates/auto_fill_security_template.yaml'
+          - content: {{ _global.security[1] }}
+            group: group.all_door_sensors
+        - !include
+          - '../templates/auto_fill_security_template.yaml'
+          - content: {{ _global.security[2] }}
+            group: group.all_window_sensors
+        - !include
+          - '../templates/auto_fill_security_template.yaml'
+          - content: {{ _global.security[3] }}
+            group: group.all_motion_sensors
+        - !include
+          - '../templates/auto_fill_security_template.yaml'
+          - content: {{ _global.security[4] }}
+            group: group.all_smoke_detectors
+        - !include ../includes/bottom-card.yaml

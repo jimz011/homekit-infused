@@ -1,0 +1,98 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+deep_press: {{ deep_press|default('true') }}
+icon: {{ icon }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: navigate
+  navigation_path: {{ navigation_path|default('/lovelace/about') }}
+  haptic: light
+hold_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('popup_device_counters.yaml') }}
+          - entity: {{ entity_badge }}
+    deviceID:
+      - this
+  haptic: heavy
+styles:
+  card:
+    - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+    - --ha-card-background: "var(--card-color-off)"
+    - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+  label:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - color: var(--label-color-off) 
+  state:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+    - padding-left: 10px
+    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('40px') }}
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: Helvetica 
+    - font-size: 13px
+    - color: var(--label-color-off) 
+  icon:
+    - color: var(--label-color-off) 
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--notification-badge-color)
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - right: 7%
+      - top: 7%
+      - height: 22px
+      - width: 22px
+      - font-size: 11px
+      - line-height: 20px
+      - font-weight: bold
+custom_fields: 
+  notification: "{{ notification }}"
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}
