@@ -1,0 +1,178 @@
+# Global Config for Homekit Infused v.1.0a January 2020
+
+# IMPORTANT NOTE: Do NOT remove ANY of these lines, if you have less than what is in this file just leave those lines unedited unless you know what you are doing. Not following this very simple rule might
+# cause errors which results in a frontend that no longer loads (and trust me it is not as easy to find lovelace_gen problems than core problems!). You can however add stuff (if you know what you are doing ofc)!
+# I highly (and I really mean HIGHLY) recommend you to read up on the following site as most of this setup is made with this! https://github.com/thomasloven/hass-lovelace_gen. It looks pretty technical but to get
+# most out of Homekit Infused you will have to understand how it is made. If this all sounds too difficult? No worries, simply continue on and edit this file and remember NO DELETING OF LINES!!!!!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# You do NOT have to have all entities, though it would certainly help if you did. Each entity that can be created without the need to buy extra devices will have a link for how to create one.
+# Sometimes you find stuff twice in this list (like person entities) This is done so that it is slightly clearer what you are actually doing, you can simple select the entity and press ctrl+d (vscode/sublime)
+# and change all the related entities at once.
+
+# Rooms (These are used in Lights and Devices views)
+rooms:
+  - Woonkamer # Living Room
+  - Keuken # Kitchen
+  - Slaapkamer # Bedroom
+  - Kleine Kamer # Office
+  - Hal # Hallway
+  - Bijkeuken # Laundry Room
+  - Overige # Other
+
+# Frontpage Config
+frontpage:
+  ## Weather
+  - Eindhoven # City Name
+  - weather.dark_sky # Weather Entity (for best results you should have this, if you don't have one create one easily with the darksky sensor https://www.home-assistant.io/integrations/weather.darksky/)
+  ## Left Photo
+  - person.stephanie # Person 1 Entity Left Photo (create a person entity, do not use device_trackers directly, but add them to a person entity and use the person entity here!)
+  - /local/images/stephanie_small.png # Location File Person 1 Left Photo
+  - !secret email_sensor_stephanie # Email Sensor Person 1 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
+  - sensor.reistijd_stephanie # Travel Time to Home Sensor Person 1 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
+  - sensor.reistijd_stephanie_work # Travel Time to Work Sensor Person 1 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
+  - sensor.battery_level # Smartphone Battery Level Sensor Person 1 (for best results you should have this, installing the offical HA app on either iOS or Android should be sufficient to get these sensors)
+  ## Right Photo
+  - person.jimmy # Person 2 Entity Right Photo
+  - /local/images/jimmy_small.png # Location File Person 2 Right Photo
+  - !secret email_sensor_jimmy # Email Sensor Person 2 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
+  - sensor.reistijd_jimmy # Travel Time to Home Sensor Person 2 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
+  - sensor.reistijd_jimmy_work # Travel Time to Work Sensor Person 2 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
+  - sensor.battery_level_2 # Smartphone Battery Level Sensor Person 2 (for best results you should have this, installing the offical HA app on either iOS or Android should be sufficient to get these sensors)
+  ## Middle Photo
+  - person.tala # Person 3 Entity Middle Photo (for best results you might want to use this, however if you don't have a third person, don't want to use this or any other reason, remove line 52 to 57 from /views/01.frontpage.yaml or replace those lines with your own card)
+  - /local/images/tala2.png # Location File Person 3 Middle Photo
+  ## Alarm Entity
+  - alarm_control_panel.home_alarm # Alarm Control Panel Entity (for best results you WANT this! it will work without it however creating a homemade alarm is super easy https://www.home-assistant.io/integrations/manual/)
+  ## Camera Entity
+  - camera.gallerij_camera # Choose your most valuable camera when you are not at home as this will be displayed on the frontpage when all users are gone!
+  
+# Security Categories (English users might want to leave this at the default)
+security:
+  - Camera`s # Name for camera category
+  - Doors # Name for door category
+  - Windows # Name for window category
+  - Motion # Name for motion category
+  - Smoke # Smoke and/or other sensors
+
+# Cleaning View Config (change it to your own local names)
+cleaning:
+  - Stofzuigen # Vacuum
+  - Dweilen # Mopping
+  - Stoffen # Dusting
+  - Spiegels # Mirrors
+  - Ramen # Windows
+  - Gordijnen # Curtains
+  - Toilet # Toilet
+  - Badkamer # Bathroom
+  - Bed # Bed
+  - Matras # Mattress
+
+# Floorplan
+# No config here, just make sure you have the following file "/local/images/floorplan.jpg" if you dont have this it will use mine instead.
+# Overwrite this with your own floorplan or recreate the entire view to your needs, rename your floorplan to floorplan.jpg and it will work!
+# Only basic floorplans are supported, if you have interactive floorplans please recreate the view to your own needs.
+
+# Laundry View
+laundry:
+  ## First Photo
+  - local/images/washingmachine.jpg # Path to your washingmachine image (if you don't have one you can use the default ones that are included)
+  - sensor.wasmachine_status # Washing Machine Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.wasmachine # Washing Machine Switch Entity
+  - sensor.wasmachine_power # Washing Machine Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.wasmachine_voltage # Washing Machine Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  ## Second Photo
+  - local/images/dryer.jpg # Path to your Tumble Dryer image (if you don't have one you can use the default ones that are included)
+  - sensor.droger_status # Tumble Dryer Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.droger # Tumble Dryer Switch Entity
+  - sensor.droger_power # Tumble Dryer Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.droger_voltage # Tumble Dryer Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  ## Third Photo
+  - local/images/dishwasher.jpg # Path to your Dishwasher image (if you don't have one you can use the default ones that are included)
+  - sensor.vaatwasser_status # Dishwasher Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.vaatwasser # Dishwasher Switch Entity
+  - sensor.vaatwasser_power # Dishwasher Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.vaatwasser_voltage # Dishwasher Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+
+# Location View
+location:
+  - person.stephanie # Person 1
+  - person.jimmy # Person 2
+  - person.tala # Person 3
+
+# Remote Control View
+remote:
+  # Living Room
+  ## First Row (On/Off Switches)
+  - switch.samsung_tv # Livingroom TV entity (switches are preferred as they work better with button-card! See my template switches for examples on how to do this!)
+  - switch.receiver # Livingroom Audio Receiver entity (switches are preferred once again)
+  ## Media Player and Remote
+  - media_player.samsung_tv_ue65ku6000 # Livingroom Media Player Entity that controls the volume (this can be a receiver entity as well, as long as it is within the media_player domain)
+  - media_player.woonkamer_apple_tv # Livingroom Media Player Entity to show in the mini-media-player card (in my case it is an Apple TV)
+  - remote.woonkamer_apple_tv # Livingroom Remote Entity for controlling the actual remote (this can be a TV for example or in my case an Apple TV)
+  # Bedroom
+  ## First Row (On/Off Switches)
+  - switch.tv_slaapkamer # Bedroom TV entity (switches are preferred as they work better with button-card! See my template switches for examples on how to do this!)
+  - switch.receiver_slaapkamer # Bedroom Audio Receiver entity (switches are preferred once again)
+  ## Media PLayer and Remote
+  - media_player.samsung_tv_ue46es5500 # Bedroom Media Player Entity that controls the volume (this can be a receiver entity as well, as long as it is within the media_player domain)
+  - media_player.slaapkamer_apple_tv # Bedroom Media Player Entity to show in the mini-media-player card (in my case it is an Apple TV)
+  - remote.slaapkamer_apple_tv # Bedroom Remote Entity for controlling the actual remote (this can be a TV for example or in my case an Apple TV)
+
+# Vacuum Control View
+vacuum:
+  ## Vacuum Entity
+  - vacuum.xiaomi_vacuum_cleaner # Enter your vacuum entity here, it has only been tested with a Roborock S5, but it should work with other robot-vacuums as well.
+  # Presets for Zoned Cleaning, you will need to get the coördinates for your own rooms for this to work (there is an excellent guide here https://community.home-assistant.io/t/howto-xiaomi-vacuum-zoned-cleaning/51293)
+  ## First Button
+  - Office # Name of the room
+  - fal:desktop # Icon
+  - [[26252,24785,29502,29035,1]] # Coördinates for Zoned Cleaning
+  ## Second Button
+  - Living # Name of the room
+  - fal:couch # Icon
+  - [[19375,24752,26175,28752,1]] # Coördinates for Zoned Cleaning
+  ## Third Button
+  - Bed # Name of the room
+  - fal:bed-alt # Icon
+  - [[19207,29558,20157,33658,1],[20142,29563,21792,31063,1],[21826,29567,23426,33567,1]] # Coördinates for Zoned Cleaning
+  ## Fourth Button
+  - Kitchen # Name of the room
+  - fal:refrigerator # Icon
+  - [[23519,28738,25469,31688,1],[25427,28788,27527,30238,1]] # Coördinates for Zoned Cleaning
+  ## Fifth Button
+  - Hall # Name of the room
+  - fal:draw-square # Icon
+  - [[26006,30366,29356,33766,1]] # Coördinates for Zoned Cleaning
+  ## Sixth Button
+  - Entrance # Name of the room
+  - fal:door-closed # Icon
+  - [[27462,28885,29562,30385,1]] # Coördinates for Zoned Cleaning
+  # Vacuum Sensors (if you have a Roborock S5 you can simply leave this at the defaults! You will however need all related automations and template sensors!)
+  - sensor.vacuum_cleaner_status_sensor # Status Sensor (You need a template sensor AND an automation for this, you can find them in my template and automation files)
+  - sensor.vacuum_cleaner_error_sensor # Error Sensor (You need a template sensor AND an automation for this, you can find them in my template and automation files)
+  - sensor.vacuum_battery # Battery Sensor
+  - sensor.vacuum_cleaning_count # Cleaning Count
+  - sensor.vacuum_total_cleaned_area # Total Cleaned Area
+  - sensor.vacuum_total_cleaning_time # Total Cleaning Time
+  - sensor.vacuum_main_brush_left # Main Brush Hours Left
+  - sensor.vacuum_side_brush_left # Side Brush Hours Left
+  - sensor.vacuum_filter_left # Filter Hours Left
+  - sensor.vacuum_sensor_dirty_left # Sensor Dirty Hours Left
+  - sensor.xiaomi_vacuum_fan_speed_state # Sensor Vacuum Fan Speed (You need a template sensor for this, you can find this in my template files)
+  # Maps
+  ## Xiaomi Vacuum Map Card
+  - /local/images/xiaomi-map.png # Xiaomi Vacuum Map Card Image (for zoned cleaning, doesn't need to be a Xiaomi robot, you will need to get the map yourself in one way or another https://community.home-assistant.io/t/xiaomi-vacuum-interactive-map-card/123901) 
+  ### Please edit the calibration points in lovelace/views/includes/vacuum_calibration.yaml
+
+# Weather View
+weather:
+  - weather.dark_sky # Weather Entity
+  - Eindhoven # City Name
+  - Buienradar # Name first iframe button
+  - fal:cloud-showers-heavy # Icon first iframe button
+  - https://gadgets.buienradar.nl/gadget/zoommap/?lat=51.28583&lng=5.74861&overname=2&zoom=11&naam=Nederweert&size=3b&voor=1 # First iFrame (Buienradar is for Dutch people only, enter another iframe if you wish)
+  - Windy # Name second iframe button
+  - fal:wind # Icon second iframe button
+  - https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1 # Second iFrame, Put your own coördinates in for your personalised view if you want to keep Windy

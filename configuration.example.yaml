@@ -1,0 +1,196 @@
+# Home Assistant Config 
+homeassistant:
+  # Customization file
+  customize: !include customize.yaml
+  # Auth Provider
+  auth_providers:  
+   - type: trusted_networks 
+     trusted_networks: 
+       - 127.0.0.1 
+       - 192.168.0.0/24
+   - type: homeassistant
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Frontend and Custom UI
+customizer:
+  custom_ui: local
+
+frontend:
+  themes: !include_dir_named configuration/themes/
+  javascript_version: auto
+  extra_html_url:
+    - /local/FontAwesomePro/hass-fontawesome-light.html
+    - /local/FontAwesomePro/hass-fontawesome-solid.html
+    - /local/FontAwesomePro/hass-fontawesome-regular.html
+#    - /local/FontAwesomePro/hass-fontawesome-duo.html
+    - /local/FontAwesomePro/hass-fontawesome-brands.html
+
+# SSL
+http:
+  base_url: !secret base_url
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.3
+  
+# Discover some devices automatically
+discovery:
+  ignore:
+    - samsung_tv
+    
+# Stream
+stream:
+
+# Lovelace Gen
+lovelace_gen: !include configuration/lovelace_gen/lovelace_gen.yaml
+
+# Lovelace Mode
+lovelace:
+  mode: yaml
+
+# Recorder
+recorder:
+#  db_url: !secret recorder_db_url
+  purge_keep_days: 3
+  exclude:
+    domains:
+      - automation
+    entities:
+      - sensor.xiaomi_map
+  
+# Speedtest.net
+speedtestdotnet:
+  scan_interval:
+    minutes: 240
+  server_id: 12372
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# Calendar
+calendar:
+  - platform: caldav
+    url: https://caldav.icloud.com
+    username: !secret icloud_usr
+    password: !secret icloud_pwd
+
+# Tado
+tado:
+  username: !secret tado_usr
+  password: !secret tado_pwd
+
+# Iframe
+panel_iframe:
+  nzbget:
+    title: "NZBGet"
+    url: !secret url_1
+    icon: "mdi:download"
+  sonarr:
+    title: "Sonarr"
+    url: !secret url_3
+    icon: "mdi:television"
+  radarr:
+    title: "Radarr"
+    url: !secret url_4
+    icon: "mdi:movie"
+  plex:
+    title: "Plex"
+    url: !secret url_5
+    icon: "mdi:plex"
+  serveressentials:
+    title: "Windows Server"
+    url: !secret url_6
+    icon: "mdi:windows"
+  valetudo:
+    title: "Valetudo"
+    url: !secret url_7
+    icon: "mdi:robot-vacuum"
+
+
+# Homekit Configuration
+homekit: !include configuration/homekit/homekit.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+  
+# iOS and Notifications
+ios: !include configuration/ios/ios.yaml 
+
+# Weather
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    mode: daily
+    
+# Notify
+notify:
+  - name: ios_notifier
+    platform: group
+    services:
+      - service: mobile_app_iphone
+      - service: mobile_app_iphone_stephanie
+      
+# Xiaomi Aqara/Mija
+xiaomi_aqara:
+  gateways:
+    - key: !secret xiaomi_gateway_token
+  discovery_retry: 10
+
+# All Sensors/Switches ETC.
+sensor: !include_dir_merge_list configuration/sensor/
+group: !include_dir_merge_named configuration/groups/ 
+automation: !include_dir_merge_list configuration/automations/
+script: !include_dir_merge_named configuration/scripts/
+camera: !include configuration/camera/camera.yaml 
+media_player: !include configuration/media_player/media_player.yaml 
+light: !include configuration/light/light.yaml 
+switch: !include_dir_merge_list configuration/switch/
+input_boolean: !include_dir_merge_named configuration/input_boolean/ 
+zone: !include configuration/zone/zone.yaml 
+device_tracker: !include configuration/device_tracker/device_tracker.yaml 
+alarm_control_panel: !include configuration/alarm_control_panel/alarms.yaml 
+scene: !include_dir_merge_list configuration/scenes/
+shell_command: !include configuration/shell_command/shell_command.yaml 
+input_select: !include_dir_merge_named configuration/input_select/ 
+
+# Python Script (Birthday Sensor)
+python_script:
+
+# Vacuum (Roborock S55)
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.0.11
+    token: !secret roborock_token
+
+# Browser-Mod
+browser_mod:
+  devices:
+    9c9ddbd9-dc1bea76:
+      name: jimmy
+# Grocy # Changed/Added in 0.13.0
+# grocy:
+#   url: !secret grocy_url
+#   api_key: !secret grocy_api_key
+#   sensor:
+#     - enabled: true
+
+# Apple TV (MRP) # Changed/Added in 0.13.0
+apple_tv_mrp:
+  - name: Woonkamer Apple TV
+    host: 192.168.0.41
+    port: 49154
+#    credentials: !secret atv_pwd
+  - name: Slaapkamer Apple TV
+    host: 192.168.0.43
+    port: 49153
+
+# NZBget
+nzbget:
+  host: !secret nzbget_url
+  port: 6789
+  ssl: false
+  username: !secret nzbget_usr
+  password: !secret nzbget_pwd

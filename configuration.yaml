@@ -1,0 +1,37 @@
+# Copy this to your own `configuration.yaml` do not use entries twice.
+# e.g. you can not have a `light:` entry twice.
+homeassistant:
+  customize: !include customize.yaml
+
+# Frontend and Custom UI
+customizer:
+  custom_ui: local
+
+frontend:
+  themes: !include_dir_named themes/
+  javascript_version: auto
+
+# Stream
+stream:
+
+# Lovelace Gen
+lovelace_gen: !include global_config.yaml
+
+# Lovelace Mode
+lovelace:
+  mode: yaml
+
+# Recorder
+recorder:
+  purge_keep_days: 3
+  exclude:
+    domains:
+      - automation
+    entities:
+      - sensor.xiaomi_map
+ 
+# Python Script (Birthday Sensor)
+python_script:
+
+# Browser-Mod
+browser_mod:
