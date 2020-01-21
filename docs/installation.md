@@ -64,7 +64,6 @@ Optional Plugins:
 
 Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
 Add all the repositories below as a 'plugin', choose it from the dropdown menu
-  - Popup Card (optional, deprecated though for visual uniformity still the only way to create the same popups everywhere) (https://github.com/thomasloven/lovelace-popup-card)
   - Custom Light Popup Card (required) (https://github.com/DBuit/light-popup-card)
   - Thermostat Popup Card (required) (https://github.com/DBuit/thermostat-popup-card)
   - Deep-Press-Mod (optional, requires an Apple device, if you have a mixed household Apple/Android you can safely install this) (https://github.com/roflcoopter/deep-press)
