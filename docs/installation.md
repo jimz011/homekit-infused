@@ -91,36 +91,38 @@ Add all the repositories (where applicable) as an 'integration', choose it from 
   - Custom-UI (optional, gives you the ability to template icons/names/etc in customize.yaml, editing this file was already discussed in the preparation section of the guide. This is not required but if you want system-wide dynamic icons you will want this) (https://github.com/andrey-git/home-assistant-custom-ui)
   - Customizer (optional, required when using Custom-UI, when installing Custom-UI you will need this component as well)
 
-### Copying Files
+# Copying
+### Notes
   - For safe results I suggest restarting Home Assistant at this point.
   - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
-
-NOTE: Homekit Infused makes heavy use of lovelace_gen, split files and it supports the use of !secrets. Unfortunately to achieve this we have to run lovelace in yaml mode (you can do this by reading up the following part and copy the relevant config from `configuration.yaml`). There is a major downside of running this in YAML mode especially when you are used to using the UI-editor for lovelace cards. In YAML mode the menu that shows RAW Editor, Refresh, Unused Entities and UI editor will become useless (and therefor is hidden in this setup). Now for new users this might sound very daunting and it probably is a little. When you convert to YAML mode your storage mode lovelace config will no longer be used. There is an upside to this, storage mode lovelace and YAML mode lovelace do not store their information in the same file. If you have used storage mode (default HA) and want to try out YAML mode you can easily revert this change by just removing the lines from `configuration.yaml`. So to get the most out of this you will probably want to learn the basics of lovelace. If you know the basics of lovelace and you liked the UI editor I do have some good news. If you have installed the GUI-sandbox-tool in the previous steps then you will get a button that gives you exactly that UI editor you were already used to. The only difference is, is that you can't save cards with the UI editor and you will need to copy the code from the editor into the respective files.
+  - Homekit Infused makes heavy use of lovelace_gen, split files and it supports the use of !secrets. Unfortunately to achieve this we have to run lovelace in yaml mode (you can do this by reading up the following part and copy the relevant config from `configuration.yaml`). There is a major downside of running this in YAML mode especially when you are used to using the UI-editor for lovelace cards. In YAML mode the menu that shows RAW Editor, Refresh, Unused Entities and UI editor will become useless (and therefor is hidden in this setup). Now for new users this might sound very daunting and it probably is a little. When you convert to YAML mode your storage mode lovelace config will no longer be used. There is an upside to this, storage mode lovelace and YAML mode lovelace do not store their information in the same file. If you have used storage mode (default HA) and want to try out YAML mode you can easily revert this change by just removing the lines from `configuration.yaml`. So to get the most out of this you will probably want to learn the basics of lovelace. If you know the basics of lovelace and you liked the UI editor I do have some good news. If you have installed the GUI-sandbox-tool in the previous steps then you will get a button that gives you exactly that UI editor you were already used to. The only difference is, is that you can't save cards with the UI editor and you will need to copy the code from the editor into the respective files.
 Lovelace_gen is heavily used in this setup and is a requirement to run this at all. Lovelace_gen is what decluttering-card did in the older HKI versions but much more is possible with this. To get the most out of HKI (and if you want to start editing this yourself) You will have to learn lovelace_gen. It isn't really that hard, but it housed more features than to declutter some templates so keep that in mind. It makes global configuration possible, it can do templates (just like decluttering-card could, and config for that is pretty similar), it can make macro's and much more. Basically it brings jinja2 templating to the frontend without the need for an extra card! https://github.com/thomasloven/hass-lovelace_gen. You do not need to know how YAML mode and lovelace_gen works straight away. HKI should work without you knowing how to use them, but I highly recommend you to learn it as it isn't that difficult and will benefit you a lot in creating modifications to this setup.
 
 Lets not dwell any longer and get into the copying part. There are two methods I will describe on how you can do this.
 
-### Method 1 (HKI Structure, recommended, best for people new to HA)
-Copy every file and folder to your own directory with the exception of `configuration.yaml` and `customize.yaml` unless you did not do the `customize.yaml` step at the preparation section of this guide. The structure should not be changed unless you know how to fix it yourself. Open a backup of your `configuration.yaml` file now.
-Replace your `configuration.yaml` file (not the backup obviously) with the one from HKI and copy all the relevant stuff from your backup file back into this one. (do NOT copy switches, sensors, binary_sensors, lights, camera's, automations, input_booleans, input_selects, alarm_control_panel, device_tracker, script and shell_command configs!!!! I will get to that in a minute). Remember we are still talking about the `configuration.yaml` file!
-Only copy real relevant stuff like HTTP config for SSL or your Xiaomi robot config or maybe a calendar config
-Copy your own config in the corresponding folders in configuration/ (e.g. configuration/automations). Notice that in `configuration.yaml` they are all called in a different way (e.g. !include_merge_dir and !include_merge_list). This is because automations requires to be listed and groups require to be named.
-    If you had this in `configuration.yaml`
-    ```
-    light:
-      - platform: group
-        name: Bedroom LEDs
-        entities:
-          - light.bed_led
-          - light.floor_led
-    ```
-    You should copy your config that you had (without the leading `light:`) into `configuration/light/light.yaml`.
-Do this for all the config you had (either in separate files or in configuration.yaml). When creating new files you do not need to care about the name of the file if that specific folder is included in `configuration.yaml` as !include_dir_merge_list or !include_dir_merge_named.
-In both cases you can simply create a new file and start creating new groups, automations etc without needing to worry about the filename. This allows for split files in e.g. automations and groups which can make management of those files a bit easier (and most of all easier to find again in the future).
-If you have an automations.yaml file you can simply drop this inside the `configuration/automations` folder as there is no file named automations.yaml in Homekit Infused (hm that easy? yeah, that easy!)
-After having done this you are done copying (you do not need to touch the ui-lovelace.yaml file and the `lovelace/` folder just yet)
+### Copy Files
+To copy the files you will need all the following files/folders from my repo.
 
-### Method 2 (Your own structure, for advanced users only)
-Instead of using the first method you could simply use your existing config and do it the other way around (so instead of copying my entire structure, you will only copy the relevant config into your own files) You will need to copy everything from the files in the `configuration/` folder that are prefixed with `hki_` (e.g. `hki_automations.yaml` or `hki_input_select.yaml`) into your own files. Remember that you might need files that do not exist in your setup yet (like the previously talked about `customize.yaml`). Do this for all the necessary files. Don't forget `configuration.yaml`! Copy all other files to your root folder (don't forget files, but do NOT copy the `configuration/` folder and `configuration.yaml` as we've already copied this stuff!)
+- You will need to copy the entire `/lovelace/` folder to the root of your setup
+- Copy the `/themes/` folder to the root of your setup
+- You will need to copy `ui-lovelace.yaml` and `global_config.yaml` to the root of your setup
+- You will need to open the `configuration.yaml` from my repo and copy/paste all the contents into your own `configuration.yaml` file. (If you happen to have some of this already you don't need to copy it again, just make sure you don't have duplicates. E.g. you can't have `homeassistant:` or `browser_mod:` twice. It will give errors. If you already have used HKI in the past you might need to compare the changes. Don't worry the `configuration.yaml` file that is provided only has the necessary changes in them so you will be done relatively quickly.
+- You will have to copy the `/www/images/` folder to your own `/www/` folder. If you have followed the preparation steps you will already have the `www` folder. If you don't you can simply create it.
+- Copy ALL the files (or contents of those files) to your own respective folder/files. All the files that are within the `/configuration/required-config/` folder need to be copied to your own respective files.
+  ```
+  Example:
+  Every automation need to go to either a folder (if you have a split or packaged HA configuration) or it will have to go into your `configuration.yaml` if you use the standard way HA does it. So automations would go under the `automations:` section of the `configuration.yaml` file, groups under `groups:` etc, etc. If you have used previous versions of HKI and use the split configuration structure you should delete the old automations related to HKI and just copy these files into their respective folders.
+  There are 3 folders (required, optional and example config) You MUST have what is inside the required-config folder, you only need the optional-config if you want to use a vacuum cleaner with your setup, need a custom alarm or if you want to have the laundry room view to display correctly. The example-config folder is exactly what it is and are all my personal automations which are obviously not required for use with HKI, they serve as ideas for you to use.
+  
+- Last but not least: You will need to delete the contents (not the folder, just its contents) of the following two folders and replace the files with the ones from my repo!
+  ```
+  - Delete the contents from your `/www/community/light-popup/` folder and copy the .js file from my repo into there
+  - Delete the contents from your `/www/community/thermostat-popup/` folder and copy the .js file from my repo into there
+  I am still looking into this, however without the slight changes I made to this card it might look bad or not work the way it is supposed to. Please do this, it is relatively simple!
+- If you need any of the custom_components you can copy them (the imap sensor is only needed for hotmail/outlook users, rdw is only for Dutch citizens with a car and you can take the xbox one component if you do not have hass.io as you can't install addons without hassio)
+
+Note: the `/esphome/` folder is there as an example for you to use if you happen to use ESPHome. The other files that have a .example.yaml extension are my own configuration files and serve as an example for you to use.
+
+The copying process should now be completed and we can move on to the configuration part.
 
 I am pretty sure you are already quite some time at this, maybe you should take a break now? XD!
