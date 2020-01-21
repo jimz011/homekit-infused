@@ -1,0 +1,62 @@
+# Substitutions
+substitutions:
+  devicename: bed_led
+  upper_devicename: Bed Led
+  fallback_hotspot: Bed Led Fallback
+
+# ESPHome
+esphome:
+  name: $devicename
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret SSID_1
+  password: !secret SSID_pwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: $fallback_hotspot
+    password: !secret fallback_hotspot
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret api_pwd
+
+ota:
+  password: !secret api_pwd
+
+# Config
+light:
+  - platform: rgb
+    name: $devicename
+    red: pwm_r
+    green: pwm_g
+    blue: pwm_b
+    restore_mode: ALWAYS_OFF
+    effects:
+      - strobe:
+      - flicker:
+      - random:
+
+output:
+  - platform: esp8266_pwm
+    pin: GPIO5
+    frequency: 1000 Hz
+    id: pwm_r
+
+  - platform: esp8266_pwm
+    pin: GPIO12
+    frequency: 1000 Hz
+    id: pwm_g
+
+  - platform: esp8266_pwm
+    pin: GPIO13
+    frequency: 1000 Hz
+    id: pwm_b
+

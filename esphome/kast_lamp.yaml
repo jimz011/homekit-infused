@@ -1,0 +1,55 @@
+# Substitutions
+substitutions:
+  devicename: kast_lamp
+  upper_devicename: Kast Lamp
+  fallback_hotspot: Kast Lamp Fallback
+
+# ESPHome
+esphome:
+  name: $devicename
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret SSID_1
+  password: !secret SSID_pwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: $fallback_hotspot
+    password: !secret fallback_hotspot
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret api_pwd
+
+ota:
+  password: !secret api_pwd
+
+# Config
+
+binary_sensor:
+  - platform: gpio
+    id: button
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      - light.toggle: $devicename
+
+output:
+  - platform: gpio
+    id: light_relay
+    pin: GPIO12
+
+light:
+  - platform: binary
+    id: $devicename
+    name: $upper_devicename
+    output: light_relay
