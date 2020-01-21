@@ -1,0 +1,38 @@
+view_css: 'padding-top: 84px !important'
+hide_header: false
+footer_mode: true
+compact_mode: true
+menu_hide: true
+voice_hide: true
+chevrons: false
+reverse_tab_direction: true
+reverse_button_direction: true
+options_hide: false
+hide_help: true
+hide_unused: true
+hide_refresh: true
+hide_config: true
+hide_raw: true
+show_tabs:  
+  - home
+  - menu
+hidden_tab_redirect: false
+# exceptions:
+#   - conditions:
+#       user: Jimmy
+#     config:
+#       button_text: 
+#         options: '&nbsp;Hi Jimmy'
+#   - conditions:
+#       user: Stephanie
+#     config:
+#       button_text: 
+#         options: '&nbsp;Hi Stephanie'
+#   - conditions:
+#       user: ipad
+#     config:
+#       button_text: 
+#         options: '&nbsp;iPad Panel'
+#       show_tabs: 
+#         - ipad
+#       hidden_tab_redirect: true
