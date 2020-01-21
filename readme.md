@@ -17,7 +17,7 @@ It has been a while since I have updated my repo with some new and awesome stuff
 Video: CLICK ON THE IMAGE TO START VIDEO (*updated 07/01/2020)
 The video is a week old and some things have changed a bit, I will upload a new one very very soon.
 
-[Watch Video]([Watch Video](https://www.youtube.com/watch?v=Pz1gaPEABvA&t=40s)
+[Watch Video](https://www.youtube.com/watch?v=Pz1gaPEABvA&t=40s)
 
 
 ### Questions?
