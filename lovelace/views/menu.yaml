@@ -11,7 +11,7 @@
             icon: mdi:information-outline
             second_icon: mdi:information-outline
             navigation_path_second_icon: /lovelace/about
-            name: Homekit Infused v.1.0 Alpha 
+            name: Homekit Infused v.1.0b
         - type: custom:layout-card
           cards:
             - type: custom:layout-card

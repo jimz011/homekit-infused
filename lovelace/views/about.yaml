@@ -7,7 +7,7 @@
           - '../templates/system_header.yaml'
           - content: About
             icon: mdi:information-outline
-            name: Homekit Infused v.1.0 Alpha
+            name: Homekit Infused v.1.0b
             hold_action: none
         - type: custom:layout-card
           cards:
