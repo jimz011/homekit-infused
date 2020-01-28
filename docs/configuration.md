@@ -52,6 +52,10 @@ To truly understand this you should learn how to use lovelace_gen (yes I keep re
 This step can be skipped for now if you want to.
 Notifications is something I can't template for you, this would require me to know exactly how many devices you have and what their entity names are. The file included is merely an example of how I have it set up and how you could set it up yourself. The first card in the list must have all the entities that come beneath it included in the list of states. This message will tell you that you have no notifications. This will only work if you have all the entities you define below that card inside of that list! Study my example carefully and you will be able to reproduce this pretty easy. All you would need to change are the entities and messages, you don't need to touch anything else.
 
+### Alarm Control Panel
+Note that the frontpage ONLY works when used with an alarm. I imagine most of you won't have this and for the ease of use you MUST copy the `hki_alarm_control_panel.yaml` contents (or file) to the appropriate location. You can change the code to whatever you want. The alarm won't do anything in itself, but is required to make the buttons appear on the frontpage. DO NOT SKIP THIS!
+Not required, how ever if you want to make actual use of the alarm you can make automations for it, please look inside the useful/optional automations folder on how to create that, or you can always look inside my personal branch for examples.
+
 ### Congratulations
 If all went well you should now have a working Homekit Infused setup with at least the following views that are working:
 - climate
