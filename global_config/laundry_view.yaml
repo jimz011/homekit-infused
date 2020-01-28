@@ -1,0 +1,33 @@
+# Global Config for Homekit Infused v.1.0b January 2020
+
+# IMPORTANT NOTE: Do NOT remove ANY of these lines, if you have less than what is in this file just leave those lines unedited unless you know what you are doing. Not following this very simple rule might
+# cause errors which results in a frontend that no longer loads (and trust me it is not as easy to find lovelace_gen problems than core problems!). You can however add stuff (if you know what you are doing ofc)!
+# I highly (and I really mean HIGHLY) recommend you to read up on the following site as most of this setup is made with this! https://github.com/thomasloven/hass-lovelace_gen. It looks pretty technical but to get
+# most out of Homekit Infused you will have to understand how it is made. If this all sounds too difficult? No worries, simply continue on and edit this file and remember NO DELETING OF LINES!!!!!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# You do NOT have to have all entities, though it would certainly help if you did. Each entity that can be created without the need to buy extra devices will have a link for how to create one.
+# Sometimes you find stuff twice in this list (like person entities) This is done so that it is slightly clearer what you are actually doing, you can simple select the entity and press ctrl+d (vscode/sublime)
+# and change all the related entities at once.
+
+# Laundry View
+laundry:
+  ## First Photo
+  - local/images/washingmachine.jpg # Path to your washingmachine image (if you don't have one you can use the default ones that are included)
+  - sensor.wasmachine_status # Washing Machine Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.wasmachine # Washing Machine Switch Entity
+  - sensor.wasmachine_power # Washing Machine Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.wasmachine_voltage # Washing Machine Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  ## Second Photo
+  - local/images/dryer.jpg # Path to your Tumble Dryer image (if you don't have one you can use the default ones that are included)
+  - sensor.droger_status # Tumble Dryer Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.droger # Tumble Dryer Switch Entity
+  - sensor.droger_power # Tumble Dryer Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.droger_voltage # Tumble Dryer Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  ## Third Photo
+  - local/images/dishwasher.jpg # Path to your Dishwasher image (if you don't have one you can use the default ones that are included)
+  - sensor.vaatwasser_status # Dishwasher Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+  - switch.vaatwasser # Dishwasher Switch Entity
+  - sensor.vaatwasser_power # Dishwasher Power Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
+  - sensor.vaatwasser_voltage # Dishwasher Voltage Sensor (this is a sensor that comes with most energy usage reading power-plugs, if you have AliExpress stuff like a Sonoff Pow R2, I highly recommend you to use ESPHome!)
