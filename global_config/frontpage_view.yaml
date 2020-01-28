@@ -19,14 +19,14 @@ frontpage:
   ## Left Photo
   - person.stephanie # Person 1 Entity Left Photo (create a person entity, do not use device_trackers directly, but add them to a person entity and use the person entity here!)
   - /local/images/stephanie_small.png # Location File Person 1 Left Photo
-  - !secret email_sensor_stephanie # Email Sensor Person 1 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
+  - sensor.email_sensor_stephanie # Email Sensor Person 1 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
   - sensor.reistijd_stephanie # Travel Time to Home Sensor Person 1 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
   - sensor.reistijd_stephanie_work # Travel Time to Work Sensor Person 1 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
   - sensor.battery_level # Smartphone Battery Level Sensor Person 1 (for best results you should have this, installing the offical HA app on either iOS or Android should be sufficient to get these sensors)
   ## Right Photo
   - person.jimmy # Person 2 Entity Right Photo
   - /local/images/jimmy_small.png # Location File Person 2 Right Photo
-  - !secret email_sensor_jimmy # Email Sensor Person 2 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
+  - sensor.email_sensor_jimmy # Email Sensor Person 2 (for best results you should have this, find an email integration for your own use https://www.home-assistant.io/integrations/imap/)
   - sensor.reistijd_jimmy # Travel Time to Home Sensor Person 2 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
   - sensor.reistijd_jimmy_work # Travel Time to Work Sensor Person 2 (for best results you should have this, use the waze sensor to do this https://www.home-assistant.io/integrations/waze_travel_time/)
   - sensor.battery_level_2 # Smartphone Battery Level Sensor Person 2 (for best results you should have this, installing the offical HA app on either iOS or Android should be sufficient to get these sensors)
