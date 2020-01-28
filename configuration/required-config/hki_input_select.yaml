@@ -85,8 +85,21 @@ person_menu_3:
   name: Person Menu 3 Selector
   options:
     - Overview
+    - Calendar
     - Location
+    - Vehicle
   initial: Overview
+
+# Person Menu 4 (used for personal views)
+person_menu_4:
+  name: Person Menu 4 Selector
+  options:
+    - Overview
+    - Calendar
+    - Location
+    - Vehicle
+  initial: Overview
+
 
 # Remote Control Selector
 remote_control:
