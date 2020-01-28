@@ -22,3 +22,4 @@ Remember I am only a bartender and I am not a programmer, nor do I have the expe
   - Future releases will probably not deviate too much from the current design and will probably only hold bugfixes, component/plugin updates and ofcourse new views and themes!
   - Installing this means you accept the risks that may occur. I cannot be held responsible for any damage/loss you suffered by installing this (obviously this will never occur)
   - Questions asked without reading the documentation have the chance to not being answered. Read before you need (help)! I will however post video's on YT in the future
+  - If you use the NEST integration, you probably do NOT want to do a clean install! You might not be able to restore it. This is only a warning! I do not own a NEST and I have no clue on how it works. I mention this advised by some of the followers of this project.
