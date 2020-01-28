@@ -4,41 +4,13 @@
 
 # Wallpaper/Background Image
 background-image: 'center / cover no-repeat url("/local/images/wallpapers/pink-flowers.jpg") fixed'
-popup-image: 'center / cover no-repeat url("/local/images/wallpapers/popup-wallpaper-pink.png") fixed'
-
-# Card Borders/Shadows
-border-radius: 12px
-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75)
-
-# Card Theme Colors
-card-color-on: 'rgba(255, 255, 255, 1.0)'
-area-color-on: 'Gray'
-icon-color-on: 'Gray'
-label-color-on: 'Gray'
-lock-color-on: 'Gray'
-name-color-on: 'Black'
-state-color-on: 'Black'
-
-card-color-off: 'linear-gradient(to bottom right, #ffffff, LightPink)'
-area-color-off: 'Purple'
-icon-color-off: 'Purple'
-label-color-off: 'Purple'
-lock-color-off: 'Purple'
-name-color-off: 'Purple'
-state-color-off: 'Purple'
 
 # Lovelace Header Text
 header-color: 'Purple'
 
-# Weather Card
-weather-color-text: 'Black' 
-weather-color-day: 'linear-gradient(to bottom right, #ffffff, LightPink)'
-weather-color-night: 'linear-gradient(to bottom right, #ffffff, LightPink)'
-
 # Notification Badge
 notification-badge-color: 'white'
 notification-popup-action-color: 'black'
-
 
 ## Main Home Assistant Colors
 
@@ -49,7 +21,7 @@ dark-primary-color: 'var(--md-teal-900)'
 light-primary-color: 'var(--md-teal-400)'
 
 # Text colors
-primary-text-color: 'var(--mdc-grey-darken-4)'
+primary-text-color: 'Purple'
 text-primary-color: 'var(--primary-text-color)'
 secondary-text-color: 'var(--md-purple-900)'
 disabled-text-color: 'var(--mdc-grey-darken-2)'
@@ -74,7 +46,7 @@ paper-grey-200: 'var(--mdc-grey-lighten-4)'
 # Paper card
 paper-card-header-color: 'var(--primary-color)'
 # ha-card-background-color: 'var(--light-primary-color)'
-paper-card-background-color: 'var(--md-white)'
+paper-card-background-color: 'LightPink'
 paper-dialog-background-color: 'var(--md-white)'
 paper-item-icon-color: 'var(--primary-text-color)'
 paper-item-icon-active-color: '#b58e31'

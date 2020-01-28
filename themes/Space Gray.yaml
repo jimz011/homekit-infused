@@ -4,47 +4,13 @@
 
 # Wallpaper/Background Image
 background-image: 'linear-gradient(290deg, #a30088 -30%, #111111 65%)'
-popup-image: 'center / cover no-repeat url("/local/images/wallpapers/popup-wallpaper-gray.png") fixed'
-
-# Card Borders/Shadows
-border-radius: 12px
-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75)
-
-# Card Theme Colors
-card-color-on: 'rgba(255, 255, 255, 1.0)'
-area-color-on: 'Gray'
-icon-color-on: 'Gray'
-label-color-on: 'Gray'
-lock-color-on: 'Gray'
-name-color-on: 'Black'
-state-color-on: 'Black'
-
-card-color-off: 'linear-gradient(to bottom right, #555555, #444444)'
-area-color-off: 'AliceBlue'
-icon-color-off: 'AliceBlue'
-label-color-off: 'AliceBlue'
-lock-color-off: 'AliceBlue'
-name-color-off: 'AliceBlue'
-state-color-off: 'AliceBlue'
 
 # Lovelace Header Text
 header-color: 'white'
 
-# Weather Card
-weather-color-text: 'white' 
-weather-color-day: 'linear-gradient(to bottom right, #555555, #444444)'
-weather-color-night: 'linear-gradient(to bottom right, #555555, #444444)'
-
 # Notification Badge
 notification-badge-color: 'Black'
 notification-popup-action-color: 'AliceBlue'
-
-# Valetudo Map Card
-valetudo-map-floor-color: 'gray'
-valetudo-map-obstacle-weak-color: 'var(--state-color-off)'
-valetudo-map-obstacle-strong-color: 'var(--state-color-on)'
-valetudo-map-path-color: 'var(--primary-text-color)'
-
 
 ## Main Home Assistant Colors
 
@@ -84,7 +50,7 @@ paper-grey-200: 'var(--mdc-grey-darken-4)'
 # Paper card
 paper-card-header-color: 'var(--light-primary-color)'
 # ha-card-background-color: 'var(--light-primary-color)'
-paper-card-background-color: 'linear-gradient(to bottom right, #555555, #444444)'
+paper-card-background-color: '#555555'
 paper-dialog-background-color: 'rgba(100, 100, 100, 1.0)'
 paper-item-icon-color: 'var(--primary-text-color)'
 paper-item-icon-active-color: '#b58e31'
