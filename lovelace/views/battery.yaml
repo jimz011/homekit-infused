@@ -1,13 +1,13 @@
 - title: Battery
   path: battery
-  cards:    
+  cards: 
     - type: vertical-stack
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Battery
+          - name: Battery Percentage Overview
             icon: mdi:battery
-            name: Battery Percentage Overview
+            content: Battery
         - type: custom:layout-card
           cards:
             - type: custom:auto-entities
@@ -37,4 +37,4 @@
                 max_columns: 3
                 justify_content: start
                 layout: horizontal
-        - !include ../includes/bottom-card.yaml  
+            - !include ../includes/bottom-card.yaml  

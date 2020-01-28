@@ -1,12 +1,10 @@
 - title: Calendar
   path: calendar
-  cards:    
+  cards:   
     - type: vertical-stack
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Calendar
+          - name: Create your own view here
             icon: mdi:calendar
-            name: Your Calendar Here
-            hold_action: none
-        - !include ../includes/bottom-card.yaml  
+            content: Calendar

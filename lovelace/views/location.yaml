@@ -7,10 +7,10 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Location
-            icon: mdi:navigation
+          - name: Where is everyone?
+            icon: mdi:map
             spin: true
-            name: Where is everyone?
+            content: Location
         - type: custom:layout-card
           cards:
             - type: custom:layout-card
@@ -19,7 +19,6 @@
                   {% raw %}
                   style: |
                     ha-card {
-                      background: var(--card-color-off);
                       --paper-item-icon-color: black;
                       color: black;
                       border-radius: {{ states('input_select.border_radius') }};

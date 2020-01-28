@@ -2,15 +2,16 @@
 
 - title: Vacuum
   path: vacuum
+  icon: mdi:robot-vacuum
   cards:
     - type: vertical-stack
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Vacuum Control
-            name: "[[[ return `${states['vacuum.xiaomi_vacuum_cleaner'].state}` ]]]"
+          - name: "[[[ return `${states['vacuum.xiaomi_vacuum_cleaner'].state}` ]]]"
             icon: mdi:robot-vacuum
             spin: true
+            content: Vacuum
         - type: custom:layout-card
           cards:
             - !include

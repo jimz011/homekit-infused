@@ -1,5 +1,5 @@
-- title: Person 1
-  path: person_1
+- title: Person 4
+  path: person_4
   cards:
     - type: vertical-stack
       cards:
@@ -7,5 +7,5 @@
           - '../templates/system_header_alternate.yaml'
           - name: Create your own view here
             font_weight: bold
-            entity: input_select.person_menu_1
-            content: Person 1
+            entity: input_select.person_menu_4
+            content: Person 4

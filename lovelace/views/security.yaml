@@ -8,9 +8,9 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Security
+          - name: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `The alarm is disarmed!`; else return `The alarm is armed!` ]]]"
             icon: mdi:alert
-            name: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `The alarm is disarmed!`; else return `The alarm is armed!` ]]]"
+            content: Security
         - !include
           - '../templates/auto_fill_camera_template.yaml'
           - content: {{ _global.security[0] }}

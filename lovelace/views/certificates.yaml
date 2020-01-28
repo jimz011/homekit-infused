@@ -1,12 +1,10 @@
 - title: Certificates
   path: certificates
-  cards:    
+  cards:
     - type: vertical-stack
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Certificates
+          - name: Create your own view here
             icon: mdi:certificate-outline
-            name: Expiry
-            hold_action: none
-        - !include ../includes/bottom-card.yaml
+            content: Certificates

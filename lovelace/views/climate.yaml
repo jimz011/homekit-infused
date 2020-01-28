@@ -5,12 +5,9 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Climate Control
-            icon: mdi:thermostat 
-            name: "[[[ return `The average temperature is ${states['sensor.average_temperature'].state}°C` ]]]"
-        - !include
-          - '../templates/header_text.yaml'
-          - content: "##### Presets"
+          - name: "[[[ return `The average temperature is ${states['sensor.average_temperature'].state}°C` ]]]"
+            icon: mdi:thermostat
+            content: Climate
         - type: custom:layout-card
           cards:
             - type: custom:layout-card

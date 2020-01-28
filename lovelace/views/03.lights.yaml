@@ -1,0 +1,51 @@
+# lovelace_gen
+
+- title: Lights
+  path: lights
+  icon: mdi:floor-lamp
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Alle lampen zijn uitgeschakeld`; if (states['sensor.current_lights_on'].state == 1) return `Er is 1 lamp ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} lampen ingeschakeld` ]]]"
+            icon: mdi:floor-lamp
+            content: Lights
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[0] }}
+            group_other: group.livingroom_other_lights
+            group_color_temp: group.livingroom_color_temp_lights
+            group_rgb: group.livingroom_rgb_lights
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[2] }}
+            group_other: group.bedroom_other_lights
+            group_color_temp: group.bedroom_color_temp_lights
+            group_rgb: group.bedroom_rgb_lights
+            lock: true
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[3] }}
+            group_other: group.office_other_lights
+            group_color_temp: group.office_color_temp_lights
+            group_rgb: group.office_rgb_lights
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[1] }}
+            group_other: group.kitchen_other_lights
+            group_color_temp: group.kitchen_color_temp_lights
+            group_rgb: group.kitchen_rgb_lights
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[4] }}
+            group_other: group.hallway_other_lights
+            group_color_temp: group.hallway_color_temp_lights
+            group_rgb: group.hallway_rgb_lights
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms[6] }}
+            group_other: group.other_lights
+            group_color_temp: group.other_color_temp_lights
+            group_rgb: group.other_rgb_lights  
+        - !include ../includes/bottom-card.yaml 

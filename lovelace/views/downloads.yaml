@@ -5,10 +5,6 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Download Center
+          - name: Create your own view here
             icon: mdi:download
-            name: NZBs and Torrents
-            hold_action: none
-        - !include
-          - '../templates/header_text.yaml'
-          - content: '##### Under Construction'
+            content: Downloads

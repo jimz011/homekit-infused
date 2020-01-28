@@ -1,18 +1,14 @@
 - title: Waze
   path: waze
-  cards:    
+  cards:
     - type: vertical-stack
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Waze
+          - name: Traffic Information
             icon: mdi:car
-            name: Traffic Information
+            content: Traffic Information
         - type: iframe
-          style: |
-            ha-card {
-              margin-top: -16px;
-            }
           url: https://embed.waze.com/iframe
-          aspect_ratio: 175%
+          aspect_ratio: 150%
 

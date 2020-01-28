@@ -5,7 +5,6 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Test View
+          - name: This view is meant to test/create new cards
             icon: mdi:wrench
-            name: This view is meant to test/create new cards
-        - type: custom:gui-sandbox
+            content: Test View

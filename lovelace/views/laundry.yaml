@@ -7,10 +7,9 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Laundry Room
+          - name: "[[[ if (states['sensor.current_laundry_devices_on'].state == 0) return `All devices are off`; if (states['sensor.current_laundry_devices_on'].state == 1) return `1 device is turned on`; else return `${states['sensor.current_laundry_devices_on'].state} devices are turned on` ]]]"
             icon: mdi:washing-machine
-            hold_action: none
-            name: "[[[ if (states['sensor.current_laundry_devices_on'].state == 0) return `All devices are off`; if (states['sensor.current_laundry_devices_on'].state == 1) return `1 device is turned on`; else return `${states['sensor.current_laundry_devices_on'].state} devices are turned on` ]]]"
+            content: Laundry
         - type: custom:layout-card
           cards:
             - type: custom:layout-card
@@ -40,4 +39,4 @@
                     entity_switch: {{ _global.laundry[12] }}
                     entity_wattage: {{ _global.laundry[13] }}
                     entity_voltage: {{ _global.laundry[14] }}
-        - !include ../includes/bottom-card.yaml  
+                - !include ../includes/bottom-card.yaml  

@@ -5,8 +5,8 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Scenes
+          - name: Create your own view here
             icon: mdi:arrange-send-backward
-            name: "[[[ if (states['sensor.current_scenes_on'].state == 0) return `No scenes are active`; if (states['sensor.current_scenes_on'].state == 1) return `1 scene is active`; else return `${states['sensor.current_scenes_on'].state} scenes are active` ]]]"
-        - !include ../includes/bottom-card.yaml  
+            content: Scenes
+
 

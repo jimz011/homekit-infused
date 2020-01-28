@@ -5,10 +5,9 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Floorplan
-            icon: mdi:floorplan
-            name: Tap and hold the image to download
-            hold_action: none
+          - name: Tap and hold the image to download
+            icon: mdi:floor-plan
+            content: Floorplan
         - type: custom:layout-card
           cards:
             - type: custom:layout-card

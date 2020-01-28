@@ -5,8 +5,6 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Computers
+          - name: Create your own view here
             icon: mdi:desktop-tower-monitor
-            hold_action: none
-            name: "[[[ if (states['sensor.current_computers_on'].state == 1) return `1 computer is turned on`; else return `${states['sensor.current_computers_on'].state} computers are turned on`  ]]]"
-        - !include ../includes/bottom-card.yaml  
+            content: Computers

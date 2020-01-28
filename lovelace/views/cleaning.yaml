@@ -7,9 +7,9 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - content: Cleaning
+          - name: Cleaning Lists
             icon: mdi:spray-bottle
-            name: Cleaning Lists
+            content: Cleaning
         - type: custom:layout-card
           cards:
             - type: custom:layout-card
@@ -86,4 +86,4 @@
                         value_1: 3 months
                         value_2: 6 months
                         value_3: 9 months
-            - !include ../includes/bottom-card.yaml              
+                - !include ../includes/bottom-card.yaml              

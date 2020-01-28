@@ -1,0 +1,27 @@
+# lovelace_gen
+
+- title: Alarm
+  icon: mdi:alert
+  path: alarm
+  cards:   
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `The alarm is disarmed!`; else return `The alarm is armed!` ]]]" 
+            icon: mdi:alert
+            content: Alarm
+    - type: custom:layout-card
+      cards: 
+        - type: custom:layout-card
+          cards: 
+            - type: alarm-panel
+              {% raw %}
+              style: |
+                ha-card {
+                  border-radius: {{ states('input_select.border_radius') }};
+                  box-shadow: {{ states('input_select.box_shadow') }};
+                  opacity: 0.8;
+                }
+              {% endraw %}
+              entity: {{ _global.frontpage[18] }}

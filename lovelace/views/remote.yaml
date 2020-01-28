@@ -7,14 +7,14 @@
       cards:
         - !include
           - '../templates/system_header_alternate.yaml'
-          - content: Remote Control
-            name: "[[[ return `${states['input_select.remote_control'].state}` ]]]"
+          - name: "[[[ return `${states['input_select.remote_control'].state}` ]]]"
             font_weight: bold
             entity: input_select.remote_control
+            content: Remote Control
         - type: conditional
           conditions:
             - entity: input_select.remote_control
-              state: "Woonkamer"
+              state: "Livingroom"
           card:
             type: custom:layout-card
             cards:
@@ -28,7 +28,7 @@
         - type: conditional
           conditions:
             - entity: input_select.remote_control
-              state: "Slaapkamer"
+              state: "Bedroom"
           card:
             type: custom:layout-card
             cards:
