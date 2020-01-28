@@ -3,4 +3,5 @@ background: rgba(0, 0, 0, 0.5)
 "--primary-text-color": "white !important"
 "--text-primary-color": "white !important"
 "--iron-icon": "#FFF"
+--paper-dialog-color: white !important
 color: white !important

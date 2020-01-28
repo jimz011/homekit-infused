@@ -6,14 +6,6 @@
 # condition. Edit the conditions, entities and notification content to
 # your own likings.
 
-# Please edit this file to your own need, I only provide this file as an
-# example on how to create this. In the first card (the All Clear card)
-# you should put in every entity that you want to show a notification with
-# as you only want that card to show if you have no notifications. Follow
-# the example below (srry the notifications are in Dutch so you will have
-# to use your own!) Do not make them too long as they might not fit in the
-# bar. Shorter notifications will probably look better!
-
 #### #### #### #### #### #### #### #### #### #### #### #### #### #### #
 
 # Card Config
@@ -46,8 +38,8 @@
       state: "off"
     - entity: binary_sensor.dafang_motion_sensor
       state: "off"
-    - entity: binary_sensor.motion_woonkamer
-      state: "off"
+ #   - entity: binary_sensor.motion_woonkamer
+ #     state: "off"
     - entity: binary_sensor.motion_office
       state: "off"
     - entity: binary_sensor.motion_gang
@@ -117,6 +109,8 @@
   conditions:
     - entity: sensor.anniversary_trouwdag
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -128,6 +122,8 @@
   conditions:
     - entity: sensor.anniversary_anniversary
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -139,10 +135,12 @@
   conditions:
     - entity: switch.afzuigkap
       state: "on"
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
-    - icon: mdi:fan
+    - icon: fas:fan
       name: De afzuigkap staat aan!
       spin: true
 # Voordeur
@@ -180,6 +178,8 @@
   conditions:
     - entity: input_select.droger_status
       state: Clean
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -190,6 +190,8 @@
   conditions:
     - entity: input_select.wasmachine_status
       state: Clean
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -200,6 +202,8 @@
   conditions:
     - entity: input_select.vaatwasser_status
       state: Clean
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -280,6 +284,8 @@
   conditions:
     - entity: vacuum.xiaomi_vacuum_cleaner
       state: cleaning
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -291,6 +297,8 @@
   conditions:
     - entity: vacuum.xiaomi_vacuum_cleaner
       state: idle
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -301,6 +309,8 @@
   conditions:
     - entity: vacuum.xiaomi_vacuum_cleaner
       state: paused
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -311,6 +321,8 @@
   conditions:
     - entity: vacuum.xiaomi_vacuum_cleaner
       state: returning
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -322,6 +334,8 @@
   conditions:
     - entity: sensor.vacuum_cleaner_error_sensor
       state_not: 'No Error'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -332,6 +346,8 @@
   conditions:
     - entity: input_boolean.apksteph
       state: "on"
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -343,6 +359,8 @@
   conditions:
     - entity: input_boolean.apkjimz
       state: "on"
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -356,6 +374,8 @@
   conditions:
     - entity: sensor.birthday_koos_van_duuren
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -367,6 +387,8 @@
   conditions:
     - entity: sensor.birthday_jimmy_schings
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -378,6 +400,8 @@
   conditions:
     - entity: sensor.birthday_stephanie_schings
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -389,6 +413,8 @@
   conditions:
     - entity: sensor.birthday_ralf_vogels
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -400,6 +426,8 @@
   conditions:
     - entity: sensor.birthday_jos_schings
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -411,6 +439,8 @@
   conditions:
     - entity: sensor.birthday_tala
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -422,6 +452,8 @@
   conditions:
     - entity: sensor.birthday_ad_van_dartel
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'
@@ -433,6 +465,8 @@
   conditions:
     - entity: sensor.birthday_rick_oosterbosch
       state: '0'
+    - entity: alarm_control_panel.home_alarm
+      state: disarmed      
   card:
     !include
     - '../templates/notification_template.yaml'

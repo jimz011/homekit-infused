@@ -22,7 +22,7 @@
 
 # Card Tools
   - url: /community_plugin/lovelace-card-tools/card-tools.js
-    type: js
+    type: module
 
 # Check Button Card (Requires MQTT)
   - url: /community_plugin/check-button-card/check-button-card.js
@@ -86,11 +86,11 @@
 
 # Lovelace More Info Card
   - url: /community_plugin/lovelace-more-info-card/more-info-card.js
-    type: js
+    type: module
 
 # Auto Entities
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
-    type: js
+    type: module
 
 # Air Visual Card (Requires Air Visual account and a sensor, it is free!)
   - url: /community_plugin/air-visual-card/air-visual-card.js

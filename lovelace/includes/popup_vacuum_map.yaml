@@ -8,12 +8,12 @@ cards:
     style: |
       ha-card {
         border-radius: {{ states('input_select.border_radius') }};
-        background: var(--card-color-off);
-        color: var(--label-color-off);
+        background: var(--paper-card-background-color);
+        color: var(--primary-text-color);
         box-shadow: {{ states('input_select.box_shadow') }};
       }
     {% endraw %}
     entity: {{ _global.vacuum[0] }}
-    map_{{type|default('image')}}: {{ _global.vacuum[30] }}
+    map_{{ _global.vacuum[31] }}: {{ _global.vacuum[30] }}
     calibration_points:
       !include ../includes/vacuum_calibration.yaml
