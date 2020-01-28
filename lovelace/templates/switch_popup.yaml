@@ -3,86 +3,42 @@
 # card
 type: vertical-stack
 cards:
-  - type: horizontal-stack
+  - type: custom:swipe-card
     cards:
-      - type: custom:button-card
-        color_type: blank-card
-        aspect_ratio: 1/1
-      - type: custom:button-card
-        name: Options
-        icon: mdi:cogs 
-        size: 100%
-        color: auto
-        entity: input_boolean.light_options
-        show_name: false
-        deep_press: true
-        show_state: false
-        show_label: false
-        tap_action:
-          action: toggle
-          haptic: light
-        hold_action:
-          action: toggle
-          haptic: light
-        styles:
-          card:
-            - --ha-card-background: transparant
-            - box-shadow: none
-            - width: 30px
-            - height: 30px
-          img_cell:
-            - align-self: start
-            - text-align: start
-          icon:
-            - color: white
-      - !include ../includes/blank-card-wide.yaml
-  - type: conditional
-    conditions:
-      - entity: input_boolean.light_options
-        state: "off"
-    card:
-      type: entities
-      style: |
-        ha-card {
-          --ha-card-background: transparant;
-          background: transparant;
-          box-shadow: none;
-          margin-top: -15px;
-        }
-      entities:
-        - type: custom:light-popup-card
-          entity: {{ entity }}
-          brightnessWidth: 110px
-          brightnessHeight: 410px
-          switchWidth: 110px
-          switchHeight: 410px
-  - type: conditional
-    conditions:
-      - entity: input_boolean.light_options
-        state: "on"
-    card:
-      type: entities
-      style: |
-        ha-card {
-          --ha-card-background: transparant;
-          background: transparant;
-          box-shadow: none;
-          --paper-slider-knob-color: white;
-          --paper-slider-knob-start-color: white;
-          --paper-slider-pin-color: white;
-          --paper-slider-active-color: white;
-        }
-      entities:
-        - type: custom:more-info-card
-          style: |
-            ha-card {
-              border-radius: none;
-              box-shadow: none;
-            }
-          entity: {{ entity }}
-          title: ' '
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 450px
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            margin-top: -15px;
+          }
+        entities:
+          - type: custom:light-popup-card
+            entity: {{ entity }}
+            brightnessWidth: 110px
+            brightnessHeight: 410px
+            switchWidth: 110px
+            switchHeight: 410px
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            --paper-slider-knob-color: white;
+            --paper-slider-knob-start-color: white;
+            --paper-slider-pin-color: white;
+            --paper-slider-active-color: white;
+            color: white !important;
+            --primary-text-color: white !important;
+          }
+        entities:
+          - type: custom:more-info-card
+            style: |
+              ha-card {
+                border-radius: none;
+                box-shadow: none;
+                margin-top: -40px;
+              }
+            entity: {{ entity }}

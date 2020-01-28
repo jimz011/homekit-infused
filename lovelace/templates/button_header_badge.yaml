@@ -21,20 +21,12 @@ tap_action:
   service_data:
     title: ' '
     style:
-      position: fixed
-      z-index: 999
-      top: 0
-      left: 0
-      height: 100%
-      width: 100%
-      display: block
-      align-items: center
-      justify-content: center
       background: rgba(0, 0, 0, 0.5)
-      flex-direction: column
-      margin: 0
       "--iron-icon-fill-color": "#FFF"
       "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
       color: white !important
     card:
       type: vertical-stack
@@ -49,23 +41,13 @@ hold_action:
   service_data:
     title: ' '
     style:
-      position: fixed
-      z-index: 999
-      top: 0
-      left: 0
-      height: 100%
-      width: 100%
-      display: block
-      align-items: center
-      justify-content: center
       background: rgba(0, 0, 0, 0.5)
-      flex-direction: column
-      margin: 0
       "--iron-icon-fill-color": "#FFF"
       "--iron-icon": "#FFF"
       --paper-item-icon-color: white !important
       --primary-text-color: white !important
       --text-primary-color: white !important
+      color: white !important
     card:
       type: vertical-stack
       cards:

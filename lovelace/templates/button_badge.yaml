@@ -12,7 +12,7 @@ lock:
   unlock: {{ lock_unlock|default('tap') }}
   duration: {{ lock_duration|default('5') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
-entity: {{ entity }}
+entity: {{ entity|default('input_boolean.dummy1') }}
 label: {{ label|default('"&nbsp;"') }}
 show_name: {{ show_name|default('true') }}
 show_icon: {{ show_icon|default('true') }}
@@ -20,15 +20,29 @@ show_state: {{ show_state|default('false') }}
 show_label: {{ show_label|default('true') }}
 show_last_changed: {{ show_last_changed|default('false') }}
 tap_action: 
-  action: call-service
-  service: {{ service|default('vacuum.send_command') }}
-  service_data:
-    entity_id: {{ service_entity }}
-    command: {{ command|default('app_zoned_clean') }}
-    params: "{{ params }}"
-  haptic: heavy
+  action: navigate
+  navigation_path: {{ navigation_path|default('/lovelace/about') }}
+  haptic: light
 hold_action:
-  action: none
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      --paper-dialog-color: white !important
+      color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('popup_device_counters.yaml') }}
+          - entity: {{ entity_badge }}
+    deviceID:
+      - this
+  haptic: heavy
 styles:
   card:
     - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
@@ -49,45 +63,38 @@ styles:
     - font-weight: bold
     - padding-left: 10px
 #    - color: var(--state-color-off) 
-  grid: {{ grid }}
   img_cell:
     - align-self: start
     - text-align: start
-    - margin-right: {{ margin_right|default('60px') }}
+    - margin-right: {{ margin_right|default('40px') }}
   name:
     - justify-self: start
     - padding-left: 10px
     - font-weight: bold
     - font-family: Helvetica 
     - font-size: 13px
+#    - color: var(--primary-text-color) 
+  icon:
+#    - color: var(--primary-text-color) 
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--notification-badge-color)
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - right: 7%
+      - top: 7%
+      - height: 22px
+      - width: 22px
+      - font-size: 11px
+      - line-height: 20px
+      - font-weight: bold
+custom_fields: 
+  notification: "{{ notification }}"
 state:
-  - value: "on" 
-    spin: {{ spin_on|default('false') }} 
-    styles:
-      card:
-        - --ha-card-background: white
-        - opacity: 1.0
-        - box-shadow: none
-      name:
-        - color: black 
-      state:
-        - color: black 
-      lock:
-        - color: gray
-      label:
-        - color: gray
   - value: "off"
     spin: {{ spin_off|default('false') }}
     styles:
       card:
-        - opacity: {{ opacity_off|default('0.5') }}
-        - --ha-card-background: "{{ card_color_off|default('var(--paper-card-background-color)') }}"
-      icon:
-        - color: "{{ icon_color_off|default('var(--paper-item-icon-color)') }}"
-        - animation: {{ animation|default('none') }}
-      name:
-        - color: "{{ name_color_off|default('var(--primary-text-color)') }}"
-      state:
-        - color: "{{ state_color_off|default('var(--primary-text-color)') }}"
-      label:
-        - color: "{{ label_color_off|default('var(--primary-text-color)') }}"
+        - opacity: {{ opacity_off|default('0.8') }}

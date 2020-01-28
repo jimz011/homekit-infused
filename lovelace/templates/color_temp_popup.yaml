@@ -3,122 +3,71 @@
 # card
 type: vertical-stack
 cards:
-  - type: horizontal-stack
+  - type: custom:swipe-card
     cards:
-      - type: custom:button-card
-        color_type: blank-card
-        aspect_ratio: 1/1
-      - type: custom:button-card
-        name: Options
-        icon: mdi:cogs 
-        size: 100%
-        color: auto
-        entity: input_boolean.light_options
-        show_name: false
-        deep_press: true
-        show_state: false
-        show_label: false
-        tap_action:
-          action: toggle
-          haptic: light
-        hold_action:
-          action: toggle
-          haptic: light
-        styles:
-          card:
-            - --ha-card-background: transparant
-            - box-shadow: none
-            - width: 30px
-            - height: 30px
-          img_cell:
-            - align-self: start
-            - text-align: start
-          icon:
-            - color: white
-      - !include ../includes/blank-card-wide.yaml
-  - type: conditional
-    conditions:
-      - entity: input_boolean.light_options
-        state: "off"
-    card:
-      type: entities
-      style: |
-        ha-card {
-          --ha-card-background: transparant;
-          background: transparant;
-          box-shadow: none;
-          margin-top: -15px;
-        }
-      entities:
-        - type: custom:light-popup-card
-          entity: {{ entity }}
-          brightnessWidth: 110px
-          brightnessHeight: 410px
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 11px
-        - type: 'custom:rgb-light-card'
-          entity: {{ entity }}
-          colors:
-            - color_temp: 153
-              transition: 2
-              icon_color: 'rgb(166, 209, 255)'
-            - color_temp: 227
-              transition: 2
-              icon_color: 'rgb(191, 222, 255)'
-            - color_temp: 300
-              transition: 2
-              icon_color: 'rgb(224, 239, 255)'
-          justify: center
-        - type: 'custom:rgb-light-card'
-          entity: {{ entity }}
-          colors:
-            - color_temp: 360
-              transition: 2
-              icon_color: 'rgb(255, 202, 112)'
-            - color_temp: 440
-              transition: 2
-              icon_color: 'rgb(255, 188, 74)'
-            - color_temp: 500
-              transition: 2
-              icon_color: 'rgb(255, 160, 0)'
-          justify: center
-  - type: conditional
-    conditions:
-      - entity: input_boolean.light_options
-        state: "on"
-    card:
-      type: entities
-      style: |
-        ha-card {
-          --ha-card-background: transparant;
-          background: transparant;
-          box-shadow: none;
-          --paper-slider-knob-color: white;
-          --paper-slider-knob-start-color: white;
-          --paper-slider-pin-color: white;
-          --paper-slider-active-color: white;
-        }
-      entities:
-        - type: custom:light-entity-card
-          style: |
-            ha-card {
-              border-radius: none;
-              box-shadow: none;
-            }
-          entity: {{ entity }}
-          brightness: false
-          persist_features: true
-          show_slider_percent: true
-          smooth_color_wheel: true
-          header: false
-          effects_list:
-            - None
-            - colorloop
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 450px
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            margin-top: -15px;
+          }
+        entities:
+          - type: custom:light-popup-card
+            entity: {{ entity }}
+            brightnessWidth: 110px
+            brightnessHeight: 410px
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - height: 11px
+          - type: 'custom:rgb-light-card'
+            entity: {{ entity }}
+            colors:
+              - color_temp: 153
+                transition: 2
+                icon_color: 'rgb(166, 209, 255)'
+              - color_temp: 227
+                transition: 2
+                icon_color: 'rgb(191, 222, 255)'
+              - color_temp: 300
+                transition: 2
+                icon_color: 'rgb(224, 239, 255)'
+            justify: center
+          - type: 'custom:rgb-light-card'
+            entity: {{ entity }}
+            colors:
+              - color_temp: 360
+                transition: 2
+                icon_color: 'rgb(255, 202, 112)'
+              - color_temp: 440
+                transition: 2
+                icon_color: 'rgb(255, 188, 74)'
+              - color_temp: 500
+                transition: 2
+                icon_color: 'rgb(255, 160, 0)'
+            justify: center
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            --paper-slider-knob-color: white;
+            --paper-slider-knob-start-color: white;
+            --paper-slider-pin-color: white;
+            --paper-slider-active-color: white;
+            color: white !important;
+            --primary-text-color: white !important;
+          }
+        entities:
+          - type: custom:more-info-card
+            style: |
+              ha-card {
+                border-radius: none;
+                box-shadow: none;
+                margin-top: -40px;
+              }
+            entity: {{ entity }}

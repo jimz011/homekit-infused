@@ -4,6 +4,7 @@
 type: custom:button-card
 name: Button
 icon: {{ icon|default('mdi:menu') }}
+deep_press: {{ _global.deep_press[0] }}
 size: {{ size|default('90%') }}
 color: auto
 entity: input_boolean.dummy1

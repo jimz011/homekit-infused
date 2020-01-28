@@ -3,8 +3,8 @@
 # card
 type: custom:button-card
 name: {{ name }}
-deep_press: {{ deep_press|default('true') }}
 icon: {{ icon }}
+deep_press: {{ _global.deep_press[0] }}
 size: {{ size|default('25%') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
@@ -26,59 +26,10 @@ tap_action:
       --paper-item-icon-color: white !important
       --primary-text-color: white !important
       --text-primary-color: white !important
+      --paper-dialog-color: white !important
     card:
       type: custom:layout-card
       cards:
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 50px
-        - !include
-          - {{ template|default('mini_graph_popup_variant.yaml') }}
-          - entity: {{ entity }}
-            line_color: {{ color }}
-            decimals: 1
-            graph_type: line
-            show_extrema: true
-            show_average: true
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 50px
-    deviceID:
-      - this
-  haptic: light
-hold_action:
-  action: call-service
-  service: browser_mod.popup
-  service_data:
-    title: ' '
-    style:
-      position: fixed
-      z-index: 999
-      top: 0
-      left: 0
-      height: 100%
-      width: 100%
-      display: block
-      align-items: center
-      justify-content: center
-      background: rgba(0, 0, 0, 0.5)
-      flex-direction: column
-      margin: 0
-      color: white !important
-      "--iron-icon-fill-color": "#FFF"
-      "--iron-icon": "#FFF"
-    card:
-      type: custom:layout-card
-      cards:
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 50px
         - !include
           - {{ template|default('mini_graph_popup_variant.yaml') }}
           - entity: {{ entity }}
@@ -88,25 +39,49 @@ hold_action:
             graph_type: line
             show_extrema: true
             show_average: true
-        - type: 'custom:button-card'
-          color_type: blank-card
-          styles:
-            card:
-              - height: 50px
+    deviceID:
+      - this
+  haptic: light
+hold_action:
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      margin: 0
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      --paper-dialog-color: white !important
+    card:
+      type: custom:layout-card
+      cards:
+        - !include
+          - {{ template|default('mini_graph_popup_variant.yaml') }}
+          - entity: {{ entity }}
+            line_color: {{ color }}
+            font_size: 53
+            decimals: 1
+            graph_type: line
+            show_extrema: true
+            show_average: true
     deviceID:
       - this
   haptic: heavy
 styles:
   card:
     - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-    - --ha-card-background: "var(--card-color-off)"
+#    - --ha-card-background: "var(--paper-card-background-color)"
     - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
   label:
     - font-size: 11px
     - font-family: Helvetica
     - padding: 0px 10px
     - justify-self: start
-    - color: var(--label-color-off) 
+#    - color: var(--primary-text-color) 
   state:
     - font-size: 11px
     - font-family: Helvetica
@@ -115,7 +90,7 @@ styles:
     - text-transform: capitalize
     - font-weight: bold
     - padding-left: 10px
-    - color: var(--state-color-off) 
+#    - color: var(--state-color-off) 
   img_cell:
     - align-self: start
     - text-align: start
@@ -131,27 +106,27 @@ state:
     styles:
       card:
         - opacity: {{ opacity_off|default('0.8') }}
-      icon:
-        - color: var(--icon-color-off)
-      name:
-        - color: var(--name-color-off)
-      state:
-        - color: var(--state-color-off)
-      label:
-        - color: var(--label-color-off)
-      lock:
-        - color: var(--lock-color-off)
+#      icon:
+#        - color: var(--paper-item-icon-color)
+#      name:
+#        - color: var(--primary-text-color)
+#      state:
+#        - color: var(--state-color-off)
+#      label:
+#        - color: var(--primary-text-color)
+#      lock:
+#        - color: var(--paper-item-icon-color)
   - value: "unavailable"
     styles:
       card:
-        - opacity: 0.4
+        - opacity: 0.2
       icon:
-        - color: var(--icon-color-off)
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
       name:
-        - color: var(--name-color-off)
+        - color: var(--primary-text-color)
       state:
         - color: hsl(0, 100%, 50%)
       label:
-        - color: var(--label-color-off)
+        - color: var(--primary-text-color)
       lock:
-        - color: var(--lock-color-off)  
+        - color: var(--paper-item-icon-color) 

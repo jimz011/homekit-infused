@@ -3,8 +3,8 @@
 # card
 type: custom:button-card
 name: {{ name }}
-deep_press: {{ deep_press|default('true') }}
 icon: {{ icon }}
+deep_press: {{ _global.deep_press[0] }}
 color: {{ color|default('auto') }}
 size: {{ size|default('25%') }}
 lock:
@@ -30,14 +30,14 @@ hold_action:
 styles:
   card:
     - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-    - --ha-card-background: "var(--card-color-off)"
+#    - --ha-card-background: "var(--paper-card-background-color)"
     - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
   label:
     - font-size: 11px
     - font-family: Helvetica
     - padding: 0px 10px
     - justify-self: start
-    - color: var(--label-color-off) 
+#    - color: var(--primary-text-color) 
   state:
     - font-size: 11px
     - font-family: Helvetica
@@ -46,7 +46,7 @@ styles:
     - text-transform: capitalize
     - font-weight: bold
     - padding-left: 10px
-    - color: var(--state-color-off) 
+#    - color: var(--state-color-off) 
   img_cell:
     - align-self: start
     - text-align: start
@@ -64,12 +64,12 @@ state:
       card:
         - opacity: 0.8
       icon:
-        - color: {{ icon_color_off|default('var(--icon-color-off)') }}
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
       name:
-        - color: var(--name-color-off)
+        - color: var(--primary-text-color)
       state:
-        - color: var(--state-color-off)
+        - color: var(--primary-text-color)
       label:
-        - color: var(--label-color-off)
+        - color: var(--primary-text-color)
       lock:
-        - color: var(--lock-color-off)  
+        - color: var(--paper-item-icon-color)

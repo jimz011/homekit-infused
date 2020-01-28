@@ -8,6 +8,7 @@ style: |
   }
 name: "{{ name }}"
 icon: "{{ icon|default('mdi:home') }}"
+deep_press: {{ _global.deep_press[0] }}
 size: 100%
 entity: {{ entity|default('input_boolean.dummy1') }}
 show_state: false
@@ -17,14 +18,14 @@ tap_action: none
 hold_action: none
 styles:
   card:
-    - --ha-card-background: transparant
+#    - --ha-card-background: transparant
     - box-shadow: none
     - height: 45px
     - width: {{ width|default('300px') }}
   name:
     - font-size: 13px
     - font-family: Helvetica
-    - color: var(--header-color)
+    - color: 'white'
     - justify-self: {{ justify_self|default('start') }}
     - padding-left: {{ padding_left|default('0px') }}
     - font-weight: {{ font_weight|default('bold') }}
@@ -33,7 +34,7 @@ styles:
     - grid-template-columns: 2fr
     - grid-template-rows: 1fr
   icon:
-    - color: var(--header-color)
+    - color: 'white'
 state:
   - value: "off"
     spin: {{ spin|default('false') }}

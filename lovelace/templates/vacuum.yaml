@@ -3,16 +3,6 @@
 # Card
 type: vertical-stack
 cards:
-  - type: markdown
-    style: |
-      ha-card {
-        box-shadow: none;
-        height: 33px;
-        background: none;
-        padding: 0px -10px;
-        color: var(--header-color);
-      }
-    content: '##### Overview'
   - type: custom:layout-card
     min_columns: 2
     max_columns: 2
@@ -41,6 +31,16 @@ cards:
           show_state: false
           margin_right: 128px
           template: popup_vacuum_map.yaml
+  - type: markdown
+    style: |
+      ha-card {
+        box-shadow: none;
+        height: 33px;
+        background: none;
+        padding: 0px -10px;
+        color: var(--header-color);
+      }
+    content: '##### Controls'
   - type: custom:layout-card
     min_columns: 4
     max_columns: 4
@@ -70,10 +70,10 @@ cards:
               service_entity: {{ service_entity }}
               opacity_off: 1.0
               margin_right: 40px
-              card_color_off: 'var(--card-color-on)'
+              card_color_off: 'white'
               icon_color_off: 'Green'
               name_color_off: 'var(--name-color-on)'
-              label_color_off: 'var(--label-color-on)'
+              label_color_off: 'black'
               animation: blink 2s ease infinite
       - type: custom:state-switch
         entity: {{ service_entity }}
@@ -98,10 +98,10 @@ cards:
               service_entity: {{ service_entity }}
               opacity_off: 1.0
               margin_right: 40px
-              card_color_off: 'var(--card-color-on)'
+              card_color_off: 'white'
               icon_color_off: 'Orange'
               name_color_off: 'var(--name-color-on)'
-              label_color_off: 'var(--label-color-on)'
+              label_color_off: 'black'
               animation: blink 2s ease infinite
       - type: custom:state-switch
         entity: {{ service_entity }}
@@ -126,10 +126,10 @@ cards:
               service_entity: {{ service_entity }}
               opacity_off: 1.0
               margin_right: 40px
-              card_color_off: 'var(--card-color-on)'
+              card_color_off: 'white'
               icon_color_off: 'Red'
               name_color_off: 'var(--name-color-on)'
-              label_color_off: 'var(--label-color-on)'
+              label_color_off: 'black'
               animation: blink 2s ease infinite
       - !include
         - button_service_call.yaml
@@ -181,10 +181,10 @@ cards:
               service_entity: {{ input_select }}
               margin_right: 40px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
-              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
-              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
-              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `black` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Quiet') return `gray` ]]]"
               spin_off: true
               option: Quiet
       - type: custom:state-switch
@@ -211,10 +211,10 @@ cards:
               service_entity: {{ input_select }}
               margin_right: 40px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
-              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
-              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
-              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `black` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Turbo') return `gray` ]]]"
               spin_off: true
               option: Turbo
       - type: custom:state-switch
@@ -239,10 +239,10 @@ cards:
               service_entity: {{ input_select }}
               margin_right: 40px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
-              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `Dodgerblue`; else return `var(--icon-color-off)` ]]]"
-              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
-              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `black` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Max') return `gray` ]]]"
               spin_off: true
               option: Max
       - type: custom:state-switch
@@ -267,10 +267,10 @@ cards:
               service_entity: {{ input_select }}
               margin_right: 40px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
-              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `Orange`; else return `var(--icon-color-off)` ]]]"
-              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
-              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `Orange`; ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `black` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Balanced') return `gray` ]]]"
               spin_off: true
               option: Balanced
   - type: custom:layout-card
@@ -309,10 +309,10 @@ cards:
               service_entity: {{ input_select }}
               margin_right: 300px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--card-color-on)`; else return `var(--card-color-off)` ]]]"
-              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `Navy`; else return `var(--icon-color-off)` ]]]"
-              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--name-color-on)`; else return `var(--name-color-off)` ]]]"
-              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `var(--label-color-on)`; else return `var(--label-color-off)` ]]]"
+              card_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `Navy`; ]]]"
+              name_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `black` ]]]"
+              label_color_off: "[[[ if (states['{{ input_select }}'].state == 'Mop') return `gray` ]]]"
               spin_off: true
               option: Mop
   - type: markdown

@@ -10,6 +10,7 @@ style: |
     color: white !important;
     box-shadow: none;
     font-weight: bold;
+    --paper-dialog-color: white !important;
   }
 entities: 
   - entity: {{ entity }}

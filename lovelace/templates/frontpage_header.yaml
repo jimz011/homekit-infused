@@ -1,4 +1,3 @@
-# Card 
 type: entities
 style: |
   ha-card {
@@ -50,62 +49,15 @@ entities:
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
-          - type: conditional
-            conditions:
-              - entity: alarm_control_panel.home_alarm
-                state: disarmed
-            card:
-              type: custom:swipe-card
-              parameters:
-                effect: 'coverflow'
-                allowTouchMove: true
-                grabCursor: true
-                autoplay:
-                  disableOnInteraction: false
-              cards:
-                !include ../notifications/notifications.yaml
-          - type: conditional
-            conditions:
-              - entity: alarm_control_panel.home_alarm
-                state_not: disarmed
-            card:
-              type: custom:swipe-card
-              parameters:
-                effect: 'coverflow'
-                allowTouchMove: true
-                grabCursor: true
-                autoplay:
-                  disableOnInteraction: false
-              cards:
-                # Smoke Detector Triggered
-                - type: conditional
-                  conditions:
-                    - entity: binary_sensor.lumi_sensor_smoke
-                      state: "on"
-                  card:
-                    !include
-                    - notification_template.yaml
-                    - entity: input_boolean.notification_smoke_detector
-                      icon: mdi:smoke-detector
-                      name: Er is rook gesignaleerd in de keuken!!
-                      spin: true
-                # Alarm Triggered
-                - type: conditional
-                  conditions:
-                    - entity: alarm_control_panel.home_alarm
-                      state: "triggered"
-                  card:
-                    !include
-                    - notification_template.yaml
-                    - entity: input_boolean.notification_alarm
-                      icon: mdi:alert 
-                      name: LET OP! Het alarm is afgegaan, LET OP!
-                # Alarm Armed
-                - !include
-                  - notification_template.yaml
-                  - entity: input_boolean.notification_alarm
-                    icon: mdi:alert
-                    name: LET OP! Het alarm is ingeschakeld!
+          - type: custom:swipe-card
+            parameters:
+              effect: 'coverflow'
+              allowTouchMove: true
+              grabCursor: true
+              autoplay:
+                disableOnInteraction: false
+            cards:
+              !include ../notifications/notifications.yaml
           - type: custom:button-card
             name: Home
             icon: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return 'mdi:lock-open'; else return 'mdi:lock-alert'; ]]]"
@@ -121,7 +73,9 @@ entities:
               navigation_path: '/lovelace/alarm'
               haptic: light
             tap_action:
-              action: none
+              action: navigate
+              navigation_path: '/lovelace/alarm'
+              haptic: light
             styles:
               card:
                 - --ha-card-background: Gray

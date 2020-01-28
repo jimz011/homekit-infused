@@ -1,3 +1,12 @@
+input_boolean.dummy1:
+  title: 'Notifications'
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      !include ../notifications/notifications.yaml
+
 person.jimmy:
   title: ' '
   style:

@@ -36,7 +36,7 @@ entities:
               entity: group.all_window_sensors
           - !include
             - button_header_badge.yaml
-            - icon: far:sensor
+            - icon: mdi:motion-sensor
               background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
               badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
               entity: group.all_motion_smoke_sensors

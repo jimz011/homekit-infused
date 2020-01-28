@@ -5,9 +5,9 @@ type: 'custom:mini-graph-card'
 {% raw %}
 style: |
   ha-card {
-    background: var(--card-color-off);
+    background: var(--paper-card-background-color);
     border-radius: {{ states('input_select.border_radius') }};
-    --paper-item-icon-color: var(--icon-color-off);
+    --paper-item-icon-color: var(--paper-item-icon-color);
     box-shadow: {{ states('input_select.box_shadow') }};
     font-weight: bold;
     opacity: 0.8;
