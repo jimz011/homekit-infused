@@ -7,11 +7,11 @@
 - [Preparation](preparation.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
+- [Updates and Addons](updates.md)
 - [Tips & Tricks](tips.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
 - [Thanks](thanks.md)
-
 
 # IMPORTANT NOTES
 First of all I want to thank you all for your patience and support, it really means a lot to me. Though I do want to ask you to help each other out as well and not spam me constantly with support questions.
