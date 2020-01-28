@@ -7,6 +7,7 @@
 - [Preparation](preparation.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
+- [Updates and Addons](updates.md)
 - [Tips & Tricks](tips.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
