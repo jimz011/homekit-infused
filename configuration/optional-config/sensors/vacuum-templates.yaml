@@ -1,15 +1,4 @@
 # Xiaomi Vacuum Sensors
-  - platform: rest
-    resource: http://192.168.0.11/api/map/latest
-    name: xiaomi_map
-    json_attributes:
-      - image
-      - path
-      - charger
-      - robot
-    value_template: 'OK'
-    scan_interval: 5
-
   - platform: template 
     sensors:
       vacuum_battery:
