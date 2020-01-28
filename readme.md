@@ -5,12 +5,12 @@ If you find any information on this page useful, feel free to buy me a coffee:
 # Homekit Infused (Lovelace) by Jimz011 January 2020 v 1.0b (*updated: 28/01/2020)
 My current Home Assistant version is 0.104.3
 
-# Click here for my [YouTube](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) channel
-### Click here for [Documentation](https://jimz011.github.io/homeassistant/)
-### Click here for [Updates](https://github.com/jimz011/homeassistant/tree/updates) (only available after HKI 1.0 beta release)
-### Click here for older [Releases](https://github.com/jimz011/homeassistant/releases)
-### Click here for my personal [Setup](https://github.com/jimz011/homeassistant/tree/personal) (Can be handy for the many useful examples)
-### Click here for my HA Commmunity Forum [Thread](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
+# [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
+### [Click here](https://jimz011.github.io/homeassistant/) for documentation
+### [Click here](https://github.com/jimz011/homeassistant/tree/updates) for updates (only available after HKI 1.0 beta release)
+### [Click here](https://github.com/jimz011/homeassistant/releases) for older releases
+### [Click here](https://github.com/jimz011/homeassistant/tree/personal) for my personal setup(Can be handy for the many useful examples)
+### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Commmunity Forum Thread
 
 #### About
 Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.0b.
@@ -25,9 +25,9 @@ Video: CLICK ON THE IMAGE TO START VIDEO (coming soon!)
 
 Please ask any question you have on the [HA Community Forums](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
 
-Or join one of my two Slack groups:
-English Speaking: (warning: non-english speakers will be removed)
+#### Or join one of my two Slack groups:
+English Speaking: (warning: non-english speakers will be removed).
 [Click Here for English](https://join.slack.com/t/homeassistanten/shared_invite/enQtNzg1NzQyOTI4ODE2LWVhMmY3ZjMxMThhOTk1OWEwY2E4NDE0YmViZWI3NjUyNzIyMzIwNTkwMzlmMDA5N2I0MTQ4MDhiYTkwYWFlZDU)
 
-Dutch Speaking (warning: non-dutch speakers will be removed)
+Dutch Speaking (warning: non-dutch speakers will be removed).
 [Click Here for Dutch](https://join.slack.com/t/homeassistantnlbe/shared_invite/enQtNzc4MzAwMTEyNDIwLTgwZGVmNmNhZjZkNmVkMjM1NTM3N2UwODIzZTFjMzY1ZmUyMGJiZDU5ZTEyZWEyYzMzYzQzYWJmNGE3MWVjN2I)
