@@ -53,8 +53,7 @@ Required Plugins:
   - Weather Card 
   - Auto Entities
   - Air Visual Card (Requires Air Visual account and a sensor, it is free!)
-  - Waze Travel Card
-  - Lovelace More Info Card (required)
+  - Lovelace More Info Card
 
 Optional Plugins:
   - Upcoming Media Card (Plex, Sonarr and/or Radarr required)
@@ -74,20 +73,14 @@ Required Components:
   - Average Sensor
 
 Optional Components:
-  - Afvalbeheer (for Dutch waste collection)
   - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
   - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
   - Xbox One (add the following repository to your hassio addons https://github.com/hunterjm/hassio-addons, this component will work for non hassio installs as well)
-  - ESPHome (add the following repository to your hassio addons https://github.com/esphome/hassio, I have not tested this on a non hassio install)
 
 Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
 Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
   - Imap (optional, only required if using outlook/hotmail/live email addresses, copy this from my repo into your folder)
-  - Apple TV MRP (optional, if you have an Apple TV you might want this until the core version is fixed!) (https://github.com/chamberlain2007/apple_tv_mrp)
   - RDW (optional, Dutch Car Registration Sensor, copy this from my repo into your folder)
-  - Xbox One (optional, if you own an Xbox you can use this component to control it, visit the following link on how to install this on either hassio or standard ha) (https://github.com/hunterjm/hassio-addons/tree/master/xboxone)
-  - Custom-UI (optional, gives you the ability to template icons/names/etc in customize.yaml, editing this file was already discussed in the preparation section of the guide. This is not required but if you want system-wide dynamic icons you will want this) (https://github.com/andrey-git/home-assistant-custom-ui)
-  - Customizer (required when using Custom-UI, when installing Custom-UI you will need this component as well) (https://github.com/andrey-git/home-assistant-customizer/)
 
 # Copying
 ### Notes
@@ -117,22 +110,17 @@ To copy the files you will need all the following files/folders from my repo.
   - Delete the contents from your `/www/community/light-popup/` folder and copy the .js file from my repo into there
   - Delete the contents from your `/www/community/thermostat-popup/` folder and copy the .js file from my repo into there
   I am still looking into this, however without the slight changes I made to this card it might look bad or not work the way it is supposed to. Please do this, it is relatively simple!
-- If you need any of the custom_components you can copy them (the imap sensor is only needed for hotmail/outlook users, rdw is only for Dutch citizens with a car and you can take the xbox one component if you do not have hass.io as you can't install addons without hassio)
+  
+- If you need any of the custom_components you can copy them (the imap sensor is only needed for hotmail/outlook users, rdw is only for Dutch citizens with a car) If you don't need any of these skip this.
 
 - Now choose your layout. You have the choice between the following frontpage layouts:
   1. Default (two large photos and a smaller photo in the middle)
   2. 2-persons (two large photos, no middle photo)
   3. 4-persons (four large photos)
   4. 4-persons (two large photos, two smaller photos)
-- If you have chosen your layout, please do the following, the number corresponds to the number in the list above.
-  1. You don't need to do anything, this is the default setting
-  2. You will need to copy `00.frontpage_two_persons.yaml` from the addons (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
-  3. You will need to copy `00.frontpage_four_persons_large_large.yaml` from the addons (found on the repo) to your `lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
-  4. You will need to copy `00.frontpage_four_persons_large_small.yaml` from the addons (found on the repo) to your `lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
+- If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
   
-Note: the `/esphome/` folder is there as an example for you to use if you happen to use ESPHome.
-If you need examples of how I did things please check out my personal branch (you can find a link on my repo's homepage).
-
+Note: If you need examples for any or this you can always check out my personal branch (just go the the main page of this repo and then select branch: personal from the dropdown menu).
 The copying process should now be completed and we can move on to the configuration part.
 
 I am pretty sure you are already quite some time at this, maybe you should take a break now? XD!
