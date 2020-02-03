@@ -1,1 +1,0 @@
-"[[[ if (states['sensor.wasmachine_power'].state > 0) return `${states['sensor.wasmachine_power'].state} W`; else return '&nbsp;' ]]]"
