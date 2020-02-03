@@ -1,9 +1,0 @@
-- platform: average
-  name: 'Average Temperature'
-  precision: 1
-  entities:
-    - sensor.woonkamer
-    - sensor.kleine_kamer_temperatuur
-    - sensor.slaapkamer
-    - sensor.keuken_temperatuur
-    - sensor.badkamer_2
