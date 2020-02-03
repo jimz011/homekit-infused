@@ -1,5 +1,0 @@
-
-- platform: wake_on_lan
-  mac: "00-00-00-00-00-00"
-  name: Windows Server 2016
-  host: "192.168.0.3"
