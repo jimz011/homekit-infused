@@ -19,43 +19,33 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
 ### Prerequisites
   - First create github account if you do not already have one
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
-  - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this, either the proper way or the quick and dirty way.
-The proper way would be to install each and every custom component and card manually through HACS. You can do this by going to the sidebar>HACS (it could also be called community)
-Search for each of the addons listed below and install them one by one.
-The quick and dirty way would be copying the entire www/community folder from the HKI project to your own.
-There are pro's and cons for both methods. The proper way will allow you to update the addons through HACS and be notified about them, however it might break the setup if I haven't fixed the code for breaking changes.
-The quick and dirty way allows for a 100% working one with the current downloaded project. However HACS won't know you have these files and you are not able to update them through HACS.
-If you are lazy for whatever reason, you could use the quick and dirty method and search for the addons in HACS later on (it will simply overwrite the old card and it would give the ability to update again)
-Your choice. Depending on the choice this can take from 2 minutes to a whopping 30 minutes to install. It really depends on a lot of factors and chosen method on how long this might take. Remember I talked about not rushing it!
-    
-Find the following addons on HACS (you do not need to add them to the resources, I have already done this for you!)
-In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
-If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Remember that you need to check out the documenatation of how to use them for each plugin or component. Plugins are not so important to know how they work straight away as they will work fine without you knowing how to use them, however I do recommend you to read the custom-components documentation of each component as they are all different and some of the components will need some of your user input (it usually isn't that much).
+  - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this. Either copy all the contents of the `/www/community/` folder to your own `/www/community/` folder. This will not allow you to update the addons in the future. Or find them in the HACS community store, this method is preferred and allows you to update addons in the future.
+
+The following addons are needed and can be found in the HACS plugin store!
+You won't need to add them to the resources file as I have already done this for you.
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Weather Card | Module | Yes | [] |
-| Card-Mod | Module | Yes | [] |
-| Button Card | Module | Yes | [] |
-| Light Entity Card | js | Yes | [] |
-| Mini Graph Card | Module | Yes | [] |
-| Auto-Entities | Module | Yes | [] |
-| Layout Card | Module | Yes | [] |
-| Custom Header | Module | Yes | [] |
-| More-Info-Card | Module | Yes | [] |
-| RGB Light Card | js | Yes | [] |
-| Card Tools | Module | Yes | [] |
-| Button Card | Module | Yes | [] |
-| Check Button Card | js | Yes | [] |
-| Mini Media Player | js | Yes | [] |
-| Vertical-Stack-in-Card | js | Yes | [] |
-| Simple Weather Card | Module | Yes | [] |
-| Swipe Card | Module | Yes | [] |
-| State-Switch | Module | Yes | [] |
-| Air Visual Card | js | Yes | [] |
-| Upcoming Media Card | js | No | [] |
-| Lovelace Xiaomi Vacuum Map Card | Module | No | [] |
-| GUI Toolbox Card | Module | No | [] |
+| [Weather Card] | Module | Yes | This is the animated weather card used in the weather view|
+| Card-Mod | Module | Yes | This mod allows for custom css on any card |
+| Button Card | Module | Yes | This is the button used throughout the entire setup |
+| Mini Graph Card | Module | Yes | This is the mini-graph used in some of the popup cards |
+| Auto Entities | Module | Yes | This is one of the most important addons as auto-filling requires this addon |
+| Layout Card | Module | Yes | This addon is used as a replacement for vertical and horizontal stacks |
+| Custom Header | Module | Yes | This is used to modify the standard Home Assistant header |
+| More Info Card | Module | Yes | This card is used in most popups |
+| RGB Light Card | js | Yes | This card is used in conjuction with the light-popup card |
+| Card Tools | Module | Yes | This is needed for various custom cards to run |
+| Check Button Card | js | Yes | This is the used in the cleaning view and makes checklists possible |
+| Mini Media Player | js | No | This is a beautiful replacement for the built-in media player |
+| Vertical-Stack-in-Card | js | Yes | This is like an entities-card but serves only for one purpose, to make cards tighter together and look like a single card |
+| Simple Weather Card | Module | Yes | This is the weather banner found on the frontpage |
+| Swipe Card | Module | Yes | This card is needed for the scrolling notifications, but also for most popups |
+| State-Switch | Module | Yes | This card is an addition to conditional-cards, it works similar but has some extra features |
+| Air Visual Card | js | Yes | This card is used in the weather view |
+| Upcoming Media Card | js | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr|
+| Lovelace Xiaomi Vacuum Map Card | Module | No | This is the map card used for vacuum cleaners |
+| GUI Toolbox Card | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
 
 Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
 Add all the repositories below as a 'plugin', choose it from the dropdown menu
