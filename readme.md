@@ -5,8 +5,6 @@ If you find any information on this page useful, feel free to buy me a coffee:
 # Homekit Infused (Lovelace) by Jimz011 Februari 2020 v1.0RC (*updated: 04/02/2020)
 My current Home Assistant version is 0.105.0b6
 
-# Project is pending an update, I advise you to wait till the RC drops later tonight!
-
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homeassistant/) for documentation
 ### [Click here](https://github.com/jimz011/homeassistant/tree/updates) for updates (only available after HKI 1.0 beta release)
