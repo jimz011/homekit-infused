@@ -20,7 +20,7 @@ I thank all of you in advance for sharing your tips and tricks for Homekit Infus
 Sharing a tutorial, trick or tip here with us will give it a better place than on the HA forums as it will fade away into the background because of all the messages. Info will always stand out here and thus easier to find for new and existing users.
 Thanks again for sharing your experiences.
 
-## Groups and Rooms
+#### Groups and Rooms
 How to create groups and rooms for HKI's auto-filled views?
 Copy a set of groups from the `hki_groups.yaml` file. They usually come in sets, e.g. 
 ``` 
