@@ -367,21 +367,9 @@
     - icon: fal:steering-wheel
       name: "[[[ return `APK Peugeot 207 SW verloopt op ${states['sensor.peugeot_207_expdate'].state}` ]]]"
       spin: true
+      
 ## Birthdays
 
-# Koos van Duuren
-- type: conditional
-  conditions:
-    - entity: sensor.birthday_koos_van_duuren
-      state: '0'
-    - entity: alarm_control_panel.home_alarm
-      state: disarmed      
-  card:
-    !include
-    - '../templates/notification_template.yaml'
-    - entity: input_boolean.notification_birthday
-      icon: fal:gift
-      name: "[[[ return `Koos van Duuren is vandaag ${states['sensor.birthday_koos_van_duuren'].attributes.years} geworden!` ]]]"
 # Jimmy Schings
 - type: conditional
   conditions:
@@ -408,32 +396,7 @@
     - entity: input_boolean.notification_birthday
       icon: fal:gift
       name: "[[[ return `Stephanie Schings is vandaag ${states['sensor.birthday_stephanie_schings'].attributes.years} geworden!` ]]]"
-# Ralf Vogels
-- type: conditional
-  conditions:
-    - entity: sensor.birthday_ralf_vogels
-      state: '0'
-    - entity: alarm_control_panel.home_alarm
-      state: disarmed      
-  card:
-    !include
-    - '../templates/notification_template.yaml'
-    - entity: input_boolean.notification_birthday
-      icon: fal:gift
-      name: "[[[ return `Ralf Vogels is vandaag ${states['sensor.birthday_ralf_vogels'].attributes.years} geworden!` ]]]"
-# Jos Schings
-- type: conditional
-  conditions:
-    - entity: sensor.birthday_jos_schings
-      state: '0'
-    - entity: alarm_control_panel.home_alarm
-      state: disarmed      
-  card:
-    !include
-    - '../templates/notification_template.yaml'
-    - entity: input_boolean.notification_birthday
-      icon: fal:gift
-      name: "[[[ return `Jos Schings is vandaag ${states['sensor.birthday_jos_schings'].attributes.years} geworden!` ]]]"
+
 # Tala
 - type: conditional
   conditions:
@@ -447,30 +410,3 @@
     - entity: input_boolean.notification_tala
       icon: mdi:dog-side
       name: "[[[ return `Tala is vandaag ${states['sensor.birthday_jimmy_schings'].attributes.years} geworden!` ]]]"
-# Ad van Dartel
-- type: conditional
-  conditions:
-    - entity: sensor.birthday_ad_van_dartel
-      state: '0'
-    - entity: alarm_control_panel.home_alarm
-      state: disarmed      
-  card:
-    !include
-    - '../templates/notification_template.yaml'
-    - entity: input_boolean.notification_birthday
-      icon: fal:gift
-      name: "[[[ return `Ad van Dartel is vandaag ${states['sensor.birthday_ad_van_dartel'].attributes.years} geworden!` ]]]"
-# Rick Oosterbosch
-- type: conditional
-  conditions:
-    - entity: sensor.birthday_rick_oosterbosch
-      state: '0'
-    - entity: alarm_control_panel.home_alarm
-      state: disarmed      
-  card:
-    !include
-    - '../templates/notification_template.yaml'
-    - entity: input_boolean.notification_birthday
-      icon: fal:gift
-      name: "[[[ return `Rick Oosterbosch is vandaag ${states['sensor.birthday_rick_oosterbosch'].attributes.years} geworden!` ]]]"
-
