@@ -40,7 +40,7 @@ switch.washingmachine:
 ```
 
 Remember that you MUST fill in this file. Homekit Infused has no options to edit the names within the frontend, the interface will work without it, but you will have the same icons everywhere which isn't what you want. These preparations are not only useful for HKI but for Home Assistant in general.
- 
+- Create a weather sensor (preferably Dark Sky) without a configured weather sensor the frontpage might not load! https://www.home-assistant.io/integrations/weather.darksky/
 
 #### Optional
 - The prefered way would be to do a clean install.
