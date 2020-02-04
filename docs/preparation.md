@@ -41,9 +41,9 @@ switch.washingmachine:
   icon: mdi:washing-machine
 ```
 
- Remember that you MUST fill in this file. Homekit Infused has no options to edit the names within the frontend, it might still work with . Both methods will help you create a better and more beautiful frontend (even if you don't use HKI). Use Custom-UI if you want dynamic icons! (see installation section on how to)
+Remember that you MUST fill in this file. Homekit Infused has no options to edit the names within the frontend, the interface will work without it, but you will have the same icons everywhere which isn't what you want. These preparations are not only useful for HKI but for Home Assistant in general.
  
 
-#### Optional 
+#### Optional
 - The prefered way would be to do a clean install.
 - Patience, do not rush something like this. Imagine all the months of work I have put into this? So taking some extra time to undertake this is not such a bad idea.
