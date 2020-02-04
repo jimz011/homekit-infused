@@ -104,6 +104,12 @@ frontend:
 ```
 Note: once again, you can't have `frontend:` twice!
 
+- You must set the following line in `configuration.yaml` without it, it will NOT work!
+```
+lovelace:
+    mode: yaml
+```
+
 - Now choose your layout. You have the choice between the following frontpage layouts:
 1. Default (two large photos and a smaller photo in the middle)
 2. 2-persons (two large photos, no middle photo)
