@@ -1,0 +1,13 @@
+# lovelace_gen
+
+- title: {{ _global.certificates_header.title|default('Certificates') }}
+  path: certificates
+  icon: {{ _global.certificates_header.icon|default('mdi:file-certificate') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.certificates_header.subtitle|default('Expiration overview') }}
+            icon: {{ _global.certificates_header.icon|default('mdi:file-certificate') }}
+            content: {{ _global.certificates_header.title|default('Certificates') }}

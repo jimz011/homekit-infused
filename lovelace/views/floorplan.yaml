@@ -1,0 +1,27 @@
+# lovelace_gen
+
+- title: {{ _global.floorplan_header.title|default('Floorplan') }}
+  path: floorplan
+  icon: {{ _global.floorplan_header.icon|default('mdi:floor-plan') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.floorplan_header.subtitle|default('Tap and hold image to download') }}
+            icon: {{ _global.floorplan_header.icon|default('mdi:floor-plan') }}
+            content: {{ _global.floorplan_header.title|default('Floorplan') }}
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: picture
+                  {% raw %}
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }
+                  {% endraw %}
+                  aspect_ratio: 1.78
+                  image: {{ _global.floorplan.image|default('/local/images/floorplan.jpg') }}

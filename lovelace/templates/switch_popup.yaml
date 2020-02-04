@@ -1,0 +1,46 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: custom:swipe-card
+    cards:
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            margin-top: -15px;
+          }
+        entities:
+          - type: custom:light-popup-card
+            entity: {{ entity }}
+            brightnessWidth: 110px
+            brightnessHeight: 410px
+            switchWidth: 110px
+            switchHeight: 410px
+            fullscreen: false
+            supportedFeaturesTreshold: {{ _global.lights_popup.supportedFeaturesTreshold|default('9') }}
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            --paper-slider-knob-color: white;
+            --paper-slider-knob-start-color: white;
+            --paper-slider-pin-color: white;
+            --paper-slider-active-color: white;
+            color: white !important;
+            --primary-text-color: white !important;
+          }
+        entities:
+          - type: custom:more-info-card
+            style: |
+              ha-card {
+                border-radius: none;
+                box-shadow: none;
+                margin-top: -40px;
+              }
+            entity: {{ entity }}

@@ -1,0 +1,200 @@
+# lovelace_gen
+
+- title: {{ _global.frontpage_header.title|default('Home') }}
+  path: home
+  icon: {{ _global.frontpage_header.icon|default('mdi:home') }}
+  cards: 
+    - type: vertical-stack
+      cards:
+        - !include '../templates/frontpage_header.yaml'
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - !include
+                  - '../templates/weather_card.yaml'
+                  - city_name: {{ _global.frontpage_weather.city_name|default('Eindhoven') }}
+                    entity: {{ _global.frontpage_weather.entity_id|default('weather.dark_sky') }}
+                - type: horizontal-stack
+                  cards:
+                    - !include
+                      - '../templates/picture_elements_frontpage.yaml'
+                      - entity: {{ _global.persons.person_1|default('person.stephanie') }}
+                        image: {{ _global.frontpage_photo.person_1_image|default('/local/images/stephanie_small.png') }}
+                        alignment: left
+                        email_sensor_entity: {{ _global.frontpage_photo.person_1_email_sensor|default('sensor.email_person_1') }}
+                        travel_time_to_home: {{ _global.frontpage_photo.person_1_travel_time_to_home_sensor|default('sensor.travel_home_person_1') }}
+                        travel_time_to_work: {{ _global.frontpage_photo.person_1_travel_time_to_work_sensor|default('sensor.travel_work_person_1') }}
+                        battery_entity: {{ _global.frontpage_photo.person_1_battery_level_sensor|default('sensor.battery_level') }}
+                        navigation_path: {{ _global.frontpage_photo.person_1_navigation_path|default('/lovelace/person_1') }}
+                    - !include
+                      - '../templates/picture_elements_frontpage.yaml'
+                      - entity: {{ _global.persons.person_2|default('person.jimmy') }}
+                        image: {{ _global.frontpage_photo.person_2_image|default('/local/images/jimmy_small.png') }}
+                        alignment: right
+                        email_sensor_entity: {{ _global.frontpage_photo.person_2_email_sensor|default('sensor.email_person_2') }}
+                        travel_time_to_home: {{ _global.frontpage_photo.person_2_travel_time_to_home_sensor|default('sensor.travel_home_person_2') }}
+                        travel_time_to_work: {{ _global.frontpage_photo.person_2_travel_time_to_work_sensor|default('sensor.travel_work_person_2') }}
+                        battery_entity: {{ _global.frontpage_photo.person_2_battery_level_sensor|default('sensor.battery_level_2') }}
+                        navigation_path: {{ _global.frontpage_photo.person_2_navigation_path|default('/lovelace/person_2') }}
+                - !include
+                  - '../templates/wide_picture_elements_template.yaml'
+                  - entity: {{ _global.persons.person_3|default('person.tala') }}
+                    image: {{ _global.frontpage_photo.person_3_image|default('/local/images/tala2.png') }}
+                    navigation_path: {{ _global.frontpage_photo.person_3_navigation_path|default('/lovelace/person_3') }}
+                - type: custom:state-switch
+                  entity: {{ _global.alarm.entity_id|default('input_boolean.dummy1') }}
+                  default: default
+                  states:
+                    default:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards:
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_first_row.first_button_template|default('button_badge.yaml') }}'
+                              - name: {{ _global.frontpage_button_first_row.first_button_name|default('Climate') }}
+                                entity: {{ _global.frontpage_button_first_row.first_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_first_row.first_button_label|default('Control') }}
+                                icon: {{ _global.frontpage_button_first_row.first_button_icon|default('mdi:thermometer') }}
+                                navigation_path: {{ _global.frontpage_button_first_row.first_button_navigation_path|default('/lovelace/climate') }}
+                                entity_badge: group.all_radiator_valves
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state}°`; ]]]"
+                                hold_action: {{ _global.frontpage_button_first_row.first_button_hold_action|default('call-service') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_first_row.second_button_template|default('button_badge.yaml') }}'
+                              - name: {{ _global.frontpage_button_first_row.second_button_name|default('Light') }}
+                                entity: {{ _global.frontpage_button_first_row.second_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_first_row.second_button_label|default('Control') }}
+                                icon: {{ _global.frontpage_button_first_row.second_button_icon|default('mdi:floor-lamp') }}
+                                navigation_path: {{ _global.frontpage_button_first_row.second_button_navigation_path|default('/lovelace/lights') }}
+                                entity_badge: group.all_lighting
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_first_row.second_button_hold_action|default('call-service') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_first_row.third_button_template|default('button_badge.yaml') }}'
+                              - name: {{ _global.frontpage_button_first_row.third_button_name|default('Device') }}
+                                entity: {{ _global.frontpage_button_first_row.third_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_first_row.third_button_label|default('Control') }}
+                                icon: {{ _global.frontpage_button_first_row.third_button_icon|default('mdi:power-plug') }}
+                                navigation_path: {{ _global.frontpage_button_first_row.third_button_navigation_path|default('/lovelace/devices') }}
+                                entity_badge: group.all_device_switches
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_first_row.third_button_hold_action|default('call-service') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_first_row.fourth_button_template|default('button_badge.yaml') }}'
+                              - name: {{ _global.frontpage_button_first_row.fourth_button_name|default('Security') }}
+                                entity: {{ _global.frontpage_button_first_row.fourth_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_first_row.fourth_button_label|default('Panel') }}
+                                icon: {{ _global.frontpage_button_first_row.fourth_button_icon|default('mdi:cctv') }}
+                                navigation_path: {{ _global.frontpage_button_first_row.fourth_button_navigation_path|default('/lovelace/security') }}
+                                entity_badge: group.all_binary_sensors
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_first_row.fourth_button_hold_action|default('call-service') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                        - type: horizontal-stack
+                          cards:
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_second_row.first_button_template|default('button_nav.yaml') }}'
+                              - name: {{ _global.frontpage_button_second_row.first_button_name|default('Cleaning') }}
+                                entity: {{ _global.frontpage_button_second_row.first_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_second_row.first_button_label|default('List') }}
+                                icon: {{ _global.frontpage_button_second_row.first_button_icon|default('mdi:calendar-text') }}
+                                navigation_path: {{ _global.frontpage_button_second_row.first_button_navigation_path|default('/lovelace/cleaning') }}
+                                margin_right: 40px
+                                entity_badge: sensor.unknown
+                                notification: "[[[ return `${states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state}°C`; ]]]"
+                                hold_action: {{ _global.frontpage_button_second_row.first_button_hold_action|default('none') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_second_row.second_button_template|default('button_nav.yaml') }}'
+                              - name: {{ _global.frontpage_button_second_row.second_button_name|default('Scenes') }}
+                                entity: {{ _global.frontpage_button_second_row.second_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_second_row.second_button_label|default('Presets') }}
+                                icon: {{ _global.frontpage_button_second_row.second_button_icon|default('mdi:arrange-send-backward') }}
+                                navigation_path: {{ _global.frontpage_button_second_row.second_button_navigation_path|default('/lovelace/scenes') }}
+                                margin_right: 40px
+                                entity_badge: sensor.unknown
+                                notification: "[[[ if (states['{{ _global.frontpage_button_second_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_second_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_second_row.second_button_hold_action|default('none') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_second_row.third_button_template|default('button_nav.yaml') }}'
+                              - name: {{ _global.frontpage_button_second_row.third_button_name|default('Vacuum') }}
+                                entity: {{ _global.frontpage_button_second_row.third_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_second_row.third_button_label|default('Control') }}
+                                icon: {{ _global.frontpage_button_second_row.third_button_icon|default('mdi:robot-vacuum') }}
+                                navigation_path: {{ _global.frontpage_button_second_row.third_button_navigation_path|default('/lovelace/vacuum') }}
+                                margin_right: 40px
+                                entity_badge: sensor.unknown
+                                notification: "[[[ if (states['{{ _global.frontpage_button_second_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_second_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_second_row.third_button_hold_action|default('none') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                            - !include
+                              - '../templates/{{ _global.frontpage_button_second_row.fourth_button_template|default('button_nav.yaml') }}'
+                              - name: {{ _global.frontpage_button_second_row.fourth_button_name|default('Remote') }}
+                                entity: {{ _global.frontpage_button_second_row.fourth_button_entity|default('input_boolean.dummy1') }}
+                                label: {{ _global.frontpage_button_second_row.fourth_button_label|default('Control') }}
+                                icon: {{ _global.frontpage_button_second_row.fourth_button_icon|default('mdi:remote') }}
+                                navigation_path: {{ _global.frontpage_button_second_row.fourth_button_navigation_path|default('/lovelace/remote') }}
+                                margin_right: 40px
+                                entity_badge: sensor.unknown
+                                notification: "[[[ if (states['{{ _global.frontpage_button_second_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_second_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state}`; ]]]" 
+                                hold_action: {{ _global.frontpage_button_second_row.fourth_button_hold_action|default('none') }}
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.fourth_button_badge_entity|default('sensor.current_binary_sensors_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                    armed_away:
+                      type: vertical-stack
+                      cards:
+                        - type: custom:auto-entities
+                          filter:
+                            include:
+                              - group: group.all_cameras
+                                options:
+                                  type: picture-entity
+                                  {% raw %}
+                                  style: |
+                                    ha-card {
+                                      border-radius: {{ states('input_select.border_radius') }};
+                                      box-shadow: {{ states('input_select.box_shadow') }};
+                                      overflow: hidden;
+                                    }
+                                  {% endraw %}
+                                  aspect_ratio: 16x9
+                                  entity: this.entity_id
+                          sort:
+                            method: {{ _global.security_camera_sorting.method|default('name') }}
+                          card:
+                            type: custom:layout-card
+                            min_columns: 1
+                            max_columns: 1
+                    armed_home:
+                      type: vertical-stack
+                      cards:
+                        - type: custom:auto-entities
+                          filter:
+                            include:
+                              - group: group.all_cameras
+                                options:
+                                  type: picture-entity
+                                  {% raw %}
+                                  style: |
+                                    ha-card {
+                                      border-radius: {{ states('input_select.border_radius') }};
+                                      box-shadow: {{ states('input_select.box_shadow') }};
+                                      overflow: hidden;
+                                    }
+                                  {% endraw %}
+                                  aspect_ratio: 16x9
+                                  entity: this.entity_id
+                          sort:
+                            method: {{ _global.security_camera_sorting.method|default('name') }}
+                          card:
+                            type: custom:layout-card
+                            min_columns: 1
+                            max_columns: 1
+              
+                
+                                       

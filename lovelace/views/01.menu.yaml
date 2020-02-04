@@ -1,0 +1,200 @@
+# lovelace_gen
+
+- title: {{ _global.menu_header.title|default('Menu') }}
+  path: menu
+  icon: {{ _global.menu_header.icon|default('mdi:menu') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.menu_header.subtitle|default('All categories') }}
+            icon: {{ _global.menu_header.icon|default('mdi:menu') }}
+            content: {{ _global.menu_header.title|default('Menu') }}
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### {{ _global.menu_categories.quick_access|default('Quick Access') }}"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 3
+              max_columns: 3
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.first_button_name|default('Climate') }}
+                    label: {{ _global.menu_quick_access.first_button_label|default('Control') }}
+                    icon: {{ _global.menu_quick_access.first_button_icon|default('mdi:thermometer') }}
+                    navigation_path: {{ _global.menu_quick_access.first_button_navigation_path|default('/lovelace/climate') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.second_button_name|default('Device') }}
+                    label: {{ _global.menu_quick_access.second_button_label|default('Control') }}
+                    icon: {{ _global.menu_quick_access.second_button_icon|default('mdi:power-plug') }}
+                    navigation_path: {{ _global.menu_quick_access.second_button_navigation_path|default('/lovelace/devices') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.third_button_name|default('Light') }}
+                    label: {{ _global.menu_quick_access.third_button_label|default('Control') }}
+                    icon: {{ _global.menu_quick_access.third_button_icon|default('mdi:floor-lamp') }}
+                    navigation_path: {{ _global.menu_quick_access.third_button_navigation_path|default('/lovelace/lights') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.fourth_button_name|default('Scenes') }}
+                    label: {{ _global.menu_quick_access.fourth_button_label|default('Presets') }}
+                    icon: {{ _global.menu_quick_access.fourth_button_icon|default('mdi:arrange-send-backward') }}
+                    navigation_path: {{ _global.menu_quick_access.fourth_button_navigation_path|default('/lovelace/scenes') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.fifth_button_name|default('Security') }}
+                    label: {{ _global.menu_quick_access.fifth_button_label|default('Panel') }}
+                    icon: {{ _global.menu_quick_access.fifth_button_icon|default('mdi:cctv') }}
+                    navigation_path: {{ _global.menu_quick_access.fifth_button_navigation_path|default('/lovelace/security') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_quick_access.sixth_button_name|default('Vacuum') }}
+                    label: {{ _global.menu_quick_access.sixth_button_label|default('Control') }}
+                    icon: {{ _global.menu_quick_access.sixth_button_icon|default('mdi:robot-vacuum') }}
+                    navigation_path: {{ _global.menu_quick_access.sixth_button_navigation_path|default('/lovelace/vacuum') }}
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### {{ _global.menu_categories.monitoring|default('Monitoring') }}"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 3
+              max_columns: 3
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.first_button_name|default('Battery') }}
+                    label: {{ _global.menu_monitoring.first_button_label|default('Information') }}
+                    icon: {{ _global.menu_monitoring.first_button_icon|default('mdi:battery') }}
+                    navigation_path: {{ _global.menu_monitoring.first_button_navigation_path|default('/lovelace/battery') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.second_button_name|default('Download') }}
+                    label: {{ _global.menu_monitoring.second_button_label|default('Manager') }}
+                    icon: {{ _global.menu_monitoring.second_button_icon|default('mdi:download') }}
+                    navigation_path: {{ _global.menu_monitoring.second_button_navigation_path|default('/lovelace/downloads') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.third_button_name|default('Energy') }}
+                    label: {{ _global.menu_monitoring.third_button_label|default('Consumption') }}
+                    icon: {{ _global.menu_monitoring.third_button_icon|default('mdi:chart-line') }}
+                    navigation_path: {{ _global.menu_monitoring.third_button_navigation_path|default('/lovelace/energy') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.fourth_button_name|default('Computers') }}
+                    label: {{ _global.menu_monitoring.fourth_button_label|default('Servers') }}
+                    icon: {{ _global.menu_monitoring.fourth_button_icon|default('mdi:server') }}
+                    navigation_path: {{ _global.menu_monitoring.fourth_button_navigation_path|default('/lovelace/computers') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.fifth_button_name|default('Laundry') }}
+                    label: {{ _global.menu_monitoring.fifth_button_label|default('Room') }}
+                    icon: {{ _global.menu_monitoring.fifth_button_icon|default('mdi:washing-machine') }}
+                    navigation_path: {{ _global.menu_monitoring.fifth_button_navigation_path|default('/lovelace/laundry') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_monitoring.sixth_button_name|default('Location') }}
+                    label: {{ _global.menu_monitoring.sixth_button_label|default('Map') }}
+                    icon: {{ _global.menu_monitoring.sixth_button_icon|default('mdi:navigation') }}
+                    navigation_path: {{ _global.menu_monitoring.sixth_button_navigation_path|default('/lovelace/location') }}
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### {{ _global.menu_categories.other|default('Other') }}"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 3
+              max_columns: 3
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.first_button_name|default('Automation') }}
+                    label: {{ _global.menu_other.first_button_label|default('Control') }}
+                    icon: {{ _global.menu_other.first_button_icon|default('mdi:auto-fix') }}
+                    navigation_path: {{ _global.menu_other.first_button_navigation_path|default('/lovelace/automations') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.second_button_name|default('Calendar') }}
+                    label: {{ _global.menu_other.second_button_label|default('Birthdays') }}
+                    icon: {{ _global.menu_other.second_button_icon|default('mdi:calendar') }}
+                    navigation_path: {{ _global.menu_other.second_button_navigation_path|default('/lovelace/calendar') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.third_button_name|default('Certificate') }}
+                    label: {{ _global.menu_other.third_button_label|default('Information') }}
+                    icon: {{ _global.menu_other.third_button_icon|default('mdi:file-certificate-outline') }}
+                    navigation_path: {{ _global.menu_other.third_button_navigation_path|default('/lovelace/certificates') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.fourth_button_name|default('Cleaning') }}
+                    label: {{ _global.menu_other.fourth_button_label|default('Lists') }}
+                    icon: {{ _global.menu_other.fourth_button_icon|default('mdi:calendar-text') }}
+                    navigation_path: {{ _global.menu_other.fourth_button_navigation_path|default('/lovelace/cleaning') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.fifth_button_name|default('Floorplan') }}
+                    label: {{ _global.menu_other.fifth_button_label|default('Image') }}
+                    icon: {{ _global.menu_other.fifth_button_icon|default('mdi:floor-plan') }}
+                    navigation_path: {{ _global.menu_other.fifth_button_navigation_path|default('/lovelace/floorplan') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.sixth_button_name|default('Remote') }}
+                    label: {{ _global.menu_other.sixth_button_label|default('Control') }}
+                    icon: {{ _global.menu_other.sixth_button_icon|default('mdi:remote') }}
+                    navigation_path: {{ _global.menu_other.sixth_button_navigation_path|default('/lovelace/remote') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.seventh_button_name|default('Upcoming') }}
+                    label: {{ _global.menu_other.seventh_button_label|default('Media') }}
+                    icon: {{ _global.menu_other.seventh_button_icon|default('mdi:plex') }}
+                    navigation_path: {{ _global.menu_other.seventh_button_navigation_path|default('/lovelace/media') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.eighth_button_name|default('Waze') }}
+                    label: {{ _global.menu_other.eighth_button_label|default('Traffic Information') }}
+                    icon: {{ _global.menu_other.eighth_button_icon|default('mdi:waze') }}
+                    navigation_path: {{ _global.menu_other.eighth_button_navigation_path|default('/lovelace/waze') }}
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: {{ _global.menu_other.ninth_button_name|default('Weather') }}
+                    label: {{ _global.menu_other.ninth_button_label|default('Forecast') }}
+                    icon: {{ _global.menu_other.ninth_button_icon|default('mdi:weather-partly-cloudy') }}
+                    navigation_path: {{ _global.menu_other.ninth_button_navigation_path|default('/lovelace/weather') }}
+        - !include
+          - '../templates/header_text.yaml'
+          - content: "##### {{ _global.menu_categories.system|default('System') }}"
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 3
+              max_columns: 3
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: About
+                    icon: mdi:help-circle-outline
+                    navigation_path: /lovelace/about
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: Test
+                    label: Environment
+                    icon: mdi:wrench
+                    navigation_path: /lovelace/test
+                - !include
+                  - '../templates/button_nav.yaml'
+                  - name: Themes
+                    label: Manager
+                    icon: mdi:palette 
+                    navigation_path: /lovelace/themes 

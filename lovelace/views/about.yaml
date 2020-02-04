@@ -1,0 +1,31 @@
+- title: About
+  path: about
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: Homekit Infused v.1.0 RC
+            icon: mdi:information-outline
+            spin: true
+            content: About
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-size: 13px;
+                      font-family: Helvetica;
+                    }              
+                  content: >
+                    <ha-icon icon="mdi:youtube"></ha-icon> Follow me on [YouTube](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)
+             
+        
+                    <ha-icon icon="mdi:github-box"></ha-icon> Follow me on [Github](https://www.github.com/jimz011/homeassistant)
+        
+        
+                    <ha-icon icon="mdi:home-assistant"></ha-icon> Follow me on the [Home Assistant Community](https://community.home-assistant.io/t/homekit-infused-hki-v1-0-beta-updated-28-01-2020/117086)

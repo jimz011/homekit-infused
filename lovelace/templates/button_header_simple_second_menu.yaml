@@ -1,0 +1,36 @@
+# lovelace_gen
+
+# Card
+type: custom:button-card
+name: Button
+icon: {{ icon|default('mdi:menu') }}
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+size: {{ size|default('90%') }}
+color: auto
+entity: input_boolean.dummy1
+show_name: false
+show_state: false
+show_label: false
+tap_action:
+  action: call-service
+  service: {{ service|default('input_select.select_option') }}
+  service_data:
+    entity_id: {{ entity_id }}
+  haptic: light
+hold_action:
+  action: call-service
+  service: {{ service|default('input_select.select_option') }}
+  service_data:
+    entity_id: {{ entity_id }}
+  haptic: heavy
+styles:
+  card:
+    - --ha-card-background: transparant
+    - box-shadow: none
+    - width: 30px
+    - height: 30px
+  img_cell:
+    - align-self: start
+    - text-align: start
+  icon:
+    - color: var(--header-color)

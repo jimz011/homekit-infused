@@ -1,0 +1,43 @@
+# lovelace_gen
+
+- title: {{ _global.devices_header.title|default('Devices') }}
+  path: devices
+  icon: {{ _global.devices_header.icon|default('mdi:power-plug') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ if (states['sensor.current_devices_on'].state == 0) return `Alle apparaten zijn uitgeschakeld`; if (states['sensor.current_devices_on'].state == 1) return `Er is 1 apparaat ingeschakeld`; else return `Er zijn ${states['sensor.current_devices_on'].state} apparaten ingeschakeld` ]]]"
+            icon: {{ _global.devices_header.icon|default('mdi:power-plug') }}
+            content: {{ _global.devices_header.title|default('Devices') }}
+        - !include
+          - '../templates/auto_fill_devices_template.yaml'
+          - content: {{ _global.rooms.living_room|default('Livingroom') }}
+            group_fans: group.livingroom_fans
+            group_devices: group.livingroom_devices
+            lock: {{ _global.devices.living_room_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_devices_template.yaml'
+          - content: {{ _global.rooms.bedroom|default('Bedroom') }} 
+            group_fans: group.bedroom_fans
+            group_devices: group.bedroom_devices
+            lock: {{ _global.devices.bedroom_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_devices_template.yaml'
+          - content: {{ _global.rooms.office|default('Office') }}
+            group_fans: group.office_fans
+            group_devices: group.office_devices
+            lock: {{ _global.devices.office_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_devices_template.yaml'
+          - content: {{ _global.rooms.kitchen|default('Kitchen') }}
+            group_fans: group.kitchen_fans
+            group_devices: group.kitchen_devices
+            lock: {{ _global.devices.kitchen_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_devices_template.yaml'
+          - content: {{ _global.rooms.laundry_room|default('Laundry Room') }}
+            group_fans: group.laundry_room_fans
+            group_devices: group.laundry_room_devices
+            lock: {{ _global.devices.laundry_lock|default('false') }} 

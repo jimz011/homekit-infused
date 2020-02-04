@@ -1,0 +1,91 @@
+# lovelace_gen
+
+- title: {{ _global.climate_header.title|default('Climate') }}
+  path: climate
+  icon: {{ _global.climate_header.icon|default('mdi:thermostat') }}
+  cards:
+    - type: vertical-stack 
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ return `The average temperature is ${states['{{ _global.climate_sensor.average|default('sensor.average_temperature') }}'].state}°C` ]]]"
+            icon: {{ _global.climate_header.icon|default('mdi:thermostat') }}
+            content: {{ _global.climate_header.title|default('Climate') }}
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 4
+              max_columns: 4
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_service_call.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.climate.first_button_name|default('Power') }}
+                    label: {{ _global.climate.first_button_label|default('All On') }}
+                    icon: {{ _global.climate.first_button_icon|default('mdi:power') }}
+                    service: {{ _global.climate.first_button_service|default('climate.turn_on') }}
+                    service_entity: {{ _global.climate.first_button_service_entity|default('all') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call_option.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.climate.second_button_name|default('Frost') }}
+                    label: {{ _global.climate.second_button_label|default('Protection') }}
+                    icon: {{ _global.climate.second_button_icon|default('mdi:snowflake-variant') }}
+                    service: {{ _global.climate.second_button_service|default('climate.set_temperature') }}
+                    service_entity: {{ _global.climate.second_button_service_entity|default('all') }}
+                    extra: {{ _global.climate.second_button_service_option_type|default('temperature') }}
+                    option: {{ _global.climate.second_button_service_option|default('11') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call_option.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.climate.third_button_name|default('Heat') }}
+                    label: {{ _global.climate.third_button_label|default('All') }}
+                    icon: {{ _global.climate.third_button_icon|default('mdi:fire') }}
+                    service: {{ _global.climate.third_button_service|default('climate.set_temperature') }}
+                    service_entity: {{ _global.climate.third_button_service_entity|default('all') }}
+                    extra: {{ _global.climate.third_button_service_option_type|default('temperature') }}
+                    option: {{ _global.climate.third_button_service_option|default('22') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                - !include
+                  - '../templates/button_service_call.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.climate.fourth_button_name|default('Power') }}
+                    label: {{ _global.climate.fourth_button_label|default('All Off') }}
+                    icon: {{ _global.climate.fourth_button_icon|default('mdi:power') }}
+                    service: {{ _global.climate.fourth_button_service|default('climate.turn_off') }}
+                    service_entity: {{ _global.climate.fourth_button_service_entity|default('all') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - template: button_thermostat.yaml
+            group: group.all_radiator_valves
+            content: {{ _global.climate_category.thermostat|default('Thermostat') }}
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - template: button.yaml
+            group: group.all_fans
+            content: {{ _global.climate_category.fans|default('Fans') }}
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_temperature_sensors
+            content: {{ _global.climate_category.temperature|default('Temperature') }}
+            color: red
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_humidity_sensors
+            content: {{ _global.climate_category.humidity|default('Humidity') }}
+            color: blue
+        - !include
+          - '../templates/auto_fill_climate_sensors_template.yaml'
+          - group: group.all_air_pressure_sensors
+            content: {{ _global.climate_category.air_pressure|default('Air Pressure') }}
+            color: purple
+                        

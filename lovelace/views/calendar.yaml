@@ -1,0 +1,13 @@
+# lovelace_gen
+
+- title: {{ _global.calendar_header.title|default('Calendar') }}
+  path: calendar
+  icon: {{ _global.calendar_header.icon|default('mdi:calendar') }}
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.calendar_header.subtitle|default('Not Available') }}
+            icon: {{ _global.calendar_header.icon|default('mdi:calendar') }}
+            content: {{ _global.calendar_header.title|default('Calendar') }}

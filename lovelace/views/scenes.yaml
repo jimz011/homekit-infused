@@ -1,0 +1,15 @@
+# lovelace_gen
+
+- title: {{ _global.scenes_header.title|default('Scenes') }}
+  path: scenes
+  icon: {{ _global.scenes_header.icon|default('mdi:arrange-send-backward') }}
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ if (states['sensor.current_scenes_on'].state == 0) return `No scenes are active`; if (states['sensor.current_scenes_on'].state == 1) return `1 scene is active`; else return `${states['sensor.current_scenes_on'].state} scenes are active` ]]]"
+            icon: {{ _global.scenes_header.icon|default('mdi:arrange-send-backward') }}
+            content: {{ _global.scenes_header.title|default('Scenes') }}
+
+

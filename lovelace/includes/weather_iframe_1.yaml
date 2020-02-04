@@ -1,0 +1,22 @@
+# lovelace_gen
+
+type: custom:layout-card
+cards:
+  - type: custom:layout-card
+    min_columns: 1
+    justify_content: start
+    layout: vertical
+    cards:
+      - type: iframe
+        {% raw %}
+        style: |
+          ha-card {
+            border-radius: {{ states('input_select.border_radius') }} !important;
+            box-shadow: {{ states('input_select.box_shadow') }};
+            overflow: hidden !important;
+            box-shadow: none;
+          }
+        {% endraw %}
+        aspect_ratio: 150%
+        url: {{ _global.weather.left_button_iframe_url|default('https://buienradar.nl') }}
+  - !include bottom-card.yaml

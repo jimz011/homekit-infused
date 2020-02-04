@@ -1,0 +1,17 @@
+# lovelace_gen
+
+- title: {{ _global.waze_header.title|default('Waze') }}
+  path: waze
+  icon: {{ _global.waze_header.icon|default('mdi:car') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.waze_header.subtitle|default('Traffic information') }}
+            icon: {{ _global.waze_header.icon|default('mdi:car') }}
+            content: {{ _global.waze_header.title|default('Waze') }}
+        - type: iframe
+          url: https://embed.waze.com/iframe
+          aspect_ratio: 150%
+

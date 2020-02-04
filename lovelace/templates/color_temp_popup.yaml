@@ -1,0 +1,75 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: custom:swipe-card
+    cards:
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            margin-top: -15px;
+          }
+        entities:
+          - type: custom:light-popup-card
+            entity: {{ entity }}
+            brightnessWidth: 110px
+            brightnessHeight: 410px
+            fullscreen: false
+            supportedFeaturesTreshold: {{ _global.lights_popup.supportedFeaturesTreshold|default('9') }}
+          - type: 'custom:button-card'
+            color_type: blank-card
+            styles:
+              card:
+                - height: 11px
+          - type: 'custom:rgb-light-card'
+            entity: {{ entity }}
+            colors:
+              - color_temp: 153
+                transition: 2
+                icon_color: 'rgb(166, 209, 255)'
+              - color_temp: 227
+                transition: 2
+                icon_color: 'rgb(191, 222, 255)'
+              - color_temp: 300
+                transition: 2
+                icon_color: 'rgb(224, 239, 255)'
+            justify: center
+          - type: 'custom:rgb-light-card'
+            entity: {{ entity }}
+            colors:
+              - color_temp: 360
+                transition: 2
+                icon_color: 'rgb(255, 202, 112)'
+              - color_temp: 440
+                transition: 2
+                icon_color: 'rgb(255, 188, 74)'
+              - color_temp: 500
+                transition: 2
+                icon_color: 'rgb(255, 160, 0)'
+            justify: center
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            box-shadow: none;
+            --paper-slider-knob-color: white;
+            --paper-slider-knob-start-color: white;
+            --paper-slider-pin-color: white;
+            --paper-slider-active-color: white;
+            color: white !important;
+            --primary-text-color: white !important;
+          }
+        entities:
+          - type: custom:more-info-card
+            style: |
+              ha-card {
+                border-radius: none;
+                box-shadow: none;
+                margin-top: -40px;
+              }
+            entity: {{ entity }}

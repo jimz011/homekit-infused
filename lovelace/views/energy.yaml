@@ -1,0 +1,13 @@
+# lovelace_gen
+
+- title: {{ _global.energy_header.title|default('Energy') }}
+  path: energy
+  icon: {{ _global.energy_header.icon|default('mdi:chart-line') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: {{ _global.energy_header.subtitle|default('Energy consumption monitor') }}
+            icon: {{ _global.energy_header.icon|default('mdi:chart-line') }}
+            content: {{ _global.energy_header.title|default('Energy') }}

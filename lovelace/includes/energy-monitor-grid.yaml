@@ -1,0 +1,3 @@
+# lovelace_gen
+
+"[[[ if (states['{{ entity }}_power'].state > 0) return `${states['{{ entity }}_power'].state} W`; else return '&nbsp;' ]]]"

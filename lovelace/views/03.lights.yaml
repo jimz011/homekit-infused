@@ -1,0 +1,55 @@
+# lovelace_gen
+
+- title: {{ _global.lights_header.title|default('Lights') }}
+  path: lights
+  icon: {{ _global.lights_header.icon|default('mdi:floor-lamp') }}
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Alle lampen zijn uitgeschakeld`; if (states['sensor.current_lights_on'].state == 1) return `Er is 1 lamp ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} lampen ingeschakeld` ]]]"
+            icon: {{ _global.lights_header.icon|default('mdi:floor-lamp') }}
+            content: {{ _global.lights_header.title|default('Lights') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.living_room|default('Livingroom') }}
+            group_other: group.livingroom_other_lights
+            group_color_temp: group.livingroom_color_temp_lights
+            group_rgb: group.livingroom_rgb_lights
+            lock: {{ _global.lights.living_room_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.bedroom|default('Bedroom') }}
+            group_other: group.bedroom_other_lights
+            group_color_temp: group.bedroom_color_temp_lights
+            group_rgb: group.bedroom_rgb_lights
+            lock: {{ _global.lights.bedroom_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.office|default('Office') }}
+            group_other: group.office_other_lights
+            group_color_temp: group.office_color_temp_lights
+            group_rgb: group.office_rgb_lights
+            lock: {{ _global.lights.office_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.kitchen|default('Kitchen') }}
+            group_other: group.kitchen_other_lights
+            group_color_temp: group.kitchen_color_temp_lights
+            group_rgb: group.kitchen_rgb_lights
+            lock: {{ _global.lights.kitchen_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.hallway|default('Hallway') }}
+            group_other: group.hallway_other_lights
+            group_color_temp: group.hallway_color_temp_lights
+            group_rgb: group.hallway_rgb_lights
+            lock: {{ _global.lights.hallway_lock|default('false') }}
+        - !include
+          - '../templates/auto_fill_light_template.yaml'
+          - content: {{ _global.rooms.other|default('Other') }}
+            group_other: group.other_lights
+            group_color_temp: group.other_color_temp_lights
+            group_rgb: group.other_rgb_lights 
+            lock: {{ _global.lights.other_lock|default('false') }}

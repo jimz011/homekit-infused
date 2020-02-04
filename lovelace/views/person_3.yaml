@@ -1,0 +1,12 @@
+# lovelace_gen
+
+- title: {{ _global.person_3_header.title|default('Person_3') }}
+  path: person_3
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header.yaml'
+          - name: "[[[ return `Tala is ${states['person.tala'].state}` ]]]"
+            icon: fal:dog-leashed
+            content: {{ _global.person_3_header.title|default('Person_3') }}

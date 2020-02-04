@@ -1,0 +1,14 @@
+# lovelace_gen
+
+- title: {{ _global.remote_header.title|default('Remote') }}
+  path: remote
+  icon: {{ _global.remote_header.icon|default('mdi:remote') }}
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - name: "[[[ return `${states['input_select.remote_control'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.remote_control
+            content: {{ _global.remote_header.title|default('Remote') }}
