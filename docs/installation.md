@@ -42,15 +42,17 @@ You won't need to add them to the resources file as I have already done this for
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Module | Yes | This card is needed for the scrolling notifications, but also for most popups |
 | [State Switch](https://github.com/thomasloven/state-switch) | Module | Yes | This card is an addition to conditional-cards, it works similar but has some extra features |
 | [Air Visual Card](https://github.com/dnguyen800/air-visual-card) | js | Yes | This card is used in the weather view |
-| Upcoming Media Card | js | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr|
+| [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | js | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr |
 | [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card) | Module | No | This is the map card used for vacuum cleaners |
 | [GUI Sandbox Card](https://github.com/thomasloven/lovelace-gui-sandbox) | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
 
-Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
-Add all the repositories below as a 'plugin', choose it from the dropdown menu
-  - Custom Light Popup Card (required) (https://github.com/DBuit/light-popup-card)
-  - Thermostat Popup Card (required) (https://github.com/DBuit/thermostat-popup-card)
-  - Deep-Press-Mod (optional, requires an Apple device, if you have a mixed household Apple/Android you can safely install this) (https://github.com/roflcoopter/deep-press)
+Manual Plugins Installation. The following plugins can either not be found on the HACS store or are modified by me. The best way to install these are to copy the corresponding files into your `/www/community/` folder. Do NOT get them from HACS!!
+
+| Name | Type | Required | Description |
+|----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Light Popup Card](https://github.com/DBuit/light-popup-card) | Module | Yes | These are popup cards used for lights, copy the `/www/community/light-popup/` folder and paste it into the directory mentioned above |
+| [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Module | Yes | These are popup cards used for climate devices, copy the `/www/community/light-popup/` folder and paste it into the directory mentioned above |
+| [Deep Press Mod](https://github.com/roflcoopter/deep-press) | Module | No | This is only useful for households with iPhones that have 3d-touch. It might not work well on mixed households (e.g. Android and iOS or iPhones without 3d-touch. | 
 
 ### Components (click on integrations tab in HACS)
 Required Components:
