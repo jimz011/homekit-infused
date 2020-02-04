@@ -75,34 +75,33 @@ Manual Components Import. The following components can either not be found on th
 
 # Copying
 ### Notes
-  - For safe results I suggest restarting Home Assistant at this point.
-  - After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
-  - Homekit Infused makes heavy use of lovelace_gen, split files and it supports the use of !secrets. Unfortunately to achieve this we have to run lovelace in yaml mode (you can do this by reading up the following part and copy the relevant config from `configuration.yaml`). There is a major downside of running this in YAML mode especially when you are used to using the UI-editor for lovelace cards. In YAML mode the menu that shows RAW Editor, Refresh, Unused Entities and UI editor will become useless (and therefor is hidden in this setup). Now for new users this might sound very daunting and it probably is a little. When you convert to YAML mode your storage mode lovelace config will no longer be used. There is an upside to this, storage mode lovelace and YAML mode lovelace do not store their information in the same file. If you have used storage mode (default HA) and want to try out YAML mode you can easily revert this change by just removing the lines from `configuration.yaml`. So to get the most out of this you will probably want to learn the basics of lovelace. If you know the basics of lovelace and you liked the UI editor I do have some good news. If you have installed the GUI-sandbox-tool in the previous steps then you will get a button that gives you exactly that UI editor you were already used to. The only difference is, is that you can't save cards with the UI editor and you will need to copy the code from the editor into the respective files.
-Lovelace_gen is heavily used in this setup and is a requirement to run this at all. Lovelace_gen is what decluttering-card did in the older HKI versions but much more is possible with this. To get the most out of HKI (and if you want to start editing this yourself) You will have to learn lovelace_gen. It isn't really that hard, but it housed more features than to declutter some templates so keep that in mind. It makes global configuration possible, it can do templates (just like decluttering-card could, and config for that is pretty similar), it can make macro's and much more. Basically it brings jinja2 templating to the frontend without the need for an extra card! https://github.com/thomasloven/hass-lovelace_gen. You do not need to know how YAML mode and lovelace_gen works straight away. HKI should work without you knowing how to use them, but I highly recommend you to learn it as it isn't that difficult and will benefit you a lot in creating modifications to this setup.
-
-Lets not dwell any longer and get into the copying part. There are two methods I will describe on how you can do this.
+- For safe results I suggest restarting Home Assistant at this point.
+- After having installed all the required components and custom-cards it is now time to copy files over, remember that you should have made BACKUPS by now, if you haven't DO IT NOW!!! Past this there is nothing else I can do for you if you fail to do a simple task!
 
 ### Copy Files
 To copy the files you will need all the following files/folders from my repo.
 
-- You will need to copy the entire `/lovelace/` folder to the root of your setup
+- Copy the entire `/lovelace/` folder to the root of your setup
 - Copy the `/themes/` folder to the root of your setup
-- You will need to copy `ui-lovelace.yaml` and `global_config.yaml` to the root of your setup
-- You will need to open the `configuration.yaml` from my repo and copy/paste all the contents into your own `configuration.yaml` file. (If you happen to have some of this already you don't need to copy it again, just make sure you don't have duplicates. E.g. you can't have `homeassistant:` or `browser_mod:` twice. It will give errors. If you already have used HKI in the past you might need to compare the changes. Don't worry the `configuration.yaml` file that is provided only has the necessary changes in them so you will be done relatively quickly.
-- You will have to copy the `/www/images/` folder to your own `/www/` folder. If you have followed the preparation steps you will already have the `www` folder. If you don't you can simply create it.
-- Copy ALL the files (or contents of those files) to your own respective folder/files. All the files that are within the `/configuration/required-config/` folder need to be copied to your own respective files.
+- Copy `ui-lovelace.yaml` file to the root of your setup
+- Copy the `/homekit-infused/` folder to the root of your setup
+- Copy the `/global_config/` folder to the root of your setup
+- Copy the `/www/images/` folder to your own `/www/` folder
+- Add the following line to your `configuration.yaml` file
 ```
-Example:
-Every automation need to go to either a folder (if you have a split or packaged HA configuration) or it will have to go into your `configuration.yaml` if you use the standard way HA does it. So automations would go under the `automations:` section of the `configuration.yaml` file, groups under `groups:` etc, etc. If you have used previous versions of HKI and use the split configuration structure you should delete the old automations related to HKI and just copy these files into their respective folders.
- There are 3 folders (required, optional and example config) You MUST have what is inside the required-config folder, you only need the optional-config if you want to use a vacuum cleaner with your setup, need a custom alarm or if you want to have the laundry room view to display correctly. The example-config folder is exactly what it is and are all my personal automations which are obviously not required for use with HKI, they serve as ideas for you to use.
-  
-- Last but not least: You will need to delete the contents (not the folder, just its contents) of the following two folders and replace the files with the ones from my repo!
- ```
-- Delete the contents from your `/www/community/light-popup/` folder and copy the .js file from my repo into there
-- Delete the contents from your `/www/community/thermostat-popup/` folder and copy the .js file from my repo into there
-I am still looking into this, however without the slight changes I made to this card it might look bad or not work the way it is supposed to. Please do this, it is relatively simple!
-  
-- If you need any of the custom_components you can copy them (the imap sensor is only needed for hotmail/outlook users, rdw is only for Dutch citizens with a car) If you don't need any of these skip this.
+homeassistant:
+  packages:
+    homekit_infused_config: !include homekit_infused/configuration.yaml
+    homekit_infused_groups: !include homekit_infused/hki_groups.yaml
+```
+Note: you can't have `homeassistant:` twice in your setup. You already have it so just copy the packages part and paste it below `homeassistant:`. Mind the indentation!
+
+- This will already work if you have used HACS for themes in the past, but to be safe add the following line to your `configuration.yaml` file:
+```
+frontend:
+  themes: !include_dir_merge_named themes/
+```
+Note: once again, you can't have `frontend:` twice!
 
 - Now choose your layout. You have the choice between the following frontpage layouts:
 1. Default (two large photos and a smaller photo in the middle)
@@ -110,8 +109,7 @@ I am still looking into this, however without the slight changes I made to this 
 3. 4-persons (four large photos)
 4. 4-persons (two large photos, two smaller photos)
 - If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
-  
-Note: If you need examples for any or this you can always check out my personal branch (just go the the main page of this repo and then select branch: personal from the dropdown menu).
+
 The copying process should now be completed and we can move on to the configuration part.
 
 I am pretty sure you are already quite some time at this, maybe you should take a break now? XD!
