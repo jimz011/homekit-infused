@@ -34,3 +34,6 @@ Dutch Speaking (warning: non-dutch speakers will be removed).
 
 #### Featured Theme
 From now on I will feature either themes or cards in my videos or on this repo. This time I will feature the new theme by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme).
+
+#### Featured Cards
+This months featured cards are the ones from @dbuit who has created a few beautiful cards for use with lovelace. I will pick my two favorites but I urge you to check out more of his cards. I talk about the beautiful [light-popup-card](https://github.com/DBuit/light-popup-card) and the amazing [thermostat-popup-card](https://github.com/DBuit/thermostat-popup-card)
