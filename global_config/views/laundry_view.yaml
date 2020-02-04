@@ -1,0 +1,38 @@
+# Global Config for Homekit Infused 2020
+
+# Laundry View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+laundry_header:
+#  title: Laundry
+#  icon: fal:washer
+
+# Laundry View
+laundry:
+#  first_entity_image: local/images/washingmachine.jpg
+#  first_entity_status: sensor.wasmachine_status # Washing Machine Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+#  first_entity_switch: switch.wasmachine
+#  first_entity_power_sensor: sensor.wasmachine_power 
+#  first_entity_voltage_sensor: sensor.wasmachine_voltage 
+  ## Second Photo
+#  second_entity_image: local/images/dryer.jpg
+#  second_entity_status: sensor.droger_status # Tumble Dryer Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+#  second_entity_switch: switch.droger
+#  second_entity_power_sensor: sensor.droger_power
+#  second_entity_voltage_sensor: sensor.droger_voltage 
+  ## Third Photo
+#  third_entity_image: local/images/dishwasher.jpg
+#  third_entity_status: sensor.vaatwasser_status # Dishwasher Status Sensor (this is a custom sensor created as a template sensor, you will need a power-plug that can read energy usage for this to work well)
+#  third_entity_switch: switch.vaatwasser
+#  third_entity_power_sensor: sensor.vaatwasser_power 
+#  third_entity_voltage_sensor: sensor.vaatwasser_voltage

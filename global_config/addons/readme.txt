@@ -1,0 +1,1 @@
+When new addons are released their global config files can be dumped inside this folder.

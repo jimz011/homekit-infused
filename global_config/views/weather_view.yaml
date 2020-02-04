@@ -1,0 +1,33 @@
+# Global Config for Homekit Infused 2020
+
+# Weather View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+weather_header:
+#  title: Weather
+#  icon: fal:info-circle
+
+# Config
+weather:
+#  weather_entity: weather.dark_sky
+#  city_name: Eindhoven
+#  air_pollution_level: sensor.u_s_air_pollution_level
+#  air_quality_index: sensor.u_s_air_quality_index
+#  main_pollutant: sensor.u_s_main_pollutant
+
+#  left_button_name: Buienradar
+#  left_button_icon: fal:cloud-showers-heavy
+#  left_button_iframe_url: https://gadgets.buienradar.nl/gadget/zoommap/?lat=51.28583&lng=5.74861&overname=2&zoom=11&naam=Nederweert&size=3b&voor=1 # First iFrame (Buienradar is for Dutch people only, enter another iframe if you wish)
+#  right_button_name: Windy
+#  right_button_icon: fal:wind
+#  right_button_iframe_url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=49.440&detailLon=1.099&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1 # Second iFrame, Put your own coördinates in for your personalised view if you want to keep Windy

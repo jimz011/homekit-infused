@@ -1,0 +1,44 @@
+# Global Config for Homekit Infused 2020
+
+# Global Settings
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Deep Press (Change to false if you don't need/want deep-press in your setup. Don't use this on iphones without 3d touch!)
+deep_press:
+#  deep_press: true 
+
+# Alarm Control Panel (put you alarm entity in here, if you don't have one, you can simply create one https://www.home-assistant.io/integrations/manual/)
+alarm:
+#  entity_id: alarm_control_panel.home_alarm
+
+# Rooms (These are used only in the Lights and Devices views, I will update HKI to support more rooms and groups in the future)
+rooms:
+#  living_room: Woonkamer
+#  kitchen: Keuken
+#  bedroom: Slaapkamer
+#  office: Kleine Kamer
+#  hallway: Hal
+#  laundry_room: Bijkeuken
+#  other: Overige
+
+# Household Persons (please contact me if you need more than 4 persons, unless you know your way around lovelace_gen)
+persons:
+#  person_1: person.stephanie
+#  person_2: person.jimmy
+#  person_3: person.tala
+#  person_4: person.person_4
+
+# Header Icons (The functions of these buttons are hardcoded, sorry for that! However, you can change the icon :D)
+header_icons:
+#  left_icon: mdi:door
+#  middle_icon: mdi:window-closed
+#  right_icon: far:sensor

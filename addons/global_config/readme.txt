@@ -1,0 +1,1 @@
+addons global_configs can be found here in the future.

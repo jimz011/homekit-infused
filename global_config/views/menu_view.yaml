@@ -1,0 +1,138 @@
+# Global Config for Homekit Infused 2020
+
+# Menu View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+menu_header:
+#  title: Menu
+#  icon: fal:bars
+#  subtitle: All categories
+
+# Categories (titles)
+menu_categories:
+#  quick_access: Quick Access
+#  monitoring: Monitoring
+#  other: Other
+#  system: System
+
+# Config
+## Quick Menu
+menu_quick_access:
+#  first_button_name: Climate
+#  first_button_icon: fal:thermometer-three-quarters
+#  first_button_label: Control
+#  first_button_navigation_path: /lovelace/climate
+
+#  second_button_name: Device
+#  second_button_icon: fal:light-switch-on
+#  second_button_label: Control
+#  second_button_navigation_path: /lovelace/devices
+
+#  third_button_name: Light
+#  third_button_icon: fal:lamp-floor
+#  third_button_label: Control
+#  third_button_navigation_path: /lovelace/lights
+
+#  fourth_button_name: Scenes
+#  fourth_button_icon: fal:bring-forward
+#  fourth_button_label: Presets
+#  fourth_button_navigation_path: /lovelace/scenes
+
+#  fifth_button_name: Security
+#  fifth_button_icon: fal:cctv
+#  fifth_button_label: Panel
+#  fifth_button_navigation_path: /lovelace/security
+
+#  sixth_button_name: Vacuum
+#  sixth_button_icon: fal:vacuum-robot
+#  sixth_button_label: Control
+#  sixth_button_navigation_path: /lovelace/vacuum
+
+## Monitoring
+menu_monitoring:
+#  first_button_name: Battery
+#  first_button_icon: fal:battery-half
+#  first_button_label: Information
+#  first_button_navigation_path: /lovelace/battery
+
+#  second_button_name: Download
+#  second_button_icon: fal:download
+#  second_button_label: Manager
+#  second_button_navigation_path: /lovelace/downloads
+
+#  third_button_name: Energy
+#  third_button_icon: fal:chart-line
+#  third_button_label: Consumption
+#  third_button_navigation_path: /lovelace/energy
+
+#  fourth_button_name: Computers
+#  fourth_button_icon: fal:server
+#  fourth_button_label: Servers
+#  fourth_button_navigation_path: /lovelace/computers
+
+#  fifth_button_name: Laundry
+#  fifth_button_icon: fal:washer
+#  fifth_button_label: Room
+#  fifth_button_navigation_path: /lovelace/laundry
+
+#  sixth_button_name: Location
+#  sixth_button_icon: fal:location-circle
+#  sixth_button_label: Map
+#  sixth_button_navigation_path: /lovelace/location
+
+## Other
+menu_other:
+#  first_button_name: Automation
+#  first_button_icon: fal:magic
+#  first_button_label: Control
+#  first_button_navigation_path: /lovelace/automations
+
+#  second_button_name: Calendar
+#  second_button_icon: fal:calendar-alt
+#  second_button_label: Birthdays
+#  second_button_navigation_path: /lovelace/calendar
+
+#  third_button_name: Certificate
+#  third_button_icon: fal:file-certificate
+#  third_button_label: Information
+#  third_button_navigation_path: /lovelace/certificates
+
+#  fourth_button_name: Cleaning
+#  fourth_button_icon: fal:calendar-exclamation
+#  fourth_button_label: Lists
+#  fourth_button_navigation_path: /lovelace/cleaning
+
+#  fifth_button_name: Floorplan
+#  fifth_button_icon: mdi:floor-plan
+#  fifth_button_label: Image
+#  fifth_button_navigation_path: /lovelace/floorplan
+
+#  sixth_button_name: Remote
+#  sixth_button_icon: mdi:remote
+#  sixth_button_label: Control
+#  sixth_button_navigation_path: /lovelace/remote
+
+#  seventh_button_name: Upcoming
+#  seventh_button_icon: mdi:plex
+#  seventh_button_label: Media
+#  seventh_button_navigation_path: /lovelace/media
+
+#  eighth_button_name: Waze
+#  eighth_button_icon: fab:waze
+#  eighth_button_label: Traffic Information
+#  eighth_button_navigation_path: /lovelace/waze
+
+#  ninth_button_name: Weather
+#  ninth_button_icon: fal:clouds-sun
+#  ninth_button_label: Information
+#  ninth_button_navigation_path: /lovelace/weather

@@ -1,0 +1,69 @@
+# Global Config for Homekit Infused 2020
+
+# Climate View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+climate_header:
+#  title: Climate
+#  icon: fal:thermometer-three-quarters
+
+# Climate Header Average Temperature (you can use the average sensor to get the average temperature of your home)
+# Else use any temperature sensor you want, this will be displayed at the top of the page.
+climate_sensor:
+#  average: sensor.average_temperature
+
+# Thermostat and Sensor Sorting (you can choose either between: domain, entity_id, name, state, last_changed, last_updated or last_triggered.)
+climate_sensor_sorting:
+#  method: name
+
+# Preset Buttons (the first and last button can only do a service call, the two in the middle can only set a temperature)
+climate:
+#  first_button_name: Power
+#  first_button_label: All On
+#  first_button_icon: mdi:power
+#  first_button_service: climate.turn_on
+#  first_button_service_entity: all
+
+#  second_button_name: Frost
+#  second_button_label: Protection
+#  second_button_icon: fal:snowflakes
+#  second_button_service: climate.set_temperature
+#  second_button_service_entity: all
+#  second_button_service_option_type: temperature
+#  second_button_service_option: 11
+
+#  third_button_name: Heat
+#  third_button_label: All
+#  third_button_icon: fal:fire
+#  third_button_service: climate.set_temperature
+#  third_button_service_entity: all
+#  third_button_service_option_type: temperature
+#  third_button_service_option: 22
+
+#  fourth_button_name: Power
+#  fourth_button_label: All Off
+#  fourth_button_icon: mdi:power
+#  fourth_button_service: climate.turn_off
+#  fourth_button_service_entity: all
+
+# Climate Category Names
+climate_category:
+#  thermostat: Thermostat
+#  fans: Fans
+#  temperature: Temperature
+#  humidity: Humidity
+#  air_pressure: Air Pressure
+
+# Config
+# The climate config is done through a template and groups. To make the climate view work, make sure that you have filled the hki_groups.yaml
+# file. Without those groups this view will not work!

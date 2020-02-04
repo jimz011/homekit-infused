@@ -1,0 +1,38 @@
+# Global Config for Homekit Infused 2020
+
+# Security View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+security_header:
+#  title: Security
+#  icon: fal:sensor-alert
+
+# Camera Sorting (you can choose either between: domain, entity_id, name, state, last_changed, last_updated or last_triggered.)
+security_camera_sorting:
+#  method: name
+
+# Binary Sensors Sorting (you can choose either between: domain, entity_id, name, state, last_changed, last_updated or last_triggered.)
+security_binary_sensor_sorting:
+#  method: name
+
+# Security Categories
+security:
+#  camera_category_name: Camera`s
+#  door_category_name: Doors
+#  window_category_name: Windows
+#  motion_category_name: Motion
+#  other_category_name: Other
+
+# Config
+# The security config is done through a template and groups. To make the security view work, make sure that you have filled the hki_groups.yaml
+# file. Without those groups this view will not work!

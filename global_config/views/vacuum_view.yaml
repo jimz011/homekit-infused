@@ -1,0 +1,120 @@
+# Global Config for Homekit Infused 2020
+
+# Vacuum View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Vacuum Header
+vacuum_header:
+#  title: Vacuum
+#  icon: fal:vacuum-robot
+
+# Vacuum Cleaner
+vacuum:
+#  entity_id: vacuum.xiaomi_vacuum_cleaner
+
+# Vacuum Categories
+vacuum_categories:
+#  controls: Controls
+#  mode: Mode
+#  presets: Presets
+
+# Vacuum Top Buttons
+vacuum_top_buttons:
+#  first_button_name: Information
+#  first_button_icon: far:info-circle
+#  first_button_popup_template: popup_vacuum_info.yaml
+
+#  second_button_name: Zoned Cleaning
+#  second_button_icon: far:layer-group
+#  second_button_popup_template: popup_vacuum_map.yaml
+
+# Vacuum Controls
+vacuum_controls:
+#  first_button_name: Start
+#  first_button_icon: far:play-circle
+
+#  second_button_name: Pause
+#  second_button_icon: far:pause-circle
+
+#  third_button_name: Stop
+#  third_button_icon: far:stop-circle
+
+#  fourth_button_name: Locate
+#  fourth_button_icon: fas:map-marker-alt
+
+# Vacuum Modes
+vacuum_mode:
+#  first_button_name: Quiet
+#  first_button_icon: far:fan
+
+#  second_button_name: Turbo
+#  second_button_icon: far:fan
+
+#  third_button_name: Max
+#  third_button_icon: far:fan
+
+#  fourth_button_name: Balanced
+#  fourth_button_icon: far:sync-alt
+
+#  fifth_button_name: Mop
+#  fifth_button_icon: far:solar-system
+
+# Vacuum Presets
+vacuum_preset:
+#  first_button_name: Office
+#  first_button_icon: fal:desktop
+#  first_button_coordinates: [[26252,24785,29502,29035,1]]
+
+#  second_button_name: Living
+#  second_button_icon: fal:couch
+#  second_button_coordinates: [[19375,24752,26175,28752,1]]
+
+#  third_button_name: Bed
+#  third_button_icon: fal:bed-alt
+#  third_button_coordinates: [[19207,29558,20157,33658,1],[20142,29563,21792,31063,1],[21826,29567,23426,33567,1]]
+
+#  fourth_button_name: Kitchen
+#  fourth_button_icon: fal:refrigerator
+#  fourth_button_coordinates: [[23519,28738,25469,31688,1],[25427,28788,27527,30238,1]]
+
+#  fifth_button_name: Hall
+#  fifth_button_icon: fal:draw-square
+#  fifth_button_coordinates: [[26006,30366,29356,33766,1]]
+
+#  sixth_button_name: Entrance
+#  sixth_button_icon: fal:door-closed
+#  sixth_button_coordinates: [[27462,28885,29562,30385,1]]
+
+# Popup Cards (If you have set up a custom template in the top buttons of this view, filling in anything below this is probably useless)
+
+# Vacuum Sensors (if you have a Roborock S5 you can simply leave this at the defaults! You will however need all related automations and template sensors!)
+vacuum_sensor:
+#  status_sensor: sensor.vacuum_cleaner_status_sensor # Status Sensor (You need a template sensor AND an automation for this, you can find them in my template and automation files)
+#  error_sensor: sensor.vacuum_cleaner_error_sensor # Error Sensor (You need a template sensor AND an automation for this, you can find them in my template and automation files)
+#  battery: sensor.vacuum_battery
+#  cleaning_count: sensor.vacuum_cleaning_count
+#  total_cleaned_area: sensor.vacuum_total_cleaned_area 
+#  total_cleaning_time: sensor.vacuum_total_cleaning_time 
+#  main_brush_time_left: sensor.vacuum_main_brush_left 
+#  side_brush_time_left: sensor.vacuum_side_brush_left 
+#  filter_time_left: sensor.vacuum_filter_left
+#  sensor_dirty_time_left: sensor.vacuum_sensor_dirty_left
+#  fan_speed_state: sensor.xiaomi_vacuum_fan_speed_state # Sensor Vacuum Fan Speed (You need a template sensor for this, you can find this in my template files)
+
+# Maps
+## Xiaomi Vacuum Map Card
+vacuum_map:
+#  map_type: camera # Choose either between `camera` or `map` (without the quotes). This will determine if the above setting is a camera entity or an image location.
+#  map_image: camera.rockrobo_map # Can be either a camera entity or an image. Example when used with an image: `/local/images/xiaomi-map.png`. (You will need to get the map yourself some way https://community.home-assistant.io/t/xiaomi-vacuum-interactive-map-card/123901) 
+
+# IMPORTANT!
+### Please edit the calibration points in lovelace/views/includes/vacuum_calibration.yaml

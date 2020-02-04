@@ -1,0 +1,130 @@
+# Global Config for Homekit Infused 2020
+
+# Frontpage
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+frontpage_header:
+#  title: Home
+#  icon: fal:home
+
+# Weather Card
+frontpage_weather:
+#  entity_id: weather.dark_sky
+#  city_name: Eindhoven
+
+# Picture Elements (Persons are taken from the global_settings.yaml file! You should have set that up first!)
+frontpage_photo:
+  # Upper Left Photo
+#  person_1_image: /local/images/stephanie_small.png 
+#  person_1_email_sensor: !secret email_sensor_stephanie # (https://www.home-assistant.io/integrations/imap/)
+#  person_1_travel_time_to_home_sensor: sensor.reistijd_stephanie # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_1_travel_time_to_work_sensor: sensor.reistijd_stephanie_work # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_1_battery_level_sensor: sensor.battery_level
+#  person_1_navigation_path: /lovelace/person_1
+  # Upper Right Photo
+#  person_2_image: /local/images/jimmy_small.png 
+#  person_2_email_sensor: !secret email_sensor_jimmy # (https://www.home-assistant.io/integrations/imap/)
+#  person_2_travel_time_to_home_sensor: sensor.reistijd_jimmy # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_2_travel_time_to_work_sensor: sensor.reistijd_jimmy_work # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_2_battery_level_sensor: sensor.battery_level_2
+  # Lower Left Photo (or middle photo when used with the default layout) NOTE: if the smaller photo layout is chosen, ONLY the image can be changed!
+#  person_3_image: /local/images/tala2.png
+#  person_3_email_sensor: sensor.email_person_3 # (https://www.home-assistant.io/integrations/imap/)
+#  person_3_travel_time_to_home_sensor: sensor.travel_time_home_person_3 # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_3_travel_time_to_work_sensor: sensor.trave_time_work_person_3 # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_3_battery_level_sensor: sensor.battery_level_3
+  # Lower Right Photo, NOTE: if the smaller photo layout is chosen, ONLY the image can be changed!
+#  person_4_image: /local/images/unknown.png
+#  person_4_email_sensor: sensor.email_person_4 # (https://www.home-assistant.io/integrations/imap/)
+#  person_4_travel_time_to_home_sensor: sensor.travel_time_home_person_4 # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_4_travel_time_to_work_sensor: sensor.trave_time_work_person_4 # (https://www.home-assistant.io/integrations/waze_travel_time/)
+#  person_4_battery_level_sensor: sensor.battery_level_4
+
+# Button config
+
+# Buttons First Row
+frontpage_button_first_row:
+#  first_button_name: Climate
+#  first_button_label: Control
+#  first_button_icon: fal:thermometer-three-quarters
+#  first_button_navigation_path: /lovelace/climate
+#  first_button_badge_entity: sensor.average_temperature
+#  first_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  first_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  first_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+#  second_button_name: Light
+#  second_button_label: Control
+#  second_button_icon: fal:lamp-floor
+#  second_button_navigation_path: /lovelace/lights
+#  second_button_badge_entity: sensor.current_lights_on
+#  second_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  second_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  second_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+#  third_button_name: Device
+#  third_button_label: Control
+#  third_button_icon: fal:light-switch-on
+#  third_button_navigation_path: /lovelace/devices
+#  third_button_badge_entity: sensor.current_devices_on
+#  third_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  third_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  third_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+#  fourth_button_name: Security
+#  fourth_button_label: Panel
+#  fourth_button_icon: fal:cctv
+#  fourth_button_navigation_path: /lovelace/security
+#  fourth_button_badge_entity: sensor.current_binary_sensors_on
+#  fourth_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  fourth_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  fourth_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+# Buttons Second Row
+frontpage_button_second_row:
+#  first_button_name: Cleaning
+#  first_button_label: List
+#  first_button_icon: fal:calendar-edit
+#  first_button_navigation_path: /lovelace/cleaning
+#  first_button_badge_entity: sensor.unknown
+#  first_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  first_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  first_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+#  second_button_name: Scenes
+#  second_button_label: Presets
+#  second_button_icon: fal:bring-forward
+#  second_button_navigation_path: /lovelace/scenes
+#  second_button_badge_entity: sensor.unknown
+#  second_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  second_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  second_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+#  third_button_name: Vacuum
+#  third_button_label: Control
+#  third_button_icon: fal:vacuum-robot
+#  third_button_navigation_path: /lovelace/vacuum
+#  third_button_badge_entity: sensor.unknown
+#  third_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  third_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  third_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!
+
+
+#  fourth_button_name: Remote
+#  fourth_button_label: Control
+#  fourth_button_icon: mdi:remote
+#  fourth_button_navigation_path: /lovelace/remote
+#  fourth_button_badge_entity: sensor.unknown
+#  fourth_button_template: button_badge.yaml # set this to `button.yaml` if you want to have a `toggle` button instead of a `navigation` button. If you need a navigate only button change it to `button_nav.yaml`
+#  fourth_button_entity: input_boolean.dummy1 # Only change the entity if you have set the template to `button.yaml`, else leave this commented!
+#  fourth_button_hold_action: none # This setting ONLY accepts `none`, you MUST set this to none when you use another button than the default!

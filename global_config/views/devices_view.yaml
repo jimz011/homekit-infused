@@ -1,0 +1,39 @@
+# Global Config for Homekit Infused 2020
+
+# Devices View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+devices_header:
+#  title: Devices
+#  icon: fal:light-switch-on
+
+# Button Sorting (you can choose either between: domain, entity_id, name, state, last_changed, last_updated or last_triggered.)
+devices_sorting:
+#  method: name
+
+# Popup (change the template to `button_standard_behavior.yaml` if you want to use custom popup cards, 
+devices_popup:
+#  fan_group: button.yaml
+#  devices_group: button.yaml
+
+# Lock (puts a lock on buttons and you will have to press twice, the first tap will unlock, the second tap will toggle the button.)
+devices:
+#  living_room_lock: false
+#  bedroom_lock: true
+#  office_lock: true
+#  kitchen_lock: false
+#  laundry_lock: false
+
+# Config
+# The devices config is done through a template and groups. To make the devices view work, make sure that you have filled the hki_groups.yaml
+# file. Without those groups this view will not work!

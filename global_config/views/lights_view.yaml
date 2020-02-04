@@ -1,0 +1,40 @@
+# Global Config for Homekit Infused 2020
+
+# Lights View
+
+# How to use?
+# To edit a view open one of the global config files to the corresponding view. Editing views can be done simply by editing this file!
+# ALL items are commented! This is done because commented items will revert to the default configuration. The default configuration is
+# set up by myself. It tries to show as much of the interface as possible without the need for you to edit the views. You will ofcourse
+# want to set it up yourself. Using it this way makes it possible to only change what you want to change. E.g. You only want to change
+# the icons on the buttons of the frontpage? Well you will only need to uncomment the item in the list below and put in your own config!
+# DO NOT EVER COMMENT THE CURRENTLY UNCOMMENTED LINES, DO NOT REMOVE THEM EITHER!
+
+# Before you continue I will recommend you to use VSCode as a text editor https://code.visualstudio.com/
+
+# Header
+lights_header:
+#  title: Lights
+#  icon: fal:lamp-floor
+
+# Button Sorting (you can choose either between: domain, entity_id, name, state, last_changed, last_updated or last_triggered.)
+lights_sorting:
+#  method: name
+
+# Popup (change this number whenever an entity with a brightness attribute shows a switch instead of a slider).
+# When the supported features of the entity is larger than the treshold, you'll see a slider. if it is equal or lower, you'll see a switch.
+lights_popup:
+#  supportedFeaturesTreshold: 9
+
+# Lock (puts a lock on buttons and you will have to press twice, the first tap will unlock, the second tap will toggle the button.)
+lights:
+#  living_room_lock: false
+#  bedroom_lock: true
+#  office_lock: false
+#  kitchen_lock: false
+#  hallway_lock: false
+#  other_lock: false
+
+# Config
+# The lights config is done through a template and groups. To make the lights view work, make sure that you have filled the hki_groups.yaml
+# file. Without those groups this view will not work!
