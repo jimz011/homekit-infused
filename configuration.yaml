@@ -1,0 +1,7 @@
+homeassistant:
+  packages:
+    homekit_infused_config: !include homekit_infused/configuration.yaml
+    homekit_infused_groups: !include homekit_infused/hki_groups.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes/
