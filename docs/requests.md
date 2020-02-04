@@ -22,11 +22,12 @@ and motivate your answer. Tell me why you think I should add it and what benefit
   - P2000 (requested some months ago, though not sure if it will make the cut)
   - Flight Information (currently there are no known components/addons that can do this, I will add this if this ever comes)
   - News (seems a bit too heavy for Home Assistant to have this running all the time, but I will look into it)
+  - The power usage label in the buttons which was present pre HKI 1.0 will make its return if I find a way to get it to work with auto-entities. This will come soon!
   
 ### To Do
-  - Fix themes (some themes need tweaking)
+  - Tweak some themes here and there
   - Add themes
-  - Add new views (for example garden/plant view)
+  - Add new views as addons
   - Rework scenes for use with the latest Home Assistant
-  - Computer/Server monitor view
-  - Other stuff?!
+  - Bug fixes (if any)
+  - Other stuff
