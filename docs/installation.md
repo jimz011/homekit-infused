@@ -109,7 +109,7 @@ Note: once again, you can't have `frontend:` twice!
 2. 2-persons (two large photos, no middle photo)
 3. 4-persons (four large photos)
 4. 4-persons (two large photos, two smaller photos)
-- If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
+- If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default! If you just wish to use the default you can skip this step!
 
 The copying process should now be completed and we can move on to the configuration part.
 
