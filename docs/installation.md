@@ -67,6 +67,7 @@ Manual Plugins Installation. The following plugins can either not be found on th
 | [Sonarr and Radarr Upcoming Media](https://github.com/custom-components/sensor.radarr_upcoming_media) | No | This works in conjunction with the Upcoming Media plugin, this is only useful if you use Sonarr or Radarr |
 
 Manual Components Import. The following components can either not be found on the HACS store or are modified by me. The best way to install these are to copy the corresponding files into your `/custom_components/` folder.
+
 | Name | Required | Description |
 |----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Imap | No | This is a modified imap component, you should only install this when using outlook/live or hotmail email addresses |
