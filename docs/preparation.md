@@ -29,14 +29,14 @@ NOTE: Even if you do not decide to use Homekit Infused the following preparation
 - Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config (e.g. same location as where `configuration.yaml` is located). You might need the following entry in your `configuration.yaml` file
 ```
 homeassistant:
-  customize: !include customize.yaml
+    customize: !include customize.yaml
 ```
 Now if you have created this file we will start and fill it with our own entities.
 If you already have items in that file just add them below the last item, else just start typing exactly as in the example below. You do NOT need to do all of your entities. Just do the ones that are going to get shown in the frontend (e.g. lights, switches, sensors, binary_sensors and maybe your vacuum). You must not do battery entities.
 ```
 switch.washingmachine:
-  friendly_name: Washing Machine
-  icon: mdi:washing-machine
+    friendly_name: Washing Machine
+    icon: mdi:washing-machine
 ```
 
 Remember that you MUST fill in this file. Homekit Infused has no options to edit the names within the frontend, the interface will work without it, but you will have the same icons everywhere which isn't what you want. These preparations are not only useful for HKI but for Home Assistant in general.
