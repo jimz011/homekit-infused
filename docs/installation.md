@@ -26,26 +26,25 @@ You won't need to add them to the resources file as I have already done this for
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Weather Card] | Module | Yes | This is the animated weather card used in the weather view|
-| Card-Mod | Module | Yes | This mod allows for custom css on any card |
-| Button Card | Module | Yes | This is the button used throughout the entire setup |
-| Mini Graph Card | Module | Yes | This is the mini-graph used in some of the popup cards |
-| Auto Entities | Module | Yes | This is one of the most important addons as auto-filling requires this addon |
-| Layout Card | Module | Yes | This addon is used as a replacement for vertical and horizontal stacks |
-| Custom Header | Module | Yes | This is used to modify the standard Home Assistant header |
-| More Info Card | Module | Yes | This card is used in most popups |
-| RGB Light Card | js | Yes | This card is used in conjuction with the light-popup card |
-| Card Tools | Module | Yes | This is needed for various custom cards to run |
-| Check Button Card | js | Yes | This is the used in the cleaning view and makes checklists possible |
-| Mini Media Player | js | No | This is a beautiful replacement for the built-in media player |
-| Vertical-Stack-in-Card | js | Yes | This is like an entities-card but serves only for one purpose, to make cards tighter together and look like a single card |
-| Simple Weather Card | Module | Yes | This is the weather banner found on the frontpage |
-| Swipe Card | Module | Yes | This card is needed for the scrolling notifications, but also for most popups |
-| State-Switch | Module | Yes | This card is an addition to conditional-cards, it works similar but has some extra features |
-| Air Visual Card | js | Yes | This card is used in the weather view |
+| [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
+| [Card-Mod](https://github.com/thomasloven/lovelace-card-mod) | Module | Yes | This mod allows for custom css on any card |
+| [Button Card](https://github.com/custom-cards/button-card) | Module | Yes | This is the button used throughout the entire setup |
+| [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Module | Yes | This is the mini-graph used in some of the popup cards |
+| [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Module | Yes | This is one of the most important addons as auto-filling requires this addon |
+| [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Module | Yes | This addon is used as a replacement for vertical and horizontal stacks |
+| [Custom Header](https://github.com/maykar/custom-header) | Module | Yes | This is used to modify the standard Home Assistant header |
+| [More Info Card](https://github.com/thomasloven/lovelace-more-info-card) | Module | Yes | This card is used in most popups |
+| [RGB Light Card](https://github.com/bokub/rgb-light-card) | js | Yes | This card is used in conjuction with the light-popup card |
+| [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Module | Yes | This is needed for various custom cards to run |
+| [Check Button Card](https://github.com/custom-cards/check-button-card) | js | Yes | This is the used in the cleaning view and makes checklists possible |
+| [Vertical-Stack-in-Card](https://github.com/custom-cards/vertical-stack-in-card) | js | Yes | This is like an entities-card but serves only for one purpose, to make cards tighter together and look like a single card |
+| [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Module | Yes | This is the weather banner found on the frontpage |
+| [Swipe Card](https://github.com/bramkragten/swipe-card) | Module | Yes | This card is needed for the scrolling notifications, but also for most popups |
+| [State Switch](https://github.com/thomasloven/state-switch) | Module | Yes | This card is an addition to conditional-cards, it works similar but has some extra features |
+| [Air Visual Card](https://github.com/dnguyen800/air-visual-card) | js | Yes | This card is used in the weather view |
 | Upcoming Media Card | js | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr|
-| Lovelace Xiaomi Vacuum Map Card | Module | No | This is the map card used for vacuum cleaners |
-| GUI Toolbox Card | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
+| [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card) | Module | No | This is the map card used for vacuum cleaners |
+| [GUI Sandbox Card](https://github.com/thomasloven/lovelace-gui-sandbox) | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
 
 Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
 Add all the repositories below as a 'plugin', choose it from the dropdown menu
