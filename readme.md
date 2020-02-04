@@ -27,7 +27,7 @@ Video: CLICK ON THE IMAGE TO START VIDEO (coming soon!)
 
 Please ask any question you have on the [HA Community Forums](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
 
-#### Or join one of my two Slack groups:
+#### Or join one of my two Slack groups which I maintain with @Dwains:
 English Speaking: (warning: non-english speakers will be removed).
 [Click Here for English](https://join.slack.com/t/homeassistanten/shared_invite/enQtNzg1NzQyOTI4ODE2LWVhMmY3ZjMxMThhOTk1OWEwY2E4NDE0YmViZWI3NjUyNzIyMzIwNTkwMzlmMDA5N2I0MTQ4MDhiYTkwYWFlZDU)
 
