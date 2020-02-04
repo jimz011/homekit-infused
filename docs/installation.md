@@ -25,6 +25,7 @@ The following addons are needed and can be found in the HACS plugin store!
 You won't need to add them to the resources file as I have already done this for you.
 
 #### Plugins (Click on Plugins in HACS)
+
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
