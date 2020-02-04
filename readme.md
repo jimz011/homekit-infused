@@ -2,8 +2,8 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 January 2020 v 1.0b (*updated: 28/01/2020)
-My current Home Assistant version is 0.104.3
+# Homekit Infused (Lovelace) by Jimz011 Februari 2020 v 1.0 RC (*updated: 04/02/2020)
+My current Home Assistant version is 0.105.0b6
 
 # Project is pending an update, I advise you to wait till the RC drops later tonight!
 
@@ -33,3 +33,6 @@ English Speaking: (warning: non-english speakers will be removed).
 
 Dutch Speaking (warning: non-dutch speakers will be removed).
 [Click Here for Dutch](https://join.slack.com/t/homeassistantnlbe/shared_invite/enQtNzc4MzAwMTEyNDIwLTgwZGVmNmNhZjZkNmVkMjM1NTM3N2UwODIzZTFjMzY1ZmUyMGJiZDU5ZTEyZWEyYzMzYzQzYWJmNGE3MWVjN2I)
+
+#### Featured Theme
+From now on I will feature either themes or cards in my videos or on this repo. This time I will feature the new theme by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme).
