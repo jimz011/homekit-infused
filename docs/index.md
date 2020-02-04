@@ -16,6 +16,8 @@
 # About this project
 Homekit Infused is a Home Assistant lovelace project designed to mimic, improve and ultimately replace Homekit. Homekit has too much limitations which I think was too bad as it really looks cool if you only have 6 lights :D
 
+Homekit Infused is created with a lot of usability in mind, it is relatively easy to install and even easier to setup, but is still highly customizable for the experienced HA users. My goal was always to create something like Homekit but better AND have it presented to the public as easy to use and install.
+
 Homekit Infused was created as a private project and released to the public as it was requested by many. In the past year the setup has changed quite a bit, not only aesthetically but also codewise. My goal was to make it easier for people to use what I have created without compromising too much on customization that users have made after installing my previous versions of HKI. The setup is still just as 'modular' as it ever was and you will find many improvements over the previous versions if you are an avid user of my setup. New users might find this project very interesting as well, as not only does it give you this wonderful interface, but it will also give you insight on how a bartender (yes that is me) creates code without having any coding knowledge beforehand other than some basic HTML back in the early 2000s.
 
 ### Follow me on YouTube
