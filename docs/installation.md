@@ -24,6 +24,7 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
 The following addons are needed and can be found in the HACS plugin store!
 You won't need to add them to the resources file as I have already done this for you.
 
+#### Plugins (Click on Plugins in HACS)
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
@@ -54,21 +55,22 @@ Manual Plugins Installation. The following plugins can either not be found on th
 | [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Module | Yes | These are popup cards used for climate devices, copy the `/www/community/light-popup/` folder and paste it into the directory mentioned above |
 | [Deep Press Mod](https://github.com/roflcoopter/deep-press) | Module | No | This is only useful for households with iPhones that have 3d-touch. It might not work well on mixed households (e.g. Android and iOS or iPhones without 3d-touch. | 
 
-### Components (click on integrations tab in HACS)
-Required Components:
-  - Browser_mod
-  - Lovelace_gen
-  - Average Sensor
+#### Components (click on Integrations in HACS)
 
-Optional Components:
-  - Plex Recently Added (if you use plex you might want this, required if you want to use the upcoming media card)
-  - Sonarr and Radarr upcoming media (required if you want to use the upcoming media card)
-  - Xbox One (add the following repository to your hassio addons https://github.com/hunterjm/hassio-addons, this component will work for non hassio installs as well)
+| Name | Required | Description |
+|----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Yes | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more, make sure you have `browser_mod:` in your `configuration.yaml` after you have installed it. Click the link for instructions! |
+| [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Yes | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
+| [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this | 
+| [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this |
+| [Plex Recently Added](https://github.com/custom-components/sensor.plex_recently_added) | No | This works in conjunction with the Upcoming Media plugin, this is only useful if you use Plex |
+| [Sonarr and Radarr Upcoming Media](https://github.com/custom-components/sensor.radarr_upcoming_media) | No | This works in conjunction with the Upcoming Media plugin, this is only useful if you use Sonarr or Radarr |
 
-Manual Components Import: (This works the same as with plugins, however some components might not get added through HACS, if it doesn't just copy my component into your custom_components folder)
-Add all the repositories (where applicable) as an 'integration', choose it from the dropdown menu
-  - Imap (optional, only required if using outlook/hotmail/live email addresses, copy this from my repo into your folder)
-  - RDW (optional, Dutch Car Registration Sensor, copy this from my repo into your folder)
+Manual Components Import. The following components can either not be found on the HACS store or are modified by me. The best way to install these are to copy the corresponding files into your `/custom_components/` folder.
+| Name | Required | Description |
+|----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Imap | No | This is a modified imap component, you should only install this when using outlook/live or hotmail email addresses |
+| RDW | No | This is a sensor for Dutch APK, if you are not a Dutch citizen this is useless to you |
 
 # Copying
 ### Notes
