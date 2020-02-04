@@ -173,7 +173,7 @@ automation:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: !secret alarm_code
+    code: 1234
     pending_time: 0
     delay_time: 0
     trigger_time: 100
