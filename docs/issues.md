@@ -19,12 +19,10 @@ Saying things like, "I have an issue, my lights view wont show" is not a good is
 The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 ### Known Issues
-  - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team)
-  - Sometimes icons will not show the template when using Custom-UI, solution is a refresh
-  - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it)
-  - Entities card takes more time to load than others (this seems to me like a card-mod problem as it only does it with entities cards, even with a single line config it would still do this)
-  - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue
-  - Deep_press might not work so well if you don't have an iPhone. The solution to this would simply be to unistall deep-press (also remove it from your resources)
+  - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team).
+  - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it).
+  - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
+  - Deep_press might not work well on mixed households or households with non 3d-touch iPhones, therefor this is disabled by default.
 
 # QUESTIONS?
 
