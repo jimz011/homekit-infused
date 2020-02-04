@@ -91,16 +91,16 @@ To copy the files you will need all the following files/folders from my repo.
 - Add the following line to your `configuration.yaml` file
 ```
 homeassistant:
-  packages:
-    homekit_infused_config: !include homekit_infused/configuration.yaml
-    homekit_infused_groups: !include homekit_infused/hki_groups.yaml
+    packages:
+      homekit_infused_config: !include homekit_infused/configuration.yaml
+      homekit_infused_groups: !include homekit_infused/hki_groups.yaml
 ```
 Note: you can't have `homeassistant:` twice in your setup. You already have it so just copy the packages part and paste it below `homeassistant:`. Mind the indentation!
 
 - This will already work if you have used HACS for themes in the past, but to be safe add the following line to your `configuration.yaml` file:
 ```
 frontend:
-  themes: !include_dir_merge_named themes/
+    themes: !include_dir_merge_named themes/
 ```
 Note: once again, you can't have `frontend:` twice!
 
