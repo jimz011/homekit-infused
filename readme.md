@@ -15,8 +15,8 @@ My current Home Assistant version is 0.104.3
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Commmunity Forum Thread
 
 #### About
-Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.0b.
-It has been a while since I have updated my repo with some new and awesome stuff, but I am back and today I will present to you Homekit Infused 1.0 Alpha (I'll call it alpha as it is untested!). I know it has been a long time but the reasons for this are simple. I have rewritten the project entirely from the ground up and it has a ton of new features. A lot of old features that have been optimised or simplified. And much much more which I won't get into detail right now. For all that you want to know about either my project or about myself I will refer to the documentation link that can be found above. All I will say is, I really hope you will enjoy this release of HKI! Have a good one!
+Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.0 RC.
+After a two week alpha/beta test the project has matured a great deal and I can now deem it release ready. Homekit Infused is an easy to setup and easy to configure package for Home Assistant which builds a beautiful frontend for you. To set up Homekit Infused all you'd have to do is fill in a few files (which are very easy to understand) and you will be rocking a Homekit style frontend on your mobile phone! Have a good one!
 
 #### Video and screenshots
 Screenshots: Coming Soon! (check out my forum thread for screenshots if you can't wait)
