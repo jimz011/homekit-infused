@@ -20,45 +20,42 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
   - First create github account if you do not already have one
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
   - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this, either the proper way or the quick and dirty way.
-    The proper way would be to install each and every custom component and card manually through HACS. You can do this by going to the sidebar>HACS (it could also be called community)
-    Search for each of the addons listed below and install them one by one.
-    The quick and dirty way would be copying the entire www/community folder from the HKI project to your own.
-    There are pro's and cons for both methods. The proper way will allow you to update the addons through HACS and be notified about them, however it might break the setup if I haven't fixed the code for breaking changes.
-    The quick and dirty way allows for a 100% working one with the current downloaded project. However HACS won't know you have these files and you are not able to update them through HACS.
-    If you are lazy for whatever reason, you could use the quick and dirty method and search for the addons in HACS later on (it will simply overwrite the old card and it would give the ability to update again)
-    Your choice. Depending on the choice this can take from 2 minutes to a whopping 30 minutes to install. It really depends on a lot of factors and chosen method on how long this might take. Remember I talked about not rushing it!
+The proper way would be to install each and every custom component and card manually through HACS. You can do this by going to the sidebar>HACS (it could also be called community)
+Search for each of the addons listed below and install them one by one.
+The quick and dirty way would be copying the entire www/community folder from the HKI project to your own.
+There are pro's and cons for both methods. The proper way will allow you to update the addons through HACS and be notified about them, however it might break the setup if I haven't fixed the code for breaking changes.
+The quick and dirty way allows for a 100% working one with the current downloaded project. However HACS won't know you have these files and you are not able to update them through HACS.
+If you are lazy for whatever reason, you could use the quick and dirty method and search for the addons in HACS later on (it will simply overwrite the old card and it would give the ability to update again)
+Your choice. Depending on the choice this can take from 2 minutes to a whopping 30 minutes to install. It really depends on a lot of factors and chosen method on how long this might take. Remember I talked about not rushing it!
     
-    Find the following addons on HACS (you do not need to add them to the resources, I have already done this for you!)
-    In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
-    If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Remember that you need to check out the documenatation of how to use them for each plugin or component. Plugins are not so important to know how they work straight away as they will work fine without you knowing how to use them, however I do recommend you to read the custom-components documentation of each component as they are all different and some of the components will need some of your user input (it usually isn't that much).
+Find the following addons on HACS (you do not need to add them to the resources, I have already done this for you!)
+In the past I have pasted the repository links for every addon. Since they can be easily found through HACS I will only link to repo's that can't be found on HACS.
+If you need to read documentation on any of the cards please open your sidebar in HA go to HACS and choose the installed plugin. Remember that you need to check out the documenatation of how to use them for each plugin or component. Plugins are not so important to know how they work straight away as they will work fine without you knowing how to use them, however I do recommend you to read the custom-components documentation of each component as they are all different and some of the components will need some of your user input (it usually isn't that much).
 
-Press repository to go to their respective pages.
-### Plugins (click on plugins tab in HACS)
-Required Plugins:
-  - Layout Card
-  - RGB Light Card
-  - Light Entity Card
-  - Card Tools
-  - Check Button Card (Requires MQTT)
-  - Mini Media Player Card
-  - Calendar Card (Requires calendar sensors)
-  - Button Card
-  - Vertical-Stack-in-Card
-  - Card-Mod
-  - Simple Weather Card
-  - Custom Header (This is the replacement for Custom Compact Header, don't confuse them!)
-  - Mini Graph Card
-  - Swipe Card
-  - State-Switch
-  - Weather Card 
-  - Auto Entities
-  - Air Visual Card (Requires Air Visual account and a sensor, it is free!)
-  - Lovelace More Info Card
-
-Optional Plugins:
-  - Upcoming Media Card (Plex, Sonarr and/or Radarr required)
-  - Xiaomi Vacuum Map Card (Requires Xiaomi Robot Vacuum)
-  - GUI Sandbox Card (optional, brings ui-editor to yaml mode. You won't be able to save, but you can create cards visually and copy code later on. recommended for tinkerers)
+| Name | Type | Required | Description |
+|----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Weather Card | Module | Yes | [] |
+| Card-Mod | Module | Yes | [] |
+| Button Card | Module | Yes | [] |
+| Light Entity Card | js | Yes | [] |
+| Mini Graph Card | Module | Yes | [] |
+| Auto-Entities | Module | Yes | [] |
+| Layout Card | Module | Yes | [] |
+| Custom Header | Module | Yes | [] |
+| More-Info-Card | Module | Yes | [] |
+| RGB Light Card | js | Yes | [] |
+| Card Tools | Module | Yes | [] |
+| Button Card | Module | Yes | [] |
+| Check Button Card | js | Yes | [] |
+| Mini Media Player | js | Yes | [] |
+| Vertical-Stack-in-Card | js | Yes | [] |
+| Simple Weather Card | Module | Yes | [] |
+| Swipe Card | Module | Yes | [] |
+| State-Switch | Module | Yes | [] |
+| Air Visual Card | js | Yes | [] |
+| Upcoming Media Card | js | No | [] |
+| Lovelace Xiaomi Vacuum Map Card | Module | No | [] |
+| GUI Toolbox Card | Module | No | [] |
 
 Manual Plugins Import: (Some components can't be found on HACS and need to be imported, go to HACS and scroll on the tabs bar to the right and click on settings, add the repositories below. After adding the repository click on it and install the card, DON'T forget this!)
 Add all the repositories below as a 'plugin', choose it from the dropdown menu
@@ -100,24 +97,24 @@ To copy the files you will need all the following files/folders from my repo.
 - You will need to open the `configuration.yaml` from my repo and copy/paste all the contents into your own `configuration.yaml` file. (If you happen to have some of this already you don't need to copy it again, just make sure you don't have duplicates. E.g. you can't have `homeassistant:` or `browser_mod:` twice. It will give errors. If you already have used HKI in the past you might need to compare the changes. Don't worry the `configuration.yaml` file that is provided only has the necessary changes in them so you will be done relatively quickly.
 - You will have to copy the `/www/images/` folder to your own `/www/` folder. If you have followed the preparation steps you will already have the `www` folder. If you don't you can simply create it.
 - Copy ALL the files (or contents of those files) to your own respective folder/files. All the files that are within the `/configuration/required-config/` folder need to be copied to your own respective files.
-  ```
-  Example:
-  Every automation need to go to either a folder (if you have a split or packaged HA configuration) or it will have to go into your `configuration.yaml` if you use the standard way HA does it. So automations would go under the `automations:` section of the `configuration.yaml` file, groups under `groups:` etc, etc. If you have used previous versions of HKI and use the split configuration structure you should delete the old automations related to HKI and just copy these files into their respective folders.
-  There are 3 folders (required, optional and example config) You MUST have what is inside the required-config folder, you only need the optional-config if you want to use a vacuum cleaner with your setup, need a custom alarm or if you want to have the laundry room view to display correctly. The example-config folder is exactly what it is and are all my personal automations which are obviously not required for use with HKI, they serve as ideas for you to use.
+```
+Example:
+Every automation need to go to either a folder (if you have a split or packaged HA configuration) or it will have to go into your `configuration.yaml` if you use the standard way HA does it. So automations would go under the `automations:` section of the `configuration.yaml` file, groups under `groups:` etc, etc. If you have used previous versions of HKI and use the split configuration structure you should delete the old automations related to HKI and just copy these files into their respective folders.
+ There are 3 folders (required, optional and example config) You MUST have what is inside the required-config folder, you only need the optional-config if you want to use a vacuum cleaner with your setup, need a custom alarm or if you want to have the laundry room view to display correctly. The example-config folder is exactly what it is and are all my personal automations which are obviously not required for use with HKI, they serve as ideas for you to use.
   
 - Last but not least: You will need to delete the contents (not the folder, just its contents) of the following two folders and replace the files with the ones from my repo!
-  ```
-  - Delete the contents from your `/www/community/light-popup/` folder and copy the .js file from my repo into there
-  - Delete the contents from your `/www/community/thermostat-popup/` folder and copy the .js file from my repo into there
-  I am still looking into this, however without the slight changes I made to this card it might look bad or not work the way it is supposed to. Please do this, it is relatively simple!
+ ```
+- Delete the contents from your `/www/community/light-popup/` folder and copy the .js file from my repo into there
+- Delete the contents from your `/www/community/thermostat-popup/` folder and copy the .js file from my repo into there
+I am still looking into this, however without the slight changes I made to this card it might look bad or not work the way it is supposed to. Please do this, it is relatively simple!
   
 - If you need any of the custom_components you can copy them (the imap sensor is only needed for hotmail/outlook users, rdw is only for Dutch citizens with a car) If you don't need any of these skip this.
 
 - Now choose your layout. You have the choice between the following frontpage layouts:
-  1. Default (two large photos and a smaller photo in the middle)
-  2. 2-persons (two large photos, no middle photo)
-  3. 4-persons (four large photos)
-  4. 4-persons (two large photos, two smaller photos)
+1. Default (two large photos and a smaller photo in the middle)
+2. 2-persons (two large photos, no middle photo)
+3. 4-persons (four large photos)
+4. 4-persons (two large photos, two smaller photos)
 - If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default!
   
 Note: If you need examples for any or this you can always check out my personal branch (just go the the main page of this repo and then select branch: personal from the dropdown menu).
