@@ -77,20 +77,6 @@ automation:
         - sensor.current_windows_open
         - sensor.current_binary_sensors_on
   
-  # Popup More Info Boolean (used in popup windows to show the extra info view)
-  - alias: light options boolean
-    initial_state: 'true'
-    trigger:
-      - platform: state
-        entity_id: input_boolean.light_options
-        to: "on"
-    action:
-      - delay:
-          seconds: 15
-      - service: input_boolean.turn_off
-        data:
-          entity_id: input_boolean.light_options
-  
   # Theme Selector
   - alias: 'themes'
     initial_state: 'true'
@@ -169,20 +155,6 @@ automation:
           {% elif is_state('input_select.border_radius_selector', 'Large') %}
             18px
           {% endif %}
-
-alarm_control_panel:
-  - platform: manual
-    name: Home Alarm
-    code: 1234
-    pending_time: 0
-    delay_time: 0
-    trigger_time: 100
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      pending_time: 0
-      delay_time: 0
-    disarm_after_trigger: false
   
 input_boolean:
   # Other
@@ -250,16 +222,6 @@ input_select:
       - Small
       - Standard
       - Large
-   
-  # Box Shadow selector to show in the interface
-  box_shadow_selector:
-    name: Box Shadow Selector
-    options:
-      - None
-      - Small
-      - Standard
-      - Medium
-      - Large
   
   # Person Menu 1 (used for personal views)
   person_menu_1:
@@ -314,89 +276,48 @@ input_select:
 ### Notification Badge Templates (needed for the badges to appear on buttons!)
 ### Please do NOT touch this!!!!
 sensor:
-# Template All Lights
   - platform: template
     sensors:
       current_lights_on:
         friendly_name: All Lights Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_lighting','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Devices
-  - platform: template
-    sensors:
       current_devices_on:
         friendly_name: All Devices Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_device_switches','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Sensors
-  - platform: template
-    sensors:
       current_sensors_on:
         friendly_name: All Sensors Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_motion_smoke_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Sensors
-  - platform: template
-    sensors:
       current_binary_sensors_on:
         friendly_name: All Binary Sensors Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_binary_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Doors
-  - platform: template
-    sensors:
       current_doors_open:
         friendly_name: All Doors Currently Open
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_door_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Windows
-  - platform: template
-    sensors:
       current_windows_open:
         friendly_name: All Windows Currently Open
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_window_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Radiator Valves
-  - platform: template
-    sensors:
       current_radiator_valves_on:
         friendly_name: All Radiator Valves Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_radiator_valves','entity_id'))|selectattr('state','eq','heat')|list|count }}
-
-# Template All Computers
-  - platform: template
-    sensors:
       current_computers_on:
         friendly_name: All Computers Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_computers','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All TV's
-  - platform: template
-    sensors:
       current_tvs_on:
         friendly_name: All TV's Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_tvs','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Laundry Devices
-  - platform: template
-    sensors:
       current_laundry_devices_on:
         friendly_name: All Laundry Devices Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_laundry_devices','entity_id'))|selectattr('state','eq','on')|list|count }}
-
-# Template All Scenes
-  - platform: template
-    sensors:
       current_scenes_on:
         friendly_name: All Scenes
         value_template: >-
