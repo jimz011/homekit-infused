@@ -63,7 +63,7 @@ Manual Plugins Installation. The following plugins can either not be found on th
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Yes | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more, make sure you have `browser_mod:` in your `configuration.yaml` after you have installed it. Click the link for instructions! |
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Yes | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
 | [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this | 
-| [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this |
+| [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this, I recommend you to install it though, do not forget to set it up after installing |
 | [Plex Recently Added](https://github.com/custom-components/sensor.plex_recently_added) | No | This works in conjunction with the Upcoming Media plugin, this is only useful if you use Plex |
 | [Sonarr and Radarr Upcoming Media](https://github.com/custom-components/sensor.radarr_upcoming_media) | No | This works in conjunction with the Upcoming Media plugin, this is only useful if you use Sonarr or Radarr |
 
@@ -85,24 +85,19 @@ To copy the files you will need all the following files/folders from my repo.
 - Copy the entire `/lovelace/` folder to the root of your setup
 - Copy the `/themes/` folder to the root of your setup
 - Copy `ui-lovelace.yaml` file to the root of your setup
-- Copy the `/homekit-infused/` folder to the root of your setup
+- Copy the `/packages/` folder to the root of your setup
 - Copy the `/global_config/` folder to the root of your setup
 - Copy the `/www/images/` folder to your own `/www/` folder
 - Add the following line to your `configuration.yaml` file
 ```
 homeassistant:
-    packages:
-      homekit_infused_config: !include homekit_infused/configuration.yaml
-      homekit_infused_groups: !include homekit_infused/hki_groups.yaml
+    packages: !include_dir_named packages/
 ```
-Note: you can't have `homeassistant:` twice in your setup. You already have it so just copy the packages part and paste it below `homeassistant:`. Mind the indentation!
-
 - This will already work if you have used HACS for themes in the past, but to be safe add the following line to your `configuration.yaml` file:
 ```
 frontend:
     themes: !include_dir_merge_named themes/
 ```
-Note: once again, you can't have `frontend:` twice!
 
 - You must set the following line in `configuration.yaml` without it, it will NOT work!
 ```
@@ -116,6 +111,8 @@ lovelace:
 3. 4-persons (four large photos)
 4. 4-persons (two large photos, two smaller photos)
 - If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default! If you just wish to use the default you can skip this step!
+
+Note: you can't have duplicate keys, this means that you can't have either the exact same config twice. This is mostly important for users coming from the alpha or beta versions of this setup. If you did run the beta and want to update, you MUST remove EVERYTHING that was related to the alpha/beta (this means, views, global_config, automations, input_selects, etc, etc). Don't forget anything. (if you can't remember what those files were, you can simply download the beta release from the repo and see which files were in there). HKI config is now packaged for easy updates. This also means that keeping the old automations etc would mean duplicate keys!
 
 The copying process should now be completed and we can move on to the configuration part.
 
