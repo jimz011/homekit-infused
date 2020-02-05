@@ -1,0 +1,82 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+icon: {{ icon }}
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: toggle
+  haptic: light
+hold_action:
+  action: none
+styles:
+  card:
+    - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+#    - --ha-card-background: "var(--paper-card-background-color)"
+    - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+  label:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: 11px
+    - font-family: Helvetica
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+    - padding-left: 10px
+#    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('40px') }}
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: Helvetica 
+    - font-size: 13px
+#    - color: var(--primary-text-color) 
+  icon:
+#    - color: var(--primary-text-color) 
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--paper-card-background-color)
+      - border-radius: 12px
+      - overflow: visible
+      - position: absolute
+      - right: 7%
+      - top: 7%
+      - padding: 0px 5px
+      - height: 22px
+      - min-width: 12px
+      - font-size: 11px
+      - line-height: 20px
+      - font-weight: bold
+custom_fields: 
+  notification: "{{ notification }}"
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}

@@ -68,6 +68,7 @@
           - template: button_thermostat.yaml
             group: group.all_radiator_valves
             content: {{ _global.climate_category.thermostat|default('Thermostat') }}
+            lock: {{ _global.climate_lock.lock|default('false') }}
         - !include
           - '../templates/auto_fill_climate_sensors_template.yaml'
           - template: button.yaml

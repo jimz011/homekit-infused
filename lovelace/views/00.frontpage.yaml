@@ -59,7 +59,7 @@
                                 icon: {{ _global.frontpage_button_first_row.first_button_icon|default('mdi:thermometer') }}
                                 navigation_path: {{ _global.frontpage_button_first_row.first_button_navigation_path|default('/lovelace/climate') }}
                                 entity_badge: group.all_radiator_valves
-                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state}°`; ]]]"
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('current_radiator_valves_on') }}'].state}`; ]]]"
                                 hold_action: {{ _global.frontpage_button_first_row.first_button_hold_action|default('call-service') }}
                                 background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include
@@ -106,7 +106,7 @@
                                 navigation_path: {{ _global.frontpage_button_second_row.first_button_navigation_path|default('/lovelace/cleaning') }}
                                 margin_right: 40px
                                 entity_badge: sensor.unknown
-                                notification: "[[[ return `${states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state}°C`; ]]]"
+                                notification: "[[[ return `${states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state}`; ]]]"
                                 hold_action: {{ _global.frontpage_button_second_row.first_button_hold_action|default('none') }}
                                 background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include
@@ -195,6 +195,7 @@
                             type: custom:layout-card
                             min_columns: 1
                             max_columns: 1
+
               
                 
                                        

@@ -51,6 +51,13 @@ frontpage_photo:
 #  person_4_battery_level_sensor: sensor.battery_level_4
 
 # Button config
+## You can choose between multiple templates depending on what you want the button to do, choices are: `button.yaml`, `button_nav.yaml`, `button_badge.yaml` or `button_badge_toggle.yaml`
+## `button.yaml`: Is a simple toggle button with a switch as popup, this button has NO badge.
+## `button_nav.yaml`: Is the default button for navigating to a different lovelace view, this button has NO badge.
+## `button_badge`: Is the default button for navigating to a different lovelace view, this button HAS as badge.
+## `button_badge_toggle:` Is a toggle button with no hold_action, this button HAS a badge.
+##
+## NOTE: There are more lines than required in the config below (e.g. a navigation button doesn't need an entity, a switch button doesn't need a lovelace path!)
 
 # Buttons First Row
 frontpage_button_first_row:

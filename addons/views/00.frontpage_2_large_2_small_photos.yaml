@@ -58,18 +58,18 @@
                         - type: horizontal-stack
                           cards:
                             - !include
-                              - '../templates/{{ _global.frontpage_button_first_row.first_button_template|default('button_badge.yaml') }}'
+                              - '../templates/{{ _global.frontpage_button_first_row.first_button_template|default('button_nav.yaml') }}'
                               - name: {{ _global.frontpage_button_first_row.first_button_name|default('Climate') }}
                                 entity: {{ _global.frontpage_button_first_row.first_button_entity|default('input_boolean.dummy1') }}
                                 label: {{ _global.frontpage_button_first_row.first_button_label|default('Control') }}
                                 icon: {{ _global.frontpage_button_first_row.first_button_icon|default('mdi:thermometer') }}
                                 navigation_path: {{ _global.frontpage_button_first_row.first_button_navigation_path|default('/lovelace/climate') }}
                                 entity_badge: group.all_radiator_valves
-                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state}°`; ]]]"
+                                notification: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return '&nbsp'; else return `${states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('current_radiator_valves_on') }}'].state}`; ]]]"
                                 hold_action: {{ _global.frontpage_button_first_row.first_button_hold_action|default('call-service') }}
-                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.average_temperature') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
+                                background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.first_button_badge_entity|default('sensor.current_radiator_valves_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include
-                              - '../templates/{{ _global.frontpage_button_first_row.second_button_template|default('button_badge.yaml') }}'
+                              - '../templates/{{ _global.frontpage_button_first_row.second_button_template|default('button_nav.yaml') }}'
                               - name: {{ _global.frontpage_button_first_row.second_button_name|default('Light') }}
                                 entity: {{ _global.frontpage_button_first_row.second_button_entity|default('input_boolean.dummy1') }}
                                 label: {{ _global.frontpage_button_first_row.second_button_label|default('Control') }}
@@ -80,7 +80,7 @@
                                 hold_action: {{ _global.frontpage_button_first_row.second_button_hold_action|default('call-service') }}
                                 background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.second_button_badge_entity|default('sensor.current_lights_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include
-                              - '../templates/{{ _global.frontpage_button_first_row.third_button_template|default('button_badge.yaml') }}'
+                              - '../templates/{{ _global.frontpage_button_first_row.third_button_template|default('button_nav.yaml') }}'
                               - name: {{ _global.frontpage_button_first_row.third_button_name|default('Device') }}
                                 entity: {{ _global.frontpage_button_first_row.third_button_entity|default('input_boolean.dummy1') }}
                                 label: {{ _global.frontpage_button_first_row.third_button_label|default('Control') }}
@@ -91,7 +91,7 @@
                                 hold_action: {{ _global.frontpage_button_first_row.third_button_hold_action|default('call-service') }}
                                 background_color: "[[[ if (states['{{ _global.frontpage_button_first_row.third_button_badge_entity|default('sensor.current_devices_on') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include
-                              - '../templates/{{ _global.frontpage_button_first_row.fourth_button_template|default('button_badge.yaml') }}'
+                              - '../templates/{{ _global.frontpage_button_first_row.fourth_button_template|default('button_nav.yaml') }}'
                               - name: {{ _global.frontpage_button_first_row.fourth_button_name|default('Security') }}
                                 entity: {{ _global.frontpage_button_first_row.fourth_button_entity|default('input_boolean.dummy1') }}
                                 label: {{ _global.frontpage_button_first_row.fourth_button_label|default('Panel') }}
@@ -112,7 +112,7 @@
                                 navigation_path: {{ _global.frontpage_button_second_row.first_button_navigation_path|default('/lovelace/cleaning') }}
                                 margin_right: 40px
                                 entity_badge: sensor.unknown
-                                notification: "[[[ return `${states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state}°C`; ]]]"
+                                notification: "[[[ return `${states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state}`; ]]]"
                                 hold_action: {{ _global.frontpage_button_second_row.first_button_hold_action|default('none') }}
                                 background_color: "[[[ if (states['{{ _global.frontpage_button_second_row.first_button_badge_entity|default('sensor.unknown') }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
                             - !include

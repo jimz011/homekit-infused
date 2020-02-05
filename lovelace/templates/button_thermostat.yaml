@@ -7,6 +7,10 @@ aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
 label: "[[[ return `${states['{{entity}}'].attributes.temperature}°` ]]]"
 deep_press: {{ _global.deep_press.deep_press|default('false') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
 show_icon: false
 show_name: true
 show_label: true
@@ -131,6 +135,8 @@ state:
         notification:
           - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `#1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66`; else return `#EE7600`; ]]]"
           - color: white
+      lock:
+        - color: gray
   - value: "cool"
     spin: false
     styles:
@@ -147,6 +153,8 @@ state:
         notification:
           - background-color: '#1E90FF'
           - color: white
+      lock:
+        - color: gray
   - value: "heat_cool"
     spin: false
     styles:
@@ -163,6 +171,8 @@ state:
         notification:
           - background-color: '#00CC66'
           - color: white
+      lock:
+        - color: gray
   - value: "idle"
     spin: false
     styles:
@@ -179,6 +189,8 @@ state:
         notification:
           - background-color: '#00CC66'
           - color: white
+      lock:
+        - color: gray
   - value: "off"
     spin: false
     styles:
