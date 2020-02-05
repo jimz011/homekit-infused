@@ -19,6 +19,7 @@ Saying things like, "I have an issue, my lights view wont show" is not a good is
 The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 #### Known Issues
+  - Help I don't see a frontpage, what do I need to do? Did you add a weather_entity to your Home Assistant instance? If not then create one, preferably DarkSky. If you use something else please make sure you add the entity to the frontpage_view.yaml in global_config.
   - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team).
   - HACS doesn't always load after a restart, solution is to restart again (I do not know if this is since the last update of HACS or if something else is causing it).
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
