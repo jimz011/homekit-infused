@@ -20,8 +20,26 @@ Configuring Homekit Infused after the initial install is really easy. It only re
 - Fill in `customize.yaml` if you haven't done so in the preparation step
 - Fill in the `hki_groups.yaml` file that is located in your `/homekit_infused/` folder. Fill in AS MUCH as you can! This is the file used in the setup and is what this theme is all about. It will fill various views automatically according to these groups! Do NOT remove any groups! If you don't have entities for a specific group, only remove the entities in that group (including the `-`) and keep the group as it is.
 - Fill in the `global_settings.yaml` file found within the `global_config` folder. Fill in at least the person entities (uncomment the lines you need). No other config is required at the moment for the setup to work.
-- If you want to configure any of the views, please open the `/global_config/views/` folder and edit any view you want. All the views are separate files to configure, you would need to uncomment the lines you want to configure. Commenting them again will make the setup revert that line to it's default setting.
 - Congratulations, you have installed and setup Homekit Infused for basic use. For advanced use please refer to the tips & tricks section. Theoretically if you have done everything right the setup should work without too much trouble.
+
+#### Views and Global Config
+The global config is how HKI can be customised. It saves you a lot of trouble when updating AND makes it a lot easier for less experienced HA users to still be able to tweak the setup.
+Each view has its own global_config file and I have tried to make the config go from top to bottom. This means if the header is on top of the view and buttons at the bottom, that the global_config file will follow (more or less) that same order.
+If you want to change anything on for example the frontpage you can simply open up the `global_config/views/frontpage_view.yaml` file and uncomment the part you want to change. If a line is commented, it will choose the default config (which is not shown in those files)
+Example:
+```
+frontpage_buttons_first_row:
+#  first_button_name: Livingroom
+#  first_button_icon: mdi:sofa
+```
+Will result in a configuration with the default settings (defaults are set by me)
+But:
+```
+frontpage_buttons_first_row:
+  first_button_name: Office
+  first_button_icon: mdi:desktop
+```
+Would give the first button on the first row the `Office` name and `mdi:desktop` as an icon.
 
 #### WARNING
 Everything within the global_config files is commented, you can simply uncomment a line to change its properties and use it in Homekit Infused. Note that there are some lines that come uncommented by default, do NOT remove or comment them EVER! This will certainly break the setup and you will find yourself with a non-working lovelace interface. You can however edit any of the lines that are commented (if you do not know what you are doing I suggest not adding new lines to the files as they don't work like views, for more information I highly suggest you learn at least the basics of how lovelace_gen works [here](https://github.com/thomasloven/hass-lovelace_gen).
