@@ -2,8 +2,8 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/www/images/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 Februari 2020 v1.0RC (*updated: 04/02/2020)
-My current Home Assistant version is 0.105.0b6
+# Homekit Infused (Lovelace) by Jimz011 Februari 2020 v1.1 (*updated: 05/02/2020)
+My current Home Assistant version is 0.105.0b7
 
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homeassistant/) for documentation
@@ -13,7 +13,7 @@ My current Home Assistant version is 0.105.0b6
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Commmunity Forum Thread
 
 #### About
-Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.0 RC.
+Hello HA friends, my name is Jimz011 and I proudly present to you HKI v.1.1
 After a two week alpha/beta test the project has matured a great deal and I can now deem it release ready. Homekit Infused is an easy to setup and easy to configure package for Home Assistant which builds a beautiful frontend for you. To set up Homekit Infused all you'd have to do is fill in a few files (which are very easy to understand) and you will be rocking a Homekit style frontend on your mobile phone! Have a good one!
 
 #### Video and screenshots
