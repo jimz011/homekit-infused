@@ -29,15 +29,15 @@ If you want to change anything on for example the frontpage you can simply open 
 Example:
 ```
 frontpage_buttons_first_row:
-#  first_button_name: Livingroom
-#  first_button_icon: mdi:sofa
+#    first_button_name: Livingroom
+#    first_button_icon: mdi:sofa
 ```
 Will result in a configuration with the default settings (defaults are set by me)
 But:
 ```
 frontpage_buttons_first_row:
-  first_button_name: Office
-  first_button_icon: mdi:desktop
+    first_button_name: Office
+    first_button_icon: mdi:desktop
 ```
 Would give the first button on the first row the `Office` name and `mdi:desktop` as an icon.
 
