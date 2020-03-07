@@ -12,7 +12,7 @@
 - [Thanks](thanks.md)
 
 # INSTALLATION
-Installing HKI can be quite an undertaking as you will need a lot of custom-cards and custom-components. I will try to guide you through on how to go at this.
+Installing HKI should be super easy and when using the basic method should not take you longer than 15-30 minutes. Though ofcourse this might depend on your experience with Home Assistant.
 
 ### Prerequisites
   - First create github account if you do not already have one
