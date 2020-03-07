@@ -26,7 +26,7 @@ Homekit Infused has a fully customizable UI, you can create your own frontpage l
 - Added tons of layout options
 - Added a lot of new content to the frontpage and menu which can be easily customized
 - Added an edit mode which is used to change the layouts
-- Added an HKI Settings menu in which you can configure anything from names to icons and even several cards!
+- Added an HKI Settings menu in which you can configure anything from names to icons to the headers, subtitles and even several cards! Oh and did I mention that those changes are all instant and do not require any kind of refresh/restart?
 - Added multiple new rooms (a total of 20 rooms is now available)
 - Added multi floor layouts for lights and devices
 - All previous elements of HKI (e.g. sensors at the top, header subtitle, and even the sensors in the photos on the frontpage) can now be shown/hidden at will with a button switch in the new edit mode
