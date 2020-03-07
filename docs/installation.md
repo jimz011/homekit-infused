@@ -18,10 +18,12 @@ Installing HKI can be quite an undertaking as you will need a lot of custom-card
 ### Prerequisites
   - First create github account if you do not already have one
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
-  - After HACS is installed and configured you will need to install a list of custom-cards. There are two ways to do this. Either copy all the contents of the `/www/community/` folder to your own `/www/community/` folder. This will not allow you to update the addons in the future. Or find them in the HACS community store, this method is preferred and allows you to update addons in the future.
+  
+### Basic
+The easiest way to get the addons installed is by just copying the entire contents of the /www/ folder to the root of your Home Assistant install. This way you have the best compatibility (as all the addons have been tested) and it assures you that you won't get notified for addon updates (which some people might find annoying). Updating addons can ofcourse still be done by updating HKI as I will update this repo regularly with these kind of updates. If you need more flexibility you might want to take a look at the advanced section. If you chose the basic install you can skip to the Copy Files part of this page.
 
-The following addons are needed and can be found in the HACS plugin store!
-You won't need to add them to the resources file as I have already done this for you.
+### Advanced
+Experienced Home Assistant users might want to install these addons in HACS. I will mention though that I can NOT give support on untested versions of these addons and updating any of these addons without having been tested in HKI is on your own risk. I will advise you to just use the basic mode and use HACS for any other plugin you might want/need as those plugins are not a requirement in HKI. For best compatibility you will only use the ones from this repo! You will not need to add the resources to your configuration as I have already done this. You will only need to do this if you want to add custom resources (WARNING: custom resources currently do not survive updates, it is a small thing, but I had to mention it).
 
 #### Plugins (Click on Plugins in HACS)
 
@@ -84,8 +86,8 @@ To copy the files you will need all the following files/folders from my repo.
 - Copy the `/themes/` folder to the root of your setup
 - Copy `ui-lovelace.yaml` file to the root of your setup
 - Copy the `/packages/` folder to the root of your setup
-- Copy the `/global_config/` folder to the root of your setup
-- Copy the `/www/images/` folder to your own `/www/` folder
+- Copy the `/user_content/` folder to the root of your setup
+- Copy the `/www/` folder to the root of your setup
 - Add the following line to your `configuration.yaml` file
 ```
 homeassistant:
@@ -105,14 +107,8 @@ lovelace:
     mode: yaml
 ```
 
-- Now choose your layout. You have the choice between the following frontpage layouts: (screenshots soon!)
-1. Default (two large photos with device tracker and sensors, and a smaller photo in the middle with device tracker only)
-2. 2-persons (two large photos with device tracker and sensors)
-3. 4-persons (four large photos with device tracker and sensors)
-4. 4-persons (two large photos with device tracker and sensors, two photos with device tracker only)
-- If you have chosen your layout, please do the following: Copy the chosen template from the `/addons/views/` folder (found on the repo) to your `/lovelace/views/` folder. You MUST remove the `00.frontpage.yaml` file which comes by default! If you just wish to use the default you can skip this step!
-
-Note: you can't have duplicate keys, this means that you can't have either the exact same config twice. This is mostly important for users coming from the alpha or beta versions of this setup. If you did run the beta and want to update, you MUST remove EVERYTHING that was related to the alpha/beta (this means, views, global_config, automations, input_selects, etc, etc). Don't forget anything. (if you can't remember what those files were, you can simply download the beta release from the repo and see which files were in there). HKI config is now packaged for easy updates. This also means that keeping the old automations etc would mean duplicate keys!
+##### Note for users from older HKI versions
+Note: you can't have duplicate keys, this means that you can't have either the exact same config twice. This is mostly important for users coming from the alpha or beta versions of this setup. If you did run the 1.1, you MUST remove EVERYTHING that was related to that (this means, views, global_config, automations, input_selects, etc, etc). Don't forget anything. (if you can't remember what those files were, you can simply download the 1.1 release from the repo and see which files were in there). HKI config is now packaged for easy updates. This also means that keeping the old automations etc would mean duplicate keys! So remove them. You won't need to worry about this in the future again as this has been taken care of in v2.0.0
 
 The copying process should now be completed and we can move on to the configuration part.
 
