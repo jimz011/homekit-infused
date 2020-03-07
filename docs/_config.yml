@@ -1,0 +1,9 @@
+theme: jekyll-theme-slate
+show_downloads: true
+title: Homekit Infused
+google_analytics: UA-158593402-1
+buttons:
+  zip_url: https://github.com/jimz011/homeassistant/releases
+  zip_title: Download latest release
+  zip_hide: false
+  tar_hide: true
