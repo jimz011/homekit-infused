@@ -7,10 +7,11 @@
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Updates and Addons](updates.md)
-- [Tips & Tricks](tips.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
 - [Thanks](thanks.md)
+
+### WARNING: This lovelace UI is pretty heavy and it is not recommended to run this on a raspberry pi! Minimum requirements would be to use at least a NUC with an i3, 2GB of RAM and preferably more than 1.8Ghz. Better hardware will result in better performance! You can ofcourse proceed and install this on a rpi anyway if you really want to try it (though please share your results with me if you do so as I don't have one and I can't test it)
 
 # PREPARATION
 HKI is easy to configure as long as you have prepared yourself well. My advise is to use another computer, pi or create a vm to install this and test it first before moving over to production.
