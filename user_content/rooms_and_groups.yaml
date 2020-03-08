@@ -1,0 +1,304 @@
+# Homekit Infused Groups List, You will have to fill in this file for auto-filling to work.
+# Homekit Infused is based on this principle so you'd better fill this in. If you don't have
+# entities for a certain group, do NOT delete the group, just remove the entities, including
+# the dash '-'. Do NOT delete any of these groups! I have warned you!!!!!
+
+# Note: Some things might seem unlogical (or it feels like you already have created that group)
+# For everything is a reason, and if I ask you to put in the same entity in multiple groups then
+# you should do this as the groups will be read by lovelace (and the majority of the interface will
+# be built up accordingly)
+
+# Groups 
+
+## Rooms ##################################################################################################################################
+
+  # If you have a light that has rgb as well as color_temp, choose the group on which settings you use the most.
+  # E.g. your Philips bulb has both rgb and color_temp. You mostly use the color_temp settings of that specific bulb.
+  # In this case put the light in the color_temp group. If you don't want presets at all put them in the default light group.
+
+  # NOTE: DO NOT RENAME THE GROUPS! You can name rooms in the HKI Settings view. If you want room based views depending on floor level.
+  # You must enter the entities in the correct rooms. Rooms 1-10 are assigned to the 1st floor, rooms 11-16 to the 2nd floor and rooms 17-20 to the 3d floor.
+ 
+  # The first room shows you the example of how to fill in these groups, you can either use entities and separate them with comma's or you can use a list, your choice.
+
+  ## First Floor 
+  # Room 1
+  room_1_lights_default:
+    entities: # light.plafond, light.eettafel
+  room_1_lights_rgb:
+    entities: # light.woonkamer_led_lampen, light.gateway_light_7811dcdef324
+  room_1_lights_color_temp:
+    entities: # light.vloerlamp, light.tafellamp
+  room_1_all_devices:
+    entities:
+     # - light.plafond
+     # - light.eettafel
+     # - light.vloerlamp
+  
+  # Room 2
+  room_2_lights_default:
+    entities: 
+  room_2_lights_rgb:
+    entities: 
+  room_2_lights_color_temp:
+    entities: 
+  room_2_all_devices:
+    entities:
+
+  # Room 3
+  room_3_lights_default:
+    entities:
+  room_3_lights_rgb:
+    entities: 
+  room_3_lights_color_temp:
+    entities:
+  room_3_all_devices:
+    entities:
+
+  # Room 4
+  room_4_lights_default:
+    entities: 
+  room_4_lights_rgb:
+    entities:
+  room_4_lights_color_temp:
+    entities:
+  room_4_all_devices:
+    entities:
+
+  # Room 5
+  room_5_lights_default:
+    entities:
+  room_5_lights_rgb:
+    entities:
+  room_5_lights_color_temp:
+    entities:
+  room_5_all_devices:
+    entities:
+  
+  # Room 6
+  room_6_lights_default: 
+    entities: 
+  room_6_lights_rgb:
+    entities:
+  room_6_lights_color_temp:
+    entities:
+  room_6_all_devices:
+    entities:
+
+  # Room 7
+  room_7_lights_default: 
+    entities:
+  room_7_lights_rgb:
+    entities:
+  room_7_lights_color_temp:
+    entities:
+  room_7_all_devices:
+    entities:
+
+  # Room 8
+  room_8_lights_default:
+    entities:
+  room_8_lights_rgb:
+    entities:
+  room_8_lights_color_temp:
+    entities:
+  room_8_all_devices:
+    entities:
+
+  # Room 9
+  room_9_lights_default: 
+    entities:
+  room_9_lights_rgb:
+    entities:
+  room_9_lights_color_temp:
+    entities:
+  room_9_all_devices:
+    entities:
+
+  # Room 10
+  room_10_lights_default: 
+    entities: 
+  room_10_lights_rgb:
+    entities:
+  room_10_lights_color_temp:
+    entities:
+  room_10_all_devices:
+    entities:
+
+  ## Second Floor
+  # Room 11
+  room_11_lights_default: 
+    entities: 
+  room_11_lights_rgb:
+    entities:
+  room_11_lights_color_temp:
+    entities:
+  room_11_all_devices:
+    entities:
+
+  # Room 12
+  room_12_lights_default: 
+    entities: 
+  room_12_lights_rgb:
+    entities:
+  room_12_lights_color_temp:
+    entities:
+  room_12_all_devices:
+    entities:
+
+  # Room 13
+  room_13_lights_default: 
+    entities: 
+  room_13_lights_rgb:
+    entities:
+  room_13_lights_color_temp:
+    entities:
+  room_13_all_devices:
+    entities:
+
+  # Room 14
+  room_14_lights_default: 
+    entities: 
+  room_14_lights_rgb:
+    entities:
+  room_14_lights_color_temp:
+    entities:
+  room_14_all_devices:
+    entities:
+
+  # Room 15
+  room_15_lights_default: 
+    entities: 
+  room_15_lights_rgb:
+    entities:
+  room_15_lights_color_temp:
+    entities:
+  room_15_all_devices:
+    entities:
+
+  # Room 16
+  room_16_lights_default: 
+    entities: 
+  room_16_lights_rgb:
+    entities:
+  room_16_lights_color_temp:
+    entities:
+  room_16_all_devices:
+    entities:
+
+  ## Third Floor
+  # Room 17
+  room_17_lights_default: 
+    entities: 
+  room_17_lights_rgb:
+    entities:
+  room_17_lights_color_temp:
+    entities:
+  room_17_all_devices:
+    entities:
+
+  # Room 18
+  room_18_lights_default: 
+    entities: 
+  room_18_lights_rgb:
+    entities:
+  room_18_lights_color_temp:
+    entities:
+  room_18_all_devices:
+    entities:
+
+  # Room 19
+  room_19_lights_default: 
+    entities: 
+  room_19_lights_rgb:
+    entities:
+  room_19_lights_color_temp:
+    entities:
+  room_19_all_devices:
+    entities:
+
+  # Room 20
+  room_20_lights_default: 
+    entities:
+  room_20_lights_rgb:
+    entities:
+  room_20_lights_color_temp:
+    entities:
+  room_20_all_devices:
+    entities:
+
+## End Rooms ##############################################################################################################################
+
+# PLEASE CONTINUE BELOW, YOU MUST HAVE THIS FOR THE DEVICE_COUNTERS TO WORK, SOME BUTTONS REQUIRE THIS! DO NOT SKIP!!
+
+## All ###################################################################################################################################
+  
+  # All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
+  all_climate_entities:
+    entities:
+  
+  # All Fans (Enter all your fans in here)
+  all_fans:
+    entities:
+  
+  # All Temperature Sensors
+  all_temperature_sensors:
+    entities:
+
+  # All Humidity Sensors
+  all_humidity_sensors:
+    entities:
+
+  # All Air Pressure Sensors
+  all_air_pressure_sensors:
+    entities:
+
+  # Camera's
+  all_cameras:
+    entities:
+
+  # Window Sensors
+  all_window_sensors:
+    entities:
+  
+  # Door Sensors
+  all_door_sensors:
+    entities:
+  
+  # Motion Sensors
+  all_motion_sensors:
+    entities:
+  
+  # Smoke Detectors
+  all_smoke_detectors:
+    entities:
+
+  # All Binary Sensors (door/window/motion/smoke/gas etc)
+  all_binary_sensors:
+    entities:
+
+  # All Motion, Smoke, Fire and Gas Sensors
+  all_motion_smoke_sensors:
+    entities:
+
+  # All Lights (Used in counters only)
+  all_lighting:
+    entities:
+
+  # All Devices (Used in counters only)
+  all_device_switches:
+    entities:
+
+  # All Computers (This isn't used yet, though you can just fill it in)
+  all_computers:
+    entities:
+
+  # All TV's (Can be shown on the remote button to show the number of tv's)
+  all_tvs:
+    entities:
+
+  # All Laundry Devices (e.g. washing-machine, tumble-dryer or dishwasher)
+  all_laundry_devices:
+    entities:
+
+## End of All #############################################################################################################################

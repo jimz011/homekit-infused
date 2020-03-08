@@ -1,0 +1,13 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+- type: markdown
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }              
+  content: >
+    User Cards Here!

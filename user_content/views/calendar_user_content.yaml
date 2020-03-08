@@ -1,0 +1,45 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+- type: markdown
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }              
+  content: >
+    User Cards Here!
+
+#- type: entities
+#  style: |
+#    ha-card {
+#      border-radius: {{ states('input_select.border_radius') }};
+#      box-shadow: {{ states('input_select.box_shadow') }};
+#    }
+#  entities:
+#    - entity: sensor.anniversary_trouwdag
+#      icon: mdi:ring
+#      name: Trouwdag
+#    - entity: sensor.birthday_stephanie_schings
+#      icon: mdi:gift
+#      name: Stephanie
+#    - entity: sensor.birthday_jimmy_schings
+#      name: Jimmy
+#      icon: mdi:gift
+#    - entity: sensor.birthday_tala
+#      name: Tala
+#      icon: mdi:dog-side
+#   # - entity: sensor.birthday_helen_van_duuren
+#   #   name: Helen
+#   #   icon: mdi:human-female
+#    - entity: sensor.birthday_koos_van_duuren
+#      name: Koos
+#      icon: mdi:human-male
+#   # - entity: sensor.birthday_roxanne_van_duuren
+#   #   name: Roxanne
+#   #   icon: mdi:human-female
+#    - entity: sensor.birthday_jos_schings
+#      name: Jos
+#      icon: mdi:human-male

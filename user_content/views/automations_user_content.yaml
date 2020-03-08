@@ -1,0 +1,58 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+- type: markdown
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }              
+  content: >
+    User Cards Here!
+
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button.yaml'
+#       - entity: group.film_kijken_automation
+#         name: Dim Light
+#         icon: fal:film-alt
+#         label: Movie
+#         grid:
+#           '!include ../includes/automations-grid.yaml'
+#     - !include
+#       - '../../lovelace/templates/button.yaml'
+#       - entity: group.deur_notifications
+#         name: Door
+#         icon: fal:door-closed
+#         label: Notifications
+#         grid:
+#           '!include ../includes/automations-grid.yaml' 
+#     - !include
+#       - '../../lovelace/templates/button.yaml'
+#       - entity: group.vaatwasser_starten
+#         name: Dishwasher On
+#         icon: mdi:dishwasher
+#         label: After Laundry
+#         grid:
+#           '!include ../includes/automations-grid.yaml' 
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button.yaml'
+#       - entity: automation.motion_detected_no_one_home_gallerij
+#         name: Movement
+#         icon: fal:sensor-on
+#         label: Notification
+#         grid:
+#           '!include ../includes/automations-grid.yaml' 
+#     - !include
+#       - '../../lovelace/templates/button.yaml'
+#       - entity: group.all_automations
+#         name: Automations
+#         icon: mdi:alpha-a-box
+#         label: All
+#         grid:
+#           '!include ../includes/automations-grid.yaml' 

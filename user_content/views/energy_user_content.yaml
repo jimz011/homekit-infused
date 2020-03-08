@@ -1,0 +1,110 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+- type: markdown
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }              
+  content: >
+    User Cards Here!
+
+# - !include
+#   - '../../lovelace/templates/header_text.yaml'
+#   - content: '##### Current'
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.wasmachine_current
+#         name: Wasmachine
+#         line_color: '"#ffb414"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.droger_current
+#         name: Droger
+#         line_color: '"#ffb414"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.vaatwasser_current
+#         name: Vaatwasser
+#         line_color: '"#ffb414"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+# - !include
+#   - '../../lovelace/templates/header_text.yaml'
+#   - content: '##### Power'
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.wasmachine_power
+#         name: Wasmachine
+#         line_color: '"#1427ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.droger_power
+#         name: Droger
+#         line_color: '"#1427ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.vaatwasser_power
+#         name: Vaatwasser
+#         line_color: '"#1427ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+# - !include
+#   - '../../lovelace/templates/header_text.yaml'
+#   - content: '##### Voltage'
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.wasmachine_voltage
+#         name: Wasmachine
+#         line_color: '"#00d8ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.droger_voltage
+#         name: Droger
+#         line_color: '"#00d8ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65
+#     - !include
+#       - '../../lovelace/templates/mini_graph.yaml'
+#       - entity: sensor.vaatwasser_voltage
+#         name: Vaatwasser
+#         line_color: '"#00d8ff"'
+#         graph_type: bar
+#         show_extrema: true
+#         decimals: 0
+#         font_size: 65 

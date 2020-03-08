@@ -1,0 +1,102 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+- type: markdown
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+    }              
+  content: >
+    User Cards Here!
+
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_dagverlichting
+#         name: Dag
+#         label: Verlichting
+#         icon: fal:house-day
+#         service_entity: scene.dagverlichting
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_avondverlichting
+#         name: Avond
+#         label: Verlichting
+#         icon: fal:house-night
+#         service_entity: scene.avondverlichting
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_nachtverlichting
+#         name: Nacht
+#         label: Verlichting
+#         icon: fal:moon-stars
+#         service_entity: scene.nachtverlichting
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.dummy1
+#         name: Film Kijken
+#         icon: fal:film
+#         service_entity: scene.living_movie
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: group.scene_schoonmaken_on
+#         name: Alle lampen
+#         label: Inschakelen
+#         icon: fal:lightbulb-on
+#         service_entity: scene.schoonmaken
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_lichtuit
+#         name: Alle Lampen
+#         label: Uitschakelen
+#         icon: fal:lightbulb-slash
+#         service_entity: scene.lichtuit
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: group.scene_koken_on
+#         name: Koken
+#         icon: fal:hat-chef
+#         service_entity: scene.koken
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: group.scene_wassen_on
+#         name: Wassen
+#         icon: fal:washer
+#         service_entity: scene.wassen
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: group.scene_naarbed
+#         name: Naar Bed
+#         icon: fal:bed-alt
+#         service_entity: scene.naarbed
+# - type: horizontal-stack
+#   cards:
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_klaar_met_koken
+#         name: Klaar met
+#         label: Koken
+#         icon: fal:power-off
+#         service_entity: scene.klaar_met_koken
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_klaar_met_wassen
+#         name: Klaar met
+#         label: Wassen
+#         icon: fal:power-off
+#         service_entity: scene.klaar_met_wassen
+#     - !include
+#       - '../../lovelace/templates/button_service_call.yaml'
+#       - entity: input_boolean.scene_welterusten
+#         name: Welterusten
+#         label: Alles Uit
+#         icon: fal:snooze
+#         service_entity: scene.welterusten

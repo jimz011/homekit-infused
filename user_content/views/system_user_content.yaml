@@ -1,0 +1,42 @@
+# This is the file you can use to add your own cards, they are already in a vertical stack.
+# You can simply put cards under each other, easy huh? :P. You can even use this file to 
+# customize your entire view (just turn off the other elements except for user content)!
+# The first card is an example, you can safely remove it!
+
+# - type: markdown
+#   style: |
+#     ha-card {
+#       border-radius: {{ states('input_select.border_radius') }};
+#       box-shadow: {{ states('input_select.box_shadow') }};
+#     }              
+#   content: >
+#     User Cards Here!
+
+- type: entities
+  style: |
+    ha-card {
+      border-radius: {{ states('input_select.border_radius') }};
+      box-shadow: {{ states('input_select.box_shadow') }};
+      font-family: Helvetica;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+  entities:
+    - entity: sensor.certificate_remote
+      name: Remote
+      icon: fal:file-certificate
+    - entity: sensor.certificate_hassio
+      name: Hassio
+      icon: fal:file-certificate
+    - entity: sensor.certificate_bitwarden
+      name: Vault
+      icon: fal:file-certificate
+    - entity: sensor.certificate_plex
+      name: Plex
+      icon: fal:file-certificate
+    - entity: sensor.certificate_media
+      name: Media
+      icon: fal:file-certificate
+    - entity: sensor.certificate_valetudo  
+      name: Valetudo
+      icon: fal:file-certificate
