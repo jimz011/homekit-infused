@@ -19,7 +19,20 @@ Installing HKI should be super easy and when using the basic method should not t
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
   
 ### Basic
-The easiest way to get the addons installed is by just copying the entire contents of the /www/ folder to the root of your Home Assistant install. This way you have the best compatibility (as all the addons have been tested) and it assures you that you won't get notified for addon updates (which some people might find annoying). Updating addons can ofcourse still be done by updating HKI as I will update this repo regularly with these kind of updates. If you need more flexibility you might want to take a look at the advanced section. If you chose the basic install you can skip to the Copy Files part of this page.
+The easiest way to get the addons installed is by just copying the entire contents of the /www/ folder to the root of your Home Assistant install. This way you have the best compatibility (as all the addons have been tested) and it assures you that you won't get notified for addon updates (which some people might find annoying). Updating addons can ofcourse still be done by updating HKI as I will update this repo regularly with these kind of updates. If you need more flexibility you might want to take a look at the advanced section. Remember that you MUST have HACS setup or else this method will not work.
+
+The following components MUST be setup manually and can be found in HACS, click on integrations and find the following integrations.
+| Name | Required | Description |
+|----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Yes | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more, make sure you have `browser_mod:` in your `configuration.yaml` after you have installed it. Click the link for instructions! |
+| [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Yes | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
+| [Average Sensor](https://github.com/Limych/ha-average) | No | This sums up the number of any of your entities and creates an average sensor of it, I use this on the climate view and frontpage. Not required, but you must have some kind of replacement if you don't use this, I recommend you to install it though, do not forget to set it up after installing |
+
+When you are done make sure you add the following line to your `configuration.yaml` file:
+```
+browser_mod:
+```
+You can skip to the Copy Files part if you have used the basic steps above, else continue with advanced.
 
 ### Advanced
 Experienced Home Assistant users might want to install these addons in HACS. I will mention though that I can NOT give support on untested versions of these addons and updating any of these addons without having been tested in HKI is on your own risk. I will advise you to just use the basic mode and use HACS for any other plugin you might want/need as those plugins are not a requirement in HKI. For best compatibility you will only use the ones from this repo! You will not need to add the resources to your configuration as I have already done this. You will only need to do this if you want to add custom resources (WARNING: custom resources currently do not survive updates, it is a small thing, but I had to mention it).
@@ -28,6 +41,10 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Gap Card](https://github.com/thomasloven/lovelace-gap-card) | Module | Yes | This creates a gap between the screenborders, this will eventually replace all the blank-buttons HKI currently has |
+| [Text Input Row](https://github.com/gadgetchnnel/lovelace-text-input-row) | js | Yes | This is needed to make input_text more readable |
+| [Config Template Card](https://github.com/iantrich/config-template-card) | Module | Yes | This is needed to read some templates on some views/cards, don't skip this |
+| [Search Card](https://github.com/postlund/search-card) | Module | No | This is the search card widget for the frontpage |
 | [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
 | [Card-Mod](https://github.com/thomasloven/lovelace-card-mod) | Module | Yes | This mod allows for custom css on any card |
 | [Button Card](https://github.com/custom-cards/button-card) | Module | Yes | This is the button used throughout the entire setup |
@@ -36,7 +53,6 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Module | Yes | This addon is used as a replacement for vertical and horizontal stacks |
 | [Custom Header](https://github.com/maykar/custom-header) | Module | Yes | This is used to modify the standard Home Assistant header |
 | [More Info Card](https://github.com/thomasloven/lovelace-more-info-card) | Module | Yes | This card is used in most popups |
-| [RGB Light Card](https://github.com/bokub/rgb-light-card) | js | Yes | This card is used in conjuction with the light-popup card |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Module | Yes | This is needed for various custom cards to run |
 | [Check Button Card](https://github.com/custom-cards/check-button-card) | js | Yes | This is the used in the cleaning view and makes checklists possible |
 | [Vertical-Stack-in-Card](https://github.com/custom-cards/vertical-stack-in-card) | js | Yes | This is like an entities-card but serves only for one purpose, to make cards tighter together and look like a single card |
