@@ -8,7 +8,7 @@ My current Home Assistant version is 0.106.5
 ## Coming Soon! (Closed beta will start at 08/03/2020) You can join our slack channel if you're interested in testing.
 
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
-### [Click here](https://jimz011.github.io/homeassistant/) for documentation (Coming Soon!)
+### [Click here](https://jimz011.github.io/homeassistant/) for documentation
 ### [Click here](https://github.com/jimz011/homeassistant/releases) for older releases
 ### [Click here](https://github.com/jimz011/homeassistant/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
@@ -17,6 +17,10 @@ My current Home Assistant version is 0.106.5
 Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 90% configurable through the Homekit Infused interface! The other 10% is still super easy to setup. Your views will be auto-filled with your own entities and all you'd need to do is set up a single file! But WAIT!!!!! There is more..........
 
 Homekit Infused has a fully customizable UI, you can create your own frontpage layout with ease with the built-in edit mode which allows you to show/hide and add elements to the UI with a flick of a button. Most of the configuration can be done within the HKI Settings and changes done within the UI are INSTANT!!! Yes you've read it well, no restarts or lovelace refreshes required!
+
+#### Video and screenshots
+Screenshots: Coming Soon! (coming next week!)
+Video: CLICK ON THE IMAGE TO START VIDEO (coming next week!)
 
 #### Changes since 1.1
 - Rewritten with a new UI based design
@@ -48,11 +52,6 @@ Homekit Infused has a fully customizable UI, you can create your own frontpage l
 - And lots and lots more!
 
 Conclusion: Get v2.0.0 as soon as it is here, make the change if coming from older versions and never worry about updates again! You won't need to read an update guide ever again as you can simply update any time with ease. For updates to work you should NEVER touch the files in the /lovelace/ folder. You shouldn't need to edit them as you have your own custom user areas for that. If you want to customize an entire view, just turn off every element of that view with edit mode and turn on 'user content'. That's it folks, Enjoy!
-
-#### Video and screenshots
-Screenshots: Coming Soon! (check out my forum thread for screenshots if you can't wait)
-Video: CLICK ON THE IMAGE TO START VIDEO (coming soon!)
-
 
 ### Questions and Support
 
