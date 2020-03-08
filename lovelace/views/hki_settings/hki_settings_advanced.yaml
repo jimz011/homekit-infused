@@ -4,7 +4,7 @@
     - type: vertical-stack
       cards:
         - !include
-          - '../../templates/system_header.yaml'
+          - '../../templates/system_header_advanced.yaml'
           - name: Advanced System Translation
             icon: mdi:alpha-a-box
             content: "HKI {{ states.input_text.name_header_settings.state }}"
