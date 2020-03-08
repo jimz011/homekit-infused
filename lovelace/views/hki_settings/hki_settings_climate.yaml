@@ -1,0 +1,98 @@
+- title: HKI Settings
+  path: hki_settings_climate
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Climate
+            icon: mdi:thermostat
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Climate Presets:** You can lightly customize the climate presets widget here. Only names and icons can be changed and you can set the frost protection and heat all temperatures. This might get expanded in the future.
+                    - type: entities
+                      title: Preset Names
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.name_power
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_on
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_off
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_frost
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_protection
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_heat
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_all
+                          type: 'custom:text-input-row'
+                    - type: entities
+                      title: Preset Icons
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.icon_power
+                          type: 'custom:text-input-row'
+                        - entity: input_text.icon_frost
+                          type: 'custom:text-input-row'
+                        - entity: input_text.icon_heat
+                          type: 'custom:text-input-row'
+                    - type: entities
+                      title: Preset Temperatures
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.frost_protection_temperature
+                          type: 'custom:text-input-row'
+                        - entity: input_text.heat_all_temperature
+                          type: 'custom:text-input-row'
+
+                         

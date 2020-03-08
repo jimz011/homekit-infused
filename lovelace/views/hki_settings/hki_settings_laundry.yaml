@@ -1,0 +1,114 @@
+- title: HKI Settings
+  path: hki_settings_laundry
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Laundry
+            icon: mdi:google-circles-communities
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Laundry:** You can set up your laundry and sensors belonging to those devices to use the laundry room addon.
+                    - type: entities
+                      title: Laundry add-on
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                          overflow: hidden;
+                        }                        
+                      show_header_toggle: false
+                      entities:
+                        - entity: input_text.washing_machine_image
+                          type: 'custom:text-input-row'
+                        - type: custom:hui-vertical-stack-card
+                          cards:
+                            - type: entities
+                              style: |
+                                ha-card {
+                                  box-shadow: none;
+                                }                        
+                              show_header_toggle: false
+                              entities:
+                                - entity: input_text.washing_machine_entity
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.washing_machine_status_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.washing_machine_wattage_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.washing_machine_voltage_sensor
+                                  type: 'custom:text-input-row'
+                        - entity: input_text.washing_machine_image
+                          type: 'custom:text-input-row'
+                        - type: custom:hui-vertical-stack-card
+                          cards:
+                            - type: entities
+                              style: |
+                                ha-card {
+                                  box-shadow: none;
+                                }                        
+                              show_header_toggle: false
+                              entities:
+                                - entity: input_text.dryer_entity
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dryer_status_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dryer_wattage_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dryer_voltage_sensor
+                                  type: 'custom:text-input-row'
+                        - entity: input_text.dishwasher_image
+                          type: 'custom:text-input-row'
+                        - type: custom:hui-vertical-stack-card
+                          cards:
+                            - type: entities
+                              style: |
+                                ha-card {
+                                  box-shadow: none;
+                                }                        
+                              show_header_toggle: false
+                              entities:
+                                - entity: input_text.dishwasher_entity
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dishwasher_status_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dishwasher_wattage_sensor
+                                  type: 'custom:text-input-row'
+                                - entity: input_text.dishwasher_voltage_sensor
+                                  type: 'custom:text-input-row'
+
+                                  

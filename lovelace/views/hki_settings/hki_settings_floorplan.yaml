@@ -1,0 +1,56 @@
+- title: HKI Settings
+  path: hki_settings_floorplan
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Floorplan
+            icon: mdi:floor-plan
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Floorplan:** You can only setup a static image for the floorplan with this widget. If you want to create your own pleaes use the custom_user content area for that.
+                    - type: entities
+                      title: Floorplan
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.floorplan_image
+                          type: 'custom:text-input-row'

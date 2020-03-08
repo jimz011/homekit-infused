@@ -1,0 +1,134 @@
+# lovelace_gen
+
+- title: Alarm
+  path: alarm
+  icon: mdi:alert
+  cards:   
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_alarm          
+          states:
+            "off":
+              !include
+              - '../templates/system_header.yaml'
+              - name: input_text.name_header_secondary_alarm
+                system_header: input_boolean.header_secondary_alarm
+                icon: "[[[ return `${states['input_text.icon_header_alarm'].state}` ]]]"
+                {% raw %}
+                content: "{{ states.input_text.name_header_alarm.state }}"
+                {% endraw %}
+            "on":
+              !include
+              - '../templates/system_header_advanced.yaml'
+              - name: "{{ _global.header_secondary.alarm|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_alarm
+                icon: "[[[ return `${states['input_text.icon_header_alarm'].state}` ]]]"
+{% raw %}
+                content: "{{ states.input_text.name_header_alarm.state }}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: alarm_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.alarm_keypad
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards: 
+              - type: custom:layout-card
+                cards: 
+                  - type: "custom:config-template-card"
+                    entities:
+                      - input_text.alarm_entity
+                    card:
+                      type: alarm-panel
+                      style:
+                        .: |
+                          ha-card {
+                            overflow: hidden;
+                            opacity: 0.7;
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                          }
+                        '#armActions mwc-button':
+                          $: |
+                            button {
+                              min-height: 50px;
+                              font-size: 18px !important;
+                              --mdc-theme-primary: var(--primary-text-color); var(--name-color-off);
+                              border-color: rgba(57,128,228,0) !important;
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                            }
+                        '#keypad mwc-button:nth-of-type(11)':
+                          $: |
+                            :host {
+                              background: transparent;
+                              float: left !important;
+                            }
+                             button {
+                              display: block;
+                              min-height: 50px;
+                              font-size: 28px !important;
+                              --mdc-theme-primary: var(--primary-text-color); var(--name-color-off);
+                              border-color: rgba(57,128,228,0) !important;
+                              width: 50%;
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                              #box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
+                            }
+      
+                        '#keypad mwc-button:nth-of-type(-n+9)':
+                          $: |
+                            :host {
+                              background: transparent;
+                              float: left !important;
+                            }
+                             button {
+                              display: block;
+                              min-height: 50px;
+                              font-size: 28px !important;
+                              --mdc-theme-primary: var(--primary-text-color); #var(--name-color-off);
+                              border-color: rgba(57,128,228,0) !important;
+                              width: 50%;
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                            }
+                        '#keypad mwc-button:nth-of-type(12)':
+                          $: |
+                            button {
+                              min-height: 50px;
+                              font-size: 18px !important;
+                              --mdc-theme-primary: var(--primary-text-color); var(--name-color-off);
+                              border-color: rgba(57,128,228,0) !important;
+                              border-radius: {{ states('input_select.border_radius') }};
+                              box-shadow: {{ states('input_select.box_shadow') }};
+                            }
+                      entity: "${states['input_text.alarm_entity'].state}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.alarm_user_content
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/alarm_user_content.yaml
+{% endraw %}

@@ -1,0 +1,39 @@
+- title: Person_2
+  path: person_2
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - name: "[[[ return `${states['input_select.person_menu_2'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.person_menu_2
+            content: "{{ states.input_text.person_2_name.state }}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: person_2_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.person_2_user_content
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/person_2_user_content.yaml

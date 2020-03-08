@@ -1,0 +1,489 @@
+- title: HKI Settings
+  path: hki_settings_room
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Rooms
+            icon: mdi:shape-square-plus
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Rooms:** Rooms are shown/hidden automatically based on what you setup in here. You can show/hide rooms individually at their respective views.
+                - type: entities  
+                  title: Floors                        
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      overflow: hidden;
+                    }                        
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_select.floor_selector
+                      name: Select number of floors
+                - type: conditional
+                  conditions:
+                    - state_not: "Select"
+                      entity: input_select.floor_selector
+                  card:
+                    type: entities  
+                    title: Ground Floor                        
+                    style: |
+                      ha-card {
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        overflow: hidden;
+                      }                        
+                    show_header_toggle: false
+                    entities:
+                      - entity: input_select.floor_0_room_selector
+                        name: Select number of rooms
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: entities                       
+                            style: |
+                              ha-card {
+                                box-shadow: none;
+                              }                                      
+                              .card-content {
+                                padding: 0
+                              }      
+                            show_header_toggle: false 
+                            entities:
+                              - type: custom:state-switch
+                                entity: input_select.floor_0_room_selector
+                                states:
+                                  "1":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                  "2":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'
+                                  "3":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                  "4":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                  "5":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                  "6":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_6
+                                        type: 'custom:text-input-row'
+                                  "7":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_6
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_7
+                                        type: 'custom:text-input-row'
+                                  "8":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_6
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_7
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_8
+                                        type: 'custom:text-input-row'
+                                  "9":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_6
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_7
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_8
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_9
+                                        type: 'custom:text-input-row'
+                                  "10":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_1
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_2
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_3
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_4
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_5
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_6
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_7
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_8
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_9
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_10
+                                        type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - state_not: "1"
+                      entity: input_select.floor_selector
+                    - state_not: "Select"
+                      entity: input_select.floor_selector
+                  card:     
+                    type: entities  
+                    title: First Floor                        
+                    style: |
+                      ha-card {
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        overflow: hidden;
+                      }                        
+                    show_header_toggle: false
+                    entities:
+                      - entity: input_select.floor_1_room_selector
+                        name: Select number of rooms
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: entities                       
+                            style: |
+                              ha-card {
+                                box-shadow: none;
+                              }                                      
+                              .card-content {
+                                padding: 0
+                              }                      
+                            show_header_toggle: false
+                            entities:
+                              - type: custom:state-switch
+                                entity: input_select.floor_1_room_selector
+                                states:
+                                  "1":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                  "2":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_12
+                                        type: 'custom:text-input-row'
+                                  "3":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_12
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_13
+                                        type: 'custom:text-input-row'
+                                  "4":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_12
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_13
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_14
+                                        type: 'custom:text-input-row'
+                                  "5":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_12
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_13
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_14
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_15
+                                        type: 'custom:text-input-row'
+                                  "6":
+                                    type: entities
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }   
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_text.room_11
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_12
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_13
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_14
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_15
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_16
+                                        type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - state_not: "1"
+                      entity: input_select.floor_selector
+                    - state_not: "2"
+                      entity: input_select.floor_selector
+                    - state_not: "Select"
+                      entity: input_select.floor_selector
+                  card:
+                    type: entities  
+                    title: Second Floor                        
+                    style: |
+                      ha-card {
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        overflow: hidden;
+                      }                        
+                    show_header_toggle: false
+                    entities:
+                      - entity: input_select.floor_2_room_selector
+                        name: Select number of rooms
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: entities                       
+                            style: |
+                              ha-card {
+                                box-shadow: none;
+                              }                                      
+                              .card-content {
+                                padding: 0
+                              }        
+                            show_header_toggle: false
+                            entities:
+                              - type: custom:state-switch
+                                entity: input_select.floor_2_room_selector
+                                states:
+                                  "1":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false           
+                                    entities:
+                                      - entity: input_text.room_17
+                                        type: 'custom:text-input-row'
+                                  "2":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_17
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_18
+                                        type: 'custom:text-input-row'
+                                  "3":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_17
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_18
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_19
+                                        type: 'custom:text-input-row'
+                                  "4":
+                                    type: entities  
+                                    style: |
+                                      ha-card {
+                                        box-shadow: none;
+                                      }       
+                                    show_header_toggle: false 
+                                    entities:
+                                      - entity: input_text.room_17
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_18
+                                        type: 'custom:text-input-row'       
+                                      - entity: input_text.room_19
+                                        type: 'custom:text-input-row'
+                                      - entity: input_text.room_20
+                                        type: 'custom:text-input-row'

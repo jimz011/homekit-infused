@@ -1,0 +1,492 @@
+# lovelace_gen
+
+- title: Devices
+  path: devices
+  icon: mdi:power-plug
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_device
+          states:
+            "off":
+              !include
+              - '../templates/system_header.yaml'
+              - name: input_text.name_header_secondary_devices
+                system_header: input_boolean.header_secondary_device
+                icon: "[[[ return `${states['input_text.icon_header_devices'].state}` ]]]"
+                {% raw %}
+                content: "{{ states.input_text.name_header_devices.state }}"
+                {% endraw %}
+            "on":
+              !include
+              - '../templates/system_header_advanced.yaml'
+              - name: "{{ _global.header_secondary.devices|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_device
+                icon: "[[[ return `${states['input_text.icon_header_devices'].state}` ]]]"
+{% raw %}
+                content: "{{ states.input_text.name_header_devices.state }}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: device_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - state_not: "1"
+              entity: input_select.floor_selector
+            - state_not: "Select"
+              entity: input_select.floor_selector
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        entity: input_select.devices_floor_selector
+                        icon: mdi:home-floor-0
+                        show_label: false
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            entity_id: input_select.devices_floor_selector
+                            option: "0"
+                        hold_action:
+                          action: more-info
+                          haptic: heavy
+                        styles:
+                          card:
+                            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+                            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "0"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+                      - type: custom:button-card
+                        entity: input_select.devices_floor_selector
+                        icon: mdi:home-floor-1
+                        show_label: false
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            entity_id: input_select.devices_floor_selector
+                            option: "1"
+                        hold_action:
+                          action: more-info
+                          haptic: heavy
+                        styles:
+                          card:
+                            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+                            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "1"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+                      - type: conditional
+                        conditions:
+                          - state: "3"
+                            entity: input_select.floor_selector
+                        card:
+                          type: custom:button-card
+                          entity: input_select.devices_floor_selector
+                          icon: mdi:home-floor-2
+                          show_label: false
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: input_select.select_option
+                            service_data:
+                              entity_id: input_select.devices_floor_selector
+                              option: "2"
+                          hold_action:
+                            action: more-info
+                            haptic: heavy
+                          styles:
+                            card:
+                              - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+                              - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+                              - opacity: 0.7
+                              - height: 45px
+                            name:
+                              - font-size: 10px
+                          state:
+                            - value: "2"
+                              styles:
+                                card:
+                                  - --paper-card-background-color: white
+                                  - opacity: 1.0
+                                name:
+                                  - color: Black
+                                icon: 
+                                  - color: Crimson
+        - type: conditional
+          conditions:
+            - entity: input_select.devices_floor_selector
+              state: "0"
+          card:
+            type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_01
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_1.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_1_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_01_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_02
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_2.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_2_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_02_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_03
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_3.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_3_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_03_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_04
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_4.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_4_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_04_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_05
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_5.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_5_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_05_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_06
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_6.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_6_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_06_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_07
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_7.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_7_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_07_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_08
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_8.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_8_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_08_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_09
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_9.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_9_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_09_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_10
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_10.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_10_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_10_lock'].state === 'on' ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_select.devices_floor_selector
+              state: "1"
+          card:
+            type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_11
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_11.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_11_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_11_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_12
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_12.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_12_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_12_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_13
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_13.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_13_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_13_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_14
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_14.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_14_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_14_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_15
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_15.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_15_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_15_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_16
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_16.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_16_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_16_lock'].state === 'on' ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_select.devices_floor_selector
+              state: "2"
+          card:
+            type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_17
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_17.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_17_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_17_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_18
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_18.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_18_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_18_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_19
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_19.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_19_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_19_lock'].state === 'on' ]]]"
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.devices_room_20
+                    state: "on"
+                card:
+                  type: vertical-stack
+                  cards:
+                    - !include
+                      - '../templates/header_text.yaml'
+                      - content: "##### {{ states.input_text.room_20.state }}"
+                    - type: custom:layout-card
+                      cards:
+                        - !include
+                          - '../templates/auto_fill_devices_template.yaml'
+                          - group_devices: group.room_20_all_devices
+                            lock: "[[[ return states['input_boolean.devices_room_20_lock'].state === 'on' ]]]"
+{% endraw %}

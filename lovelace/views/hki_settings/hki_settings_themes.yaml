@@ -1,0 +1,86 @@
+- title: HKI Settings
+  path: hki_settings_themes
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Theme
+            icon: mdi:palette
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown                          
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                        
+                        content: >
+                          **Colors:** Setting a color scheme will change the colors and wallpaper for all users. When set to Auto the colors will change depending on day/night cycle. Choosing any theme other than Auto will disable automatic cycling.
+                    - type: entities
+                      title: Color Scheme
+                      show_header_toggle: false             
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_select.theme_selector
+                          name: Select Color Scheme
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Options:** Selecting any of the options below will change the look and feel of buttons and cards globally. Prefer rounded corners? Set a border-radius.
+                    - type: entities
+                      title: Card Options
+                      show_header_toggle: false                    
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_select.border_radius_selector
+                          name: Select Border Size
+                        - entity: input_select.box_shadow_selector
+                          name: Select Shadow Size

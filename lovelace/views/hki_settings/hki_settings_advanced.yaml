@@ -1,0 +1,118 @@
+- title: HKI Settings
+  path: hki_settings_advanced
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header.yaml'
+          - name: Advanced System Translation
+            icon: mdi:alpha-a-box
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Text:** You can change all other text elements of the interface here. This can be very useful if you want to use different names or if your language is not available for HKI yet.
+                    - type: entities
+                      title: Frontend Greeting
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.name_good_morning
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_afternoon
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_evening
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_night
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Climate Categories
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.name_thermostat
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_fans
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_temperature
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_humidity
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_air_pressure
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Security Categories
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.name_cameras
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_doors
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_windows
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_motion
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_other
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Menu Categories
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.name_favorites
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_all
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_custom
+                          type: 'custom:text-input-row'                   

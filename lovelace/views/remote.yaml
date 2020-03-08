@@ -1,0 +1,44 @@
+# lovelace_gen
+
+- title: Remote
+  path: remote
+  icon: mdi:remote
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - name: "[[[ return `${states['input_select.remote_control'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.remote_control
+            {% raw %}
+            content: "{{ states.input_text.name_header_remote.state }}"
+            {% endraw %}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: remote_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.remote_user_content
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/remote_user_content.yaml

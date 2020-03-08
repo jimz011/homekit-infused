@@ -1,0 +1,94 @@
+# lovelace_gen
+
+- title: Scenes
+  path: scenes
+  icon: mdi:arrange-send-backward
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_scene
+          states:
+            "off":
+              !include
+              - '../templates/system_header.yaml'
+              - name: input_text.name_header_secondary_scenes
+                system_header: input_boolean.header_secondary_scene
+                icon: "[[[ return `${states['input_text.icon_header_scenes'].state}` ]]]"
+                {% raw %}
+                content: "{{ states.input_text.name_header_scenes.state }}"
+                {% endraw %}
+            "on":
+              !include
+              - '../templates/system_header_advanced.yaml'
+              - name: "{{ _global.header_secondary.scenes|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_scene
+                icon: "[[[ return `${states['input_text.icon_header_scenes'].state}` ]]]"
+{% raw %}
+                content: "{{ states.input_text.name_header_scenes.state }}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: scenes_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.scenes_scenes
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - domain: scene
+                      options:
+                        !include
+                        - '../templates/button.yaml'
+                        - entity: this.entity_id
+                          grid:
+                            '!include ../includes/light-devices-grid.yaml'
+                          template: switch_popup.yaml
+                          color: DodgerBlue
+                          lock: "[[[ return states['input_boolean.dummy1'].state === 'on' ]]]"
+                          spin_on: true
+                          show_state: false
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                sort:
+                  method: name
+                  numeric: true
+                card:
+                  type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.scenes_user_content
+              state: "on"
+          card:
+            type: custom:layout-card
+            cards:
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/scenes_user_content.yaml
+{% endraw %}

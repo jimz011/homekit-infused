@@ -1,0 +1,221 @@
+- title: HKI Settings
+  path: settings
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced.yaml'
+          - name: Homekit Infused Settings
+            icon: mdi:tools
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - type: vertical-stack
+          cards:
+            - type: conditional
+              conditions:
+                - entity: input_boolean.system_help
+                  state: "on"
+              card:
+                type: custom:layout-card
+                cards:
+                  - type: custom:layout-card
+                    cards:
+                      - type: markdown                          
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                        
+                        content: >
+                          **Settings:** This is the Homekit Infused Settings page, you can set most settings within this menu. Exceptions to this rule are Notifications, Groups and Deep Press. You will have to set them in YAML, you can find them in the /user_content folder.
+            - !include
+              - '../templates/header_text.yaml'
+              - content: "##### Basic Settings"
+            - type: custom:layout-card
+              cards:
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: General
+                        label: Config
+                        icon: mdi:earth
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_general
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Person
+                        label: Config
+                        icon: mdi:account-supervisor
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_person
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Room
+                        label: Config
+                        icon: mdi:shape-square-plus
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_room
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Alarm
+                        label: Config
+                        icon: mdi:shield-home
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_alarm
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Theme
+                        label: Manager
+                        icon: mdi:palette
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_themes
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Weather
+                        label: Config
+                        icon: mdi:weather-partly-cloudy
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_weather
+            - !include
+              - '../templates/header_text.yaml'
+              - content: "##### Widget Settings"
+            - type: custom:layout-card
+              cards:
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Calendar
+                        label: Config
+                        icon: mdi:calendar
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_calendar
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Cleaning
+                        label: Config
+                        icon: mdi:calendar-edit
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_cleaning
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Climate
+                        label: Presets
+                        icon: mdi:thermostat
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_climate
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Floorplan
+                        label: Config
+                        icon: mdi:floor-plan
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_floorplan
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Laundry
+                        label: Config
+                        icon: mdi:washing-machine
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_laundry
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Waste
+                        label: Config
+                        icon: mdi:trash-can-outline
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_waste_collection
+            - !include
+              - '../templates/header_text.yaml'
+              - content: "##### Advanced Settings"
+            - type: custom:layout-card
+              cards:
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Button
+                        label: Config
+                        icon: mdi:gesture-tap-button
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_buttons
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Header
+                        label: Config
+                        icon: mdi:alpha-h-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_header
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Advanced
+                        label: Customization
+                        icon: mdi:alpha-a-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_advanced
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Sandbox
+                        label: Card Builder
+                        icon: mdi:card-plus-outline
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_sandbox
+                    - !include ../includes/empty-button.yaml
+                    - !include ../includes/empty-button.yaml
