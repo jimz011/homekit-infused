@@ -24,7 +24,7 @@ Homekit Infused was created as a private project and released to the public as i
 # Warnings!!!!
 Warning:
 - This lovelace UI is pretty heavy and it is not recommended to run this on a raspberry pi! Minimum requirements would be to use at least a NUC with an i3, 2GB of RAM and preferably more than 1.8Ghz. Better hardware will result in better performance! You can ofcourse proceed and install this on a rpi anyway if you really want to try it (though please share your results with me if you do so as I don't have one and I can't test it)
-- People coming from HKI 1.1 please read the notes here: https//jimz011.github.io/updates
+- People coming from HKI 1.1 please read the notes here: https://jimz011.github.io/updates
 - Questions asked without reading the documentation have the chance of not being answered. Read before you need help! I will however post video's on YT in the future
 - Using HKI means you MUST have lovelace in YAML mode, what this means is that you can NO LONGER use the UI editor within lovelace. Therefor all the options to do that have been removed. Do NOT try to edit it with the GUI anyways as it will simply not work. If you rely on that specific editor this project is NOT for you! However HKI does have a replacement that basically does pretty much the same thing!
 - If you use the NEST integration, you probably do NOT want to do a clean install! You might not be able to restore it. This is only a warning! I do not own a NEST and I have no clue on how it works. I mention this advised by some of the followers of this project.
