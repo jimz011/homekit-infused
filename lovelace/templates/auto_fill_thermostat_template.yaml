@@ -1,0 +1,36 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_text.yaml
+    - content: "##### {{ content|default('Thermostat') }}"
+  - type: custom:layout-card
+    cards:
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: {{ group|default('group.empty_group') }}
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        sort:
+          method: name
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: {{ columns|default('3') }}
+          max_columns: {{ columns|default('3') }}
+          justify_content: start
+          layout: horizontal

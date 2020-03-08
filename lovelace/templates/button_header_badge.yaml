@@ -1,0 +1,73 @@
+# lovelace_gen
+
+# Card
+type: custom:button-card
+style: |
+  ha-card {
+    margin-top: 12px;
+  }
+name: Button
+icon: "{{ icon|default('mdi:menu') }}"
+deep_press: {{ deep_press|default('true') }}
+size: {{ size|default('80%') }}
+color: auto
+entity: input_boolean.dummy1
+show_name: false
+show_state: false
+show_label: false
+tap_action:
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('popup_device_counters.yaml') }}
+          - entity: {{ entity }}
+    deviceID:
+      - this
+  haptic: light
+hold_action:
+  action: call-service
+  service: input_boolean.turn_on
+  service_data:
+    entity_id: input_boolean.edit_mode
+  haptic: heavy
+styles:
+  card:
+    - --ha-card-background: transparant
+    - box-shadow: none
+    - width: 30px
+    - height: 30px
+  img_cell:
+    - align-self: start
+    - text-align: start
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: white
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - left: 50%
+      - bottom: 50%
+      - height: 15px
+      - width: 15px
+      - font-size: 10px
+  icon:
+    - color: var(--header-color)
+custom_fields: 
+  notification: "{{ badge }}"
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}

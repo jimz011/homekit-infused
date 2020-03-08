@@ -1,0 +1,422 @@
+# lovelace_gen
+
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_01
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_1.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_1_lights_default
+              group_color_temp: group.room_1_lights_color_temp
+              group_rgb: group.room_1_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_01_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_02
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_2.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_2_lights_default
+              group_color_temp: group.room_2_lights_color_temp
+              group_rgb: group.room_2_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_02_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_03
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_3.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_3_lights_default
+              group_color_temp: group.room_3_lights_color_temp
+              group_rgb: group.room_3_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_03_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_04
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_4.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_4_lights_default
+              group_color_temp: group.room_4_lights_color_temp
+              group_rgb: group.room_4_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_04_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_05
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_5.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_5_lights_default
+              group_color_temp: group.room_5_lights_color_temp
+              group_rgb: group.room_5_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_05_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_06
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_6.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_6_lights_default
+              group_color_temp: group.room_6_lights_color_temp
+              group_rgb: group.room_6_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_06_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_07
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_7.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_7_lights_default
+              group_color_temp: group.room_7_lights_color_temp
+              group_rgb: group.room_7_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_07_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_08
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_8.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_8_lights_default
+              group_color_temp: group.room_8_lights_color_temp
+              group_rgb: group.room_8_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_08_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_09
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_9.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_9_lights_default
+              group_color_temp: group.room_9_lights_color_temp
+              group_rgb: group.room_9_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_09_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_10
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_10.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_10_lights_default
+              group_color_temp: group.room_10_lights_color_temp
+              group_rgb: group.room_10_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_10_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_11
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_11.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_11_lights_default
+              group_color_temp: group.room_11_lights_color_temp
+              group_rgb: group.room_11_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_11_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_12
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_12.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_12_lights_default
+              group_color_temp: group.room_12_lights_color_temp
+              group_rgb: group.room_12_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_12_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_13
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_13.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_13_lights_default
+              group_color_temp: group.room_13_lights_color_temp
+              group_rgb: group.room_13_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_13_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_14
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_14.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_14_lights_default
+              group_color_temp: group.room_14_lights_color_temp
+              group_rgb: group.room_14_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_14_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_15
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_15.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+         - !include
+           - auto_fill_light_template.yaml
+           - group_other: group.room_15_lights_default
+             group_color_temp: group.room_15_lights_color_temp
+             group_rgb: group.room_15_lights_rgb
+             lock: "[[[ return states['input_boolean.lights_room_15_lock'].state === 'on' ]]]"
+             columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_16
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_16.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_16_lights_default
+              group_color_temp: group.room_16_lights_color_temp
+              group_rgb: group.room_16_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_16_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_17
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_17.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_17_lights_default
+              group_color_temp: group.room_17_lights_color_temp
+              group_rgb: group.room_17_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_17_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_18
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_18.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_18_lights_default
+              group_color_temp: group.room_18_lights_color_temp
+              group_rgb: group.room_18_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_18_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_19
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_19.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_19_lights_default
+              group_color_temp: group.room_19_lights_color_temp
+              group_rgb: group.room_19_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_19_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"
+- type: conditional
+  conditions:
+    - entity: input_boolean.lights_room_20
+      state: "on"
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - header_text.yaml
+        {% raw %}
+        - content: "##### {{ states.input_text.room_20.state }}"
+        {% endraw %}
+      - type: custom:layout-card
+        cards:
+          - !include
+            - auto_fill_light_template.yaml
+            - group_other: group.room_20_lights_default
+              group_color_temp: group.room_20_lights_color_temp
+              group_rgb: group.room_20_lights_rgb
+              lock: "[[[ return states['input_boolean.lights_room_20_lock'].state === 'on' ]]]"
+              columns: "{{ columns|default('3') }}"

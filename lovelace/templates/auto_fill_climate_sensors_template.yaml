@@ -1,0 +1,45 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_text.yaml
+    - content: "##### {{ content|default('Thermostat') }}"
+  - type: custom:layout-card
+    cards:
+      - type: custom:config-template-card
+        card:
+          type: custom:auto-entities
+          filter:
+            include:
+              - group: {{ group|default('group.empty_group') }}
+                options:
+                  !include
+                  - {{ template|default('button_popup_mini_graph.yaml') }}
+                  - entity: this.entity_id
+                    color: "{{ color }}"
+                    lock: "{{ lock|default('false') }}"
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
+          sort:
+            method: {{ _global.climate_sensor_sorting.method|default('name') }}
+            numeric: true
+          card:
+            type: custom:layout-card
+            min_columns: "${states['input_select.climate_columns'].state}"
+            max_columns: "${states['input_select.climate_columns'].state}"
+            justify_content: start
+            layout: horizontal
+        entities:
+          - input_select.climate_columns
+          - input_select.thermostat_sorting_method
+          - input_select.temperature_sorting_method
+          - input_select.humidity_sorting_method
+          - input_select.air_pressure_sorting_method

@@ -1,0 +1,53 @@
+# lovelace_gen
+
+type: custom:auto-entities
+filter:
+  include:
+    - group: {{ group_other|default('group.empty_group') }}
+      options:
+        !include
+        - button.yaml
+        - entity: this.entity_id
+          label: !include ../includes/brightness-label.yaml
+          grid:
+            '!include ../includes/light-devices-grid.yaml'
+          template: switch_popup.yaml
+          lock: "{{ lock|default('false') }}"
+    - group: {{ group_color_temp|default('group.empty_group') }}
+      options:
+        !include
+        - button.yaml
+        - entity: this.entity_id
+          label: !include ../includes/brightness-label.yaml
+          grid:
+            '!include ../includes/light-devices-grid.yaml'
+          template: color_temp_popup.yaml
+          lock: "{{ lock|default('false') }}"
+    - group: {{ group_rgb|default('group.empty_group') }}
+      options:
+        !include
+        - button.yaml
+        - entity: this.entity_id
+          label: !include ../includes/brightness-label.yaml
+          grid:
+            '!include ../includes/light-devices-grid.yaml'
+          template: rgb_popup.yaml
+          lock: "{{ lock|default('false') }}"
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+sort:
+  method: {{ _global.lights_sorting.method|default('name') }}
+  numeric: true
+card:
+  type: custom:layout-card
+  min_columns: {{ _global.lights_sorting.columns|default('3') }}
+  max_columns: {{ _global.lights_sorting.columns|default('3') }}
+  justify_content: start
+  layout: horizontal

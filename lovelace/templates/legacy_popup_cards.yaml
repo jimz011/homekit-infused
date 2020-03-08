@@ -1,0 +1,250 @@
+input_boolean.dummy1:
+  title: 'Notifications'
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      !include ../../user_content/notifications.yaml
+
+person.jimmy:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: person.jimmy
+
+person.stephanie:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: person.stephanie
+
+person.tala:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: person.tala
+
+weather.dark_sky:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: weather.dark_sky
+
+sensor.cure_pmd:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.cure_pmd
+
+sensor.cure_gft:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.cure_gft
+
+sensor.cure_papier:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.cure_papier
+
+sensor.cure_restafval:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.cure_restafval
+
+sensor.u_s_air_quality_index:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.u_s_air_quality_index
+
+sensor.u_s_air_pollution_level:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.u_s_air_pollution_level
+
+camera.gallerij_camera:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: camera.gallerij_camera
+
+sensor.vacuum_battery:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_battery
+
+sensor.vacuum_total_cleaned_area:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_total_cleaned_area
+
+sensor.vacuum_cleaning_count:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_cleaning_count
+
+sensor.vacuum_total_cleaning_time:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_total_cleaning_time
+
+sensor.vacuum_main_brush_left:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_main_brush_left
+
+sensor.vacuum_side_brush_left:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_side_brush_left
+
+sensor.vacuum_filter_left:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_filter_left
+
+sensor.vacuum_sensor_dirty_left:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_sensor_dirty_left
+
+sensor.vacuum_cleaner_error_sensor:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_cleaner_error_sensor
+
+sensor.vacuum_cleaner_status_sensor:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.vacuum_cleaner_status_sensor
+
+sensor.xiaomi_vacuum_fan_speed_state:
+  title: ' '
+  style:
+    !include ../includes/legacy_popup_template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include 
+        - more_info_popup.yaml
+        - entity: sensor.xiaomi_vacuum_fan_speed_state

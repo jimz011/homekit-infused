@@ -1,0 +1,164 @@
+# lovelace_gen
+
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    box-shadow: none;
+    background: var(--primary-color);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .card-content {
+    padding: 0
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: custom:state-switch
+        entity: input_boolean.system_header_sensors
+        default: "on"
+        states:
+          "on":
+            type: horizontal-stack
+            cards:
+              - type: markdown
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                    height: 33px;
+                    background: none;
+                    padding: 0px 10px;
+                    color: var(--header-color);
+                  }
+                {% raw %}
+                content: > 
+                  {% if (states.sensor.time.state > '00:00') and (states.sensor.time.state < '06:00') %}
+                    ## {{ states.input_text.name_good_night.state }}
+                  {% elif (states.sensor.time.state > '06:00') and (states.sensor.time.state < '12:00') %}
+                    ## {{ states.input_text.name_good_morning.state }}
+                  {% elif (states.sensor.time.state > '12:00') and (states.sensor.time.state < '18:00') %}
+                    ## {{ states.input_text.name_good_afternoon.state }}
+                  {% elif (states.sensor.time.state > '18:00') and (states.sensor.time.state < '23:59') %}
+                    ## {{ states.input_text.name_good_evening.state }}
+                  {% endif %}
+                {% endraw %}
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_door'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_doors_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_doors_open'].state < 1) return '&nbsp;'; else return states['sensor.current_doors_open'].state ]]]"
+                  size: 100%
+                  entity: group.all_door_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_window'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_windows_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_windows_open'].state < 1) return '&nbsp;'; else return states['sensor.current_windows_open'].state ]]]"
+                  entity: group.all_window_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_sensor'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
+                  entity: group.all_motion_smoke_sensors
+              - !include ../includes/blank-card.yaml
+          "off":
+            type: horizontal-stack
+            cards:
+              - type: markdown
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                    height: 33px;
+                    background: none;
+                    padding: 0px 10px;
+                    color: var(--header-color);
+                  }
+                {% raw %}
+                content: > 
+                  {% if (states.sensor.time.state > '00:00') and (states.sensor.time.state < '06:00') %}
+                    ## {{ states.input_text.name_good_night.state }}
+                  {% elif (states.sensor.time.state > '06:00') and (states.sensor.time.state < '12:00') %}
+                    ## {{ states.input_text.name_good_morning.state }}
+                  {% elif (states.sensor.time.state > '12:00') and (states.sensor.time.state < '18:00') %}
+                    ## {{ states.input_text.name_good_afternoon.state }}
+                  {% elif (states.sensor.time.state > '18:00') and (states.sensor.time.state < '23:59') %}
+                    ## {{ states.input_text.name_good_evening.state }}
+                  {% endif %}
+                {% endraw %}
+              - !include
+                - button_header_transparant.yaml
+                - spin_off: false
+              - !include ../includes/blank-card.yaml
+      - type: conditional
+        conditions:
+          - state: "on"
+            entity: input_boolean.frontpage_header_secondary
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:state-switch
+              entity: input_boolean.frontpage_alarm
+              states: 
+                "on":
+                  type: horizontal-stack
+                  cards:
+                    - !include ../includes/blank-card.yaml
+                    - type: custom:swipe-card
+                      parameters:
+                        effect: 'coverflow'
+                        allowTouchMove: true
+                        grabCursor: true
+                        autoplay:
+                          disableOnInteraction: false
+                      cards:
+                        !include ../../user_content/notifications.yaml
+                    - type: custom:button-card
+                      name: Home
+                      icon: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'disarmed') return 'mdi:lock-open'; else return 'mdi:lock-alert'; ]]]" 
+                      size: 75%
+                      color: auto
+                      entity: input_boolean.dummy1
+                      show_name: false
+                      deep_press: {{ _global.deep_press.deep_press|default('false') }}
+                      show_state: false
+                      show_label: false
+                      hold_action:
+                        action: navigate
+                        navigation_path: '/lovelace/alarm'
+                        haptic: light
+                      tap_action:
+                        action: navigate
+                        navigation_path: '/lovelace/alarm'
+                        haptic: light
+                      styles:
+                        card:
+                          - --ha-card-background: var(--header-color)
+                          - border-radius: 50%
+                          - box-shadow: none
+                          - width: 30px
+                          - height: 30px
+                        img_cell:
+                          - align-self: start
+                          - text-align: start
+                      state:
+                        - value: "off"
+                          icon: 
+                          styles:
+                            icon:
+                              - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'disarmed') return 'LimeGreen'; if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_home') return 'Orange'; else return 'DarkRed'; ]]]" 
+                    - !include ../includes/blank-card.yaml
+                "off":
+                  type: horizontal-stack
+                  cards:
+                    - !include ../includes/blank-card.yaml
+                    - type: custom:swipe-card
+                      parameters:
+                        effect: 'coverflow'
+                        allowTouchMove: true
+                        grabCursor: true
+                        autoplay:
+                          disableOnInteraction: false
+                      cards:
+                        !include ../../user_content/notifications.yaml
