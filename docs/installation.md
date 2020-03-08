@@ -1,14 +1,14 @@
 # Homekit Infused
 
 ## Contents
-- [About](index.md)
-- [Intro](intro.md)
+- [Introduction](index.md)
 - [Preparation](preparation.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Updates and Addons](updates.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
+- [About Me](about.md)
 - [Thanks](thanks.md)
 
 # INSTALLATION
