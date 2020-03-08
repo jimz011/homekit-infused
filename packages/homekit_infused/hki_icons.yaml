@@ -1,0 +1,264 @@
+input_text:
+  # General
+
+  icon_power:
+  icon_frost:
+  icon_heat:
+
+  icon_door:
+  icon_window:
+  icon_sensor:
+
+  icon_alarm:
+  icon_battery:
+  icon_climate:
+  icon_light:
+  icon_device:
+  icon_security:
+  icon_cleaning:
+  icon_scene:
+  icon_vacuum:
+  icon_remote:
+  icon_automation:
+  icon_calendar:
+  icon_computer:
+  icon_download:
+  icon_energy:
+  icon_floorplan:
+  icon_laundry:
+  icon_location:
+  icon_media:
+  icon_system:
+  icon_traffic:
+  icon_weather:
+
+  icon_header_alarm:
+  icon_header_menu:
+  icon_header_lights:
+  icon_header_devices:
+  icon_header_climate:
+  icon_header_battery:
+  icon_header_security:
+  icon_header_automations:
+  icon_header_cleaning:
+  icon_header_scenes:
+  icon_header_vacuum:
+  icon_header_calendar:
+  icon_header_computers:
+  icon_header_download:
+  icon_header_energy:
+  icon_header_floorplan:
+  icon_header_location:
+  icon_header_laundry:
+  icon_header_system:
+  icon_header_media:
+  icon_header_traffic:
+  icon_header_weather:
+
+  # Material Design
+  mdi_icon_header_menu:
+    initial: mdi:menu
+  mdi_icon_header_alarm:
+    initial: mdi:alert
+  mdi_icon_header_lights:
+    initial: mdi:floor-lamp
+  mdi_icon_header_devices:
+    initial: mdi:power-plug
+  mdi_icon_header_climate:
+    initial: mdi:thermometer
+  mdi_icon_header_battery:
+    initial: mdi:battery
+  mdi_icon_header_security:
+    initial: mdi:alert
+  mdi_icon_header_automations:
+    initial: mdi:auto-fix
+  mdi_icon_header_cleaning:
+    initial: mdi:calendar-edit
+  mdi_icon_header_scenes:
+    initial: mdi:arrange-send-backwards
+  mdi_icon_header_vacuum:
+    initial: mdi:robot-vacuum
+  mdi_icon_header_calendar:
+    initial: mdi:calendar
+  mdi_icon_header_computers:
+    initial: mdi:desktop-tower-monitor
+  mdi_icon_header_download:
+    initial: mdi:download
+  mdi_icon_header_energy:
+    initial: mdi:chart-line
+  mdi_icon_header_floorplan:
+    initial: mdi:floor-plan
+  mdi_icon_header_location:
+    initial: mdi:navigation
+  mdi_icon_header_laundry:
+    initial: mdi:washing-machine
+  mdi_icon_header_system:
+    initial: mdi:home-analytics
+  mdi_icon_header_media:
+    initial: mdi:plex
+  mdi_icon_header_traffic:
+    initial: mdi:waze
+  mdi_icon_header_weather:
+    initial: mdi:weather-partly-cloudy
+
+  mdi_icon_power:
+    initial: mdi:power
+  mdi_icon_frost:
+    initial: mdi:snowflake
+  mdi_icon_heat:
+    initial: mdi:fire
+  mdi_icon_alarm:
+    initial: mdi:alert
+  mdi_icon_sensor:
+    initial: mdi:motion-sensor
+  mdi_icon_door:
+    initial: mdi:door
+  mdi_icon_window:
+    initial: mdi:window-closed
+  mdi_icon_battery:
+    initial: mdi:battery
+  mdi_icon_climate:
+    initial: mdi:thermometer
+  mdi_icon_light:
+    initial: mdi:floor-lamp
+  mdi_icon_device:
+    initial: mdi:power-plug
+  mdi_icon_security:
+    initial: mdi:cctv
+  mdi_icon_cleaning:
+    initial: mdi:calendar-edit
+  mdi_icon_scene:
+    initial: mdi:arrange-send-backward
+  mdi_icon_vacuum:
+    initial: mdi:robot-vacuum
+  mdi_icon_remote:
+    initial: mdi:remote
+  mdi_icon_battery:
+    initial: mdi:battery 
+  mdi_icon_automation:
+    initial: mdi:auto-fix
+  mdi_icon_calendar:
+    initial: mdi:calendar 
+  mdi_icon_computer:
+    initial: mdi:server 
+  mdi_icon_download:
+    initial: mdi:download 
+  mdi_icon_energy:
+    initial: mdi:chart-line
+  mdi_icon_floorplan:
+    initial: mdi:floor-plan
+  mdi_icon_laundry:
+    initial: mdi:washing-machine
+  mdi_icon_location:
+    initial: mdi:navigation
+  mdi_icon_media:
+    initial: mdi:plex
+  mdi_icon_system:
+    initial: mdi:home-analytics
+  mdi_icon_traffic:
+    initial: mdi:waze
+  mdi_icon_weather:
+    initial: mdi:weather-partly-cloudy
+
+  # Fontawesome Pro
+  fa_icon_header_menu:
+    initial: fal:bars
+  fa_icon_header_alarm:
+    initial: fal:sensor-alert
+  fa_icon_header_lights:
+    initial: fal:lamp-floor
+  fa_icon_header_devices:
+    initial: fal:light-switch-on
+  fa_icon_header_climate:
+    initial: fal:thermometer-three-quarters
+  fa_icon_header_battery:
+    initial: fal:battery-half
+  fa_icon_header_security:
+    initial: fal:sensor-alert
+  fa_icon_header_automations:
+    initial: fal:magic
+  fa_icon_header_cleaning:
+    initial: fal:calendar-edit
+  fa_icon_header_scenes:
+    initial: fal:bring-forward
+  fa_icon_header_vacuum:
+    initial: fal:vacuum-robot
+  fa_icon_header_calendar:
+    initial: fal:calendar
+  fa_icon_header_computers:
+    initial: fal:desktop
+  fa_icon_header_download:
+    initial: fal:download
+  fa_icon_header_energy:
+    initial: fal:chart-line
+  fa_icon_header_floorplan:
+    initial: mdi:floor-plan
+  fa_icon_header_location:
+    initial: fal:location-circle
+  fa_icon_header_laundry:
+    initial: fal:washer
+  fa_icon_header_system:
+    initial: fal:monitor-heart-rate
+  fa_icon_header_media:
+    initial: mdi:plex
+  fa_icon_header_traffic:
+    initial: fab:waze
+  fa_icon_header_weather:
+    initial: fal:clouds-sun
+
+  fa_icon_power:
+    initial: fal:power-off
+  fa_icon_frost:
+    initial: fal:snowflake
+  fa_icon_heat:
+    initial: fal:fire-alt
+  fa_icon_alarm:
+    initial: fal:sensor-alert
+  fa_icon_sensor:
+    initial: far:sensor
+  fa_icon_door:
+    initial: mdi:door
+  fa_icon_window:
+    initial: mdi:window-closed
+  fa_icon_battery:
+    initial: fal:battery-half
+  fa_icon_climate:
+    initial: fal:thermometer-three-quarters
+  fa_icon_light:
+    initial: fal:lamp-floor
+  fa_icon_device:
+    initial: fal:light-switch-on
+  fa_icon_security:
+    initial: fal:cctv
+  fa_icon_cleaning:
+    initial: fal:calendar-edit
+  fa_icon_scene:
+    initial: fal:bring-forward
+  fa_icon_vacuum:
+    initial: fal:vacuum-robot
+  fa_icon_remote:
+    initial: fab:buromobelexperte
+  fa_icon_automation:
+    initial: fal:magic
+  fa_icon_calendar:
+    initial: fal:calendar
+  fa_icon_computer:
+    initial: fal:server 
+  fa_icon_download:
+    initial: fal:download 
+  fa_icon_energy:
+    initial: fal:chart-line
+  fa_icon_floorplan:
+    initial: mdi:floor-plan
+  fa_icon_laundry:
+    initial: fal:washer
+  fa_icon_location:
+    initial: fal:location-circle
+  fa_icon_media:
+    initial: mdi:plex
+  fa_icon_system:
+    initial: fal:monitor-heart-rate
+  fa_icon_traffic:
+    initial: fab:waze
+  fa_icon_weather:
+    initial: fal:clouds-sun

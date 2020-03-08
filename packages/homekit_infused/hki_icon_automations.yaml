@@ -1,0 +1,456 @@
+automation:
+  - alias: 'icon selector'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_climate
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_climate.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_climate.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_light
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_light.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_light.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_device
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_device.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_device.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_security
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_security.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_security.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_cleaning
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_cleaning.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_cleaning.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_scene
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_scene.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_scene.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_vacuum
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_vacuum.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_vacuum.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_remote
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_remote.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_remote.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_automation
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_automation.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_automation.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_battery
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_battery.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_battery.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_calendar
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_calendar.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_calendar.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_computer
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_computer.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_computer.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_download
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_download.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_download.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_energy
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_energy.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_energy.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_floorplan
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_floorplan.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_floorplan.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_laundry
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_laundry.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_laundry.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_location
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_location.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_location.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_media
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_media.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_media.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_system
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_system.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_system.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_traffic
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_traffic.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_traffic.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_weather
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_weather.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_weather.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_sensor
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_sensor.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_sensor.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_door
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_door.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_door.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_window
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_window.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_window.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_alarm
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_alarm.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_alarm.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_alarm
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_alarm.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_alarm.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_menu
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_menu.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_menu.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_lights
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_lights.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_lights.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_devices
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_devices.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_devices.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_climate
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_climate.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_climate.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_security
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_security.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_security.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_automations
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_automations.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_automations.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_cleaning
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_cleaning.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_cleaning.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_scenes
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_scenes.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_scenes.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_vacuum
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_vacuum.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_vacuum.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_calendar
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_calendar.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_calendar.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_computers
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_computers.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_computers.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_download
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_download.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_download.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_energy
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_energy.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_energy.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_weather
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_weather.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_weather.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_floorplan
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_floorplan.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_floorplan.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_location
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_location.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_location.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_laundry
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_laundry.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_laundry.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_system
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_system.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_system.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_media
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_media.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_media.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_traffic
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_traffic.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_traffic.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_header_battery
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_header_battery.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_header_battery.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_power
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_power.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_power.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_frost
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_frost.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_frost.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_heat
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_heat.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_heat.state }}
+            {% endif %}

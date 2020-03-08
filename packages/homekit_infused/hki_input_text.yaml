@@ -1,0 +1,222 @@
+input_text:
+  room_1:
+  room_2:
+  room_3:
+  room_4:
+  room_5:
+  room_6:
+  room_7:
+  room_8:
+  room_9:
+  room_10:
+  room_11:
+  room_12:
+  room_13:
+  room_14:
+  room_15:
+  room_16:
+  room_17:
+  room_18:
+  room_19:
+  room_20:
+
+  frost_protection_temperature:
+  heat_all_temperature:
+
+  floorplan_image:
+
+  cleaning_item_1:
+  cleaning_item_1_value_1:
+  cleaning_item_1_value_2:
+  cleaning_item_1_value_3:
+
+  cleaning_item_2:
+  cleaning_item_2_value_1:
+  cleaning_item_2_value_2:
+  cleaning_item_2_value_3:
+
+  cleaning_item_3:
+  cleaning_item_3_value_1:
+  cleaning_item_3_value_2:
+  cleaning_item_3_value_3:
+
+  cleaning_item_4:
+  cleaning_item_4_value_1:
+  cleaning_item_4_value_2:
+  cleaning_item_4_value_3:
+
+  cleaning_item_5:
+  cleaning_item_5_value_1:
+  cleaning_item_5_value_2:
+  cleaning_item_5_value_3:
+
+  cleaning_item_6:
+  cleaning_item_6_value_1:
+  cleaning_item_6_value_2:
+  cleaning_item_6_value_3:
+
+  cleaning_item_7:
+  cleaning_item_7_value_1:
+  cleaning_item_7_value_2:
+  cleaning_item_7_value_3:
+
+  cleaning_item_8:
+  cleaning_item_8_value_1:
+  cleaning_item_8_value_2:
+  cleaning_item_8_value_3:
+
+  cleaning_item_9:
+  cleaning_item_9_value_1:
+  cleaning_item_9_value_2:
+  cleaning_item_9_value_3:
+
+  cleaning_item_10:
+  cleaning_item_10_value_1:
+  cleaning_item_10_value_2:
+  cleaning_item_10_value_3:
+
+  washing_machine_image:
+  washing_machine_entity:
+  washing_machine_status_sensor:
+  washing_machine_voltage_sensor:
+  washing_machine_wattage_sensor:
+
+  dryer_image:
+  dryer_entity:
+  dryer_status_sensor:
+  dryer_voltage_sensor:
+  dryer_wattage_sensor:
+
+  dishwasher_image:
+  dishwasher_entity:
+  dishwasher_status_sensor:
+  dishwasher_voltage_sensor:
+  dishwasher_wattage_sensor:
+
+  person_1_name:
+  person_1_entity:
+  person_1_battery_entity:
+  person_1_image_path:
+  person_1_email_entity:
+    mode: password
+  person_1_travel_time_to_work:
+  person_1_travel_time_to_home:
+
+  person_2_name:
+  person_2_entity:
+  person_2_battery_entity:
+  person_2_image_path:
+  person_2_email_entity:
+    mode: password
+  person_2_travel_time_to_work:
+  person_2_travel_time_to_home:
+
+  person_3_name:
+  person_3_entity:
+  person_3_battery_entity:
+  person_3_image_path:
+  person_3_email_entity:
+    mode: password
+  person_3_travel_time_to_work:
+  person_3_travel_time_to_home:
+
+  person_4_name:
+  person_4_entity:
+  person_4_battery_entity:
+  person_4_image_path:
+  person_4_email_entity:
+    mode: password
+  person_4_travel_time_to_work:
+  person_4_travel_time_to_home:
+
+  floorplan_image:
+
+  air_pollution_level:
+  air_quality_index:
+  main_pollutant:
+  weather_entity:
+  weather_iframe_1:
+    max: 255
+  weather_iframe_2:
+    max: 255
+  city:
+
+  waste_paper:
+  waste_pmd:
+  waste_other:
+  waste_vfg:
+  waste_paper_name:
+  waste_pmd_name:
+  waste_other_name:
+  waste_vfg_name:
+
+  alarm_entity:
+ 
+  sensor_alarm:
+  sensor_battery:
+  sensor_climate:
+  sensor_light:
+  sensor_device:
+  sensor_security:
+  sensor_cleaning:
+  sensor_scene:
+  sensor_vacuum:
+  sensor_remote:
+  sensor_automation:
+  sensor_calendar:
+  sensor_computer:
+  sensor_download:
+  sensor_energy:
+  sensor_floorplan:
+  sensor_laundry:
+  sensor_location:
+  sensor_media:
+  sensor_system:
+  sensor_traffic:
+  sensor_weather:
+
+  house_calendar_entity:
+
+  name_button_custom_a:
+  sensor_button_custom_a:
+  name_button_custom_a_label:
+  icon_button_custom_a:
+  name_header_secondary_custom_a:
+  name_header_custom_a:
+  icon_header_custom_a:
+
+  name_button_custom_b:
+  sensor_button_custom_b:
+  name_button_custom_b_label:
+  icon_button_custom_b:
+  name_header_secondary_custom_b:
+  name_header_custom_b:
+  icon_header_custom_b:
+
+  name_button_custom_c:
+  sensor_button_custom_c:
+  name_button_custom_c_label:
+  icon_button_custom_c:
+  name_header_secondary_custom_c:
+  name_header_custom_c:
+  icon_header_custom_c:
+
+  name_button_custom_d:
+  sensor_button_custom_d:
+  name_button_custom_d_label:
+  icon_button_custom_d:
+  name_header_secondary_custom_d:
+  name_header_custom_d:
+  icon_header_custom_d:
+
+  entity_button_custom_e:
+  name_button_custom_e:
+  sensor_button_custom_e:
+  name_button_custom_e_label:
+  icon_button_custom_e:
+
+input_number:
+  empty:
+    initial: 0
+    min: 0
+    max: 1

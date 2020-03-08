@@ -1,0 +1,670 @@
+# In some languages words can be longer, for the smallest button something short would be preferred. You can use the label to either cut words or make something like 'name: Remote, label: Control'
+
+input_text:
+# Generic, Needed for Automations and Custom Input
+
+  name_header_secondary_lights:
+  name_header_secondary_devices:
+  name_header_secondary_climate:
+  name_header_secondary_security:
+  name_header_secondary_automations:
+  name_header_secondary_battery:
+  name_header_secondary_calendar:
+  name_header_secondary_cleaning:
+  name_header_secondary_computers:
+  name_header_secondary_energy:
+  name_header_secondary_floorplan:
+  name_header_secondary_laundry:
+  name_header_secondary_location:
+  name_header_secondary_media:
+  name_header_secondary_scenes:
+  name_header_secondary_system:
+  name_header_secondary_traffic:
+  name_header_secondary_vacuum:
+  name_header_secondary_weather:
+  name_header_secondary_menu:
+  name_header_secondary_alarm:
+  name_header_secondary_download:
+
+  name_header_climate:
+  name_header_lights:
+  name_header_devices:
+  name_header_security:
+  name_header_cleaning:
+  name_header_scenes:
+  name_header_remote:
+  name_header_vacuum:
+  name_header_menu:
+  name_header_settings:
+  name_header_alarm:
+  name_header_weather:
+
+  name_header_about:
+  name_header_automations:
+  name_header_battery:
+  name_header_calendar:
+  name_header_system:
+  name_header_computers:
+  name_header_energy:
+  name_header_media:
+  name_header_floorplan:
+  name_header_laundry:
+  name_header_location:
+  name_header_traffic:
+
+  name_custom:
+  name_favorites:
+  name_all:
+  name_power:
+  name_frost:
+  name_heat:
+  name_on:
+  name_off:
+  name_protection:
+
+  name_presets:
+  name_thermostat:
+  name_fans:
+  name_temperature:
+  name_humidity:
+  name_air_pressure:
+
+  name_cameras:
+  name_doors:
+  name_windows:
+  name_motion:
+  name_other:
+
+  name_good_morning:
+  name_good_afternoon:
+  name_good_evening:
+  name_good_night:
+
+  name_battery:
+  name_battery_label:
+
+  name_automation:
+  name_automation_label:
+
+  name_calendar:
+  name_calendar_label:
+
+  name_computer:
+  name_computer_label:
+
+  name_download:
+  name_download_label:
+
+  name_energy:
+  name_energy_label:
+
+  name_floorplan:
+  name_floorplan_label:
+
+  name_laundry:
+  name_laundry_label:
+
+  name_location:
+  name_location_label:
+
+  name_media:
+  name_media_label:
+
+  name_system:
+  name_system_label:
+
+  name_traffic:
+  name_traffic_label:
+
+  name_weather:
+  name_weather_label:
+
+  name_light:
+  name_light_label:
+
+  name_device:
+  name_device_label:
+
+  name_climate:
+  name_climate_label:
+
+  name_security:
+  name_security_label:
+
+  name_cleaning:
+  name_cleaning_label:
+
+  name_scene:
+  name_scene_label:
+
+  name_vacuum:
+  name_vacuum_label:
+
+  name_remote:
+  name_remote_label:
+
+  name_alarm:
+  name_alarm_label:
+
+# Dutch 
+
+  nl_name_header_secondary_lights:
+    initial: Overzicht 
+  nl_name_header_secondary_devices:
+    initial: Overzicht 
+  nl_name_header_secondary_climate:
+    initial: Overzicht
+  nl_name_header_secondary_security:
+    initial: Overzicht
+  nl_name_header_secondary_automations:
+    initial: Overzicht
+  nl_name_header_secondary_battery:
+    initial: Overzicht
+  nl_name_header_secondary_calendar:
+    initial: Overzicht
+  nl_name_header_secondary_cleaning:
+    initial: Overzicht
+  nl_name_header_secondary_computers:
+    initial: Overzicht
+  nl_name_header_secondary_energy:
+    initial: Overzicht
+  nl_name_header_secondary_floorplan:
+    initial: Overzicht
+  nl_name_header_secondary_laundry:
+    initial: Overzicht
+  nl_name_header_secondary_location:
+    initial: Overzicht
+  nl_name_header_secondary_media:
+    initial: Overzicht
+  nl_name_header_secondary_scenes:
+    initial: Overzicht
+  nl_name_header_secondary_system:
+    initial: Overzicht
+  nl_name_header_secondary_traffic:
+    initial: Overzicht
+  nl_name_header_secondary_vacuum:
+    initial: Overzicht
+  nl_name_header_secondary_weather:
+    initial: Overzicht
+  nl_name_header_secondary_menu:
+    initial: Overzicht
+  nl_name_header_secondary_alarm:
+    initial: Overzicht
+  nl_name_header_secondary_download:
+    initial: Overzicht
+
+  nl_name_custom:
+    initial: Aangepast
+  nl_name_favorites:
+    initial: Favorieten
+  nl_name_all:
+    initial: Alle
+  nl_name_power:
+    initial: Power
+  nl_name_frost:
+    initial: Vorst
+  nl_name_protection:
+    initial: Bescherming
+  nl_name_heat:
+    initial: Verwarm
+  nl_name_on:
+    initial: Aan
+  nl_name_off:
+    initial: Uit
+
+  nl_name_header_about:
+    initial: Over
+  nl_name_header_automations:
+    initial: Automatiseringen
+  nl_name_header_battery:
+    initial: Batterij
+  nl_name_header_calendar:
+    initial: Kalender
+  nl_name_header_system:
+    initial: Systeem
+  nl_name_header_computers:
+    initial: Computers
+  nl_name_header_energy:
+    initial: Energie
+  nl_name_header_media:
+    initial: Media
+  nl_name_header_floorplan:
+    initial: Plattegrond
+  nl_name_header_laundry:
+    initial: Wasruimte
+  nl_name_header_location:
+    initial: Locatie
+  nl_name_header_remote:
+    initial: Afstandsbediening
+  nl_name_header_traffic:
+    initial: Verkeersinformatie
+
+  nl_name_header_weather:
+    initial: Weer
+  nl_name_header_alarm:
+    initial: Alarm
+  nl_name_header_climate:
+    initial: Klimaat
+  nl_name_header_lights:
+    initial: Verlichting
+  nl_name_header_devices:
+    initial: Apparaten
+  nl_name_header_security:
+    initial: Beveiliging
+  nl_name_header_cleaning:
+    initial: Schoonmaken
+  nl_name_header_scenes:
+    initial: Scenes
+  nl_name_header_remote:
+    initial: Afstandsbediening
+  nl_name_header_vacuum:
+    initial: Stofzuiger
+  nl_name_header_menu:
+    initial: Menu
+  nl_name_header_settings:
+    initial: Instellingen
+
+  nl_name_presets:
+    initial: Presets
+  nl_name_thermostat:
+    initial: Thermostaat
+  nl_name_fans:
+    initial: Ventilators
+  nl_name_temperature:
+    initial: Temperatuur
+  nl_name_humidity:
+    initial: Luchtvochtigheid
+  nl_name_air_pressure:
+    initial: Luchtdruk
+
+  nl_name_cameras:
+    initial: Camera's
+  nl_name_doors:
+    initial: Deuren
+  nl_name_windows:
+    initial: Ramen
+  nl_name_motion:
+    initial: Beweging
+  nl_name_other:
+    initial: Overige
+
+  nl_name_good_morning:
+    initial: Goedemorgen
+  nl_name_good_afternoon:
+    initial: Goedemiddag
+  nl_name_good_evening:
+    initial: Goedenavond
+  nl_name_good_night:
+    initial: Goedenacht
+
+  nl_name_battery:
+    initial: Batterij
+  nl_name_battery_label:
+    initial: Overzicht
+
+  nl_name_automation:
+    initial: Automatisering
+  nl_name_automation_label:
+    initial: Beheer
+
+  nl_name_calendar:
+    initial: Kalender
+  nl_name_calendar_label:
+    initial: Overzicht
+
+  nl_name_computer:
+    initial: Computer
+  nl_name_computer_label:
+    initial: Monitor
+
+  nl_name_download:
+    initial: Download
+  nl_name_download_label:
+    initial: Beheer
+
+  nl_name_energy:
+    initial: Energie
+  nl_name_energy_label:
+    initial: Overzicht
+
+  nl_name_floorplan:
+    initial: Plattegrond
+  nl_name_floorplan_label:
+    initial: Kaart
+
+  nl_name_laundry:
+    initial: Was
+  nl_name_laundry_label:
+    initial: Ruimte
+
+  nl_name_location:
+    initial: Locatie
+  nl_name_location_label:
+    initial: Kaart
+
+  nl_name_media:
+    initial: Media
+  nl_name_media_label:
+    initial: Center
+
+  nl_name_system:
+    initial: Systeem
+  nl_name_system_label:
+    initial: Monitor
+
+  nl_name_traffic:
+    initial: Verkeer
+  nl_name_traffic_label:
+    initial: Informatie
+
+  nl_name_weather:
+    initial: Weer
+  nl_name_weather_label:
+    initial: Informatie
+
+  nl_name_light:
+    initial: Licht
+  nl_name_light_label:
+    initial: Bediening
+
+  nl_name_device:
+    initial: Apparaat
+  nl_name_device_label:
+    initial: Bediening
+
+  nl_name_climate:
+    initial: Klimaat
+  nl_name_climate_label:
+    initial: Beheer
+
+  nl_name_security:
+    initial: Bewakings
+  nl_name_security_label:
+    initial: Paneel
+
+  nl_name_cleaning:
+    initial: Huishoud
+  nl_name_cleaning_label:
+    initial: Lijst
+
+  nl_name_scene:
+    initial: Scene
+  nl_name_scene_label:
+    initial: Bediening
+
+  nl_name_vacuum:
+    initial: Stofzuiger
+  nl_name_vacuum_label:
+    initial: Beheer
+
+  nl_name_remote:
+    initial: Afstands
+  nl_name_remote_label:
+    initial: Bediening
+
+  nl_name_alarm:
+    initial: Alarm
+  nl_name_alarm_label:
+    initial: Paneel
+
+# English
+  en_name_header_secondary_lights:
+    initial: Overview 
+  en_name_header_secondary_devices:
+    initial: Overview 
+  en_name_header_secondary_climate:
+    initial: Overview 
+  en_name_header_secondary_security:
+    initial: Overview 
+  en_name_header_secondary_automations:
+    initial: Overview 
+  en_name_header_secondary_battery:
+    initial: Overview 
+  en_name_header_secondary_calendar:
+    initial: Overview 
+  en_name_header_secondary_cleaning:
+    initial: Overview 
+  en_name_header_secondary_computers:
+    initial: Overview 
+  en_name_header_secondary_energy:
+    initial: Overview 
+  en_name_header_secondary_floorplan:
+    initial: Overview 
+  en_name_header_secondary_laundry:
+    initial: Overview 
+  en_name_header_secondary_location:
+    initial: Overview 
+  en_name_header_secondary_media:
+    initial: Overview 
+  en_name_header_secondary_scenes:
+    initial: Overview 
+  en_name_header_secondary_system:
+    initial: Overview 
+  en_name_header_secondary_traffic:
+    initial: Overview 
+  en_name_header_secondary_vacuum:
+    initial: Overview 
+  en_name_header_secondary_weather:
+    initial: Overview 
+  en_name_header_secondary_menu:
+    initial: Overview 
+  en_name_header_secondary_alarm:
+    initial: Overview 
+  en_name_header_secondary_download:
+    initial: Overview 
+
+  en_name_custom:
+    initial: Custom
+  en_name_favorites:
+    initial: Favorites
+  en_name_all:
+    initial: All
+  en_name_power:
+    initial: Power
+  en_name_frost:
+    initial: Frost
+  en_name_protection:
+    initial: Protection
+  en_name_heat:
+    initial: Heat
+  en_name_on:
+    initial: 'On'
+  en_name_off:
+    initial: 'Off'
+
+  en_name_header_about:
+    initial: About
+  en_name_header_automations:
+    initial: Automations
+  en_name_header_battery:
+    initial: Battery
+  en_name_header_calendar:
+    initial: Calendar
+  en_name_header_system:
+    initial: System
+  en_name_header_computers:
+    initial: Computers
+  en_name_header_energy:
+    initial: Energy
+  en_name_header_media:
+    initial: Media
+  en_name_header_floorplan:
+    initial: Floor Plan
+  en_name_header_laundry:
+    initial: Laundry Room
+  en_name_header_location:
+    initial: Location
+  en_name_header_remote:
+    initial: Remote Control
+  en_name_header_traffic:
+    initial: Traffic Information
+
+  en_name_header_weather:
+    initial: Weather
+  en_name_header_alarm:
+    initial: Alarm
+  en_name_header_climate:
+    initial: Climate
+  en_name_header_lights:
+    initial: Lights
+  en_name_header_devices:
+    initial: Devices
+  en_name_header_security:
+    initial: Security
+  en_name_header_cleaning:
+    initial: Cleaning
+  en_name_header_scenes:
+    initial: Scenes
+  en_name_header_remote:
+    initial: Remote
+  en_name_header_vacuum:
+    initial: Vacuum
+  en_name_header_menu:
+    initial: Menu
+  en_name_header_settings:
+    initial: Settings
+
+  en_name_presets:
+    initial: Presets
+  en_name_thermostat:
+    initial: Thermostat
+  en_name_fans:
+    initial: Fans
+  en_name_temperature:
+    initial: Temperature
+  en_name_humidity:
+    initial: Humidity
+  en_name_air_pressure:
+    initial: Air Pressure
+
+  en_name_cameras:
+    initial: Camera's
+  en_name_doors:
+    initial: Doors
+  en_name_windows:
+    initial: Windows
+  en_name_motion:
+    initial: Motion
+  en_name_other:
+    initial: Other
+
+  en_name_good_morning:
+    initial: Good Morning
+  en_name_good_afternoon:
+    initial: Good Afternoon
+  en_name_good_evening:
+    initial: Good Evening
+  en_name_good_night:
+    initial: Good Night
+
+  en_name_battery:
+    initial: Battery
+  en_name_battery_label:
+    initial: Overview
+
+  en_name_automation:
+    initial: Automation
+  en_name_automation_label:
+    initial: Manager
+
+  en_name_calendar:
+    initial: Calendar
+  en_name_calendar_label:
+    initial: Overview
+
+  en_name_computer:
+    initial: Computer
+  en_name_computer_label:
+    initial: Monitor
+
+  en_name_download:
+    initial: Download
+  en_name_download_label:
+    initial: Manager
+
+  en_name_energy:
+    initial: Energie
+  en_name_energy_label:
+    initial: Overview
+
+  en_name_floorplan:
+    initial: Floorplan
+  en_name_floorplan_label:
+    initial: Map
+
+  en_name_laundry:
+    initial: Laundry
+  en_name_laundry_label:
+    initial: Room
+
+  en_name_location:
+    initial: Location
+  en_name_location_label:
+    initial: Map
+
+  en_name_media:
+    initial: Media
+  en_name_media_label:
+    initial: Center
+
+  en_name_system:
+    initial: System
+  en_name_system_label:
+    initial: Monitor
+
+  en_name_traffic:
+    initial: Traffic
+  en_name_traffic_label:
+    initial: Information
+
+  en_name_weather:
+    initial: Weather
+  en_name_weather_label:
+    initial: Information
+
+  en_name_light:
+    initial: Light
+  en_name_light_label:
+    initial: Control
+
+  en_name_device:
+    initial: Device
+  en_name_device_label:
+    initial: Control
+
+  en_name_climate:
+    initial: Climate
+  en_name_climate_label:
+    initial: Control
+
+  en_name_security:
+    initial: Security
+  en_name_security_label:
+    initial: Panel
+
+  en_name_cleaning:
+    initial: Cleaning
+  en_name_cleaning_label:
+    initial: List
+
+  en_name_scene:
+    initial: Scene
+  en_name_scene_label:
+    initial: Control
+
+  en_name_vacuum:
+    initial: Vacuum
+  en_name_vacuum_label:
+    initial: Control
+
+  en_name_remote:
+    initial: Remote
+  en_name_remote_label:
+    initial: Control
+
+  en_name_alarm:
+    initial: Alarm
+  en_name_alarm_label:
+    initial: Panel
+
+

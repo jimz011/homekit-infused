@@ -1,0 +1,424 @@
+# Required input_selects for HKI to work properly
+input_select:
+  # The theme selector used to show in the interface
+  theme_selector:
+    name: Theme Selector 
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Silver
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+      - Auto
+  
+  # Border Radius used in border-radius templates,
+  # you can adjust border size to be selected here
+  border_radius:
+    name: Border Radius
+    options:
+      - 0px
+      - 6px
+      - 12px
+      - 18px
+  
+  # Border Radius selector to show in the interface
+  border_radius_selector:
+    name: Border Radius Selector
+    options:
+      - None 
+      - Small
+      - Standard
+      - Large
+  
+  # Box Shadow used in box-shadow templates, you can adjust
+  # how the box shadow looks in here
+  box_shadow:
+    name: Box Shadow
+    options:
+      - none
+      - 1px 1px 1px 0px rgba(0,0,0,0.5)
+      - 2px 2px 2px 0px rgba(0,0,0,0.5)
+      - 3px 3px 3px 0px rgba(0,0,0,0.5)
+   
+  # Box Shadow selector to show in the interface
+  box_shadow_selector:
+    name: Box Shadow Selector
+    options:
+      - None
+      - Small
+      - Standard
+      - Large
+
+  # Layout Selectors
+  person_selector:
+    name: Frontpage Layout Selector
+    options:
+      - None
+      - One Person
+      - Two Persons
+      - Three Persons
+      - Four Persons
+  
+  menu_button_selector:
+    options:
+      - Three Columns
+      - Four Columns
+  
+  menu_button_editor:
+    options:
+      - First Column
+      - Second Column
+      - Third Column
+      - Fourth Column
+
+  frontpage_button_selector:
+    name: Frontpage Button Selector
+    options:
+      - Three Columns
+      - Four Columns
+  
+  frontpage_button_editor:
+    options:
+      - First Column
+      - Second Column
+      - Third Column
+      - Fourth Column
+
+  edit_mode_floor_selector:
+    options:
+      - Ground Floor
+      - First Floor
+      - Second Floor
+
+  floor_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+
+  lights_floor_selector:
+    options:
+      - Select
+      - '0'
+      - 1
+      - 2
+
+  devices_floor_selector:
+    options:
+      - Select
+      - '0'
+      - 1
+      - 2
+  
+  floor_0_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+
+  floor_1_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+
+  floor_2_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+
+  settings:
+    options:
+      - Global
+      - Settings
+      - Names
+      - Icons
+      - Persons
+      - Views
+      - Custom Buttons
+      - Header
+      - Rooms
+      - Themes
+      - Toolbox
+      - Other
+      - Weather
+
+  # Person Menu 1 (used for personal views)
+  person_menu_1:
+    name: Person Menu 1 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 2 (used for personal views)
+  person_menu_2:
+    name: Person Menu 2 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 3 (used for personal views)
+  person_menu_3:
+    name: Person Menu 3 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 4 (used for personal views)
+  person_menu_4:
+    name: Person Menu 4 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Xiaomi Vacuum
+  xiaomi_vacuum:
+    name: Xiaomi Vacuum
+    options:
+      - Silent
+      - Standard
+      - Medium
+      - Turbo
+      - Gentle
+
+  icon_selector:
+    options:
+      - Select
+      - Material Design
+      - Fontawesome Pro
+
+  language_selector:
+    options:
+      - Select
+      - English
+      - Nederlands
+
+  frontpage_edit_mode:
+    options:
+      - Widgets
+      - Buttons
+
+  menu_edit_mode:
+    options:
+      - Widgets
+      - Buttons
+
+  deep_press:
+    options:
+      - false
+      - true
+
+  light_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  device_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  thermostat_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  fan_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  temperature_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  humidity_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  air_pressure_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  camera_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  door_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  window_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  motion_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  other_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  onboarding:
+    options:
+      - Introduction
+      - Language and Icons
+      - Persons
+      - Rooms
+      - Finish
+    initial: Introduction
+
+  light_columns:
+    options:
+      - 3
+      - 4
+
+  device_columns:
+    options:
+      - 3
+      - 4
+
+  climate_columns:
+    options:
+      - 3
+      - 4
+
+  camera_columns:
+    options:
+      - 3
+      - 4
+
+  door_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  window_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  motion_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  other_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  menu_columns:
+    options:
+      - 3
+      - 4
