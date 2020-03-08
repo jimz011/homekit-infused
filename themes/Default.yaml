@@ -1,0 +1,15 @@
+Home Assistant:
+  ### Theme Home Assistant Default for Homekit Infused v1.2 or newer
+  
+  ## Lovelace Theme
+  
+  # Lovelace Header Text
+  header-color: 'White'
+  category-text: 'Black'
+  
+  # Notification Badge
+  notification-badge-color: 'black'
+  notification-popup-action-color: 'white'
+
+  # Primary Color
+  primary-color: '#03a9f4'
