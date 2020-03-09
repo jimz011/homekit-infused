@@ -8,7 +8,7 @@ cards:
             aspect_ratio: 7/1
             layout: icon_name_state
             size: 50%
-            entity: input_boolean.person_4_user_content
+            entity: input_boolean.person_04_user_content
             name: User Content
             icon: mdi:account-multiple-plus-outline
             hold_action:
