@@ -18,4 +18,4 @@ content: >
   **Note:** Using the custom user content assures your card/view edits survive updates, try to avoid editing any of the HKI files at all times!
 
 
-  **Remove:** To remove this message and other tutorial messages, please turn off tutorial mode in the HKI Settings menu.
+  **Remove:** To remove this message and other helpful messages, please turn off messages in the HKI Settings > Global Settings.
