@@ -29,7 +29,7 @@
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
         - type: conditional
           conditions:
-            - entity: input_boolean.person_4_user_content
+            - entity: input_boolean.person_04_user_content
               state: "on"
           card:
             type: custom:layout-card
