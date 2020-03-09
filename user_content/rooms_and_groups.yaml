@@ -20,6 +20,7 @@
   # You must enter the entities in the correct rooms. Rooms 1-10 are assigned to the 1st floor, rooms 11-16 to the 2nd floor and rooms 17-20 to the 3d floor.
  
   # The first room shows you the example of how to fill in these groups, you can either use entities and separate them with comma's or you can use a list, your choice.
+  # You can don't need to add lights to the all_devices groups as you've already set them up within the lights groups. Set up the room names in the interface at the onboarding process.
 
   ## First Floor 
   # Room 1
@@ -31,9 +32,8 @@
     entities: # light.vloerlamp, light.tafellamp
   room_1_all_devices:
     entities:
-     # - light.plafond
-     # - light.eettafel
-     # - light.vloerlamp
+     # - switch.television
+     # - switch.radio
   
   # Room 2
   room_2_lights_default:
