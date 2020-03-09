@@ -131,329 +131,249 @@ automation:
         - sensor.current_windows_open
         - sensor.current_binary_sensors_on
   
-  - alias: 'Room Selector Devices'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_0_room_selector
-      - platform: state
-        entity_id: input_boolean.devices_room_01
-      - platform: state
-        entity_id: input_boolean.devices_room_02
-      - platform: state
-        entity_id: input_boolean.devices_room_03
-      - platform: state
-        entity_id: input_boolean.devices_room_04
-      - platform: state
-        entity_id: input_boolean.devices_room_05
-      - platform: state
-        entity_id: input_boolean.devices_room_06
-      - platform: state
-        entity_id: input_boolean.devices_room_07
-      - platform: state
-        entity_id: input_boolean.devices_room_08
-      - platform: state
-        entity_id: input_boolean.devices_room_09
-      - platform: state
-        entity_id: input_boolean.devices_room_10
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_0_room_selector', '1') %}
-              input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '2') %}
-              input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '3') %}
-              input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '4') %}
-              input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '5') %}
-              input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '6') %}
-              input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '7') %}
-              input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '8') %}
-              input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '9') %}
-              input_boolean.devices_room_10 
-            {% else %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_0_room_selector', '1') %}
-              input_boolean.devices_room_01
-            {% elif is_state('input_select.floor_0_room_selector', '2') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02
-            {% elif is_state('input_select.floor_0_room_selector', '3') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03
-            {% elif is_state('input_select.floor_0_room_selector', '4') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04
-            {% elif is_state('input_select.floor_0_room_selector', '5') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05
-            {% elif is_state('input_select.floor_0_room_selector', '6') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06
-            {% elif is_state('input_select.floor_0_room_selector', '7') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07
-            {% elif is_state('input_select.floor_0_room_selector', '8') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08
-            {% elif is_state('input_select.floor_0_room_selector', '9') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09
-            {% elif is_state('input_select.floor_0_room_selector', '10') %}
-              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10
-            {% endif %}
-
-  - alias: 'Room Selector Devices Second Floor'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_1_room_selector
-      - platform: state
-        entity_id: input_boolean.devices_room_11
-      - platform: state
-        entity_id: input_boolean.devices_room_12
-      - platform: state
-        entity_id: input_boolean.devices_room_13
-      - platform: state
-        entity_id: input_boolean.devices_room_14
-      - platform: state
-        entity_id: input_boolean.devices_room_15
-      - platform: state
-        entity_id: input_boolean.devices_room_16
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_1_room_selector', '1') %}
-              input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '2') %}
-              input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '3') %}
-              input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '4') %}
-              input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '5') %}
-              input_boolean.devices_room_16
-            {% else %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_1_room_selector', '1') %}
-              input_boolean.devices_room_11
-            {% elif is_state('input_select.floor_1_room_selector', '2') %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12
-            {% elif is_state('input_select.floor_1_room_selector', '3') %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13
-            {% elif is_state('input_select.floor_1_room_selector', '4') %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14
-            {% elif is_state('input_select.floor_1_room_selector', '5') %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15
-            {% elif is_state('input_select.floor_1_room_selector', '6') %}
-              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
-            {% endif %}
-
-  - alias: 'Room Selector Devices Third Floor'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_2_room_selector
-      - platform: state
-        entity_id: input_boolean.devices_room_17
-      - platform: state
-        entity_id: input_boolean.devices_room_18
-      - platform: state
-        entity_id: input_boolean.devices_room_19
-      - platform: state
-        entity_id: input_boolean.devices_room_20
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_2_room_selector', '1') %}
-              input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
-            {% elif is_state('input_select.floor_2_room_selector', '2') %}
-              input_boolean.devices_room_19, input_boolean.devices_room_20
-            {% elif is_state('input_select.floor_2_room_selector', '3') %}
-              input_boolean.devices_room_20
-            {% else %}
-              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_2_room_selector', '1') %}
-              input_boolean.devices_room_17
-            {% elif is_state('input_select.floor_2_room_selector', '2') %}
-              input_boolean.devices_room_17, input_boolean.devices_room_18
-            {% elif is_state('input_select.floor_2_room_selector', '3') %}
-              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19
-            {% elif is_state('input_select.floor_2_room_selector', '4') %}
-              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
-            {% endif %}
-
-  - alias: 'Room Selector Lights'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_0_room_selector
-      - platform: state
-        entity_id: input_boolean.lights_room_01
-      - platform: state
-        entity_id: input_boolean.lights_room_02
-      - platform: state
-        entity_id: input_boolean.lights_room_03
-      - platform: state
-        entity_id: input_boolean.lights_room_04
-      - platform: state
-        entity_id: input_boolean.lights_room_05
-      - platform: state
-        entity_id: input_boolean.lights_room_06
-      - platform: state
-        entity_id: input_boolean.lights_room_07
-      - platform: state
-        entity_id: input_boolean.lights_room_08
-      - platform: state
-        entity_id: input_boolean.lights_room_09
-      - platform: state
-        entity_id: input_boolean.lights_room_10
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_0_room_selector', '1') %}
-              input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '2') %}
-              input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '3') %}
-              input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '4') %}
-              input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '5') %}
-              input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '6') %}
-              input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '7') %}
-              input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '8') %}
-              input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% elif is_state('input_select.floor_0_room_selector', '9') %}
-              input_boolean.lights_room_10 
-            {% else %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_0_room_selector', '1') %}
-              input_boolean.lights_room_01
-            {% elif is_state('input_select.floor_0_room_selector', '2') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02
-            {% elif is_state('input_select.floor_0_room_selector', '3') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03
-            {% elif is_state('input_select.floor_0_room_selector', '4') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04
-            {% elif is_state('input_select.floor_0_room_selector', '5') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05
-            {% elif is_state('input_select.floor_0_room_selector', '6') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06
-            {% elif is_state('input_select.floor_0_room_selector', '7') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07
-            {% elif is_state('input_select.floor_0_room_selector', '8') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08
-            {% elif is_state('input_select.floor_0_room_selector', '9') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09
-            {% elif is_state('input_select.floor_0_room_selector', '10') %}
-              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10
-            {% endif %}
-
-  - alias: 'Room Selector Lights Second Floor'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_1_room_selector
-      - platform: state
-        entity_id: input_boolean.lights_room_11
-      - platform: state
-        entity_id: input_boolean.lights_room_12
-      - platform: state
-        entity_id: input_boolean.lights_room_13
-      - platform: state
-        entity_id: input_boolean.lights_room_14
-      - platform: state
-        entity_id: input_boolean.lights_room_15
-      - platform: state
-        entity_id: input_boolean.lights_room_16
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_1_room_selector', '1') %}
-              input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '2') %}
-              input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '3') %}
-              input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '4') %}
-              input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% elif is_state('input_select.floor_1_room_selector', '5') %}
-              input_boolean.lights_room_16
-            {% else %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_1_room_selector', '1') %}
-              input_boolean.lights_room_11
-            {% elif is_state('input_select.floor_1_room_selector', '2') %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12
-            {% elif is_state('input_select.floor_1_room_selector', '3') %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13
-            {% elif is_state('input_select.floor_1_room_selector', '4') %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14
-            {% elif is_state('input_select.floor_1_room_selector', '5') %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15
-            {% elif is_state('input_select.floor_1_room_selector', '6') %}
-              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
-            {% endif %}
-
-  - alias: 'Room Selector Lights Third Floor'
-    trigger:
-      - platform: state
-        entity_id: input_select.floor_2_room_selector
-      - platform: state
-        entity_id: input_boolean.lights_room_17
-      - platform: state
-        entity_id: input_boolean.lights_room_18
-      - platform: state
-        entity_id: input_boolean.lights_room_19
-      - platform: state
-        entity_id: input_boolean.lights_room_20
-    action:
-      - service: input_boolean.turn_off
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_2_room_selector', '1') %}
-              input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
-            {% elif is_state('input_select.floor_2_room_selector', '2') %}
-              input_boolean.lights_room_19, input_boolean.lights_room_20
-            {% elif is_state('input_select.floor_2_room_selector', '3') %}
-              input_boolean.lights_room_20
-            {% else %}
-              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
-            {% endif %}
-      - service: input_boolean.turn_on
-        data_template:
-          entity_id: >-
-            {% if is_state('input_select.floor_2_room_selector', '1') %}
-              input_boolean.lights_room_17
-            {% elif is_state('input_select.floor_2_room_selector', '2') %}
-              input_boolean.lights_room_17, input_boolean.lights_room_18
-            {% elif is_state('input_select.floor_2_room_selector', '3') %}
-              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19
-            {% elif is_state('input_select.floor_2_room_selector', '4') %}
-              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
-            {% endif %}
+#  - alias: 'Room Selector Devices'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_0_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_0_room_selector', '1') %}
+#              input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '2') %}
+#              input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '3') %}
+#              input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '4') %}
+#              input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '5') %}
+#              input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '6') %}
+#              input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '7') %}
+#              input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '8') %}
+#              input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '9') %}
+#              input_boolean.devices_room_10 
+#            {% else %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_0_room_selector', '1') %}
+#              input_boolean.devices_room_01
+#            {% elif is_state('input_select.floor_0_room_selector', '2') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02
+#            {% elif is_state('input_select.floor_0_room_selector', '3') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03
+#            {% elif is_state('input_select.floor_0_room_selector', '4') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04
+#            {% elif is_state('input_select.floor_0_room_selector', '5') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05
+#            {% elif is_state('input_select.floor_0_room_selector', '6') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06
+#            {% elif is_state('input_select.floor_0_room_selector', '7') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07
+#            {% elif is_state('input_select.floor_0_room_selector', '8') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08
+#            {% elif is_state('input_select.floor_0_room_selector', '9') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09
+#            {% elif is_state('input_select.floor_0_room_selector', '10') %}
+#              input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10
+#            {% endif %}
+#
+#  - alias: 'Room Selector Devices Second Floor'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_1_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_1_room_selector', '1') %}
+#              input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '2') %}
+#              input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '3') %}
+#              input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '4') %}
+#              input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '5') %}
+#              input_boolean.devices_room_16
+#            {% else %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_1_room_selector', '1') %}
+#              input_boolean.devices_room_11
+#            {% elif is_state('input_select.floor_1_room_selector', '2') %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12
+#            {% elif is_state('input_select.floor_1_room_selector', '3') %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13
+#            {% elif is_state('input_select.floor_1_room_selector', '4') %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14
+#            {% elif is_state('input_select.floor_1_room_selector', '5') %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15
+#            {% elif is_state('input_select.floor_1_room_selector', '6') %}
+#              input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
+#            {% endif %}
+#
+#  - alias: 'Room Selector Devices Third Floor'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_2_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_2_room_selector', '1') %}
+#              input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
+#            {% elif is_state('input_select.floor_2_room_selector', '2') %}
+#              input_boolean.devices_room_19, input_boolean.devices_room_20
+#            {% elif is_state('input_select.floor_2_room_selector', '3') %}
+#              input_boolean.devices_room_20
+#            {% else %}
+#              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_2_room_selector', '1') %}
+#              input_boolean.devices_room_17
+#            {% elif is_state('input_select.floor_2_room_selector', '2') %}
+#              input_boolean.devices_room_17, input_boolean.devices_room_18
+#            {% elif is_state('input_select.floor_2_room_selector', '3') %}
+#              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19
+#            {% elif is_state('input_select.floor_2_room_selector', '4') %}
+#              input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
+#            {% endif %}
+#
+#  - alias: 'Room Selector Lights'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_0_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_0_room_selector', '1') %}
+#              input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '2') %}
+#              input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '3') %}
+#              input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '4') %}
+#              input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '5') %}
+#              input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '6') %}
+#              input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '7') %}
+#              input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '8') %}
+#              input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% elif is_state('input_select.floor_0_room_selector', '9') %}
+#              input_boolean.lights_room_10 
+#            {% else %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_0_room_selector', '1') %}
+#              input_boolean.lights_room_01
+#            {% elif is_state('input_select.floor_0_room_selector', '2') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02
+#            {% elif is_state('input_select.floor_0_room_selector', '3') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03
+#            {% elif is_state('input_select.floor_0_room_selector', '4') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04
+#            {% elif is_state('input_select.floor_0_room_selector', '5') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05
+#            {% elif is_state('input_select.floor_0_room_selector', '6') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06
+#            {% elif is_state('input_select.floor_0_room_selector', '7') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07
+#            {% elif is_state('input_select.floor_0_room_selector', '8') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08
+#            {% elif is_state('input_select.floor_0_room_selector', '9') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09
+#            {% elif is_state('input_select.floor_0_room_selector', '10') %}
+#              input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10
+#            {% endif %}
+#
+#  - alias: 'Room Selector Lights Second Floor'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_1_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_1_room_selector', '1') %}
+#              input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '2') %}
+#              input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '3') %}
+#              input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '4') %}
+#              input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% elif is_state('input_select.floor_1_room_selector', '5') %}
+#              input_boolean.lights_room_16
+#            {% else %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_1_room_selector', '1') %}
+#              input_boolean.lights_room_11
+#            {% elif is_state('input_select.floor_1_room_selector', '2') %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12
+#            {% elif is_state('input_select.floor_1_room_selector', '3') %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13
+#            {% elif is_state('input_select.floor_1_room_selector', '4') %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14
+#            {% elif is_state('input_select.floor_1_room_selector', '5') %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15
+#            {% elif is_state('input_select.floor_1_room_selector', '6') %}
+#              input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
+#            {% endif %}
+#
+#  - alias: 'Room Selector Lights Third Floor'
+#    trigger:
+#      - platform: state
+#        entity_id: input_select.floor_2_room_selector
+#    action:
+#      - service: input_boolean.turn_off
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_2_room_selector', '1') %}
+#              input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
+#            {% elif is_state('input_select.floor_2_room_selector', '2') %}
+#              input_boolean.lights_room_19, input_boolean.lights_room_20
+#            {% elif is_state('input_select.floor_2_room_selector', '3') %}
+#              input_boolean.lights_room_20
+#            {% else %}
+#              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
+#            {% endif %}
+#      - service: input_boolean.turn_on
+#        data_template:
+#          entity_id: >-
+#            {% if is_state('input_select.floor_2_room_selector', '1') %}
+#              input_boolean.lights_room_17
+#            {% elif is_state('input_select.floor_2_room_selector', '2') %}
+#              input_boolean.lights_room_17, input_boolean.lights_room_18
+#            {% elif is_state('input_select.floor_2_room_selector', '3') %}
+#              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19
+#            {% elif is_state('input_select.floor_2_room_selector', '4') %}
+#              input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
+#            {% endif %}
 
   - alias: 'Floor Selector Automation All Off'
     trigger:
@@ -491,6 +411,62 @@ automation:
           entity_id:
             - input_select.floor_2_room_selector
           option: Select
+
+  - alias: 'reset hidden rooms'
+    trigger:
+      platform: state
+      entity_id: input_boolean.dummy1
+      to: 'dummy_automation'
+    action:
+      - service: input_boolean.turn_on
+        data:
+          entity_id:
+            - input_boolean.lights_room_01
+            - input_boolean.lights_room_02
+            - input_boolean.lights_room_03
+            - input_boolean.lights_room_04
+            - input_boolean.lights_room_05
+            - input_boolean.lights_room_06
+            - input_boolean.lights_room_07
+            - input_boolean.lights_room_08
+            - input_boolean.lights_room_09
+            - input_boolean.lights_room_10
+            - input_boolean.lights_room_11
+            - input_boolean.lights_room_12
+            - input_boolean.lights_room_13
+            - input_boolean.lights_room_14
+            - input_boolean.lights_room_15
+            - input_boolean.lights_room_16
+            - input_boolean.lights_room_17
+            - input_boolean.lights_room_18
+            - input_boolean.lights_room_19
+            - input_boolean.lights_room_20
+            - input_boolean.devices_room_01
+            - input_boolean.devices_room_02
+            - input_boolean.devices_room_03
+            - input_boolean.devices_room_04
+            - input_boolean.devices_room_05
+            - input_boolean.devices_room_06
+            - input_boolean.devices_room_07
+            - input_boolean.devices_room_08
+            - input_boolean.devices_room_09
+            - input_boolean.devices_room_10
+            - input_boolean.devices_room_11
+            - input_boolean.devices_room_12
+            - input_boolean.devices_room_13
+            - input_boolean.devices_room_14
+            - input_boolean.devices_room_15
+            - input_boolean.devices_room_16
+            - input_boolean.devices_room_17
+            - input_boolean.devices_room_18
+            - input_boolean.devices_room_19
+            - input_boolean.devices_room_20
+      - service: input_select.select_option
+        data:
+          entity_id: 
+            - input_select.devices_floor_selector
+            - input_select.lights_floor_selector
+          option: "0"
 
   - alias: 'hki onboarding'
     trigger:
@@ -548,6 +524,46 @@ automation:
             - input_boolean.scenes_scenes
             - input_boolean.traffic_traffic
             - input_boolean.settings
+            - input_boolean.lights_room_01
+            - input_boolean.lights_room_02
+            - input_boolean.lights_room_03
+            - input_boolean.lights_room_04
+            - input_boolean.lights_room_05
+            - input_boolean.lights_room_06
+            - input_boolean.lights_room_07
+            - input_boolean.lights_room_08
+            - input_boolean.lights_room_09
+            - input_boolean.lights_room_10
+            - input_boolean.lights_room_11
+            - input_boolean.lights_room_12
+            - input_boolean.lights_room_13
+            - input_boolean.lights_room_14
+            - input_boolean.lights_room_15
+            - input_boolean.lights_room_16
+            - input_boolean.lights_room_17
+            - input_boolean.lights_room_18
+            - input_boolean.lights_room_19
+            - input_boolean.lights_room_20
+            - input_boolean.devices_room_01
+            - input_boolean.devices_room_02
+            - input_boolean.devices_room_03
+            - input_boolean.devices_room_04
+            - input_boolean.devices_room_05
+            - input_boolean.devices_room_06
+            - input_boolean.devices_room_07
+            - input_boolean.devices_room_08
+            - input_boolean.devices_room_09
+            - input_boolean.devices_room_10
+            - input_boolean.devices_room_11
+            - input_boolean.devices_room_12
+            - input_boolean.devices_room_13
+            - input_boolean.devices_room_14
+            - input_boolean.devices_room_15
+            - input_boolean.devices_room_16
+            - input_boolean.devices_room_17
+            - input_boolean.devices_room_18
+            - input_boolean.devices_room_19
+            - input_boolean.devices_room_20
       - service: input_text.set_value
         data:
           entity_id:
