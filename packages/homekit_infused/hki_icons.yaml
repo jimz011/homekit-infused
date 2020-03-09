@@ -115,8 +115,6 @@ input_text:
     initial: mdi:door
   mdi_icon_window:
     initial: mdi:window-closed
-  mdi_icon_battery:
-    initial: mdi:battery
   mdi_icon_climate:
     initial: mdi:thermometer
   mdi_icon_light:

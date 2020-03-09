@@ -129,8 +129,6 @@ input_text:
   person_4_travel_time_to_work:
   person_4_travel_time_to_home:
 
-  floorplan_image:
-
   air_pollution_level:
   air_quality_index:
   main_pollutant:

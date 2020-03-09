@@ -133,8 +133,48 @@ automation:
   
   - alias: 'Room Selector Devices'
     trigger:
-      platform: state
-      entity_id: input_select.floor_0_room_selector
+      - platform: state
+        entity_id: input_select.floor_0_room_selector
+      - platform: state
+        entity_id: input_boolean.devices_room_01
+      - platform: state
+        entity_id: input_boolean.devices_room_02
+      - platform: state
+        entity_id: input_boolean.devices_room_03
+      - platform: state
+        entity_id: input_boolean.devices_room_04
+      - platform: state
+        entity_id: input_boolean.devices_room_05
+      - platform: state
+        entity_id: input_boolean.devices_room_06
+      - platform: state
+        entity_id: input_boolean.devices_room_07
+      - platform: state
+        entity_id: input_boolean.devices_room_08
+      - platform: state
+        entity_id: input_boolean.devices_room_09
+      - platform: state
+        entity_id: input_boolean.devices_room_10
+      - platform: state
+        entity_id: input_boolean.devices_room_11
+      - platform: state
+        entity_id: input_boolean.devices_room_12
+      - platform: state
+        entity_id: input_boolean.devices_room_13
+      - platform: state
+        entity_id: input_boolean.devices_room_14
+      - platform: state
+        entity_id: input_boolean.devices_room_15
+      - platform: state
+        entity_id: input_boolean.devices_room_16
+      - platform: state
+        entity_id: input_boolean.devices_room_17
+      - platform: state
+        entity_id: input_boolean.devices_room_18
+      - platform: state
+        entity_id: input_boolean.devices_room_19
+      - platform: state
+        entity_id: input_boolean.devices_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -187,8 +227,48 @@ automation:
 
   - alias: 'Room Selector Devices Second Floor'
     trigger:
-      platform: state
-      entity_id: input_select.floor_1_room_selector
+      - platform: state
+        entity_id: input_select.floor_1_room_selector
+      - platform: state
+        entity_id: input_boolean.devices_room_01
+      - platform: state
+        entity_id: input_boolean.devices_room_02
+      - platform: state
+        entity_id: input_boolean.devices_room_03
+      - platform: state
+        entity_id: input_boolean.devices_room_04
+      - platform: state
+        entity_id: input_boolean.devices_room_05
+      - platform: state
+        entity_id: input_boolean.devices_room_06
+      - platform: state
+        entity_id: input_boolean.devices_room_07
+      - platform: state
+        entity_id: input_boolean.devices_room_08
+      - platform: state
+        entity_id: input_boolean.devices_room_09
+      - platform: state
+        entity_id: input_boolean.devices_room_10
+      - platform: state
+        entity_id: input_boolean.devices_room_11
+      - platform: state
+        entity_id: input_boolean.devices_room_12
+      - platform: state
+        entity_id: input_boolean.devices_room_13
+      - platform: state
+        entity_id: input_boolean.devices_room_14
+      - platform: state
+        entity_id: input_boolean.devices_room_15
+      - platform: state
+        entity_id: input_boolean.devices_room_16
+      - platform: state
+        entity_id: input_boolean.devices_room_17
+      - platform: state
+        entity_id: input_boolean.devices_room_18
+      - platform: state
+        entity_id: input_boolean.devices_room_19
+      - platform: state
+        entity_id: input_boolean.devices_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -225,8 +305,48 @@ automation:
 
   - alias: 'Room Selector Devices Third Floor'
     trigger:
-      platform: state
-      entity_id: input_select.floor_2_room_selector
+      - platform: state
+        entity_id: input_select.floor_2_room_selector
+      - platform: state
+        entity_id: input_boolean.devices_room_01
+      - platform: state
+        entity_id: input_boolean.devices_room_02
+      - platform: state
+        entity_id: input_boolean.devices_room_03
+      - platform: state
+        entity_id: input_boolean.devices_room_04
+      - platform: state
+        entity_id: input_boolean.devices_room_05
+      - platform: state
+        entity_id: input_boolean.devices_room_06
+      - platform: state
+        entity_id: input_boolean.devices_room_07
+      - platform: state
+        entity_id: input_boolean.devices_room_08
+      - platform: state
+        entity_id: input_boolean.devices_room_09
+      - platform: state
+        entity_id: input_boolean.devices_room_10
+      - platform: state
+        entity_id: input_boolean.devices_room_11
+      - platform: state
+        entity_id: input_boolean.devices_room_12
+      - platform: state
+        entity_id: input_boolean.devices_room_13
+      - platform: state
+        entity_id: input_boolean.devices_room_14
+      - platform: state
+        entity_id: input_boolean.devices_room_15
+      - platform: state
+        entity_id: input_boolean.devices_room_16
+      - platform: state
+        entity_id: input_boolean.devices_room_17
+      - platform: state
+        entity_id: input_boolean.devices_room_18
+      - platform: state
+        entity_id: input_boolean.devices_room_19
+      - platform: state
+        entity_id: input_boolean.devices_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -255,8 +375,48 @@ automation:
 
   - alias: 'Room Selector Lights'
     trigger:
-      platform: state
-      entity_id: input_select.floor_0_room_selector
+      - platform: state
+        entity_id: input_select.floor_0_room_selector
+      - platform: state
+        entity_id: input_boolean.lights_room_01
+      - platform: state
+        entity_id: input_boolean.lights_room_02
+      - platform: state
+        entity_id: input_boolean.lights_room_03
+      - platform: state
+        entity_id: input_boolean.lights_room_04
+      - platform: state
+        entity_id: input_boolean.lights_room_05
+      - platform: state
+        entity_id: input_boolean.lights_room_06
+      - platform: state
+        entity_id: input_boolean.lights_room_07
+      - platform: state
+        entity_id: input_boolean.lights_room_08
+      - platform: state
+        entity_id: input_boolean.lights_room_09
+      - platform: state
+        entity_id: input_boolean.lights_room_10
+      - platform: state
+        entity_id: input_boolean.lights_room_11
+      - platform: state
+        entity_id: input_boolean.lights_room_12
+      - platform: state
+        entity_id: input_boolean.lights_room_13
+      - platform: state
+        entity_id: input_boolean.lights_room_14
+      - platform: state
+        entity_id: input_boolean.lights_room_15
+      - platform: state
+        entity_id: input_boolean.lights_room_16
+      - platform: state
+        entity_id: input_boolean.lights_room_17
+      - platform: state
+        entity_id: input_boolean.lights_room_18
+      - platform: state
+        entity_id: input_boolean.lights_room_19
+      - platform: state
+        entity_id: input_boolean.lights_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -309,8 +469,48 @@ automation:
 
   - alias: 'Room Selector Lights Second Floor'
     trigger:
-      platform: state
-      entity_id: input_select.floor_1_room_selector
+      - platform: state
+        entity_id: input_select.floor_1_room_selector
+      - platform: state
+        entity_id: input_boolean.lights_room_01
+      - platform: state
+        entity_id: input_boolean.lights_room_02
+      - platform: state
+        entity_id: input_boolean.lights_room_03
+      - platform: state
+        entity_id: input_boolean.lights_room_04
+      - platform: state
+        entity_id: input_boolean.lights_room_05
+      - platform: state
+        entity_id: input_boolean.lights_room_06
+      - platform: state
+        entity_id: input_boolean.lights_room_07
+      - platform: state
+        entity_id: input_boolean.lights_room_08
+      - platform: state
+        entity_id: input_boolean.lights_room_09
+      - platform: state
+        entity_id: input_boolean.lights_room_10
+      - platform: state
+        entity_id: input_boolean.lights_room_11
+      - platform: state
+        entity_id: input_boolean.lights_room_12
+      - platform: state
+        entity_id: input_boolean.lights_room_13
+      - platform: state
+        entity_id: input_boolean.lights_room_14
+      - platform: state
+        entity_id: input_boolean.lights_room_15
+      - platform: state
+        entity_id: input_boolean.lights_room_16
+      - platform: state
+        entity_id: input_boolean.lights_room_17
+      - platform: state
+        entity_id: input_boolean.lights_room_18
+      - platform: state
+        entity_id: input_boolean.lights_room_19
+      - platform: state
+        entity_id: input_boolean.lights_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -347,8 +547,48 @@ automation:
 
   - alias: 'Room Selector Lights Third Floor'
     trigger:
-      platform: state
-      entity_id: input_select.floor_2_room_selector
+      - platform: state
+        entity_id: input_select.floor_2_room_selector
+      - platform: state
+        entity_id: input_boolean.lights_room_01
+      - platform: state
+        entity_id: input_boolean.lights_room_02
+      - platform: state
+        entity_id: input_boolean.lights_room_03
+      - platform: state
+        entity_id: input_boolean.lights_room_04
+      - platform: state
+        entity_id: input_boolean.lights_room_05
+      - platform: state
+        entity_id: input_boolean.lights_room_06
+      - platform: state
+        entity_id: input_boolean.lights_room_07
+      - platform: state
+        entity_id: input_boolean.lights_room_08
+      - platform: state
+        entity_id: input_boolean.lights_room_09
+      - platform: state
+        entity_id: input_boolean.lights_room_10
+      - platform: state
+        entity_id: input_boolean.lights_room_11
+      - platform: state
+        entity_id: input_boolean.lights_room_12
+      - platform: state
+        entity_id: input_boolean.lights_room_13
+      - platform: state
+        entity_id: input_boolean.lights_room_14
+      - platform: state
+        entity_id: input_boolean.lights_room_15
+      - platform: state
+        entity_id: input_boolean.lights_room_16
+      - platform: state
+        entity_id: input_boolean.lights_room_17
+      - platform: state
+        entity_id: input_boolean.lights_room_18
+      - platform: state
+        entity_id: input_boolean.lights_room_19
+      - platform: state
+        entity_id: input_boolean.lights_room_20
     action:
       - service: homeassistant.turn_off
         data_template:
@@ -570,6 +810,8 @@ automation:
               Home Assistant
             {% elif is_state('input_select.theme_selector', 'Orange Delight') %}
               Orange Delight
+            {% elif is_state('input_select.theme_selector', 'Slate') %}
+              Slate
             {% elif (is_state('sensor.anniversary_anniversary', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}
               Valentine
             {% elif (is_state('sensor.anniversary_valentines_day', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}

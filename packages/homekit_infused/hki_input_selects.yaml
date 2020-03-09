@@ -7,6 +7,7 @@ input_select:
       - Home Assistant
       - Orange Delight
       - Silver
+      - Slate
       - Space Gray
       - Sweet Pink
       - Valentine
@@ -220,6 +221,8 @@ input_select:
     options:
       - Select
       - English
+      - Français
+      - Italiano
       - Nederlands
 
   frontpage_edit_mode:

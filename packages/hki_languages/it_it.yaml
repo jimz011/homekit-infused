@@ -1,0 +1,258 @@
+input_text:
+# Italian
+  it_name_header_secondary_lights:
+    initial: Panoramica 
+  it_name_header_secondary_devices:
+    initial: Panoramica 
+  it_name_header_secondary_climate:
+    initial: Panoramica 
+  it_name_header_secondary_security:
+    initial: Panoramica 
+  it_name_header_secondary_automations:
+    initial: Panoramica 
+  it_name_header_secondary_battery:
+    initial: Panoramica 
+  it_name_header_secondary_calendar:
+    initial: Panoramica 
+  it_name_header_secondary_cleaning:
+    initial: Panoramica 
+  it_name_header_secondary_computers:
+    initial: Panoramica 
+  it_name_header_secondary_energy:
+    initial: Panoramica 
+  it_name_header_secondary_floorplan:
+    initial: Panoramica 
+  it_name_header_secondary_laundry:
+    initial: Panoramica 
+  it_name_header_secondary_location:
+    initial: Panoramica 
+  it_name_header_secondary_media:
+    initial: Panoramica 
+  it_name_header_secondary_scenes:
+    initial: Panoramica 
+  it_name_header_secondary_system:
+    initial: Panoramica 
+  it_name_header_secondary_traffic:
+    initial: Panoramica 
+  it_name_header_secondary_vacuum:
+    initial: Panoramica 
+  it_name_header_secondary_weather:
+    initial: Panoramica 
+  it_name_header_secondary_menu:
+    initial: Panoramica 
+  it_name_header_secondary_alarm:
+    initial: Panoramica 
+  it_name_header_secondary_download:
+    initial: Panoramica 
+
+  it_name_custom:
+    initial: Personalizza
+  it_name_favorites:
+    initial: Preferiti
+  it_name_all:
+    initial: Tutti
+  it_name_power:
+    initial: Accensione
+  it_name_frost:
+    initial: Congelamento
+  it_name_protection:
+    initial: Protezione
+  it_name_heat:
+    initial: Caldo
+  it_name_on:
+    initial: 'On'
+  it_name_off:
+    initial: 'Off'
+
+  it_name_header_about:
+    initial: Riguardo a
+  it_name_header_automations:
+    initial: Automazioni
+  it_name_header_battery:
+    initial: Batteria
+  it_name_header_calendar:
+    initial: Calendario
+  it_name_header_system:
+    initial: Sistema
+  it_name_header_computers:
+    initial: Computers
+  it_name_header_energy:
+    initial: Energia
+  it_name_header_media:
+    initial: Media
+  it_name_header_floorplan:
+    initial: Planimetria
+  it_name_header_laundry:
+    initial: Lavandera
+  it_name_header_location:
+    initial: Posizione
+  it_name_header_remote:
+    initial: Telecomando
+  it_name_header_traffic:
+    initial: Informazioni sul traffico
+
+  it_name_header_weather:
+    initial: Meteo
+  it_name_header_alarm:
+    initial: Allarme
+  it_name_header_climate:
+    initial: Clima
+  it_name_header_lights:
+    initial: Luci
+  it_name_header_devices:
+    initial: Dispositivi
+  it_name_header_security:
+    initial: Sicurezza
+  it_name_header_cleaning:
+    initial: Pulizia
+  it_name_header_scenes:
+    initial: Scenari
+  it_name_header_vacuum:
+    initial: Aspirapolvere
+  it_name_header_menu:
+    initial: Menu
+  it_name_header_settings:
+    initial: Impostazioni
+
+  it_name_presets:
+    initial: Presets
+  it_name_thermostat:
+    initial: Termostato
+  it_name_fans:
+    initial: Ventilatore
+  it_name_temperature:
+    initial: Temperatura
+  it_name_humidity:
+    initial: Umidità
+  it_name_air_pressure:
+    initial: Pressione dell'Aria
+
+  it_name_cameras:
+    initial: Telecamera
+  it_name_doors:
+    initial: Porte
+  it_name_windows:
+    initial: Finestre
+  it_name_motion:
+    initial: Movimento
+  it_name_other:
+    initial: Altro
+
+  it_name_good_morning:
+    initial: Buon Giorno
+  it_name_good_afternoon:
+    initial: Buon Pomeriggio
+  it_name_good_evening:
+    initial: Buona Sera
+  it_name_good_night:
+    initial: Buona Notte
+
+  it_name_battery:
+    initial: Batteria
+  it_name_battery_label:
+    initial: Panoramica
+
+  it_name_automation:
+    initial: Automazione
+  it_name_automation_label:
+    initial: Manager
+
+  it_name_calendar:
+    initial: Calendario
+  it_name_calendar_label:
+    initial: Panoramica
+
+  it_name_computer:
+    initial: Computer
+  it_name_computer_label:
+    initial: Monitor
+
+  it_name_download:
+    initial: Download
+  it_name_download_label:
+    initial: Manager
+
+  it_name_energy:
+    initial: Energia
+  it_name_energy_label:
+    initial: Panoramica
+
+  it_name_floorplan:
+    initial: Planimetria
+  it_name_floorplan_label:
+    initial: Carta
+
+  it_name_laundry:
+    initial: Lavanderia
+  it_name_laundry_label:
+    initial: Stanza
+
+  it_name_location:
+    initial: Posizione
+  it_name_location_label:
+    initial: Carta
+
+  it_name_media:
+    initial: Media
+  it_name_media_label:
+    initial: Center
+
+  it_name_system:
+    initial: Sistema
+  it_name_system_label:
+    initial: Controllo
+
+  it_name_traffic:
+    initial: Traffico
+  it_name_traffic_label:
+    initial: Informazioni
+
+  it_name_weather:
+    initial: Meteo
+  it_name_weather_label:
+    initial: Informazioni
+
+  it_name_light:
+    initial: Luci
+  it_name_light_label:
+    initial: Controlllo
+
+  it_name_device:
+    initial: Dispositivo
+  it_name_device_label:
+    initial: Controllo
+
+  it_name_climate:
+    initial: Clima
+  it_name_climate_label:
+    initial: Controllo
+
+  it_name_security:
+    initial: Sicurezza
+  it_name_security_label:
+    initial: Pannello
+
+  it_name_cleaning:
+    initial: Pulizie
+  it_name_cleaning_label:
+    initial: Lista
+
+  it_name_scene:
+    initial: Scenario
+  it_name_scene_label:
+    initial: Controllo
+
+  it_name_vacuum:
+    initial: Aspirapolvere
+  it_name_vacuum_label:
+    initial: Controllo
+
+  it_name_remote:
+    initial: Telecomando
+  it_name_remote_label:
+    initial: Controllo
+
+  it_name_alarm:
+    initial: Allarme
+  it_name_alarm_label:
+    initial: Panello
