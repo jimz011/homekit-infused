@@ -33,13 +33,14 @@ entities:
                   }
                 {% raw %}
                 content: > 
-                  {% if (states.sensor.time.state > '00:00') and (states.sensor.time.state < '06:00') %}
+                  {% set time = states('sensor.time') %}
+                  {% if '00:00' < time < '06:00' %}
                     ## {{ states.input_text.name_good_night.state }}
-                  {% elif (states.sensor.time.state > '06:00') and (states.sensor.time.state < '12:00') %}
+                  {% elif '06:00' < time < '12:00' %}
                     ## {{ states.input_text.name_good_morning.state }}
-                  {% elif (states.sensor.time.state > '12:00') and (states.sensor.time.state < '18:00') %}
+                  {% elif '12:00' < time < '18:00' %}
                     ## {{ states.input_text.name_good_afternoon.state }}
-                  {% elif (states.sensor.time.state > '18:00') and (states.sensor.time.state < '23:59') %}
+                  {% else %}
                     ## {{ states.input_text.name_good_evening.state }}
                   {% endif %}
                 {% endraw %}
