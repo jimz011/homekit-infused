@@ -155,30 +155,10 @@ automation:
         entity_id: input_boolean.devices_room_09
       - platform: state
         entity_id: input_boolean.devices_room_10
-      - platform: state
-        entity_id: input_boolean.devices_room_11
-      - platform: state
-        entity_id: input_boolean.devices_room_12
-      - platform: state
-        entity_id: input_boolean.devices_room_13
-      - platform: state
-        entity_id: input_boolean.devices_room_14
-      - platform: state
-        entity_id: input_boolean.devices_room_15
-      - platform: state
-        entity_id: input_boolean.devices_room_16
-      - platform: state
-        entity_id: input_boolean.devices_room_17
-      - platform: state
-        entity_id: input_boolean.devices_room_18
-      - platform: state
-        entity_id: input_boolean.devices_room_19
-      - platform: state
-        entity_id: input_boolean.devices_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_0_room_selector', '1') %}
               input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
             {% elif is_state('input_select.floor_0_room_selector', '2') %}
@@ -200,9 +180,9 @@ automation:
             {% else %}
               input_boolean.devices_room_01, input_boolean.devices_room_02, input_boolean.devices_room_03, input_boolean.devices_room_04, input_boolean.devices_room_05, input_boolean.devices_room_06, input_boolean.devices_room_07, input_boolean.devices_room_08, input_boolean.devices_room_09, input_boolean.devices_room_10 
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_0_room_selector', '1') %}
               input_boolean.devices_room_01
             {% elif is_state('input_select.floor_0_room_selector', '2') %}
@@ -230,26 +210,6 @@ automation:
       - platform: state
         entity_id: input_select.floor_1_room_selector
       - platform: state
-        entity_id: input_boolean.devices_room_01
-      - platform: state
-        entity_id: input_boolean.devices_room_02
-      - platform: state
-        entity_id: input_boolean.devices_room_03
-      - platform: state
-        entity_id: input_boolean.devices_room_04
-      - platform: state
-        entity_id: input_boolean.devices_room_05
-      - platform: state
-        entity_id: input_boolean.devices_room_06
-      - platform: state
-        entity_id: input_boolean.devices_room_07
-      - platform: state
-        entity_id: input_boolean.devices_room_08
-      - platform: state
-        entity_id: input_boolean.devices_room_09
-      - platform: state
-        entity_id: input_boolean.devices_room_10
-      - platform: state
         entity_id: input_boolean.devices_room_11
       - platform: state
         entity_id: input_boolean.devices_room_12
@@ -261,18 +221,10 @@ automation:
         entity_id: input_boolean.devices_room_15
       - platform: state
         entity_id: input_boolean.devices_room_16
-      - platform: state
-        entity_id: input_boolean.devices_room_17
-      - platform: state
-        entity_id: input_boolean.devices_room_18
-      - platform: state
-        entity_id: input_boolean.devices_room_19
-      - platform: state
-        entity_id: input_boolean.devices_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_1_room_selector', '1') %}
               input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
             {% elif is_state('input_select.floor_1_room_selector', '2') %}
@@ -286,9 +238,9 @@ automation:
             {% else %}
               input_boolean.devices_room_11, input_boolean.devices_room_12, input_boolean.devices_room_13, input_boolean.devices_room_14, input_boolean.devices_room_15, input_boolean.devices_room_16
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_1_room_selector', '1') %}
               input_boolean.devices_room_11
             {% elif is_state('input_select.floor_1_room_selector', '2') %}
@@ -308,38 +260,6 @@ automation:
       - platform: state
         entity_id: input_select.floor_2_room_selector
       - platform: state
-        entity_id: input_boolean.devices_room_01
-      - platform: state
-        entity_id: input_boolean.devices_room_02
-      - platform: state
-        entity_id: input_boolean.devices_room_03
-      - platform: state
-        entity_id: input_boolean.devices_room_04
-      - platform: state
-        entity_id: input_boolean.devices_room_05
-      - platform: state
-        entity_id: input_boolean.devices_room_06
-      - platform: state
-        entity_id: input_boolean.devices_room_07
-      - platform: state
-        entity_id: input_boolean.devices_room_08
-      - platform: state
-        entity_id: input_boolean.devices_room_09
-      - platform: state
-        entity_id: input_boolean.devices_room_10
-      - platform: state
-        entity_id: input_boolean.devices_room_11
-      - platform: state
-        entity_id: input_boolean.devices_room_12
-      - platform: state
-        entity_id: input_boolean.devices_room_13
-      - platform: state
-        entity_id: input_boolean.devices_room_14
-      - platform: state
-        entity_id: input_boolean.devices_room_15
-      - platform: state
-        entity_id: input_boolean.devices_room_16
-      - platform: state
         entity_id: input_boolean.devices_room_17
       - platform: state
         entity_id: input_boolean.devices_room_18
@@ -348,9 +268,9 @@ automation:
       - platform: state
         entity_id: input_boolean.devices_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_2_room_selector', '1') %}
               input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
             {% elif is_state('input_select.floor_2_room_selector', '2') %}
@@ -360,9 +280,9 @@ automation:
             {% else %}
               input_boolean.devices_room_17, input_boolean.devices_room_18, input_boolean.devices_room_19, input_boolean.devices_room_20
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_2_room_selector', '1') %}
               input_boolean.devices_room_17
             {% elif is_state('input_select.floor_2_room_selector', '2') %}
@@ -397,30 +317,10 @@ automation:
         entity_id: input_boolean.lights_room_09
       - platform: state
         entity_id: input_boolean.lights_room_10
-      - platform: state
-        entity_id: input_boolean.lights_room_11
-      - platform: state
-        entity_id: input_boolean.lights_room_12
-      - platform: state
-        entity_id: input_boolean.lights_room_13
-      - platform: state
-        entity_id: input_boolean.lights_room_14
-      - platform: state
-        entity_id: input_boolean.lights_room_15
-      - platform: state
-        entity_id: input_boolean.lights_room_16
-      - platform: state
-        entity_id: input_boolean.lights_room_17
-      - platform: state
-        entity_id: input_boolean.lights_room_18
-      - platform: state
-        entity_id: input_boolean.lights_room_19
-      - platform: state
-        entity_id: input_boolean.lights_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_0_room_selector', '1') %}
               input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
             {% elif is_state('input_select.floor_0_room_selector', '2') %}
@@ -442,9 +342,9 @@ automation:
             {% else %}
               input_boolean.lights_room_01, input_boolean.lights_room_02, input_boolean.lights_room_03, input_boolean.lights_room_04, input_boolean.lights_room_05, input_boolean.lights_room_06, input_boolean.lights_room_07, input_boolean.lights_room_08, input_boolean.lights_room_09, input_boolean.lights_room_10 
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_0_room_selector', '1') %}
               input_boolean.lights_room_01
             {% elif is_state('input_select.floor_0_room_selector', '2') %}
@@ -472,26 +372,6 @@ automation:
       - platform: state
         entity_id: input_select.floor_1_room_selector
       - platform: state
-        entity_id: input_boolean.lights_room_01
-      - platform: state
-        entity_id: input_boolean.lights_room_02
-      - platform: state
-        entity_id: input_boolean.lights_room_03
-      - platform: state
-        entity_id: input_boolean.lights_room_04
-      - platform: state
-        entity_id: input_boolean.lights_room_05
-      - platform: state
-        entity_id: input_boolean.lights_room_06
-      - platform: state
-        entity_id: input_boolean.lights_room_07
-      - platform: state
-        entity_id: input_boolean.lights_room_08
-      - platform: state
-        entity_id: input_boolean.lights_room_09
-      - platform: state
-        entity_id: input_boolean.lights_room_10
-      - platform: state
         entity_id: input_boolean.lights_room_11
       - platform: state
         entity_id: input_boolean.lights_room_12
@@ -503,18 +383,10 @@ automation:
         entity_id: input_boolean.lights_room_15
       - platform: state
         entity_id: input_boolean.lights_room_16
-      - platform: state
-        entity_id: input_boolean.lights_room_17
-      - platform: state
-        entity_id: input_boolean.lights_room_18
-      - platform: state
-        entity_id: input_boolean.lights_room_19
-      - platform: state
-        entity_id: input_boolean.lights_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_1_room_selector', '1') %}
               input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
             {% elif is_state('input_select.floor_1_room_selector', '2') %}
@@ -528,9 +400,9 @@ automation:
             {% else %}
               input_boolean.lights_room_11, input_boolean.lights_room_12, input_boolean.lights_room_13, input_boolean.lights_room_14, input_boolean.lights_room_15, input_boolean.lights_room_16
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_1_room_selector', '1') %}
               input_boolean.lights_room_11
             {% elif is_state('input_select.floor_1_room_selector', '2') %}
@@ -550,38 +422,6 @@ automation:
       - platform: state
         entity_id: input_select.floor_2_room_selector
       - platform: state
-        entity_id: input_boolean.lights_room_01
-      - platform: state
-        entity_id: input_boolean.lights_room_02
-      - platform: state
-        entity_id: input_boolean.lights_room_03
-      - platform: state
-        entity_id: input_boolean.lights_room_04
-      - platform: state
-        entity_id: input_boolean.lights_room_05
-      - platform: state
-        entity_id: input_boolean.lights_room_06
-      - platform: state
-        entity_id: input_boolean.lights_room_07
-      - platform: state
-        entity_id: input_boolean.lights_room_08
-      - platform: state
-        entity_id: input_boolean.lights_room_09
-      - platform: state
-        entity_id: input_boolean.lights_room_10
-      - platform: state
-        entity_id: input_boolean.lights_room_11
-      - platform: state
-        entity_id: input_boolean.lights_room_12
-      - platform: state
-        entity_id: input_boolean.lights_room_13
-      - platform: state
-        entity_id: input_boolean.lights_room_14
-      - platform: state
-        entity_id: input_boolean.lights_room_15
-      - platform: state
-        entity_id: input_boolean.lights_room_16
-      - platform: state
         entity_id: input_boolean.lights_room_17
       - platform: state
         entity_id: input_boolean.lights_room_18
@@ -590,9 +430,9 @@ automation:
       - platform: state
         entity_id: input_boolean.lights_room_20
     action:
-      - service: homeassistant.turn_off
+      - service: input_boolean.turn_off
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_2_room_selector', '1') %}
               input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
             {% elif is_state('input_select.floor_2_room_selector', '2') %}
@@ -602,9 +442,9 @@ automation:
             {% else %}
               input_boolean.lights_room_17, input_boolean.lights_room_18, input_boolean.lights_room_19, input_boolean.lights_room_20
             {% endif %}
-      - service: homeassistant.turn_on
+      - service: input_boolean.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state('input_select.floor_2_room_selector', '1') %}
               input_boolean.lights_room_17
             {% elif is_state('input_select.floor_2_room_selector', '2') %}
