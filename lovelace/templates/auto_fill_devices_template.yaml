@@ -4,7 +4,6 @@ type: custom:auto-entities
 filter:
   include:
     - group: {{ group_devices|default('group.empty_group') }}
-      domain: switch
       options:
         !include
         - button.yaml
