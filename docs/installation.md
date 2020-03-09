@@ -22,6 +22,7 @@ Installing HKI should be super easy and when using the basic method should not t
 The easiest way to get the addons installed is by just copying the entire contents of the /www/ folder to the root of your Home Assistant install. This way you have the best compatibility (as all the addons have been tested) and it assures you that you won't get notified for addon updates (which some people might find annoying). Updating addons can ofcourse still be done by updating HKI as I will update this repo regularly with these kind of updates. If you need more flexibility you might want to take a look at the advanced section. Remember that you MUST have HACS setup or else this method will not work.
 
 The following components MUST be setup manually and can be found in HACS, click on integrations and find the following integrations.
+
 | Name | Required | Description |
 |----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Yes | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more, make sure you have `browser_mod:` in your `configuration.yaml` after you have installed it. Click the link for instructions! |
