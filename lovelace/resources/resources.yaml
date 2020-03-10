@@ -120,6 +120,3 @@
 ### *note: Deep-Press is known to have issues when used on an Android device,
 ###        if it does not work, please remove the mod and remove all deep_press
 ###        lines in every template/lovelace view.
-
-### **note: Remove resources you don't need. If you don't have the actual cards
-###         but they are still defined in resources, you might face errors.

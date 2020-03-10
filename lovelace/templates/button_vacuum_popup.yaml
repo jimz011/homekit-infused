@@ -65,13 +65,13 @@ styles:
     - --ha-card-background: {{ ha_card_background|default('var(--paper-card-background-color)') }}
     - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
   label:
-    - font-size: 10px
+    - font-size: "[[[ return states['input_text.button_label_font_size'].state ]]]"
     - font-family: Helvetica
     - padding: 0px 10px
     - justify-self: start
 #    - color: var(--primary-text-color) 
   state:
-    - font-size: 10px
+    - font-size: "[[[ return states['input_text.button_state_font_size'].state ]]]"
     - font-family: Helvetica
     - padding: 0px 10px
     - justify-self: start
@@ -91,7 +91,7 @@ styles:
     - padding-left: 10px
     - font-weight: bold
     - font-family: Helvetica 
-    - font-size: 12px
+    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
 state:
   - value: "off"
     spin: {{ spin_off|default('false') }}

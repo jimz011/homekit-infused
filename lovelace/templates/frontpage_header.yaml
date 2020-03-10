@@ -6,8 +6,7 @@ style: |
     --ha-card-background: transparant;
     box-shadow: none;
     background: var(--primary-color);
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-radius: none !important;
   }
   .card-content {
     padding: 0

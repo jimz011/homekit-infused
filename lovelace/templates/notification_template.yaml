@@ -28,7 +28,7 @@ styles:
     - height: 45px
     - width: {{ width|default('350px') }}
   name:
-    - font-size: 12px
+    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
     - font-family: Helvetica
     - color: var(--header-color)
     - justify-self: {{ justify_self|default('start') }}

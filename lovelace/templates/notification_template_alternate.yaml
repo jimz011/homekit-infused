@@ -23,7 +23,7 @@ styles:
     - height: 45px
     - width: {{ width|default('300px') }}
   name:
-    - font-size: 12px
+    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
     - font-family: Helvetica
     - color: 'white'
     - justify-self: {{ justify_self|default('start') }}
