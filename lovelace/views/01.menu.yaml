@@ -2,7 +2,7 @@
 
 - title: Menu
   path: menu
-  icon: {{ _global.icons.menu|default('mdi:menu') }}
+  icon: mdi:menu
   cards:
     - type: vertical-stack
       cards:

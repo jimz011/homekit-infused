@@ -5,9 +5,8 @@
       cards:
         - !include
           - '../templates/system_header.yaml'
-          - name: "[[[ return `${states['input_select.person_menu_3'].state}` ]]]"
-            font_weight: bold
-            entity: input_select.person_menu_3
+          - name: "[[[ return `Tala is ${states['person.tala'].state}` ]]]"
+            icon: fal:dog-leashed
             content: "{{ states.input_text.person_3_name.state }}"
         - type: conditional
           conditions:
@@ -17,6 +16,79 @@
             !include
             - '../templates/edit_mode_warning.yaml'
             - template: person_3_layout_popup.yaml
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              cards:
+                - type: map
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  aspect_ratio: 4x3
+                  default_zoom: 15
+                  entities:
+                    - person.tala
+                - type: 'custom:vertical-stack-in-card'
+                  cards:
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: Borstelen
+                        entity: sensor.animals_tala_borstel
+                        value_1: 3 days
+                        value_2: 6 days
+                        value_3: 9 days
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: Vaccinaties
+                        entity: sensor.animals_tala_vaccinations
+                        value_1: 3 months
+                        value_2: 6 months
+                        value_3: 9 months
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: Vlooien
+                        entity: sensor.animals_tala_fleadrops
+                        value_1: 1 month
+                        value_2: 3 months
+                        value_3: 6 months
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: Ontwormen
+                        entity: sensor.animals_tala_worm
+                        value_1: 2 months
+                        value_2: 3 months
+                        value_3: 4 months
+                    - !include
+                      - '../templates/check_button.yaml'
+                      - title: Trimmen
+                        entity: sensor.animals_tala_trim
+                        value_1: 9 months
+                        value_2: 12 months
+                        value_3: 18 months
+                - type: entities
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                    }
+                  entities:        
+                    - type: weblink
+                      name: Nossek & Verheijden Bellen
+                      icon: 'fal:phone'
+                      url: tel:+31402571517
+                    - type: weblink
+                      name: MedPets Voeding 
+                      icon: 'fal:globe-europe'
+                      url: https://www.medpets.nl/vetcomplex+digestive+dog/?lpc=478-464-355
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message

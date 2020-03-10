@@ -2,7 +2,7 @@
 
 - title: Home
   path: home
-  icon: {{ _global.icons.home|default('mdi:home') }}
+  icon: mdi:home
 {% raw %}
   cards: 
     - type: vertical-stack

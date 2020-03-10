@@ -43,6 +43,9 @@
                           }                    
                         content: >
                           **Buttons:** You can configure the predefined buttons here, theoretically you can make each button completly custom, but you should use the 8 custom buttons available to you at the bottom of this page. 
+
+
+                          **Font Size:** You can edit the font size of all buttons globally at the top of this page. If the text seems large or you just want the defaults press on the `reset font size to defaults` button.
                           
 
                           **NOTE:** You MUST fill in the sensor to show the button. If you don't want to use the sensor and have a 'normal' button, please fill in `input_number.empty` as the sensor entity_id. DON'T FORGET THIS!
@@ -80,6 +83,52 @@
                           - font-size: 12px
                           - font-family: Helvetica
                           - padding-left: 20px
+                    - type: custom:button-card
+                      style: |
+                        ha-card {
+                          margin-top: -5px;
+                        }
+                      name: Reset font size to defaults
+                      icon: mdi:alpha-f-box
+                      aspect_ratio: 6/1
+                      size: 70%
+                      show_state: false
+                      show_label: false
+                      show_icon: false
+                      tap_action: 
+                        action: call-service
+                        service: automation.trigger
+                        service_data:
+                          entity_id: automation.reset_font_size
+                        haptic: heavy
+                      hold_action: 
+                        action: none
+                      lock:
+                        enabled: true
+                        unlock: tap
+                      styles:
+                        card:
+                          - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+                          - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+                        name:
+                          - font-size: 12px
+                          - font-family: Helvetica
+                          - padding-left: 20px
+                    - type: entities
+                      title: Font Size (in px)
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.button_name_font_size
+                          type: 'custom:text-input-row'
+                        - entity: input_text.button_state_font_size
+                          type: 'custom:text-input-row'
+                        - entity: input_text.button_label_font_size
+                          type: 'custom:text-input-row'
                     - type: entities
                       title: Alarm
                       show_header_toggle: false                          

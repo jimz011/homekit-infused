@@ -1,0 +1,69 @@
+- title: HKI Settings
+  path: hki_settings_footer
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../templates/system_header_advanced.yaml'
+          - name: Footer
+            icon: mdi:alpha-f-box
+            content: "HKI {{ states.input_text.name_header_settings.state }}"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - !include
+          - '../../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - type: custom:layout-card
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.5);
+                            border-radius: {{ states('input_select.border_radius') }};
+                            box-shadow: {{ states('input_select.box_shadow') }};
+                            font-size: 13px;
+                            font-family: Helvetica;
+                            color: white;
+                          }                    
+                        content: >
+                          **Footer:** You can customize the footer in this view. After having setup the icons for the first time it might be possible you need a restart. After that you can change them instantly.
+                    - type: entities
+                      title: Footer Button Orientation
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_select.footer_direction
+                          name: Footer Orientation
+                    - type: entities
+                      title: Icons
+                      show_header_toggle: false                          
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius') }};
+                          box-shadow: {{ states('input_select.box_shadow') }};
+                        }                        
+                      entities: 
+                        - entity: input_text.icon_footer_home
+                          type: 'custom:text-input-row'
+                        - entity: input_text.icon_footer_menu
+                          type: 'custom:text-input-row'

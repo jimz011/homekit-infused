@@ -193,6 +193,15 @@
                     - !include
                       - '../templates/button_nav.yaml'
                       - entity: input_boolean.dummy1
+                        name: Footer
+                        label: Config
+                        icon: mdi:alpha-f-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_footer
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
                         name: Header
                         label: Config
                         icon: mdi:alpha-h-box

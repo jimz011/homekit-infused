@@ -35,6 +35,390 @@
             !include
             - '../templates/edit_mode_warning.yaml'
             - template: vacuum_layout_popup.yaml
+        - type: custom:layout-card
+          cards:
+            - type: custom:layout-card
+              min_columns: 2
+              max_columns: 2
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_vacuum_popup.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_top_buttons.first_button_name|default('Information') }}
+                    icon: {{ _global.vacuum_top_buttons.first_button_icon|default('mdi:information-outline') }}
+                    size: 10%
+                    aspect_ratio: 3/1
+                    show_label: false
+                    show_state: false
+                    margin_right: 128px
+                    template: {{ _global.vacuum_top_buttons.first_button_popup_template|default('popup_vacuum_info.yaml') }}
+                - !include
+                  - '../templates/button_vacuum_popup.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_top_buttons.second_button_name|default('Zoned Cleaning') }}
+                    icon: {{ _global.vacuum_top_buttons.second_button_icon|default('mdi:map-marker-path') }}
+                    size: 10%
+                    aspect_ratio: 3/1
+                    show_label: false
+                    show_state: false
+                    margin_right: 128px
+                    template: {{ _global.vacuum_top_buttons.second_button_popup_template|default('popup_vacuum_map.yaml') }}
+            - type: markdown
+              style: |
+                ha-card {
+                  box-shadow: none;
+                  height: 33px;
+                  background: none;
+                  padding: 0px -10px;
+                  color: var(--category-text);
+                }
+              content: '##### {{ _global.vacuum_categories.controls|default('Controls') }}'
+            - type: custom:layout-card
+              min_columns: 4
+              max_columns: 4
+              justify_content: start
+              layout: horizontal
+              cards:
+                - type: custom:state-switch
+                  entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.first_button_name|default('Start') }}
+                        icon: {{ _global.vacuum_controls.first_button_icon|default('mdi:play-circle-outline') }}
+                        service: vacuum.start
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        margin_right: 40px
+                    cleaning:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.first_button_name|default('Start') }}
+                        icon: {{ _global.vacuum_controls.first_button_icon|default('mdi:play-circle-outline') }}
+                        service: vacuum.start
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        opacity_off: 1.0
+                        margin_right: 40px
+                        card_color_off: 'white'
+                        icon_color_off: 'Green'
+                        name_color_off: 'black'
+                        label_color_off: 'black'
+                        animation: blink 2s ease infinite
+                - type: custom:state-switch
+                  entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.second_button_name|default('Pause') }}
+                        icon: {{ _global.vacuum_controls.second_button_icon|default('mdi:pause-circle-outline') }}
+                        service: vacuum.pause
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        margin_right: 40px
+                    paused:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.second_button_name|default('Pause') }}
+                        icon: {{ _global.vacuum_controls.second_button_icon|default('mdi:pause-circle-outline') }}
+                        service: vacuum.pause
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        opacity_off: 1.0
+                        margin_right: 40px
+                        card_color_off: 'white'
+                        icon_color_off: 'Orange'
+                        name_color_off: 'black'
+                        label_color_off: 'black'
+                        animation: blink 2s ease infinite
+                - type: custom:state-switch
+                  entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.third_button_name|default('Stop') }}
+                        icon: {{ _global.vacuum_controls.third_button_icon|default('mdi:stop-circle-outline') }}
+                        service: vacuum.return_to_base
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        margin_right: 40px
+                    returning:
+                      !include
+                      - '../templates/button_service_call.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_controls.third_button_name|default('Stop') }}
+                        icon: {{ _global.vacuum_controls.third_button_icon|default('mdi:stop-circle-outline') }}
+                        service: vacuum.return_to_base
+                        service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                        opacity_off: 1.0
+                        margin_right: 40px
+                        card_color_off: 'white'
+                        icon_color_off: 'Red'
+                        name_color_off: 'black'
+                        label_color_off: 'black'
+                        animation: blink 2s ease infinite
+                - !include
+                  - '../templates/button_service_call.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_controls.fourth_button_name|default('Locate') }}
+                    icon: {{ _global.vacuum_controls.fourth_button_icon|default('mdi:map-marker') }}
+                    service: vacuum.locate
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    icon_color_off: MediumVioletRed
+            - type: markdown
+              style: |
+                ha-card {
+                  box-shadow: none;
+                  height: 33px;
+                  background: none;
+                  padding: 0px -10px;
+                  color: var(--category-text);
+                }
+              content: '##### {{ _global.vacuum_categories.mode|default('Mode') }}'
+            - type: custom:layout-card
+              min_columns: 4
+              max_columns: 4
+              justify_content: start
+              layout: horizontal
+              cards:
+                - type: custom:state-switch
+                  entity: input_select.xiaomi_vacuum
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.first_button_name|default('Quiet') }}
+                        icon: {{ _global.vacuum_mode.first_button_icon|default('mdi:fan') }}
+                        size: 15%
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        option: Silent
+                    Silent:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.first_button_name|default('Quiet') }}
+                        icon: {{ _global.vacuum_mode.first_button_icon|default('mdi:fan') }}
+                        size: 15%
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        opacity_off: 1.0
+                        card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `white`; ]]]"
+                        icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `Dodgerblue`; ]]]"
+                        name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `black` ]]]"
+                        label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `gray` ]]]"
+                        spin_off: true
+                        option: Silent
+                - type: custom:state-switch
+                  entity: input_select.xiaomi_vacuum
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.second_button_name|default('Turbo') }}
+                        icon: {{ _global.vacuum_mode.second_button_icon|default('mdi:fan') }}
+                        size: 20%
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        option: Medium
+                    Medium:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.second_button_name|default('Turbo') }}
+                        icon: {{ _global.vacuum_mode.second_button_icon|default('mdi:fan') }}
+                        size: 20%
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        opacity_off: 1.0
+                        card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `white`; ]]]"
+                        icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `Dodgerblue`; ]]]"
+                        name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `black` ]]]"
+                        label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `gray` ]]]"
+                        spin_off: true
+                        option: Medium
+                - type: custom:state-switch
+                  entity: input_select.xiaomi_vacuum
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.third_button_name|default('Max') }}
+                        icon: {{ _global.vacuum_mode.third_button_icon|default('mdi:fan') }}
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        option: Turbo
+                    Turbo:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.third_button_name|default('Max') }}
+                        icon: {{ _global.vacuum_mode.third_button_icon|default('mdi:fan') }}
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        opacity_off: 1.0
+                        card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `white`; ]]]"
+                        icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `Dodgerblue`; ]]]"
+                        name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `black` ]]]"
+                        label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `gray` ]]]"
+                        spin_off: true
+                        option: Turbo
+                - type: custom:state-switch
+                  entity: input_select.xiaomi_vacuum
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.fourth_button_name|default('Balanced') }}
+                        icon: {{ _global.vacuum_mode.fourth_button_icon|default('mdi:sync') }}
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        option: Standard
+                    Standard:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.fourth_button_name|default('Balanced') }}
+                        icon: {{ _global.vacuum_mode.fourth_button_icon|default('mdi:sync') }}
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 40px
+                        opacity_off: 1.0
+                        card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `white`; ]]]"
+                        icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `Orange`; ]]]"
+                        name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `black` ]]]"
+                        label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `gray` ]]]"
+                        spin_off: true
+                        option: Standard
+            - type: custom:layout-card
+              min_columns: 1
+              max_columns: 1
+              justify_content: start
+              layout: horizontal
+              cards:
+                - type: custom:state-switch
+                  entity: input_select.xiaomi_vacuum
+                  default: default
+                  states:
+                    default:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.fifth_button_name|default('Mop') }}
+                        icon: {{ _global.vacuum_mode.fifth_button_icon|default('mdi:blur-radial') }}
+                        size: 8%
+                        aspect_ratio: 6/1
+                        show_label: false
+                        show_state: false
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 300px
+                        option: Gentle
+                    Gentle:
+                      !include
+                      - '../templates/button_service_call_option.yaml'
+                      - entity: input_boolean.dummy1
+                        name: {{ _global.vacuum_mode.fifth_button_name|default('Mop') }}
+                        icon: {{ _global.vacuum_mode.fifth_button_icon|default('mdi:blur-radial') }}
+                        size: 8%
+                        aspect_ratio: 6/1
+                        show_label: false
+                        show_state: false
+                        service_entity: input_select.xiaomi_vacuum
+                        margin_right: 300px
+                        opacity_off: 1.0
+                        card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `white`; ]]]"
+                        icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `Navy`; ]]]"
+                        name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `black` ]]]"
+                        label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `gray` ]]]"
+                        spin_off: true
+                        option: Gentle
+            - type: markdown
+              style: |
+                ha-card {
+                  box-shadow: none;
+                  height: 33px;
+                  background: none;
+                  padding: 0px -10px;
+                  color: var(--category-text);
+                }
+              content: '##### {{ _global.vacuum_categories.presets|default('Presets') }}'
+            - type: custom:layout-card
+              min_columns: 4
+              max_columns: 4
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.first_button_name|default('Office') }}
+                    icon: {{ _global.vacuum_preset.first_button_icon|default('mdi:desktop-tower-monitor') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.first_button_coordinates|default('none') }}"
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.second_button_name|default('Living') }}
+                    icon: {{ _global.vacuum_preset.second_button_icon|default('mdi:sofa') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.second_button_coordinates|default('none') }}"
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.third_button_name|default('Bed') }}
+                    icon: {{ _global.vacuum_preset.third_button_icon|default('mdi:hotel') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.third_button_coordinates|default('none') }}"
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.fourth_button_name|default('Kitchen') }}
+                    icon: {{ _global.vacuum_preset.fourth_button_icon|default('mdi:fridge') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.fourth_button_coordinates|default('none') }}"
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.fifth_button_name|default('Hall') }}
+                    icon: {{ _global.vacuum_preset.fifth_button_icon|default('mdi:vector-square') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.fifth_button_coordinates|default('none') }}"
+                - !include
+                  - '../templates/button_service_call_command_params.yaml'
+                  - entity: input_boolean.dummy1
+                    name: {{ _global.vacuum_preset.sixth_button_name|default('Entrance') }}
+                    icon: {{ _global.vacuum_preset.sixth_button_icon|default('mdi:door') }}
+                    service_entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    params: "{{ _global.vacuum_preset.sixth_button_coordinates|default('none') }}"
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
