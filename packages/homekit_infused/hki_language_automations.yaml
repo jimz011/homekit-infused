@@ -19,6 +19,8 @@ automation:
               Italiano
             {% elif is_state('input_select.language_selector', 'Nederlands') %}
               Nederlands
+            {% elif is_state('input_select.language_selector', 'Português do Brasil') %}
+              Portuguesebrasil
             {% else %}
               Select
             {% endif %}

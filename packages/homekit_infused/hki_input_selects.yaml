@@ -226,6 +226,7 @@ input_select:
       - Français
       - Italiano
       - Nederlands
+      - Português do Brasil
   
   language_selector_backend:
     options:
@@ -235,6 +236,7 @@ input_select:
       - Francais
       - Italiano
       - Nederlands
+      - Portuguesebrasil
   
   footer_direction:
     options:
