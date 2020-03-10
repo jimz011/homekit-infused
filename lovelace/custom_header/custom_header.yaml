@@ -1,4 +1,4 @@
-view_css: 'padding-top: 84px !important'
+view_css: 'padding-top: 83px !important'
 hide_header: false
 footer_mode: true
 compact_mode: true
@@ -6,8 +6,8 @@ compact_mode: true
 menu_hide: true
 voice_hide: true
 chevrons: false
-reverse_tab_direction: true
-reverse_button_direction: true
+reverse_tab_direction: "{{ states('input_select.footer_direction_backend') }}"
+reverse_button_direction: "{{ states('input_select.footer_direction_backend') }}"
 options_hide: false
 hide_help: true
 hide_unused: true
@@ -25,8 +25,6 @@ hidden_tab_redirect: false
 options_css: "color: var(--header-color) !important;"
 button_text:
   options: "&nbsp; {{ user }}"
-# exceptions:
-#   - conditions:
-#       tab: Home
-#     config:
-#       header_text: "{{ states('input_select.frontend_greeting') }}"
+tab_icons:
+  menu: "{{ states('input_text.icon_footer_menu') }}"
+  home: "{{ states('input_text.icon_footer_home') }}"
