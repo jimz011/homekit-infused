@@ -1,0 +1,35 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        style: |
+          ha-card {
+            --ha-card-background: transparant;
+            background: transparant;
+            border-radius: none;
+            box-shadow: none;
+            opacity: 0.8;
+            font-size: 12px;
+            font-family: Helvetica;
+            --paper-item-icon-color: white !important;
+            --primary-text-color: white !important;
+            --text-primary-color: white !important;
+          }
+        entities:
+          - entity: {{ _global.vacuum_sensor.status_sensor|default('sensor.vacuum_cleaner_status_sensor') }}
+          - entity: {{ _global.vacuum_sensor.error_sensor|default('sensor.vacuum_cleaner_error_sensor') }}
+          - entity: {{ _global.vacuum_sensor.battery|default('sensor.vacuum_battery') }}
+          - entity: {{ _global.vacuum_sensor.cleaning_count|default('sensor.vacuum_cleaning_count') }}
+          - entity: {{ _global.vacuum_sensor.total_cleaned_area|default('sensor.vacuum_total_cleaned_area') }}
+          - entity: {{ _global.vacuum_sensor.total_cleaning_time|default('sensor.vacuum_total_cleaning_time') }}
+          - type: divider
+          - entity: {{ _global.vacuum_sensor.main_brush_time_left|default('sensor.vacuum_main_brush_left') }}
+          - entity: {{ _global.vacuum_sensor.side_brush_time_left|default('sensor.vacuum_side_brush_left') }}
+          - entity: {{ _global.vacuum_sensor.filter_time_left|default('sensor.vacuum_filter_left') }}
+          - entity: {{ _global.vacuum_sensor.sensor_dirty_time_left|default('sensor.vacuum_sensor_dirty_left') }}
+          - type: divider
+          - entity: {{ _global.vacuum_sensor.fan_speed_state|default('sensor.xiaomi_vacuum_fan_speed_state') }}
