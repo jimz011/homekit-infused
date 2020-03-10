@@ -5,12 +5,7 @@
 # Deep Press (Change to false if you don't need/want deep-press in your setup. Don't use this on iphones without 3d touch!)
 deep_press:
   deep_press: false
-
-# Footer Icons
-icons:
-  home: mdi:home
-  menu: mdi:menu
-
+  
 # Supported Features Treshold, Set this to a lower/higher number if it doesn't show a brightness slider on a light-popup.
 lights_popup:
   supportedFeaturesTreshold: 9
