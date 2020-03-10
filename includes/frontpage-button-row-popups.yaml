@@ -1,4 +1,0 @@
-state: 'on'
-options:
-  tap_action:
-    action: toggle
