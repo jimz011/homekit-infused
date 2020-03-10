@@ -1,6 +1,9 @@
 input_text:
   # General
 
+  icon_footer_menu:
+  icon_footer_home:
+
   icon_power:
   icon_frost:
   icon_heat:
@@ -56,6 +59,10 @@ input_text:
   icon_header_weather:
 
   # Material Design
+  mdi_icon_footer_menu:
+    initial: mdi:menu
+  mdi_icon_footer_home:
+    initial: mdi:home
   mdi_icon_header_menu:
     initial: mdi:menu
   mdi_icon_header_alarm:
@@ -159,6 +166,10 @@ input_text:
     initial: mdi:weather-partly-cloudy
 
   # Fontawesome Pro
+  fa_icon_footer_menu:
+    initial: far:bars
+  fa_icon_footer_home:
+    initial: far:home
   fa_icon_header_menu:
     initial: fal:bars
   fa_icon_header_alarm:

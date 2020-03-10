@@ -454,3 +454,21 @@ automation:
             {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
               {{ states.input_text.fa_icon_heat.state }}
             {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_footer_menu
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_footer_menu.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_footer_menu.state }}
+            {% endif %}
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.icon_footer_home
+          value: >
+            {% if is_state('input_select.icon_selector', 'Material Design') %}
+              {{ states.input_text.mdi_icon_footer_home.state }}
+            {% elif is_state('input_select.icon_selector', 'Fontawesome Pro') %}
+              {{ states.input_text.fa_icon_footer_home.state }}
+            {% endif %}

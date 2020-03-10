@@ -585,6 +585,31 @@ automation:
       - service: input_text.set_value
         data:
           entity_id:
+            - input_text.button_name_font_size
+          value: 12px
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.button_state_font_size
+          value: 10px
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.button_label_font_size
+          value: 10px
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.icon_footer_home
+          value: mdi:home
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.icon_footer_menu
+          value: mdi:menu
+      - service: input_text.set_value
+        data:
+          entity_id:
             - input_text.weather_entity
           value: weather.dark_sky
       - service: input_text.set_value
@@ -592,6 +617,30 @@ automation:
           entity_id:
             - input_text.alarm_entity
           value: alarm_control_panel.home_alarm
+
+
+  - alias: 'reset font size'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+      to: 'nothing'
+    action:
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.button_name_font_size
+          value: 12px
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.button_state_font_size
+          value: 10px
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.button_label_font_size
+          value: 10px
+
 
   - alias: 'reset button badge sensors'
     trigger:
@@ -634,6 +683,21 @@ automation:
             - input_text.sensor_button_custom_h
           value: input_number.empty
 
+  - alias: 'footer orientation'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_select.footer_direction
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: input_select.footer_direction_backend
+          option: >
+            {% if is_state('input_select.footer_direction', 'Left') %}
+              false
+            {% else %}
+              true
+            {% endif %}
   # Theme Selector
   - alias: 'themes'
     initial_state: 'true'
@@ -668,6 +732,8 @@ automation:
               Orange Delight
             {% elif is_state('input_select.theme_selector', 'Slate') %}
               Slate
+            {% elif is_state('input_select.theme_selector', 'Paper') %}
+              Paper
             {% elif (is_state('sensor.anniversary_anniversary', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}
               Valentine
             {% elif (is_state('sensor.anniversary_valentines_day', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}

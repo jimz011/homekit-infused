@@ -20,6 +20,10 @@ input_text:
   room_19:
   room_20:
 
+  button_name_font_size:
+  button_state_font_size:
+  button_label_font_size:
+
   frost_protection_temperature:
   heat_all_temperature:
 

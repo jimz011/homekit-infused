@@ -1,0 +1,259 @@
+input_text:
+# Spanish
+  espanol_name_header_secondary_lights:
+    initial: Visión general 
+  espanol_name_header_secondary_devices:
+    initial: Visión general 
+  espanol_name_header_secondary_climate:
+    initial: Visión general 
+  espanol_name_header_secondary_security:
+    initial: Visión general 
+  espanol_name_header_secondary_automations:
+    initial: Visión general 
+  espanol_name_header_secondary_battery:
+    initial: Visión general 
+  espanol_name_header_secondary_calendar:
+    initial: Visión general 
+  espanol_name_header_secondary_cleaning:
+    initial: Visión general 
+  espanol_name_header_secondary_computers:
+    initial: Visión general 
+  espanol_name_header_secondary_energy:
+    initial: Visión general 
+  espanol_name_header_secondary_floorplan:
+    initial: Visión general 
+  espanol_name_header_secondary_laundry:
+    initial: Visión general 
+  espanol_name_header_secondary_location:
+    initial: Visión general 
+  espanol_name_header_secondary_media:
+    initial: Visión general 
+  espanol_name_header_secondary_scenes:
+    initial: Visión general 
+  espanol_name_header_secondary_system:
+    initial: Visión general 
+  espanol_name_header_secondary_traffic:
+    initial: Visión general 
+  espanol_name_header_secondary_vacuum:
+    initial: Visión general 
+  espanol_name_header_secondary_weather:
+    initial: Visión general 
+  espanol_name_header_secondary_menu:
+    initial: Visión general 
+  espanol_name_header_secondary_alarm:
+    initial: Visión general 
+  espanol_name_header_secondary_download:
+    initial: Visión general 
+
+  espanol_name_custom:
+    initial: Personalizado
+  espanol_name_favorites:
+    initial: Favoritos
+  espanol_name_all:
+    initial: Todo
+  espanol_name_power:
+    initial: Poder
+  espanol_name_frost:
+    initial: Frio
+  espanol_name_protection:
+    initial: Proteccion
+  espanol_name_heat:
+    initial: Caliente
+  espanol_name_on:
+    initial: 'On'
+  espanol_name_off:
+    initial: 'Off'
+
+  espanol_name_header_about:
+    initial: Sobre Sistema
+  espanol_name_header_automations:
+    initial: Automatizacion
+  espanol_name_header_battery:
+    initial: Batería
+  espanol_name_header_calendar:
+    initial: Calendario
+  espanol_name_header_system:
+    initial: Sistema
+  espanol_name_header_computers:
+    initial: Computadoras
+  espanol_name_header_energy:
+    initial: Energía
+  espanol_name_header_media:
+    initial: Medios
+  espanol_name_header_floorplan:
+    initial: Plantas
+  espanol_name_header_laundry:
+    initial: Lavanderia
+  espanol_name_header_location:
+    initial: Ubicaccion
+  espanol_name_header_remote:
+    initial: Control Remoto
+  espanol_name_header_traffic:
+    initial: Información de Tráfico
+
+  espanol_name_header_weather:
+    initial: Clima
+  espanol_name_header_alarm:
+    initial: Alarma
+  espanol_name_header_climate:
+    initial: Clima
+  espanol_name_header_lights:
+    initial: Luces
+  espanol_name_header_devices:
+    initial: Dispositivos
+  espanol_name_header_security:
+    initial: Seguridad
+  espanol_name_header_cleaning:
+    initial: Limpieza
+  espanol_name_header_scenes:
+    initial: Escenas
+  espanol_name_header_vacuum:
+    initial: Aspiradora
+  espanol_name_header_menu:
+    initial: Menu
+  espanol_name_header_settings:
+    initial: Ajustes
+
+  espanol_name_presets:
+    initial: Preajustes
+  espanol_name_thermostat:
+    initial: Termostato
+  espanol_name_fans:
+    initial: Ventiladores
+  espanol_name_temperature:
+    initial: Temperatura
+  espanol_name_humidity:
+    initial: Humedad
+  espanol_name_air_pressure:
+    initial: Presión del aire
+
+  espanol_name_cameras:
+    initial: Camera's
+  espanol_name_doors:
+    initial: Puertas
+  espanol_name_windows:
+    initial: Ventanas
+  espanol_name_motion:
+    initial: Movimientio
+  espanol_name_other:
+    initial: Otros
+
+  espanol_name_good_morning:
+    initial: Buenos Dias
+  espanol_name_good_afternoon:
+    initial: Buenas Tarde
+  espanol_name_good_evening:
+    initial: Buena Noche
+  espanol_name_good_night:
+    initial: Buenas Noches
+
+  espanol_name_battery:
+    initial: Bateria
+  espanol_name_battery_label:
+    initial: Resumen
+
+  espanol_name_automation:
+    initial: Automatización
+  espanol_name_automation_label:
+    initial: Control
+
+  espanol_name_calendar:
+    initial: Calendario
+  espanol_name_calendar_label:
+    initial: Resumen
+
+  espanol_name_computer:
+    initial: Computadora
+  espanol_name_computer_label:
+    initial: Monitor
+
+  espanol_name_download:
+    initial: Descargar
+  espanol_name_download_label:
+    initial: Control
+
+  espanol_name_energy:
+    initial: Energía
+  espanol_name_energy_label:
+    initial: Resumen
+
+  espanol_name_floorplan:
+    initial: Plantas
+  espanol_name_floorplan_label:
+    initial: Mapa
+
+  espanol_name_laundry:
+    initial: Lavandería
+  espanol_name_laundry_label:
+    initial: Cuarto
+
+  espanol_name_location:
+    initial: Ubicacion
+  espanol_name_location_label:
+    initial: Mapa
+
+  espanol_name_media:
+    initial: Medios
+  espanol_name_media_label:
+    initial: Centro
+
+  espanol_name_system:
+    initial: Sistema
+  espanol_name_system_label:
+    initial: Monitor
+
+  espanol_name_traffic:
+    initial: Traffico
+  espanol_name_traffic_label:
+    initial: Información
+
+  espanol_name_weather:
+    initial: Clima
+  espanol_name_weather_label:
+    initial: Información
+
+  espanol_name_light:
+    initial: Luces
+  espanol_name_light_label:
+    initial: Control
+
+  espanol_name_device:
+    initial: Dispositivos
+  espanol_name_device_label:
+    initial: Control
+
+  espanol_name_climate:
+    initial: Clima
+  espanol_name_climate_label:
+    initial: Control
+
+  espanol_name_security:
+    initial: Seguridad
+  espanol_name_security_label:
+    initial: Panel
+
+  espanol_name_cleaning:
+    initial: Limpieza
+  espanol_name_cleaning_label:
+    initial: Lista
+
+  espanol_name_scene:
+    initial: Escenas
+  espanol_name_scene_label:
+    initial: Control
+
+  espanol_name_vacuum:
+    initial: Aspiradora
+  espanol_name_vacuum_label:
+    initial: Control
+
+  espanol_name_remote:
+    initial: Remoto
+  espanol_name_remote_label:
+    initial: Control
+
+  espanol_name_alarm:
+    initial: Alarma
+  espanol_name_alarm_label:
+    initial: Panel
+

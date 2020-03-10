@@ -6,6 +6,7 @@ input_select:
     options:
       - Home Assistant
       - Orange Delight
+      - Paper
       - Silver
       - Slate
       - Space Gray
@@ -221,9 +222,29 @@ input_select:
     options:
       - Select
       - English
+      - Español
       - Français
       - Italiano
       - Nederlands
+  
+  language_selector_backend:
+    options:
+      - Select
+      - English
+      - Espanol
+      - Francais
+      - Italiano
+      - Nederlands
+  
+  footer_direction:
+    options:
+      - Right
+      - Left
+
+  footer_direction_backend:
+    options:
+      - 'false'
+      - 'true'
 
   frontpage_edit_mode:
     options:
