@@ -5,8 +5,9 @@ cards:
   - !include
     - header_text.yaml
     - content: "##### {{ content }}"
-  - type: custom:layout-card
+  - type: horizontal-stack
     cards:
+      - !include ../includes/blank-card.yaml
       - type: custom:auto-entities
         filter:
           include:
@@ -33,3 +34,4 @@ cards:
           max_columns: 3
           justify_content: start
           layout: horizontal
+      - !include ../includes/blank-card.yaml

@@ -30,14 +30,14 @@ styles:
 #    - --ha-card-background: "var(--paper-card-background-color)"
     - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
   label:
-    - font-size: "[[[ return states['input_text.button_label_font_size'].state ]]]"
-    - font-family: Helvetica
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
     - padding: 0px 10px
     - justify-self: start
 #    - color: var(--primary-text-color) 
   state:
-    - font-size: "[[[ return states['input_text.button_state_font_size'].state ]]]"
-    - font-family: Helvetica
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
@@ -54,8 +54,8 @@ styles:
     - justify-self: start
     - padding-left: 10px
     - font-weight: bold
-    - font-family: Helvetica 
-    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
 #    - color: var(--primary-text-color) 
   icon:
 #    - color: var(--primary-text-color) 
@@ -71,9 +71,10 @@ styles:
       - padding: 0px 5px
       - height: 22px
       - min-width: 12px
-      - font-size: 10px
-      - line-height: 20px
+      - font-size: "[[[ return states['input_select.badge_font_size_selector'].state ]]]"
+      - line-height: 22px
       - font-weight: bold
+      - text-transform: "[[[ return states['input_select.badge_text_transform'].state ]]]"
 custom_fields: 
   notification: "{{ notification }}"
 state:

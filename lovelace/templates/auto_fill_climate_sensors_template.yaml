@@ -5,8 +5,9 @@ cards:
   - !include
     - header_text.yaml
     - content: "##### {{ content|default('Thermostat') }}"
-  - type: custom:layout-card
+  - type: horizontal-stack
     cards:
+      - !include ../includes/blank-card.yaml
       - type: custom:config-template-card
         card:
           type: custom:auto-entities
@@ -43,3 +44,4 @@ cards:
           - input_select.temperature_sorting_method
           - input_select.humidity_sorting_method
           - input_select.air_pressure_sorting_method
+      - !include ../includes/blank-card.yaml

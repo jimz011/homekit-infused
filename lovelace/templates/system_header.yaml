@@ -102,8 +102,8 @@ entities:
                   - height: 45px
                   - width: {{ width|default('350px') }}
                 name:
-                  - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
-                  - font-family: Helvetica
+                  - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+                  - font-family: "[[[ return states['input_text.font_family'].state ]]]"
                   - color: var(--header-color)
                   - justify-self: {{ justify_self|default('start') }}
                   - padding-left: {{ padding_left|default('13px') }}

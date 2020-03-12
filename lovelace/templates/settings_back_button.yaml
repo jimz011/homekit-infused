@@ -37,8 +37,8 @@ styles:
   name:
     - justify-self: center
     - font-weight: bold
-    - font-family: Helvetica 
-    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
     - color: white
 state:
   - value: "on" 

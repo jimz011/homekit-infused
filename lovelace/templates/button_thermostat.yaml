@@ -52,14 +52,14 @@ styles:
     - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
     - opacity: 0.5
   label:
-    - font-size: "[[[ return states['input_text.button_label_font_size'].state ]]]"
-    - font-family: Helvetica
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
     - padding: 0px 10px
     - justify-self: start
 #    - color: var(--primary-text-color)
   state:
-    - font-size: "[[[ return states['input_text.button_state_font_size'].state ]]]"
-    - font-family: Helvetica
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
@@ -74,8 +74,8 @@ styles:
     - justify-self: start
     - padding-left: 10px
     - font-weight: bold
-    - font-family: Helvetica 
-    - font-size: "[[[ return states['input_text.button_name_font_size'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
 #    - color: var(--primary-text-color)
   grid:
     - grid-template-areas: '"i i" "n n" "area area" "s l"'
