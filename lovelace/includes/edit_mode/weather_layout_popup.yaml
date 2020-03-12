@@ -1,181 +1,176 @@
-type: vertical-stack
+type: horizontal-stack
 cards:
-  - type: custom:layout-card
+  - !include ../blank-card.yaml
+  - type: vertical-stack
     cards:
       - !include
         - '../../templates/header_text.yaml'
         - content: "##### Header"
-      - type: custom:layout-card
-        cards:
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.header_secondary_weather
-            name: Header Subtitle
-            icon: mdi:alpha-h-box
-            hold_action:
-              action: more-info
-              haptic: heavy
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.header_secondary_weather
+        name: Header Subtitle
+        icon: mdi:alpha-h-box
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
+                - color: Black
+              icon: 
+                - color: Crimson
       - !include
         - '../../templates/header_text.yaml'
         - content: "##### Widgets"
-      - type: custom:layout-card
-        cards:
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.weather_air_visual
-            name: Air Visual
-            icon: mdi:weather-windy
-            hold_action:
-              action: more-info
-              haptic: heavy
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.weather_air_visual
+        name: Air Visual
+        icon: mdi:weather-windy
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.weather_card
-            name: "[[[ return `${states['input_text.name_header_weather'].state}` ]]]"
-            icon: mdi:weather-partly-cloudy
-            hold_action:
-              action: more-info
-              haptic: heavy
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.weather_card
+        name: "[[[ return `${states['input_text.name_header_weather'].state}` ]]]"
+        icon: mdi:weather-partly-cloudy
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.weather_iframe_1
-            name: iFrame 1
-            icon: mdi:iframe
-            hold_action:
-              action: more-info
-              haptic: heavy
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.weather_iframe_1
+        name: iFrame 1
+        icon: mdi:iframe
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.weather_iframe_2
-            name: iFrame 2
-            icon: mdi:iframe
-            hold_action:
-              action: more-info
-              haptic: heavy
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.weather_iframe_2
+        name: iFrame 2
+        icon: mdi:iframe
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
+                - color: Black
+              icon: 
+                - color: Crimson
       - !include
         - '../../templates/header_text.yaml'
         - content: "##### Custom Content"
-      - type: custom:layout-card
-        cards:
-          - type: custom:button-card
-            aspect_ratio: 7/1
-            layout: icon_name_state
-            size: 50%
-            entity: input_boolean.weather_user_content
-            name: User Content
-            icon: mdi:account-multiple-plus-outline
-            hold_action:
-              action: more-info
-              haptic: heavy
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.weather_user_content
+        name: User Content
+        icon: mdi:account-multiple-plus-outline
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
+            - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
             styles:
               card:
-                - border-radius: "[[[ return states['input_select.border_radius'].state ]]]"
-                - box-shadow: "[[[ return states['input_select.box_shadow'].state ]]]"
-                - opacity: 0.7
+                - --paper-card-background-color: white
+                - opacity: 1.0
               name:
-                - font-size: 10px
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - --paper-card-background-color: white
-                    - opacity: 1.0
-                  name:
-                    - color: Black
-                  icon: 
-                    - color: Crimson
+                - color: Black
+              icon: 
+  - !include ../blank-card.yaml
