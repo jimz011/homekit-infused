@@ -18,8 +18,9 @@
             !include
             - '../templates/edit_mode_warning.yaml'
             - template: nothing_to_edit.yaml
-        - type: custom:layout-card
+        - type: horizontal-stack
           cards:
+            - !include ../includes/blank-card.yaml
             - type: custom:layout-card
               min_columns: 3
               max_columns: 3
@@ -80,3 +81,4 @@
                     service: homeassistant.restart
                     margin_right: 40px
                     opacity_off: 0.8
+            - !include ../includes/blank-card.yaml

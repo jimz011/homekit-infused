@@ -41,8 +41,9 @@
             - state_not: "Select"
               entity: input_select.floor_selector
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - type: horizontal-stack
@@ -148,6 +149,7 @@
                                   - color: Black
                                 icon: 
                                   - color: Crimson
+              - !include ../includes/blank-card.yaml       
         - type: conditional
           conditions:
             - entity: input_select.lights_floor_selector
@@ -165,14 +167,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_1.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_1_lights_default
                             group_color_temp: group.room_1_lights_color_temp
                             group_rgb: group.room_1_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_01_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_02
@@ -183,14 +187,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_2.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_2_lights_default
                             group_color_temp: group.room_2_lights_color_temp
                             group_rgb: group.room_2_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_02_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_03
@@ -201,14 +207,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_3.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_3_lights_default
                             group_color_temp: group.room_3_lights_color_temp
                             group_rgb: group.room_3_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_03_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_04
@@ -219,14 +227,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_4.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_4_lights_default
                             group_color_temp: group.room_4_lights_color_temp
                             group_rgb: group.room_4_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_04_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_05
@@ -237,14 +247,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_5.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_5_lights_default
                             group_color_temp: group.room_5_lights_color_temp
                             group_rgb: group.room_5_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_05_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_06
@@ -255,14 +267,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_6.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_6_lights_default
                             group_color_temp: group.room_6_lights_color_temp
                             group_rgb: group.room_6_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_06_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_07
@@ -273,14 +287,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_7.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_7_lights_default
                             group_color_temp: group.room_7_lights_color_temp
                             group_rgb: group.room_7_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_07_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_08
@@ -291,14 +307,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_8.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_8_lights_default
                             group_color_temp: group.room_8_lights_color_temp
                             group_rgb: group.room_8_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_08_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_09
@@ -309,14 +327,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_9.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_9_lights_default
                             group_color_temp: group.room_9_lights_color_temp
                             group_rgb: group.room_9_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_09_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_10
@@ -327,14 +347,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_10.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_10_lights_default
                             group_color_temp: group.room_10_lights_color_temp
                             group_rgb: group.room_10_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_10_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_select.lights_floor_selector
@@ -352,14 +374,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_11.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_11_lights_default
                             group_color_temp: group.room_11_lights_color_temp
                             group_rgb: group.room_11_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_11_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_12
@@ -370,14 +394,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_12.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_12_lights_default
                             group_color_temp: group.room_12_lights_color_temp
                             group_rgb: group.room_12_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_12_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_13
@@ -388,14 +414,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_13.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_13_lights_default
                             group_color_temp: group.room_13_lights_color_temp
                             group_rgb: group.room_13_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_13_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_14
@@ -406,14 +434,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_14.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_14_lights_default
                             group_color_temp: group.room_14_lights_color_temp
                             group_rgb: group.room_14_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_14_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_15
@@ -467,14 +497,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_17.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_17_lights_default
                             group_color_temp: group.room_17_lights_color_temp
                             group_rgb: group.room_17_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_17_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_18
@@ -485,14 +517,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_18.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_18_lights_default
                             group_color_temp: group.room_18_lights_color_temp
                             group_rgb: group.room_18_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_18_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_19
@@ -503,14 +537,16 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_19.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_19_lights_default
                             group_color_temp: group.room_19_lights_color_temp
                             group_rgb: group.room_19_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_19_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.lights_room_20
@@ -521,12 +557,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_20.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_light_template.yaml'
                           - group_other: group.room_20_lights_default
                             group_color_temp: group.room_20_lights_color_temp
                             group_rgb: group.room_20_lights_rgb
                             lock: "[[[ return states['input_boolean.lights_room_20_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
 {% endraw %}

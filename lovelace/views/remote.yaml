@@ -24,21 +24,53 @@
             - template: remote_layout_popup.yaml
         - type: conditional
           conditions:
-            - entity: input_boolean.user_content_message
-              state: "on"
+            - entity: input_select.remote_control
+              state: "Woonkamer"
           card:
             type: custom:layout-card
             cards:
+              - !include
+                - '../templates/remote_control.yaml'
+                - entity_tv: {{ _global.remote[0] }}
+                  entity_receiver: {{ _global.remote[1] }}
+                  entity_media_player: {{ _global.remote[2] }}
+                  entity_media_player_alternative: {{ _global.remote[3] }}
+                  entity_remote_control: {{ _global.remote[4] }}
+        - type: conditional
+          conditions:
+            - entity: input_select.remote_control
+              state: "Slaapkamer"
+          card:
+            type: custom:layout-card
+            cards:
+              - !include
+                - '../templates/remote_control.yaml'
+                - entity_tv: {{ _global.remote[5] }}
+                  entity_receiver: {{ _global.remote[6] }}
+                  entity_media_player: {{ _global.remote[7] }}
+                  entity_media_player_alternative: {{ _global.remote[8] }}
+                  entity_remote_control: {{ _global.remote[9] }}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                     
         - type: conditional
           conditions:
             - entity: input_boolean.remote_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml   
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/remote_user_content.yaml
+              - !include ../includes/blank-card.yaml   

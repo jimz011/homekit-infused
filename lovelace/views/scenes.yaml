@@ -39,22 +39,20 @@
             - entity: input_boolean.scenes_scenes
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:auto-entities
                 filter:
                   include:
                     - domain: scene
                       options:
                         !include
-                        - '../templates/button.yaml'
+                        - '../templates/button_service_call.yaml'
                         - entity: this.entity_id
                           grid:
                             '!include ../includes/light-devices-grid.yaml'
-                          template: switch_popup.yaml
-                          color: DodgerBlue
-                          lock: "[[[ return states['input_boolean.dummy1'].state === 'on' ]]]"
-                          spin_on: true
+                          service_entity: this.entity_id
                           show_state: false
                     - type: custom:button-card
                       color_type: blank-card
@@ -71,24 +69,29 @@
                   max_columns: 3
                   justify_content: start
                   layout: horizontal
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml   
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                     
         - type: conditional
           conditions:
             - entity: input_boolean.scenes_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml   
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/scenes_user_content.yaml
+              - !include ../includes/blank-card.yaml   
 {% endraw %}

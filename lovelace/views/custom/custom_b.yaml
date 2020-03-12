@@ -35,10 +35,10 @@
             - '../../templates/edit_mode_warning.yaml'
             - template: custom_b_layout_popup.yaml
 {% endraw %}
-        - type: custom:layout-card
+        - type: horizontal-stack
           cards:
-            - type: custom:layout-card
+            - !include ../../includes/blank-card.yaml
+            - type: vertical-stack
               cards:
-                - type: vertical-stack
-                  cards:
-                    !include ../../../user_content/views/user/custom_user_content_view_b.yaml
+                !include ../../../user_content/views/user/custom_user_content_view_b.yaml
+            - !include ../../includes/blank-card.yaml

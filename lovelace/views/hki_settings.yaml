@@ -24,8 +24,9 @@
                 - entity: input_boolean.system_help
                   state: "on"
               card:
-                type: custom:layout-card
+                type: horizontal-stack
                 cards:
+                  - !include ../includes/blank-card.yaml
                   - type: custom:layout-card
                     cards:
                       - type: markdown                          
@@ -40,11 +41,13 @@
                           }                        
                         content: >
                           **Settings:** This is the Homekit Infused Settings page, you can set most settings within this menu. Exceptions to this rule are Notifications, Groups and Deep Press. You will have to set them in YAML, you can find them in the /user_content folder.
+                      - !include ../includes/blank-card.yaml
             - !include
               - '../templates/header_text.yaml'
               - content: "##### Basic Settings"
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   min_columns: 3
                   max_columns: 3
@@ -105,17 +108,28 @@
                         margin_right: 40px
                         opacity_off: 0.8
                         navigation_path: /lovelace/hki_settings_weather
+                - !include ../includes/blank-card.yaml
             - !include
               - '../templates/header_text.yaml'
               - content: "##### Widget Settings"
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   min_columns: 3
                   max_columns: 3
                   justify_content: start
                   layout: horizontal
                   cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Air Visual
+                        label: Config
+                        icon: mdi:weather-windy
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_air_visual
                     - !include
                       - '../templates/button_nav.yaml'
                       - entity: input_boolean.dummy1
@@ -170,11 +184,15 @@
                         margin_right: 40px
                         opacity_off: 0.8
                         navigation_path: /lovelace/hki_settings_waste_collection
+                    - !include ../includes/empty-button.yaml
+                    - !include ../includes/empty-button.yaml
+                - !include ../includes/blank-card.yaml
             - !include
               - '../templates/header_text.yaml'
               - content: "##### Advanced Settings"
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   min_columns: 3
                   max_columns: 3
@@ -190,6 +208,15 @@
                         margin_right: 40px
                         opacity_off: 0.8
                         navigation_path: /lovelace/hki_settings_buttons
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Fonts
+                        label: Config
+                        icon: mdi:format-font
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /lovelace/hki_settings_fonts
                     - !include
                       - '../templates/button_nav.yaml'
                       - entity: input_boolean.dummy1
@@ -226,5 +253,4 @@
                         margin_right: 40px
                         opacity_off: 0.8
                         navigation_path: /lovelace/hki_settings_sandbox
-                    - !include ../includes/empty-button.yaml
-                    - !include ../includes/empty-button.yaml
+                - !include ../includes/blank-card.yaml

@@ -39,8 +39,9 @@
             - entity: input_boolean.climate_presets
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 min_columns: 4
                 max_columns: 4
@@ -91,6 +92,7 @@
                       service_entity: all
                       margin_right: 40px
                       opacity_off: 0.8
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.climate_thermostat
@@ -187,19 +189,23 @@
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.climate_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/climate_user_content.yaml
+              - !include ../includes/blank-card.yaml
 {% endraw %}

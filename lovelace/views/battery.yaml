@@ -39,8 +39,9 @@
             - entity: input_boolean.battery_battery
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:auto-entities
                 filter:
                   exclude:
@@ -58,6 +59,8 @@
                           show_last_changed: false
                           show_label: false
                           template: more_info_popup.yaml
+                          tap_action: more-info
+                          hold_action: more-info
                           icon: "'[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]'"
                     - type: custom:button-card
                       color_type: blank-card
@@ -72,24 +75,29 @@
                   max_columns: 3
                   justify_content: start
                   layout: horizontal
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.battery_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/battery_user_content.yaml
+              - !include ../includes/blank-card.yaml
 {% endraw %}

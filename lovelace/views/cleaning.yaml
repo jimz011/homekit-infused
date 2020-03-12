@@ -40,8 +40,9 @@
             - entity: input_boolean.cleaning_cleaning
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - type: 'custom:vertical-stack-in-card'
@@ -116,23 +117,28 @@
                           value_1: "${states['input_text.cleaning_item_10_value_1'].state}"
                           value_2: "${states['input_text.cleaning_item_10_value_2'].state}"
                           value_3: "${states['input_text.cleaning_item_10_value_3'].state}"
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
         - type: conditional
           conditions:
             - entity: input_boolean.cleaning_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/cleaning_user_content.yaml
+              - !include ../includes/blank-card.yaml                  

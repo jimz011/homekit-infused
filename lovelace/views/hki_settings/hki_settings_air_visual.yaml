@@ -1,12 +1,12 @@
 - title: HKI Settings
-  path: hki_settings_alarm
+  path: hki_settings_air_visual
   cards:    
     - type: vertical-stack
       cards:
         - !include
           - '../../templates/system_header_advanced.yaml'
-          - name: Alarm
-            icon: mdi:shield-home
+          - name: Air Visual
+            icon: mdi:weather-windy
             content: "HKI {{ states.input_text.name_header_settings.state }}"
             system_header: input_boolean.config_header
         - type: conditional
@@ -43,7 +43,7 @@
                     - entity: input_boolean.system_help
                       state: "on"
                   card:
-                    type: markdown
+                    type: markdown                          
                     style: |
                       ha-card {
                         background: rgba(0, 0, 0, 0.5);
@@ -52,11 +52,11 @@
                         font-size: 13px;
                         font-family: Helvetica;
                         color: white;
-                      }                    
+                      }                        
                     content: >
-                      **Alarm:** Set up your alarm here, it must be an alarm_control_panel entity type! This will enable the alarm keypad and the lock icon/color on the frontpage. You can leave this field empty if you don't have or want to use an alarm. If you don't have one you can simply create one, refer to the HA docs on how to do that.
+                      **Air Visual:** You can set up Air Visual here. This will be displayed on the weather view and should be turned on with edit mode.
                 - type: entities
-                  title: Alarm
+                  title: Air Visual
                   show_header_toggle: false                          
                   style: |
                     ha-card {
@@ -64,6 +64,14 @@
                       box-shadow: {{ states('input_select.box_shadow') }};
                     }                        
                   entities: 
-                    - entity: input_text.alarm_entity
+                    - entity: input_text.weather_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.city
+                      type: 'custom:text-input-row'
+                    - entity: input_text.air_pollution_level
+                      type: 'custom:text-input-row'
+                    - entity: input_text.air_quality_index
+                      type: 'custom:text-input-row'
+                    - entity: input_text.main_pollutant
                       type: 'custom:text-input-row'
             - !include ../../includes/blank-card.yaml

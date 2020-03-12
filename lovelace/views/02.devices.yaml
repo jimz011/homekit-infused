@@ -41,8 +41,9 @@
             - state_not: "Select"
               entity: input_select.floor_selector
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - type: horizontal-stack
@@ -148,6 +149,7 @@
                                   - color: Black
                                 icon: 
                                   - color: Crimson
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_select.devices_floor_selector
@@ -165,12 +167,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_1.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_1_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_01_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_02
@@ -181,12 +185,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_2.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_2_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_02_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_03
@@ -197,12 +203,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_3.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_3_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_03_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_04
@@ -213,12 +221,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_4.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_4_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_04_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_05
@@ -229,12 +239,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_5.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_5_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_05_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_06
@@ -245,12 +257,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_6.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_6_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_06_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_07
@@ -261,12 +275,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_7.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_7_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_07_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_08
@@ -277,12 +293,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_8.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_8_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_08_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_09
@@ -293,12 +311,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_9.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_9_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_09_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_10
@@ -309,12 +329,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_10.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_10_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_10_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_select.devices_floor_selector
@@ -332,12 +354,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_11.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_11_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_11_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_12
@@ -348,12 +372,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_12.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_12_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_12_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_13
@@ -364,12 +390,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_13.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_13_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_13_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_14
@@ -380,12 +408,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_14.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_14_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_14_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_15
@@ -396,12 +426,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_15.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_15_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_15_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_16
@@ -412,12 +444,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_16.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_16_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_16_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_select.devices_floor_selector
@@ -435,12 +469,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_17.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_17_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_17_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_18
@@ -451,12 +487,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_18.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_18_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_18_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_19
@@ -467,12 +505,14 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_19.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_19_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_19_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
                   - entity: input_boolean.devices_room_20
@@ -483,10 +523,12 @@
                     - !include
                       - '../templates/header_text.yaml'
                       - content: "##### {{ states.input_text.room_20.state }}"
-                    - type: custom:layout-card
+                    - type: horizontal-stack
                       cards:
+                        - !include ../includes/blank-card.yaml
                         - !include
                           - '../templates/auto_fill_devices_template.yaml'
                           - group_devices: group.room_20_all_devices
                             lock: "[[[ return states['input_boolean.devices_room_20_lock'].state === 'on' ]]]"
+                        - !include ../includes/blank-card.yaml
 {% endraw %}

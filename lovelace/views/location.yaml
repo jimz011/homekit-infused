@@ -39,8 +39,9 @@
             - entity: input_boolean.location_location
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - type: "custom:config-template-card"
@@ -69,24 +70,29 @@
                         - "${states['input_text.person_2_entity'].state}"
                         - "${states['input_text.person_3_entity'].state}"
                         - "${states['input_text.person_4_entity'].state}"
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml              
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
         - type: conditional
           conditions:
             - entity: input_boolean.location_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml              
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/location_user_content.yaml
+              - !include ../includes/blank-card.yaml                  
 {% endraw %}

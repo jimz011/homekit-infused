@@ -47,8 +47,9 @@
                 {% raw %}
                 - content: "##### {{ states.input_text.name_favorites.state }}"
                 {% endraw %}
-              - type: custom:layout-card
+              - type: horizontal-stack
                 cards:
+                  - !include ../includes/blank-card.yaml
                   - type: custom:layout-card
                     cards:
                       - type: custom:state-switch
@@ -80,7 +81,8 @@
                                 - column: three
                               - !include
                                 - '../templates/menu_buttons.yaml'
-                                - column: four                       
+                                - column: four   
+                  - !include ../includes/blank-card.yaml                
         - type: conditional
           conditions:
             - entity: input_boolean.menu_all
@@ -93,8 +95,9 @@
                 {% raw %}
                 - content: "##### {{ states.input_text.name_all.state }}"
                 {% endraw %}
-              - type: custom:layout-card
+              - type: horizontal-stack
                 cards:
+                  - !include ../includes/blank-card.yaml
                   - type: custom:state-switch
                     entity: input_select.menu_button_selector
                     states:
@@ -114,16 +117,19 @@
                         layout: horizontal
                         cards:
                           !include ../includes/menu_buttons_all.yaml
+                  - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.menu_user_content
@@ -136,18 +142,21 @@
                 {% raw %}
                 - content: "##### {{ states.input_text.name_custom.state }}"
                 {% endraw %}
-              - type: custom:layout-card
+              - type: horizontal-stack
                 cards:
+                  - !include ../includes/blank-card.yaml
                   - type: custom:layout-card
                     cards:
                       !include ../../user_content/views/menu_user_content.yaml
+                  - !include ../includes/blank-card.yaml
         - type: vertical-stack
           cards:
             - !include
               - '../templates/header_text.yaml'
               - content: "##### Homekit Infused"
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   min_columns: 3
                   max_columns: 3
@@ -175,4 +184,4 @@
                         label: Settings
                         icon: mdi:cogs 
                         navigation_path: /lovelace/ha_settings
-        
+                - !include ../includes/blank-card.yaml

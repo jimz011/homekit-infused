@@ -20,206 +20,219 @@
         - !include
           - '../../templates/settings_back_button.yaml'
           - background_color: LightSeaGreen
-        - type: custom:layout-card
+        - type: custom:search-card
+          style: |
+            ha-card {
+              border-radius: none;
+              box-shadow: none;
+              --paper-card-background-color: rgba(0,0,0,0.0);
+              --primary-text-color: var(--category-text) !important;
+              color: var(--category-text) !important;
+              --text-primary-color: var(--category-text) !important;
+              --secondary-text-color: var(--category-text) !important;
+              --disabled-text-color: var(--category-text) !important;
+            }
+          max_results: 10
+        - type: horizontal-stack
           cards:
-            - type: vertical-stack
+            - !include ../../includes/blank-card.yaml
+            - type: custom:layout-card
               cards:
-                - type: custom:layout-card
-                  cards:
-                    - type: conditional
-                      conditions:
-                        - entity: input_boolean.system_help
-                          state: "on"
-                      card:
-                        type: markdown
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.5);
-                            border-radius: {{ states('input_select.border_radius') }};
-                            box-shadow: {{ states('input_select.box_shadow') }};
-                            font-size: 13px;
-                            font-family: Helvetica;
-                            color: white;
-                          }                    
-                        content: >
-                          **Cleaning View:** You can set chores here for the cleaning view widget. You can set 3 values, values must be set in hours, days, months or years where the first value is meant for the shortest period of time overdue and the third value the longest period of time overdue.
-                    - type: entities
-                      title: Cleaning add-on
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                          overflow: hidden;
-                        }                        
-                      show_header_toggle: false
-                      entities:
-                        - entity: input_text.cleaning_item_1
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_1_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_1_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_1_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_2
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_2_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_2_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_2_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_3
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_3_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_3_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_3_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_4
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_4_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_4_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_4_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_5
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_5_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_5_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_5_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_6
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_6_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_6_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_6_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_7
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_7_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_7_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_7_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_8
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_8_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_8_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_8_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_9
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_9_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_9_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_9_value_3
-                                  type: 'custom:text-input-row'
-                        - entity: input_text.cleaning_item_10
-                          type: 'custom:text-input-row'
-                        - type: custom:hui-vertical-stack-card
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              show_header_toggle: false
-                              entities:
-                                - entity: input_text.cleaning_item_10_value_1
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_10_value_2
-                                  type: 'custom:text-input-row'
-                                - entity: input_text.cleaning_item_10_value_3
-                                  type: 'custom:text-input-row'                  
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Cleaning View:** You can set chores here for the cleaning view widget. You can set 3 values, values must be set in hours, days, months or years where the first value is meant for the shortest period of time overdue and the third value the longest period of time overdue.
+                - type: entities
+                  title: Cleaning add-on
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      overflow: hidden;
+                    }                        
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.cleaning_item_1
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_1_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_1_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_1_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_2
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_2_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_2_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_2_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_3
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_3_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_3_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_3_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_4
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_4_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_4_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_4_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_5
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_5_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_5_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_5_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_6
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_6_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_6_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_6_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_7
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_7_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_7_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_7_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_8
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_8_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_8_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_8_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_9
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_9_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_9_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_9_value_3
+                              type: 'custom:text-input-row'
+                    - entity: input_text.cleaning_item_10
+                      type: 'custom:text-input-row'
+                    - type: custom:hui-vertical-stack-card
+                      cards:
+                        - type: entities
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          show_header_toggle: false
+                          entities:
+                            - entity: input_text.cleaning_item_10_value_1
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_10_value_2
+                              type: 'custom:text-input-row'
+                            - entity: input_text.cleaning_item_10_value_3
+                              type: 'custom:text-input-row'                  
+            - !include ../../includes/blank-card.yaml

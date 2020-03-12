@@ -39,8 +39,9 @@
             - entity: input_boolean.alarm_keypad
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards: 
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards: 
                   - type: "custom:config-template-card"
@@ -111,24 +112,29 @@
                               box-shadow: {{ states('input_select.box_shadow') }};
                             }
                       entity: "${states['input_text.alarm_entity'].state}"
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
-            cards:
+            type: horizontal-stack
+            cards: 
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.alarm_user_content
               state: "on"
           card:
-            type: custom:layout-card
-            cards:
+            type: horizontal-stack
+            cards: 
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/alarm_user_content.yaml
+              - !include ../includes/blank-card.yaml
 {% endraw %}

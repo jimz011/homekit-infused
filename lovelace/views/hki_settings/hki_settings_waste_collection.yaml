@@ -20,52 +20,65 @@
         - !include
           - '../../templates/settings_back_button.yaml'
           - background_color: LightSeaGreen
-        - type: custom:layout-card
+        - type: custom:search-card
+          style: |
+            ha-card {
+              border-radius: none;
+              box-shadow: none;
+              --paper-card-background-color: rgba(0,0,0,0.0);
+              --primary-text-color: var(--category-text) !important;
+              color: var(--category-text) !important;
+              --text-primary-color: var(--category-text) !important;
+              --secondary-text-color: var(--category-text) !important;
+              --disabled-text-color: var(--category-text) !important;
+            }
+          max_results: 10
+        - type: horizontal-stack
           cards:
-            - type: vertical-stack
+            - !include ../../includes/blank-card.yaml
+            - type: custom:layout-card
               cards:
-                - type: custom:layout-card
-                  cards:
-                    - type: conditional
-                      conditions:
-                        - entity: input_boolean.system_help
-                          state: "on"
-                      card:
-                        type: markdown
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.5);
-                            border-radius: {{ states('input_select.border_radius') }};
-                            box-shadow: {{ states('input_select.box_shadow') }};
-                            font-size: 13px;
-                            font-family: Helvetica;
-                            color: white;
-                          }                    
-                        content: >
-                          **Waste Collection:** Set entities and names for your Waste Collection.
-                    - type: entities
-                      title: Waste Collection                         
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                          overflow: hidden;
-                        }                        
-                      show_header_toggle: false
-                      entities:
-                        - entity: input_text.waste_paper
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_paper_name
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_vfg
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_vfg_name
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_pmd
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_pmd_name
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_other
-                          type: 'custom:text-input-row'
-                        - entity: input_text.waste_other_name
-                          type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Waste Collection:** Set entities and names for your Waste Collection.
+                - type: entities
+                  title: Waste Collection                         
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                      overflow: hidden;
+                    }                        
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.waste_paper
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_paper_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_vfg
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_vfg_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_pmd
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_pmd_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_other
+                      type: 'custom:text-input-row'
+                    - entity: input_text.waste_other_name
+                      type: 'custom:text-input-row'
+            - !include ../../includes/blank-card.yaml

@@ -20,781 +20,794 @@
         - !include
           - '../../templates/settings_back_button.yaml'
           - background_color: LightSeaGreen
-        - type: custom:layout-card
+        - type: custom:search-card
+          style: |
+            ha-card {
+              border-radius: none;
+              box-shadow: none;
+              --paper-card-background-color: rgba(0,0,0,0.0);
+              --primary-text-color: var(--category-text) !important;
+              color: var(--category-text) !important;
+              --text-primary-color: var(--category-text) !important;
+              --secondary-text-color: var(--category-text) !important;
+              --disabled-text-color: var(--category-text) !important;
+            }
+          max_results: 10
+        - type: horizontal-stack
           cards:
-            - type: vertical-stack
+            - !include ../../includes/blank-card.yaml
+            - type: custom:layout-card
               cards:
-                - type: custom:layout-card
-                  cards:
-                    - type: conditional
-                      conditions:
-                        - entity: input_boolean.system_help
-                          state: "on"
-                      card:
-                        type: markdown
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.5);
-                            border-radius: {{ states('input_select.border_radius') }};
-                            box-shadow: {{ states('input_select.box_shadow') }};
-                            font-size: 13px;
-                            font-family: Helvetica;
-                            color: white;
-                          }                    
-                        content: >
-                          **Sensors:** Turn on/off the sensors in the top right of the header. When the sensors are off you can still invoke edit mode by tapping and holding the area where the sensors normally would be.
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Sensors:** Turn on/off the sensors in the top right of the header. When the sensors are off you can still invoke edit mode by tapping and holding the area where the sensors normally would be.
 
 
-                          **Header Subtitle:** You can globally turn on/off the header subtitle from here. This will override any individual setting you had!
+                      **Header Subtitle:** You can globally turn on/off the header subtitle from here. This will override any individual setting you had!
 
 
-                          **Custom Views:** You can setup custom views at the bottom of this page. Four views are included for you to create your own!
-                    - type: entities
-                      title: Sensors
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_boolean.system_header_sensors
-                          name: Header Sensors (Globally)
-                        - entity: group.header_subtitle_group
-                          name: Header Subtitles (Globally)
-                    - type: conditional
-                      conditions:
-                        - entity: input_boolean.system_help
-                          state: "on"
-                      card:
-                        type: markdown
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.5);
-                            border-radius: {{ states('input_select.border_radius') }};
-                            box-shadow: {{ states('input_select.box_shadow') }};
-                            font-size: 13px;
-                            font-family: Helvetica;
-                            color: white;
-                          }                    
-                        content: >
-                          **Headers:** You can configure the Headers in here. Only simple names are allowed. The header subtitle can support templates in advanced mode. 
-                          
-                          **Templates:** If you want to use templates you must set it to advanced mode. In advanced mode you MUST use the /user_content/extra_settings.yaml file to create names or templates.
-                    - type: entities
-                      title: Alarm
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_alarm
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_alarm
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_alarm
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_alarm
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_alarm
-                          name: Advanced Mode
-                    - type: entities
-                      title: Automations
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_automations
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_automations
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_automation
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_automations
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_automation
-                          name: Advanced Mode
-                    - type: entities
-                      title: Battery
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_battery
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_battery
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_battery
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_battery
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_battery
-                          name: Advanced Mode
-                    - type: entities
-                      title: Calendar
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_calendar
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_calendar
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_calendar
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_calendar
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_calendar
-                          name: Advanced Mode
-                    - type: entities
-                      title: Cleaning
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_cleaning
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_cleaning
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_cleaning
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_cleaning
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_cleaning
-                          name: Advanced Mode
-                    - type: entities
-                      title: Climate
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_climate
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_climate
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_climate
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_climate
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_climate
-                          name: Advanced Mode
-                    - type: entities
-                      title: Computers
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_computers
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_computers
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_computer
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_computers
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_computer
-                          name: Advanced Mode
-                    - type: entities
-                      title: Devices
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_devices
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_devices
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_device
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_devices
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_device
-                          name: Advanced Mode
-                    - type: entities
-                      title: Energy
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_energy
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_energy
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_energy
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_energy
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_energy
-                          name: Advanced Mode
-                    - type: entities
-                      title: Floorplan
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_floorplan
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_floorplan
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_floorplan
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_floorplan
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_floorplan
-                          name: Advanced Mode
-                    - type: entities
-                      title: Laundry
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_laundry
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_laundry
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_laundry
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_laundry
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_laundry
-                          name: Advanced Mode
-                    - type: entities
-                      title: Lights
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_lights
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_lights
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_light
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_lights
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_light
-                          name: Advanced Mode
-                    - type: entities
-                      title: Location
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_location
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_location
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_location
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_location
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_location
-                          name: Advanced Mode
-                    - type: entities
-                      title: Media
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_media
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_media
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_media
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_media
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_media
-                          name: Advanced Mode
-                    - type: entities
-                      title: Menu
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_menu
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_menu
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_menu
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_menu
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_menu
-                          name: Advanced Mode
-                    - type: entities
-                      title: Scenes
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_scenes
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_scenes
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_scene
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_scenes
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_scene
-                          name: Advanced Mode
-                    - type: entities
-                      title: Security
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_security
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_security
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_security
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_security
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_security
-                          name: Advanced Mode
-                    - type: entities
-                      title: System
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_system
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_system
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_system
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_system
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_system
-                          name: Advanced Mode
-                    - type: entities
-                      title: Traffic
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_traffic
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_traffic
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_traffic
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_traffic
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_traffic
-                          name: Advanced Mode
-                    - type: entities
-                      title: Vacuum
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_vacuum
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_vacuum
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_vacuum
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_vacuum
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_vacuum
-                          name: Advanced Mode
-                    - type: entities
-                      title: Weather
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_weather
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_weather
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_weather
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_weather
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_weather
-                          name: Advanced Mode
-                    - type: conditional
-                      conditions:
-                        - entity: input_boolean.system_help
-                          state: "on"
-                      card:
-                        type: markdown
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.5);
-                            border-radius: {{ states('input_select.border_radius') }};
-                            box-shadow: {{ states('input_select.box_shadow') }};
-                            font-size: 13px;
-                            font-family: Helvetica;
-                            color: white;
-                          }                    
-                        content: >
-                          **Custom Views:** The settings below are meant to setup your custom views, you must setup an accompanying button to navigate to these views which can be found under the button setup. 
-                    - type: entities
-                      title: Custom View A
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_custom_a
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_custom_a
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_custom_a
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_custom_a
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_custom_a
-                          name: Advanced Mode
-                    - type: entities
-                      title: Custom View B
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_custom_b
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_custom_b
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_custom_b
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_custom_b
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_custom_b
-                          name: Advanced Mode
-                    - type: entities
-                      title: Custom View C
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_custom_c
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_custom_c
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_custom_c
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_custom_c
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_custom_c
-                          name: Advanced Mode
-                    - type: entities
-                      title: Custom View D
-                      show_header_toggle: false                          
-                      style: |
-                        ha-card {
-                          border-radius: {{ states('input_select.border_radius') }};
-                          box-shadow: {{ states('input_select.box_shadow') }};
-                        }                        
-                      entities: 
-                        - entity: input_text.name_header_custom_d
-                          type: 'custom:text-input-row'
-                        - entity: input_text.icon_header_custom_d
-                          type: 'custom:text-input-row'
-                        - type: custom:state-switch
-                          entity: input_boolean.header_advanced_mode_custom_d
-                          states:
-                            "off":
-                              type: entities
-                              show_header_toggle: false                          
-                              style: |
-                                ha-card {
-                                  box-shadow: none;
-                                }                        
-                              entities: 
-                                - entity: input_text.name_header_secondary_custom_d
-                                  type: 'custom:text-input-row'
-                        - entity: input_boolean.header_advanced_mode_custom_d
-                          name: Advanced Mode
+                      **Custom Views:** You can setup custom views at the bottom of this page. Four views are included for you to create your own!
+                - type: entities
+                  title: Sensors
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_boolean.system_header_sensors
+                      name: Header Sensors (Globally)
+                    - entity: group.header_subtitle_group
+                      name: Header Subtitles (Globally)
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Headers:** You can configure the Headers in here. Only simple names are allowed. The header subtitle can support templates in advanced mode. 
+                      
+                      **Templates:** If you want to use templates you must set it to advanced mode. In advanced mode you MUST use the /user_content/extra_settings.yaml file to create names or templates.
+                - type: entities
+                  title: Alarm
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_alarm
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_alarm
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_alarm
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_alarm
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_alarm
+                      name: Advanced Mode
+                - type: entities
+                  title: Automations
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_automations
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_automations
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_automation
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_automations
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_automation
+                      name: Advanced Mode
+                - type: entities
+                  title: Battery
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_battery
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_battery
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_battery
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_battery
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_battery
+                      name: Advanced Mode
+                - type: entities
+                  title: Calendar
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_calendar
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_calendar
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_calendar
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_calendar
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_calendar
+                      name: Advanced Mode
+                - type: entities
+                  title: Cleaning
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_cleaning
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_cleaning
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_cleaning
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_cleaning
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_cleaning
+                      name: Advanced Mode
+                - type: entities
+                  title: Climate
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_climate
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_climate
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_climate
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_climate
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_climate
+                      name: Advanced Mode
+                - type: entities
+                  title: Computers
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_computers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_computers
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_computer
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_computers
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_computer
+                      name: Advanced Mode
+                - type: entities
+                  title: Devices
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_devices
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_devices
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_device
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_devices
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_device
+                      name: Advanced Mode
+                - type: entities
+                  title: Energy
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_energy
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_energy
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_energy
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_energy
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_energy
+                      name: Advanced Mode
+                - type: entities
+                  title: Floorplan
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_floorplan
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_floorplan
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_floorplan
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_floorplan
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_floorplan
+                      name: Advanced Mode
+                - type: entities
+                  title: Laundry
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_laundry
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_laundry
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_laundry
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_laundry
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_laundry
+                      name: Advanced Mode
+                - type: entities
+                  title: Lights
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_lights
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_lights
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_light
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_lights
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_light
+                      name: Advanced Mode
+                - type: entities
+                  title: Location
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_location
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_location
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_location
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_location
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_location
+                      name: Advanced Mode
+                - type: entities
+                  title: Media
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_media
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_media
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_media
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_media
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_media
+                      name: Advanced Mode
+                - type: entities
+                  title: Menu
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_menu
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_menu
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_menu
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_menu
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_menu
+                      name: Advanced Mode
+                - type: entities
+                  title: Scenes
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_scenes
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_scenes
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_scene
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_scenes
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_scene
+                      name: Advanced Mode
+                - type: entities
+                  title: Security
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_security
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_security
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_security
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_security
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_security
+                      name: Advanced Mode
+                - type: entities
+                  title: System
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_system
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_system
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_system
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_system
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_system
+                      name: Advanced Mode
+                - type: entities
+                  title: Traffic
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_traffic
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_traffic
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_traffic
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_traffic
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_traffic
+                      name: Advanced Mode
+                - type: entities
+                  title: Vacuum
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_vacuum
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_vacuum
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_vacuum
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_vacuum
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_vacuum
+                      name: Advanced Mode
+                - type: entities
+                  title: Weather
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_weather
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_weather
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_weather
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_weather
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_weather
+                      name: Advanced Mode
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown
+                    style: |
+                      ha-card {
+                        background: rgba(0, 0, 0, 0.5);
+                        border-radius: {{ states('input_select.border_radius') }};
+                        box-shadow: {{ states('input_select.box_shadow') }};
+                        font-size: 13px;
+                        font-family: Helvetica;
+                        color: white;
+                      }                    
+                    content: >
+                      **Custom Views:** The settings below are meant to setup your custom views, you must setup an accompanying button to navigate to these views which can be found under the button setup. 
+                - type: entities
+                  title: Custom View A
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_custom_a
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_custom_a
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_custom_a
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_custom_a
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_custom_a
+                      name: Advanced Mode
+                - type: entities
+                  title: Custom View B
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_custom_b
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_custom_b
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_custom_b
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_custom_b
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_custom_b
+                      name: Advanced Mode
+                - type: entities
+                  title: Custom View C
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_custom_c
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_custom_c
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_custom_c
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_custom_c
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_custom_c
+                      name: Advanced Mode
+                - type: entities
+                  title: Custom View D
+                  show_header_toggle: false                          
+                  style: |
+                    ha-card {
+                      border-radius: {{ states('input_select.border_radius') }};
+                      box-shadow: {{ states('input_select.box_shadow') }};
+                    }                        
+                  entities: 
+                    - entity: input_text.name_header_custom_d
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_custom_d
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_custom_d
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_custom_d
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_custom_d
+                      name: Advanced Mode
+            - !include ../../includes/blank-card.yaml

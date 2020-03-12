@@ -39,8 +39,9 @@
         - entity: input_boolean.weather_air_visual
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml
           - type: custom:layout-card
             min_columns: 1
             justify_content: start
@@ -66,13 +67,15 @@
                   main_pollutant: "${states['input_text.main_pollutant'].state}"
                   temp: "${states['input_text.weather_entity'].state}"
                   city: "${states['input_text.city'].state}"
+          - !include ../includes/blank-card.yaml
     - type: conditional
       conditions:
         - entity: input_boolean.weather_card
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml
           - type: custom:layout-card
             min_columns: 1
             justify_content: start
@@ -99,13 +102,15 @@
                   current: true
                   details: true
                   forecast: true
+          - !include ../includes/blank-card.yaml
     - type: conditional
       conditions:
         - entity: input_boolean.weather_iframe_1
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml
           - type: custom:layout-card
             cards:
               - type: "custom:config-template-card"
@@ -122,13 +127,15 @@
                     }
                   aspect_ratio: 100%
                   url: "${states['input_text.weather_iframe_1'].state}"
+          - !include ../includes/blank-card.yaml
     - type: conditional
       conditions:
         - entity: input_boolean.weather_iframe_2
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml
           - type: custom:layout-card
             cards:
               - type: "custom:config-template-card"
@@ -147,24 +154,29 @@
                     }
                   aspect_ratio: 100%
                   url: "${states['input_text.weather_iframe_2'].state}"
+          - !include ../includes/blank-card.yaml
     - type: conditional
       conditions:
         - entity: input_boolean.user_content_message
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml   
           - type: custom:layout-card
             cards:
               - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+          - !include ../includes/blank-card.yaml                     
     - type: conditional
       conditions:
         - entity: input_boolean.weather_user_content
           state: "on"
       card:
-        type: custom:layout-card
+        type: horizontal-stack
         cards:
+          - !include ../includes/blank-card.yaml   
           - type: custom:layout-card
             cards:
               !include ../../user_content/views/weather_user_content.yaml
+          - !include ../includes/blank-card.yaml   
 {% endraw %}

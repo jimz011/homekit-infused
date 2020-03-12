@@ -34,8 +34,9 @@
                 --disabled-text-color: var(--category-text) !important;
               }
             max_results: 10
-        - type: custom:layout-card
+        - type: horizontal-stack
           cards:
+            - !include ../includes/blank-card.yaml
             - type: custom:layout-card
               cards:
                 - type: conditional
@@ -284,4 +285,5 @@
                           name:
                             - font-size: 10px
                             - justify-self: center
+            - !include ../includes/blank-card.yaml
 {% endraw %}

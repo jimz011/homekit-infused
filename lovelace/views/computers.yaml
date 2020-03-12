@@ -39,23 +39,23 @@
             - entity: input_boolean.user_content_message
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_boolean.computers_user_content
               state: "on"
           card:
-            type: custom:layout-card
+            type: horizontal-stack
             cards:
+              - !include ../includes/blank-card.yaml
               - type: custom:layout-card
                 cards:
                   !include ../../user_content/views/computers_user_content.yaml
-
-        - type: custom:button-card
-          entity: input_boolean.dummy1
-          name: "[[[ return states[`${states['input_text.name_all'].state}`].state ]]]"
+              - !include ../includes/blank-card.yaml
 {% endraw %}

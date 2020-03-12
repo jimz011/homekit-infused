@@ -20,9 +20,23 @@
         - !include
           - '../../templates/settings_back_button.yaml'
           - background_color: LightSeaGreen
-        - type: custom:layout-card
+        - type: custom:search-card
+          style: |
+            ha-card {
+              border-radius: none;
+              box-shadow: none;
+              --paper-card-background-color: rgba(0,0,0,0.0);
+              --primary-text-color: var(--category-text) !important;
+              color: var(--category-text) !important;
+              --text-primary-color: var(--category-text) !important;
+              --secondary-text-color: var(--category-text) !important;
+              --disabled-text-color: var(--category-text) !important;
+            }
+          max_results: 10
+        - type: horizontal-stack
           cards:
-            - type: custom:layout-card
+            - !include ../../includes/blank-card.yaml
+            - type: vertical-stack
               cards:
                 - type: conditional
                   conditions:
@@ -41,13 +55,9 @@
                       }                    
                     content: >
                       **Rooms:** All rooms are enabled by default, you can show/hide individual rooms with edit mode on the respective views. The settings set here only apply to the devices and lights views (it will be expanded in future releases)
-
+    
                       **Reset Hidden Rooms:** If the rooms do not show for you for any reason, you can reset the views with the reset hidden rooms button. This will only reset the show/hide options and will not reset the names.
                 - type: custom:button-card
-                  style: |
-                    ha-card {
-                      margin-top: -5px;
-                    }
                   name: Reset hidden rooms
                   icon: mdi:lock-reset
                   aspect_ratio: 6/1
@@ -520,3 +530,4 @@
                                         type: 'custom:text-input-row'
                                       - entity: input_text.room_20
                                         type: 'custom:text-input-row'
+            - !include ../../includes/blank-card.yaml

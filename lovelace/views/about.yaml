@@ -20,8 +20,9 @@
             - template: nothing_to_edit.yaml
         - type: vertical-stack
           cards:
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   cards:
                     - type: custom:button-card
@@ -41,11 +42,11 @@
                       icon: mdi:information-outline
                       tap_action:
                         action: url
-                        url_path: https://jimz011.github.io/homeassistant
+                        url_path: https://github.com/jimz011/homekit-infused/releases
                         haptic: light
                       hold_action:
                         action: url
-                        url_path: https://jimz011.github.io/homeassistant
+                        url_path: https://github.com/jimz011/homekit-infused/releases
                         haptic: heavy
                       styles:
                         card:
@@ -68,12 +69,14 @@
                                 if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `none`; 
                                 else return `blink 2s ease infinite`; 
                               ]]]
+                - !include ../includes/blank-card.yaml
         - type: vertical-stack
           cards:
             - type: custom:gap-card
               height: 10px
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   cards:
                     - type: custom:button-card
@@ -154,12 +157,14 @@
                           - font-size: 12px
                         label:
                           - font-size: 12px
+                - !include ../includes/blank-card.yaml
         - type: vertical-stack
           cards:
             - type: custom:gap-card
               height: 10px
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   cards:
                     - type: custom:button-card
@@ -243,12 +248,14 @@
                         label:
                           - color: var(--primary-text-color)
                           - font-size: 12px  
+                - !include ../includes/blank-card.yaml
         - type: vertical-stack
           cards:
             - type: custom:gap-card
               height: 10px
-            - type: custom:layout-card
+            - type: horizontal-stack
               cards:
+                - !include ../includes/blank-card.yaml
                 - type: custom:layout-card
                   cards:
                     - type: markdown
@@ -262,3 +269,4 @@
                           color: white;
                         }                    
                       content: Homekit Infused 2020 created by Jimz011
+                - !include ../includes/blank-card.yaml
