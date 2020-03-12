@@ -24,34 +24,6 @@
             - template: remote_layout_popup.yaml
         - type: conditional
           conditions:
-            - entity: input_select.remote_control
-              state: "Woonkamer"
-          card:
-            type: custom:layout-card
-            cards:
-              - !include
-                - '../templates/remote_control.yaml'
-                - entity_tv: {{ _global.remote[0] }}
-                  entity_receiver: {{ _global.remote[1] }}
-                  entity_media_player: {{ _global.remote[2] }}
-                  entity_media_player_alternative: {{ _global.remote[3] }}
-                  entity_remote_control: {{ _global.remote[4] }}
-        - type: conditional
-          conditions:
-            - entity: input_select.remote_control
-              state: "Slaapkamer"
-          card:
-            type: custom:layout-card
-            cards:
-              - !include
-                - '../templates/remote_control.yaml'
-                - entity_tv: {{ _global.remote[5] }}
-                  entity_receiver: {{ _global.remote[6] }}
-                  entity_media_player: {{ _global.remote[7] }}
-                  entity_media_player_alternative: {{ _global.remote[8] }}
-                  entity_remote_control: {{ _global.remote[9] }}
-        - type: conditional
-          conditions:
             - entity: input_boolean.user_content_message
               state: "on"
           card:
