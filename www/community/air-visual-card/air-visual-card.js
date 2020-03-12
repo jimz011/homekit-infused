@@ -1,4 +1,11 @@
 
+// UPDATE FOR EACH RELEASE!!! From aftership-card. Version # is hard-coded for now.
+console.info(
+  `%c  AIR-VISUAL-CARD  \n%c  Version 0.0.11   `,
+  'color: orange; font-weight: bold; background: black',
+  'color: white; font-weight: bold; background: dimgray',
+);
+
 // From weather-card
 const fireEvent = (node, type, detail, options) => {
   options = options || {};
@@ -14,27 +21,17 @@ const fireEvent = (node, type, detail, options) => {
 };
 
 class AirVisualCard extends HTMLElement {
-
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
     }
   
-
-
-    setConfig(config) {
-
-      
-
-      if (!config.icons) {
-        config.icons = "https://cdn.jsdelivr.net/gh/dnguyen800/air-visual-card@0.0.4/dist";
-      }
-
+    setConfig(config) {  
       const root = this.shadowRoot;
       if (root.lastChild) root.removeChild(root.lastChild);
   
-      const cardConfig = Object.assign({}, config);
-    
+      const cardConfig = Object.assign({}, config);   
+
       const card = document.createElement('ha-card');
       const content = document.createElement('div');
       const style = document.createElement('style');
@@ -64,7 +61,7 @@ class AirVisualCard extends HTMLElement {
           font-weight: 300;
           padding: .2em .2em;    
           background-color: var(--background-color); 
-          text-color: var(--text-color);  
+          color: var(--text-color);  
         }
 
         .temp {
@@ -75,7 +72,7 @@ class AirVisualCard extends HTMLElement {
           font-size: 1.7em;
           font-weight: 300;
           background-color: var(--background-color); 
-          text-color: var(--text-color);  
+          color: var(--text-color);  
           padding: .2em .2em;       
         }
   
@@ -152,10 +149,11 @@ class AirVisualCard extends HTMLElement {
       this.myhass = hass;
       
       const hideTitle = config.hide_title ? 1 : 0;
-      const iconDirectory = config.icons ? config.icons : "https://cdn.jsdelivr.net/gh/dnguyen800/air-visual-card@0.0.4/dist";
+      const iconDirectory = config.icons || "https://cdn.jsdelivr.net/gh/dnguyen800/air-visual-card@0.0.4/dist";
       const country = config.country || 'US';
       const city = config.city || '';
       const tempSensor = config.temp || '';
+      const weatherStatus = config.weather || '';
       // value is used as a string instead of integer in order for 
       const aqiSensor = { name: 'aqiSensor', config: config.air_quality_index || null, value: 0 };
       const aplSensor = { name: 'aplSensor', config: config.air_pollution_level || null, value: 0 };
@@ -232,6 +230,7 @@ class AirVisualCard extends HTMLElement {
 
       if (tempSensor.split('.')[0] == 'sensor') {
         tempValue = hass.states[tempSensor].state + 'º';
+        if (weatherStatus !== '') { currentCondition = hass.states[weatherStatus].state };
       } else if (tempSensor.split('.')[0] == 'weather') {
         tempValue = hass.states[tempSensor].attributes['temperature'] + 'º';     
         currentCondition = hass.states[tempSensor].state;
