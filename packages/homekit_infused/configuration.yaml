@@ -582,21 +582,9 @@ automation:
           entity_id:
             - input_text.heat_all_temperature
           value: 22
-      - service: input_text.set_value
+      - service: automation.trigger
         data:
-          entity_id:
-            - input_text.button_name_font_size
-          value: 12px
-      - service: input_text.set_value
-        data:
-          entity_id:
-            - input_text.button_state_font_size
-          value: 10px
-      - service: input_text.set_value
-        data:
-          entity_id:
-            - input_text.button_label_font_size
-          value: 10px
+          entity_id: automation.reset_font_size
       - service: input_text.set_value
         data:
           entity_id:
@@ -625,21 +613,22 @@ automation:
       entity_id: input_select.icon_selector
       to: 'nothing'
     action:
-      - service: input_text.set_value
+      - service: input_select.select_option
         data:
           entity_id:
-            - input_text.button_name_font_size
-          value: 12px
-      - service: input_text.set_value
+            - input_select.name_font_size_selector
+          option: 12px
+      - service: input_select.select_option
         data:
           entity_id:
-            - input_text.button_state_font_size
-          value: 10px
+            - input_select.state_font_size_selector
+            - input_select.label_font_size_selector
+            - input_select.badge_font_size_selector
+          option: 10px
       - service: input_text.set_value
         data:
-          entity_id:
-            - input_text.button_label_font_size
-          value: 10px
+          entity_id: input_text.font_family
+          value: Helvetica
 
 
   - alias: 'reset button badge sensors'
@@ -703,47 +692,27 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
+        entity_id: input_boolean.day_night_cycle
+      - platform: state
         entity_id: input_select.theme_selector
+      - platform: state
+        entity_id: input_select.theme_selector_day
+      - platform: state
+        entity_id: input_select.theme_selector_night
       - platform: homeassistant
         event: start
       - platform: state
         entity_id: sun.sun
-      - platform: state
-        entity_id: sensor.anniversary_anniversary
-        to: '0'
-      - platform: state
-        entity_id: sensor.anniversary_valentines_day
-        to: '0'
     action:
       - service: frontend.set_theme
         data_template:
           name: >
-            {% if is_state('input_select.theme_selector', 'Silver') %}
-              Silver
-            {% elif is_state('input_select.theme_selector', 'Space Gray') %}
-              Space Gray
-            {% elif is_state('input_select.theme_selector', 'Sweet Pink') %}
-              Sweet Pink
-            {% elif is_state('input_select.theme_selector', 'Valentine') %}
-              Valentine
-            {% elif is_state('input_select.theme_selector', 'Home Assistant') %}
-              Home Assistant
-            {% elif is_state('input_select.theme_selector', 'Orange Delight') %}
-              Orange Delight
-            {% elif is_state('input_select.theme_selector', 'Slate') %}
-              Slate
-            {% elif is_state('input_select.theme_selector', 'Paper') %}
-              Paper
-            {% elif (is_state('sensor.anniversary_anniversary', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}
-              Valentine
-            {% elif (is_state('sensor.anniversary_valentines_day', '0')) and (is_state('input_select.theme_selector', 'Auto'))  %}
-              Valentine
-            {% elif (is_state('sun.sun', 'above_horizon')) and (is_state('input_select.theme_selector', 'Auto'))  %}
-              Silver
-            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_select.theme_selector', 'Auto'))  %}
-              Space Gray
-            {% elif is_state('input_select.theme_selector', 'Auto') %}
-              Space Gray
+            {% if (is_state('sun.sun', 'above_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+              {{ states('input_select.theme_selector_day') }}
+            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+              {{ states('input_select.theme_selector_night') }}
+            {% else %}
+              {{ states('input_select.theme_selector') }}
             {% endif %}
   
   # Box Shadow Selector
@@ -836,6 +805,6 @@ sensor:
 
   - platform: scrape
     name: HKI Latest Version
-    resource: https://jimz011.github.io/homeassistant/version
+    resource: https://jimz011.github.io/homekit-infused/version
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'

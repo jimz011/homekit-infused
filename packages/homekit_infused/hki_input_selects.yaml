@@ -12,8 +12,31 @@ input_select:
       - Space Gray
       - Sweet Pink
       - Valentine
-      - Auto
+
+  theme_selector_day:
+    name: Theme Selector Day
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
   
+  theme_selector_night:
+    name: Theme Selector Night
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+
   # Border Radius used in border-radius templates,
   # you can adjust border size to be selected here
   border_radius:
@@ -237,6 +260,71 @@ input_select:
       - Italiano
       - Nederlands
       - Portuguesebrasil
+
+  name_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  label_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  state_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  badge_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+
+  badge_text_transform:
+    options:
+      - capitalize
+      - uppercase
+      - lowercase
   
   footer_direction:
     options:
