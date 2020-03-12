@@ -8,9 +8,9 @@ My current Home Assistant version is 0.106.5
 ## Coming Soon! (Closed beta will start at 08/03/2020) You can join our slack channel if you're interested in testing.
 
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
-### [Click here](https://jimz011.github.io/homeassistant/) for documentation
-### [Click here](https://github.com/jimz011/homeassistant/releases) for older releases
-### [Click here](https://github.com/jimz011/homeassistant/tree/personal) for my personal setup (Coming Soon!)
+### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
+### [Click here](https://github.com/jimz011/homekit-infused/releases) for older releases
+### [Click here](https://github.com/jimz011/homekit-infused/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
 #### About
