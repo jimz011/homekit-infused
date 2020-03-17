@@ -57,15 +57,11 @@ Conclusion: Get v2.0.0 as soon as it is here, make the change if coming from old
 
 Please ask any question you have on the [HA Community Forums](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
 
-#### Or join one of my two Slack groups which I maintain with @Dwains:
-English Speaking: (warning: non-english speakers will be removed).
-[Click Here for English](https://join.slack.com/t/homeassistanten/shared_invite/enQtNzg1NzQyOTI4ODE2LWVhMmY3ZjMxMThhOTk1OWEwY2E4NDE0YmViZWI3NjUyNzIyMzIwNTkwMzlmMDA5N2I0MTQ4MDhiYTkwYWFlZDU)
-
-Dutch Speaking (warning: non-dutch speakers will be removed).
-[Click Here for Dutch](https://join.slack.com/t/homeassistantnlbe/shared_invite/enQtNzc4MzAwMTEyNDIwLTgwZGVmNmNhZjZkNmVkMjM1NTM3N2UwODIzZTFjMzY1ZmUyMGJiZDU5ZTEyZWEyYzMzYzQzYWJmNGE3MWVjN2I)
+#### Or join our Discord Server which I maintain with @Dwains:
+[CLICK HERE](https://discord.gg/WZvK4Cb)
 
 #### Featured Theme
 From now on I will feature either themes or cards in my videos or on this repo. This time I will feature the new theme by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme).
 
 #### Featured Cards
-This months featured cards are the Config Template Card from @iantrich and the Auto Entities card from @thomasloven as they are a big part into what made HKI v2.0.0 possible!
+This months featured cards are the Config Template Card from @iantrich and the Auto Entities card from @thomasloven as they play a big role into what made HKI v2.0.0 possible!
