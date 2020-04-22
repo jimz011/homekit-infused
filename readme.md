@@ -2,12 +2,11 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 March 2020 v2.0.0 Beta 7 (*updated: 08/03/2020)
-# WARNING: BETA Testers should NOT update to HA 0.107.x just yet, HKI is incompatible with it and it requires an update from one of the custom plugins used. Unfortunately this is out of my hands and all we can do is hope for a quick fix from the respective developer.
+# Homekit Infused (Lovelace) by Jimz011 April 2020 v2.0.0 Beta 8 (*updated: 22/04/2020)
+## BETA 8 Will arrive within 24 hours! Current beta testers will see an update note within the menu when it is released. For all new users I'd suggest keeping an eye on this page in the upcoming 24 hours!
+My current Home Assistant version is 0.108.8
 
-My current Home Assistant version is 0.106.6
-
-## Coming Soon! (Closed beta will start at 08/03/2020) You can join our slack channel if you're interested in testing.
+## Coming Soon! (Closed has started on 08/03/2020) You can join our discord channel if you're interested in testing (or look carefully as it is hidden somewhere :P). No ETA is known for the actual release date, but you will know when the YouTube channel is updated!
 
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
@@ -20,11 +19,26 @@ Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It
 
 Homekit Infused has a fully customizable UI, you can create your own frontpage layout with ease with the built-in edit mode which allows you to show/hide and add elements to the UI with a flick of a button. Most of the configuration can be done within the HKI Settings and changes done within the UI are INSTANT!!! Yes you've read it well, no restarts or lovelace refreshes required!
 
-#### Video and screenshots
-Screenshots:
+Updating should be relatively easy unless a major breaking change comes from the HA team. Whenever a large update will come I will make it thorough guides for you to make the update as smooth as possible. 
 
-![Test Image 1](HiShoot_20200402_013646.png)
-Video: CLICK ON THE IMAGE TO START VIDEO
+#### Video and screenshots
+#####Screenshots
+
+![Homekit Infused](HiShoot_20200402_013646.png)
+
+![Homekit Infused](HiShoot_20200422_201852.png)
+
+![Homekit Infused](HiShoot_20200422_202500.png)
+
+![Homekit Infused](HiShoot_20200422_202526.png)
+
+![Homekit Infused](HiShoot_20200422_202622.png)
+
+##### Video
+Coming Soon!
+
+#### Disclaimer
+This project is a pretty heavy setup, I don't and never will recommend this to be used on any version of a Raspberry Pi. It will work, however your experiences may vary. To get the best out of this setup I will recommend to use at least a dual core i3 with a minimum of 4GB of RAM. I will recommend 6GB of RAM or more to get the best performance and be able to expand your setup without worrying about RAM.
 
 ### Questions and Support
 
@@ -34,7 +48,9 @@ Please ask any question you have on the [HA Community Forums](https://community.
 [CLICK HERE](https://discord.gg/WZvK4Cb)
 
 #### Featured Theme
-From now on I will feature either themes or cards in my videos or on this repo. This time I will feature the new theme by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme).
+Dwains Theme is a beautiful theme created by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme). I will recommend this theme as an alternative to HKI when you are using lighter hardware.
 
-#### Featured Cards
-This months featured cards are the Config Template Card from @iantrich and the Auto Entities card from @thomasloven as they play a big role into what made HKI v2.0.0 possible!
+#### Featured Cards and Addons
+This months featured card is the Bar Card from @gluwc which can be found [here](https://github.com/custom-cards/bar-card). You can make beautiful graphs with this addon. It is currently not used within HKI, however it is included in the package so you can use it right away.
+
+One of the great things that can be done with it is shown by the following user @noodlemctwoodle which has shared his beautiful view which can be used with HKI! You can find his repo and instructions [here](https://github.com/noodlemctwoodle/homeassistant) 
