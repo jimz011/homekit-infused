@@ -22,7 +22,8 @@ Homekit Infused has a fully customizable UI, you can create your own frontpage l
 
 #### Video and screenshots
 Screenshots:
-![Test Image 1](HiShoot_20200402_013646.png.png)
+
+![Test Image 1](HiShoot_20200402_013646.png)
 Video: CLICK ON THE IMAGE TO START VIDEO
 
 ### Questions and Support
