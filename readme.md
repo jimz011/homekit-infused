@@ -6,7 +6,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 ## BETA 8 Will arrive within 24 hours! Current beta testers will see an update note within the menu when it is released. For all new users I'd suggest keeping an eye on this page in the upcoming 24 hours!
 My current Home Assistant version is 0.108.8
 
-## Coming Soon! (Closed has started on 08/03/2020) You can join our discord channel if you're interested in testing (or look carefully as it is hidden somewhere :P). No ETA is known for the actual release date, but you will know when the YouTube channel is updated!
+## Coming Soon! (Closed Beta has started on 08/03/2020) You can join our discord channel if you're interested in testing (or look carefully as it is hidden somewhere :P). No ETA is known for the actual release date, but you will know when the YouTube channel is updated!
 
 # [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
