@@ -22,7 +22,7 @@ Homekit Infused has a fully customizable UI, you can create your own frontpage l
 Updating should be relatively easy unless a major breaking change comes from the HA team. Whenever a large update will come I will make it thorough guides for you to make the update as smooth as possible. 
 
 #### Video and screenshots
-#####Screenshots
+##### Screenshots
 
 ![Homekit Infused](HiShoot_20200402_013646.png)
 
