@@ -39,8 +39,27 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @FranckNijhof
   - @Dbuit
   - @martinvdm
+  - @diondk
+  - @stephan
+  - @HomeAssistantAddicts Discord Group
   - @HomeAssistantNL/BE Slack group
   - @everyone I forgot to mention
+  
+# Special Thanks to my Supporters
+  - @marco
+  - @brandontisor
+  - @huntergresh
+  - @dhartsmith
+  - @edgardmello
+  - @magicmountainman
+  - @aviabeksis
+  - @tobygoulden
+  - @royfreriks
+  - @chrissmit
+  - @joerihaas
+  - @michaeldobson
+  - @rickverduin
+  - @fabiopergola
 
 I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
 
