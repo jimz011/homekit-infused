@@ -16,7 +16,7 @@ Configuring Homekit Infused after the initial install is really easy. It only re
 
 #### Global Configuration
 - Fill in `customize.yaml` if you haven't done so in the preparation step
-- Fill in the `rooms_and_groups.yaml` file that is located in your `/user_content/` folder. Fill in AS MUCH as you can! It will fill various views automatically according to these groups! Do NOT remove any groups! If you don't have entities for a specific group, only remove the entities in that group (including the `-`) and keep the group as it is.
+- Fill in the `groups.yaml` file that is located in your `/user_content/` folder. Fill in AS MUCH as you can! It will fill various views automatically according to these groups! Do NOT remove any groups! If you don't have entities for a specific group, only remove the entities in that group (including the `-`) and keep the group as it is.
 - Congratulations, you have installed and setup Homekit Infused for basic use. You could open the `extra_settings.yaml` file to setup the use of deep_press if you desire (this file used to be the global_settings for older versions of HKI). There are a few other settings you can find in that file. Note that changes to this file require a restart.
 
 #### Configuration
@@ -32,6 +32,7 @@ Notifications is something I can't template for you, this would require me to kn
 #### What should work now?
 If all went well you should now have a working Homekit Infused setup with at least the following views that are working and auto-filled:
 - climate
+- calendar
 - lights
 - devices
 - security
