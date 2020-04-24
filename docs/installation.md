@@ -90,10 +90,6 @@ Manual Components Import. The following components can either not be found on th
 | Imap | No | This is a modified imap component, you should only install this when using outlook/live or hotmail email addresses |
 | RDW | No | This is a sensor for Dutch APK, if you are not a Dutch citizen this is useless to you |
 
-# AppDaemon 4
-If you use Home Assistant (previously Hass.io) you can install this addon easily through the supervisor tab, install it and start it.
-Make sure you connect appdaemon to Home Assistant after you've installed it. (if you use hass.io you will only need to start the addon as config is already done for you!). If you use Home Assistant core please read up on how to install appdaemon4 here: https://appdaemon.readthedocs.io/en/stable/ (I have NOT tried this as I use Home Assistant aka Hass.io).
-
 # Copying
 ### Notes
 - For safe results I suggest restarting Home Assistant at this point.
