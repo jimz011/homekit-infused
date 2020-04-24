@@ -43,6 +43,10 @@ Remember that you MUST fill in this file. Homekit Infused has no options to edit
 - Create an Air Visual account and add it as a sensor https://www.home-assistant.io/integrations/airvisual/
 - Create a custom alarm, not really required, but is handy for lots of stuff, just do it! https://www.home-assistant.io/integrations/manual/
 
+### AppDaemon 4
+If you use Home Assistant (previously Hass.io) you can install this addon easily through the supervisor tab, install it and start it.
+Make sure you connect appdaemon to Home Assistant after you've installed it. (if you use hass.io you will only need to start the addon as config is already done for you!). If you use Home Assistant core please read up on how to install appdaemon4 here: https://appdaemon.readthedocs.io/en/stable/ (I have NOT tried this as I use Home Assistant aka Hass.io).
+
 #### Optional
 - The prefered way would be to do a clean install, I will not stress on how much headache it might save you to do a clean install!
 - Patience, do not rush something like this. Imagine all the months of work I have put into this? So taking some extra time to undertake this is not such a bad idea.
