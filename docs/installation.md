@@ -90,6 +90,10 @@ Manual Components Import. The following components can either not be found on th
 | Imap | No | This is a modified imap component, you should only install this when using outlook/live or hotmail email addresses |
 | RDW | No | This is a sensor for Dutch APK, if you are not a Dutch citizen this is useless to you |
 
+# AppDaemon 4
+If you use Home Assistant (previously Hass.io) you can install this addon easily through the supervisor tab, install it and start it.
+Make sure you connect appdaemon to Home Assistant after you've installed it. (if you use hass.io you will only need to start the addon as config is already done for you!). If you use Home Assistant core please read up on how to install appdaemon4 here: https://appdaemon.readthedocs.io/en/stable/ (I have NOT tried this as I use Home Assistant aka Hass.io).
+
 # Copying
 ### Notes
 - For safe results I suggest restarting Home Assistant at this point.
@@ -98,12 +102,13 @@ Manual Components Import. The following components can either not be found on th
 ### Copy Files
 To copy the files you will need all the following files/folders from my repo.
 
-- Copy the entire `/lovelace/` folder to the root of your setup
+- Copy the entire `/dashboards/` folder to the root of your setup
 - Copy the `/themes/` folder to the root of your setup
-- Copy `ui-lovelace.yaml` file to the root of your setup
+- Copy the `ui-lovelace.yaml`, `homekit-infused.yaml` and `hki-settings.yaml` files to the root of your setup
 - Copy the `/packages/` folder to the root of your setup
 - Copy the `/user_content/` folder to the root of your setup
 - Copy the `/www/` folder to the root of your setup
+- Copy the `appdaemon/` folder to the root of your setup. (If you already use AppDaemon, please copy the file text_states_load.py to your /appdaemon/apps/ folder and copy the corresponding apps from apps.yaml into your own apps.yaml file)
 - Add the following line to your `configuration.yaml` file
 ```
 homeassistant:
@@ -121,9 +126,25 @@ frontend:
 ```
 lovelace:
     mode: yaml
+    resources: 
+      !include_dir_merge_list dashboards/resources/
+    dashboards:
+      homekit-infused:
+        mode: yaml
+        title: HKI
+        icon: mdi:cellphone
+        show_in_sidebar: true
+        filename: homekit_infused.yaml
+      hki-settings:
+        mode: yaml
+        title: HKI Settings
+        icon: mdi:tools
+        show_in_sidebar: true
+        filename: homekit_infused_settings.yaml
+    
 ```
 
-##### Note for users from older HKI versions
+##### Note for users pre HKI 2.x.x
 Note: you can't have duplicate keys, this means that you can't have either the exact same config twice. This is mostly important for users coming from the alpha or beta versions of this setup. If you did run the 1.1, you MUST remove EVERYTHING that was related to that (this means, views, global_config, automations, input_selects, etc, etc). Don't forget anything. (if you can't remember what those files were, you can simply download the 1.1 release from the repo and see which files were in there). HKI config is now packaged for easy updates. This also means that keeping the old automations etc would mean duplicate keys! So remove them. You won't need to worry about this in the future again as this has been taken care of in v2.0.0
 
 The copying process should now be completed and we can move on to the configuration part.
