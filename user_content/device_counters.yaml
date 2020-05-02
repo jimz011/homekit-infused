@@ -1,0 +1,171 @@
+# Homekit Infused Device Counters
+
+# Fill this file to have the badges and device counters work in HKI.
+# You can use these sensors in your badges.
+
+
+# All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
+all_climate_entities:
+  entities:
+   # - climate.tado_smart_radiator_thermostat_va1671957504
+   # - climate.tado_smart_radiator_thermostat_va2898201344
+   # - climate.tado_smart_radiator_thermostat_va0882906624
+   # - climate.tado_smart_radiator_thermostat_va2711623168
+    - climate.woonkamer
+    - climate.kleine_kamer
+    - climate.slaapkamer
+    - climate.keuken
+
+# All Fans (Enter all your fans in here)
+all_fans:
+  entities:
+    - switch.ventilator
+
+# All Temperature Sensors
+all_temperature_sensors:
+  entities:
+    - sensor.woonkamer
+    - sensor.kleine_kamer_temperatuur
+    - sensor.slaapkamer
+    - sensor.keuken_temperatuur
+    - sensor.badkamer_4
+    - sensor.motion_bijkeuken_temperature
+    - sensor.voordeur_temperature
+    - sensor.motion_toilet_temperature
+
+# All Humidity Sensors
+all_humidity_sensors:
+  entities:
+    - sensor.woonkamer_2
+    - sensor.kleine_kamer_luchtvochtigheid
+    - sensor.slaapkamer_2
+    - sensor.keuken_luchtvochtigheid
+    - sensor.badkamer_2
+
+# All Air Pressure Sensors
+all_air_pressure_sensors:
+  entities:
+    - sensor.slaapkamer_3
+    - sensor.badkamer_3
+# Camera's
+all_cameras:
+  entities:
+    - camera.gallerij_camera
+
+# Window Sensors
+all_window_sensors:
+  entities:
+
+# Door Sensors
+all_door_sensors:
+  entities:
+    - binary_sensor.voordeur
+    - binary_sensor.woonkamer_deur
+    - binary_sensor.slaapkamer_deur
+
+# Motion Sensors
+all_motion_sensors:
+  entities:
+    - binary_sensor.dafang_motion_sensor
+    - binary_sensor.motion_bijkeuken
+    - binary_sensor.motion_toilet
+    - binary_sensor.motion_woonkamer
+    - binary_sensor.motion_office
+    - binary_sensor.motion_gang
+
+# Smoke Detectors
+all_smoke_detectors:
+  entities:
+    - binary_sensor.lumi_sensor_smoke
+
+# All Binary Sensors (door/window/motion/smoke/gas etc)
+all_binary_sensors:
+  entities:
+    - binary_sensor.voordeur
+    - binary_sensor.woonkamer_deur
+    - binary_sensor.slaapkamer_deur
+    - binary_sensor.motion_bijkeuken
+    - binary_sensor.motion_toilet
+    - binary_sensor.motion_woonkamer
+    - binary_sensor.motion_office
+    - binary_sensor.motion_gang
+    - binary_sensor.dafang_motion_sensor
+    - binary_sensor.lumi_sensor_smoke
+# All Motion, Smoke, Fire and Gas Sensors
+all_motion_smoke_sensors:
+  entities:
+    - binary_sensor.dafang_motion_sensor
+    - binary_sensor.motion_bijkeuken
+    - binary_sensor.motion_toilet
+    - binary_sensor.lumi_sensor_smoke
+    - binary_sensor.motion_woonkamer
+    - binary_sensor.motion_office
+    - binary_sensor.motion_gang
+# All Lights (Used in counters only)
+all_lighting:
+  entities:
+    - light.woonkamer_led_lampen
+    - light.gateway_light_7811dcdef324
+    - light.plafond
+    - light.eettafel
+    - light.tafellamp
+    - light.vloerlamp
+    - light.slaapkamer_led_lampen
+    - light.nachtkastje_jimmy
+    - light.nachtkastje_stephanie
+    - light.bed_lamp
+    - light.kast_lamp
+    - light.computer_led
+    - light.kleine_kamer
+    - light.keuken
+    - light.keuken_spotjes
+    - light.bijkeuken
+    - light.entree_lamp
+    - light.gang_lamp
+    - light.berging
+    - switch.koogeek_sw_056ce9
+    - light.toilet
+    - light.balkon
+
+# All Devices (Used in counters only)
+all_device_switches:
+  entities:
+    - switch.ventilator
+    - switch.receiver
+    - switch.samsung_tv
+    - switch.receiver_slaapkamer
+    - switch.tv_slaapkamer
+    - switch.pc_van_stephanie
+    - switch.pc_van_jimmy
+    - switch.printer
+    - switch.xbox_one
+    - switch.waterkoker
+    - switch.afzuigkap
+    - switch.cappumaker
+    - switch.vaatwasser
+    - switch.airfryer
+    - switch.wasmachine
+    - switch.droger
+    - switch.oven
+    - switch.piano
+    - switch.monitors_jimmy
+    - switch.monitors_stephanie
+# All Computers (This isn't used yet, though you can just fill it in)
+all_computers:
+  entities:
+    - switch.pc_van_stephanie
+    - switch.pc_van_jimmy
+    - switch.windows_server_2016
+
+# All TV's (Can be shown on the remote button to show the number of tv's)
+all_tvs:
+  entities:
+    - switch.samsung_tv
+    - switch.tv_slaapkamer
+
+# All Laundry Devices (e.g. washing-machine, tumble-dryer or dishwasher)
+all_laundry_devices:
+  entities:
+    - switch.droger
+    - switch.wasmachine
+    - switch.vaatwasser

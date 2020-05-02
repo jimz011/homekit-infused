@@ -1,0 +1,21 @@
+# Vacuum Calibration, please visit https://community.home-assistant.io/t/xiaomi-vacuum-interactive-map-card/123901.
+# You can find information there on how to add coordinates and how to find them. I haven't done this in a long time
+# So my information on this is too limited to help you. Please make a PR if you have better information!
+
+- vacuum:
+    x: 25500
+    y: 25500
+  map:
+    x: 300
+    y: 600
+- vacuum:
+    x: 26500
+    y: 26500
+  map:
+    x: 546
+    y: 235
+- vacuum:
+    x: 25500
+    y: 26500
+  map:
+    x: 546
