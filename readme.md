@@ -2,15 +2,14 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 April 2020 v2.0.0 Beta 8 (*updated: 22/04/2020)
-## BETA 8 Will arrive within 24 hours! Current beta testers will see an update note within the menu when it is released. For all new users I'd suggest keeping an eye on this page in the upcoming 24 hours!
-My current Home Assistant version is 0.108.8
+# Homekit Infused (Lovelace) by Jimz011 May 2020 v2.0.0 Beta 8 (*updated: 02/05/2020)
+My current Home Assistant version is 0.109.2
 
-## Coming Soon! (Closed Beta has started on 08/03/2020) You can join our discord channel if you're interested in testing (or look carefully as it is hidden somewhere :P). No ETA is known for the actual release date, but you will know when the YouTube channel is updated!
+## Coming Soon! Open Beta now available!
 
-# [Click here](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w) for my YouTube channel
+## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
-### [Click here](https://github.com/jimz011/homekit-infused/releases) for older releases
+### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases (including the current beta versions)
 ### [Click here](https://github.com/jimz011/homekit-infused/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
