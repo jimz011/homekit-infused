@@ -1,0 +1,5 @@
+custom_header: !include dashboards/custom_header/custom_header.yaml
+
+title: Settings
+background: var(--background-image)
+views: !include_dir_merge_list dashboards/homekit_infused_settings/

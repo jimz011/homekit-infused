@@ -1,0 +1,36 @@
+title: Home
+views:
+  - title: Home
+    path: home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            color_type: blank-card
+            styles:
+              card:
+                - height: 10px
+          - type: button
+            tap_action:
+              action: navigate
+              navigation_path: ../homekit-infused/
+            hold_action:
+              action: navigate
+              navigation_path: ../homekit-infused/
+            show_icon: true
+            show_name: true
+            name: Homekit Infused
+            icon: 'mdi:cellphone'
+            icon_height: 20px
+          - type: button
+            tap_action:
+              action: navigate
+              navigation_path: ../hki-settings/
+            hold_action:
+              action: navigate
+              navigation_path: ../hki-settings/
+            show_icon: true
+            show_name: true
+            name: Homekit Infused Settings
+            icon: 'mdi:tools'
+            icon_height: 20px
