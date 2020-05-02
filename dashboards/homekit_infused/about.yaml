@@ -1,0 +1,270 @@
+- title: About
+  path: about
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: "[[[ return `Current Version: ${states['input_text.hki_current_version'].state}` ]]]"
+            icon: mdi:information-outline
+            spin: true
+            content: "[[[ return `${states['input_text.name_header_about'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  cards:
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state2nd
+                      size: 50%
+                      entity: sensor.hki_latest_version
+                      name: Latest Version
+                      show_label: true
+                      show_state: true
+                      label: >
+                        [[[ 
+                          if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `You have the latest version`; 
+                          if (states['input_text.hki_current_version'].state < `${states['sensor.hki_latest_version'].state}`) return `There is an update available!`;
+                          else return `Error: Unknown Version!`; 
+                        ]]]
+                      icon: mdi:information-outline
+                      tap_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homekit-infused/releases
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homekit-infused/releases
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px
+                          - color: >
+                              [[[ 
+                                if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `green`; 
+                                else return `red`; 
+                              ]]]
+                          - animation: >
+                              [[[ 
+                                if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `none`; 
+                                else return `blink 2s ease infinite`; 
+                              ]]]
+                - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards:
+            - type: custom:gap-card
+              height: 10px
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  cards:
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Follow me on Youtube
+                      icon: mdi:youtube
+                      tap_action:
+                        action: url
+                        url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px                      
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Follow me on Github
+                      icon: mdi:github-box
+                      tap_action:
+                        action: url
+                        url_path: https://www.github.com/jimz011/homeassistant
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://www.github.com/jimz011/homeassistant
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px                      
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Follow me on the HA Forums
+                      icon: mdi:home-assistant
+                      tap_action:
+                        action: url
+                        url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px
+                - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards:
+            - type: custom:gap-card
+              height: 10px
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  cards:
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Feature Requests
+                      icon: mdi:plus-circle-outline
+                      tap_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Bug Reports & Issues
+                      icon: mdi:bug
+                      tap_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - font-size: 12px  
+                    - type: custom:button-card
+                      aspect_ratio: 5/1
+                      layout: icon_name_state2nd
+                      size: 50%
+                      entity: input_boolean.dummy1
+                      name: Support this project
+                      label: Paypal
+                      show_label: true
+                      icon: mdi:alpha-p-circle-outline
+                      tap_action:
+                        action: url
+                        url_path: https://www.paypal.me/JimmySchings
+                        haptic: light
+                      hold_action:
+                        action: url
+                        url_path: https://www.paypal.me/JimmySchings
+                        haptic: heavy
+                      styles:
+                        card:
+                            
+                            
+                          - opacity: 0.8
+                        name:
+                          - font-size: 14px
+                        state:
+                          - font-size: 12px
+                        label:
+                          - color: var(--primary-text-color)
+                          - font-size: 12px  
+                - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards:
+            - type: custom:gap-card
+              height: 10px
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background: rgba(0, 0, 0, 0.5);
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow)
+                          font-size: 13px;
+                          font-family: Helvetica;
+                          color: white;
+                        }                    
+                      content: Homekit Infused 2020 created by Jimz011
+                - !include ../includes/blank-card.yaml

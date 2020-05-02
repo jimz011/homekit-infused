@@ -1,0 +1,439 @@
+# lovelace_gen
+- title: Vacuum
+  path: vacuum
+  icon: mdi:robot-vacuum
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_vacuum
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_vacuum
+                system_header: input_boolean.header_secondary_vacuum
+                icon: "[[[ return `${states['input_text.icon_header_vacuum'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_vacuum'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.vacuum|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_vacuum
+                icon: "[[[ return `${states['input_text.icon_header_vacuum'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_vacuum'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: vacuum_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_status
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: vertical-stack
+                cards:
+                  - !include
+                    - '../templates/button_vacuum_popup.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.name_status_information'].state ]]]"
+                      icon: "[[[ return states['input_text.icon_info'].state ]]]"
+                      size: 10%
+                      aspect_ratio: 5/1
+                      show_label: false
+                      show_state: false
+                      margin_right: 128px
+                      template: popup_vacuum_info.yaml
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_controls
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_controls'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:state-switch
+                    entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    default: default
+                    states:
+                      default:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_start'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_play'].state ]]]"
+                          service: vacuum.start
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          margin_right: 40px
+                      cleaning:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_start'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_play'].state ]]]"
+                          service: vacuum.start
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          opacity_off: 1.0
+                          margin_right: 40px
+                          card_color_off: 'white'
+                          icon_color_off: 'Green'
+                          name_color_off: 'black'
+                          label_color_off: 'black'
+                          animation: blink 2s ease infinite
+                  - type: custom:state-switch
+                    entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    default: default
+                    states:
+                      default:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_pause'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_pause'].state ]]]"
+                          service: vacuum.pause
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          margin_right: 40px
+                      paused:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_pause'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_pause'].state ]]]"
+                          service: vacuum.pause
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          opacity_off: 1.0
+                          margin_right: 40px
+                          card_color_off: 'white'
+                          icon_color_off: 'Orange'
+                          name_color_off: 'black'
+                          label_color_off: 'black'
+                          animation: blink 2s ease infinite
+                  - type: custom:state-switch
+                    entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    default: default
+                    states:
+                      default:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_stop'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_stop'].state ]]]"
+                          service: vacuum.return_to_base
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          margin_right: 40px
+                      returning:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_stop'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_stop'].state ]]]"
+                          service: vacuum.return_to_base
+                          service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                          opacity_off: 1.0
+                          margin_right: 40px
+                          card_color_off: 'white'
+                          icon_color_off: 'Red'
+                          name_color_off: 'black'
+                          label_color_off: 'black'
+                          animation: blink 2s ease infinite
+                  - !include
+                    - '../templates/button_service_call.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.name_find_me'].state ]]]"
+                      icon: mdi:map-marker
+                      service: vacuum.locate
+                      service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                      icon_color_off: MediumVioletRed
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_modes
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_mode'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:layout-card
+                    min_columns: 4
+                    max_columns: 4
+                    justify_content: start
+                    layout: horizontal
+                    cards:
+                      - type: custom:state-switch
+                        entity: input_select.xiaomi_vacuum
+                        default: default
+                        states:
+                          default:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_quiet'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              size: 15%
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              option: Silent
+                          Silent:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_quiet'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              size: 15%
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              opacity_off: 1.0
+                              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `white`; ]]]"
+                              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `Dodgerblue`; ]]]"
+                              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `black` ]]]"
+                              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `gray` ]]]"
+                              spin_off: true
+                              option: Silent
+                      - type: custom:state-switch
+                        entity: input_select.xiaomi_vacuum
+                        default: default
+                        states:
+                          default:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_turbo'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              size: 20%
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              option: Medium
+                          Medium:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_turbo'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              size: 20%
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              opacity_off: 1.0
+                              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `white`; ]]]"
+                              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `Dodgerblue`; ]]]"
+                              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `black` ]]]"
+                              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `gray` ]]]"
+                              spin_off: true
+                              option: Medium
+                      - type: custom:state-switch
+                        entity: input_select.xiaomi_vacuum
+                        default: default
+                        states:
+                          default:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_max'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              option: Turbo
+                          Turbo:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_max'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_fan'].state ]]]"
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              opacity_off: 1.0
+                              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `white`; ]]]"
+                              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `Dodgerblue`; ]]]"
+                              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `black` ]]]"
+                              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `gray` ]]]"
+                              spin_off: true
+                              option: Turbo
+                      - type: custom:state-switch
+                        entity: input_select.xiaomi_vacuum
+                        default: default
+                        states:
+                          default:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_balanced'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_sync'].state ]]]"
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              option: Standard
+                          Standard:
+                            !include
+                            - '../templates/button_service_call_option.yaml'
+                            - entity: input_boolean.dummy1
+                              name: "[[[ return states['input_text.name_balanced'].state ]]]"
+                              icon: "[[[ return states['input_text.icon_sync'].state ]]]"
+                              service_entity: input_select.xiaomi_vacuum
+                              margin_right: 40px
+                              opacity_off: 1.0
+                              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `white`; ]]]"
+                              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `Orange`; ]]]"
+                              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `black` ]]]"
+                              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `gray` ]]]"
+                              spin_off: true
+                              option: Standard
+                  - !include ../includes/blank-card.yaml
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:state-switch
+                    entity: input_select.xiaomi_vacuum
+                    default: default
+                    states:
+                      default:
+                        !include
+                        - '../templates/button_service_call_option.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_mop'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_mop'].state ]]]"
+                          size: 8%
+                          aspect_ratio: 6/1
+                          show_label: false
+                          show_state: false
+                          service_entity: input_select.xiaomi_vacuum
+                          margin_right: 300px
+                          option: Gentle
+                      Gentle:
+                        !include
+                        - '../templates/button_service_call_option.yaml'
+                        - entity: input_boolean.dummy1
+                          name: "[[[ return states['input_text.name_mop'].state ]]]"
+                          icon: "[[[ return states['input_text.icon_mop'].state ]]]"
+                          size: 8%
+                          aspect_ratio: 6/1
+                          show_label: false
+                          show_state: false
+                          service_entity: input_select.xiaomi_vacuum
+                          margin_right: 300px
+                          opacity_off: 1.0
+                          card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `white`; ]]]"
+                          icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `Navy`; ]]]"
+                          name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `black` ]]]"
+                          label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `gray` ]]]"
+                          spin_off: true
+                          option: Gentle
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_live_map
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_floorplan_label'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:xiaomi-vacuum-map-card
+                    style: |
+                      ha-card {
+                        background: var(--paper-card-background-color);
+                        color: var(--primary-text-color);
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow)
+                      }
+                    entity: {{ _global.vacuum.entity_id|default('vacuum.xiaomi_vacuum_cleaner') }}
+                    map_camera: {{ _global.vacuum.camera_entity_id|default('camera.rockrobo_map') }}
+                    calibration_points:
+                      !include ../../user_content/vacuum_calibration.yaml
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_presets
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_presets'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - !include
+                    - '../templates/button_service_call_command_params.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.vacuum_preset_button_1_name'].state ]]]"
+                      icon: "[[[ return states['input_text.vacuum_preset_button_1_icon'].state ]]]"
+                      service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                      params: "[[[ return states['input_text.vacuum_preset_button_1_coordinates'].state ]]]"
+                  - !include
+                    - '../templates/button_service_call_command_params.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.vacuum_preset_button_2_name'].state ]]]"
+                      icon: "[[[ return states['input_text.vacuum_preset_button_2_icon'].state ]]]"
+                      service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                      params: "[[[ return states['input_text.vacuum_preset_button_2_coordinates'].state ]]]"
+                  - !include
+                    - '../templates/button_service_call_command_params.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.vacuum_preset_button_3_name'].state ]]]"
+                      icon: "[[[ return states['input_text.vacuum_preset_button_3_icon'].state ]]]"
+                      service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                      params: "[[[ return states['input_text.vacuum_preset_button_3_coordinates'].state ]]]"
+                  - !include
+                    - '../templates/button_service_call_command_params.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return states['input_text.vacuum_preset_button_4_name'].state ]]]"
+                      icon: "[[[ return states['input_text.vacuum_preset_button_4_icon'].state ]]]"
+                      service_entity: "[[[ return states['input_text.vacuum_entity'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                      params: "[[[ return states['input_text.vacuum_preset_button_4_coordinates.state ]]]"
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                     
+        - type: conditional
+          conditions:
+            - entity: input_boolean.vacuum_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/vacuum_user_content.yaml
+              - !include ../includes/blank-card.yaml   
+          

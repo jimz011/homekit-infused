@@ -1,0 +1,193 @@
+# lovelace_gen
+- title: Weather
+  path: weather
+  icon: mdi:information-outline
+  cards:   
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_weather          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_weather
+                system_header: input_boolean.header_secondary_weather
+                icon: "[[[ return `${states['input_text.icon_header_weather'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_weather'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.weather|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_weather
+                icon: "[[[ return `${states['input_text.icon_header_weather'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_weather'].state}` ]]]"
+  {% raw %}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: weather_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.weather_air_visual
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                min_columns: 1
+                justify_content: start
+                layout: vertical
+                cards:
+                  - type: "custom:config-template-card"
+                    entities:
+                      - input_text.air_pollution_level
+                      - input_text.air_quality_index
+                      - input_text.main_pollutant
+                      - input_text.weather_entity
+                      - input_text.city
+                    card:
+                      type: custom:air-visual-card
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          overflow: hidden;
+                        }
+                      air_pollution_level: "${states['input_text.air_pollution_level'].state}"
+                      air_quality_index: "${states['input_text.air_quality_index'].state}"
+                      main_pollutant: "${states['input_text.main_pollutant'].state}"
+                      temp: "${states['input_text.weather_entity'].state}"
+                      city: "${states['input_text.city'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.weather_card
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                min_columns: 1
+                justify_content: start
+                layout: vertical
+                cards:
+                  - type: "custom:config-template-card"
+                    entities:
+                      - input_text.air_pollution_level
+                      - input_text.air_quality_index
+                      - input_text.main_pollutant
+                      - input_text.weather_entity
+                      - input_text.city
+                    card:
+                      type: custom:weather-card
+                      style: |
+                        ha-card {
+                          font-size: 12px;
+                          font-family: Helvetica;
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          opacity: 0.8;
+                        }
+                      entity: "${states['input_text.weather_entity'].state}"
+                      current: true
+                      details: true
+                      forecast: true
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.weather_iframe_1
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - type: "custom:config-template-card"
+                    entities:
+                      - input_text.weather_iframe_1
+                    card:
+                      type: iframe
+                      style: |
+                        ha-card {
+                          position: relative !important;
+                          overflow: hidden !important;
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          -webkit-border-radius: var(--border-radius);
+                          border-radius-x: var(--border-radius) !important;
+                        }
+                        iframe {
+                          border-radius: var(--border-radius) !important;
+                          -webkit-border-radius: var(--border-radius);
+                          border-radius-x: var(--border-radius) !important;
+                          overflow: hidden !important;
+                        }
+                      aspect_ratio: 100%
+                      url: "${states['input_text.weather_iframe_1'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.weather_iframe_2
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - type: "custom:config-template-card"
+                    entities:
+                      - input_text.weather_iframe_2
+                    card:
+                      type: iframe
+                      style: |
+                        ha-card {
+                          position: relative !important;
+                          overflow: hidden !important;
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          -webkit-border-radius: var(--border-radius);
+                          border-radius-x: var(--border-radius) !important;
+                        }
+                        iframe {
+                          border-radius: var(--border-radius) !important;
+                          -webkit-border-radius: var(--border-radius);
+                          border-radius-x: var(--border-radius) !important;
+                          overflow: hidden !important;
+                        }
+                      aspect_ratio: 100%
+                      url: "${states['input_text.weather_iframe_2'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                     
+        - type: conditional
+          conditions:
+            - entity: input_boolean.weather_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/weather_user_content.yaml
+              - !include ../includes/blank-card.yaml   
+  {% endraw %}

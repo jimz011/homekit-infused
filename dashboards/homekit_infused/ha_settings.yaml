@@ -1,0 +1,90 @@
+- title: HA Settings
+  path: ha_settings
+  icon: mdi:cogs
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Home Assistant Settings
+            icon: mdi:cogs
+            content: "[[[ return `HA ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: nothing_to_edit.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              min_columns: 3
+              max_columns: 3
+              justify_content: start
+              layout: horizontal
+              cards:
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Reload
+                    label: Core Config
+                    icon: mdi:home-assistant
+                    service: homeassistant.reload_core_config
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to reload core config?` ]]]"
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Reload
+                    label: Groups
+                    icon: mdi:account-multiple-plus
+                    service: group.reload
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to reload groups? This feature might not work well!` ]]]"
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Reload
+                    label: Themes
+                    icon: mdi:format-color-fill
+                    service: frontend.reload_themes
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to reload themes?` ]]]"
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Reload
+                    label: Automations
+                    icon: mdi:alpha-a-box
+                    service: automation.reload
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to reload automations?` ]]]"
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Reload
+                    label: Lovelace
+                    icon: mdi:cards-heart
+                    service: browser_mod.lovelace_reload
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to reload lovelace? This might take up to 30 seconds!` ]]]"
+                - !include
+                  - '../templates/button_service_call_home_assistant.yaml'
+                  - entity: input_boolean.dummy1
+                    name: Restart
+                    label: Home Assistant
+                    icon: mdi:restart
+                    service: homeassistant.restart
+                    margin_right: 40px
+                    opacity_off: 0.8
+                    confirmation: "[[[ return `Are you sure you want to restart Home Assistant?` ]]]"
+            - !include ../includes/blank-card.yaml

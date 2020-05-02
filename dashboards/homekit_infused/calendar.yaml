@@ -1,0 +1,102 @@
+- title: Calendar
+  path: calendar
+  icon: mdi:calendar
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - name: "[[[ return `${states['input_select.calendar_view'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.calendar_view
+            content: "[[[ return `${states['input_text.name_header_calendar'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: calendar_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.calendar_view
+              state: "Family Calendar"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:config-template-card
+                entities:
+                  - input_text.family_calendar_entity
+                card:
+                  type: custom:calendar-card
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  numberOfDays: 60
+                  dateTopFormat: DD/MM
+                  hideHeader: true
+                  entities:
+                    - "${states['input_text.family_calendar_entity'].state}"
+                  showColors: true
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.calendar_view
+              state: "Birthdays"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:config-template-card
+                entities:
+                  - input_text.birthday_calendar_entity
+                card:
+                  type: custom:calendar-card
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  numberOfDays: 180
+                  dateTopFormat: DD/MM
+                  hideHeader: true
+                  entities:
+                    - "${states['input_text.birthday_calendar_entity'].state}"
+                  showColors: true
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
+        - type: conditional
+          conditions:
+            - entity: input_boolean.calendar_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/calendar_user_content.yaml
+              - !include ../includes/blank-card.yaml                  

@@ -1,0 +1,31 @@
+view_css: 'padding-top: 83px !important'
+hide_header: false
+footer_mode: true
+compact_mode: true
+# split_mode: true
+menu_hide: true
+voice_hide: true
+chevrons: false
+reverse_tab_direction: "{{ states('input_select.footer_direction_backend') }}"
+reverse_button_direction: "{{ states('input_select.footer_direction_backend') }}"
+options_hide: false
+hide_help: true
+hide_unused: true
+hide_refresh: true
+hide_config: true
+hide_raw: true
+# default_tab: home
+shadow: 'false'
+show_tabs:  
+  - home
+  - menu
+all_tabs_css: "color: var(--header-color) !important;"
+hidden_tab_redirect: false
+# header_text: "{{ viewTitle }}"
+# header_text_css: 'font-weight: bold;'
+options_css: "color: var(--header-color) !important;"
+button_text:
+  options: "&nbsp; {{ user }}"
+tab_icons:
+  menu: "{{ states('input_text.icon_footer_menu') }}"
+  home: "{{ states('input_text.icon_footer_home') }}"

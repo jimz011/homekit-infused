@@ -1,0 +1,44 @@
+# lovelace_gen
+
+- title: Custom D
+  path: custom_d
+  icon: mdi:account-plus
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_custom_d          
+          states:
+            "off":
+              !include
+              - '../../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_custom_d
+                system_header: input_boolean.header_secondary_custom_d
+                icon: "[[[ return `${states['input_text.icon_header_custom_d'].state}` ]]]"
+                {% raw %}
+                content: "[[[ return `${states['input_text.name_header_custom_d'].state}` ]]]"
+                {% endraw %}
+            "on":
+              !include
+              - '../../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.custom_d|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_custom_d
+                icon: "[[[ return `${states['input_text.icon_header_custom_d'].state}` ]]]"
+{% raw %}
+                content: "[[[ return `${states['input_text.name_header_custom_d'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../../templates/edit_mode_warning.yaml'
+            - template: custom_d_layout_popup.yaml
+{% endraw %}
+        - type: horizontal-stack
+          cards:
+            - !include ../../includes/blank-card.yaml
+            - type: vertical-stack
+              cards:
+                !include ../../../user_content/views/user/custom_user_content_view_d.yaml
+            - !include ../../includes/blank-card.yaml

@@ -1,0 +1,178 @@
+# lovelace_gen
+- title: Climate
+  path: climate
+  icon: mdi:thermostat
+  cards:
+    - type: vertical-stack 
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_climate          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_climate
+                system_header: input_boolean.header_secondary_climate
+                icon: "[[[ return `${states['input_text.icon_header_climate'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_climate'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.climate|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_climate
+                icon: "[[[ return `${states['input_text.icon_header_climate'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_climate'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: climate_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_presets
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                min_columns: 4
+                max_columns: 4
+                justify_content: start
+                layout: horizontal
+                cards:
+                  - !include
+                    - '../templates/button_service_call.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return `${states['input_text.name_power'].state}` ]]]"
+                      label: "[[[ return `${states['input_text.name_on'].state}` ]]]"
+                      icon: "[[[ return `${states['input_text.icon_power'].state}` ]]]"
+                      service: climate.turn_on
+                      service_entity: all
+                      margin_right: 40px
+                      opacity_off: 0.8
+                  - !include
+                    - '../templates/button_service_call_option.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return `${states['input_text.name_frost'].state}` ]]]"
+                      label: "[[[ return `${states['input_text.name_protection'].state}` ]]]"
+                      icon: "[[[ return `${states['input_text.icon_frost'].state}` ]]]"
+                      service: climate.set_temperature
+                      service_entity: all
+                      extra: temperature
+                      option: "[[[ return states['input_text.frost_protection_temperature'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                  - !include
+                    - '../templates/button_service_call_option.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return `${states['input_text.name_heat'].state}` ]]]"
+                      label: "[[[ return `${states['input_text.name_all'].state}` ]]]"
+                      icon: "[[[ return `${states['input_text.icon_heat'].state}` ]]]"
+                      service: climate.set_temperature
+                      service_entity: all
+                      extra: temperature
+                      option: "[[[ return states['input_text.heat_all_temperature'].state ]]]"
+                      margin_right: 40px
+                      opacity_off: 0.8
+                  - !include
+                    - '../templates/button_service_call.yaml'
+                    - entity: input_boolean.dummy1
+                      name: "[[[ return `${states['input_text.name_power'].state}` ]]]"
+                      label: "[[[ return `${states['input_text.name_off'].state}` ]]]"
+                      icon: "[[[ return `${states['input_text.icon_power'].state}` ]]]"
+                      service: climate.turn_off
+                      service_entity: all
+                      margin_right: 40px
+                      opacity_off: 0.8
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_thermostat
+              state: "on"
+          card:
+            type: custom:state-switch
+            entity: input_select.climate_columns
+            states:
+              "3":
+                !include
+                - '../templates/auto_fill_thermostat_template.yaml'
+                - group: group.all_climate_entities
+                  content: "[[[ return `${states['input_text.name_thermostat'].state}` ]]]"
+                  lock: "[[[ return states['input_boolean.climate_thermostat_lock'].state === 'on' ]]]"
+                  columns: 3
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_fans
+              state: "on"
+          card:
+            type: custom:state-switch
+            entity: input_select.climate_columns
+            states:
+              "3":
+                !include
+                - '../templates/auto_fill_fan_template.yaml'
+                - group_fans: group.all_fans
+                  content: "[[[ return `${states['input_text.name_fans'].state}` ]]]"
+                  lock: "[[[ return states['input_boolean.climate_fan_lock'].state === 'on' ]]]"
+                  columns: 3
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_temperature
+              state: "on"
+          card:
+            !include
+            - '../templates/auto_fill_climate_sensors_template.yaml'
+            - group: group.all_temperature_sensors
+              content: "[[[ return `${states['input_text.name_temperature'].state}` ]]]"
+              color: red
+              sort: "${states['input_select.temperature_sorting_method'].state}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_humidity
+              state: "on"
+          card:
+            !include
+            - '../templates/auto_fill_climate_sensors_template.yaml'
+            - group: group.all_humidity_sensors
+              content: "[[[ return `${states['input_text.name_humidity'].state}` ]]]"
+              color: blue
+              sort: "${states['input_select.humidity_sorting_method'].state}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_air_pressure
+              state: "on"
+          card:
+            !include
+            - '../templates/auto_fill_climate_sensors_template.yaml'
+            - group: group.all_air_pressure_sensors
+              content: "[[[ return `${states['input_text.name_air_pressure'].state}` ]]]"
+              color: purple
+              sort: "${states['input_select.air_pressure_sorting_method'].state}"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.climate_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/climate_user_content.yaml
+              - !include ../includes/blank-card.yaml

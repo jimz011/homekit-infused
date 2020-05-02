@@ -1,0 +1,147 @@
+# lovelace_gen
+- title: Alarm
+  path: alarm
+  icon: mdi:alert
+  cards:   
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_alarm          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_alarm
+                system_header: input_boolean.header_secondary_alarm
+                icon: "[[[ return `${states['input_text.icon_header_alarm'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_alarm'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.alarm|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_alarm
+                icon: "[[[ return `${states['input_text.icon_header_alarm'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_alarm'].state}` ]]]"
+  {% raw %}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: alarm_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.alarm_keypad
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: vertical-stack
+                cards: 
+                  - type: custom:button-card
+                    icon: mdi:lock-open-outline
+                    name: Disarm
+                    confirmation:
+                      text: Are you sure you want to disarm the alarm?
+                    layout: icon_name_state
+                    size: 50%
+                    tap_action:
+                      action: call-service
+                      service: alarm_control_panel.alarm_disarm
+                      service_data:
+                        entity_id: "[[[ return states['input_text.alarm_entity'].state ]]]"
+                        code: "[[[ return states['input_text.alarm_code'].state ]]]"
+                      haptic: light
+                    hold_action:
+                      action: none
+                    styles:
+                      card:
+                        - opacity: 0.7
+                        - border-radius: var(--border-radius)
+                        - height: 65px
+                        - --ha-card-background: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'disarmed') return 'white'; else return 'var(--paper-card-background-color)' ]]]"
+                      name:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'disarmed') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                      icon:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'disarmed') return 'LimeGreen'; else return 'var(--paper-card-icon-color)' ]]]"
+                  - type: custom:button-card
+                    icon: mdi:lock-outline
+                    name: Arm Home
+                    confirmation:
+                      text: Are you sure you want to arm the alarm for Home?
+                    layout: icon_name_state
+                    size: 50%
+                    tap_action:
+                      action: call-service
+                      service: alarm_control_panel.alarm_arm_home
+                      service_data:
+                        entity_id: "[[[ return states['input_text.alarm_entity'].state ]]]"
+                        code: "[[[ return states['input_text.alarm_code'].state ]]]"
+                      haptic: light
+                    hold_action:
+                      action: none
+                    styles:
+                      card:
+                        - opacity: 0.7
+                        - border-radius: var(--border-radius)
+                        - height: 65px
+                        - --ha-card-background: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_home') return 'white'; else return 'var(--paper-card-background-color)' ]]]"
+                      name:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_home') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                      icon:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_home') return 'Orange'; else return 'var(--paper-card-icon-color)' ]]]"
+                  - type: custom:button-card
+                    icon: mdi:lock-outline
+                    name: Arm Away
+                    confirmation:
+                      text: Are you sure you want to arm the alarm for Away?
+                    layout: icon_name_state
+                    size: 50%
+                    tap_action:
+                      action: call-service
+                      service: alarm_control_panel.alarm_away
+                      service_data:
+                        entity_id: "[[[ return states['input_text.alarm_entity'].state ]]]"
+                        code: "[[[ return states['input_text.alarm_code'].state ]]]"
+                      haptic: light
+                    hold_action:
+                      action: none
+                    styles:
+                      card:
+                        - opacity: 0.7
+                        - border-radius: var(--border-radius)
+                        - height: 65px
+                        - --ha-card-background: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_away') return 'white'; else return 'var(--paper-card-background-color)' ]]]"
+                      name:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_away') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                      icon:
+                        - color: "[[[ if (states[`${states['input_text.alarm_entity'].state}`].state == 'armed_away') return 'DarkRed'; else return 'var(--paper-card-icon-color)' ]]]"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards: 
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.alarm_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards: 
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/alarm_user_content.yaml
+              - !include ../includes/blank-card.yaml
+  {% endraw %}

@@ -1,0 +1,105 @@
+- title: Person_2
+  path: person_2
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_alternate.yaml'
+          - name: "[[[ return `${states['input_select.person_menu_2'].state}` ]]]"
+            font_weight: bold
+            entity: input_select.person_menu_2
+            content: "[[[ return `${states['input_text.person_2_name'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: person_2_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Overview"
+          card:
+            type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.user_content_message
+                    state: "on"
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - !include ../includes/blank-card.yaml   
+                    - type: custom:layout-card
+                      cards:
+                        - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+                    - !include ../includes/blank-card.yaml                     
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.person_02_user_content
+                    state: "on"
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - !include ../includes/blank-card.yaml   
+                    - type: custom:layout-card
+                      cards:
+                        !include ../../user_content/views/person_2_user_content.yaml
+                    - !include ../includes/blank-card.yaml   
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Location"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:config-template-card
+                entities:
+                  - input_text.person_2_entity
+                card:
+                  type: map
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  aspect_ratio: 4x7
+                  default_zoom: 15
+                  entities:
+                    - "${states['input_text.person_2_entity'].state}"
+              - !include ../includes/blank-card.yaml   
+        - type: conditional
+          conditions:
+            - entity: input_select.person_menu_2
+              state: "Calendar"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:config-template-card
+                entities:
+                  - input_text.person_2_calendar_entity
+                card:
+                  type: custom:calendar-card
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      font-family: Helvetica;
+                      font-size: 12px;
+                      opacity: 0.8;
+                      overflow: hidden;
+                    }
+                  numberOfDays: 14
+                  hideHeader: true
+                  entities:
+                    - "${states['input_text.person_2_calendar_entity'].state}"
+                  showColors: true
+              - !include ../includes/blank-card.yaml  
