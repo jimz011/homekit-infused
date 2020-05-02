@@ -42,8 +42,9 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Bar Card](https://github.com/custom-cards/bar-card) | Module | No | This creates great looking bars for use in graphs. Not required, but handy if you want to use custom addons like noodlemctwoodles unraid addon for HKI |
 | [Gap Card](https://github.com/thomasloven/lovelace-gap-card) | Module | Yes | This creates a gap between the screenborders, this will eventually replace all the blank-buttons HKI currently has |
-| [Text Input Row](https://github.com/gadgetchnnel/lovelace-text-input-row) | js | Yes | This is needed to make input_text more readable |
+| [Text Input Row](https://github.com/gadgetchnnel/lovelace-text-input-row) | Module | Yes | This is needed to make input_text more readable |
 | [Config Template Card](https://github.com/iantrich/config-template-card) | Module | Yes | This is needed to read some templates on some views/cards, don't skip this |
 | [Search Card](https://github.com/postlund/search-card) | Module | No | This is the search card widget for the frontpage |
 | [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
@@ -55,13 +56,13 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 | [Custom Header](https://github.com/maykar/custom-header) | Module | Yes | This is used to modify the standard Home Assistant header |
 | [More Info Card](https://github.com/thomasloven/lovelace-more-info-card) | Module | Yes | This card is used in most popups |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Module | Yes | This is needed for various custom cards to run |
-| [Check Button Card](https://github.com/custom-cards/check-button-card) | js | Yes | This is the used in the cleaning view and makes checklists possible |
+| [Check Button Card](https://github.com/custom-cards/check-button-card) | Module | Yes | This is the used in the cleaning view and makes checklists possible |
 | [Vertical-Stack-in-Card](https://github.com/custom-cards/vertical-stack-in-card) | js | Yes | This is like an entities-card but serves only for one purpose, to make cards tighter together and look like a single card |
 | [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Module | Yes | This is the weather banner found on the frontpage |
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Module | Yes | This card is needed for the scrolling notifications, but also for most popups |
 | [State Switch](https://github.com/thomasloven/state-switch) | Module | Yes | This card is an addition to conditional-cards, it works similar but has some extra features |
-| [Air Visual Card](https://github.com/dnguyen800/air-visual-card) | js | Yes | This card is used in the weather view |
-| [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | js | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr |
+| [Air Visual Card](https://github.com/dnguyen800/air-visual-card) | Module | Yes | This card is used in the weather view |
+| [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | Module | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr |
 | [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card) | Module | No | This is the map card used for vacuum cleaners |
 | [GUI Sandbox Card](https://github.com/thomasloven/lovelace-gui-sandbox) | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
 | [Light Popup Card](https://github.com/DBuit/light-popup-card) | Module | Yes | These are the popup cards used for lights and switches|
@@ -104,6 +105,7 @@ To copy the files you will need all the following files/folders from my repo.
 - Copy the `/packages/` folder to the root of your setup
 - Copy the `/user_content/` folder to the root of your setup
 - Copy the `/www/` folder to the root of your setup
+- Copy the `/python_scripts/` folder to the root of your setup
 - Copy the `appdaemon/` folder to the root of your setup. (If you already use AppDaemon, please copy the file text_states_load.py to your /appdaemon/apps/ folder and copy the corresponding apps from apps.yaml into your own apps.yaml file)
 - Add the following line to your `configuration.yaml` file
 ```
