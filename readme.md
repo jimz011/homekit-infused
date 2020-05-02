@@ -8,11 +8,15 @@ My current Home Assistant version is 0.109.2
 ## Coming Soon! Open Beta now available!
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
+## [Click here](https://discord.gg/WZvK4Cb) To join our Discord Server which I maintain with @Dwains. With over 500+ members from noobs to pro's. You'll be sure to get your answers fast here!
+
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
 ### [Click here](https://github.com/jimz011/homekit-infused/archive/2.0.0b9.zip) to download the current (beta) release
 ### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases
 ### [Click here](https://github.com/jimz011/homekit-infused/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
+
+
 
 #### About
 Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 90% configurable through the Homekit Infused interface! The other 10% is still super easy to setup. Your views will be auto-filled with your own entities and all you'd need to do is set up a single file! But WAIT!!!!! There is more..........
@@ -43,9 +47,6 @@ This project is a pretty heavy setup, I don't and never will recommend this to b
 ### Questions and Support
 
 Please ask any question you have on the [HA Community Forums](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
-
-#### Or join our Discord Server which I maintain with @Dwains:
-[CLICK HERE](https://discord.gg/WZvK4Cb)
 
 #### Featured Theme
 Dwains Theme is a beautiful theme created by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme). I will recommend this theme as an alternative to HKI when you are using lighter hardware.
