@@ -1,0 +1,2466 @@
+automation:
+  - alias: 'room_b1_reset'
+    id: 'room_b1_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '1'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_b1_standard_lights
+          entities: >
+            {{ states('input_text.room_b1_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_rgb_lights
+          entities: >
+            {{ states('input_text.room_b1_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_b1_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_switches
+          entities: >
+            {{ states('input_text.room_b1_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_sensors
+          entities: >
+            {{ states('input_text.room_b1_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_binary_sensors
+          entities: >
+            {{ states('input_text.room_b1_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_climate
+          entities: >
+            {{ states('input_text.room_b1_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_media_players
+          entities: >
+            {{ states('input_text.room_b1_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_b1_covers
+          entities: >
+            {{ states('input_text.room_b1_covers') }}
+
+  - alias: 'room_b2_reset'
+    id: 'room_b2_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_b2_standard_lights
+          entities: >
+            {{ states('input_text.room_b2_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_rgb_lights
+          entities: >
+            {{ states('input_text.room_b2_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_b2_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_switches
+          entities: >
+            {{ states('input_text.room_b2_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_sensors
+          entities: >
+            {{ states('input_text.room_b2_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_binary_sensors
+          entities: >
+            {{ states('input_text.room_b2_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_climate
+          entities: >
+            {{ states('input_text.room_b2_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_media_players
+          entities: >
+            {{ states('input_text.room_b2_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_b2_covers
+          entities: >
+            {{ states('input_text.room_b2_covers') }}
+
+  - alias: 'room_b3_reset'
+    id: 'room_b3_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_b3_standard_lights
+          entities: >
+            {{ states('input_text.room_b3_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_rgb_lights
+          entities: >
+            {{ states('input_text.room_b3_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_b3_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_switches
+          entities: >
+            {{ states('input_text.room_b3_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_sensors
+          entities: >
+            {{ states('input_text.room_b3_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_binary_sensors
+          entities: >
+            {{ states('input_text.room_b3_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_climate
+          entities: >
+            {{ states('input_text.room_b3_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_media_players
+          entities: >
+            {{ states('input_text.room_b3_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_b3_covers
+          entities: >
+            {{ states('input_text.room_b3_covers') }}
+
+  - alias: 'room_b4_reset'
+    id: 'room_b4_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_b4_standard_lights
+          entities: >
+            {{ states('input_text.room_b4_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_rgb_lights
+          entities: >
+            {{ states('input_text.room_b4_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_b4_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_switches
+          entities: >
+            {{ states('input_text.room_b4_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_sensors
+          entities: >
+            {{ states('input_text.room_b4_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_binary_sensors
+          entities: >
+            {{ states('input_text.room_b4_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_climate
+          entities: >
+            {{ states('input_text.room_b4_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_media_players
+          entities: >
+            {{ states('input_text.room_b4_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_b4_covers
+          entities: >
+            {{ states('input_text.room_b4_covers') }}
+  - alias: 'room_b5_reset'
+    id: 'room_b5_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_b_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_b5_standard_lights
+          entities: >
+            {{ states('input_text.room_b5_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_rgb_lights
+          entities: >
+            {{ states('input_text.room_b5_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_b5_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_switches
+          entities: >
+            {{ states('input_text.room_b5_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_sensors
+          entities: >
+            {{ states('input_text.room_b5_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_binary_sensors
+          entities: >
+            {{ states('input_text.room_b5_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_climate
+          entities: >
+            {{ states('input_text.room_b5_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_media_players
+          entities: >
+            {{ states('input_text.room_b5_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_b5_covers
+          entities: >
+            {{ states('input_text.room_b5_covers') }}
+
+  - alias: 'room_01_reset'
+    id: 'room_01_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '1'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20     
+      - service: group.set
+        data_template:
+          object_id: room_01_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_01_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_standard_lights
+          entities: >
+            {{ states('input_text.room_01_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_rgb_lights
+          entities: >
+            {{ states('input_text.room_01_rgb_lights') }}
+
+      - service: group.set
+        data_template:
+          object_id: room_01_switches
+          entities: >
+            {{ states('input_text.room_01_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_sensors
+          entities: >
+            {{ states('input_text.room_01_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_binary_sensors
+          entities: >
+            {{ states('input_text.room_01_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_climate
+          entities: >
+            {{ states('input_text.room_01_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_media_players
+          entities: >
+            {{ states('input_text.room_01_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_01_covers
+          entities: >
+            {{ states('input_text.room_01_covers') }}
+
+  - alias: 'room_02_reset'
+    id: 'room_02_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_02_standard_lights
+          entities: >
+            {{ states('input_text.room_02_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_rgb_lights
+          entities: >
+            {{ states('input_text.room_02_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_02_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_switches
+          entities: >
+            {{ states('input_text.room_02_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_sensors
+          entities: >
+            {{ states('input_text.room_02_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_binary_sensors
+          entities: >
+            {{ states('input_text.room_02_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_climate
+          entities: >
+            {{ states('input_text.room_02_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_media_players
+          entities: >
+            {{ states('input_text.room_02_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_02_covers
+          entities: >
+            {{ states('input_text.room_02_covers') }}
+
+  - alias: 'room_03_reset'
+    id: 'room_03_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_03_standard_lights
+          entities: >
+            {{ states('input_text.room_03_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_rgb_lights
+          entities: >
+            {{ states('input_text.room_03_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_03_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_switches
+          entities: >
+            {{ states('input_text.room_03_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_sensors
+          entities: >
+            {{ states('input_text.room_03_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_binary_sensors
+          entities: >
+            {{ states('input_text.room_03_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_climate
+          entities: >
+            {{ states('input_text.room_03_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_media_players
+          entities: >
+            {{ states('input_text.room_03_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_03_covers
+          entities: >
+            {{ states('input_text.room_03_covers') }}
+
+  - alias: 'room_04_reset'
+    id: 'room_04_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_04_standard_lights
+          entities: >
+            {{ states('input_text.room_04_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_rgb_lights
+          entities: >
+            {{ states('input_text.room_04_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_04_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_switches
+          entities: >
+            {{ states('input_text.room_04_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_sensors
+          entities: >
+            {{ states('input_text.room_04_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_binary_sensors
+          entities: >
+            {{ states('input_text.room_04_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_climate
+          entities: >
+            {{ states('input_text.room_04_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_media_players
+          entities: >
+            {{ states('input_text.room_04_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_04_covers
+          entities: >
+            {{ states('input_text.room_04_covers') }}
+
+  - alias: 'room_05_reset'
+    id: 'room_05_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_05_standard_lights
+          entities: >
+            {{ states('input_text.room_05_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_rgb_lights
+          entities: >
+            {{ states('input_text.room_05_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_05_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_switches
+          entities: >
+            {{ states('input_text.room_05_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_sensors
+          entities: >
+            {{ states('input_text.room_05_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_binary_sensors
+          entities: >
+            {{ states('input_text.room_05_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_climate
+          entities: >
+            {{ states('input_text.room_05_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_media_players
+          entities: >
+            {{ states('input_text.room_05_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_05_covers
+          entities: >
+            {{ states('input_text.room_05_covers') }}
+
+  - alias: 'room_06_reset'
+    id: 'room_06_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_06_standard_lights
+          entities: >
+            {{ states('input_text.room_06_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_rgb_lights
+          entities: >
+            {{ states('input_text.room_06_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_06_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_switches
+          entities: >
+            {{ states('input_text.room_06_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_sensors
+          entities: >
+            {{ states('input_text.room_06_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_binary_sensors
+          entities: >
+            {{ states('input_text.room_06_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_climate
+          entities: >
+            {{ states('input_text.room_06_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_media_players
+          entities: >
+            {{ states('input_text.room_06_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_06_covers
+          entities: >
+            {{ states('input_text.room_06_covers') }}
+
+  - alias: 'room_07_reset'
+    id: 'room_07_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_07_standard_lights
+          entities: >
+            {{ states('input_text.room_07_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_rgb_lights
+          entities: >
+            {{ states('input_text.room_07_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_07_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_switches
+          entities: >
+            {{ states('input_text.room_07_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_sensors
+          entities: >
+            {{ states('input_text.room_07_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_binary_sensors
+          entities: >
+            {{ states('input_text.room_07_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_climate
+          entities: >
+            {{ states('input_text.room_07_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_media_players
+          entities: >
+            {{ states('input_text.room_07_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_07_covers
+          entities: >
+            {{ states('input_text.room_07_covers') }}
+
+  - alias: 'room_08_reset'
+    id: 'room_08_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_08_standard_lights
+          entities: >
+            {{ states('input_text.room_08_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_rgb_lights
+          entities: >
+            {{ states('input_text.room_08_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_08_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_switches
+          entities: >
+            {{ states('input_text.room_08_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_sensors
+          entities: >
+            {{ states('input_text.room_08_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_binary_sensors
+          entities: >
+            {{ states('input_text.room_08_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_climate
+          entities: >
+            {{ states('input_text.room_08_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_media_players
+          entities: >
+            {{ states('input_text.room_08_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_08_covers
+          entities: >
+            {{ states('input_text.room_08_covers') }}
+
+  - alias: 'room_09_reset'
+    id: 'room_09_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_09_standard_lights
+          entities: >
+            {{ states('input_text.room_09_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_rgb_lights
+          entities: >
+            {{ states('input_text.room_09_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_09_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_switches
+          entities: >
+            {{ states('input_text.room_09_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_sensors
+          entities: >
+            {{ states('input_text.room_09_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_binary_sensors
+          entities: >
+            {{ states('input_text.room_09_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_climate
+          entities: >
+            {{ states('input_text.room_09_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_media_players
+          entities: >
+            {{ states('input_text.room_09_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_09_covers
+          entities: >
+            {{ states('input_text.room_09_covers') }}
+
+  - alias: 'room_010_reset'
+    id: 'room_010_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_0_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_010_standard_lights
+          entities: >
+            {{ states('input_text.room_010_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_rgb_lights
+          entities: >
+            {{ states('input_text.room_010_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_010_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_switches
+          entities: >
+            {{ states('input_text.room_010_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_sensors
+          entities: >
+            {{ states('input_text.room_010_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_binary_sensors
+          entities: >
+            {{ states('input_text.room_010_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_climate
+          entities: >
+            {{ states('input_text.room_010_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_media_players
+          entities: >
+            {{ states('input_text.room_010_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_010_covers
+          entities: >
+            {{ states('input_text.room_010_covers') }}
+
+  - alias: 'room_11_reset'
+    id: 'room_11_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '1'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_11_standard_lights
+          entities: >
+            {{ states('input_text.room_11_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_rgb_lights
+          entities: >
+            {{ states('input_text.room_11_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_11_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_switches
+          entities: >
+            {{ states('input_text.room_11_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_sensors
+          entities: >
+            {{ states('input_text.room_11_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_binary_sensors
+          entities: >
+            {{ states('input_text.room_11_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_climate
+          entities: >
+            {{ states('input_text.room_11_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_media_players
+          entities: >
+            {{ states('input_text.room_11_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_11_covers
+          entities: >
+            {{ states('input_text.room_11_covers') }}
+
+  - alias: 'room_12_reset'
+    id: 'room_12_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_12_standard_lights
+          entities: >
+            {{ states('input_text.room_12_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_rgb_lights
+          entities: >
+            {{ states('input_text.room_12_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_12_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_switches
+          entities: >
+            {{ states('input_text.room_12_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_sensors
+          entities: >
+            {{ states('input_text.room_12_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_binary_sensors
+          entities: >
+            {{ states('input_text.room_12_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_climate
+          entities: >
+            {{ states('input_text.room_12_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_media_players
+          entities: >
+            {{ states('input_text.room_12_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_12_covers
+          entities: >
+            {{ states('input_text.room_12_covers') }}
+
+  - alias: 'room_13_reset'
+    id: 'room_13_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_13_standard_lights
+          entities: >
+            {{ states('input_text.room_13_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_rgb_lights
+          entities: >
+            {{ states('input_text.room_13_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_13_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_switches
+          entities: >
+            {{ states('input_text.room_13_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_sensors
+          entities: >
+            {{ states('input_text.room_13_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_binary_sensors
+          entities: >
+            {{ states('input_text.room_13_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_climate
+          entities: >
+            {{ states('input_text.room_13_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_media_players
+          entities: >
+            {{ states('input_text.room_13_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_13_covers
+          entities: >
+            {{ states('input_text.room_13_covers') }}
+
+  - alias: 'room_14_reset'
+    id: 'room_14_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_14_standard_lights
+          entities: >
+            {{ states('input_text.room_14_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_rgb_lights
+          entities: >
+            {{ states('input_text.room_14_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_14_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_switches
+          entities: >
+            {{ states('input_text.room_14_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_sensors
+          entities: >
+            {{ states('input_text.room_14_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_binary_sensors
+          entities: >
+            {{ states('input_text.room_14_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_climate
+          entities: >
+            {{ states('input_text.room_14_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_media_players
+          entities: >
+            {{ states('input_text.room_14_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_14_covers
+          entities: >
+            {{ states('input_text.room_14_covers') }}
+
+  - alias: 'room_15_reset'
+    id: 'room_15_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '5'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_15_standard_lights
+          entities: >
+            {{ states('input_text.room_15_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_rgb_lights
+          entities: >
+            {{ states('input_text.room_15_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_15_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_switches
+          entities: >
+            {{ states('input_text.room_15_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_sensors
+          entities: >
+            {{ states('input_text.room_15_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_binary_sensors
+          entities: >
+            {{ states('input_text.room_15_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_climate
+          entities: >
+            {{ states('input_text.room_15_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_media_players
+          entities: >
+            {{ states('input_text.room_15_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_15_covers
+          entities: >
+            {{ states('input_text.room_15_covers') }}
+
+  - alias: 'room_16_reset'
+    id: 'room_16_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '6'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_16_standard_lights
+          entities: >
+            {{ states('input_text.room_16_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_rgb_lights
+          entities: >
+            {{ states('input_text.room_16_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_16_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_switches
+          entities: >
+            {{ states('input_text.room_16_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_sensors
+          entities: >
+            {{ states('input_text.room_16_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_binary_sensors
+          entities: >
+            {{ states('input_text.room_16_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_climate
+          entities: >
+            {{ states('input_text.room_16_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_media_players
+          entities: >
+            {{ states('input_text.room_16_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_16_covers
+          entities: >
+            {{ states('input_text.room_16_covers') }}
+
+  - alias: 'room_17_reset'
+    id: 'room_17_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '7'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_17_standard_lights
+          entities: >
+            {{ states('input_text.room_17_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_rgb_lights
+          entities: >
+            {{ states('input_text.room_17_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_17_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_switches
+          entities: >
+            {{ states('input_text.room_17_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_sensors
+          entities: >
+            {{ states('input_text.room_17_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_binary_sensors
+          entities: >
+            {{ states('input_text.room_17_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_climate
+          entities: >
+            {{ states('input_text.room_17_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_media_players
+          entities: >
+            {{ states('input_text.room_17_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_17_covers
+          entities: >
+            {{ states('input_text.room_17_covers') }}
+
+  - alias: 'room_18_reset'
+    id: 'room_18_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '8'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_18_standard_lights
+          entities: >
+            {{ states('input_text.room_18_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_rgb_lights
+          entities: >
+            {{ states('input_text.room_18_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_18_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_switches
+          entities: >
+            {{ states('input_text.room_18_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_sensors
+          entities: >
+            {{ states('input_text.room_18_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_binary_sensors
+          entities: >
+            {{ states('input_text.room_18_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_climate
+          entities: >
+            {{ states('input_text.room_18_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_media_players
+          entities: >
+            {{ states('input_text.room_18_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_18_covers
+          entities: >
+            {{ states('input_text.room_18_covers') }}
+
+  - alias: 'room_19_reset'
+    id: 'room_19_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '9'
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_19_standard_lights
+          entities: >
+            {{ states('input_text.room_19_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_rgb_lights
+          entities: >
+            {{ states('input_text.room_19_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_19_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_switches
+          entities: >
+            {{ states('input_text.room_19_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_sensors
+          entities: >
+            {{ states('input_text.room_19_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_binary_sensors
+          entities: >
+            {{ states('input_text.room_19_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_climate
+          entities: >
+            {{ states('input_text.room_19_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_media_players
+          entities: >
+            {{ states('input_text.room_19_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_19_covers
+          entities: >
+            {{ states('input_text.room_19_covers') }}
+
+  - alias: 'room_110_reset'
+    id: 'room_110_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_1_room_selector'
+          state: '10'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_110_standard_lights
+          entities: >
+            {{ states('input_text.room_110_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_rgb_lights
+          entities: >
+            {{ states('input_text.room_110_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_110_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_switches
+          entities: >
+            {{ states('input_text.room_110_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_sensors
+          entities: >
+            {{ states('input_text.room_110_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_binary_sensors
+          entities: >
+            {{ states('input_text.room_110_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_climate
+          entities: >
+            {{ states('input_text.room_110_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_media_players
+          entities: >
+            {{ states('input_text.room_110_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_110_covers
+          entities: >
+            {{ states('input_text.room_110_covers') }}
+
+
+
+
+  - alias: 'room_21_reset'
+    id: 'room_21_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '1'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_21_standard_lights
+          entities: >
+            {{ states('input_text.room_21_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_rgb_lights
+          entities: >
+            {{ states('input_text.room_21_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_21_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_switches
+          entities: >
+            {{ states('input_text.room_21_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_sensors
+          entities: >
+            {{ states('input_text.room_21_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_binary_sensors
+          entities: >
+            {{ states('input_text.room_21_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_climate
+          entities: >
+            {{ states('input_text.room_21_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_media_players
+          entities: >
+            {{ states('input_text.room_21_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_21_covers
+          entities: >
+            {{ states('input_text.room_21_covers') }}
+
+  - alias: 'room_22_reset'
+    id: 'room_22_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_22_standard_lights
+          entities: >
+            {{ states('input_text.room_22_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_rgb_lights
+          entities: >
+            {{ states('input_text.room_22_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_22_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_switches
+          entities: >
+            {{ states('input_text.room_22_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_sensors
+          entities: >
+            {{ states('input_text.room_22_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_binary_sensors
+          entities: >
+            {{ states('input_text.room_22_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_climate
+          entities: >
+            {{ states('input_text.room_22_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_media_players
+          entities: >
+            {{ states('input_text.room_22_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_22_covers
+          entities: >
+            {{ states('input_text.room_22_covers') }}
+
+  - alias: 'room_23_reset'
+    id: 'room_23_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_23_standard_lights
+          entities: >
+            {{ states('input_text.room_23_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_rgb_lights
+          entities: >
+            {{ states('input_text.room_23_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_23_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_switches
+          entities: >
+            {{ states('input_text.room_23_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_sensors
+          entities: >
+            {{ states('input_text.room_23_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_binary_sensors
+          entities: >
+            {{ states('input_text.room_23_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_climate
+          entities: >
+            {{ states('input_text.room_23_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_media_players
+          entities: >
+            {{ states('input_text.room_23_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_23_covers
+          entities: >
+            {{ states('input_text.room_23_covers') }}
+
+  - alias: 'room_24_reset'
+    id: 'room_24_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_24_standard_lights
+          entities: >
+            {{ states('input_text.room_24_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_rgb_lights
+          entities: >
+            {{ states('input_text.room_24_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_24_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_switches
+          entities: >
+            {{ states('input_text.room_24_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_sensors
+          entities: >
+            {{ states('input_text.room_24_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_binary_sensors
+          entities: >
+            {{ states('input_text.room_24_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_climate
+          entities: >
+            {{ states('input_text.room_24_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_media_players
+          entities: >
+            {{ states('input_text.room_24_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_24_covers
+          entities: >
+            {{ states('input_text.room_24_covers') }}
+  - alias: 'room_25_reset'
+    id: 'room_25_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_2_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_25_standard_lights
+          entities: >
+            {{ states('input_text.room_25_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_rgb_lights
+          entities: >
+            {{ states('input_text.room_25_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_25_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_switches
+          entities: >
+            {{ states('input_text.room_25_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_sensors
+          entities: >
+            {{ states('input_text.room_25_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_binary_sensors
+          entities: >
+            {{ states('input_text.room_25_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_climate
+          entities: >
+            {{ states('input_text.room_25_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_media_players
+          entities: >
+            {{ states('input_text.room_25_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_25_covers
+          entities: >
+            {{ states('input_text.room_25_covers') }}
+
+
+  - alias: 'room_31_reset'
+    id: 'room_31_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '1'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_31_standard_lights
+          entities: >
+            {{ states('input_text.room_31_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_rgb_lights
+          entities: >
+            {{ states('input_text.room_31_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_31_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_switches
+          entities: >
+            {{ states('input_text.room_31_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_sensors
+          entities: >
+            {{ states('input_text.room_31_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_binary_sensors
+          entities: >
+            {{ states('input_text.room_31_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_climate
+          entities: >
+            {{ states('input_text.room_31_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_media_players
+          entities: >
+            {{ states('input_text.room_31_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_31_covers
+          entities: >
+            {{ states('input_text.room_31_covers') }}
+
+  - alias: 'room_32_reset'
+    id: 'room_32_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '2'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_32_standard_lights
+          entities: >
+            {{ states('input_text.room_32_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_rgb_lights
+          entities: >
+            {{ states('input_text.room_32_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_32_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_switches
+          entities: >
+            {{ states('input_text.room_32_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_sensors
+          entities: >
+            {{ states('input_text.room_32_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_binary_sensors
+          entities: >
+            {{ states('input_text.room_32_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_climate
+          entities: >
+            {{ states('input_text.room_32_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_media_players
+          entities: >
+            {{ states('input_text.room_32_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_32_covers
+          entities: >
+            {{ states('input_text.room_32_covers') }}
+
+  - alias: 'room_33_reset'
+    id: 'room_33_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '3'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_33_standard_lights
+          entities: >
+            {{ states('input_text.room_33_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_rgb_lights
+          entities: >
+            {{ states('input_text.room_33_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_33_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_switches
+          entities: >
+            {{ states('input_text.room_33_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_sensors
+          entities: >
+            {{ states('input_text.room_33_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_binary_sensors
+          entities: >
+            {{ states('input_text.room_33_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_climate
+          entities: >
+            {{ states('input_text.room_33_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_media_players
+          entities: >
+            {{ states('input_text.room_33_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_33_covers
+          entities: >
+            {{ states('input_text.room_33_covers') }}
+
+  - alias: 'room_34_reset'
+    id: 'room_34_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '4'
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_34_standard_lights
+          entities: >
+            {{ states('input_text.room_34_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_rgb_lights
+          entities: >
+            {{ states('input_text.room_34_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_34_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_switches
+          entities: >
+            {{ states('input_text.room_34_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_sensors
+          entities: >
+            {{ states('input_text.room_34_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_binary_sensors
+          entities: >
+            {{ states('input_text.room_34_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_climate
+          entities: >
+            {{ states('input_text.room_34_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_media_players
+          entities: >
+            {{ states('input_text.room_34_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_34_covers
+          entities: >
+            {{ states('input_text.room_34_covers') }}
+  - alias: 'room_35_reset'
+    id: 'room_35_reset'
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'input_select.floor_3_room_selector'
+          state: '5'
+    action:
+      - delay:
+          seconds: 20
+      - service: group.set
+        data_template:
+          object_id: room_35_standard_lights
+          entities: >
+            {{ states('input_text.room_35_standard_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_rgb_lights
+          entities: >
+            {{ states('input_text.room_35_rgb_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_color_temperature_lights
+          entities: >
+            {{ states('input_text.room_35_color_temperature_lights') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_switches
+          entities: >
+            {{ states('input_text.room_35_switches') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_sensors
+          entities: >
+            {{ states('input_text.room_35_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_binary_sensors
+          entities: >
+            {{ states('input_text.room_35_binary_sensors') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_climate
+          entities: >
+            {{ states('input_text.room_35_climate') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_media_players
+          entities: >
+            {{ states('input_text.room_35_media_players') }}
+      - service: group.set
+        data_template:
+          object_id: room_35_covers
+          entities: >
+            {{ states('input_text.room_35_covers') }}
+
+script:
+  room_b1_reset:
+    sequence:

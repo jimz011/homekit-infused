@@ -1,0 +1,17 @@
+automation:
+  - alias: 'icon selector'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+    action:
+      - service: shell_command.icons_file 
+        data_template:
+          icons: >
+             {% if is_state('input_select.icon_selector', 'Select') %}
+               material_design
+             {% else %} 
+               {{ states('input_select.icon_selector') |lower | replace (' ','_') }}
+             {% endif %}
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.icons_states_load

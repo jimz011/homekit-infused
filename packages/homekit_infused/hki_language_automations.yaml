@@ -1,0 +1,48 @@
+automation:
+  - alias: 'language selector'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_select.language_selector
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.language_selector_backend
+          option: >
+            {% if is_state('input_select.language_selector', 'English') %}
+              English
+            {% elif is_state('input_select.language_selector', 'Deutsch') %}
+              Deutsch
+            {% elif is_state('input_select.language_selector', 'Español') %}
+              Espanol
+            {% elif is_state('input_select.language_selector', 'Español (Alternativo)') %}
+              Spanish
+            {% elif is_state('input_select.language_selector', 'Français') %}
+              Francais
+            {% elif is_state('input_select.language_selector', 'Italiano') %}
+              Italiano
+            {% elif is_state('input_select.language_selector', 'Nederlands') %}
+              Nederlands
+            {% elif is_state('input_select.language_selector', 'Português do Brasil') %}
+              Portuguesebrasil
+            {% elif is_state('input_select.language_selector', 'Norsk') %}
+              Norsk
+            {% elif is_state('input_select.language_selector', 'עִבְרִית') %}
+              Hebrew
+            {% elif is_state('input_select.language_selector', 'română') %}
+              Romanian
+            {% else %}
+              Select
+            {% endif %}
+      - service: shell_command.language_file 
+        data_template:
+          commands: >
+             {% if is_state('input_select.language_selector_backend','Select') %}
+               english
+             {% else %} 
+               {{ states('input_select.language_selector_backend') |lower }}
+             {% endif %}
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.language_states_load
+ 

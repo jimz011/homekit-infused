@@ -1,0 +1,849 @@
+
+# Required Configuration file for HKI, it is best to leave this alone!
+
+lovelace_gen: !include ../../user_content/extra_settings.yaml
+
+homeassistant:
+  customize_glob:
+    "input_boolean.button_alarm_*":
+      friendly_name: Alarm
+      icon: mdi:alert
+    "input_boolean.button_climate_*":
+      friendly_name: Climate
+      icon: mdi:thermostat
+    "input_boolean.button_light_*":
+      friendly_name: Light
+      icon: mdi:floor-lamp
+    "input_boolean.button_device_*":
+      friendly_name: Device
+      icon: mdi:power-plug
+    "input_boolean.button_security_*":
+      friendly_name: Security
+      icon: mdi:cctv
+    "input_boolean.button_cleaning_*":
+      friendly_name: Cleaning
+      icon: mdi:calendar-edit
+    "input_boolean.button_scene_*":
+      friendly_name: Scene
+      icon: mdi:arrange-send-backward
+    "input_boolean.button_vacuum_*":
+      friendly_name: Vacuum
+      icon: mdi:robot-vacuum
+    "input_boolean.button_remote_*":
+      friendly_name: Remote
+      icon: mdi:remote
+    "input_boolean.button_battery_*":
+      friendly_name: Battery
+      icon: mdi:battery
+    "input_boolean.button_automation_*":
+      friendly_name: Automation
+      icon: mdi:auto-fix
+    "input_boolean.button_download_*":
+      friendly_name: Download
+      icon: mdi:download
+    "input_boolean.button_energy_*":
+      friendly_name: Energy
+      icon: mdi:chart-line
+    "input_boolean.button_location_*":
+      friendly_name: Location
+      icon: mdi:navigation
+    "input_boolean.button_laundry_*":
+      friendly_name: Laundry
+      icon: mdi:washing-machine
+    "input_boolean.button_computer_*":
+      friendly_name: Computers
+      icon: mdi:server
+    "input_boolean.button_calendar_*":
+      friendly_name: Calendar
+      icon: mdi:calendar
+    "input_boolean.button_system_*":
+      friendly_name: System
+      icon: mdi:home-analytics
+    "input_boolean.button_floorplan_*":
+      friendly_name: Floorplan
+      icon: mdi:floor-plan
+    "input_boolean.button_media_*":
+      friendly_name: Media
+      icon: mdi:plex
+    "input_boolean.button_traffic_*":
+      friendly_name: Traffic
+      icon: mdi:waze
+    "input_boolean.button_weather_*":
+      friendly_name: Weather
+      icon: mdi:weather-partly-cloudy
+    "input_boolean.button_settings_*":
+      friendly_name: HKI Settings
+      icon: mdi:tools
+    "input_boolean.button_homeassistant_*":
+      friendly_name: HA Settings
+      icon: mdi:tools
+
+group: 
+  !include ../../user_content/device_counters.yaml
+
+automation:
+  # State Change Automations used for device counting
+  - alias: 'group state change 1'
+    id: 'State changed 1'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_lighting','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_lights_on
+  - alias: 'group state change 2'
+    id: 'State changed 2'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_device_switches','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_devices_on
+  - alias: 'group state change 3'
+    id: 'State changed 3'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_climate_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_climate_entities_on
+  - alias: 'group state change 4'
+    id: 'State changed 4'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_computers','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_computers_on
+  - alias: 'group state change 5'
+    id: 'State changed 5'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_tvs','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_tvs_on
+  - alias: 'group state change 6'
+    id: 'State changed 6'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_binary_sensors','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_binary_sensors_on
+  - alias: 'group state change 7'
+    id: 'State changed 7'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_laundry_devices','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_sensors_on
+        - sensor.current_binary_sensors_on
+  - alias: 'group state change 8'
+    id: 'State changed 8'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_door_sensors','entity_id') }}
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_window_sensors','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_doors_open
+        - sensor.current_windows_open
+
+  - alias: 'hki onboarding'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+      to: 'nothing'
+    action:
+      - service: automation.trigger
+        data:
+          entity_id: automation.reset_button_badge_sensors
+      - service: automation.trigger
+        data:
+          entity_id: automation.set_room_defaults
+      - service: homeassistant.turn_on
+        data:
+          entity_id: group.header_subtitle_group
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.onboarding
+          option: "Language and Icons"
+      - service: input_boolean.turn_on
+        data:
+          entity_id:
+            - input_boolean.onboarding
+            - input_boolean.frontpage_header_secondary
+            - input_boolean.frontpage_alarm
+            - input_boolean.frontpage_weather
+            - input_boolean.frontpage_photos
+            - input_boolean.frontpage_buttons
+            - input_boolean.button_climate_one
+            - input_boolean.button_device_two
+            - input_boolean.button_light_three
+            - input_boolean.button_security_four
+            - input_boolean.button_climate_menu_one
+            - input_boolean.button_device_menu_two
+            - input_boolean.button_light_menu_three
+            - input_boolean.button_security_menu_four
+            - input_boolean.climate_presets
+            - input_boolean.climate_thermostat
+            - input_boolean.climate_fans
+            - input_boolean.climate_temperature
+            - input_boolean.climate_humidity
+            - input_boolean.climate_air_pressure
+            - input_boolean.security_cameras
+            - input_boolean.security_doors
+            - input_boolean.security_windows
+            - input_boolean.security_motion
+            - input_boolean.security_other
+            - input_boolean.menu_favorites
+            - input_boolean.menu_all
+            - input_boolean.user_content_message
+            - input_boolean.system_help
+            - input_boolean.system_header_sensors
+            - input_boolean.weather_card
+            - input_boolean.alarm_keypad
+            - input_boolean.battery_battery
+            - input_boolean.location_location
+            - input_boolean.scenes_scenes
+            - input_boolean.traffic_traffic
+            - input_boolean.settings
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.person_1_entity
+            - input_text.person_2_entity
+            - input_text.person_3_entity
+            - input_text.person_4_entity
+          value: person.unknown
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.frost_protection_temperature
+          value: 11
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.heat_all_temperature
+          value: 22
+      - service: automation.trigger
+        data:
+          entity_id: automation.reset_font_size
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.icon_footer_home
+          value: mdi:home
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.icon_footer_menu
+          value: mdi:menu
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.weather_entity
+          value: weather.dark_sky
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.alarm_entity
+          value: alarm_control_panel.home_alarm
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.washing_machine_image
+          value: 'local/images/washingmachine.jpg'
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.dryer_image
+          value: 'local/images/dryer.jpg'
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.dishwasher_image
+          value: 'local/images/dishwasher.jpg'
+
+  - alias: 'reset font size'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+      to: 'nothing'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id:
+            - input_select.name_font_size_selector
+            - input_select.notification_font_size_selector
+          option: 12px
+      - service: input_select.select_option
+        data:
+          entity_id:
+            - input_select.state_font_size_selector
+            - input_select.label_font_size_selector
+            - input_select.badge_font_size_selector
+          option: 10px
+      - service: input_select.select_option
+        data:
+          entity_id:
+            - input_select.name_font_weight
+            - input_select.state_font_weight
+          option: bold
+      - service: input_select.select_option
+        data:
+          entity_id:
+            - input_select.badge_font_weight
+            - input_select.label_font_weight
+            - input_select.notification_font_weight
+          option: normal
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.font_family
+          value: Helvetica
+
+  - alias: 'reset button badge sensors'
+    trigger:
+      platform: state
+      entity_id: input_select.icon_selector
+      to: 'nothing'
+    action:
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.sensor_alarm
+            - input_text.sensor_battery
+            - input_text.sensor_climate
+            - input_text.sensor_light
+            - input_text.sensor_device
+            - input_text.sensor_security
+            - input_text.sensor_cleaning
+            - input_text.sensor_scene
+            - input_text.sensor_vacuum
+            - input_text.sensor_remote
+            - input_text.sensor_automation
+            - input_text.sensor_calendar
+            - input_text.sensor_computer
+            - input_text.sensor_download
+            - input_text.sensor_energy
+            - input_text.sensor_floorplan
+            - input_text.sensor_laundry
+            - input_text.sensor_location
+            - input_text.sensor_media
+            - input_text.sensor_system
+            - input_text.sensor_traffic
+            - input_text.sensor_weather
+            - input_text.sensor_button_custom_a
+            - input_text.sensor_button_custom_b
+            - input_text.sensor_button_custom_c
+            - input_text.sensor_button_custom_d
+            - input_text.sensor_button_custom_e
+            - input_text.sensor_button_custom_f
+            - input_text.sensor_button_custom_g
+            - input_text.sensor_button_custom_h
+          value: input_number.empty
+
+  - alias: 'footer orientation'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_select.footer_direction
+    action:
+      - service: input_select.select_option
+        data_template: 
+          entity_id: input_select.footer_direction_backend
+          option: >
+            {% if is_state('input_select.footer_direction', 'Left') %}
+              false
+            {% else %}
+              true
+            {% endif %}
+
+  - alias: 'set room defaults'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.nothing
+        to: 'nothing'
+    action:
+      - service: input_text.set_value
+        data:
+          entity_id:
+            - input_text.room_b1_standard_lights
+            - input_text.room_b1_rgb_lights
+            - input_text.room_b1_color_temperature_lights
+            - input_text.room_b1_switches
+            - input_text.room_b1_sensors
+            - input_text.room_b1_binary_sensors
+            - input_text.room_b1_climate
+            - input_text.room_b1_media_players
+            - input_text.room_b1_covers
+            - input_text.room_b2_standard_lights
+            - input_text.room_b2_rgb_lights
+            - input_text.room_b2_color_temperature_lights
+            - input_text.room_b2_switches
+            - input_text.room_b2_sensors
+            - input_text.room_b2_binary_sensors
+            - input_text.room_b2_climate
+            - input_text.room_b2_media_players
+            - input_text.room_b2_covers
+            - input_text.room_b3_standard_lights
+            - input_text.room_b3_rgb_lights
+            - input_text.room_b3_color_temperature_lights
+            - input_text.room_b3_switches
+            - input_text.room_b3_sensors
+            - input_text.room_b3_binary_sensors
+            - input_text.room_b3_climate
+            - input_text.room_b3_media_players
+            - input_text.room_b3_covers
+            - input_text.room_b4_standard_lights
+            - input_text.room_b4_rgb_lights
+            - input_text.room_b4_color_temperature_lights
+            - input_text.room_b4_switches
+            - input_text.room_b4_sensors
+            - input_text.room_b4_binary_sensors
+            - input_text.room_b4_climate
+            - input_text.room_b4_media_players
+            - input_text.room_b4_covers
+            - input_text.room_b5_standard_lights
+            - input_text.room_b5_rgb_lights
+            - input_text.room_b5_color_temperature_lights
+            - input_text.room_b5_switches
+            - input_text.room_b5_sensors
+            - input_text.room_b5_binary_sensors
+            - input_text.room_b5_climate
+            - input_text.room_b5_media_players
+            - input_text.room_b5_covers
+            - input_text.room_01_standard_lights
+            - input_text.room_01_rgb_lights
+            - input_text.room_01_color_temperature_lights
+            - input_text.room_01_switches
+            - input_text.room_01_sensors
+            - input_text.room_01_binary_sensors
+            - input_text.room_01_climate
+            - input_text.room_01_media_players
+            - input_text.room_01_covers
+            - input_text.room_02_standard_lights
+            - input_text.room_02_rgb_lights
+            - input_text.room_02_color_temperature_lights
+            - input_text.room_02_switches
+            - input_text.room_02_sensors
+            - input_text.room_02_binary_sensors
+            - input_text.room_02_climate
+            - input_text.room_02_media_players
+            - input_text.room_02_covers
+            - input_text.room_03_standard_lights
+            - input_text.room_03_rgb_lights
+            - input_text.room_03_color_temperature_lights
+            - input_text.room_03_switches
+            - input_text.room_03_sensors
+            - input_text.room_03_binary_sensors
+            - input_text.room_03_climate
+            - input_text.room_03_media_players
+            - input_text.room_03_covers
+            - input_text.room_04_standard_lights
+            - input_text.room_04_rgb_lights
+            - input_text.room_04_color_temperature_lights
+            - input_text.room_04_switches
+            - input_text.room_04_sensors
+            - input_text.room_04_binary_sensors
+            - input_text.room_04_climate
+            - input_text.room_04_media_players
+            - input_text.room_04_covers
+            - input_text.room_05_standard_lights
+            - input_text.room_05_rgb_lights
+            - input_text.room_05_color_temperature_lights
+            - input_text.room_05_switches
+            - input_text.room_05_sensors
+            - input_text.room_05_binary_sensors
+            - input_text.room_05_climate
+            - input_text.room_05_media_players
+            - input_text.room_05_covers
+            - input_text.room_06_standard_lights
+            - input_text.room_06_rgb_lights
+            - input_text.room_06_color_temperature_lights
+            - input_text.room_06_switches
+            - input_text.room_06_sensors
+            - input_text.room_06_binary_sensors
+            - input_text.room_06_climate
+            - input_text.room_06_media_players
+            - input_text.room_06_covers
+            - input_text.room_07_standard_lights
+            - input_text.room_07_rgb_lights
+            - input_text.room_07_color_temperature_lights
+            - input_text.room_07_switches
+            - input_text.room_07_sensors
+            - input_text.room_07_binary_sensors
+            - input_text.room_07_climate
+            - input_text.room_07_media_players
+            - input_text.room_07_covers
+            - input_text.room_08_standard_lights
+            - input_text.room_08_rgb_lights
+            - input_text.room_08_color_temperature_lights
+            - input_text.room_08_switches
+            - input_text.room_08_sensors
+            - input_text.room_08_binary_sensors
+            - input_text.room_08_climate
+            - input_text.room_08_media_players
+            - input_text.room_08_covers
+            - input_text.room_09_standard_lights
+            - input_text.room_09_rgb_lights
+            - input_text.room_09_color_temperature_lights
+            - input_text.room_09_switches
+            - input_text.room_09_sensors
+            - input_text.room_09_binary_sensors
+            - input_text.room_09_climate
+            - input_text.room_09_media_players
+            - input_text.room_09_covers
+            - input_text.room_010_standard_lights
+            - input_text.room_010_rgb_lights
+            - input_text.room_010_color_temperature_lights
+            - input_text.room_010_switches
+            - input_text.room_010_sensors
+            - input_text.room_010_binary_sensors
+            - input_text.room_010_climate
+            - input_text.room_010_media_players
+            - input_text.room_010_covers
+            - input_text.room_11_standard_lights
+            - input_text.room_11_rgb_lights
+            - input_text.room_11_color_temperature_lights
+            - input_text.room_11_switches
+            - input_text.room_11_sensors
+            - input_text.room_11_binary_sensors
+            - input_text.room_11_climate
+            - input_text.room_11_media_players
+            - input_text.room_11_covers
+            - input_text.room_12_standard_lights
+            - input_text.room_12_rgb_lights
+            - input_text.room_12_color_temperature_lights
+            - input_text.room_12_switches
+            - input_text.room_12_sensors
+            - input_text.room_12_binary_sensors
+            - input_text.room_12_climate
+            - input_text.room_12_media_players
+            - input_text.room_12_covers
+            - input_text.room_13_standard_lights
+            - input_text.room_13_rgb_lights
+            - input_text.room_13_color_temperature_lights
+            - input_text.room_13_switches
+            - input_text.room_13_sensors
+            - input_text.room_13_binary_sensors
+            - input_text.room_13_climate
+            - input_text.room_13_media_players
+            - input_text.room_13_covers
+            - input_text.room_14_standard_lights
+            - input_text.room_14_rgb_lights
+            - input_text.room_14_color_temperature_lights
+            - input_text.room_14_switches
+            - input_text.room_14_sensors
+            - input_text.room_14_binary_sensors
+            - input_text.room_14_climate
+            - input_text.room_14_media_players
+            - input_text.room_14_covers
+            - input_text.room_15_standard_lights
+            - input_text.room_15_rgb_lights
+            - input_text.room_15_color_temperature_lights
+            - input_text.room_15_switches
+            - input_text.room_15_sensors
+            - input_text.room_15_binary_sensors
+            - input_text.room_15_climate
+            - input_text.room_15_media_players
+            - input_text.room_15_covers
+            - input_text.room_16_standard_lights
+            - input_text.room_16_rgb_lights
+            - input_text.room_16_color_temperature_lights
+            - input_text.room_16_switches
+            - input_text.room_16_sensors
+            - input_text.room_16_binary_sensors
+            - input_text.room_16_climate
+            - input_text.room_16_media_players
+            - input_text.room_16_covers
+            - input_text.room_17_standard_lights
+            - input_text.room_17_rgb_lights
+            - input_text.room_17_color_temperature_lights
+            - input_text.room_17_switches
+            - input_text.room_17_sensors
+            - input_text.room_17_binary_sensors
+            - input_text.room_17_climate
+            - input_text.room_17_media_players
+            - input_text.room_17_covers
+            - input_text.room_18_standard_lights
+            - input_text.room_18_rgb_lights
+            - input_text.room_18_color_temperature_lights
+            - input_text.room_18_switches
+            - input_text.room_18_sensors
+            - input_text.room_18_binary_sensors
+            - input_text.room_18_climate
+            - input_text.room_18_media_players
+            - input_text.room_18_covers
+            - input_text.room_19_standard_lights
+            - input_text.room_19_rgb_lights
+            - input_text.room_19_color_temperature_lights
+            - input_text.room_19_switches
+            - input_text.room_19_sensors
+            - input_text.room_19_binary_sensors
+            - input_text.room_19_climate
+            - input_text.room_19_media_players
+            - input_text.room_19_covers
+            - input_text.room_110_standard_lights
+            - input_text.room_110_rgb_lights
+            - input_text.room_110_color_temperature_lights
+            - input_text.room_110_switches
+            - input_text.room_110_sensors
+            - input_text.room_110_binary_sensors
+            - input_text.room_110_climate
+            - input_text.room_110_media_players
+            - input_text.room_110_covers
+            - input_text.room_21_standard_lights
+            - input_text.room_21_rgb_lights
+            - input_text.room_21_color_temperature_lights
+            - input_text.room_21_switches
+            - input_text.room_21_sensors
+            - input_text.room_21_binary_sensors
+            - input_text.room_21_climate
+            - input_text.room_21_media_players
+            - input_text.room_21_covers
+            - input_text.room_22_standard_lights
+            - input_text.room_22_rgb_lights
+            - input_text.room_22_color_temperature_lights
+            - input_text.room_22_switches
+            - input_text.room_22_sensors
+            - input_text.room_22_binary_sensors
+            - input_text.room_22_climate
+            - input_text.room_22_media_players
+            - input_text.room_22_covers
+            - input_text.room_23_standard_lights
+            - input_text.room_23_rgb_lights
+            - input_text.room_23_color_temperature_lights
+            - input_text.room_23_switches
+            - input_text.room_23_sensors
+            - input_text.room_23_binary_sensors
+            - input_text.room_23_climate
+            - input_text.room_23_media_players
+            - input_text.room_23_covers
+            - input_text.room_24_standard_lights
+            - input_text.room_24_rgb_lights
+            - input_text.room_24_color_temperature_lights
+            - input_text.room_24_switches
+            - input_text.room_24_sensors
+            - input_text.room_24_binary_sensors
+            - input_text.room_24_climate
+            - input_text.room_24_media_players
+            - input_text.room_24_covers
+            - input_text.room_25_standard_lights
+            - input_text.room_25_rgb_lights
+            - input_text.room_25_color_temperature_lights
+            - input_text.room_25_switches
+            - input_text.room_25_sensors
+            - input_text.room_25_binary_sensors
+            - input_text.room_25_climate
+            - input_text.room_25_media_players
+            - input_text.room_25_covers
+            - input_text.room_31_standard_lights
+            - input_text.room_31_rgb_lights
+            - input_text.room_31_color_temperature_lights
+            - input_text.room_31_switches
+            - input_text.room_31_sensors
+            - input_text.room_31_binary_sensors
+            - input_text.room_31_climate
+            - input_text.room_31_media_players
+            - input_text.room_31_covers
+            - input_text.room_32_standard_lights
+            - input_text.room_32_rgb_lights
+            - input_text.room_32_color_temperature_lights
+            - input_text.room_32_switches
+            - input_text.room_32_sensors
+            - input_text.room_32_binary_sensors
+            - input_text.room_32_climate
+            - input_text.room_32_media_players
+            - input_text.room_32_covers
+            - input_text.room_33_standard_lights
+            - input_text.room_33_rgb_lights
+            - input_text.room_33_color_temperature_lights
+            - input_text.room_33_switches
+            - input_text.room_33_sensors
+            - input_text.room_33_binary_sensors
+            - input_text.room_33_climate
+            - input_text.room_33_media_players
+            - input_text.room_33_covers
+            - input_text.room_34_standard_lights
+            - input_text.room_34_rgb_lights
+            - input_text.room_34_color_temperature_lights
+            - input_text.room_34_switches
+            - input_text.room_34_sensors
+            - input_text.room_34_binary_sensors
+            - input_text.room_34_climate
+            - input_text.room_34_media_players
+            - input_text.room_34_covers
+            - input_text.room_35_standard_lights
+            - input_text.room_35_rgb_lights
+            - input_text.room_35_color_temperature_lights
+            - input_text.room_35_switches
+            - input_text.room_35_sensors
+            - input_text.room_35_binary_sensors
+            - input_text.room_35_climate
+            - input_text.room_35_media_players
+            - input_text.room_35_covers
+          value: switch.empty
+
+
+  # Theme Selector
+  - alias: 'themes'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.day_night_cycle
+      - platform: state
+        entity_id: input_select.theme_selector
+      - platform: state
+        entity_id: input_select.theme_selector_day
+      - platform: state
+        entity_id: input_select.theme_selector_night
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: sun.sun
+    action:
+      - service: frontend.set_theme
+        data_template:
+          name: >
+            {% if (is_state('sun.sun', 'above_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+              {{ states('input_select.theme_selector_day') }}
+            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+              {{ states('input_select.theme_selector_night') }}
+            {% else %}
+              {{ states('input_select.theme_selector') }}
+            {% endif %}
+
+### Notification Badge Templates (needed for the badges to appear on buttons!)
+### Please do NOT touch this!!!!
+sensor:
+  - platform: template
+    sensors:
+      current_lights_on:
+        friendly_name: All Lights Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_lighting','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_devices_on:
+        friendly_name: All Devices Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_device_switches','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_sensors_on:
+        friendly_name: All Sensors Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_motion_smoke_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_binary_sensors_on:
+        friendly_name: All Binary Sensors Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_binary_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_doors_open:
+        friendly_name: All Doors Currently Open
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_door_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_windows_open:
+        friendly_name: All Windows Currently Open
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_window_sensors','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_climate_entities_on:
+        friendly_name: All Climate Entities Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','heat')|list|count }}
+      current_computers_on:
+        friendly_name: All Computers Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_computers','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_tvs_on:
+        friendly_name: All TV's Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_tvs','entity_id'))|selectattr('state','eq','on')|list|count }}
+      current_laundry_devices_on:
+        friendly_name: All Laundry Devices Currently On
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_laundry_devices','entity_id'))|selectattr('state','eq','on')|list|count }}   
+  - platform: template
+    sensors:
+      greeting:
+        friendly_name: Greeting
+        value_template: >-
+          {% set time = states('sensor.time') %}
+          {% if '00:00' < time < '06:00' %}
+            {{ states.input_text.name_good_night.state }}
+          {% elif '06:00' < time < '12:00' %}
+            {{ states.input_text.name_good_morning.state }}
+          {% elif '12:00' < time < '18:00' %}
+            {{ states.input_text.name_good_afternoon.state }}
+          {% else %}
+            {{ states.input_text.name_good_evening.state }}
+          {% endif %}
+
+
+  - platform: scrape
+    name: HKI Latest Version
+    resource: https://jimz011.github.io/homekit-infused/version
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
+shell_command:
+  language_file: cp /config/packages/hki_languages/{{commands}}.txt /config/packages/hki_languages/selected_language.txt
+  icons_file: cp /config/packages/hki_icons/{{icons}}.txt /config/packages/hki_icons/selected_icons.txt
+  

@@ -1,0 +1,740 @@
+input_text:
+## Basement
+# Room 1
+  room_b1_name:
+  room_b1_standard_lights:
+    max: 255
+  room_b1_rgb_lights:
+    max: 255
+  room_b1_color_temperature_lights:
+    max: 255
+  room_b1_switches:
+    max: 255
+  room_b1_sensors:
+    max: 255
+  room_b1_binary_sensors:
+    max: 255
+  room_b1_climate:
+    max: 255
+  room_b1_media_players:
+    max: 255
+  room_b1_covers:
+    max: 255
+
+# Room 2
+  room_b2_name:
+  room_b2_standard_lights:
+    max: 255
+  room_b2_rgb_lights:
+    max: 255
+  room_b2_color_temperature_lights:
+    max: 255
+  room_b2_switches:
+    max: 255
+  room_b2_sensors:
+    max: 255
+  room_b2_binary_sensors:
+    max: 255
+  room_b2_climate:
+    max: 255
+  room_b2_media_players:
+    max: 255
+  room_b2_covers:
+    max: 255
+
+# Room 3
+  room_b3_name:
+  room_b3_standard_lights:
+    max: 255
+  room_b3_rgb_lights:
+    max: 255
+  room_b3_color_temperature_lights:
+    max: 255
+  room_b3_switches:
+    max: 255
+  room_b3_sensors:
+    max: 255
+  room_b3_binary_sensors:
+    max: 255
+  room_b3_climate:
+    max: 255
+  room_b3_media_players:
+    max: 255
+  room_b3_covers:
+    max: 255
+
+# Room 4
+  room_b4_name:
+  room_b4_standard_lights:
+    max: 255
+  room_b4_rgb_lights:
+    max: 255
+  room_b4_color_temperature_lights:
+    max: 255
+  room_b4_switches:
+    max: 255
+  room_b4_sensors:
+    max: 255
+  room_b4_binary_sensors:
+    max: 255
+  room_b4_climate:
+    max: 255
+  room_b4_media_players:
+    max: 255
+  room_b4_covers:
+    max: 255
+
+# Room 5
+  room_b5_name:
+  room_b5_standard_lights:
+    max: 255
+  room_b5_rgb_lights:
+    max: 255
+  room_b5_color_temperature_lights:
+    max: 255
+  room_b5_switches:
+    max: 255
+  room_b5_sensors:
+    max: 255
+  room_b5_binary_sensors:
+    max: 255
+  room_b5_climate:
+    max: 255
+  room_b5_media_players:
+    max: 255
+  room_b5_covers:
+    max: 255
+
+## Ground Floor
+# Room 1
+  room_01_name:
+  room_01_standard_lights:
+    max: 255
+  room_01_rgb_lights:
+    max: 255
+  room_01_color_temperature_lights:
+    max: 255
+  room_01_switches:
+    max: 255
+  room_01_sensors:
+    max: 255
+  room_01_binary_sensors:
+    max: 255
+  room_01_climate:
+    max: 255
+  room_01_media_players:
+    max: 255
+  room_01_covers:
+    max: 255
+
+# Room 2
+  room_02_name:
+  room_02_standard_lights:
+    max: 255
+  room_02_rgb_lights:
+    max: 255
+  room_02_color_temperature_lights:
+    max: 255
+  room_02_switches:
+    max: 255
+  room_02_sensors:
+    max: 255
+  room_02_binary_sensors:
+    max: 255
+  room_02_climate:
+    max: 255
+  room_02_media_players:
+    max: 255
+  room_02_covers:
+    max: 255
+
+# Room 3
+  room_03_name:
+  room_03_standard_lights:
+    max: 255
+  room_03_rgb_lights:
+    max: 255
+  room_03_color_temperature_lights:
+    max: 255
+  room_03_switches:
+    max: 255
+  room_03_sensors:
+    max: 255
+  room_03_binary_sensors:
+    max: 255
+  room_03_climate:
+    max: 255
+  room_03_media_players:
+    max: 255
+  room_03_covers:
+    max: 255
+
+# Room 4
+  room_04_name:
+  room_04_standard_lights:
+    max: 255
+  room_04_rgb_lights:
+    max: 255
+  room_04_color_temperature_lights:
+    max: 255
+  room_04_switches:
+    max: 255
+  room_04_sensors:
+    max: 255
+  room_04_binary_sensors:
+    max: 255
+  room_04_climate:
+    max: 255
+  room_04_media_players:
+    max: 255
+  room_04_covers:
+    max: 255
+
+# Room 5
+  room_05_name:
+  room_05_standard_lights:
+    max: 255
+  room_05_rgb_lights:
+    max: 255
+  room_05_color_temperature_lights:
+    max: 255
+  room_05_switches:
+    max: 255
+  room_05_sensors:
+    max: 255
+  room_05_binary_sensors:
+    max: 255
+  room_05_climate:
+    max: 255
+  room_05_media_players:
+    max: 255
+  room_05_covers:
+    max: 255
+
+# Room 6
+  room_06_name:
+  room_06_standard_lights:
+    max: 255
+  room_06_rgb_lights:
+    max: 255
+  room_06_color_temperature_lights:
+    max: 255
+  room_06_switches:
+    max: 255
+  room_06_sensors:
+    max: 255
+  room_06_binary_sensors:
+    max: 255
+  room_06_climate:
+    max: 255
+  room_06_media_players:
+    max: 255
+  room_06_covers:
+    max: 255
+
+# Room 7
+  room_07_name:
+  room_07_standard_lights:
+    max: 255
+  room_07_rgb_lights:
+    max: 255
+  room_07_color_temperature_lights:
+    max: 255
+  room_07_switches:
+    max: 255
+  room_07_sensors:
+    max: 255
+  room_07_binary_sensors:
+    max: 255
+  room_07_climate:
+    max: 255
+  room_07_media_players:
+    max: 255
+  room_07_covers:
+    max: 255
+
+# Room 8
+  room_08_name:
+  room_08_standard_lights:
+    max: 255
+  room_08_rgb_lights:
+    max: 255
+  room_08_color_temperature_lights:
+    max: 255
+  room_08_switches:
+    max: 255
+  room_08_sensors:
+    max: 255
+  room_08_binary_sensors:
+    max: 255
+  room_08_climate:
+    max: 255
+  room_08_media_players:
+    max: 255
+  room_08_covers:
+    max: 255
+
+# Room 9
+  room_09_name:
+  room_09_standard_lights:
+    max: 255
+  room_09_rgb_lights:
+    max: 255
+  room_09_color_temperature_lights:
+    max: 255
+  room_09_switches:
+    max: 255
+  room_09_sensors:
+    max: 255
+  room_09_binary_sensors:
+    max: 255
+  room_09_climate:
+    max: 255
+  room_09_media_players:
+    max: 255
+  room_09_covers:
+    max: 255
+
+# Room 10
+  room_010_name:
+  room_010_standard_lights:
+    max: 255
+  room_010_rgb_lights:
+    max: 255
+  room_010_color_temperature_lights:
+    max: 255
+  room_010_switches:
+    max: 255
+  room_010_sensors:
+    max: 255
+  room_010_binary_sensors:
+    max: 255
+  room_010_climate:
+    max: 255
+  room_010_media_players:
+    max: 255
+  room_010_covers:
+    max: 255
+
+# First Floor
+# Room 1
+  room_11_name:
+  room_11_standard_lights:
+    max: 255
+  room_11_rgb_lights:
+    max: 255
+  room_11_color_temperature_lights:
+    max: 255
+  room_11_switches:
+    max: 255
+  room_11_sensors:
+    max: 255
+  room_11_binary_sensors:
+    max: 255
+  room_11_climate:
+    max: 255
+  room_11_media_players:
+    max: 255
+  room_11_covers:
+    max: 255
+
+# Room 2
+  room_12_name:
+  room_12_standard_lights:
+    max: 255
+  room_12_rgb_lights:
+    max: 255
+  room_12_color_temperature_lights:
+    max: 255
+  room_12_switches:
+    max: 255
+  room_12_sensors:
+    max: 255
+  room_12_binary_sensors:
+    max: 255
+  room_12_climate:
+    max: 255
+  room_12_media_players:
+    max: 255
+  room_12_covers:
+    max: 255
+
+# Room 3
+  room_13_name:
+  room_13_standard_lights:
+    max: 255
+  room_13_rgb_lights:
+    max: 255
+  room_13_color_temperature_lights:
+    max: 255
+  room_13_switches:
+    max: 255
+  room_13_sensors:
+    max: 255
+  room_13_binary_sensors:
+    max: 255
+  room_13_climate:
+    max: 255
+  room_13_media_players:
+    max: 255
+  room_13_covers:
+    max: 255
+
+# Room 4
+  room_14_name:
+  room_14_standard_lights:
+    max: 255
+  room_14_rgb_lights:
+    max: 255
+  room_14_color_temperature_lights:
+    max: 255
+  room_14_switches:
+    max: 255
+  room_14_sensors:
+    max: 255
+  room_14_binary_sensors:
+    max: 255
+  room_14_climate:
+    max: 255
+  room_14_media_players:
+    max: 255
+  room_14_covers:
+    max: 255
+
+# Room 5
+  room_15_name:
+  room_15_standard_lights:
+    max: 255
+  room_15_rgb_lights:
+    max: 255
+  room_15_color_temperature_lights:
+    max: 255
+  room_15_switches:
+    max: 255
+  room_15_sensors:
+    max: 255
+  room_15_binary_sensors:
+    max: 255
+  room_15_climate:
+    max: 255
+  room_15_media_players:
+    max: 255
+  room_15_covers:
+    max: 255
+
+# Room 6
+  room_16_name:
+  room_16_standard_lights:
+    max: 255
+  room_16_rgb_lights:
+    max: 255
+  room_16_color_temperature_lights:
+    max: 255
+  room_16_switches:
+    max: 255
+  room_16_sensors:
+    max: 255
+  room_16_binary_sensors:
+    max: 255
+  room_16_climate:
+    max: 255
+  room_16_media_players:
+    max: 255
+  room_16_covers:
+    max: 255
+
+# Room 7
+  room_17_name:
+  room_17_standard_lights:
+    max: 255
+  room_17_rgb_lights:
+    max: 255
+  room_17_color_temperature_lights:
+    max: 255
+  room_17_switches:
+    max: 255
+  room_17_sensors:
+    max: 255
+  room_17_binary_sensors:
+    max: 255
+  room_17_climate:
+    max: 255
+  room_17_media_players:
+    max: 255
+  room_17_covers:
+    max: 255
+
+# Room 8
+  room_18_name:
+  room_18_standard_lights:
+    max: 255
+  room_18_rgb_lights:
+    max: 255
+  room_18_color_temperature_lights:
+    max: 255
+  room_18_switches:
+    max: 255
+  room_18_sensors:
+    max: 255
+  room_18_binary_sensors:
+    max: 255
+  room_18_climate:
+    max: 255
+  room_18_media_players:
+    max: 255
+  room_18_covers:
+    max: 255
+
+# Room 9
+  room_19_name:
+  room_19_standard_lights:
+    max: 255
+  room_19_rgb_lights:
+    max: 255
+  room_19_color_temperature_lights:
+    max: 255
+  room_19_switches:
+    max: 255
+  room_19_sensors:
+    max: 255
+  room_19_binary_sensors:
+    max: 255
+  room_19_climate:
+    max: 255
+  room_19_media_players:
+    max: 255
+  room_19_covers:
+    max: 255
+
+# Room 10
+  room_110_name:
+  room_110_standard_lights:
+    max: 255
+  room_110_rgb_lights:
+    max: 255
+  room_110_color_temperature_lights:
+    max: 255
+  room_110_switches:
+    max: 255
+  room_110_sensors:
+    max: 255
+  room_110_binary_sensors:
+    max: 255
+  room_110_climate:
+    max: 255
+  room_110_media_players:
+    max: 255
+  room_110_covers:
+    max: 255
+
+## Second Floor
+# Room 1
+  room_21_name:
+  room_21_standard_lights:
+    max: 255
+  room_21_rgb_lights:
+    max: 255
+  room_21_color_temperature_lights:
+    max: 255
+  room_21_switches:
+    max: 255
+  room_21_sensors:
+    max: 255
+  room_21_binary_sensors:
+    max: 255
+  room_21_climate:
+    max: 255
+  room_21_media_players:
+    max: 255
+  room_21_covers:
+    max: 255
+
+# Room 2
+  room_22_name:
+  room_22_standard_lights:
+    max: 255
+  room_22_rgb_lights:
+    max: 255
+  room_22_color_temperature_lights:
+    max: 255
+  room_22_switches:
+    max: 255
+  room_22_sensors:
+    max: 255
+  room_22_binary_sensors:
+    max: 255
+  room_22_climate:
+    max: 255
+  room_22_media_players:
+    max: 255
+  room_22_covers:
+    max: 255
+
+# Room 3
+  room_23_name:
+  room_23_standard_lights:
+    max: 255
+  room_23_rgb_lights:
+    max: 255
+  room_23_color_temperature_lights:
+    max: 255
+  room_23_switches:
+    max: 255
+  room_23_sensors:
+    max: 255
+  room_23_binary_sensors:
+    max: 255
+  room_23_climate:
+    max: 255
+  room_23_media_players:
+    max: 255
+  room_23_covers:
+    max: 255
+
+# Room 4
+  room_24_name:
+  room_24_standard_lights:
+    max: 255
+  room_24_rgb_lights:
+    max: 255
+  room_24_color_temperature_lights:
+    max: 255
+  room_24_switches:
+    max: 255
+  room_24_sensors:
+    max: 255
+  room_24_binary_sensors:
+    max: 255
+  room_24_climate:
+    max: 255
+  room_24_media_players:
+    max: 255
+  room_24_covers:
+    max: 255
+
+# Room 5
+  room_25_name:
+  room_25_standard_lights:
+    max: 255
+  room_25_rgb_lights:
+    max: 255
+  room_25_color_temperature_lights:
+    max: 255
+  room_25_switches:
+    max: 255
+  room_25_sensors:
+    max: 255
+  room_25_binary_sensors:
+    max: 255
+  room_25_climate:
+    max: 255
+  room_25_media_players:
+    max: 255
+  room_25_covers:
+    max: 255
+
+## Third Floor
+# Room 1
+  room_31_name:
+  room_31_standard_lights:
+    max: 255
+  room_31_rgb_lights:
+    max: 255
+  room_31_color_temperature_lights:
+    max: 255
+  room_31_switches:
+    max: 255
+  room_31_sensors:
+    max: 255
+  room_31_binary_sensors:
+    max: 255
+  room_31_climate:
+    max: 255
+  room_31_media_players:
+    max: 255
+  room_31_covers:
+    max: 255
+
+# Room 2
+  room_32_name:
+  room_32_standard_lights:
+    max: 255
+  room_32_rgb_lights:
+    max: 255
+  room_32_color_temperature_lights:
+    max: 255
+  room_32_switches:
+    max: 255
+  room_32_sensors:
+    max: 255
+  room_32_binary_sensors:
+    max: 255
+  room_32_climate:
+    max: 255
+  room_32_media_players:
+    max: 255
+  room_32_covers:
+    max: 255
+
+# Room 3
+  room_33_name:
+  room_33_standard_lights:
+    max: 255
+  room_33_rgb_lights:
+    max: 255
+  room_33_color_temperature_lights:
+    max: 255
+  room_33_switches:
+    max: 255
+  room_33_sensors:
+    max: 255
+  room_33_binary_sensors:
+    max: 255
+  room_33_climate:
+    max: 255
+  room_33_media_players:
+    max: 255
+  room_33_covers:
+    max: 255
+
+# Room 4
+  room_34_name:
+  room_34_standard_lights:
+    max: 255
+  room_34_rgb_lights:
+    max: 255
+  room_34_color_temperature_lights:
+    max: 255
+  room_34_switches:
+    max: 255
+  room_34_sensors:
+    max: 255
+  room_34_binary_sensors:
+    max: 255
+  room_34_climate:
+    max: 255
+  room_34_media_players:
+    max: 255
+  room_34_covers:
+    max: 255
+
+# Room 5
+  room_35_name:
+  room_35_standard_lights:
+    max: 255
+  room_35_rgb_lights:
+    max: 255
+  room_35_color_temperature_lights:
+    max: 255
+  room_35_switches:
+    max: 255
+  room_35_sensors:
+    max: 255
+  room_35_binary_sensors:
+    max: 255
+  room_35_climate:
+    max: 255
+  room_35_media_players:
+    max: 255
+  room_35_covers:
+    max: 255

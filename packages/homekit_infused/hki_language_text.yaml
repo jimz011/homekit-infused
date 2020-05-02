@@ -1,0 +1,176 @@
+# In some languages words can be longer, for the smallest button something short would be preferred. You can use the label to either cut words or make something like 'name: Remote, label: Control'
+
+input_text:
+# Generic, Needed for Automations and Custom Input
+
+  name_header_secondary_lights:
+  name_header_secondary_devices:
+  name_header_secondary_climate:
+  name_header_secondary_security:
+  name_header_secondary_automations:
+  name_header_secondary_battery:
+  name_header_secondary_calendar:
+  name_header_secondary_cleaning:
+  name_header_secondary_computers:
+  name_header_secondary_energy:
+  name_header_secondary_floorplan:
+  name_header_secondary_laundry:
+  name_header_secondary_location:
+  name_header_secondary_media:
+  name_header_secondary_scenes:
+  name_header_secondary_system:
+  name_header_secondary_traffic:
+  name_header_secondary_vacuum:
+  name_header_secondary_weather:
+  name_header_secondary_menu:
+  name_header_secondary_alarm:
+  name_header_secondary_download:
+
+  name_header_climate:
+  name_header_lights:
+  name_header_devices:
+  name_header_security:
+  name_header_cleaning:
+  name_header_scenes:
+  name_header_remote:
+  name_header_vacuum:
+  name_header_menu:
+  name_header_settings:
+  name_header_alarm:
+  name_header_weather:
+
+  name_header_about:
+  name_header_automations:
+  name_header_battery:
+  name_header_calendar:
+  name_header_system:
+  name_header_computers:
+  name_header_energy:
+  name_header_media:
+  name_header_floorplan:
+  name_header_laundry:
+  name_header_location:
+  name_header_traffic:
+
+  name_custom:
+  name_favorites:
+  name_all:
+  name_power:
+  name_frost:
+  name_heat:
+  name_on:
+  name_off:
+  name_protection:
+
+  name_presets:
+  name_thermostat:
+  name_fans:
+  name_temperature:
+  name_humidity:
+  name_air_pressure:
+
+  name_cameras:
+  name_doors:
+  name_windows:
+  name_motion:
+  name_other:
+
+  name_controls:
+  name_mode:
+
+  name_good_morning:
+  name_good_afternoon:
+  name_good_evening:
+  name_good_night:
+
+  name_battery:
+  name_battery_label:
+
+  name_automation:
+  name_automation_label:
+
+  name_calendar:
+  name_calendar_label:
+
+  name_computer:
+  name_computer_label:
+
+  name_download:
+  name_download_label:
+
+  name_energy:
+  name_energy_label:
+
+  name_floorplan:
+  name_floorplan_label:
+
+  name_laundry:
+  name_laundry_label:
+
+  name_location:
+  name_location_label:
+
+  name_media:
+  name_media_label:
+
+  name_system:
+  name_system_label:
+
+  name_traffic:
+  name_traffic_label:
+
+  name_weather:
+  name_weather_label:
+
+  name_light:
+  name_light_label:
+
+  name_device:
+  name_device_label:
+
+  name_climate:
+  name_climate_label:
+
+  name_security:
+  name_security_label:
+
+  name_cleaning:
+  name_cleaning_label:
+
+  name_scene:
+  name_scene_label:
+
+  name_vacuum:
+  name_vacuum_label:
+
+  name_remote:
+  name_remote_label:
+
+  name_alarm:
+  name_alarm_label:
+
+# vacuum
+  name_status_information:
+  name_start:
+  name_pause:
+  name_stop:
+  name_find_me:
+
+  name_quiet:
+  name_turbo:
+  name_max:
+  name_balanced:
+  name_mop:
+
+  name_vacuum_error_sensor:
+  name_vacuum_battery:
+  name_cleaning_count:
+  name_total_cleaned_area:
+  name_total_cleaning_time:
+  name_main_brush_time_left:
+  name_side_brush_time_left:
+  name_filter_time_left:
+  name_sensor_dirty_time_left:
+
+
+
