@@ -1,3 +1,5 @@
+# DO NOT USE THIS FILE, COPY THIS INTO YOUR OWN CONFIGURATION.YAML!!
+
 homeassistant:
   packages: !include_dir_named packages/
 
