@@ -1,0 +1,42 @@
+- title: HKI Settings
+  path: hki_settings_alarm
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Alarm
+            icon: mdi:shield-home
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Alarm:** Set up your alarm here, it must be an alarm_control_panel entity type! This will enable the alarm keypad and the lock icon/color on the frontpage. You can leave this field empty if you don't have or want to use an alarm. If you don't have one you can simply create one, refer to the HA docs on how to do that.
+                - type: entities
+                  title: Alarm
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.alarm_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.alarm_code
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

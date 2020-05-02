@@ -1,0 +1,6 @@
+type: custom:layout-card
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: markdown
+        content: Nothing to edit here! Sorry :P

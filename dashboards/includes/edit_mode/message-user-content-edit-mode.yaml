@@ -1,0 +1,12 @@
+type: markdown              
+content: >
+  **Custom Content:** This area can be used to insert custom cards, the files to insert those cards can be found in the /user_content folder.
+
+
+  **Edit Mode:** Press and hold the invisible area at the upper right corner to activate edit mode. If you want to customize an entire view turn off all content with edit mode with the exception of custom user content.
+
+
+  **Note:** Using the custom user content assures your card/view edits survive updates, try to avoid editing any of the HKI files at all times!
+
+
+  **Remove:** To remove this message and other helpful messages, please turn off messages in the HKI Settings > Global Settings.

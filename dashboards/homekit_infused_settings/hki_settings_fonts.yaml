@@ -1,0 +1,101 @@
+- title: HKI Settings
+  path: hki_settings_fonts
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Fonts
+            icon: mdi:format-font
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                  
+                    content: >
+                      **Fonts:** You can set any font family you want, unfortunately making a selector would be crazy, so you will have to fill in the fonts yourself. Fonts can be either a single family or a property (e.g. Arial, Helvetica, sans-serif). You can find font-names here https://www.tutorialbrain.com/css_tutorial/css_font_family_list/. None of these have been tested and it will be trial or error if your font will work or not. Fonts can not be added separately, so you won't need to open a FR for that!
+
+
+                      **Font Size:** You can edit the font size of all buttons globally. This also applies to the header subtitle and edit mode bar. It does not work on category titles and header titles (yet!).
+                      
+
+                      **WARNING:** When pressing Reset Fonts you will reset ALL fonts and sizes to it's default settings, use this with caution!
+                - type: custom:button-card
+                  name: Reset fonts to defaults
+                  icon: mdi:format-font
+                  aspect_ratio: 6/1
+                  size: 70%
+                  show_state: false
+                  show_label: false
+                  show_icon: false
+                  tap_action: 
+                    action: call-service
+                    service: automation.trigger
+                    service_data:
+                      entity_id: automation.reset_font_size
+                    haptic: heavy
+                  hold_action: 
+                    action: none
+                  lock:
+                    enabled: true
+                    unlock: tap
+                  styles:
+                    name:
+                      - font-size: 12px
+                      - font-family: Helvetica
+                      - padding-left: 20px
+                - type: entities
+                  title: Font Family
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.font_family
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Font Size
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_select.name_font_size_selector
+                      name: Name Font Size
+                    - entity: input_select.state_font_size_selector
+                      name: State Font Size
+                    - entity: input_select.label_font_size_selector
+                      name: Label Font Size
+                    - entity: input_select.notification_font_size_selector
+                      name: Notifications Font Size
+                - type: entities
+                  title: Font Weight
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_select.name_font_weight
+                      name: Name Font Weight
+                    - entity: input_select.state_font_weight
+                      name: State Font Weight
+                    - entity: input_select.label_font_weight
+                      name: Label Font Weight
+                    - entity: input_select.notification_font_weight
+                - type: entities
+                  title: Button Badge Options
+                  show_header_toggle: false                                             
+                  entities: 
+                    - entity: input_select.badge_font_size_selector
+                      name: Badge Font Size
+                    - entity: input_select.badge_text_transform
+                      name: Badge Text Transform
+            - !include ../includes/blank-card.yaml

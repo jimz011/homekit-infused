@@ -1,0 +1,40 @@
+- title: HKI Settings
+  path: hki_settings_floorplan
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Floorplan
+            icon: mdi:floor-plan
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                
+                    content: >
+                      **Floorplan:** You can only setup a static image for the floorplan with this widget. If you want to create your own pleaes use the custom_user content area for that.
+                - type: entities
+                  title: Floorplan
+                  show_header_toggle: false                                             
+                  entities: 
+                    - entity: input_text.floorplan_image
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

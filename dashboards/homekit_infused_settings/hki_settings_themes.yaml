@@ -1,0 +1,78 @@
+- title: HKI Settings
+  path: hki_settings_themes
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Theme
+            icon: mdi:palette
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                                                
+                    content: >
+                      **Colors:** Setting a color scheme will change the colors and wallpaper for all users. When set to Day/Night Cycle the colors will change depending on if the sun is above or below the horizon. You can set your own themes for use with day and night.
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.day_night_cycle
+                      state: "on"
+                  card:
+                    type: entities
+                    title: Day/Night Color Scheme
+                    show_header_toggle: false                                 
+                    entities: 
+                      - entity: input_boolean.day_night_cycle
+                        name: Day/Night Cycle
+                      - entity: input_select.theme_selector_day
+                        name: Select daytime color scheme
+                      - entity: input_select.theme_selector_night
+                        name: Select nighttime color scheme
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.day_night_cycle
+                      state: "off"
+                  card:
+                    type: entities
+                    title: Standard Color Scheme
+                    show_header_toggle: false                                   
+                    entities: 
+                      - entity: input_boolean.day_night_cycle
+                        name: Day/Night Cycle
+                      - entity: input_select.theme_selector
+                        name: Select standard color scheme
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                   
+                    content: >
+                      **Options:** The border-radius and box-shadow can no longer be selected from this menu, please edit them in /user_content/theme_options/ You don't need to restart HA after changing this, you will only need to reload themes to make the change apparent.
+                #- type: entities
+                #  title: Card Options
+                #  show_header_toggle: false                                         
+                #  entities: 
+                #    - entity: input_select.border_radius_selector
+                #      name: Select Border Size
+                #    - entity: input_select.box_shadow_selector
+                #      name: Select Shadow Size
+            - !include ../includes/blank-card.yaml

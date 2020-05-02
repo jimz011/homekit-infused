@@ -1,0 +1,77 @@
+- title: HKI Settings
+  path: hki_settings_general
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: General
+            icon: mdi:tools
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown              
+                    content: >
+                      **Language and Icons:** Set up your language and icons here, you need a subscription for Fontawesome Pro. Warning: Selecting a language will erase all customization made in the advanced section.
+
+
+                      **RTL:** Set to 'right' if you use Right to Left languages.
+                - type: entities
+                  title: Language and Icons
+                  show_header_toggle: false                                            
+                  entities: 
+                    - entity: input_select.language_selector
+                      name: Language
+                    - entity: input_select.justify_self
+                      name: RTL
+                    - entity: input_select.icon_selector
+                      name: Icons
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                  
+                    content: >
+                      **Edit Mode:** Edit mode lets you turn on/off elements of HKI on each view, you can also turn 'on' edit mode by tap and holding the upper right corner of the UI. Tap on the red bar on the respective view to use edit mode.
+                - type: entities
+                  title: Edit Mode
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_boolean.edit_mode
+                      name: Edit Mode
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Messages:** Turn on/off the tutorial in HKI.
+                - type: entities
+                  title: System Messages
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_boolean.user_content_message
+                      name: User Content/Edit Mode message
+                    - entity: input_boolean.system_help
+                      name: HKI Settings help messages
+            - !include ../includes/blank-card.yaml

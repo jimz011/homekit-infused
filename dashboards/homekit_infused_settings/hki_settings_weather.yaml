@@ -1,0 +1,58 @@
+- title: HKI Settings
+  path: hki_settings_weather
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Weather
+            icon: mdi:weather-partly-cloudy
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Weather:** Settings for weather are for both the frontpage and weather view. Set up your entities here.
+                - type: entities
+                  title: Weather
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.weather_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.city
+                      type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                                             
+                    content: >
+                      **iFrame:** The weather view has two iframe addons, if you wish to setup an iframe enter the address here and turn it on with edit mode in the weather view.
+                - type: entities
+                  title: iFrames
+                  show_header_toggle: false            
+                  entities: 
+                    - entity: input_text.weather_iframe_1
+                      type: 'custom:text-input-row'
+                    - entity: input_text.weather_iframe_2
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

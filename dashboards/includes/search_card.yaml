@@ -1,0 +1,13 @@
+type: custom:search-card
+style: |
+  ha-card {
+    border-radius: none;
+    box-shadow: none;
+    --paper-card-background-color: rgba(0,0,0,0.0);
+    --primary-text-color: var(--category-text) !important;
+    color: var(--category-text) !important;
+    --text-primary-color: var(--category-text) !important;
+    --secondary-text-color: var(--category-text) !important;
+    --disabled-text-color: var(--category-text) !important;
+  }
+max_results: 10

@@ -1,0 +1,58 @@
+- title: HKI Settings
+  path: hki_settings_calendar
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Calendar
+            icon: mdi:calendar
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: vertical-stack
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                  
+                    content: >
+                      **Calendar:** Calendar setup. The family calendar can be shown on the frontpage, it will also show in the calendar view. Personal calendars will only show behind person pictures. If you have a separate birthday calendar, you can enter it here.
+                - type: entities
+                  title: Family Calendar                    
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.family_calendar_entity
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Personal Calendar                    
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.person_1_calendar_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.person_2_calendar_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.person_3_calendar_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.person_4_calendar_entity
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Birthday Calendar                    
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.birthday_calendar_entity
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

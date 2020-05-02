@@ -1,0 +1,11 @@
+type: horizontal-stack
+cards:
+  - !include ../includes/blank-card.yaml
+  - !include
+    - notification_template.yaml
+    - name: "{{ name|default('test') }}"
+      icon: "{{ icon|default('mdi:home') }}"
+      entity: {{ entity|default('input_boolean.dummy1') }}
+      spin: {{ spin|default('false') }}
+      font_weight: {{ font_weight|default('normal') }}
+  - !include ../includes/blank-card.yaml

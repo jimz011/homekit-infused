@@ -1,0 +1,140 @@
+type: horizontal-stack
+cards:
+  - !include ../blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Header"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.header_secondary_laundry
+        name: Header Subtitle
+        icon: mdi:alpha-h-box
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Widgets"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.laundry_picture_elements_1
+        name: Washing Machine
+        icon: mdi:washing-machine
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.laundry_picture_elements_2
+        name: Tumble Dryer
+        icon: mdi:tumble-dryer
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.laundry_picture_elements_3
+        name: Dishwasher
+        icon: mdi:dishwasher
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Custom Content"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.laundry_user_content
+        name: User Content
+        icon: mdi:account-multiple-plus-outline
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+  - !include ../blank-card.yaml

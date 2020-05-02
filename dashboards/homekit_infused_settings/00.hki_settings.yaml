@@ -1,0 +1,272 @@
+- title: HKI Settings
+  path: settings
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Homekit Infused Settings
+            icon: mdi:tools
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - type: vertical-stack
+          cards:
+            - type: conditional
+              conditions:
+                - entity: input_boolean.system_help
+                  state: "on"
+              card:
+                type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:layout-card
+                    cards:
+                      - type: markdown                                                
+                        content: >
+                          **Settings:** This is the Homekit Infused Settings page, you can set most settings within this menu. Exceptions to this rule are Notifications, Groups and Deep Press. You will have to set them in YAML, you can find them in the /user_content folder.
+                  - !include ../includes/blank-card.yaml
+            - !include
+              - '../templates/header_category.yaml'
+              - name: "Basic Settings"
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: General
+                        label: Config
+                        icon: mdi:earth
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_general
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Person
+                        label: Config
+                        icon: mdi:account-supervisor
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_person
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Room
+                        label: Config
+                        icon: mdi:shape-square-plus
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_room
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Alarm
+                        label: Config
+                        icon: mdi:shield-home
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_alarm
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Media
+                        label: Config
+                        icon: mdi:remote
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_media
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Theme
+                        label: Manager
+                        icon: mdi:palette
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_themes
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Vacuum
+                        label: Config
+                        icon: mdi:robot-vacuum
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_vacuum
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Weather
+                        label: Config
+                        icon: mdi:weather-partly-cloudy
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_weather
+                    - !include ../includes/empty-button.yaml
+                - !include ../includes/blank-card.yaml
+            - !include
+              - '../templates/header_category.yaml'
+              - name: "Widget Settings"
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Air Visual
+                        label: Config
+                        icon: mdi:weather-windy
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_air_visual
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Calendar
+                        label: Config
+                        icon: mdi:calendar
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_calendar
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Cleaning
+                        label: Config
+                        icon: mdi:calendar-edit
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_cleaning
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Climate
+                        label: Presets
+                        icon: mdi:thermostat
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_climate
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Floorplan
+                        label: Config
+                        icon: mdi:floor-plan
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_floorplan
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Laundry
+                        label: Config
+                        icon: mdi:washing-machine
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_laundry
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Waste
+                        label: Config
+                        icon: mdi:trash-can-outline
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_waste_collection
+                    - !include ../includes/empty-button.yaml
+                    - !include ../includes/empty-button.yaml
+                - !include ../includes/blank-card.yaml
+            - !include
+              - '../templates/header_category.yaml'
+              - name: "Advanced Settings"
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Button
+                        label: Config
+                        icon: mdi:gesture-tap-button
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_buttons
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Fonts
+                        label: Config
+                        icon: mdi:format-font
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_fonts
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Footer
+                        label: Config
+                        icon: mdi:alpha-f-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_footer
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Header
+                        label: Config
+                        icon: mdi:alpha-h-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_header
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Advanced
+                        label: Customization
+                        icon: mdi:alpha-a-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_advanced
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Other
+                        label: Translations
+                        icon: mdi:alpha-o-box
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_other_translations
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - entity: input_boolean.dummy1
+                        name: Sandbox
+                        label: Card Builder
+                        icon: mdi:card-plus-outline
+                        margin_right: 40px
+                        opacity_off: 0.8
+                        navigation_path: /hki-settings/hki_settings_sandbox
+                - !include ../includes/blank-card.yaml

@@ -1,0 +1,190 @@
+type: horizontal-stack
+cards:
+  - !include ../blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Header"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.header_secondary_security
+        name: Header Subtitle
+        icon: mdi:alpha-h-box
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Categories"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_cameras
+        name: "[[[ return `${states['input_text.name_cameras'].state}` ]]]"
+        icon: mdi:cctv
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_doors
+        name: "[[[ return `${states['input_text.name_doors'].state}` ]]]"
+        icon: mdi:door
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_windows
+        name: "[[[ return `${states['input_text.name_windows'].state}` ]]]"
+        icon: mdi:window-closed
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_motion
+        name: "[[[ return `${states['input_text.name_motion'].state}` ]]]"
+        icon: mdi:motion-sensor
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_other
+        name: "[[[ return `${states['input_text.name_other'].state}` ]]]"
+        icon: mdi:smoke-detector
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Custom Content"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.security_user_content
+        name: User Content
+        icon: mdi:account-multiple-plus-outline
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+  - !include ../blank-card.yaml

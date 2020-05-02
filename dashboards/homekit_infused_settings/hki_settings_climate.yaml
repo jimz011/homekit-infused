@@ -1,0 +1,70 @@
+- title: HKI Settings
+  path: hki_settings_climate
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Climate
+            icon: mdi:thermostat
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                  
+                    content: >
+                      **Climate Presets:** You can lightly customize the climate presets widget here. Only names and icons can be changed and you can set the frost protection and heat all temperatures. This might get expanded in the future.
+                - type: entities
+                  title: Preset Names
+                  show_header_toggle: false                                            
+                  entities: 
+                    - entity: input_text.name_power
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_on
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_off
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_frost
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_protection
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_heat
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_all
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Preset Icons
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.icon_power
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_frost
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_heat
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Preset Temperatures
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.frost_protection_temperature
+                      type: 'custom:text-input-row'
+                    - entity: input_text.heat_all_temperature
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

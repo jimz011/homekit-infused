@@ -1,0 +1,44 @@
+- title: HKI Settings
+  path: hki_settings_sandbox
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Sandbox
+            icon: mdi:card-plus-outline
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown            
+                    content: >
+                      **Toolbox:** The toolbox can be used to build cards with a UI based editor, you CAN'T save the card directly, however you can copy/paste into your custom_user files.
+                - type: custom:mod-card                          
+                  style: |
+                    ha-card {
+                      --ha-card-background: var(--paper-card-background-color);
+                      background: var(--paper-card-background-color);
+                      border-radius: var(--border-radius);
+                      ox-shadow: var(--box-shadow)
+                    }                        
+                  card:
+                    type: custom:gui-sandbox
+            - !include ../includes/blank-card.yaml

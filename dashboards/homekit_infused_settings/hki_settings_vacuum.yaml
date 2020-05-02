@@ -1,0 +1,120 @@
+- title: HKI Settings
+  path: hki_settings_vacuum
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Vacuum
+            icon: mdi:robot-vacuum
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Vacuum:** Set up your vacuum entity here (this has only been tested with a Xiaomi Roborock!) You MUST also add this entity within the `user_content/extra_settings.yaml` file. Without it this will NOT work!
+                - type: entities
+                  title: Vacuum
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.vacuum_entity
+                      type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                                             
+                    content: >
+                      **Vacuum Live Map:** You can setup the live map by adding a camera entity, you MUST do this in `user_content/extra_settings.yaml` at the vacuum settings! To make this work you MUST have a rooted vacuum with Valetudo RE installed. Regular Valetudo has NOT been tested and it is recommended to use Valetudo RE instead!
+
+
+                      **Extra:** You MUST enter coördinates in the `user_content/vacuum_calibration.yaml` file. How to do this you can find here: https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card/wiki and here https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card!
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Vacuum:** Set up your vacuum attribute entities here, to use this you must setup template sensors/automations. You must copy/paste the code yourself. To find this code please download the `user_content/vacuum_readme.txt` from my repo. If you started using this after beta8, you already have this file. Copy/Paste the contents of the file to the appropriate locations. Then come back to this menu to setup the vacuum sensors.
+                - type: entities
+                  title: Vacuum Sensors
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.vacuum_error_sensor_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_battery_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_cleaning_count_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_total_cleaned_area_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_total_cleaning_time_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_main_brush_time_left_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_side_brush_time_left_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_filter_time_left_entity
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_sensor_dirty_time_left_entity
+                      type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                                             
+                    content: >
+                      **Vacuum Presets:** You can create four preset buttons which you can setup here. You can add a name, icon and you must add the coördinates. The coördinates set here will be cleaned whenever you press the preset button. Please refer to the links above, explained in the live map section on how to get coördinates!
+                - type: entities
+                  title: Vacuum Presets
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.vacuum_preset_button_1_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_1_icon
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_1_coordinates
+                      type: 'custom:text-input-row'
+                    - type: divider
+                    - entity: input_text.vacuum_preset_button_2_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_2_icon
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_2_coordinates
+                      type: 'custom:text-input-row'
+                    - type: divider
+                    - entity: input_text.vacuum_preset_button_3_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_3_icon
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_3_coordinates
+                      type: 'custom:text-input-row'
+                    - type: divider
+                    - entity: input_text.vacuum_preset_button_4_name
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_4_icon
+                      type: 'custom:text-input-row'
+                    - entity: input_text.vacuum_preset_button_4_coordinates
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

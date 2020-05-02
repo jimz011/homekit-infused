@@ -1,0 +1,48 @@
+- title: HKI Settings
+  path: hki_settings_footer
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Footer
+            icon: mdi:alpha-f-box
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown              
+                    content: >
+                      **Footer:** You can customize the footer in this view. After having setup the icons for the first time it might be possible you need a restart. After that you can change them instantly.
+                - type: entities
+                  title: Footer Button Orientation
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_select.footer_direction
+                      name: Footer Orientation
+                - type: entities
+                  title: Icons
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.icon_footer_home
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_footer_menu
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

@@ -1,0 +1,1033 @@
+type: horizontal-stack
+cards:
+  - !include ../blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Header"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.header_secondary_light
+        name: Header Subtitle
+        icon: mdi:alpha-h-box
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Room Locks"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: input_select.lights_floor_selector
+            icon: mdi:home-floor-negative-1
+            show_label: false
+            show_name: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              service_data:
+                entity_id: input_select.lights_floor_selector
+                option: "-1"
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+              name:
+                - font-size: 10px
+            state:
+              - value: "-1"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: Black
+                  icon: 
+                    - color: Crimson
+          - type: custom:button-card
+            entity: input_select.lights_floor_selector
+            icon: mdi:home-floor-0
+            show_label: false
+            show_name: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              service_data:
+                entity_id: input_select.lights_floor_selector
+                option: "0"
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+              name:
+                - font-size: 10px
+            state:
+              - value: "0"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: Black
+                  icon: 
+                    - color: Crimson
+          - type: custom:button-card
+            entity: input_select.lights_floor_selector
+            icon: mdi:home-floor-1
+            show_label: false
+            show_name: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              service_data:
+                entity_id: input_select.lights_floor_selector
+                option: "1"
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+              name:
+                - font-size: 10px
+            state:
+              - value: "1"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: Black
+                  icon: 
+                    - color: Crimson
+          - type: custom:button-card
+            entity: input_select.lights_floor_selector
+            icon: mdi:home-floor-2
+            show_label: false
+            show_name: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              service_data:
+                entity_id: input_select.lights_floor_selector
+                option: "2"
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+              name:
+                - font-size: 10px
+            state:
+              - value: "2"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: Black
+                  icon: 
+                    - color: Crimson
+          - type: custom:button-card
+            entity: input_select.lights_floor_selector
+            icon: mdi:home-floor-3
+            show_label: false
+            show_name: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              service_data:
+                entity_id: input_select.lights_floor_selector
+                option: "3"
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+              name:
+                - font-size: 10px
+            state:
+              - value: "3"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: Black
+                  icon: 
+                    - color: Crimson
+      - type: conditional
+        conditions:
+          - entity: input_select.lights_floor_selector
+            state: "-1"
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_b1_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_b1_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_b2_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_b2_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_b3_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_b3_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_b4_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_b4_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_b5_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_b5_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+
+
+      - type: conditional
+        conditions:
+          - entity: input_select.lights_floor_selector
+            state: "0"
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_01_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_01_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_02_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_02_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_03_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_03_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_04_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_04_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_05_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_05_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_06_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_06_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_07_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_07_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_08_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_08_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_09_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_09_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_010_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_010_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+      - type: conditional
+        conditions:
+          - entity: input_select.lights_floor_selector
+            state: "1"
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_11_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_11_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_12_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_12_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_13_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_13_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_14_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_14_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_15_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_15_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_16_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_16_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_17_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_17_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_18_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_18_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_19_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_19_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_110_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_110_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+
+
+      - type: conditional
+        conditions:
+          - entity: input_select.lights_floor_selector
+            state: "2"
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_21_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_21_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_22_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_22_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_23_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_23_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_24_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_24_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_25_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_25_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+
+      - type: conditional
+        conditions:
+          - entity: input_select.lights_floor_selector
+            state: "3"
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_31_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_31_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_32_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_32_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_33_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_33_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_34_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_34_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              name: "[[[ return `${states['input_text.room_35_name'].state}` ]]]"
+              size: 50%
+              entity: input_boolean.lights_room_35_lock
+              show_label: false
+              show_state: false
+              layout: icon_name
+              icon: mdi:lock                  
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - height: 45px
+                  - opacity: 0.7
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    icon: 
+                      - color: Crimson

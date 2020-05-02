@@ -1,0 +1,449 @@
+- title: HKI Settings
+  path: hki_settings_person
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Persons
+            icon: mdi:account-supervisor
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: DarkMagenta
+            name: Tap to go back to Home
+            navigation_path: ../homekit-infused/
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown              
+                        content: >
+                          **Persons:** Persons set up here will reflect throughout the entire UI. The amount of persons you set up here will also set the amount of photo's shown on the frontpage. If you more persons than photo's you want to show, please set up the amount of persons first and then set it back to the amount of photo's you want. The setup will remember what you have set under persons 2,3 and 4 even if they are hidden.
+    
+    
+                          **NOTE:** Note that some cards require all the persons to be filled in or it will fail, this will only be required for the person entity itself, not the image path etc. To solve this problem you MUST fill in person.unknown as the person entity for all persons you don't use. This is already done if you went through the onboarding process.
+                    - type: entities
+                      title: Household Persons
+                      show_header_toggle: false                                           
+                      entities: 
+                        - entity: input_select.person_selector
+                          name: Number of persons
+                - type: conditional
+                  conditions:
+                    - entity: input_select.person_selector
+                      state_not: "None"
+                  card:
+                    type: custom:layout-card
+                    cards:
+                      - type: entities
+                        title: Person 1
+                        show_header_toggle: false                                                    
+                        entities: 
+                          - entity: input_text.person_1_name
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_1_entity
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_1_image_path
+                            type: 'custom:text-input-row'
+                          - type: custom:hui-vertical-stack-card
+                            cards:
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_01_battery
+                                    name: Show Battery Information
+                                    icon: mdi:battery
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_01_battery
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_1_battery_entity
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_01_travel
+                                    name: Show Travel Information
+                                    icon: mdi:car
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_01_travel
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_1_travel_time_to_home
+                                            type: 'custom:text-input-row'
+                                          - entity: input_text.person_1_travel_time_to_work
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_01_mail
+                                    name: Show Unread Emails
+                                    icon: mdi:email
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_01_mail
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_1_email_entity
+                                            type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_select.person_selector
+                      state_not: "None"
+                    - entity: input_select.person_selector
+                      state_not: "One Person"
+                  card:
+                    type: custom:layout-card
+                    cards:
+                      - type: entities
+                        title: Person 2
+                        show_header_toggle: false                                                             
+                        entities: 
+                          - entity: input_text.person_2_name
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_2_entity
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_2_image_path
+                            type: 'custom:text-input-row'
+                          - type: custom:hui-vertical-stack-card
+                            cards:
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_02_battery
+                                    name: Show Battery Information
+                                    icon: mdi:battery
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_02_battery
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_2_battery_entity
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_02_travel
+                                    name: Show Travel Information
+                                    icon: mdi:car
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_02_travel
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_2_travel_time_to_home
+                                            type: 'custom:text-input-row'
+                                          - entity: input_text.person_2_travel_time_to_work
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_02_mail
+                                    name: Show Unread Emails
+                                    icon: mdi:email
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_02_mail
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_2_email_entity
+                                            type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_select.person_selector
+                      state_not: "None"
+                    - entity: input_select.person_selector
+                      state_not: "One Person"
+                    - entity: input_select.person_selector
+                      state_not: "Two Persons"
+                  card: 
+                    type: custom:layout-card
+                    cards:
+                      - type: entities
+                        title: Person 3
+                        show_header_toggle: false                                                           
+                        entities: 
+                          - entity: input_text.person_3_name
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_3_entity
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_3_image_path
+                            type: 'custom:text-input-row'
+                          - type: custom:hui-vertical-stack-card
+                            cards:
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_03_battery
+                                    name: Show Battery Information
+                                    icon: mdi:battery
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_03_battery
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_3_battery_entity
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_03_travel
+                                    name: Show Travel Information
+                                    icon: mdi:car
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_03_travel
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_3_travel_time_to_home
+                                            type: 'custom:text-input-row'
+                                          - entity: input_text.person_3_travel_time_to_work
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_03_mail
+                                    name: Show Unread Emails
+                                    icon: mdi:email
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_03_mail
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_3_email_entity
+                                            type: 'custom:text-input-row'
+                - type: conditional
+                  conditions:
+                    - entity: input_select.person_selector
+                      state_not: "None"
+                    - entity: input_select.person_selector
+                      state: "Four Persons"
+                  card:
+                    type: custom:layout-card
+                    cards:
+                      - type: entities
+                        title: Person 4
+                        show_header_toggle: false                                                           
+                        entities: 
+                          - entity: input_text.person_4_name
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_4_entity
+                            type: 'custom:text-input-row'
+                          - entity: input_text.person_4_image_path
+                            type: 'custom:text-input-row'
+                          - type: custom:hui-vertical-stack-card
+                            cards:
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_04_battery
+                                    name: Show Battery Information
+                                    icon: mdi:battery
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_04_battery
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_4_battery_entity
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_04_travel
+                                    name: Show Travel Information
+                                    icon: mdi:car
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_04_travel
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_4_travel_time_to_home
+                                            type: 'custom:text-input-row'
+                                          - entity: input_text.person_4_travel_time_to_work
+                                            type: 'custom:text-input-row'
+                              - type: entities                       
+                                style: |
+                                  ha-card {
+                                    box-shadow: none;
+                                  }                                      
+                                  .card-content {
+                                    padding: 0
+                                  }       
+                                show_header_toggle: false 
+                                entities:
+                                  - entity: input_boolean.person_04_mail
+                                    name: Show Unread Emails
+                                    icon: mdi:email
+                                  - type: custom:state-switch
+                                    entity: input_boolean.person_04_mail
+                                    states:
+                                      "on":
+                                        type: entities  
+                                        style: |
+                                          ha-card {
+                                            box-shadow: none;
+                                          }       
+                                        show_header_toggle: false 
+                                        entities:
+                                          - entity: input_text.person_4_email_entity
+                                            type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

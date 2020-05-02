@@ -1,0 +1,66 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:config-template-card
+        entities:
+          - input_text.name_vacuum_error_sensor
+          - input_text.name_vacuum_battery
+          - input_text.name_cleaning_count
+          - input_text.name_total_cleaned_area
+          - input_text.name_total_cleaning_time
+          - input_text.name_main_brush_time_left
+          - input_text.name_side_brush_time_left
+          - input_text.name_filter_time_left
+          - input_text.name_sensor_dirty_time_left
+          - input_text.vacuum_entity
+          - input_text.vacuum_error_sensor_entity
+          - input_text.vacuum_battery_entity
+          - input_text.vacuum_cleaning_count_entity
+          - input_text.vacuum_total_cleaned_area_entity
+          - input_text.vacuum_total_cleaning_time_entity
+          - input_text.vacuum_main_brush_time_left_entity
+          - input_text.vacuum_side_brush_time_left_entity
+          - input_text.vacuum_filter_time_left_entity
+          - input_text.vacuum_sensor_dirty_time_left_entity
+        card:
+          type: entities
+          style: |
+            ha-card {
+              --ha-card-background: transparant;
+              background: transparant;
+              border-radius: none;
+              box-shadow: none;
+              opacity: 0.8;
+              font-size: 12px;
+              font-family: Helvetica;
+              --paper-item-icon-color: white !important;
+              --primary-text-color: white !important;
+              --text-primary-color: white !important;
+            }
+          entities:
+            - entity: "${states['input_text.vacuum_entity'].state}"
+            - entity: "${states['input_text.vacuum_error_sensor_entity'].state}"
+              name: "${states['input_text.name_vacuum_error_sensor'].state}"
+            - entity: "${states['input_text.vacuum_battery_entity'].state}"
+              name: "${states['input_text.name_vacuum_battery'].state}"
+            - entity: "${states['input_text.vacuum_cleaning_count_entity'].state}"
+              name: "${states['input_text.name_cleaning_count'].state}"
+            - entity: "${states['input_text.vacuum_total_cleaned_area_entity'].state}"
+              name: "${states['input_text.name_total_cleaned_area'].state}"
+            - entity: "${states['input_text.vacuum_total_cleaning_time_entity'].state}"
+              name: "${states['input_text.name_total_cleaning_time'].state}"
+            - type: divider
+            - entity: "${states['input_text.vacuum_main_brush_time_left_entity'].state}"
+              name: "${states['input_text.name_main_brush_time_left'].state}"
+            - entity: "${states['input_text.vacuum_side_brush_time_left_entity'].state}"
+              name: "${states['input_text.name_side_brush_time_left'].state}"
+            - entity: "${states['input_text.vacuum_filter_time_left_entity'].state}"
+              name: "${states['input_text.name_filter_time_left'].state}"
+            - entity: "${states['input_text.vacuum_sensor_dirty_time_left_entity'].state}"
+              name: "${states['input_text.name_sensor_dirty_time_left'].state}"
+            - type: divider
+            - entity: input_select.xiaomi_vacuum

@@ -1,0 +1,301 @@
+- title: Onboarding
+  path: onboarding
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Onboarding Process
+            icon: mdi:clipboard-play
+            spin: true
+            content: Onboarding
+            system_header: input_boolean.config_header
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_select.onboarding
+                          state: "Language and Icons"
+                      card:
+                        type: custom:button-card
+                        entity: input_select.onboarding
+                        name: Back
+                        icon: mdi:arrow-left-bold-circle-outline
+                        show_label: false
+                        show_name: true
+                        tap_action:
+                          action: call-service
+                          service: input_select.select_option
+                          service_data:
+                            entity_id: input_select.onboarding
+                            option: "Introduction"
+                        hold_action:
+                          action: none
+                          haptic: heavy
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "0"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+                    - type: conditional
+                      conditions:
+                        - entity: input_select.onboarding
+                          state_not: "Introduction"
+                        - entity: input_select.onboarding
+                          state_not: "Language and Icons"
+                      card:
+                        type: custom:button-card
+                        entity: input_select.onboarding
+                        name: Back
+                        icon: mdi:arrow-left-bold-circle-outline
+                        show_label: false
+                        show_name: true
+                        tap_action:
+                          action: call-service
+                          service: input_select.select_previous
+                          service_data:
+                            entity_id: input_select.onboarding
+                        hold_action:
+                          action: none
+                          haptic: heavy
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "0"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+                    - type: conditional
+                      conditions:
+                        - entity: input_select.onboarding
+                          state_not: "Finish"
+                        - entity: input_select.onboarding
+                          state_not: "Introduction"
+                      card:
+                        type: custom:button-card
+                        entity: input_select.onboarding
+                        icon: mdi:arrow-right-bold-circle-outline
+                        name: Next
+                        show_label: false
+                        show_name: true
+                        tap_action:
+                          action: call-service
+                          service: input_select.select_next
+                          service_data:
+                            entity_id: input_select.onboarding
+                        hold_action:
+                          action: none
+                          haptic: heavy
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "1"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+                    - type: conditional
+                      conditions:
+                        - entity: input_select.onboarding
+                          state: "Finish"
+                      card:
+                        type: custom:button-card
+                        entity: input_select.onboarding
+                        icon: mdi:arrow-right-bold-circle-outline
+                        name: Finish
+                        show_label: false
+                        show_name: true
+                        tap_action:
+                          action: navigate
+                          navigation_path: /homekit-infused/home
+                          haptic: light
+                        hold_action:
+                          action: none
+                          haptic: heavy
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                        state:
+                          - value: "1"
+                            styles:
+                              card:
+                                - --paper-card-background-color: white
+                                - opacity: 1.0
+                              name:
+                                - color: Black
+                              icon: 
+                                - color: Crimson
+            - !include ../includes/blank-card.yaml 
+        - type: conditional
+          conditions:
+            - entity: input_select.onboarding
+              state: "Introduction"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: vertical-stack
+                cards:
+                  - type: custom:layout-card
+                    cards:
+                      - type: markdown              
+                        content: >
+                          **Introduction:** Homekit Infused is a complete lovelace package with a built-in view/addon editor. 95% of all the configuration can be done through the interface in the HKI Settings view. However there are a few exceptions to this and you will (unfortunately) still need to do them in YAML.
+    
+    
+                          **Exceptions:** Exceptions to this rule are the following configurations. Device Counters, Deep Press, Notifications and some other small stuff.
+    
+    
+                          **User Content:** This is the first edition of HKI that has it's own user folder and that should be the only folder you ever touch. Changing the configuration of the settings mentioned above can all be found in the `/user_content/` folder in the root of your Home Assistant install. Those are the only files you are allowed to touch without breaking HKI and those files will survive updates so you don't need to worry about losing your precious and time costly views/cards. You can create your own views, but those files also reside in this folder. Conclusion: Don't use any other files than the ones in the `/user_content/` folder!
+    
+    
+                          **Customize:** If you have followed the documentation you should have setup `customize.yaml` this is required if you want some nice icons and names for your entities in different rooms. If you have not done so yet you should do that AFTER finishing the onboarding process.
+    
+    
+                          **Rooms:** Rooms can be setup within the interface, You can set them up in the HKI Settings after the onboarding process. If you want the device-counter entities to work you must fill in the `user_content/device_counters.yaml` file!
+    
+    
+                          **Interface:** The entire rest of the configuration and layout can be done with ease from within the UI and changes are all instant! The onboarding process is only to setup some defaults and serves no other purpose!
+                          
+                          
+                          Press Continue to proceed.
+                      - type: custom:button-card
+                        entity: input_select.onboarding
+                        name: Continue
+                        show_label: false
+                        show_icon: false
+                        show_name: true
+                        tap_action:
+                          action: call-service
+                          service: automation.trigger
+                          service_data:
+                            entity_id: automation.hki_onboarding
+                        hold_action:
+                          action: none
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                            - justify-self: center
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.onboarding
+              state: "Language and Icons"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: vertical-stack
+                cards:
+                  - type: custom:layout-card
+                    cards:
+                      - type: markdown               
+                        content: >
+                          **Language and Icons:** Please choose your Language and Icon set here. You can't skip this part! If you have FontAwesome Pro icons (svg generated and not the custom_component) you can choose to use those icons instead. Press next when finished to proceed.
+                      - type: entities
+                        title: Language and Icons
+                        show_header_toggle: false                          
+                        style: |
+                          ha-card {                            
+                            border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow)
+                          }                        
+                        entities: 
+                          - entity: input_select.language_selector
+                            name: Language
+                          - entity: input_select.icon_selector
+                            name: Icons
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.onboarding
+              state: "Finish"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                layout: vertical
+                cards:
+                  - type: markdown            
+                    content: >
+                      **Congratulations:** If you have followed all the steps from the documentation and the steps set out for you here you have succesfully installed HKI and you are now ready to configure and use it.
+
+
+                      **Configuration:** To configure rooms, users, weather, alarms, fonts, themes and all that kind of good stuff go to the menu and then scroll to the bottom and click on HKI Settings.
+
+
+                      **Themes:** You can set a color scheme for the entire setup within the Theme Manager in the HKI Settings menu.
+
+
+                      **Edit Mode:** Edit mode is a new function which allows you to re-arrange each of the views, you can invoke the edit mode by tapping and holding the upper right corner of the header (on the sensor icons or blank space if the icons are not used). After invoking the edit mode a red bar will appear below the header, pressing on it will open the view editor. Note that the order of the widgets and buttons are fixed, this is a limitation of lovelace.
+
+
+                      **Updates:** Updates are usually easy to do, but sometimes it can be a bit trickier. I will always properly guide you through any of the update processes. To see if there is an update available, go the menu, scroll all the way down and click on About.
+
+
+                      **Thanks:** Thank you for installing HKI and enjoy 2020 with this Homekit Style lovelace package. Enjoy!
+
+
+                      Press FINISH to finish the onboarding process.
+                  - type: custom:button-card
+                    entity: input_select.onboarding
+                    name: FINISH
+                    show_label: false
+                    show_icon: false
+                    show_name: true
+                    tap_action:
+                      action: navigate
+                      navigation_path: ../homekit-infused/home
+                      haptic: light
+                    hold_action:
+                      action: navigate
+                      navigation_path: ../homekit-infused/home
+                      haptic: heavy
+                    styles:
+                      card:
+                        - opacity: 0.7
+                        - height: 45px
+                      name:
+                        - font-size: 10px
+                        - justify-self: center
+              - !include ../includes/blank-card.yaml
