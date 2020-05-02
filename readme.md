@@ -9,7 +9,8 @@ My current Home Assistant version is 0.109.2
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
-### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases (including the current beta versions)
+### [Click here](https://github.com/jimz011/homekit-infused/releases/tag/2.0.0b8) to download the current (beta) release
+### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases
 ### [Click here](https://github.com/jimz011/homekit-infused/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
