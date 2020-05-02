@@ -1,10 +1,13 @@
-This is beta 8 of HKI v2.0.0
+This is beta 9 of HKI v2.0.0
+
+Changed Beta 9:
+- Fixed remote view breaking the setup.
 
 A little longer than you are used of me. Unfortunately unforseen things have been happening in my life lately, with the death of one of my family members and the ongoing worldwide crisis (in other words, a BIG chance to lose our jobs for some of us) I did not really felt compelled to work on Home Assistant a lot and I simply needed a break. But I am back with a 'small' update for you today. Enjoy!
 
 HKI Beta 8 is now open for anyone to download: visit https://github.com/jimz011/homekit-infused for documentation and download.
 
-Changes:
+Changes Beta 8:
 - HKI is now compatible with HA 0.107.x, 0.108.x and 0.109.x!
 - The settings and the frontend now have their own dashboards (unfortunately because of the way resources are loaded I had to create a workaround which is a bit annoying, but unfortunately for now the only way to make custom-header work properly again with Home Assistant v 0.107.x and up. I will try to address this in the future, however it might take a long time before I find out what the exact problem is).
 - Removed all markdown cards in favor of button-cards (this should improve view loading)
