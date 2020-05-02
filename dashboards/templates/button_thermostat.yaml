@@ -1,0 +1,226 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: "[[[ return `${states['{{entity}}'].attributes.temperature}°` ]]]"
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+lock:
+  enabled: "{{ lock|default('false') }}"
+  unlock: tap
+show_icon: false
+show_name: true
+show_label: true
+show_state: true
+tap_action:
+  action: toggle
+  haptic: light
+hold_action: 
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      position: fixed
+      z-index: 999
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      display: block
+      align-items: center
+      justify-content: center
+      background: rgba(0, 0, 0, 0.5)
+      flex-direction: column
+      margin: 0
+      "--iron-icon-fill-color": "#FFF"
+    card:
+      type: custom:thermostat-popup-card
+      entity: {{ entity }}
+      fullscreen: false
+      settings: true
+      settingsPosition: bottom
+    deviceID:
+      - this
+  haptic: heavy
+double_tap_action: 
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      position: fixed
+      z-index: 999
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      display: block
+      align-items: center
+      justify-content: center
+      background: rgba(0, 0, 0, 0.5)
+      flex-direction: column
+      margin: 0
+      "--iron-icon-fill-color": "#FFF"
+    card:
+      type: custom:thermostat-popup-card
+      entity: {{ entity }}
+      fullscreen: false
+      settings: true
+      settingsPosition: bottom
+    deviceID:
+      - this
+  haptic: heavy
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+  label:
+    - font-weight: "[[[ return states['input_select.label_font_weight'].state ]]]"
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-transform: capitalize
+    - font-weight: "[[[ return states['input_select.state_font_weight'].state ]]]"
+#    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-align: "[[[ return states['input_select.justify_self'].state ]]]"
+    - align-items: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+    - justify-content: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+  name:
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - padding: 0px 10px
+    - font-weight: "[[[ return states['input_select.name_font_weight'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+#    - color: var(--primary-text-color) 
+  icon:
+    - padding: 0px 10px
+  grid:
+    - grid-template-areas: '"i i" "n n" "area area" "s l"'
+    - grid-template-columns: 1fr lfr
+    - grid-template-rows: 1fr min-content min-content min-content
+  custom_fields:
+    notification:
+      - background-color: var(--paper-item-icon-color)
+      - color: var(--notification-badge-color)
+      - font-weight: bold
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - left: 12%
+      - top: 12%
+      - height: 32px
+      - width: 32px
+      - font-size: 10px
+      - line-height: 32px
+custom_fields: 
+  notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
+state:
+  - value: "heat"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `#1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66`; else return `#EE7600`; ]]]"
+          - color: white
+      lock:
+        - color: gray
+  - value: "cool"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#1E90FF'
+          - color: white
+      lock:
+        - color: gray
+  - value: "heat_cool"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: gray
+  - value: "idle"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: gray
+  - value: "off"
+    spin: false
+    styles:
+      card:
+        - opacity: 0.5
+      custom_fields:
+        notification:
+          - background-color: var(--paper-item-icon-color)
+          - color: var(--notification-badge-color)
+  - operator: 'default'
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#0C3966'
+          - color: white

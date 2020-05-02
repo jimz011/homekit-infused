@@ -1,0 +1,93 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+icon: {{ icon }}
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('false') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('false') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: {{ tap_action|default('call-service') }}
+  service: {{ service|default('remote.send_command') }}
+  service_data:
+    entity_id: {{ service_entity }}
+    command: 
+      - {{ command }}
+  haptic: heavy
+hold_action:
+  action: none
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+  label:
+    - font-weight: "[[[ return states['input_select.label_font_weight'].state ]]]"
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: start
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: "[[[ return states['input_select.state_font_weight'].state ]]]"
+    - padding-left: 10px
+#    - color: var(--state-color-off) 
+  grid: {{ grid }}
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('0px') }}
+  name:
+    - justify-self: start
+    - padding-left: 10px
+    - font-weight: bold
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+state:
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: white
+        - opacity: 1.0
+        - box-shadow: none
+      name:
+        - color: black 
+      state:
+        - color: black 
+      lock:
+        - color: gray
+      label:
+        - color: gray
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.5') }}
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color)

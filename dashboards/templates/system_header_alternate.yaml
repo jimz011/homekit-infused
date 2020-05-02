@@ -1,0 +1,118 @@
+# lovelace_gen
+
+# Card 
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    box-shadow: none;
+    background: var(--primary-color);
+    border-radius: none !important;
+  }
+  .card-content {
+    padding: 0
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: custom:state-switch
+        entity: input_boolean.system_header_sensors
+        default: "on"
+        states:
+          "on":
+            type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                layout: name_state
+                name: "{{ content }}"
+                show_icon: false
+                show_state: false
+                styles:
+                  card:
+                    - height: 40px
+                    - box-shadow: none
+                  name:
+                    - padding: 3
+                    - justify-self: start
+                    - letter-spacing: -1px
+                    - font-size: 1.2em
+                    - margin-top: 12px
+                    - margin-left: 18px
+                    - font-weight: bolder
+                    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+                    - color: var(--header-color)
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_door'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_doors_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_doors_open'].state < 1) return '&nbsp;'; else return states['sensor.current_doors_open'].state ]]]"
+                  size: 100%
+                  entity: group.all_door_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_window'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_windows_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_windows_open'].state < 1) return '&nbsp;'; else return states['sensor.current_windows_open'].state ]]]"
+                  entity: group.all_window_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_sensor'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
+                  entity: group.all_motion_smoke_sensors
+              - !include ../includes/blank-card.yaml 
+          "off":
+            type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                layout: name_state
+                name: "{{ content }}"
+                show_icon: false
+                show_state: false
+                styles:
+                  card:
+                    - height: 40px
+                    - box-shadow: none
+                  name:
+                    - padding: 3
+                    - justify-self: start
+                    - letter-spacing: -1px
+                    - font-size: 1.2em
+                    - margin-top: 12px
+                    - margin-left: 18px
+                    - font-weight: bolder
+                    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+                    - color: var(--header-color)
+              - !include
+                - button_header_transparant.yaml
+                - spin_off: false
+              - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - !include
+            - button_header_simple_second_menu.yaml
+            - entity_id: {{ entity }}
+              icon: 'mdi:chevron-left'
+              size: 80%
+              service: input_select.select_previous  
+          - !include ../includes/empty-button.yaml
+          - !include
+            - notification_template_alternate.yaml
+            - name: "{{ name|default('test') }}"
+              icon: "{{ icon|default('mdi:home') }}"
+              entity: {{ entity|default('input_boolean.dummy1') }}
+              spin: {{ spin|default('false') }}
+              font_weight: {{ font_weight|default('normal') }}
+              justify_self: center
+              margin_left: 0px
+              padding_left: 0px
+              width: 150px
+          - !include ../includes/empty-button.yaml
+          - !include
+            - button_header_simple_second_menu.yaml
+            - entity_id: {{ entity }}
+              icon: 'mdi:chevron-right'
+              size: 80%
+              service: input_select.select_next
+          - !include ../includes/blank-card.yaml

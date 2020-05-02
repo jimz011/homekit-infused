@@ -1,0 +1,160 @@
+# lovelace_gen
+
+# Card
+type: vertical-stack
+cards:
+  - type: custom:layout-card
+    min_columns: 2
+    max_columns: 2
+    justify_content: start
+    layout: horizontal
+    cards:
+      - !include
+        - button.yaml
+        - entity: {{ entity_tv }}
+          aspect_ratio: 2/1
+          show_label: false
+          margin_right: 128px
+          size: 15%
+          opacity_off: 0.8
+      - !include
+        - button.yaml
+        - entity: {{ entity_receiver }}
+          aspect_ratio: 2/1
+          show_label: false
+          margin_right: 128px
+          size: 15%
+          opacity_off: 0.8
+  - type: custom:layout-card
+    min_columns: 4
+    max_columns: 4
+    justify_content: start
+    layout: horizontal
+    cards:
+      - !include
+        - button_service_call.yaml
+        - entity: input_boolean.dummy1
+          name: Volume
+          label: Down
+          icon: fal:volume-down
+          service: media_player.volume_down
+          service_entity: {{ entity_media_player }}
+          margin_right: 40px
+          opacity_off: 0.8
+      - !include
+        - button_service_call.yaml
+        - entity: input_boolean.dummy1
+          name: Volume
+          label: Up
+          icon: fal:volume-up
+          service: media_player.volume_up
+          service_entity: {{ entity_media_player }}
+          margin_right: 40px
+          opacity_off: 0.8
+      - !include
+        - button_service_call.yaml
+        - entity: input_boolean.dummy1
+          name: Mute
+          icon: fal:volume-mute
+          service: media_player.volume_mute
+          service_entity: {{ entity_media_player }}
+          margin_right: 40px
+          opacity_off: 0.8
+      - !include
+        - button_service_call.yaml
+        - entity: input_boolean.dummy1
+          name: Source
+          icon: fal:sign-out-alt
+          service_entity: {{ entity_media_player }}
+          margin_right: 40px
+          opacity_off: 0.8
+      - !include
+        - button_url.yaml
+        - entity: input_boolean.dummy1
+          name: Plex
+          icon: mdi:plex
+          margin_right: 40px
+          opacity_off: 0.8
+          icon_color_off: gold
+          url_path: plex://
+      - !include
+        - button_remote_control.yaml
+        - show_icon: false
+          tap_action: none
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - icon: fas:arrow-alt-circle-up
+          service_entity: {{ entity_remote_control }}
+          command: up
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - show_icon: false
+          tap_action: none
+          opacity_off: 0.7
+      - !include
+        - button_url.yaml
+        - entity: input_boolean.dummy1
+          name: Netflix
+          icon: mdi:netflix
+          margin_right: 40px
+          opacity_off: 0.8
+          icon_color_off: red
+          url_path: nflx://
+      - !include
+        - button_remote_control.yaml
+        - icon: fas:arrow-alt-circle-left
+          service_entity: {{ entity_remote_control }}
+          command: left
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - icon: fal:square
+          service_entity: {{ entity_remote_control }}
+          command: select
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - icon: fas:arrow-alt-circle-right
+          service_entity: {{ entity_remote_control }}
+          command: right
+          opacity_off: 0.7
+      - !include
+        - button_url.yaml
+        - entity: input_boolean.dummy1
+          name: Music
+          icon: fab:itunes
+          margin_right: 40px
+          opacity_off: 0.8
+          icon_color_off: Deeppink
+          url_path: music://
+      - !include
+        - button_remote_control.yaml
+        - icon: fal:bars
+          service_entity: {{ entity_remote_control }}
+          command: menu
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - icon: fas:arrow-alt-circle-down
+          service_entity: {{ entity_remote_control }}
+          command: down
+          opacity_off: 0.7
+      - !include
+        - button_remote_control.yaml
+        - show_icon: false
+          tap_action: none
+          opacity_off: 0.7
+  - type: custom:layout-card
+    min_columns: 1
+    max_columns: 1
+    justify_content: start
+    layout: horizontal
+    cards:
+      - type: 'custom:mini-media-player'
+        entity: {{ entity_media_player_alternative }}
+        hide:
+          icon: mdi:true
+          power: true
+        artwork: cover

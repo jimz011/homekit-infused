@@ -1,0 +1,12 @@
+# lovelace_gen
+
+# card
+type: custom:light-popup-card
+entity: {{ entity }}
+brightnessWidth: 110px
+brightnessHeight: 410px
+switchWidth: 110px
+switchHeight: 410px
+fullscreen: false
+supportedFeaturesTreshold: {{ _global.lights_popup.supportedFeaturesTreshold|default('9') }}
+settings: true

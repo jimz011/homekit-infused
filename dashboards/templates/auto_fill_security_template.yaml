@@ -1,0 +1,37 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - !include ../includes/blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - header_category.yaml
+        - name: "{{ content }}"
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: {{ group|default('group.empty_group') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        sort:
+          method: {{ _global.security_binary_sensor_sorting.method|default('name') }}
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: 3
+          max_columns: 3
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+  - !include ../includes/blank-card.yaml

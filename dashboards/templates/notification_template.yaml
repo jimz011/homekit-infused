@@ -1,0 +1,48 @@
+# lovelace_gen
+
+# Card
+type: custom:button-card
+style: |
+  ha-card {
+    margin-top: -5px;
+  }
+name: "{{ name }}"
+icon: "{{ icon|default('mdi:home') }}"
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+size: 70%
+entity: {{ entity|default('input_boolean.dummy1') }}
+show_state: false
+show_label: false
+show_icon: {{ show_icon|default('true') }}
+tap_action: 
+  action: {{ tap_action|default('none') }}
+  haptic: light
+hold_action: 
+  action: {{ hold_action|default('more-info')}}
+  haptic: heavy
+styles:
+  card:
+    - --ha-card-background: rgba(0,0,0,0.0)
+    - box-shadow: none
+    - height: 45px
+    - width: {{ width|default('350px') }}
+  name:
+    - font-size: "[[[ return states['input_select.notification_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - color: var(--header-color)
+    - justify-self: {{ justify_self|default('start') }}
+    - padding-left: {{ padding_left|default('13px') }}
+    - font-weight: "[[[ return states['input_select.notification_font_weight'].state ]]]"
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-left: {{ margin_left|default('25px') }}
+  grid: 
+    - grid-template-areas: '"i n"'
+    - grid-template-columns: 8% 1fr
+    - grid-template-rows: 1fr
+  icon:
+    - color: var(--header-color)
+state:
+  - value: "off"
+    spin: {{ spin|default('false') }}

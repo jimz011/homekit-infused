@@ -1,0 +1,124 @@
+# lovelace_gen
+
+# Card 
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    box-shadow: none;
+    background: var(--primary-color);
+    border-radius: none !important;
+  }
+  .card-content {
+    padding: 0
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: custom:state-switch
+        entity: input_boolean.system_header_sensors
+        default: "on"
+        states:
+          "on":
+            type: horizontal-stack
+            cards:
+              - type: markdown
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                    height: 33px;
+                    background: none;
+                    padding: 0px 11px;
+                    color: var(--header-color);
+                  }
+                content:  "## {{ content }}"
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_door'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_doors_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_doors_open'].state < 1) return '&nbsp;'; else return states['sensor.current_doors_open'].state ]]]"
+                  size: 100%
+                  entity: group.all_door_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_window'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_windows_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_windows_open'].state < 1) return '&nbsp;'; else return states['sensor.current_windows_open'].state ]]]"
+                  entity: group.all_window_sensors
+              - !include
+                - button_header_badge.yaml
+                - icon: "[[[ return `${states['input_text.icon_sensor'].state}` ]]]"
+                  background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+                  badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
+                  entity: group.all_motion_smoke_sensors
+              - !include ../includes/blank-card.yaml 
+          "off":
+            type: horizontal-stack
+            cards:
+              - type: markdown
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                    height: 33px;
+                    background: none;
+                    padding: 0px 11px;
+                    color: var(--header-color);
+                  }
+                content: "## {{ content }}"
+              - !include
+                - button_header_transparant.yaml
+                - spin_off: false
+              - !include ../includes/blank-card.yaml
+      - type: conditional
+        conditions:
+          - state: "on"
+            entity: {{ system_header|default('input_boolean.system_header_secondary') }}
+        card:
+          type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:button-card
+              style: |
+                ha-card {
+                  margin-top: -5px;
+                }
+              name: "{{ name }}"
+              icon: "{{ icon|default('mdi:home') }}"
+              deep_press: {{ _global.deep_press.deep_press|default('false') }}
+              size: 70%
+              entity: {{ entity|default('input_boolean.dummy1') }}
+              show_state: false
+              show_label: false
+              show_icon: {{ show_icon|default('true') }}
+              tap_action: 
+                action: none
+              hold_action: 
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - --ha-card-background: rgba(0,0,0,0.0)
+                  - box-shadow: none
+                  - height: 45px
+                  - width: {{ width|default('350px') }}
+                name:
+                  - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+                  - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+                  - color: var(--header-color)
+                  - justify-self: {{ justify_self|default('start') }}
+                  - padding-left: {{ padding_left|default('13px') }}
+                  - font-weight: {{ font_weight|default('normal') }}
+                img_cell:
+                  - align-self: start
+                  - text-align: start
+                  - margin-left: {{ margin_left|default('25px') }}
+                grid: 
+                  - grid-template-areas: '"i n"'
+                  - grid-template-columns: 8% 1fr
+                  - grid-template-rows: 1fr
+                icon:
+                  - color: var(--header-color)
+              state:
+                - value: "off"
+                  spin: {{ spin|default('false') }}
+            - !include ../includes/blank-card.yaml

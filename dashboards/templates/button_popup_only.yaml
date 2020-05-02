@@ -1,0 +1,177 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+icon: {{ icon }}
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('true') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: {{ tap_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      --paper-dialog-color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('switch_popup.yaml') }}
+          - entity: {{ entity }}
+    deviceID:
+      - this
+  haptic: light
+hold_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      margin: 0
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      --paper-dialog-color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('switch_popup.yaml') }}
+          - entity: {{ entity }}
+    deviceID:
+      - this
+  haptic: heavy
+double_tap_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      background: rgba(0, 0, 0, 0.5)
+      margin: 0
+      "--iron-icon-fill-color": "#FFF"
+      "--iron-icon": "#FFF"
+      --paper-item-icon-color: white !important
+      --primary-text-color: white !important
+      --text-primary-color: white !important
+      --paper-dialog-color: white !important
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - {{ template|default('switch_popup.yaml') }}
+          - entity: {{ entity }}
+    deviceID:
+      - this
+  haptic: heavy
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+  label:
+    - font-weight: "[[[ return states['input_select.label_font_weight'].state ]]]"
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-transform: capitalize
+    - font-weight: "[[[ return states['input_select.state_font_weight'].state ]]]"
+#    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-align: "[[[ return states['input_select.justify_self'].state ]]]"
+    - align-items: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+    - justify-content: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+  name:
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - padding: 0px 10px
+    - font-weight: "[[[ return states['input_select.name_font_weight'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+#    - color: var(--primary-text-color) 
+  icon:
+    - padding: 0px 10px
+state:
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: white
+        - opacity: 1.0
+        - box-shadow: none
+      name:
+        - color: black 
+      state:
+        - color: black 
+      lock:
+        - color: gray
+      label:
+        - color: gray
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.5') }}
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color)
+  - value: "unavailable"
+    styles:
+      card:
+        - opacity: 0.2
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: hsl(0, 100%, 50%)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color)
+  - value: 20
+    operator: '<='
+    color: red
+  - value: 50
+    operator: '<='
+    color: orange
+  - value: 100
+    operator: '<='
+    color: green
+        

@@ -1,0 +1,63 @@
+# lovelace_gen
+
+# card
+type: vertical-stack
+cards:
+  - type: custom:switch-popup-card
+  #  noActiveState: '-'
+    icon: mdi:fan
+    entity_value_path: attributes.speed
+    service: fan.set_speed
+    service_data:
+    entity_id: {{ entity }}
+    speed: value
+    fullscreen: false
+    entities:
+    - {{ entity }}
+    buttons:
+    - icon: "mdi:fan"
+      value: 'high'
+      name: "3"
+      color: "#FFF"
+      icon_color: "rgba(255,255,255,1)"
+    - icon: "mdi:fan"
+      value: 'medium'
+      name: "2"
+      color: "#FFF"
+      icon_color: "rgba(255,255,255,1)"
+    - icon: "mdi:fan"
+      value: 'low'
+      name: "1"
+      color: "#FFF"
+      icon_color: "rgba(255,255,255,1)"
+    - icon: "mdi:fan-off"
+      value: 'off'
+      name: "0"
+  - type: 'custom:button-card'
+    color_type: blank-card
+    styles:
+      card:
+        - height: 170px
+  - type: entities
+    style: |
+      ha-card {
+        --ha-card-background: transparant;
+        background: transparant;
+        box-shadow: none;
+        --paper-slider-knob-color: white;
+        --paper-slider-knob-start-color: white;
+        --paper-slider-pin-color: white;
+        --paper-slider-active-color: white;
+        color: white !important;
+        --primary-text-color: white !important;
+      }
+    entities:
+      - type: custom:more-info-card
+        style: |
+          ha-card {
+            border-radius: none;
+            box-shadow: none;
+            margin-top: -40px;
+          }
+        entity: {{ entity }}
+        title: ' '

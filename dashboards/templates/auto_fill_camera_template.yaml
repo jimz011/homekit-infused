@@ -1,0 +1,37 @@
+# lovelace_gen
+
+# Card
+type: horizontal-stack
+cards:
+  - !include ../includes/blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - header_category.yaml
+        - name: "{{ content }}"
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: {{ group|default('group.empty_group') }}
+              options:
+                type: picture-entity
+                {% raw %}
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow)
+                    overflow: hidden;
+                  }
+                {% endraw %}
+                aspect_ratio: 16x9
+                entity: this.entity_id
+        sort:
+          method: {{ _global.security_camera_sorting.method|default('name') }}
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: 1
+          max_columns: 1
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: vertical
+  - !include ../includes/blank-card.yaml

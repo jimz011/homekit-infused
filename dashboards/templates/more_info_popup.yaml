@@ -1,0 +1,17 @@
+# lovelace_gen
+
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    background: transparant;
+    box-shadow: none;
+    --paper-item-icon-color: white !important;
+    --primary-text-color: white !important;
+    --text-primary-color: white !important;
+    --paper-dialog-color: white !important;
+    color: white;
+  }
+entities:
+  - type: custom:more-info-card
+    entity: {{ entity }}

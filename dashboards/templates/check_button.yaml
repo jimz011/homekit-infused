@@ -1,0 +1,65 @@
+# lovelace_gen
+
+# Card
+type: custom:config-template-card
+card:
+  type: 'custom:check-button-card'
+  title: {{ title }}
+  entity: {{ entity }}
+  color: green
+  {% raw %}
+  style: |
+    ha-card {
+       
+      border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow)
+    }
+  {% endraw %}
+  severity:
+    - value: {{ value_1 }}
+      color: 'yellow'
+    - value: {{ value_2 }}
+      color: 'orange'
+    - value: {{ value_3 }}
+      color: 'red'
+entities:
+  - input_text.cleaning_item_1
+  - input_text.cleaning_item_1_value_1
+  - input_text.cleaning_item_1_value_2
+  - input_text.cleaning_item_1_value_3
+  - input_text.cleaning_item_2
+  - input_text.cleaning_item_2_value_1
+  - input_text.cleaning_item_2_value_2
+  - input_text.cleaning_item_2_value_3
+  - input_text.cleaning_item_3
+  - input_text.cleaning_item_3_value_1
+  - input_text.cleaning_item_3_value_2
+  - input_text.cleaning_item_3_value_3
+  - input_text.cleaning_item_4
+  - input_text.cleaning_item_4_value_1
+  - input_text.cleaning_item_4_value_2
+  - input_text.cleaning_item_4_value_3
+  - input_text.cleaning_item_5
+  - input_text.cleaning_item_5_value_1
+  - input_text.cleaning_item_5_value_2
+  - input_text.cleaning_item_5_value_3
+  - input_text.cleaning_item_6
+  - input_text.cleaning_item_6_value_1
+  - input_text.cleaning_item_6_value_2
+  - input_text.cleaning_item_6_value_3
+  - input_text.cleaning_item_7
+  - input_text.cleaning_item_7_value_1
+  - input_text.cleaning_item_7_value_2
+  - input_text.cleaning_item_7_value_3
+  - input_text.cleaning_item_8
+  - input_text.cleaning_item_8_value_1
+  - input_text.cleaning_item_8_value_2
+  - input_text.cleaning_item_8_value_3
+  - input_text.cleaning_item_9
+  - input_text.cleaning_item_9_value_1
+  - input_text.cleaning_item_9_value_2
+  - input_text.cleaning_item_9_value_3
+  - input_text.cleaning_item_10
+  - input_text.cleaning_item_10_value_1
+  - input_text.cleaning_item_10_value_2
+  - input_text.cleaning_item_10_value_3

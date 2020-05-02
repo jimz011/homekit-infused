@@ -1,0 +1,12 @@
+# lovelace_gen
+
+type: custom:button-card
+name: "[[[ return `Remove ${states['{{ room_name }}'].state}` ]]]"
+tap_action:
+  action: call-service
+  service: group.remove
+  service_data:
+    object_id: {{ object_id }}
+styles:
+  card:
+    - height: 33px

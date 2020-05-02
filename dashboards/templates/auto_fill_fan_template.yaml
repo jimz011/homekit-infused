@@ -1,0 +1,52 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_category.yaml
+    - name: "{{ content }}"
+  - type: horizontal-stack
+    cards:
+      - !include ../includes/blank-card.yaml
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: {{ group_fans|default('group.empty_group') }}
+              domain: switch
+              options:
+                !include
+                - button.yaml
+                - entity: this.entity_id
+                  grid:
+                    '!include ../includes/light-devices-grid.yaml'
+                  template: switch_popup.yaml
+                  lock: "{{ lock|default('false') }}"
+            - group: {{ group_fans|default('group.empty_group') }}
+              domain: fan
+              options:
+                !include
+                - button.yaml
+                - entity: this.entity_id
+                  grid:
+                    '!include ../includes/light-devices-grid.yaml'
+                  template: fan_popup.yaml
+                  lock: "{{ lock|default('false') }}"
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        sort:
+          method: {{ _global.fan_sorting.method|default('name') }}
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: {{ _global.fan_sorting.columns|default('3') }}
+          max_columns: {{ _global.fan_sorting.columns|default('3') }}
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+      - !include ../includes/blank-card.yaml

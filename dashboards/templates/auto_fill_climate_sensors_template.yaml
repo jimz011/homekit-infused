@@ -1,0 +1,39 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_category.yaml
+    - name: "{{ content }}"
+  - type: horizontal-stack
+    cards:
+      - !include ../includes/blank-card.yaml
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: {{ group|default('group.empty_group') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        sort:
+          method: {{ _global.climate_sensor_sorting.method|default('name') }}
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: {{ _global.climate_sensor_sorting.columns|default('3') }}
+          max_columns: {{ _global.climate_sensor_sorting.columns|default('3') }}
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+      - !include ../includes/blank-card.yaml

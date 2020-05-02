@@ -1,0 +1,62 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+style: |
+  ha-card {
+    margin-top: -17px;
+  }
+name: Edit mode, tap to open, hold to exit!
+icon: mdi:alert
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+size: 25%
+aspect_ratio: 11/1
+entity: input_boolean.edit_mode
+show_name: true
+show_icon: false
+show_state: false
+show_label: false
+show_last_changed: false
+hold_action: 
+  action: call-service
+  service: input_boolean.turn_off
+  service_data:
+    entity_id: input_boolean.edit_mode
+  haptic: heavy
+tap_action:
+  action: {{ action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: 'Show/Hide Elements'
+    style:
+      background: rgba(0, 0, 0, 0.5)
+    card:
+      !include ../includes/edit_mode/{{ template|default('frontpage_layout_popup.yaml') }}
+    deviceID:
+      - this
+  haptic: light
+styles:
+  card:
+    - border-radius: 0px
+    - --ha-card-background: {{ background_color|default('DarkRed') }}
+    - box-shadow: none
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - margin-right: {{ margin_right|default('60px') }}
+  name:
+    - justify-self: center
+    - font-weight: bold
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+    - color: white
+state:
+  - value: "on" 
+    styles:
+      card:
+        - --ha-card-background: {{ background_color|default('DarkRed') }}
+        - opacity: 1.0
+      name:
+        - color: white
+      icon:
+        - color: white

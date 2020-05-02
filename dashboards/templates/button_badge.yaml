@@ -1,0 +1,87 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: "{{ name }}"
+icon: "{{ icon }}"
+deep_press: {{ _global.deep_press.deep_press|default('false') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: "{{ label|default('&nbsp;') }}"
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: navigate
+  navigation_path: "{{ navigation_path|default('/hki/about') }}"
+hold_action:
+  action: more-info
+  haptic: heavy
+double_tap_action:
+  action: more-info
+  haptic: heavy
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+  label:
+    - font-weight: "[[[ return states['input_select.label_font_weight'].state ]]]"
+    - font-size: "[[[ return states['input_select.label_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: "[[[ return states['input_select.state_font_size_selector'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]"
+    - padding: 0px 10px
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-transform: capitalize
+    - font-weight: "[[[ return states['input_select.state_font_weight'].state ]]]"
+#    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - text-align: "[[[ return states['input_select.justify_self'].state ]]]"
+    - align-items: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+    - justify-content: "[[[ return `flex-${states['input_select.justify_self'].state}` ]]]"
+  name:
+    - justify-self: "[[[ return states['input_select.justify_self'].state ]]]"
+    - padding: 0px 10px
+    - font-weight: "[[[ return states['input_select.name_font_weight'].state ]]]"
+    - font-family: "[[[ return states['input_text.font_family'].state ]]]" 
+    - font-size: "[[[ return states['input_select.name_font_size_selector'].state ]]]"
+#    - color: var(--primary-text-color) 
+  icon:
+    - padding: 0px 10px
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--paper-card-background-color)
+      - border-radius: 12px
+      - overflow: visible
+      - position: absolute
+      - left: "[[[ if (states['input_select.justify_self'].state == 'end') return `7px`; else return `none` ]]]"
+      - right: "[[[ if (states['input_select.justify_self'].state == 'start') return `7px`; else return `none` ]]]"
+      - top: 7px
+      - padding: 0px 5px
+      - height: 22px
+      - min-width: 12px
+      - font-size: "[[[ return states['input_select.badge_font_size_selector'].state ]]]"
+      - line-height: 22px
+      - font-weight: bold
+      - text-transform: "[[[ return states['input_select.badge_text_transform'].state ]]]"
+custom_fields: 
+  notification: "{{ notification }}"
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}

@@ -1,0 +1,14 @@
+# lovelace_gen
+
+type: custom:button-card
+name: "[[[ return `Update ${states['{{ room_name }}'].state}` ]]]"
+confirmation:
+  text: Are you sure you want to update the room?
+tap_action:
+  action: call-service
+  service: automation.trigger
+  service_data:
+    entity_id: {{ entity_id }}
+styles:
+  card:
+    - height: 33px
