@@ -169,3 +169,11 @@ all_laundry_devices:
     - switch.droger
     - switch.wasmachine
     - switch.vaatwasser
+    
+# All Covers
+all_covers:
+  entities:
+
+# All Garage Doors
+all_garage_doors:
+  entities:
