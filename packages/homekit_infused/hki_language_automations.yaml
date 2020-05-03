@@ -29,7 +29,7 @@ automation:
               Norsk
             {% elif is_state('input_select.language_selector', 'עִבְרִית') %}
               Hebrew
-            {% elif is_state('input_select.language_selector', 'română') %}
+            {% elif is_state('input_select.language_selector', 'Română') %}
               Romanian
             {% else %}
               Select
