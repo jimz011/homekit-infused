@@ -61,6 +61,7 @@ header_secondary:
 #  alarm: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `Het Alarm is uitgeschakeld`; else return `Het Alarm is ingeschakeld`; ]]]"
 #  download:
 #  lights: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Alle lampen zijn uitgeschakeld`; if (states['sensor.current_lights_on'].state == 1) return `Er is 1 lamp ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} lampen ingeschakeld`; ]]]"
+#  covers:
 #  custom_a:
 #  custom_b:
 #  custom_c:
