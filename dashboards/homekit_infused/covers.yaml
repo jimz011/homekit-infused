@@ -43,6 +43,10 @@
                 filter:
                   exclude:
                     - entity_id: '*garage*'
+                    - domain: automation
+                    - domain: script
+                    - domain: sensor
+                    - domain: switch
                   include:
                     - domain: cover
                       options:
@@ -82,6 +86,11 @@
               - !include ../includes/blank-card.yaml
               - type: custom:auto-entities
                 filter:
+                  exclude:
+                    - domain: automation
+                    - domain: script
+                    - domain: sensor
+                    - domain: switch
                   include:
                     - entity_id: '*garage*'
                       options:
