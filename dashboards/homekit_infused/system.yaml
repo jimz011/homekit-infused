@@ -30,23 +30,6 @@
             !include
             - '../templates/edit_mode_warning.yaml'
             - template: system_layout_popup.yaml
-        - type: entities
-          entities:
-            - type: 'custom:text-input-row'
-              entity: input_text.room_1_test
-        - type: horizontal-stack
-          cards: 
-            - !include ../includes/blank-card.yaml 
-            - type: custom:button-card
-              name: Add entities to Woonkamer
-              aspect_ratio: 5/1
-              tap_action:
-                action: call-service
-                service: group.set
-                service_data:
-                  object_id: test_group_room_1
-                  entities: "[[[ return states['input_text.room_1_test'].state ]]]"
-            - !include ../includes/blank-card.yaml 
         - type: conditional
           conditions:
             - entity: input_boolean.user_content_message
