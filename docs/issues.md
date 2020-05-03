@@ -17,7 +17,6 @@ Saying things like, "I have an issue, my lights view wont show" is not a good is
 The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 #### Known Issues
-  - Sometimes the HA app reloads after going to another tab (seems this is being worked on by the HA team).
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
   - Deep_press might not work well on mixed households or households with non 3d-touch iPhones, therefor this is disabled by default.
   - Lovelace can load slowly when you save it or do a lovelace refresh. The setup is pretty large and loading can take quite some time. You should only ever face this problem when editing in YAML. Refreshing the browser will not result in slow loading times unless you have made changes in YAML (not in the interface, those changes are instant).
