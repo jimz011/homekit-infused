@@ -1,4 +1,6 @@
 [text]
+input_text.icon_header_covers = mdi:window-shutter
+input_text.icon_covers = mdi:window-shutter
 input_text.icon_footer_menu = mdi:menu
 input_text.icon_footer_home = mdi:home
 input_text.icon_header_menu = mdi:menu

@@ -1,4 +1,6 @@
 [text]
+input_text.icon_header_covers = fal:blinds
+input_text.icon_covers = fal:blinds
 input_text.icon_footer_menu = far:bars
 input_text.icon_footer_home = far:home
 input_text.icon_header_menu = fal:bars
