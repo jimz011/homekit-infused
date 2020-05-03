@@ -129,4 +129,11 @@
                           type: 'custom:text-input-row'
                         - entity: input_text.name_sensor_dirty_time_left
                           type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Garage Doors
+                      show_header_toggle: false
+                      entities:
+                        - entity: input_text.name_garage_doors
+                          type: 'custom:text-input-row'
             - !include ../includes/blank-card.yaml
