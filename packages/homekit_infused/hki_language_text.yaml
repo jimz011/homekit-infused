@@ -177,5 +177,8 @@ input_text:
   name_filter_time_left:
   name_sensor_dirty_time_left:
 
+# Garage Door
+  name_garage_doors:
+
 
 
