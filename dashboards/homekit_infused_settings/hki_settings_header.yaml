@@ -217,6 +217,29 @@
                     - entity: input_boolean.header_advanced_mode_computer
                       name: Advanced Mode
                 - type: entities
+                  title: Covers
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_header_covers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_header_covers
+                      type: 'custom:text-input-row'
+                    - type: custom:state-switch
+                      entity: input_boolean.header_advanced_mode_covers
+                      states:
+                        "off":
+                          type: entities
+                          show_header_toggle: false                          
+                          style: |
+                            ha-card {
+                              box-shadow: none;
+                            }                        
+                          entities: 
+                            - entity: input_text.name_header_secondary_covers
+                              type: 'custom:text-input-row'
+                    - entity: input_boolean.header_advanced_mode_covers
+                      name: Advanced Mode
+                - type: entities
                   title: Devices
                   show_header_toggle: false                                                
                   entities: 

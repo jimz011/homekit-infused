@@ -146,6 +146,18 @@
                     - entity: input_text.sensor_computer
                       type: 'custom:text-input-row'
                 - type: entities
+                  title: Covers
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_covers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_covers_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_covers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_covers
+                      type: 'custom:text-input-row'
+                - type: entities
                   title: Device
                   show_header_toggle: false                                               
                   entities: 
