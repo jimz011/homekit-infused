@@ -78,7 +78,7 @@ homeassistant:
       friendly_name: HA Settings
       icon: mdi:tools
 
-group: 
+group:
   !include ../../user_content/device_counters.yaml
 
 automation:
@@ -208,6 +208,26 @@ automation:
       entity_id: 
         - sensor.current_doors_open
         - sensor.current_windows_open
+
+  - alias: 'group state change 9'
+    id: 'State changed 9'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: or
+      conditions:
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_covers','entity_id') }}
+        - condition: template
+          value_template: >
+            {{ trigger.event.data.entity_id in state_attr('group.all_garage_doors','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_covers_open
+        - sensor.current_garage_doors_open
 
   - alias: 'hki onboarding'
     trigger:
@@ -820,6 +840,14 @@ sensor:
         friendly_name: All Laundry Devices Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_laundry_devices','entity_id'))|selectattr('state','eq','on')|list|count }}   
+      current_covers_open:
+        friendly_name: All Covers Currently Open
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_covers','entity_id'))|selectattr('state','eq','on')|list|count }}   
+      current_garage_doors_open:
+        friendly_name: All Garage Doors Currently Open
+        value_template: >-
+          {{ states|selectattr('entity_id','in',state_attr('group.all_garage_doors','entity_id'))|selectattr('state','eq','on')|list|count }}   
   - platform: template
     sensors:
       greeting:
