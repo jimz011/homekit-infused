@@ -46,6 +46,7 @@ input_boolean:
   header_secondary_security:
   header_secondary_cleaning:
   header_secondary_scene:
+  header_secondary_covers:
   header_secondary_vacuum:
   header_secondary_remote:
   header_secondary_battery:
