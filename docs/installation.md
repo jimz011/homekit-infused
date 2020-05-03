@@ -105,7 +105,6 @@ To copy the files you will need all the following files/folders from my repo.
 - Copy the `/packages/` folder to the root of your setup
 - Copy the `/user_content/` folder to the root of your setup
 - Copy the `/www/` folder to the root of your setup
-- Copy the `/python_scripts/` folder to the root of your setup
 - Copy the `appdaemon/` folder to the root of your setup. (If you already use AppDaemon, please copy the file text_states_load.py to your /appdaemon/apps/ folder and copy the corresponding apps from apps.yaml into your own apps.yaml file)
 - Add the following line to your `configuration.yaml` file
 ```
