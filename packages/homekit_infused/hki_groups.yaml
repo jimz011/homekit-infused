@@ -118,6 +118,8 @@ group:
       - input_text.name_alarm_label
       - input_text.name_blinds
       - input_text.name_blinds_label
+      - input_text.name_covers
+      - input_text.name_covers_label
   empty_group: 
     name: Empty Group
     entities:
@@ -146,12 +148,14 @@ group:
       - input_boolean.header_secondary_traffic
       - input_boolean.header_secondary_weather
       - input_boolean.header_secondary_menu
+      - input_boolean.header_secondary_covers
       - input_boolean.header_secondary_custom_a
       - input_boolean.header_secondary_custom_b
       - input_boolean.header_secondary_custom_c
       - input_boolean.header_secondary_custom_d
   buttons_group_one:
     entities:
+      - input_boolean.button_covers_one
       - input_boolean.button_alarm_one
       - input_boolean.button_climate_one
       - input_boolean.button_light_one
@@ -186,6 +190,7 @@ group:
       - input_boolean.button_custom_h_one
   buttons_group_two: 
     entities:
+      - input_boolean.button_covers_two
       - input_boolean.button_alarm_two
       - input_boolean.button_climate_two
       - input_boolean.button_light_two
@@ -220,6 +225,7 @@ group:
       - input_boolean.button_custom_h_two
   buttons_group_three: 
     entities:
+      - input_boolean.button_covers_three
       - input_boolean.button_alarm_three
       - input_boolean.button_climate_three
       - input_boolean.button_light_three
@@ -254,6 +260,7 @@ group:
       - input_boolean.button_custom_h_three
   buttons_group_four:
     entities:
+      - input_boolean.button_covers_four
       - input_boolean.button_alarm_four
       - input_boolean.button_climate_four
       - input_boolean.button_light_four
@@ -286,139 +293,3 @@ group:
       - input_boolean.button_custom_f_four
       - input_boolean.button_custom_g_four
       - input_boolean.button_custom_h_four
-  buttons_group_menu_one: 
-    entities:
-      - input_boolean.button_alarm_menu_one
-      - input_boolean.button_climate_menu_one
-      - input_boolean.button_light_menu_one
-      - input_boolean.button_device_menu_one
-      - input_boolean.button_security_menu_one
-      - input_boolean.button_cleaning_menu_one
-      - input_boolean.button_scene_menu_one
-      - input_boolean.button_vacuum_menu_one
-      - input_boolean.button_remote_menu_one
-      - input_boolean.button_battery_menu_one
-      - input_boolean.button_automation_menu_one
-      - input_boolean.button_download_menu_one
-      - input_boolean.button_energy_menu_one
-      - input_boolean.button_location_menu_one
-      - input_boolean.button_laundry_menu_one
-      - input_boolean.button_computer_menu_one
-      - input_boolean.button_calendar_menu_one
-      - input_boolean.button_system_menu_one
-      - input_boolean.button_floorplan_menu_one
-      - input_boolean.button_media_menu_one
-      - input_boolean.button_traffic_menu_one
-      - input_boolean.button_weather_menu_one
-      - input_boolean.button_settings_menu_one
-      - input_boolean.button_homeassistant_menu_one
-      - input_boolean.button_custom_a_menu_one
-      - input_boolean.button_custom_b_menu_one
-      - input_boolean.button_custom_c_menu_one
-      - input_boolean.button_custom_d_menu_one
-      - input_boolean.button_custom_e_menu_one
-      - input_boolean.button_custom_f_menu_one
-      - input_boolean.button_custom_g_menu_one
-      - input_boolean.button_custom_h_menu_one
-  buttons_group_menu_two: 
-    entities:
-      - input_boolean.button_alarm_menu_two
-      - input_boolean.button_climate_menu_two
-      - input_boolean.button_light_menu_two
-      - input_boolean.button_device_menu_two
-      - input_boolean.button_security_menu_two
-      - input_boolean.button_cleaning_menu_two
-      - input_boolean.button_scene_menu_two
-      - input_boolean.button_vacuum_menu_two
-      - input_boolean.button_remote_menu_two
-      - input_boolean.button_battery_menu_two
-      - input_boolean.button_automation_menu_two
-      - input_boolean.button_download_menu_two
-      - input_boolean.button_energy_menu_two
-      - input_boolean.button_location_menu_two
-      - input_boolean.button_laundry_menu_two
-      - input_boolean.button_computer_menu_two
-      - input_boolean.button_calendar_menu_two
-      - input_boolean.button_system_menu_two
-      - input_boolean.button_floorplan_menu_two
-      - input_boolean.button_media_menu_two
-      - input_boolean.button_traffic_menu_two
-      - input_boolean.button_weather_menu_two
-      - input_boolean.button_settings_menu_two
-      - input_boolean.button_homeassistant_menu_two
-      - input_boolean.button_custom_a_menu_two
-      - input_boolean.button_custom_b_menu_two
-      - input_boolean.button_custom_c_menu_two
-      - input_boolean.button_custom_d_menu_two
-      - input_boolean.button_custom_e_menu_two
-      - input_boolean.button_custom_f_menu_two
-      - input_boolean.button_custom_g_menu_two
-      - input_boolean.button_custom_h_menu_two
-  buttons_group_menu_three: 
-    entities:
-      - input_boolean.button_alarm_menu_three
-      - input_boolean.button_climate_menu_three
-      - input_boolean.button_light_menu_three
-      - input_boolean.button_device_menu_three
-      - input_boolean.button_security_menu_three
-      - input_boolean.button_cleaning_menu_three
-      - input_boolean.button_scene_menu_three
-      - input_boolean.button_vacuum_menu_three
-      - input_boolean.button_remote_menu_three
-      - input_boolean.button_battery_menu_three
-      - input_boolean.button_automation_menu_three
-      - input_boolean.button_download_menu_three
-      - input_boolean.button_energy_menu_three
-      - input_boolean.button_location_menu_three
-      - input_boolean.button_laundry_menu_three
-      - input_boolean.button_computer_menu_three
-      - input_boolean.button_calendar_menu_three
-      - input_boolean.button_system_menu_three
-      - input_boolean.button_floorplan_menu_three
-      - input_boolean.button_media_menu_three
-      - input_boolean.button_traffic_menu_three
-      - input_boolean.button_weather_menu_three
-      - input_boolean.button_settings_menu_three
-      - input_boolean.button_homeassistant_menu_three
-      - input_boolean.button_custom_a_menu_three
-      - input_boolean.button_custom_b_menu_three
-      - input_boolean.button_custom_c_menu_three
-      - input_boolean.button_custom_d_menu_three
-      - input_boolean.button_custom_e_menu_three
-      - input_boolean.button_custom_f_menu_three
-      - input_boolean.button_custom_g_menu_three
-      - input_boolean.button_custom_h_menu_three
-  buttons_group_menu_four:
-    entities:
-      - input_boolean.button_alarm_menu_four
-      - input_boolean.button_climate_menu_four
-      - input_boolean.button_light_menu_four
-      - input_boolean.button_device_menu_four
-      - input_boolean.button_security_menu_four
-      - input_boolean.button_cleaning_menu_four
-      - input_boolean.button_scene_menu_four
-      - input_boolean.button_vacuum_menu_four
-      - input_boolean.button_remote_menu_four
-      - input_boolean.button_battery_menu_four
-      - input_boolean.button_automation_menu_four
-      - input_boolean.button_download_menu_four
-      - input_boolean.button_energy_menu_four
-      - input_boolean.button_location_menu_four
-      - input_boolean.button_laundry_menu_four
-      - input_boolean.button_computer_menu_four
-      - input_boolean.button_calendar_menu_four
-      - input_boolean.button_system_menu_four
-      - input_boolean.button_floorplan_menu_four
-      - input_boolean.button_media_menu_four
-      - input_boolean.button_traffic_menu_four
-      - input_boolean.button_weather_menu_four
-      - input_boolean.button_settings_menu_four
-      - input_boolean.button_homeassistant_menu_four
-      - input_boolean.button_custom_a_menu_four
-      - input_boolean.button_custom_b_menu_four
-      - input_boolean.button_custom_c_menu_four
-      - input_boolean.button_custom_d_menu_four
-      - input_boolean.button_custom_e_menu_four
-      - input_boolean.button_custom_f_menu_four
-      - input_boolean.button_custom_g_menu_four
-      - input_boolean.button_custom_h_menu_four

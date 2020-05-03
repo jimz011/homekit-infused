@@ -5,6 +5,9 @@ lovelace_gen: !include ../../user_content/extra_settings.yaml
 
 homeassistant:
   customize_glob:
+    "input_boolean.button_covers_*":
+      friendly_name: Covers
+      icon: mdi:window-shutter
     "input_boolean.button_alarm_*":
       friendly_name: Alarm
       icon: mdi:alert
@@ -265,6 +268,11 @@ automation:
             - input_boolean.button_device_menu_two
             - input_boolean.button_light_menu_three
             - input_boolean.button_security_menu_four
+            - input_boolean.automations_automations
+            - input_boolean.battery_battery
+            - input_boolean.scenes_scenes
+            - input_boolean.covers_covers
+            - input_boolean.covers_garage_doors
             - input_boolean.climate_presets
             - input_boolean.climate_thermostat
             - input_boolean.climate_fans
@@ -413,6 +421,7 @@ automation:
             - input_text.sensor_system
             - input_text.sensor_traffic
             - input_text.sensor_weather
+            - input_text.sensor_covers
             - input_text.sensor_button_custom_a
             - input_text.sensor_button_custom_b
             - input_text.sensor_button_custom_c
