@@ -230,11 +230,11 @@
                         show_name: true
                         tap_action:
                           action: navigate
-                          navigation_path: /homekit-infused/onboarding
+                          navigation_path: ../hki-settings/onboarding
                           haptic: light
                         hold_action:
                           action: navigate
-                          navigation_path: /homekit-infused/onboarding
+                          navigation_path: ../hki-settings/onboarding
                           haptic: heavy
                         styles:
                           card:
