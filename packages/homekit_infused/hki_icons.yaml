@@ -11,6 +11,7 @@ input_text:
   icon_door:
   icon_window:
   icon_sensor:
+  icon_covers:
 
   icon_alarm:
   icon_battery:
@@ -35,6 +36,7 @@ input_text:
   icon_traffic:
   icon_weather:
 
+  icon_header_covers:
   icon_header_alarm:
   icon_header_menu:
   icon_header_lights:
