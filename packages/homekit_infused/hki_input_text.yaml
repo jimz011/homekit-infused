@@ -166,6 +166,7 @@ input_text:
   sensor_device:
   sensor_security:
   sensor_cleaning:
+  sensor_covers:
   sensor_scene:
   sensor_vacuum:
   sensor_remote:
