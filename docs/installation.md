@@ -119,8 +119,7 @@ frontend:
     themes: !include_dir_merge_named themes/
 ```
 
-- You must set the following line in your own `configuration.yaml` file. Without it, it will NOT work!
-
+- You must set the following line in your own `configuration.yaml` file. Without it, it will NOT work:
 ```
 lovelace:
     mode: yaml
