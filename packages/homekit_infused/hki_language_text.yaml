@@ -25,6 +25,7 @@ input_text:
   name_header_secondary_menu:
   name_header_secondary_alarm:
   name_header_secondary_download:
+  name_header_secondary_covers:
 
   name_header_climate:
   name_header_lights:
@@ -38,6 +39,7 @@ input_text:
   name_header_settings:
   name_header_alarm:
   name_header_weather:
+  name_header_covers:
 
   name_header_about:
   name_header_automations:
@@ -148,6 +150,9 @@ input_text:
 
   name_alarm:
   name_alarm_label:
+
+  name_covers:
+  name_covers_label:
 
 # vacuum
   name_status_information:
