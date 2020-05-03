@@ -533,8 +533,6 @@ input_select:
     options:
       - Introduction
       - Language and Icons
-      - Persons
-      - Rooms
       - Finish
     initial: Introduction
 
