@@ -121,6 +121,7 @@ frontend:
 ```
 
 - You must set the following line in your own `configuration.yaml` file. Without it, it will NOT work!
+
 ```
 lovelace:
     mode: yaml
@@ -138,8 +139,7 @@ lovelace:
         title: HKI Settings
         icon: mdi:tools
         show_in_sidebar: true
-        filename: homekit_infused_settings.yaml
-    
+        filename: homekit_infused_settings.yaml    
 ```
 
 ##### Note for users pre HKI 2.x.x
