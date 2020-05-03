@@ -53,7 +53,15 @@
     icon: "[[[ return `${states['input_text.icon_computer'].state}` ]]]"
     navigation_path: /homekit-infused/computers
     notification: "[[[ if (states[`${states['input_text.sensor_computer'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_computer'].state}`].state}`; ]]]"
-    background_color: "[[[ if (states[`${states['input_text.sensor_computer'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+    background_color: "[[[ if (states[`${states['input_text.sensor_computer'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_covers'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_covers_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_covers'].state}` ]]]"
+    navigation_path: /homekit-infused/covers
+    notification: "[[[ if (states[`${states['input_text.sensor_covers'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_covers'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_covers'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"        
 - !include
   - '../templates/button_badge.yaml'
   - name: "[[[ return `${states['input_text.name_device'].state}` ]]]"
