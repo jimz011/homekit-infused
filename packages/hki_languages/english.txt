@@ -21,6 +21,12 @@ input_text.name_header_secondary_weather = Overview
 input_text.name_header_secondary_menu = Overview 
 input_text.name_header_secondary_alarm = Overview 
 input_text.name_header_secondary_download = Overview 
+
+input_text.name_header_secondary_covers = Overview
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Panel
+
 input_text.name_custom = Custom
 input_text.name_favorites = Favorites
 input_text.name_all = All
@@ -135,3 +141,5 @@ input_text.name_main_brush_time_left = Main brush time left
 input_text.name_side_brush_time_left = Side brush time left
 input_text.name_filter_time_left = Filter time left
 input_text.name_sensor_dirty_time_left = Sensor dirty time left
+
+input_text.name_garage_doors = Garage Doors

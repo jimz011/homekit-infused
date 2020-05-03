@@ -22,6 +22,11 @@ input_text.name_header_secondary_menu = Overview
 input_text.name_header_secondary_alarm = Overview 
 input_text.name_header_secondary_download = Overview 
 
+input_text.name_header_secondary_covers = Overview
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Panel
+
 input_text.name_custom = Benutzerdefiniert
 input_text.name_favorites = Favoriten
 input_text.name_all = Alle
@@ -141,3 +146,27 @@ input_text.name_remote_label = Steuerung
 
 input_text.name_alarm = Alarm
 input_text.name_alarm_label = Panel
+
+input_text.name_mode = Mode
+input_text.name_controls = Controls
+input_text.name_status_information = Status Information
+input_text.name_start = Start
+input_text.name_pause = Pause
+input_text.name_stop = Stop
+input_text.name_find_me = Find Me
+input_text.name_quiet = Quiet
+input_text.name_turbo = Turbo
+input_text.name_max = Max
+input_text.name_balanced = Balanced
+input_text.name_mop = Mop
+input_text.name_vacuum_error_sensor = Error sensor
+input_text.name_vacuum_battery = Battery
+input_text.name_cleaning_count = Cleaning count
+input_text.name_total_cleaned_area = Total cleaned area
+input_text.name_total_cleaning_time = Total cleaning time
+input_text.name_main_brush_time_left = Main brush time left
+input_text.name_side_brush_time_left = Side brush time left
+input_text.name_filter_time_left = Filter time left
+input_text.name_sensor_dirty_time_left = Sensor dirty time left
+
+input_text.name_garage_doors = Garagentore

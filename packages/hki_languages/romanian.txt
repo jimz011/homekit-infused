@@ -21,6 +21,12 @@ input_text.name_header_secondary_weather = Vedere generală
 input_text.name_header_secondary_menu = Vedere generală
 input_text.name_header_secondary_alarm = Vedere generală
 input_text.name_header_secondary_download = Vedere generală
+
+input_text.name_header_secondary_covers = Vedere generală
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Panou
+
 input_text.name_custom = Personalizare
 input_text.name_favorites = Favorite
 input_text.name_all = 
@@ -135,3 +141,5 @@ input_text.name_main_brush_time_left = Timp restant perie principală
 input_text.name_side_brush_time_left = Timp restant perie laterală
 input_text.name_filter_time_left = Timp restant filtru
 input_text.name_sensor_dirty_time_left = Timp restant senzor murdar
+
+input_text.name_garage_doors = Usi de Garaj

@@ -21,6 +21,12 @@ input_text.name_header_secondary_weather = Overzicht
 input_text.name_header_secondary_menu = Overzicht
 input_text.name_header_secondary_alarm = Overzicht
 input_text.name_header_secondary_download = Overzicht
+
+input_text.name_header_secondary_covers = Overzicht
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Paneel
+
 input_text.name_custom = Aangepast
 input_text.name_favorites = Favorieten
 input_text.name_all = Alle
@@ -135,3 +141,5 @@ input_text.name_main_brush_time_left = Hoofd borstel tijd over
 input_text.name_side_brush_time_left = Zijborstel tijd over
 input_text.name_filter_time_left = Filter tijd over
 input_text.name_sensor_dirty_time_left = Sensor vies tijd over
+
+input_text.name_garage_doors = Garage Deuren

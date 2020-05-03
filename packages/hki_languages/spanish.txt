@@ -21,6 +21,12 @@ input_text.name_header_secondary_weather = Vista general
 input_text.name_header_secondary_menu = Vista general 
 input_text.name_header_secondary_alarm = Vista general 
 input_text.name_header_secondary_download = Vista general 
+
+input_text.name_header_secondary_covers = Vista general 
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Panel
+
 input_text.name_custom = Personalizado
 input_text.name_favorites = Favoritos
 input_text.name_all = Calentar
@@ -135,3 +141,5 @@ input_text.name_main_brush_time_left = Tiempo restante cepillo principal
 input_text.name_side_brush_time_left = Tiempo restante cepillo lateral
 input_text.name_filter_time_left = Tiempo restante filtro
 input_text.name_sensor_dirty_time_left = Tiempo restante limpieza sensor
+
+input_text.name_garage_doors = Puertas de Garaje
