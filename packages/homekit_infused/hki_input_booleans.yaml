@@ -78,6 +78,7 @@ input_boolean:
   button_vacuum_one:
   button_remote_one:
   button_battery_one:
+  button_covers_one:
   button_automation_one:
   button_download_one:
   button_energy_one:
@@ -101,6 +102,7 @@ input_boolean:
   button_custom_g_one:
   button_custom_h_one:
 
+  button_covers_two:
   button_alarm_two:
   button_climate_two:
   button_light_two:
@@ -134,6 +136,7 @@ input_boolean:
   button_custom_g_two:
   button_custom_h_two:
 
+  button_covers_three:
   button_alarm_three:
   button_climate_three:
   button_light_three:
@@ -167,6 +170,7 @@ input_boolean:
   button_custom_g_three:
   button_custom_h_three:
 
+  button_covers_four:
   button_alarm_four:
   button_climate_four:
   button_light_four:
@@ -398,6 +402,8 @@ input_boolean:
   automations_automations:
   automations_user_content:
   battery_battery:
+  covers_covers:
+  covers_garage_doors:
   battery_user_content:
   calendar_user_content:
   cleaning_user_content:
@@ -410,6 +416,7 @@ input_boolean:
   location_user_content:
   media_user_content:
   remote_user_content:
+  covers_user_content:
   scenes_scenes:
   scenes_user_content:
   system_user_content:
