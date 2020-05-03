@@ -33,171 +33,164 @@
             !include
             - '../templates/edit_mode_warning.yaml'
             - template: device_layout_popup.yaml
-        - type: conditional
-          conditions:
-            - state_not: "1"
-              entity: input_select.floor_selector
-            - state_not: "Select"
-              entity: input_select.floor_selector
-          card:
-            type: horizontal-stack
-            cards:
-              - !include ../includes/blank-card.yaml
-              - type: custom:layout-card
-                cards:
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        entity: input_select.devices_floor_selector
-                        icon: mdi:home-floor-negative-1
-                        show_label: false
-                        show_name: false
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.devices_floor_selector
-                            option: "-1"
-                        hold_action:
-                          action: more-info
-                          haptic: heavy
-                        styles:
-                          card:
-                            - opacity: 0.7
-                            - height: 45px
-                          name:
-                            - font-size: 10px
-                        state:
-                          - value: "-1"
-                            styles:
-                              card:
-                                - --paper-card-background-color: white
-                                - opacity: 1.0
-                              name:
-                                - color: Black
-                              icon: 
-                                - color: Crimson
-                      - type: custom:button-card
-                        entity: input_select.devices_floor_selector
-                        icon: mdi:home-floor-0
-                        show_label: false
-                        show_name: false
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.devices_floor_selector
-                            option: "0"
-                        hold_action:
-                          action: more-info
-                          haptic: heavy
-                        styles:
-                          card:
-                            - opacity: 0.7
-                            - height: 45px
-                          name:
-                            - font-size: 10px
-                        state:
-                          - value: "0"
-                            styles:
-                              card:
-                                - --paper-card-background-color: white
-                                - opacity: 1.0
-                              name:
-                                - color: Black
-                              icon: 
-                                - color: Crimson
-                      - type: custom:button-card
-                        entity: input_select.devices_floor_selector
-                        icon: mdi:home-floor-1
-                        show_label: false
-                        show_name: false
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.devices_floor_selector
-                            option: "1"
-                        hold_action:
-                          action: more-info
-                          haptic: heavy
-                        styles:
-                          card:
-                            - opacity: 0.7
-                            - height: 45px
-                          name:
-                            - font-size: 10px
-                        state:
-                          - value: "1"
-                            styles:
-                              card:
-                                - --paper-card-background-color: white
-                                - opacity: 1.0
-                              name:
-                                - color: Black
-                              icon: 
-                                - color: Crimson
-                      - type: custom:button-card
-                        entity: input_select.devices_floor_selector
-                        icon: mdi:home-floor-2
-                        show_label: false
-                        show_name: false
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.devices_floor_selector
-                            option: "2"
-                        hold_action:
-                          action: more-info
-                          haptic: heavy
-                        styles:
-                          card:
-                            - opacity: 0.7
-                            - height: 45px
-                          name:
-                            - font-size: 10px
-                        state:
-                          - value: "2"
-                            styles:
-                              card:
-                                - --paper-card-background-color: white
-                                - opacity: 1.0
-                              name:
-                                - color: Black
-                              icon: 
-                                - color: Crimson
-                      - type: custom:button-card
-                        entity: input_select.devices_floor_selector
-                        icon: mdi:home-floor-3
-                        show_label: false
-                        show_name: false
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.devices_floor_selector
-                            option: "3"
-                        hold_action:
-                          action: more-info
-                          haptic: heavy
-                        styles:
-                          card:
-                            - opacity: 0.7
-                            - height: 45px
-                          name:
-                            - font-size: 10px
-                        state:
-                          - value: "3"
-                            styles:
-                              card:
-                                - --paper-card-background-color: white
-                                - opacity: 1.0
-                              name:
-                                - color: Black
-                              icon: 
-                                - color: Crimson
-              - !include ../includes/blank-card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      entity: input_select.devices_floor_selector
+                      icon: mdi:home-floor-negative-1
+                      show_label: false
+                      show_name: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.devices_floor_selector
+                          option: "-1"
+                      hold_action:
+                        action: more-info
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.7
+                          - height: 45px
+                        name:
+                          - font-size: 10px
+                      state:
+                        - value: "-1"
+                          styles:
+                            card:
+                              - --paper-card-background-color: white
+                              - opacity: 1.0
+                            name:
+                              - color: Black
+                            icon: 
+                              - color: Crimson
+                    - type: custom:button-card
+                      entity: input_select.devices_floor_selector
+                      icon: mdi:home-floor-0
+                      show_label: false
+                      show_name: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.devices_floor_selector
+                          option: "0"
+                      hold_action:
+                        action: more-info
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.7
+                          - height: 45px
+                        name:
+                          - font-size: 10px
+                      state:
+                        - value: "0"
+                          styles:
+                            card:
+                              - --paper-card-background-color: white
+                              - opacity: 1.0
+                            name:
+                              - color: Black
+                            icon: 
+                              - color: Crimson
+                    - type: custom:button-card
+                      entity: input_select.devices_floor_selector
+                      icon: mdi:home-floor-1
+                      show_label: false
+                      show_name: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.devices_floor_selector
+                          option: "1"
+                      hold_action:
+                        action: more-info
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.7
+                          - height: 45px
+                        name:
+                          - font-size: 10px
+                      state:
+                        - value: "1"
+                          styles:
+                            card:
+                              - --paper-card-background-color: white
+                              - opacity: 1.0
+                            name:
+                              - color: Black
+                            icon: 
+                              - color: Crimson
+                    - type: custom:button-card
+                      entity: input_select.devices_floor_selector
+                      icon: mdi:home-floor-2
+                      show_label: false
+                      show_name: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.devices_floor_selector
+                          option: "2"
+                      hold_action:
+                        action: more-info
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.7
+                          - height: 45px
+                        name:
+                          - font-size: 10px
+                      state:
+                        - value: "2"
+                          styles:
+                            card:
+                              - --paper-card-background-color: white
+                              - opacity: 1.0
+                            name:
+                              - color: Black
+                            icon: 
+                              - color: Crimson
+                    - type: custom:button-card
+                      entity: input_select.devices_floor_selector
+                      icon: mdi:home-floor-3
+                      show_label: false
+                      show_name: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.devices_floor_selector
+                          option: "3"
+                      hold_action:
+                        action: more-info
+                        haptic: heavy
+                      styles:
+                        card:
+                          - opacity: 0.7
+                          - height: 45px
+                        name:
+                          - font-size: 10px
+                      state:
+                        - value: "3"
+                          styles:
+                            card:
+                              - --paper-card-background-color: white
+                              - opacity: 1.0
+                            name:
+                              - color: Black
+                            icon: 
+                              - color: Crimson
+            - !include ../includes/blank-card.yaml
         - type: conditional
           conditions:
             - entity: input_select.devices_floor_selector
