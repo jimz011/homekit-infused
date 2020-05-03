@@ -16,7 +16,7 @@ Configuring Homekit Infused after the initial install is really easy. It only re
 
 #### Global Configuration
 - Fill in `customize.yaml` if you haven't done so in the preparation step
-- Fill in the `groups.yaml` file that is located in your `/user_content/` folder. Fill in AS MUCH as you can! It will fill various views automatically according to these groups! Do NOT remove any groups! If you don't have entities for a specific group, only remove the entities in that group (including the `-`) and keep the group as it is.
+- Fill in the `device_counters.yaml` file that is located in your `/user_content/` folder. Fill in AS MUCH as you can! It will fill some of the views automatically according to these groups! Do NOT remove any groups! If you don't have entities for a specific group, only remove the entities in that group (including the `-`) and keep the group as it is. Autofilling the entities this way is only temporary, however the counters for devices will still be derived from these groups. So configure it!
 - Congratulations, you have installed and setup Homekit Infused for basic use. You could open the `extra_settings.yaml` file to setup the use of deep_press if you desire (this file used to be the global_settings for older versions of HKI). There are a few other settings you can find in that file. Note that changes to this file require a restart.
 
 #### Configuration
@@ -31,8 +31,10 @@ Notifications is something I can't template for you, this would require me to kn
 
 #### What should work now?
 If all went well you should now have a working Homekit Infused setup with at least the following views that are working and auto-filled:
+- battery
 - climate
 - calendar
+- covers
 - lights
 - devices
 - security
@@ -47,6 +49,7 @@ If all went well you should now have a working Homekit Infused setup with at lea
 - battery
 - scenes (you must add scenes to customize.yaml if you want icons, remember to choose short names)
 - about (shows version number and project info, update this with each update)
+- partial user views (location and calendar)
 
 Popups should work out of the box for the following views
 - light
