@@ -56,10 +56,10 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @manzn for German
   - @sergiu for Romanian
   - @aviabeksis for Hebrew
+  - @donhimol for Polish
   
 # Special Thanks to my Donators
   - @marco
-  - @brandontisor
   - @huntergresh
   - @dhartsmith
   - @edgardmello
