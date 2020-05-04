@@ -26,12 +26,6 @@ The docs might be incomplete or not completely comprehensible for all. Remember 
 
 Please ask any question you have on the Home Assistant community forums, follow the link to go to my thread [HA Community Forum](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3-updated-07-01-2020-hki-preview-video-1-0a-online-now/117086)
 
-#### Or join one of my two Slack groups which I maintain with @Dwains:
-English Speaking: (warning: non-english speakers will be removed).
-[Click Here for English](https://join.slack.com/t/homeassistanten/shared_invite/enQtNzg1NzQyOTI4ODE2LWVhMmY3ZjMxMThhOTk1OWEwY2E4NDE0YmViZWI3NjUyNzIyMzIwNTkwMzlmMDA5N2I0MTQ4MDhiYTkwYWFlZDU)
-
-Dutch Speaking (warning: non-dutch speakers will be removed).
-[Click Here for Dutch](https://join.slack.com/t/homeassistantnlbe/shared_invite/enQtNzc4MzAwMTEyNDIwLTgwZGVmNmNhZjZkNmVkMjM1NTM3N2UwODIzZTFjMzY1ZmUyMGJiZDU5ZTEyZWEyYzMzYzQzYWJmNGE3MWVjN2I)
-
+## [Click here](https://discord.gg/WZvK4Cb) to join our Discord Server which I maintain with @Dwains. With over 500+ members from noobs to pro's. You'll be sure to get your answers fast here!
 Thank you and I hope you've enjoyed this release (please leave a comment on the forum/yt or privately so I can estimate what people think of the project)
 Thanks once again!
