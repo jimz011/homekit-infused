@@ -12,7 +12,7 @@
 - [Thanks](thanks.md)
 
 # THANKS TO ALL OF YOU
-I wanted to thank everyone for supporting me, watching and subscribing to my channels, donating, downloading etc.
+I wanted to thank everyone for supporting me, watching and subscribing to my channels, donating, downloading etc, helping me out, having posted addons or other great stuff for the community, and obviously the community itself ofcourse.
 All of you really, thank you. Here are a few names I want to specially thank!
   - @ciotlosm
   - @thomasloven
