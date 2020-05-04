@@ -3,9 +3,9 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 # Homekit Infused (Lovelace) by Jimz011 May 2020 v2.0.0 Beta 10 (*updated: 03/05/2020)
-My current Home Assistant version is 0.109.3
+Latest working Home Assistant version is 0.109.3 (do not update past this number)
 
-## Coming Soon! Open Beta now available!
+## Open Beta now available!
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ## [Click here](https://discord.gg/WZvK4Cb) to join our Discord Server which I maintain with @Dwains. With over 500+ members from noobs to pro's. You'll be sure to get your answers fast here!
@@ -19,9 +19,11 @@ My current Home Assistant version is 0.109.3
 
 
 #### About
-Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 90% configurable through the Homekit Infused interface! The other 10% is still super easy to setup. Your views will be auto-filled with your own entities and all you'd need to do is set up a single file! But WAIT!!!!! There is more..........
+Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 95% configurable through the Homekit Infused interface! The other 5% is still super easy to setup and there is a chance you will never even have to touch these files (depending on your usecase). Views will be autofilled according to the entities setup within the HKI interface!
 
 Homekit Infused has a fully customizable UI, you can create your own frontpage layout with ease with the built-in edit mode which allows you to show/hide and add elements to the UI with a flick of a button. Most of the configuration can be done within the HKI Settings and changes done within the UI are INSTANT!!! Yes you've read it well, no restarts or lovelace refreshes required!
+
+Do not like certain elements I have created? Almost every single element can be renamed, shown or hidden and each view has a special user area. The user area works like how you'd setup any other lovelace card and will show up on the designated views. User content will rarely be touched by me and should survive most (if not all) updates without you needing to worry about it. So if you don't like my vacuum control center, but you do like HKI, well you can disable my control center and create one yourself with ease. No special programming skills required other than knowing how to create lovelace cards which is very well documented on the Home Assistant website.
 
 Updating should be relatively easy unless a major breaking change comes from the HA team. Whenever a large update will come I will make it thorough guides for you to make the update as smooth as possible. 
 
@@ -42,7 +44,15 @@ Updating should be relatively easy unless a major breaking change comes from the
 Coming Soon!
 
 #### Disclaimer
-This project is a pretty heavy setup, I don't and never will recommend this to be used on any version of a Raspberry Pi. It will work, however your experiences may vary. To get the best out of this setup I will recommend to use at least a dual core i3 with a minimum of 4GB of RAM. I will recommend 6GB of RAM or more to get the best performance and be able to expand your setup without worrying about RAM.
+This project is a pretty heavy setup, I don't and never will recommend this to be used on any version of a Raspberry Pi. It will work, however your experiences may vary. To get the best out of this setup I will recommend to use at least a dual core i3 with a minimum of 4GB of RAM. I will recommend an i5 and 6GB of RAM or more to get the best performance and be able to expand your setup without worrying about RAM. I'd personally advise to use Home Assistant and not Home Assistant Core, simply because it is more userfriendly.
+
+To answer a much asked question, this is my current used hardware/software.
+- CPU: i5 4690 3,6 GHz
+- RAM: 32GB DDR3 1600MHz
+- MOTHERBOARD: Gigabyte h97m-d3h
+- DISKS: A bunch of SSD's and HDD's
+- SOFTWARE: ESXI (4 cores and 8GB assigned to the Home Assistant VM)
+- VM-TYPE: HassOS VMDK
 
 ### Questions and Support
 
