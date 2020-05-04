@@ -18,8 +18,8 @@ You could also quickly open a bug report by going inside of the HKI Menu > About
 The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 #### Known Issues
+  - Language and Icon Automations might not work correctly when using Home Assistant Core, this is due to some paths being incorrect. This will be addressed in the upcoming release. To change it manually though you will want to change the following paths in the following files: `/appdaemon/apps/apps.yaml` and `/packages/homekit_infused/configuration.yaml line 883 to 885` Change the `/config/` part with your own root path to Home Assistant. You can ask for help on our discord server if you can't figure this out. This will not be an issue in beta 11 or 12 anymore!
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
-  - Deep_press might not work well on mixed households or households with non 3d-touch iPhones, therefor this is disabled by default.
   - Lovelace can load slowly when you save it or do a lovelace refresh. The setup is pretty large and loading can take quite some time. You should only ever face this problem when editing in YAML. Refreshing the browser will not result in slow loading times unless you have made changes in YAML (not in the interface, those changes are instant).
 
 #### QUESTIONS?
