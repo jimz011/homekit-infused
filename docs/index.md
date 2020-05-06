@@ -50,7 +50,7 @@ Software used: ESXI Hypervisor with 4 cores and 8GB of RAM assigned to Home Assi
 - 1x Honeywell smoke detector by Xiaomi  (deCONZ controlled)
 - 3x Aqara door/window sensors by Xiaomi  (deCONZ controlled)
 - 3x Aqara temperature/humidity sensors by Xiaomi  (deCONZ controlled)
-- 2x Aqara temperature/humidity sensors by Sonoff (they double as switches mentioned above)
+- 2x temperature/humidity sensors by Sonoff (they double as switches mentioned above)
 - 1x Xiaomi Roborock S55 (Rooted and flashed with Valetudo RE)
 - 2x Apple TV 4K
 - 2x Samsung smart TV
