@@ -27,3 +27,38 @@ Warning:
 - Questions asked without reading the documentation have the chance of not being answered. Read before you need help! I will however post video's on YT in the future
 - Using HKI means you MUST have lovelace in YAML mode, what this means is that you can NO LONGER use the UI editor within lovelace. Therefor all the options to do that have been removed. There is a way to get the UI working, but it would only be for your main dashboard. I will not recommend using that and I will recommend using YAML mode instead for this project. (it will also benefit you as you might learn a thing or two from using YAML mode)
 - If you use the NEST integration, you probably do NOT want to do a clean install! You might not be able to restore it. This is only a warning! I do not own a NEST and I have no clue on how it works. I mention this advised by some of the followers of this project.
+
+# Hardware I use personally for this setup
+#### Computer
+Intel i5 4690 3,6GHz
+32GB DDR3 1600MHz RAM
+4x HDD (2x 3TB, 2x 2TB)
+2x SSD (1x 120GB, 1x 480GB)
+
+Software used: ESXI Hypervisor with 4 cores and 8GB of RAM assigned to Home Assistant.
+
+#### Smart Devices
+- 6x Philips Hue dimmers (deCONZ controlled)
+- 3x IKEA Tradfri remotes (deCONZ controlled)
+- 1x hardware switch from Koogeek (connected through HA with Homekit Controller)
+- 6x LED strips (around 30 meters in total) with MagicHome controllers (Flashed with ESPHome)
+- 8x Ikea Tradfri smart switches  (deCONZ controlled)
+- 12x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
+- 4x Philips Hue lights (ranging from filament to color temperature ones)  (deCONZ controlled)
+- 9x Sonoffs used as switches for devices (ranging from basic to POW R2) (Flashed with ESPHome)
+- 11x Sonoff Basic used as light switches (Flashed with ESPHome)
+- 1x Honeywell smoke detector by Xiaomi  (deCONZ controlled)
+- 3x Aqara door/window sensors by Xiaomi  (deCONZ controlled)
+- 3x Aqara temperature/humidity sensors by Xiaomi  (deCONZ controlled)
+- 2x Aqara temperature/humidity sensors by Sonoff (they double as switches mentioned above)
+- 1x Xiaomi Roborock S55 (Rooted and flashed with Valetudo RE)
+- 2x Apple TV 4K
+- 2x Samsung smart TV
+- 2x Google Nest mini's
+- 2x Aqara motion sensor by Xiaomi (deCONZ controlled)
+- 3x IKEA Tradfri Motion sensors (deCONZ controlled)
+- 1x Xiaofang Camera (rooted and flashed with Dafang Hacks)
+- 1x deCONZ stick by Dresden Elektronic
+- 1x Xiaomi Mija Gateway (Lumigateway version 3) (I only ever use this as speaker/light, no other devices are attached to this and it is cut off from the internet)
+
+There is probably more, but I can't think of it right now XD
