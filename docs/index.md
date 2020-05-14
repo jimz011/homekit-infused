@@ -35,7 +35,10 @@ Warning:
 - 4x HDD (2x 3TB, 2x 2TB)
 - 2x SSD (1x 120GB, 1x 480GB)
 
-Software used: ESXI Hypervisor with 4 cores and 8GB of RAM assigned to Home Assistant.
+Hypervisor used: Unraid
+Docker: Yes
+VM's: Windows 10 and Ubuntu 20.04
+Home Assistant: Running on docker in Unraid
 
 #### Smart Devices
 - 6x Philips Hue dimmers (deCONZ controlled)
@@ -52,9 +55,12 @@ Software used: ESXI Hypervisor with 4 cores and 8GB of RAM assigned to Home Assi
 - 3x Aqara temperature/humidity sensors by Xiaomi  (deCONZ controlled)
 - 2x temperature/humidity sensors by Sonoff (they double as switches mentioned above)
 - 1x Xiaomi Roborock S55 (Rooted and flashed with Valetudo RE)
-- 2x Apple TV 4K
+- 1x Apple TV 4K
+- 1x Xiaomi Mi Box S 4K
 - 2x Samsung smart TV
 - 2x Google Nest mini's
+- 1x Google Home mini
+- 1x Google Home standard
 - 2x Aqara motion sensor by Xiaomi (deCONZ controlled)
 - 3x IKEA Tradfri Motion sensors (deCONZ controlled)
 - 1x Xiaofang Camera (rooted and flashed with Dafang Hacks)
