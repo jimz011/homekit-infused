@@ -38,7 +38,7 @@ Warning:
 - Hypervisor used: Unraid
 - Docker: Yes
 - VM's: Windows 10 and Ubuntu 20.04
-- Home Assistant: Running on docker in Unraid
+- Home Assistant: Home Assistant Core running on docker in Unraid
 
 #### Smart Devices
 - 6x Philips Hue dimmers (deCONZ controlled)
