@@ -35,13 +35,10 @@ Warning:
 - 4x HDD (2x 3TB, 2x 2TB)
 - 2x SSD (1x 120GB, 1x 480GB)
 
-Hypervisor used: Unraid
-
-Docker: Yes
-
-VM's: Windows 10 and Ubuntu 20.04
-
-Home Assistant: Running on docker in Unraid
+- Hypervisor used: Unraid
+- Docker: Yes
+- VM's: Windows 10 and Ubuntu 20.04
+- Home Assistant: Running on docker in Unraid
 
 #### Smart Devices
 - 6x Philips Hue dimmers (deCONZ controlled)
