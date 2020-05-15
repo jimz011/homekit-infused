@@ -36,8 +36,11 @@ Warning:
 - 2x SSD (1x 120GB, 1x 480GB)
 
 Hypervisor used: Unraid
+
 Docker: Yes
+
 VM's: Windows 10 and Ubuntu 20.04
+
 Home Assistant: Running on docker in Unraid
 
 #### Smart Devices
