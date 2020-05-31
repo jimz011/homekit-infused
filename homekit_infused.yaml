@@ -1,0 +1,6 @@
+custom_header: !include dashboards/custom_header/custom_header.yaml
+
+title: Home
+background: var(--background-image)
+popup_cards: !include dashboards/templates/legacy_popup_cards.yaml
+views: !include_dir_merge_list dashboards/homekit_infused/

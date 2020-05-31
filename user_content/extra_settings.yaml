@@ -1,0 +1,81 @@
+# Extra Config for Homekit Infused 2020
+
+# Deep Press (Change to false if you don't need/want deep-press in your setup, you can have a mixed setup, this should work with ios/android mixed). However it is untested on devices without 3D touch.
+# It might not work well on devices without 3D touch. Set it to false if it doesn't work well for you!
+deep_press:
+  deep_press: true 
+
+# Autofill Sorting Method (Choose between: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered)
+lights_sorting:
+  method: name
+  columns: 3
+devices_sorting:
+  method: name
+  columns: 3
+security_binary_sensor_sorting:
+  method: name
+  columns: 3
+climate_sensor_sorting:
+  method: name
+  columns: 3
+security_camera_sorting:
+  method: name
+  columns: 3
+fan_sorting:
+  method: name
+  columns: 3
+battery_sorting:
+  method: name
+  columns: 3
+scenes_sorting:
+  method: name
+  columns: 3
+menu_sorting:
+  method: name
+  columns: 3
+thermostat_sorting:
+  method: name
+  columns: 3
+
+# Header Advanced
+header_secondary:
+#  devices: "[[[ if (states['sensor.current_devices_on'].state == 0) return `Alle apparaten zijn uitgeschakeld`; if (states['sensor.current_devices_on'].state == 1) return `Er is 1 apparaat ingeschakeld`; else return `Er zijn ${states['sensor.current_devices_on'].state} apparaten ingeschakeld`; ]]]"
+#  climate: "[[[ return `De gemiddelde temperatuur is ${states['sensor.average_house_temperature'].state}`; ]]]"
+#  security: "[[[ if (states['sensor.current_binary_sensors_on'].state == 0) return `Alle sensoren zijn inactief`; if (states['sensor.current_binary_sensors_on'].state == 1) return `Er is 1 sensor actief`; else return `Er zijn ${states['sensor.current_lights_on'].state} sensoren actief`; ]]]"
+#  automations:
+#  battery:
+#  calendar:
+#  cleaning:
+#  computers: "[[[ if (states['sensor.current_computers_on'].state == 0) return `Alle computers zijn uitgeschakeld`; if (states['sensor.current_computers_on'].state == 1) return `Er is 1 computer ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} computers ingeschakeld`; ]]]"
+#  energy:
+#  floorplan:
+#  laundry:
+#  location: "[[[ if (states['group.device_status'].state == 'home') return `Er is iemand thuis`; else return `Iedereen is weg`; ]]]"
+#  media:
+#  scenes:
+#  system:
+#  traffic:
+#  vacuum: "[[[ return `Status: ${states['vacuum.xiaomi_vacuum_cleaner'].state}`; ]]]"
+#  weather: "[[[ return `${states['weather.dark_sky'].state}`; ]]]"
+#  menu:
+#  alarm: "[[[ if (states['alarm_control_panel.home_alarm'].state == 'disarmed') return `Het Alarm is uitgeschakeld`; else return `Het Alarm is ingeschakeld`; ]]]"
+#  download:
+#  lights: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Alle lampen zijn uitgeschakeld`; if (states['sensor.current_lights_on'].state == 1) return `Er is 1 lamp ingeschakeld`; else return `Er zijn ${states['sensor.current_lights_on'].state} lampen ingeschakeld`; ]]]"
+#  custom_a:
+#  custom_b:
+#  custom_c:
+#  custom_d:
+#  covers:
+
+# Supported Features Treshold, Set this to a lower/higher number if it doesn't show a brightness slider on a light-popup.
+lights_popup:
+  supportedFeaturesTreshold: 9
+
+# Right to Left (uncomment this if you want to use Right to Left languages)
+rtl:
+# rtl: rtl
+
+# Vacuum Cleaner
+vacuum:
+  entity_id: vacuum.xiaomi_vacuum_cleaner
+  camera_entity_id: camera.rockrobo_map
