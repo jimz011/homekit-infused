@@ -12,11 +12,13 @@
 - [Thanks](thanks.md)
 
 # About Homekit Infused
-Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 90% configurable through the Homekit Infused interface! The other 10% is still super easy to setup. Your views will be auto-filled with your own entities and all you'd need to do is set up a single file! But WAIT!!!!! There is more..........
+Homekit Infused v2.0.0 is the craziest lovelace setup out there in YAML mode. It is 95% configurable through the HKI Interface!
 
-Homekit Infused has a fully customizable UI, you can create your own frontpage layout with ease with the built-in edit mode which allows you to show/hide and add elements to the UI with a flick of a button. Most of the configuration can be done within the HKI Settings and changes done within the UI are INSTANT!!! Yes you've read it well, no restarts or lovelace refreshes required!
+Homekit Infused has a fully customizable UI, you can create your own frontpage layout with ease with the built-in edit mode which allows you to show/hide and add elements to the UI with a flick of a button. Most of the configuration can be done within the HKI Settings and changes done within the UI are instant and in real-time!!! Yes you've read it well, no restarts or lovelace refreshes required! You could even open two browser tabs and see the changes popping on your screen when you set them through the settings.
 
 Homekit Infused was created as a private project and released to the public as it was requested by many. In the past year the setup has changed quite a bit, not only aesthetically but also codewise. My goal was to make it easier for people to use what I have created without compromising too much on customization that users have made after installing my previous versions of HKI. The setup is still just as 'modular' as it ever was and you will find many improvements over the previous versions if you are an avid user of my setup. New users might find this project very interesting as well, as not only does it give you this wonderful interface, but it will also give you insight on how a bartender (yes that is me) creates code without having any coding knowledge beforehand other than some basic HTML back in the early 2000s.
+
+Oh, and did I mention that your existing dashboard made with the lovelace UI editor will be untouched and will still be available to you? You can continue building/experimenting with your current dashboard whilst having HKI installed. HKI is an independent dashboard that can be set as the default on a per user basis.
 
 ### Follow me on YouTube
 [Click Here for all the latest updates/videos](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)
@@ -25,7 +27,6 @@ Homekit Infused was created as a private project and released to the public as i
 Warning:
 - This lovelace UI is pretty heavy and it is not recommended to run this on a raspberry pi! Minimum requirements would be to use at least a NUC with an i3, 4GB of RAM and preferably more than 1.8Ghz. Better hardware will result in better performance! You can ofcourse proceed and install this on a rpi anyway if you really want to try it (though please share your results with me if you do so as I don't have one and I can't test it). I would personally recommend you to run this in a VM with 6 or 8GB of RAM.
 - Questions asked without reading the documentation have the chance of not being answered. Read before you need help! I will however post video's on YT in the future
-- Using HKI means you MUST have lovelace in YAML mode, what this means is that you can NO LONGER use the UI editor within lovelace. Therefor all the options to do that have been removed. There is a way to get the UI working, but it would only be for your main dashboard. I will not recommend using that and I will recommend using YAML mode instead for this project. (it will also benefit you as you might learn a thing or two from using YAML mode)
 - If you use the NEST integration, you probably do NOT want to do a clean install! You might not be able to restore it. This is only a warning! I do not own a NEST and I have no clue on how it works. I mention this advised by some of the followers of this project.
 
 # Hardware I use personally for this setup

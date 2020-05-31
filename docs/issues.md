@@ -18,9 +18,12 @@ You could also quickly open a bug report by going inside of the HKI Menu > About
 The docs might be incomplete or not completely comprehensible for all. Remember that I am alone in this project, that I am not a programmer and that working on this for so long might get me into forgetting to add something in here. If you find something that is missing or incomplete please notify me so that I can change the documentation.
 
 #### Known Issues
-  - Language and Icon Automations might not work correctly when using Home Assistant Core, this is due to some paths being incorrect. This will be addressed in the upcoming release. To change it manually though you will want to change the following paths in the following files: `/appdaemon/apps/apps.yaml` and `/packages/homekit_infused/configuration.yaml line 883 to 885` Change the `/config/` part with your own root path to Home Assistant. You can ask for help on our discord server if you can't figure this out. This will not be an issue in beta 11 or 12 anymore!
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
   - Lovelace can load slowly when you save it or do a lovelace refresh. The setup is pretty large and loading can take quite some time. You should only ever face this problem when editing in YAML. Refreshing the browser will not result in slow loading times unless you have made changes in YAML (not in the interface, those changes are instant).
+  - HKI and HKI Settings are both different dashboards, this is done to reduce initial loading times and also allows you to add the settings to the sidebar. When coming back from the settings to the frontpage, it might need to do a quick reload, it will do this automatically and is not a bug. It is due to changing the dashboards.
+
+## Troubleshooting
+  - If your setup is full of `unknown` it is possible your appdaemon4 isn't set up right. Make sure you have downloaded appdaemon4 and make sure you have write access (this should not be a problem on Home Assistant installs, previously known as hass.io). If you are running appdaemon4 in docker, make sure your appdaemon4 container has access to the Home Assistant container. If you need to change paths you can change it in the following file `/appdaemon/apps/apps.yaml` if you have a more extravagant setup you might also need to change the paths in the following file `/packages/configuration.yaml last two lines`. This is however a very rare case and in most cases changing the path inside of the first file should do the trick.
 
 #### QUESTIONS?
 

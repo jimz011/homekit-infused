@@ -12,16 +12,14 @@
 - [Thanks](thanks.md)
 
 # PREPARATION
-HKI is easy to configure as long as you have prepared yourself well. My advise is to use another computer, pi or create a vm to install this and test it first before moving over to production.
-If you do decide to take the leap on your production device immediately I will highly suggest you make BACKUPS!!! I can't stress out enough that you should always do this unless you really don't care.
-I cannot guarantee that this setup will work as great for everyone and I cannot if the setup will even work for you at all. Backing up your current system prevents yourself from being left empty handed!
+HKI is easy to configure as long as you have prepared yourself well.
+I cannot guarantee that this setup will work as great for everyone and I cannot guarantee that the setup will even work for you at all. Backing up your current system prevents yourself from being left empty handed! REMEMBER: ALWAYS MAKE BACKUPS!
 
 NOTE: Even if you do not decide to use Homekit Infused the following preparations are actually really usefull for any Home Assistant setup.
 
 ### Preparation Checklist
 #### Required
-- Time, I estimate the project to be installed within a few hours (I might be waaay off but I wouldn't know as I haven't installed it this way, It might be done in a relatively short time I am sure but that really depends on your current state with HA and ofc your experience with HA/Lovelace)
-- Install Home Assistant or create a backup of your current setup.
+- Install Home Assistant or create a backup of your current setup. I will advise you to install this on a clean Home Assistant install, though it is not a requirement.
 - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually.
 - Create person entities in the UI go to configuration>persons and create all the persons in your house. Add the device_trackers you have to the person entities. Do not use device_trackers in lovelace unless you really need to (e.g. non-person related device_trackers)
 - Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config (e.g. same location as where `configuration.yaml` is located). You might need the following entry in your `configuration.yaml` file
@@ -46,7 +44,3 @@ Remember that you MUST fill in this file. Homekit Infused has no options to edit
 ### AppDaemon 4
 If you use Home Assistant (previously Hass.io) you can install this addon easily through the supervisor tab, install it and start it.
 Make sure you connect appdaemon to Home Assistant after you've installed it. (if you use hass.io you will only need to start the addon as config is already done for you!). If you use Home Assistant core please read up on how to install appdaemon4 here: https://appdaemon.readthedocs.io/en/stable/ (I have NOT tried this as I use Home Assistant aka Hass.io).
-
-#### Optional
-- The prefered way would be to do a clean install, I will not stress on how much headache it might save you to do a clean install!
-- Patience, do not rush something like this. Imagine all the months of work I have put into this? So taking some extra time to undertake this is not such a bad idea.

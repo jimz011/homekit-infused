@@ -17,10 +17,9 @@ Installing HKI should be super easy and when using the basic method should not t
 ### Prerequisites
   - First create github account if you do not already have one
   - Then install HACS (https://github.com/hacs/integration) Please read the documentation on how to do this, I will not make docs on things that are already perfectly documented.
-  
-### Basic
-The easiest way to get the addons installed is by just copying the entire contents of the /www/ folder to the root of your Home Assistant install. This way you have the best compatibility (as all the addons have been tested) and it assures you that you won't get notified for addon updates (which some people might find annoying). Updating addons can ofcourse still be done by updating HKI as I will update this repo regularly with these kind of updates. If you need more flexibility you might want to take a look at the advanced section. Remember that you MUST have HACS setup or else this method will not work.
 
+
+### Addons
 The following components MUST be setup manually and can be found in HACS, click on integrations and find the following integrations.
 
 | Name | Required | Description |
@@ -33,12 +32,9 @@ When you are done make sure you add the following line to your `configuration.ya
 ```
 browser_mod:
 ```
-You can skip to the Copy Files part if you have used the basic steps above, else continue with advanced.
 
-### Advanced
-Experienced Home Assistant users might want to install these addons in HACS. I will mention though that I can NOT give support on untested versions of these addons and updating any of these addons without having been tested in HKI is on your own risk. I will advise you to just use the basic mode and use HACS for any other plugin you might want/need as those plugins are not a requirement in HKI. For best compatibility you will only use the ones from this repo! You will not need to add the resources to your configuration as I have already done this. You will only need to do this if you want to add custom resources (WARNING: custom resources currently do not survive updates, it is a small thing, but I had to mention it).
 
-#### Plugins (Click on Plugins in HACS)
+#### Plugins (Click on Frontend in HACS)
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,7 +44,7 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 | [Config Template Card](https://github.com/iantrich/config-template-card) | Module | Yes | This is needed to read some templates on some views/cards, don't skip this |
 | [Search Card](https://github.com/postlund/search-card) | Module | No | This is the search card widget for the frontpage |
 | [Weather Card](https://github.com/bramkragten/weather-card) | Module | Yes | This is the animated weather card used in the weather view|
-| [Card-Mod](https://github.com/thomasloven/lovelace-card-mod) | Module | Yes | This mod allows for custom css on any card |
+| [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Module | Yes | This mod allows for custom css on any card |
 | [Button Card](https://github.com/custom-cards/button-card) | Module | Yes | This is the button used throughout the entire setup |
 | [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Module | Yes | This is the mini-graph used in some of the popup cards |
 | [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Module | Yes | This is one of the most important addons as auto-filling requires this addon |
@@ -65,14 +61,16 @@ Experienced Home Assistant users might want to install these addons in HACS. I w
 | [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | Module | No | This card can be used with the upcoming media component and is useful only for Plex, Radarr and Sonarr |
 | [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card) | Module | No | This is the map card used for vacuum cleaners |
 | [GUI Sandbox Card](https://github.com/thomasloven/lovelace-gui-sandbox) | Module | No | A very cool card to make the UI editor partly available in YAML mode, this card gives you the original card editor with the exception that you can't save the cards directly. You can however copy/paste the code created with this |
-| [Light Popup Card](https://github.com/DBuit/light-popup-card) | Module | Yes | These are the popup cards used for lights and switches|
 
 Manual Plugins Installation. The following plugins can either not be found on the HACS store or are modified by me. The best way to install these are to copy the corresponding files into your `/www/community/` folder. Do NOT get them from HACS!!
 
 | Name | Type | Required | Description |
 |----------------------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Module | Yes | These are popup cards used for climate devices, copy the `/www/community/thermostat-popup/` folder and paste it into the directory mentioned above |
-| [Deep Press Mod](https://github.com/roflcoopter/deep-press) | Module | No | This is only useful for households with iPhones that have 3d-touch. It might not work well on mixed households (e.g. Android and iOS or iPhones without 3d-touch. | 
+| [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Module | Yes | These are popup cards used for climate devices, folder and paste it into the directory mentioned above |
+| [Deep Press Mod](https://github.com/roflcoopter/deep-press) | Module | No | This is only useful for households with iPhones that have 3d-touch. It might not work well on mixed households (e.g. Android and iOS or iPhones without 3d-touch, this will become obsolete in a while when 3D touch will be completely phased out by Apple. | 
+| [Light Popup Card](https://github.com/DBuit/light-popup-card) | Module | Yes | These are the popup cards used for lights and switches |
+| [Switch Popup Card](https://github.com/DBuit/switch-popup-card) | Module | Yes | These are the popup cards used for fans and might be used more in the future |
+| [Cover Popup Card](https://github.com/DBuit/cover-popup-card) | Module | Yes | These are the popup cards used for covers |
 
 #### Components (click on Integrations in HACS)
 
@@ -91,6 +89,42 @@ Manual Components Import. The following components can either not be found on th
 | Imap | No | This is a modified imap component, you should only install this when using outlook/live or hotmail email addresses |
 | RDW | No | This is a sensor for Dutch APK, if you are not a Dutch citizen this is useless to you |
 
+#### Adding Resources
+Resources MUST be added manually which can be done within the Home Assistant configuration panel. Go to the Sidebar > Configuration > Lovelace Dashboards > Resources and add all of the following resources one by one. This makes it possible to use custom resources whenever you might need them and also makes sure you can still use the Home Assistant dashboard you have already created with the UI editor.
+
+Add the following resources, you should select `javascript module` for each of them. 
+To make it easier on you, I have compiled a list with all used resources that you can easily copy and enter.
+```
+- /hacsfiles/air-visual-card/air-visual-card.js
+- /hacsfiles/button-card/button-card.js
+- /hacsfiles/calendar-card/calendar-card.js
+- /hacsfiles/check-button-card/check-button-card.js
+- /hacsfiles/config-template-card/config-template-card.js
+- /hacsfiles/cover-popup-card/cover-popup-card.js
+- /hacsfiles/custom-header/custom-header.js
+- /hacsfiles/light-popup-card/light-popup-card.js
+- /hacsfiles/lovelace-auto-entities/auto-entities.js
+- /hacsfiles/lovelace-card-mod/card-mod.js
+- /hacsfiles/lovelace-card-tools/card-tools.js
+- /hacsfiles/lovelace-gap-card/gap-card.js
+- /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
+- /hacsfiles/lovelace-layout-card/layout-card.js
+- /hacsfiles/lovelace-more-info-card/more-info-card.js
+- /hacsfiles/lovelace-state-switch/state-switch.js
+- /hacsfiles/lovelace-text-input-row/lovelace-text-input-row.js
+- /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+- /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+- /hacsfiles/mini-media-player/mini-media-player-bundle.js
+- /hacsfiles/search-card/search-card.js
+- /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
+- /hacsfiles/swipe-card/swipe-card.js
+- /hacsfiles/switch-popup-card/switch-popup-card.js
+- /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
+- /hacsfiles/upcoming-media-card/upcoming-media-card.js
+- /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+- /hacsfiles/weather-card/weather-card.js
+```
+
 # Copying
 ### Notes
 - For safe results I suggest restarting Home Assistant at this point.
@@ -101,11 +135,11 @@ To copy the files you will need all the following files/folders from my repo.
 
 - Copy the entire `/dashboards/` folder to the root of your setup
 - Copy the `/themes/` folder to the root of your setup
-- Copy the `ui-lovelace.yaml`, `homekit-infused.yaml` and `hki-settings.yaml` files to the root of your setup
+- Copy the `homekit-infused.yaml` and `homekit-infused-settings.yaml` files to the root of your setup
 - Copy the `/packages/` folder to the root of your setup
 - Copy the `/user_content/` folder to the root of your setup
 - Copy the `/www/` folder to the root of your setup
-- Copy the `appdaemon/` folder to the root of your setup. (If you already use AppDaemon, please copy the file text_states_load.py to your /appdaemon/apps/ folder and copy the corresponding apps from apps.yaml into your own apps.yaml file)
+- Copy the `/appdaemon/` folder to the root of your setup. (If you already use AppDaemon, please copy the file text_states_load.py to your /appdaemon/apps/ folder and copy the corresponding apps from apps.yaml into your own apps.yaml file)
 - Add the following line to your `configuration.yaml` file
 ```
 homeassistant:
@@ -119,12 +153,10 @@ frontend:
     themes: !include_dir_merge_named themes/
 ```
 
-- You must set the following line in your own `configuration.yaml` file. Without it, it will NOT work:
+- You must set the following lines in your own `configuration.yaml` file. Without it, it will NOT work:
 ```
 lovelace:
-    mode: yaml
-    resources: 
-      !include_dir_merge_list dashboards/resources/
+    mode: storage
     dashboards:
       homekit-infused:
         mode: yaml
@@ -139,9 +171,6 @@ lovelace:
         show_in_sidebar: true
         filename: homekit_infused_settings.yaml    
 ```
-
-##### Note for users pre HKI 2.x.x
-Note: you can't have duplicate keys, this means that you can't have either the exact same config twice. This is mostly important for users coming from the alpha or beta versions of this setup. If you did run the 1.1, you MUST remove EVERYTHING that was related to that (this means, views, global_config, automations, input_selects, etc, etc). Don't forget anything. (if you can't remember what those files were, you can simply download the 1.1 release from the repo and see which files were in there). HKI config is now packaged for easy updates. This also means that keeping the old automations etc would mean duplicate keys! So remove them. You won't need to worry about this in the future again as this has been taken care of in v2.0.0
 
 The copying process should now be completed and we can move on to the configuration part.
 
