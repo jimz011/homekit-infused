@@ -1,0 +1,17 @@
+type: custom:cover-popup-card
+sliderService: cover.set_cover_position
+sliderWidth: 110px
+sliderHeight: 410px
+actionsInARow: 2
+actions:
+  - service: cover.open_cover
+    service_data:
+      entity_id: cover.dafang_move_up_down
+    name: open
+    icon: mdi:window-shutter-open
+  - service: cover.close_cover
+    service_data:
+      entity_id: cover.dafang_move_up_down
+    name: close
+    icon: mdi:window-shutter
+settings: true

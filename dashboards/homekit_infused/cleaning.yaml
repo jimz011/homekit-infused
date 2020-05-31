@@ -1,0 +1,139 @@
+# lovelace_gen
+- title: Cleaning
+  path: cleaning
+  icon: mdi:calendar-edit
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_cleaning          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_cleaning
+                system_header: input_boolean.header_secondary_cleaning
+                icon: "[[[ return `${states['input_text.icon_header_cleaning'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_cleaning'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.cleaning|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_cleaning
+                icon: "[[[ return `${states['input_text.icon_header_cleaning'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_cleaning'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: cleaning_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.cleaning_cleaning
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - type: 'custom:vertical-stack-in-card'
+                    cards:
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_1'].state}"
+                          entity: sensor.first_item
+                          value_1: "${states['input_text.cleaning_item_1_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_1_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_1_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_2'].state}"
+                          entity: sensor.second_item
+                          value_1: "${states['input_text.cleaning_item_2_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_2_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_2_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_3'].state}"
+                          entity: sensor.third_item
+                          value_1: "${states['input_text.cleaning_item_3_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_3_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_3_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_4'].state}"
+                          entity: sensor.fourth_item
+                          value_1: "${states['input_text.cleaning_item_4_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_4_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_4_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_5'].state}"
+                          entity: sensor.fifth_item
+                          value_1: "${states['input_text.cleaning_item_5_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_5_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_5_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_6'].state}"
+                          entity: sensor.sixth_item
+                          value_1: "${states['input_text.cleaning_item_6_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_6_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_6_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_7'].state}"
+                          entity: sensor.seventh_item
+                          value_1: "${states['input_text.cleaning_item_7_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_7_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_7_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_8'].state}"
+                          entity: sensor.eighth_item
+                          value_1: "${states['input_text.cleaning_item_8_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_8_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_8_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_9'].state}"
+                          entity: sensor.ninth_item
+                          value_1: "${states['input_text.cleaning_item_9_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_9_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_9_value_3'].state}"
+                      - !include
+                        - '../templates/check_button.yaml'
+                        - title: "${states['input_text.cleaning_item_10'].state}"
+                          entity: sensor.tenth_item
+                          value_1: "${states['input_text.cleaning_item_10_value_1'].state}"
+                          value_2: "${states['input_text.cleaning_item_10_value_2'].state}"
+                          value_3: "${states['input_text.cleaning_item_10_value_3'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
+        - type: conditional
+          conditions:
+            - entity: input_boolean.cleaning_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/cleaning_user_content.yaml
+              - !include ../includes/blank-card.yaml                  

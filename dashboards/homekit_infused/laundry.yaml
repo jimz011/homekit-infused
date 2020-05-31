@@ -1,0 +1,104 @@
+# lovelace_gen
+- title: Laundry
+  path: laundry
+  icon: mdi:washing-machine
+  cards: 
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_laundry          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_laundry
+                system_header: input_boolean.header_secondary_laundry
+                icon: "[[[ return `${states['input_text.icon_header_laundry'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_laundry'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.laundry|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_laundry
+                icon: "[[[ return `${states['input_text.icon_header_laundry'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_laundry'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: laundry_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.laundry_picture_elements_1
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - !include
+                - '../templates/laundry_picture_elements.yaml'
+                - image: "${states['input_text.washing_machine_image'].state}"
+                  entity_status: "${states['input_text.washing_machine_status_sensor'].state}"
+                  entity_switch: "${states['input_text.washing_machine_entity'].state}"
+                  entity_wattage: "${states['input_text.washing_machine_wattage_sensor'].state}"
+                  entity_voltage: "${states['input_text.washing_machine_voltage_sensor'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.laundry_picture_elements_2
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - !include
+                - '../templates/laundry_picture_elements.yaml'
+                - image: "${states['input_text.dryer_image'].state}"
+                  entity_status: "${states['input_text.dryer_status_sensor'].state}"
+                  entity_switch: "${states['input_text.dryer_entity'].state}"
+                  entity_wattage: "${states['input_text.dryer_wattage_sensor'].state}"
+                  entity_voltage: "${states['input_text.dryer_voltage_sensor'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.laundry_picture_elements_3
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - !include
+                - '../templates/laundry_picture_elements.yaml'
+                - image: "${states['input_text.dishwasher_image'].state}"
+                  entity_status: "${states['input_text.dishwasher_status_sensor'].state}"
+                  entity_switch: "${states['input_text.dishwasher_entity'].state}"
+                  entity_wattage: "${states['input_text.dishwasher_wattage_sensor'].state}"
+                  entity_voltage: "${states['input_text.dishwasher_voltage_sensor'].state}"
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
+        - type: conditional
+          conditions:
+            - entity: input_boolean.laundry_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/laundry_user_content.yaml
+              - !include ../includes/blank-card.yaml                  

@@ -1,0 +1,348 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_category.yaml
+    - name: "{{ content }}"
+  - type: horizontal-stack
+    cards:
+      - !include ../includes/blank-card.yaml
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: group.room_b1_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b2_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b3_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b4_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b5_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_01_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_02_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_03_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_04_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_05_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_06_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_07_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_08_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_09_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_10_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_11_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_12_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_13_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_14_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_15_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_16_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_17_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_18_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_19_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_110_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_21_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_22_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_23_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_24_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_25_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_31_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_32_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_33_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_34_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_35_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - {{ template|default('button_popup_mini_graph.yaml') }}
+                - entity: this.entity_id
+                  color: "{{ color }}"
+                  lock: "{{ lock|default('false') }}"
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        show_empty: false
+        sort:
+          method: name
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: {{ _global.climate_sensor_sorting.columns|default('3') }}
+          max_columns: {{ _global.climate_sensor_sorting.columns|default('3') }}
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+      - !include ../includes/blank-card.yaml

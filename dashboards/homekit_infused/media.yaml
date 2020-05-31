@@ -1,0 +1,455 @@
+# lovelace_gen
+- title: Media
+  path: media
+  icon: mdi:plex
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_media          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_media
+                system_header: input_boolean.header_secondary_media
+                icon: "[[[ return `${states['input_text.icon_header_media'].state}` ]]]"
+                {% raw %}
+                content: "[[[ return `${states['input_text.name_header_media'].state}` ]]]"
+                {% endraw %}
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.media|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_media
+                icon: "[[[ return `${states['input_text.icon_header_media'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_media'].state}` ]]]"
+{% raw %} 
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: media_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.media_players
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `Media Players` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:auto-entities
+                    filter:
+                      include:
+                        - group: group.room_b1_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_b2_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_b3_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_b4_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_b5_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_01_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_02_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_03_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_04_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_05_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_06_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_07_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_08_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_09_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_10_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_11_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_12_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_13_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_14_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_15_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_16_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_17_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_18_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_19_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_110_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_21_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_22_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_23_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_24_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_25_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_31_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_32_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_33_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_34_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                        - group: group.room_35_media_players
+                          options:
+                            type: media-control
+                            style: |
+                              ha-card {
+                                border-radius: {{ states('input_select.border_radius_selector') }};
+                                box-shadow: var(--box-shadow);
+                              }
+                            entity: this.entity_id
+                    show_empty: false
+                    sort:
+                      method: name
+                      numeric: true
+                    card:
+                      type: custom:layout-card
+                      min_columns: 1
+                      max_columns: 1
+                      justify_content: start
+                      layout: vertical
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.google_home
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `Google Home` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:auto-entities
+                    filter:
+                      include:
+                        - group: group.google_home_all_speakers
+                          options:
+                            type: custom:mini-media-player
+                            entity: this.entity_id
+                            group: true
+                            source: icon
+                            icon: mdi:google-home
+                            info: short
+                            tts:
+                              platform: google_translate
+                            hide:
+                              volume: false
+                              power: true
+                        - group: group.google_home
+                          options:
+                            type: custom:mini-media-player
+                            entity: this.entity_id
+                            group: true
+                            tts:
+                              platform: google_translate
+                            hide:
+                              icon: true
+                              volume: false
+                              controls: true
+                    show_empty: false
+                    sort:
+                      method: name
+                      numeric: true
+                    card:
+                      type: entities
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius_selector') }};
+                          box-shadow: var(--box-shadow);
+                        }
+                      show_header_toggle: false
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml              
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                  
+        - type: conditional
+          conditions:
+            - entity: input_boolean.media_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml              
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/media_user_content.yaml
+              - !include ../includes/blank-card.yaml                  
+{% endraw %}

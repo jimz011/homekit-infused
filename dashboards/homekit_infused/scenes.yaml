@@ -1,0 +1,94 @@
+# lovelace_gen
+- title: Scenes
+  path: scenes
+  icon: mdi:arrange-send-backward
+  cards:    
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_scene
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_scenes
+                system_header: input_boolean.header_secondary_scene
+                icon: "[[[ return `${states['input_text.icon_header_scenes'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_scenes'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.scenes|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_scene
+                icon: "[[[ return `${states['input_text.icon_header_scenes'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_scenes'].state}` ]]]"
+  {% raw %}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: scenes_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.scenes_scenes
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - domain: scene
+                      options:
+                        !include
+                        - '../templates/button_service_call.yaml'
+                        - entity: this.entity_id
+                          grid:
+                            '!include ../includes/light-devices-grid.yaml'
+                          service_entity: this.entity_id
+                          show_state: false
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                sort:
+                  method: name
+                  numeric: true
+                card:
+                  type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml                     
+        - type: conditional
+          conditions:
+            - entity: input_boolean.scenes_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml   
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/scenes_user_content.yaml
+              - !include ../includes/blank-card.yaml   
+  {% endraw %}

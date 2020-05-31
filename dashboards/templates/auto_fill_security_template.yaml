@@ -1,0 +1,382 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - !include ../includes/blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - header_category.yaml
+        - name: "{{ content }}"
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: group.room_b1_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_b2_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_b3_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_b4_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_b5_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_01_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_02_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_03_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_04_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_05_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_06_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_07_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_08_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_09_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_10_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_11_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_12_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_13_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_14_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_15_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_16_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_17_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_18_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_19_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_110_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_21_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_22_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_23_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_24_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_25_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_31_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_32_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_33_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_34_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - group: group.room_35_binary_sensors
+              attributes:
+                device_class: {{ device_class|default('temperature') }}
+              options:
+                !include
+                - button_popup_only.yaml
+                - entity: this.entity_id
+                  show_last_changed: true
+                  show_label: false
+                  template: more_info_popup.yaml
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        sort:
+          method: {{ _global.security_binary_sensor_sorting.method|default('name') }}
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: 3
+          max_columns: 3
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+  - !include ../includes/blank-card.yaml

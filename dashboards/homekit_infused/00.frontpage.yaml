@@ -1,0 +1,246 @@
+- title: Home
+  path: home
+  icon: mdi:home
+  cards: 
+    - type: vertical-stack
+      cards:
+        - !include '../templates/frontpage_header.yaml'
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: frontpage_layout_popup.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.search_bar
+              state: "on"
+          card:
+            !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.frontpage_weather
+                      state: "on"
+                  card:
+                    type: "custom:config-template-card"
+                    entities:
+                      - input_text.weather_entity
+                      - input_text.city
+                    card:
+                      type: custom:simple-weather-card                    
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius_selector') }};
+                          box-shadow: var(--box-shadow);
+                          opacity: 0.8;
+                          font-size: 12px;
+                          font-family: Helvetica;
+                        }                      
+                      entity: "${states['input_text.weather_entity'].state}"
+                      name: "${states['input_text.city'].state}"
+                      backdrop: false
+                      tap_action:
+                        action: navigate
+                        navigation_path: /homekit-infused/weather
+                - type: custom:state-switch
+                  entity: input_boolean.frontpage_photos
+                  states:
+                    "on":
+                      type: custom:state-switch
+                      entity: input_select.person_selector
+                      states:
+                        "One Person":
+                          type: horizontal-stack
+                          cards:
+                            - !include ../includes/picture_element_person_1.yaml
+                        "Two Persons":
+                          type: horizontal-stack
+                          cards:
+                            - !include ../includes/picture_element_person_1.yaml
+                            - !include ../includes/picture_element_person_2.yaml
+                        "Three Persons":
+                          type: vertical-stack
+                          cards:
+                            - type: horizontal-stack
+                              cards:
+                                - !include ../includes/picture_element_person_1.yaml
+                                - !include ../includes/picture_element_person_2.yaml
+                            - !include ../includes/picture_element_person_3.yaml
+                        "Four Persons":
+                          type: vertical-stack
+                          cards:
+                            - type: horizontal-stack
+                              cards:
+                                - !include ../includes/picture_element_person_1.yaml
+                                - !include ../includes/picture_element_person_2.yaml
+                            - type: horizontal-stack
+                              cards:
+                                - !include ../includes/picture_element_person_3.yaml
+                                - !include ../includes/picture_element_person_4.yaml
+                - type: custom:state-switch
+                  entity: input_boolean.frontpage_buttons
+                  states:
+                    "on":
+                      type: horizontal-stack
+                      cards:
+                        - !include
+                          - '../templates/frontpage_buttons.yaml'
+                          - column: one
+                        - !include
+                          - '../templates/frontpage_buttons.yaml'
+                          - column: two
+                        - !include
+                          - '../templates/frontpage_buttons.yaml'
+                          - column: three
+                        - !include
+                          - '../templates/frontpage_buttons.yaml'
+                          - column: four
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.frontpage_calendar
+                      state: "on"
+                  card:
+                    type: "custom:config-template-card"
+                    entities:
+                      - input_text.family_calendar_entity
+                    card:
+                      type: custom:calendar-card
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius_selector') }};
+                          box-shadow: var(--box-shadow);
+                          font-family: Helvetica;
+                          font-size: 12px;
+                          opacity: 0.8;
+                          overflow: hidden;
+                        }
+                      title: "${states['input_text.name_calendar'].state}"
+                      numberOfDays: 7
+                      hideHeader: true
+                      entities:
+                        - "${states['input_text.family_calendar_entity'].state}"
+                      showColors: true
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.frontpage_garbage
+                      state: "on"
+                  card:
+                    type: "custom:config-template-card"
+                    entities:
+                      - input_text.waste_paper
+                      - input_text.waste_pmd
+                      - input_text.waste_other
+                      - input_text.waste_vfg
+                      - input_text.waste_paper_name
+                      - input_text.waste_pmd_name
+                      - input_text.waste_other_name
+                      - input_text.waste_vfg_name
+                    card:
+                      type: entities                    
+                      style: |
+                        ha-card {
+                          border-radius: {{ states('input_select.border_radius_selector') }};
+                          box-shadow: var(--box-shadow);
+                          font-family: Helvetica;
+                          font-size: 12px;
+                          opacity: 0.8;
+                        }
+                      #title: Afvalwijzer
+                      entities:
+                        - entity: "${states['input_text.waste_paper'].state}"
+                          name: "${states['input_text.waste_paper_name'].state}"
+                        - entity: "${states['input_text.waste_vfg'].state}"
+                          name: "${states['input_text.waste_vfg_name'].state}"
+                        - entity: "${states['input_text.waste_pmd'].state}"
+                          name: "${states['input_text.waste_pmd_name'].state}"
+                        - entity: "${states['input_text.waste_other'].state}"
+                          name: "${states['input_text.waste_other_name'].state}"                      
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.frontpage_map
+                      state: "on"
+                  card:
+                    type: "custom:config-template-card"
+                    entities:
+                      - input_text.person_1_entity
+                      - input_text.person_2_entity
+                      - input_text.person_3_entity
+                      - input_text.person_4_entity
+                    card:
+                      type: map                    
+                      style: |
+                        ha-card {
+                          --paper-item-icon-color: black;
+                          color: black;
+                          border-radius: {{ states('input_select.border_radius_selector') }};
+                          box-shadow: var(--box-shadow);
+                          font-family: Helvetica;
+                          font-size: 12px;
+                          opacity: 0.8;
+                          overflow: hidden;
+                        }                      
+                      default_zoom: 15
+                      entities:
+                        - "${states['input_text.person_1_entity'].state}"
+                        - "${states['input_text.person_2_entity'].state}"
+                        - "${states['input_text.person_3_entity'].state}"
+                        - "${states['input_text.person_4_entity'].state}"
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.user_content_message
+                      state: "on"
+                  card:
+                    !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.frontpage_user_content
+                      state: "on"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      !include ../../user_content/views/frontpage_user_content.yaml 
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.onboarding
+                      state: "off"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - type: markdown               
+                        content: >
+                          **Welcome:** Thank you for installing Homekit Infused. The following pages will take you through the initial setup process. When you have completed setting up a page press the 'next' button at the top of the screen (beneath the header). 
+  
+  
+                          **Warning:** Do NOT use the home/menu buttons at the bottom yet as this onboarding page will NOT show again! You can however set everything up manually within the HKI Settings.
+  
+  
+                          **Proceed:** Press 'BEGIN' to proceed with the installation, please complete the entire setup and press 'FINISH' on the last page.
+                      - type: custom:button-card
+                        entity: input_select.onboarding
+                        name: BEGIN
+                        show_label: false
+                        show_icon: false
+                        show_name: true
+                        tap_action:
+                          action: navigate
+                          navigation_path: ../hki-settings/onboarding
+                          haptic: light
+                        hold_action:
+                          action: navigate
+                          navigation_path: ../hki-settings/onboarding
+                          haptic: heavy
+                        styles:
+                          card:
+                            - opacity: 0.7
+                            - height: 45px
+                          name:
+                            - font-size: 10px
+                            - justify-self: center
+            - !include ../includes/blank-card.yaml

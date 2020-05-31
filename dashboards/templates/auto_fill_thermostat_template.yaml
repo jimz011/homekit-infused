@@ -1,0 +1,243 @@
+# lovelace_gen
+
+type: vertical-stack
+cards:
+  - !include
+    - header_category.yaml
+    - name: "{{ content }}"
+  - type: horizontal-stack
+    cards:
+      - !include ../includes/blank-card.yaml
+      - type: custom:auto-entities
+        filter:
+          include:
+            - group: group.room_b1_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b2_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b3_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b4_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_b5_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_01_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_02_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_03_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_04_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_05_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_06_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_07_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_08_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_09_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_10_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_11_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_12_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_13_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_14_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_15_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_16_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_17_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_18_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_19_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_110_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_21_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_22_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_23_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_24_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_25_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_31_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_32_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_33_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_34_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - group: group.room_35_climate
+              options:
+                !include
+                - button_thermostat.yaml
+                - entity: this.entity_id
+                  lock: "{{ lock|default('false') }}"
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+            - type: custom:button-card
+              color_type: blank-card
+              aspect_ratio: 1/1
+        show_empty: false
+        sort:
+          method: name
+          numeric: true
+        card:
+          type: custom:layout-card
+          min_columns: {{ _global.thermostat_sorting.columns|default('3') }}
+          max_columns: {{ _global.thermostat_sorting.columns|default('3') }}
+          "{{ _global.rtl.rtl|default('justify-content') }}": flex-start
+          layout: horizontal
+      - !include ../includes/blank-card.yaml

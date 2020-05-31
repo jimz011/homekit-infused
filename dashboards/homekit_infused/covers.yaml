@@ -1,0 +1,153 @@
+# lovelace_gen
+- title: Covers
+  path: covers
+  icon: mdi:window-shutter
+  cards: 
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_battery          
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_battery
+                system_header: input_boolean.header_secondary_battery
+                icon: "[[[ return `${states['input_text.icon_header_covers'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_covers'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.covers|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_covers
+                icon: "[[[ return `${states['input_text.icon_header_covers'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_covers'].state}` ]]]"
+  {% raw %}
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: covers_layout_popup.yaml
+        - !include
+          - '../templates/header_category.yaml'
+          - name: "[[[ return `${states['input_text.name_covers'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.covers_covers
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:auto-entities
+                filter:
+                  exclude:
+                    - entity_id: '*garage*'
+                    - domain: automation
+                    - domain: script
+                    - domain: sensor
+                    - domain: switch
+                    - domain: input_text
+                    - domain: input_boolean
+                    - domain: input_select
+                  include:
+                    - domain: cover
+                      options:
+                        !include
+                        - '../templates/button_cover.yaml'
+                        - entity: this.entity_id
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                show_empty: false
+                sort:
+                  method: name
+                  numeric: true
+                card:
+                  type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+              - !include ../includes/blank-card.yaml
+        - !include
+          - '../templates/header_category.yaml'
+          - name: "[[[ return `${states['input_text.name_garage_doors'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.covers_garage_doors
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:auto-entities
+                filter:
+                  exclude:
+                    - domain: automation
+                    - domain: script
+                    - domain: sensor
+                    - domain: switch
+                    - domain: input_text
+                    - domain: input_boolean
+                    - domain: input_select
+                  include:
+                    - entity_id: '*garage*'
+                      options:
+                        !include
+                        - '../templates/button_popup_only.yaml'
+                        - entity: this.entity_id
+                          show_last_changed: false
+                          show_label: false
+                          template: more_info_popup.yaml
+                          tap_action: more-info
+                          hold_action: more-info
+                          icon: mdi:garage
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                    - type: custom:button-card
+                      color_type: blank-card
+                      aspect_ratio: 1/1
+                show_empty: false
+                sort:
+                  method: name
+                  numeric: true
+                card:
+                  type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.covers_user_content
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  !include ../../user_content/views/covers_user_content.yaml
+              - !include ../includes/blank-card.yaml
+  {% endraw %}

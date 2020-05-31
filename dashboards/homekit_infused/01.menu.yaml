@@ -1,0 +1,166 @@
+# lovelace_gen
+- title: Menu
+  path: menu
+  icon: mdi:menu
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:state-switch
+          entity: input_boolean.header_advanced_mode_menu
+          states:
+            "off":
+              !include
+              - '../templates/system_header_new.yaml'
+              - name: input_text.name_header_secondary_menu
+                system_header: input_boolean.header_secondary_menu
+                icon: "[[[ return `${states['input_text.icon_header_menu'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_menu'].state}` ]]]"
+            "on":
+              !include
+              - '../templates/system_header_advanced_new.yaml'
+              - name: "{{ _global.header_secondary.menu|default('return `Set your own template in YAML`') }}"
+                system_header: input_boolean.header_secondary_menu
+                icon: "[[[ return `${states['input_text.icon_header_menu'].state}` ]]]"
+                content: "[[[ return `${states['input_text.name_header_menu'].state}` ]]]"
+        - type: conditional
+          conditions:
+            - entity: input_boolean.edit_mode
+              state: "on"
+          card:
+            !include
+            - '../templates/edit_mode_warning.yaml'
+            - template: menu_layout_popup.yaml
+  #        - type: conditional
+  #          conditions:
+  #            - entity: input_boolean.menu_favorites
+  #              state: "on"
+  #          card:
+  #            type: vertical-stack
+  #            cards:
+  #              - !include
+  #                - '../templates/header_category.yaml'
+  #                {% raw %}
+  #                - content: "##### {{ states('input_text.name_favorites') }}"
+  #                {% endraw %}
+  #              - type: horizontal-stack
+  #                cards:
+  #                  - !include ../includes/blank-card.yaml
+  #                  - type: custom:layout-card
+  #                    cards:
+  #                      - type: custom:state-switch
+  #                        entity: input_select.menu_button_selector
+  #                        states:
+  #                          Three Columns:
+  #                            type: horizontal-stack
+  #                            cards:
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: one
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: two
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: three
+  #                          Four Columns:
+  #                            type: horizontal-stack
+  #                            cards:
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: one
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: two
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: three
+  #                              - !include
+  #                                - '../templates/menu_buttons.yaml'
+  #                                - column: four   
+  #                  - !include ../includes/blank-card.yaml                
+        - type: conditional
+          conditions:
+            - entity: input_boolean.menu_all
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_all'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:layout-card
+                    min_columns: 3
+                    max_columns: 3
+                    justify_content: start
+                    layout: horizontal
+                    cards:
+                      !include ../includes/menu_buttons_all.yaml  
+                  - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.user_content_message
+              state: "on"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include ../includes/blank-card.yaml
+              - type: custom:layout-card
+                cards:
+                  - !include ../includes/edit_mode/message-user-content-edit-mode.yaml
+              - !include ../includes/blank-card.yaml
+        - type: conditional
+          conditions:
+            - entity: input_boolean.menu_user_content
+              state: "on"
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../templates/header_category.yaml'
+                - name: "[[[ return `${states['input_text.name_other'].state}` ]]]"
+              - type: horizontal-stack
+                cards:
+                  - !include ../includes/blank-card.yaml
+                  - type: custom:layout-card
+                    cards:
+                      !include ../../user_content/views/menu_user_content.yaml
+                  - !include ../includes/blank-card.yaml
+        - type: vertical-stack
+          cards:
+            - !include
+              - '../templates/header_category.yaml'
+              - name: Homekit Infused
+            - type: horizontal-stack
+              cards:
+                - !include ../includes/blank-card.yaml
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button_badge.yaml'
+                      - name: HKI
+                        label: About
+                        icon: mdi:help-circle-outline
+                        navigation_path: /homekit-infused/about
+                        hold_action: none
+                        notification: "[[[ if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return '&nbsp'; else return `update`; ]]]"
+                        background_color: "[[[ if (states['input_text.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                        
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - name: HKI
+                        label: Settings
+                        icon: mdi:tools
+                        navigation_path: ../hki-settings/
+                    - !include
+                      - '../templates/button_nav.yaml'
+                      - name: HA
+                        label: Settings
+                        icon: mdi:cogs 
+                        navigation_path: /homekit-infused/ha_settings
+                - !include ../includes/blank-card.yaml
