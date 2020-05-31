@@ -1,0 +1,25 @@
+# DO NOT USE THIS FILE, COPY THIS INTO YOUR OWN CONFIGURATION.YAML!!
+
+homeassistant:
+  packages: !include_dir_named packages/
+
+frontend:
+  themes: !include_dir_merge_named themes/
+
+browser_mod:
+
+lovelace:
+  mode: storage
+  dashboards:
+    homekit-infused:
+      mode: yaml
+      title: HKI
+      icon: mdi:cellphone
+      show_in_sidebar: true
+      filename: homekit_infused.yaml
+    hki-settings:
+      mode: yaml
+      title: HKI Settings
+      icon: mdi:tools
+      show_in_sidebar: true
+      filename: homekit_infused_settings.yaml
