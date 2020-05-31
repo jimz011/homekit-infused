@@ -1,0 +1,610 @@
+# Required input_selects for HKI to work properly
+input_select:
+  # The theme selector used to show in the interface
+  theme_selector:
+    name: Theme Selector 
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+
+  theme_selector_day:
+    name: Theme Selector Day
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+  
+  theme_selector_night:
+    name: Theme Selector Night
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+
+  border_radius_selector:
+    name: Border Radius
+    options:
+      - 0px
+      - 3px
+      - 6px
+      - 9px
+      - 12px
+      - 15px
+      - 18px
+
+  box_shadow_selector:
+    name: Box Shadow
+    options:
+      - 0px 0px 0px 0px rgba(0,0,0,0.5)
+      - 1px 1px 1px 0px rgba(0,0,0,0.5)
+      - 2px 2px 2px 0px rgba(0,0,0,0.5)
+      - 3px 3px 3px 0px rgba(0,0,0,0.5)
+      - 4px 4px 4px 0px rgba(0,0,0,0.5)
+      - 5px 5px 5px 0px rgba(0,0,0,0.5)
+
+  justify_self:
+    options:
+      - start
+      - end
+
+  badge_justify_self:
+    options:
+      - right
+      - left
+
+  # Layout Selectors
+  person_selector:
+    name: Frontpage Layout Selector
+    options:
+      - None
+      - One Person
+      - Two Persons
+      - Three Persons
+      - Four Persons
+  
+  frontpage_button_editor:
+    options:
+      - First Column
+      - Second Column
+      - Third Column
+      - Fourth Column
+
+  floor_selector_details:
+    options:
+      - Basement
+      - Ground Floor
+      - First Floor
+      - Second Floor
+      - Third Floor
+
+  floor_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+  lights_floor_selector:
+    options:
+      - Select
+      - '-1'
+      - '0'
+      - 1
+      - 2
+      - 3
+
+  devices_floor_selector:
+    options:
+      - Select
+      - '-1'
+      - '0'
+      - 1
+      - 2
+      - 3
+
+  floor_b_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+  floor_0_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+
+  floor_1_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+
+  floor_2_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+  floor_3_room_selector:
+    options:
+      - Select
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+  settings:
+    options:
+      - Global
+      - Settings
+      - Names
+      - Icons
+      - Persons
+      - Views
+      - Custom Buttons
+      - Header
+      - Rooms
+      - Themes
+      - Toolbox
+      - Other
+      - Weather
+
+  # Person Menu 1 (used for personal views)
+  person_menu_1:
+    name: Person Menu 1 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 2 (used for personal views)
+  person_menu_2:
+    name: Person Menu 2 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 3 (used for personal views)
+  person_menu_3:
+    name: Person Menu 3 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+  
+  # Person Menu 4 (used for personal views)
+  person_menu_4:
+    name: Person Menu 4 Selector
+    options:
+      - Overview
+      - Calendar
+      - Location
+      - Vehicle
+    initial: Overview
+
+  # Calendar View
+  calendar_view:
+    options:
+      - Family Calendar
+      - Birthdays
+  
+  # Xiaomi Vacuum
+  xiaomi_vacuum:
+    name: Xiaomi Vacuum
+    options:
+      - Silent
+      - Standard
+      - Medium
+      - Turbo
+      - Gentle
+
+  icon_selector:
+    options:
+      - Select
+      - Material Design
+      - Fontawesome Pro
+
+  language_selector:
+    options:
+      - Select
+      - Brazilian-Portuguese
+      - Dutch
+      - English
+      - French
+      - German
+      - Hebrew
+      - Italian
+      - Norwegian
+      - Polish
+      - Romanian
+      - Spanish
+      - Spanish-Alternative
+
+  name_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  label_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  state_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  notification_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+      - 12px
+      - 13px
+      - 14px
+      - 15px
+      - 16px
+      - 17px
+      - 18px
+      - 19px
+      - 20px
+
+  badge_font_size_selector:
+    options:
+      - 7px
+      - 8px
+      - 9px
+      - 10px
+      - 11px
+
+  notification_font_weight:
+    options:
+      - normal
+      - bold
+      - bolder
+      - lighter
+
+  state_font_weight:
+    options:
+      - normal
+      - bold
+      - bolder
+      - lighter
+
+  name_font_weight:
+    options:
+      - normal
+      - bold
+      - bolder
+      - lighter
+
+  label_font_weight:
+    options:
+      - normal
+      - bold
+      - bolder
+      - lighter
+
+  badge_text_transform:
+    options:
+      - capitalize
+      - uppercase
+      - lowercase
+  
+  footer_direction:
+    options:
+      - Right
+      - Left
+
+  footer_direction_backend:
+    options:
+      - 'false'
+      - 'true'
+
+  frontpage_edit_mode:
+    options:
+      - Widgets
+      - Buttons
+
+  menu_edit_mode:
+    options:
+      - Widgets
+      - Buttons
+
+  deep_press:
+    options:
+      - false
+      - true
+
+  light_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  device_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  thermostat_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  fan_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  temperature_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  humidity_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  air_pressure_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  camera_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  door_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  window_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  motion_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  other_sensors_sorting_method:
+    options:
+      - domain
+      - entity_id
+      - name
+      - state
+      - attribute
+      - last_changed
+      - last_updated
+      - last_triggered
+
+  onboarding:
+    options:
+      - Introduction
+      - Language and Icons
+      - Finish
+    initial: Introduction
+
+  light_columns:
+    options:
+      - 3
+      - 4
+
+  device_columns:
+    options:
+      - 3
+      - 4
+
+  climate_columns:
+    options:
+      - 3
+      - 4
+
+  camera_columns:
+    options:
+      - 3
+      - 4
+
+  door_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  window_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  motion_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  other_sensors_columns:
+    options:
+      - 3
+      - 4
+
+  menu_columns:
+    options:
+      - 3
+      - 4
+
+  lights_floor_selector_view:
+    options:
+      - "1 Floor"
+      - "1 Floor + Basement"
+      - "2 Floors"
+      - "2 Floors + Basement"
+      - "3 Floors"
+      - "3 Floors + Basement"
+      - "4 Floors"
+      - "4 Floors + Basement"
+  devices_floor_selector_view:
+    options:
+      - "1 Floor"
+      - "1 Floor + Basement"
+      - "2 Floors"
+      - "2 Floors + Basement"
+      - "3 Floors"
+      - "3 Floors + Basement"
+      - "4 Floors"
+      - "4 Floors + Basement"

@@ -1,0 +1,70 @@
+input_text:
+  # General
+
+  icon_footer_menu:
+  icon_footer_home:
+
+  icon_power:
+  icon_frost:
+  icon_heat:
+
+  icon_door:
+  icon_window:
+  icon_sensor:
+  icon_covers:
+
+  icon_alarm:
+  icon_battery:
+  icon_climate:
+  icon_light:
+  icon_device:
+  icon_security:
+  icon_cleaning:
+  icon_scene:
+  icon_vacuum:
+  icon_remote:
+  icon_automation:
+  icon_calendar:
+  icon_computer:
+  icon_download:
+  icon_energy:
+  icon_floorplan:
+  icon_laundry:
+  icon_location:
+  icon_media:
+  icon_system:
+  icon_traffic:
+  icon_weather:
+
+  icon_header_covers:
+  icon_header_alarm:
+  icon_header_menu:
+  icon_header_lights:
+  icon_header_devices:
+  icon_header_climate:
+  icon_header_battery:
+  icon_header_security:
+  icon_header_automations:
+  icon_header_cleaning:
+  icon_header_scenes:
+  icon_header_vacuum:
+  icon_header_calendar:
+  icon_header_computers:
+  icon_header_download:
+  icon_header_energy:
+  icon_header_floorplan:
+  icon_header_location:
+  icon_header_laundry:
+  icon_header_system:
+  icon_header_media:
+  icon_header_traffic:
+  icon_header_weather:
+
+  icon_fan:
+  icon_info:
+  icon_play:
+  icon_pause:
+  icon_stop:
+  icon_sync:
+  icon_mop:
+  

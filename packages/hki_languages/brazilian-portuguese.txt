@@ -1,0 +1,172 @@
+[text]
+input_text.name_header_secondary_lights = Visão geral 
+input_text.name_header_secondary_devices = Visão geral 
+input_text.name_header_secondary_climate = Visão geral 
+input_text.name_header_secondary_security = Visão geral
+input_text.name_header_secondary_automations = Visão geral 
+input_text.name_header_secondary_battery = Visão geral 
+input_text.name_header_secondary_calendar = Visão geral 
+input_text.name_header_secondary_cleaning = Visão geral 
+input_text.name_header_secondary_computers = Visão geral 
+input_text.name_header_secondary_energy = Visão geral 
+input_text.name_header_secondary_floorplan = Visão geral 
+input_text.name_header_secondary_laundry = Visão geral 
+input_text.name_header_secondary_location = Visão geral 
+input_text.name_header_secondary_media = Visão geral 
+input_text.name_header_secondary_scenes = Visão geral 
+input_text.name_header_secondary_system = Visão geral 
+input_text.name_header_secondary_traffic = Visão geral 
+input_text.name_header_secondary_vacuum = Visão geral 
+input_text.name_header_secondary_weather = Visão geral 
+input_text.name_header_secondary_menu = Visão geral 
+input_text.name_header_secondary_alarm = Visão geral 
+input_text.name_header_secondary_download = Visão geral 
+
+input_text.name_header_secondary_covers = Visão geral 
+input_text.name_header_covers = Covers
+input_text.name_covers = Covers
+input_text.name_covers_label = Painel
+
+input_text.name_custom = Personalizado
+input_text.name_favorites = Favoritos
+input_text.name_all = Todos
+input_text.name_power = Energia
+input_text.name_frost = Frio intenso
+input_text.name_protection = Proteção
+input_text.name_heat = Calor
+input_text.name_on = 'Ligar'
+input_text.name_off = 'Desligar'
+
+input_text.name_header_about = Sobre
+input_text.name_header_automations = Automações
+input_text.name_header_battery = Bateria
+input_text.name_header_calendar = Agenda
+input_text.name_header_system = Sistema
+input_text.name_header_computers = Computadores
+input_text.name_header_energy = Energia
+input_text.name_header_media = Mídia
+input_text.name_header_floorplan = Planta
+input_text.name_header_laundry = Lavanderia
+input_text.name_header_location = Localização
+input_text.name_header_traffic = Informações de Trânsito
+
+input_text.name_header_weather = Clima
+input_text.name_header_alarm = Alarme
+input_text.name_header_climate = Clima
+input_text.name_header_lights = Luzes
+input_text.name_header_devices = Dispositivos
+input_text.name_header_security = Segurança
+input_text.name_header_cleaning = Limpeza
+input_text.name_header_scenes = Cenas
+input_text.name_header_remote = Controle Remoto
+input_text.name_header_vacuum = Aspiração
+input_text.name_header_menu = Menu
+input_text.name_header_settings = Configurações
+
+input_text.name_presets = Predefinições
+input_text.name_thermostat = Termostato
+input_text.name_fans = Ventiladores
+input_text.name_temperature = Temperatura
+input_text.name_humidity = Umidade
+input_text.name_air_pressure = Pressão do AR
+
+input_text.name_cameras = Câmeras
+input_text.name_doors = Portas
+input_text.name_windows = Janelas
+input_text.name_motion = Movimento
+input_text.name_other = Outros
+
+input_text.name_good_morning = Bom Dia
+input_text.name_good_afternoon = Boa Tarde
+input_text.name_good_evening = Boa Noite
+input_text.name_good_night = Boa Noite
+
+input_text.name_battery = Bateria
+input_text.name_battery_label = Visão geral
+
+input_text.name_automation = Automação
+input_text.name_automation_label = Gerenciador
+
+input_text.name_calendar = Agenda
+input_text.name_calendar_label = Visão geral
+
+input_text.name_computer = Computador
+input_text.name_computer_label = Monitor
+
+input_text.name_download = Download
+input_text.name_download_label = Gerenciador
+
+input_text.name_energy = Energia
+input_text.name_energy_label = Visão geral
+
+input_text.name_floorplan = Planta
+input_text.name_floorplan_label = Mapa
+
+input_text.name_laundry = Lavanderia
+input_text.name_laundry_label = "&nbsp;"
+
+input_text.name_location = Localização
+input_text.name_location_label = Mapa
+
+input_text.name_media = Mídia
+input_text.name_media_label = Central de
+
+input_text.name_system = Sistema
+input_text.name_system_label = Monitor 
+
+input_text.name_traffic = Transito
+input_text.name_traffic_label = Informações
+
+input_text.name_weather = Clima
+input_text.name_weather_label = Informações
+
+input_text.name_light = Luzes
+input_text.name_light_label = Controle
+
+input_text.name_device = Dispositivos
+input_text.name_device_label = Controle
+
+input_text.name_climate = Clima
+input_text.name_climate_label = Controle
+
+input_text.name_security = Segurança
+input_text.name_security_label = Painel
+
+input_text.name_cleaning = Limpeza
+input_text.name_cleaning_label = Lista
+
+input_text.name_scene = Cenas
+input_text.name_scene_label = Controle
+
+input_text.name_vacuum = Aspiração
+input_text.name_vacuum_label = Controle
+
+input_text.name_remote = Controle
+input_text.name_remote_label = Remoto
+
+input_text.name_alarm = Alarme
+input_text.name_alarm_label = Painel
+
+input_text.name_mode = Mode
+input_text.name_controls = Controls
+input_text.name_status_information = Status Information
+input_text.name_start = Start
+input_text.name_pause = Pause
+input_text.name_stop = Stop
+input_text.name_find_me = Find Me
+input_text.name_quiet = Quiet
+input_text.name_turbo = Turbo
+input_text.name_max = Max
+input_text.name_balanced = Balanced
+input_text.name_mop = Mop
+input_text.name_vacuum_error_sensor = Error sensor
+input_text.name_vacuum_battery = Battery
+input_text.name_cleaning_count = Cleaning count
+input_text.name_total_cleaned_area = Total cleaned area
+input_text.name_total_cleaning_time = Total cleaning time
+input_text.name_main_brush_time_left = Main brush time left
+input_text.name_side_brush_time_left = Side brush time left
+input_text.name_filter_time_left = Filter time left
+input_text.name_sensor_dirty_time_left = Sensor dirty time left
+
+input_text.name_garage_doors = Portas de Garagem

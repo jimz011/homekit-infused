@@ -1,0 +1,24 @@
+automation:
+  - alias: 'language selector'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: input_select.language_selector
+    action:
+      - service: shell_command.language_file 
+        data_template:
+          commands: >
+             {% if is_state('input_select.language_selector','Select') %}
+               english
+             {% else %} 
+               {{ states('input_select.language_selector') |lower }}
+             {% endif %}
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.language_states_load
+      - delay:
+          seconds: 10
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.language_states_load
+ 

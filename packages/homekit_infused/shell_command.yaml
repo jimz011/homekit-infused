@@ -1,0 +1,4 @@
+shell_command:
+  language_file: cp /config/packages/hki_languages/{{commands}}.txt /config/packages/hki_languages/selected_language.txt
+  icons_file: cp /config/packages/hki_icons/{{icons}}.txt /config/packages/hki_icons/selected_icons.txt
+  
