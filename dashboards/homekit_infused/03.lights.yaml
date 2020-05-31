@@ -1278,7 +1278,7 @@
                         - !include ../includes/blank-card.yaml
               - type: conditional
                 conditions:
-                  - entity: input_boolean.lights_room_01
+                  - entity: input_boolean.lights_room_110
                     state: "on"
                 card:
                   type: vertical-stack
