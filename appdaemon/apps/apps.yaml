@@ -1,0 +1,16 @@
+---
+#hello_world:
+#  module: hello
+#  class: HelloWorld
+
+LanguageLoadStates:
+  module: text_states_load
+  class: TextStatesLoad
+  path: /appdaemonha/packages/hki_languages/selected_language.txt
+  sensor: input_boolean.language_states_load
+
+IconLoadStates:
+  module: text_states_load
+  class: TextStatesLoad
+  path: /appdaemonha/packages/hki_icons/selected_icons.txt
+  sensor: input_boolean.icons_states_load
