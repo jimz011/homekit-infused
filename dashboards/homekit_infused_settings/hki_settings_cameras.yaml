@@ -1,0 +1,48 @@
+- title: HKI Settings
+  path: hki_settings_cameras
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Camera's
+            icon: mdi:cctv
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                 
+                    content: >
+                      **Cameras:** Set up your camera's here, they will only be shown on the security view. If you have multiple camera's separate them with a comma.
+                - type: entities
+                  title: All Camera's
+                  show_header_toggle: false
+                  entities: 
+                    - entity: input_text.all_cameras
+                      type: 'custom:text-input-row'
+                    - type: custom:button-card
+                      name: Update Cameras
+                      tap_action:
+                        action: call-service
+                        service: group.set
+                        service_data:
+                          object_id: all_cameras
+                          entities: "[[[ return states['input_text.all_cameras'].state ]]]"
+                      styles:
+                        card:
+                          - border: solid
+                          - border-width: 2px
+                          - height: 20px
+            - !include ../includes/blank-card.yaml

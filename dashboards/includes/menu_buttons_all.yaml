@@ -1,0 +1,176 @@
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_alarm'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_alarm_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_alarm'].state}` ]]]"
+    navigation_path: /homekit-infused/alarm
+    notification: "[[[ if (states[`${states['input_text.sensor_alarm'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_alarm'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_alarm'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_automation'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_automation_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_automation'].state}` ]]]"
+    navigation_path: /homekit-infused/automations
+    notification: "[[[ if (states[`${states['input_text.sensor_automation'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_automation'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_automation'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_battery'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_battery_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_battery'].state}` ]]]"
+    navigation_path: /homekit-infused/battery
+    notification: "[[[ if (states[`${states['input_text.sensor_battery'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_battery'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_battery'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_calendar'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_calendar_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_calendar'].state}` ]]]"
+    navigation_path: /homekit-infused/calendar
+    notification: "[[[ if (states[`${states['input_text.sensor_calendar'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_calendar'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_calendar'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_cleaning'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_cleaning_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_cleaning'].state}` ]]]"
+    navigation_path: /homekit-infused/cleaning
+    notification: "[[[ if (states[`${states['input_text.sensor_cleaning'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_cleaning'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_cleaning'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_climate'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_climate_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_climate'].state}` ]]]"
+    navigation_path: /homekit-infused/climate
+    notification: "[[[ if (states[`${states['input_text.sensor_climate'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_climate'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_climate'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_computer'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_computer_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_computer'].state}` ]]]"
+    navigation_path: /homekit-infused/computers
+    notification: "[[[ if (states[`${states['input_text.sensor_computer'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_computer'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_computer'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_covers'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_covers_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_covers'].state}` ]]]"
+    navigation_path: /homekit-infused/covers
+    notification: "[[[ if (states[`${states['input_text.sensor_covers'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_covers'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_covers'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"        
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_device'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_device_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_device'].state}` ]]]"
+    navigation_path: /homekit-infused/devices
+    notification: "[[[ if (states[`${states['input_text.sensor_device'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_device'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_device'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_energy'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_energy_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_energy'].state}` ]]]"
+    navigation_path: /homekit-infused/energy
+    notification: "[[[ if (states[`${states['input_text.sensor_energy'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_energy'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_energy'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_floorplan'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_floorplan_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_floorplan'].state}` ]]]"
+    navigation_path: /homekit-infused/floorplan
+    notification: "[[[ if (states[`${states['input_text.sensor_floorplan'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_floorplan'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_floorplan'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_laundry'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_laundry_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_laundry'].state}` ]]]"
+    navigation_path: /homekit-infused/laundry
+    notification: "[[[ if (states[`${states['input_text.sensor_laundry'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_laundry'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_laundry'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_light'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_light_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_light'].state}` ]]]"
+    navigation_path: /homekit-infused/lights
+    notification: "[[[ if (states[`${states['input_text.sensor_light'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_light'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_light'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_location'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_location_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_location'].state}` ]]]"
+    navigation_path: /homekit-infused/location
+    notification: "[[[ if (states[`${states['input_text.sensor_location'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_location'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_location'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_media'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_media_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_media'].state}` ]]]"
+    navigation_path: /homekit-infused/media
+    notification: "[[[ if (states[`${states['input_text.sensor_media'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_media'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_media'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_remote'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_remote_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_remote'].state}` ]]]"
+    navigation_path: /homekit-infused/remote
+    notification: "[[[ if (states[`${states['input_text.sensor_remote'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_remote'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_remote'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_scene'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_scene_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_scene'].state}` ]]]"
+    navigation_path: /homekit-infused/scenes
+    notification: "[[[ if (states[`${states['input_text.sensor_scene'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_scene'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_scene'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_security'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_security_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_security'].state}` ]]]"
+    navigation_path: /homekit-infused/security
+    notification: "[[[ if (states[`${states['input_text.sensor_security'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_security'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_security'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_system'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_system_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_system'].state}` ]]]"
+    navigation_path: /homekit-infused/system
+    notification: "[[[ if (states[`${states['input_text.sensor_system'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_system'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_system'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_traffic'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_traffic_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_traffic'].state}` ]]]"
+    navigation_path: /homekit-infused/traffic_information
+    notification: "[[[ if (states[`${states['input_text.sensor_traffic'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_traffic'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_traffic'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_vacuum'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_vacuum_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_vacuum'].state}` ]]]"
+    navigation_path: /homekit-infused/vacuum
+    notification: "[[[ if (states[`${states['input_text.sensor_vacuum'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_vacuum'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_vacuum'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+- !include
+  - '../templates/button_badge.yaml'
+  - name: "[[[ return `${states['input_text.name_weather'].state}` ]]]"
+    label: "[[[ return `${states['input_text.name_weather_label'].state}` ]]]"
+    icon: "[[[ return `${states['input_text.icon_weather'].state}` ]]]"
+    navigation_path: /homekit-infused/weather
+    notification: "[[[ if (states[`${states['input_text.sensor_weather'].state}`].state == 0) return '&nbsp'; else return `${states[`${states['input_text.sensor_weather'].state}`].state}`; ]]]"
+    background_color: "[[[ if (states[`${states['input_text.sensor_weather'].state}`].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     

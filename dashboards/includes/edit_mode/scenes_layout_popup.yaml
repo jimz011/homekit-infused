@@ -1,0 +1,90 @@
+type: horizontal-stack
+cards:
+  - !include ../blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Header"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.header_secondary_scene
+        name: Header Subtitle
+        icon: mdi:alpha-h-box
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Scenes"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.scenes_scenes
+        name: Auto-Fill Scenes
+        icon: mdi:arrange-send-backward
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+      - !include
+        - '../../templates/header_category.yaml'
+        - name: "Custom Content"
+      - type: custom:button-card
+        aspect_ratio: 7/1
+        layout: icon_name_state
+        size: 50%
+        entity: input_boolean.scenes_user_content
+        name: User Content
+        icon: mdi:account-multiple-plus-outline
+        hold_action:
+          action: more-info
+          haptic: heavy
+        styles:
+          card:
+            - opacity: 0.7
+          name:
+            - font-size: 10px
+        state:
+          - value: "on"
+            styles:
+              card:
+                - --paper-card-background-color: white
+                - opacity: 1.0
+              name:
+                - color: Black
+              icon: 
+                - color: Crimson
+  - !include ../blank-card.yaml

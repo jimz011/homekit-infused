@@ -1,0 +1,135 @@
+- title: HKI Settings
+  path: hki_settings_other_translations
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Other Translations
+            icon: mdi:alpha-a-box
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: vertical-stack
+              cards:
+                - type: custom:layout-card
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: input_boolean.system_help
+                          state: "on"
+                      card:
+                        type: markdown             
+                        content: >
+                          **Text:** You can change all other text elements of the interface here. This can be very useful if you want to use different names or if your language is not available for HKI yet.
+                    - type: entities
+                      title: Frontend Greeting
+                      show_header_toggle: false                                              
+                      entities: 
+                        - entity: input_text.name_good_morning
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_afternoon
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_evening
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_good_night
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Climate Categories
+                      show_header_toggle: false                                              
+                      entities: 
+                        - entity: input_text.name_thermostat
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_fans
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_temperature
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_humidity
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_air_pressure
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Security Categories
+                      show_header_toggle: false                                             
+                      entities: 
+                        - entity: input_text.name_cameras
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_doors
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_windows
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_motion
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_other
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Menu Categories
+                      show_header_toggle: false                                             
+                      entities: 
+                        - entity: input_text.name_favorites
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_all
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_custom
+                          type: 'custom:text-input-row' 
+
+                    - type: entities
+                      title: Vacuum Names
+                      show_header_toggle: false
+                      entities:
+                        - entity: input_text.name_status_information
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_start
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_pause
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_stop
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_find_me
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_quiet
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_turbo
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_max
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_balanced
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_mop
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_vacuum_error_sensor
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_vacuum_battery
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_cleaning_count
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_total_cleaned_area
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_total_cleaning_time
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_main_brush_time_left
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_side_brush_time_left
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_filter_time_left
+                          type: 'custom:text-input-row'
+                        - entity: input_text.name_sensor_dirty_time_left
+                          type: 'custom:text-input-row'
+
+                    - type: entities
+                      title: Garage Doors
+                      show_header_toggle: false
+                      entities:
+                        - entity: input_text.name_garage_doors
+                          type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml

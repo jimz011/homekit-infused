@@ -1,0 +1,637 @@
+type: horizontal-stack
+cards:
+  - !include ../blank-card.yaml
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: input_select.frontpage_edit_mode
+            icon: mdi:widgets-outline
+            name: Widgets
+            layout: icon_name_state
+            size: 50%
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.frontpage_edit_mode
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+            state:
+              - value: "Widgets"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: black
+                  icon: 
+                    - color: Crimson
+          - type: custom:button-card
+            entity: input_select.frontpage_edit_mode
+            icon: mdi:gesture-tap-button
+            name: Buttons
+            layout: icon_name_state
+            size: 50%
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.frontpage_edit_mode
+            hold_action:
+              action: more-info
+              haptic: heavy
+            styles:
+              card:
+                - opacity: 0.7
+                - height: 45px
+            state:
+              - value: "Buttons"
+                styles:
+                  card:
+                    - --paper-card-background-color: white
+                    - opacity: 1.0
+                  name:
+                    - color: black
+                  icon: 
+                    - color: Crimson
+      - type: conditional
+        conditions:
+          - entity: input_select.frontpage_edit_mode
+            state: "Widgets"
+        card:
+          type: vertical-stack
+          cards:
+            - !include
+              - '../../templates/header_category.yaml'
+              - name: "Header"
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_header_secondary
+              name: Notifications
+              icon: mdi:email
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: conditional
+              conditions:
+                - entity: input_boolean.frontpage_header_secondary
+                  state: "on"
+              card:
+                type: custom:button-card
+                aspect_ratio: 7/1
+                layout: icon_name_state
+                size: 50%
+                entity: input_boolean.frontpage_alarm
+                name: Alarm
+                icon: mdi:alert
+                hold_action:
+                  action: more-info
+                  haptic: heavy
+                styles:
+                  card:
+                    - opacity: 0.7
+                  name:
+                    - font-size: 10px
+                state:
+                  - value: "on"
+                    styles:
+                      card:
+                        - --paper-card-background-color: white
+                        - opacity: 1.0
+                      name:
+                        - color: black
+                      icon: 
+                        - color: Crimson
+            - !include
+              - '../../templates/header_category.yaml'
+              - name: "Widgets"
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.search_bar
+              name: Search
+              icon: mdi:magnify
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_weather
+              name: Weather
+              icon: mdi:weather-partly-cloudy
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_photos
+              name: Photos
+              icon: mdi:image
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_buttons
+              name: Buttons
+              icon: mdi:arrange-bring-to-front
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_calendar
+              name: Family Calendar
+              icon: mdi:calendar
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_garbage
+              name: Waste Collection
+              icon: mdi:trash-can
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_map
+              name: Map
+              icon: mdi:navigation
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+            - !include
+              - '../../templates/header_category.yaml'
+              - name: "User Content"
+            - type: custom:button-card
+              aspect_ratio: 7/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.frontpage_user_content
+              name: User Content
+              icon: mdi:account-multiple-plus-outline
+              hold_action:
+                action: more-info
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.7
+                name:
+                  - font-size: 10px
+              state:
+                - value: "on"
+                  styles:
+                    card:
+                      - --paper-card-background-color: white
+                      - opacity: 1.0
+                    name:
+                      - color: Black
+                    icon: 
+                      - color: Crimson
+      - type: conditional
+        conditions:
+          - entity: input_select.frontpage_edit_mode
+            state: "Buttons"
+        card:
+          type: vertical-stack
+          cards:
+            - !include
+              - '../../templates/header_category.yaml'
+              - name: "Select column to edit"
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  aspect_ratio: 2/1
+                  entity: input_select.frontpage_button_editor
+                  icon: mdi:numeric-1-box-multiple-outline
+                  show_label: false
+                  show_name: false
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      entity_id: input_select.frontpage_button_editor
+                      option: "First Column"
+                  hold_action:
+                    action: more-info
+                    haptic: heavy
+                  styles:
+                    card:
+                      - opacity: 0.7
+                    name:
+                      - font-size: 10px
+                  state:
+                    - value: "First Column"
+                      styles:
+                        card:
+                          - --paper-card-background-color: white
+                          - opacity: 1.0
+                        name:
+                          - color: Black
+                        icon: 
+                          - color: Crimson
+                - type: custom:button-card
+                  aspect_ratio: 2/1
+                  entity: input_select.frontpage_button_editor
+                  icon: mdi:numeric-2-box-multiple-outline
+                  show_label: false
+                  show_name: false
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      entity_id: input_select.frontpage_button_editor
+                      option: "Second Column"
+                  hold_action:
+                    action: more-info
+                    haptic: heavy
+                  styles:
+                    card:
+                      - opacity: 0.7
+                    name:
+                      - font-size: 10px
+                  state:
+                    - value: "Second Column"
+                      styles:
+                        card:
+                          - --paper-card-background-color: white
+                          - opacity: 1.0
+                        name:
+                          - color: Black
+                        icon: 
+                          - color: Crimson
+                - type: custom:button-card
+                  aspect_ratio: 2/1
+                  entity: input_select.frontpage_button_editor
+                  icon: mdi:numeric-3-box-multiple-outline
+                  show_label: false
+                  show_name: false
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      entity_id: input_select.frontpage_button_editor
+                      option: "Third Column"
+                  hold_action:
+                    action: more-info
+                    haptic: heavy
+                  styles:
+                    card:
+                      - opacity: 0.7
+                    name:
+                      - font-size: 10px
+                  state:
+                    - value: "Third Column"
+                      styles:
+                        card:
+                          - --paper-card-background-color: white
+                          - opacity: 1.0
+                        name:
+                          - color: Black
+                        icon: 
+                          - color: Crimson
+                - type: custom:button-card
+                  aspect_ratio: 2/1
+                  entity: input_select.frontpage_button_editor
+                  icon: mdi:numeric-4-box-multiple-outline
+                  show_label: false
+                  show_name: false
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_option
+                    service_data:
+                      entity_id: input_select.frontpage_button_editor
+                      option: "Fourth Column"
+                  hold_action:
+                    action: more-info
+                    haptic: heavy
+                  styles:
+                    card:
+                      - opacity: 0.7
+                    name:
+                      - font-size: 10px
+                  state:
+                    - value: "Fourth Column"
+                      styles:
+                        card:
+                          - --paper-card-background-color: white
+                          - opacity: 1.0
+                        name:
+                          - color: Black
+                        icon: 
+                          - color: Crimson
+            - type: custom:gap-card
+              height: 10px
+            - type: custom:state-switch
+              entity: input_select.frontpage_button_editor
+              states:
+                "First Column":
+                  type: vertical-stack
+                  cards:
+                    - type: custom:auto-entities
+                      filter:
+                        include:
+                          - group: group.buttons_group_one
+                            options:
+                              type: custom:button-card
+                              aspect_ratio: 7/1
+                              layout: icon_name_state
+                              size: 50%
+                              entity: this.entity_id
+                              hold_action:
+                                action: more-info
+                                haptic: heavy
+                              styles:
+                                card:
+                                  - opacity: 0.7
+                                name:
+                                  - font-size: 10px
+                              state:
+                                - value: "on"
+                                  styles:
+                                    card:
+                                      - --paper-card-background-color: white
+                                      - opacity: 1.0
+                                    name:
+                                      - color: black
+                                    icon:
+                                      - color: Crimson
+                      sort:
+                        method: name
+                        numeric: true
+                      card:
+                        type: custom:layout-card
+                        min_columns: 1
+                        max_columns: 1
+                        justify_content: start
+                        layout: vertical
+                "Second Column":
+                  type: vertical-stack
+                  cards:
+                    - type: custom:auto-entities
+                      filter:
+                        include:
+                          - group: group.buttons_group_two
+                            options:
+                              type: custom:button-card
+                              aspect_ratio: 7/1
+                              layout: icon_name_state
+                              size: 50%
+                              entity: this.entity_id
+                              hold_action:
+                                action: more-info
+                                haptic: heavy
+                              styles:
+                                card:
+                                  - opacity: 0.7
+                                name:
+                                  - font-size: 10px
+                              state:
+                                - value: "on"
+                                  styles:
+                                    card:
+                                      - --paper-card-background-color: white
+                                      - opacity: 1.0
+                                    name:
+                                      - color: black
+                                    icon:
+                                      - color: Crimson
+                      sort:
+                        method: name
+                        numeric: true
+                      card:
+                        type: custom:layout-card
+                        min_columns: 1
+                        max_columns: 1
+                        justify_content: start
+                        layout: vertical
+                "Third Column":
+                  type: vertical-stack
+                  cards:
+                    - type: custom:auto-entities
+                      filter:
+                        include:
+                          - group: group.buttons_group_three
+                            options:
+                              type: custom:button-card
+                              aspect_ratio: 7/1
+                              layout: icon_name_state
+                              size: 50%
+                              entity: this.entity_id
+                              hold_action:
+                                action: more-info
+                                haptic: heavy
+                              styles:
+                                card:
+                                  - opacity: 0.7
+                                name:
+                                  - font-size: 10px
+                              state:
+                                - value: "on"
+                                  styles:
+                                    card:
+                                      - --paper-card-background-color: white
+                                      - opacity: 1.0
+                                    name:
+                                      - color: black
+                                    icon:
+                                      - color: Crimson
+                      sort:
+                        method: name
+                        numeric: true
+                      card:
+                        type: custom:layout-card
+                        min_columns: 1
+                        max_columns: 1
+                        justify_content: start
+                        layout: vertical
+                "Fourth Column":
+                  type: vertical-stack
+                  cards:
+                    - type: custom:auto-entities
+                      filter:
+                        include:
+                          - group: group.buttons_group_four
+                            options:
+                              type: custom:button-card
+                              aspect_ratio: 7/1
+                              layout: icon_name_state
+                              size: 50%
+                              entity: this.entity_id
+                              hold_action:
+                                action: more-info
+                                haptic: heavy
+                              styles:
+                                card:
+                                  - opacity: 0.7
+                                name:
+                                  - font-size: 10px
+                              state:
+                                - value: "on"
+                                  styles:
+                                    card:
+                                      - --paper-card-background-color: white
+                                      - opacity: 1.0
+                                    name:
+                                      - color: black
+                                    icon:
+                                      - color: Crimson
+                      sort:
+                        method: name
+                        numeric: true
+                      card:
+                        type: custom:layout-card
+                        min_columns: 1
+                        max_columns: 1
+                        justify_content: start
+                        layout: vertical
+      - type: 'custom:button-card'
+        color_type: blank-card
+        styles:
+          card:
+            - height: 250px 
+  - !include ../blank-card.yaml

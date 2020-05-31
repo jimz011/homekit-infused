@@ -1,0 +1,89 @@
+- title: HKI Settings
+  path: hki_settings_media
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Google Home
+            icon: mdi:google-home
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: vertical-stack
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown            
+                    content: >
+                      **Google Home:** If you have Google Home speakers you can use them here (if you use any other kind of speakers you'd like to group you can also use this configuration, as this is not Google Home specific). Add all your entities on the `google_home` line.
+
+                      **Tip:** Use the `google_home_all_speakers` line if you have a single entity that addresses all speakers. Do NOT use multiple entities on this line. For grouping multiple speakers use the 'google_home' group below.
+                - type: custom:button-card
+                  name: Reset ALL Google Home config!
+                  icon: mdi:lock-reset
+                  aspect_ratio: 6/1
+                  size: 70%
+                  show_state: false
+                  show_label: false
+                  show_icon: false
+                  tap_action: 
+                    action: call-service
+                    service: automation.trigger
+                    service_data:
+                      entity_id: automation.set_media_player_defaults
+                    haptic: heavy
+                  hold_action: 
+                    action: none
+                  lock:
+                    enabled: true
+                    unlock: tap
+                  styles:  
+                    name:
+                      - font-size: 12px
+                      - font-family: Helvetica
+                      - padding-left: 20px
+                - type: entities  
+                  title: Google Home       
+                  show_header_toggle: false
+                  entities:
+                    - entity: input_text.google_home
+                      type: 'custom:text-input-row'
+                    - type: custom:button-card
+                      name: Update Google Home Entities
+                      tap_action:
+                        action: call-service
+                        service: group.set
+                        service_data:
+                          object_id: google_home
+                          entities: "[[[ return states['input_text.google_home'].state ]]]"
+                      styles:
+                        card:
+                          - border: solid
+                          - border-width: 2px
+                          - height: 20px
+                    - entity: input_text.google_home_all_speakers
+                      type: 'custom:text-input-row'
+                    - type: custom:button-card
+                      name: Update Google Home all speakers Entity
+                      tap_action:
+                        action: call-service
+                        service: group.set
+                        service_data:
+                          object_id: google_home_all_speakers
+                          entities: "[[[ return states['input_text.google_home_all_speakers'].state ]]]"
+                      styles:
+                        card:
+                          - border: solid
+                          - border-width: 2px
+                          - height: 20px
+            - !include ../includes/blank-card.yaml

@@ -1,0 +1,441 @@
+- title: HKI Settings
+  path: hki_settings_buttons
+  cards:    
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../templates/system_header_advanced_new.yaml'
+          - name: Buttons
+            icon: mdi:gesture-tap-button
+            content: "[[[ return `HKI ${states['input_text.name_header_settings'].state}` ]]]"
+            system_header: input_boolean.config_header
+
+        - !include
+          - '../templates/settings_back_button.yaml'
+          - background_color: LightSeaGreen
+        - !include ../includes/search_card.yaml
+        - type: horizontal-stack
+          cards:
+            - !include ../includes/blank-card.yaml
+            - type: custom:layout-card
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                
+                    content: >
+                      **Buttons:** You can configure the predefined buttons here, theoretically you can make each button completly custom, but you should use the 8 custom buttons available to you at the bottom of this page. 
+
+
+                      **NOTE:** You MUST fill in the sensor to show the button. If you don't want to use the sensor and have a 'normal' button, please fill in `input_number.empty` as the sensor entity_id. DON'T FORGET THIS!
+                      
+
+                      **WARNING:** Changing the language or icon sets will override all custom settings made here except for the sensors. Use this with caution!
+                - type: custom:button-card
+                  name: Reset all button badge sensors
+                  icon: mdi:lock-reset
+                  aspect_ratio: 6/1
+                  size: 70%
+                  show_state: false
+                  show_label: false
+                  show_icon: false
+                  tap_action: 
+                    action: call-service
+                    service: automation.trigger
+                    service_data:
+                      entity_id: automation.reset_button_badge_sensors
+                    haptic: heavy
+                  hold_action: 
+                    action: none
+                  lock:
+                    enabled: true
+                    unlock: tap
+                  styles:  
+                    name:
+                      - font-size: 12px
+                      - font-family: Helvetica
+                      - padding-left: 20px
+                - type: entities
+                  title: Alarm
+                  show_header_toggle: false                                             
+                  entities: 
+                    - entity: input_text.name_alarm
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_alarm_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_alarm
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_alarm
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Automation
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.name_automation
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_automation_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_automation
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_automation
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Battery
+                  show_header_toggle: false                                             
+                  entities: 
+                    - entity: input_text.name_battery
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_battery_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_battery
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_battery
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Calendar
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_calendar
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_calendar_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_calendar
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_calendar
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Cleaning
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_cleaning
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_cleaning_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_cleaning
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_cleaning
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Climate
+                  show_header_toggle: false                                             
+                  entities: 
+                    - entity: input_text.name_climate
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_climate_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_climate
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_climate
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Computer
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_computer
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_computer_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_computer
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_computer
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Covers
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_covers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_covers_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_covers
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_covers
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Device
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_device
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_device_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_device
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_device
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Energy
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_energy
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_energy_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_energy
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_energy
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Floor Plan
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_floorplan
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_floorplan_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_floorplan
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_floorplan
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Light
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_light
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_light_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_light
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_light
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Laundry
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.name_laundry
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_laundry_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_laundry
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_laundry
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Location
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_location
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_location_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_location
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_location
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Media
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_media
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_media_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_media
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_media
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Remote
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_remote
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_remote_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_remote
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_remote
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Scene
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_scene
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_scene_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_scene
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_scene
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Security
+                  show_header_toggle: false                                               
+                  entities: 
+                    - entity: input_text.name_security
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_security_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_security
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_security
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: System
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_system
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_system_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_system
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_system
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Traffic
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.name_traffic
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_traffic_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_traffic
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_traffic
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Vacuum
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_vacuum
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_vacuum_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_vacuum
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_vacuum
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Weather
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_weather
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_weather_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_weather
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_weather
+                      type: 'custom:text-input-row'
+                - type: custom:gap-card
+                  height: 10px
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.system_help
+                      state: "on"
+                  card:
+                    type: markdown                  
+                    content: >
+                      **Custom Buttons:** You can setup custom buttons here. Button A,B,C,D will take you to a custom view which you can use to make your own views (this is hardcoded). Buttons E,F,G,H are toggles and you should setup your own entity to toggle.
+
+
+                      **NOTE:** Remember that if you don't want to use the badge sensors you MUST set it to `input_number.empty` or else it will fail to render!
+                - type: entities
+                  title: Custom A
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_button_custom_a
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_a_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_a
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_a
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom B
+                  show_header_toggle: false                                                
+                  entities: 
+                    - entity: input_text.name_button_custom_b
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_b_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_b
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_b
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom C
+                  show_header_toggle: false                                                 
+                  entities: 
+                    - entity: input_text.name_button_custom_c
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_c_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_c
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_c
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom D
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.name_button_custom_d
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_d_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_d
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_d
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom E
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.entity_button_custom_e
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_e
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_e_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_e
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_e
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom F
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.entity_button_custom_f
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_f
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_f_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_f
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_f
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom G
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.entity_button_custom_g
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_g
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_g_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_g
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_g
+                      type: 'custom:text-input-row'
+                - type: entities
+                  title: Custom H
+                  show_header_toggle: false                                              
+                  entities: 
+                    - entity: input_text.entity_button_custom_h
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_h
+                      type: 'custom:text-input-row'
+                    - entity: input_text.name_button_custom_h_label
+                      type: 'custom:text-input-row'
+                    - entity: input_text.icon_button_custom_h
+                      type: 'custom:text-input-row'
+                    - entity: input_text.sensor_button_custom_h
+                      type: 'custom:text-input-row'
+            - !include ../includes/blank-card.yaml
