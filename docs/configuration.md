@@ -31,4 +31,4 @@ Some views are empty and only contains a custom user area, this is because I hav
 There are custom buttons and views available for you to edit as you please. The views only contain the HKI style and can be completely designed as you wish. You don't have to use these views as any view in HKI is customizable.
 
 #### Congratulations
-Congratz, I hope you'll have a great ton of fun now!
+Congratz, I hope you'll have a great ton of fun now! Head over to the issues & questions section of this documentation if you still face troubles.
