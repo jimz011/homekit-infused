@@ -8,7 +8,7 @@ Latest working Home Assistant version is 0.110.4 (do not update past this number
 ## Open Beta now available!
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
-## [Click here](https://discord.gg/WZvK4Cb) to join our Discord Server which I maintain with @Dwains. With over 500+ members from noobs to pro's. You'll be sure to get your answers fast here!
+## [Click here](https://discord.gg/WZvK4Cb) to join our Discord Server. With over 500+ members from noobs to pro's!
 
 ### [Click here](https://jimz011.github.io/homekit-infused/) for documentation
 ### [Click here](https://github.com/jimz011/homekit-infused/archive/2.0.0.rc.zip) to download the current (beta) release
