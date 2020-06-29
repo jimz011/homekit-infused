@@ -62,6 +62,7 @@ Warning:
 - 2x Google Nest mini's
 - 1x Google Home mini
 - 1x Google Home standard
+- 2x Google Nest Hub
 - 2x Aqara motion sensor by Xiaomi (deCONZ controlled)
 - 3x IKEA Tradfri Motion sensors (deCONZ controlled)
 - 1x Xiaofang Camera (rooted and flashed with Dafang Hacks)
