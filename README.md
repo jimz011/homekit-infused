@@ -17,7 +17,8 @@ All the cards that were previously included in HKI will be available separately 
 - Create a custom alarm, HKI has a lock/alarm in the header, you MUST set this up even if you are never going to use it! https://www.home-assistant.io/integrations/manual/
 - Create a time sensor https://www.home-assistant.io/integrations/time_date/, you MUST have this for the homepage greeting to work properly.
 - Install HACS https://hacs.xyz/docs/installation/manual
-- Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config (e.g. same location as where `configuration.yaml` is located). You might need the following entry in your `configuration.yaml` file
+- Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config, you can also download the example customize.yaml file instead.
+You might need the following entry in your `configuration.yaml` file
 ```
 homeassistant:
     customize: !include customize.yaml
