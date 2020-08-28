@@ -31,9 +31,8 @@ switch.washingmachine:
 ```
 NOTE: The customize.yaml file is the only way that you can change the names/icons for buttons that use HKI autofill addons. If you do not intend to use any of the HKI addons and just the framework you can skip doing this, however you will not be able to use any of the features besides the HKI framework itself.
 
-Make sure you do not have any leftovers from other themes (e.g. DwainsTheme) as they will conflict, this does not apply to fresh HA installs.
- 
-  Below is a list of all the addons required to run the framework, you can install all of them through HACS
+### HACS
+Below is a list of all the addons required to run the framework, you can install all of them through HACS
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card |
