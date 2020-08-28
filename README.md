@@ -102,4 +102,4 @@ Next go to the menu > hki settings and change the theme to your liking, also set
 
 To change names and icons that are shown in the header, please open the `/homekit-infused/user/config/header_config.yaml` file and change any setting you like. You will also need to set your alarm_entity inside of this file.
 
-## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself. (Coming Soon!)
+## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself. (Coming Soon!) [Click Here](https://github.com/jimz011/homekit-infused/tree/addons)
