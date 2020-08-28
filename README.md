@@ -59,7 +59,7 @@ To make it easier on you, I have compiled a list with all used resources that yo
 /hacsfiles/lovelace-card-tools/card-tools.js
 /hacsfiles/lovelace-layout-card/layout-card.js
 /hacsfiles/swipe-card/swipe-card.js
-
+``` 
 ### Installation
 Copy the following files/folders to the root of your Home Assistant installation
 
