@@ -93,6 +93,10 @@ lovelace:
         show_in_sidebar: true
         filename: homekit-infused.yaml
 ```
+- As a reminder for if you have missed it when installing the plugins from HACS
+```
+browser_mod:
+```
 
 The copying process should now be completed and we can move on to the configuration part.
 
@@ -102,5 +106,13 @@ First make sure you have created the alarm entity and that you have the time sen
 Next go to the menu > hki settings and change the theme to your liking, also set the welcome message.
 
 To change names and icons that are shown in the header, please open the `/homekit-infused/user/config/header_config.yaml` file and change any setting you like. You will also need to set your alarm_entity inside of this file.
+
+### Addons
+Addons are the cards to fill the framework with, you are not required to install any of the addons if you don't want to. You can always create your own cards in the exact same way addons work. Please read the addons section of the documentation on how to install or create addons yourself.
+
+### Views
+The HKI Framework comes with a preset amount of views that can be manipulated in any way you want (you can even change the names of the views if you so please). Note that the code does NOT allow for path name changes (e.g. you've renamed the lights view to anything else, the path will always remain /lights). The path is only visible in a browser and never in the HA App, so even if you'd rename a view you will most probably not notice it. 
+
+To know which views are available you can simply open the `homekit-infused/user/views/` folder, every view has its own folder and these are the views you can refer to if you need to (the folder name is also the path name, which will make creating navigation buttons easier, if you don't want to use the included menu).
 
 ## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself. (Coming Soon!) [Click Here](https://github.com/jimz011/homekit-infused/tree/addons)
