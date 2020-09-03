@@ -1,0 +1,58 @@
+# Customize sample file, you MUST create your own!
+
+# To create customized entities, enter the entity you want to edit as follows, by setting
+# a customization for an entity it will persist everywhere in Home Assistant and not just in lovelace.
+# Do AT LEAST the basic steps as in the example below.
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+
+# Advanced Section
+# HKI 3.x addons use custom attributes to filter out what should go where. If you do not plan to use addons you can skip this section.
+# Currently there are three custom attributes that you can use. You can use `type:`, `room:` and `lock`. If you do not
+# plan to use any of the HKI auto filling addons you can skip the next part.
+
+# You MUST have the `room` and `type` attribute set up for each device you want to expose to HKI.
+
+# You can name the room any name you want as long as they correspond to what you have
+# setup in the global settings. Note that the room is lowercase!! You can also specify
+# a floor in the same way. Example below:
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+#   room: bedroom
+
+# The `type` attribute is the second attribute and has a few options to it, see example:
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+#   room: bedroom
+#   type: light-standard
+
+# You can see a list of all the available options below, please add them to all the corresponding
+# entities. HKI will figure out where to put your entities based on what you fill inside this file!
+
+# light-standard                     (use this for a normal light with only dimming or no dimming capabilities)
+# light-rgb                          (use this for rgb lights)
+# light-color-temp                   (use this for color temperature lights)
+# switch                             (use this for devices you want to show on the devices view, ANY device you give this attribute will show up on that view and doesn't have to be a switch!)
+# xbox                               (use this if you have an xbox, it will be exposed on the devices view)
+# playstation                        (use this if you have a playstation)
+# climate                            (use this for thermostats only!!!)
+# non-climate-fan                    (use this for fans like exhaust fans or kitchen hoods, these will only be exposed on the devices view)
+# sensor-temperature                 (use this for temperature sensors)
+# sensor-humidity                    (use this for humidity sensors)
+# sensor-pressure                    (use this for air pressure sensors)
+# door                               (use this for door sensors)
+# windows                            (use this for window sensors)
+# camera                             (use this for camera's)
+# motion                             (use this for motion sensors)
+# smoke                              (use this for smoke sensors)
+# gas                                (use this for gas sensors)
+# media-player                       (use this for media players)
+# scene                              (use this for scenes)
+
+# Any entity that does not have both room and type will not be found by HKI's autofill, but can ofcourse still be exposed manually by using cards in the user_content of the view.

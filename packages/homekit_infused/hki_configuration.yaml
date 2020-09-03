@@ -1,0 +1,5 @@
+lovelace_gen: !include_dir_merge_named ../../homekit-infused/user/config/
+
+group:
+  !include ../../homekit-infused/user/device_counters.yaml
+

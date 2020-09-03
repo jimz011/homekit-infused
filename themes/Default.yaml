@@ -1,0 +1,23 @@
+Home Assistant:
+  ### Theme Home Assistant Default for Homekit Infused v1.2 or newer
+  
+  ## Lovelace Theme
+  
+  # Lovelace Header Text
+  header-color: 'White'
+  category-text: 'Black'
+  paper-toast-background-color: '#821414'
+
+  # Border Radius and Box Shadow
+  border-radius: 12px
+  box-shadow: !include ../user_content/theme_settings/box-shadow.yaml
+  bar-card-border-radius: 12px
+
+  # Notification Badge
+  notification-badge-color: 'black'
+  notification-popup-action-color: 'white'
+
+  # Primary Color
+  primary-color: '#03a9f4'
+  ha-card-background: 'white'
+  paper-card-background-color: 'var(--ha-card-background)'

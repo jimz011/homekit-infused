@@ -1,0 +1,61 @@
+input_boolean:
+  dummy1:
+    initial: off
+  dummy2:
+    initial: off
+  dummy3:
+    initial: off
+  dummy4:
+    initial: on
+  update_ha:
+  update_hki:
+  day_night_cycle:
+
+input_number:
+  empty:
+    initial: 0
+    min: 0
+    max: 1
+    
+input_select:
+  theme_selector:
+    name: Theme Selector 
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+
+  theme_selector_day:
+    name: Theme Selector Day
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+  
+  theme_selector_night:
+    name: Theme Selector Night
+    options:
+      - Home Assistant
+      - Orange Delight
+      - Paper
+      - Silver
+      - Slate
+      - Space Gray
+      - Sweet Pink
+      - Valentine
+
+input_text:
+  good_morning:
+  good_afternoon:
+  good_evening:
+  good_night:

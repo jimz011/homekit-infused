@@ -1,0 +1,14 @@
+# Main Lovelace Config
+
+## Button Card Templates
+button_card_templates: !include_dir_named homekit-infused/base/templates/button/button-card-templates/
+
+## Custom Header
+custom_header: !include homekit-infused/base/custom_header/custom_header.yaml
+
+## Base Configuration
+title: Home
+background: var(--background-image)
+popup_cards: !include homekit-infused/base/templates/popup-cards/popup-cards.yaml
+views: 
+  !include homekit-infused/base.yaml
