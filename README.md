@@ -1,6 +1,9 @@
 # Homekit Infused Framework
 Homekit Infused v3.0.0 Framework
 
+[Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
+[Homekit Infused Addons](https://github.com/jimz011/homekit-infused/tree/addons)
+
 This is the Homekit Infused 3.0.0 framework, this is only the framework and will contain unfilled views. The framework contains a set of predefined (empty) views, a beautiful header with embedded alarm management, sensor event monitoring, a greeting and notifications. It also contains a footer with the user currently logged in and two buttons that goes to home or the menu. The Homekit Infused Framework can run standalone, the views can be setup manually.
 
 For the entire Homekit Infused Package you will need to install this first! This is the base of Homekit Infused, without it none of the addons will work.
@@ -68,7 +71,7 @@ Copy the following files/folders to the root of your Home Assistant installation
 - Copy the `homekit-infused.yaml` file to the root of your setup
 - Copy the `/packages/` folder to the root of your setup
 - Copy the `/www/images/` folder to the `/www/` folder
-- Add the following line to your `configuration.yaml` file
+- Add the following lines to your `configuration.yaml` file
 ```
 homeassistant:
     packages: !include_dir_named packages/
@@ -103,9 +106,15 @@ The copying process should now be completed and we can move on to the configurat
 ### Configuring
 There isn't much to configure from here on out, however you do need to setup a few things.
 First make sure you have created the alarm entity and that you have the time sensor setup.
-Next go to the menu > hki settings and change the theme to your liking, also set the welcome message.
+Next go to the menu > hki settings and change the theme to your liking, also set the frontpage welcome message!.
 
 To change names and icons that are shown in the header, please open the `/homekit-infused/user/config/header_config.yaml` file and change any setting you like. You will also need to set your alarm_entity inside of this file.
+
+To make the header sensors work (the three icons on the upper right side), you MUST fill in the `/homekit-infused/user/device_counters.yaml` file!
+
+To create notifications you can open the `/homekit-infused/user/notifications.yaml` file, there are some included examples.
+
+You can change the theme settings by going to the `/themes/name_of_theme/user/` folder, it has a little configuration file where you can change the border-radius and/or some basic colors and/or font-type/family/size. (This feature is NOT available yet and will be introduced in the 3.0.1 Framework Update)
 
 ### Addons
 Addons are the cards to fill the framework with, you are not required to install any of the addons if you don't want to. You can always create your own cards in the exact same way addons work. Please read the addons section of the documentation on how to install or create addons yourself.
