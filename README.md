@@ -42,7 +42,7 @@ Below is a list of all the addons required to run the framework, you can install
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card |
 | [Button Card](https://github.com/custom-cards/button-card) | Frontend | This is the button used throughout the entire setup |
-| [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | This addon is used as a replacement for vertical and horizontal stacks |
+| [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | Make sure you install version 13, do NOT install a version beyond that, it will NOT look good! |
 | [Custom Header](https://github.com/maykar/custom-header) | Frontend | This is used to modify the standard Home Assistant header |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Frontend | This is needed for various custom cards to run |
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is needed for the scrolling notifications, but also for most popups |
