@@ -1,8 +1,9 @@
 # Homekit Infused Framework
 Homekit Infused v3.0.0 Framework
 
-[Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
-[Homekit Infused Addons](https://github.com/jimz011/homekit-infused/tree/addons)
+##### [Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
+
+##### [Homekit Infused Addons](https://github.com/jimz011/homekit-infused/tree/addons)
 
 This is the Homekit Infused 3.0.0 framework, this is only the framework and will contain unfilled views. The framework contains a set of predefined (empty) views, a beautiful header with embedded alarm management, sensor event monitoring, a greeting and notifications. It also contains a footer with the user currently logged in and two buttons that goes to home or the menu. The Homekit Infused Framework can run standalone, the views can be setup manually.
 
