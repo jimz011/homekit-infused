@@ -120,9 +120,21 @@ You can change the theme settings by going to the `/themes/name_of_theme/user/` 
 ### Addons
 Addons are the cards to fill the framework with, you are not required to install any of the addons if you don't want to. You can always create your own cards in the exact same way addons work. Please read the addons section of the documentation on how to install or create addons yourself.
 
+If you have created an addon and would like to include this on this repo, you can simply clone the repo to your git, create the documentation (you can copy the format from the existing addons) and then do a merge request. This will get your addon included on this site, you can also push fixes to existing addons if you want (they will be reviewed before merging). Alternatively you can send your documenation and a screenshot of the addon over discord and I will add it to the repo.
+
 ### Views
 The HKI Framework comes with a preset amount of views that can be manipulated in any way you want (you can even change the names of the views if you so please). Note that the code does NOT allow for path name changes (e.g. you've renamed the lights view to anything else, the path will always remain /lights). The path is only visible in a browser and never in the HA App, so even if you'd rename a view you will most probably not notice it. 
 
 To know which views are available you can simply open the `homekit-infused/user/views/` folder, every view has its own folder and these are the views you can refer to if you need to (the folder name is also the path name, which will make creating navigation buttons easier, if you don't want to use the included menu).
+
+### Previous HKI Installs
+For users of v2.x.x I have slightly bad news, the HKI Framework is completely different and it has been restructured and much lighter. The advantages of the new version are clear, it is MUCH faster than previous versions and because of the split code (framework and addons separately) I can push updates separately and much faster than I could when needing to update the entire package. 
+
+There is good news however, you can copy user_content you had already created over to the new structure (which looks pretty similar). Note that the paths and template names have changed, if you relied on templates I have created, it is best to copy them over to the new user folder (/homekit-infused/user/templates/) and reference to that template instead of the ones included by HKI (this will also ensure that your user_content continues to work if the HKI templates gets updated). 
+
+As for cards and auto-filled groups, they no longer exist. Groups and basically all input_texts have been removed (oh boy you'll love the speed improvements that come with this). If you decide to copy this to your existing setup, please remove everything related to HKI from your setup (themes, dashboards, packages, etc) and then install the new ones. Make a backup of your old setup so that you can easily find what you had so the copy process will be easier on you.
+Auto-filled-views still exist but can now be downloaded as an addon (instructions can be found on the specific addons page). The purpose of splitting this up is so that you only use the addons you actually need/want (this means no more excessive unused code which will improve the performance of your Home Assistant setup). 
+
+Everything that was included in HKI 2.x.x is now available separately. After installation over an existing one I recommend to go to the sidebar>configuration>entities and then sort entities by status and remove EVERY SINGLE entity that is in red (unavailable). This will take a while on existing setups. If started clean this is not an issue and you can simply ignore this. The purpose of this is to remove all the entities that HKI 2.x.x introduced and to clean out the entities we no longer need. Most notably the largest speed improvements are because of this!
 
 ## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself. (Coming Soon!) [Click Here](https://github.com/jimz011/homekit-infused/tree/addons)
