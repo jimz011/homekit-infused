@@ -1,0 +1,79 @@
+# Homekit Infused Device Counters
+
+# Fill this file to have the badges and device counters work in HKI.
+# You can use these sensors in your badges.
+
+
+# All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
+all_climate_entities:
+  entities:
+   # - climate.tado_smart_radiator_thermostat_va1671957504
+   # - climate.tado_smart_radiator_thermostat_va2898201344
+
+# All Fans (Enter all your fans in here)
+all_fans:
+  entities:
+
+# All Temperature Sensors
+all_temperature_sensors:
+  entities:
+
+# All Humidity Sensors
+all_humidity_sensors:
+  entities:
+
+# All Air Pressure Sensors
+all_air_pressure_sensors:
+  entities:
+
+# Window Sensors
+all_window_sensors:
+  entities:
+
+# Door Sensors
+all_door_sensors:
+  entities:
+
+# Motion Sensors
+all_motion_sensors:
+  entities:
+
+# Smoke Detectors
+all_smoke_detectors:
+  entities:
+
+# All Binary Sensors (door/window/motion/smoke/gas etc)
+all_binary_sensors:
+  entities:
+
+# All Motion, Smoke, Fire and Gas Sensors
+all_motion_smoke_sensors:
+  entities:
+  
+# All Lights (Used in counters only)
+all_lighting:
+  entities:
+
+# All Devices (Used in counters only)
+all_device_switches:
+  entities:
+
+# All Computers (This isn't used yet, though you can just fill it in)
+all_computers:
+  entities:
+
+# All TV's (Can be shown on the remote button to show the number of tv's)
+all_tvs:
+  entities:
+
+# All Laundry Devices (e.g. washing-machine, tumble-dryer or dishwasher)
+all_laundry_devices:
+  entities:
+
+# All Covers
+all_covers:
+  entities:
+
+# All Garage Doors
+all_garage_doors:
+  entities:

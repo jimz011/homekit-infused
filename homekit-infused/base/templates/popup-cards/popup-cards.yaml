@@ -1,0 +1,9 @@
+# File that contains legacy popup cards
+input_boolean.dummy1:
+  title: 'Notifications'
+  style:
+    !include legacy-popup-template.yaml
+  card:
+    type: vertical-stack
+    cards:
+      !include ../../../user/notifications.yaml

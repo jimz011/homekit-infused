@@ -1,0 +1,67 @@
+# lovelace_gen
+
+# Card 
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    -webkit-box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
+    background: var(--primary-color);
+    border-radius: 0px !important;
+  }
+  .card-content {
+    padding: 0
+  }
+  :host {
+    z-index: 999;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: markdown
+            style: |
+              ha-card {
+                font-family: var(--font-family);
+                color: var(--header-color);
+                box-shadow: none;
+                height: 20px;
+                margin-top: 1px;
+                margin-left: 2px;
+                letter-spacing: -1px;
+                overflow: visible;
+              }
+            content: >
+              ## {{ title }}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:door
+              background_color: "[[[ if (states['sensor.current_doors_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_doors_open'].state < 1) return '&nbsp;'; else return states['sensor.current_doors_open'].state ]]]"
+              size: 100%
+              entity: group.all_door_sensors 
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:window-closed
+              background_color: "[[[ if (states['sensor.current_windows_open'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_windows_open'].state < 1) return '&nbsp;'; else return states['sensor.current_windows_open'].state ]]]"
+              entity: group.all_window_sensors
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:motion-sensor
+              background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'red' ]]]"
+              badge: "[[[ if (states['sensor.current_sensors_on'].state < 1) return '&nbsp;'; else return states['sensor.current_sensors_on'].state ]]]"
+              entity: group.all_motion_smoke_sensors
+          - !include ../../includes/gap.yaml
+      - !include 
+        - '../../templates/header/{{ header_bottom|default('header-bottom.yaml') }}'
+        - subtitle: "{{ subtitle|default('undefined') }}"
+          icon: "{{ icon|default('mdi:home') }}"
+          entity: {{ entity|default('input_boolean.dummy1') }}
+          spin: {{ spin|default('false') }}

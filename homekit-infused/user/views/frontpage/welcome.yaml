@@ -1,0 +1,34 @@
+- type: markdown
+  content: >
+    ***Thank you for installing the HKI 3.x Framework***
+
+
+    Before you continue please make sure you have an alarm entity and a time entity.
+    After you have checked these, please enter the menu and go to HKI Settings.
+    Now choose a theme (or multiple if you want light/dark mode) and set the greeting.
+    Remember that for this to work you MUST have the time sensor setup!
+
+
+    For the upper right header icons to work properly you MUST fill in /homekit-infused/user/device_counters.yaml.
+
+
+    Before you continue make sure you have double checked all the steps in the HKI Framework documentation.
+
+
+    If you have completed the above steps the HKI Framework is ready for use. Addons are NOT included with the framework, to install addons please visit my repo and select the addons branch. Instructions on how to use/create addons can be found here, there is also a list of all the currently available addons to use with the HKI Framework.
+    
+
+    If you don't like any of the addons you can simply start creating your own.
+
+
+    You can safely delete this card (located in /homekit-infused/user/views/frontpage/welcome.yaml).
+
+
+    if you like my work please like/comment/subscribe or donate.
+
+
+    ***Enjoy***
+
+
+    ***HKI Framework 3.x.x, by Jimz011***
+    
