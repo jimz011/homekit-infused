@@ -55,6 +55,8 @@ All the frontend addons must be installed as `Module`.
 ### Adding Resources
 Resources MUST be added manually which can be done within the Home Assistant configuration panel. Go to the Sidebar > Configuration > Lovelace Dashboards > Resources and add all of the following resources one by one. This makes it possible to use custom resources whenever you might need them and also makes sure you can still use the Home Assistant dashboard you have already created with the UI editor.
 
+NOTE: If you do NOT see a resources tab, please open the sidebar > profile > enable advanced mode. This should make the tab appear.
+
 Add the following resources, you should select `javascript module` for each of them. 
 To make it easier on you, I have compiled a list with all used resources that you can easily copy and enter.
 ```
