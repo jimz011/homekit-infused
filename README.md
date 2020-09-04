@@ -40,6 +40,7 @@ NOTE: The customize.yaml file is the only way that you can change the names/icon
 Below is a list of all the addons required to run the framework, you can install all of them through HACS
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Frontend | This mod will help with auto filling entities and such |
 | [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card |
 | [Button Card](https://github.com/custom-cards/button-card) | Frontend | This is the button used throughout the entire setup |
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | Make sure you install version 13, do NOT install a version beyond that, it will NOT look good! |
@@ -57,6 +58,7 @@ Resources MUST be added manually which can be done within the Home Assistant con
 Add the following resources, you should select `javascript module` for each of them. 
 To make it easier on you, I have compiled a list with all used resources that you can easily copy and enter.
 ```
+/hacsfiles/lovelace-auto-entities/auto-entities.js
 /hacsfiles/button-card/button-card.js
 /hacsfiles/custom-header/custom-header.js
 /hacsfiles/lovelace-card-mod/card-mod.js
