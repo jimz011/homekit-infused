@@ -49,7 +49,7 @@
                   cards:
                     - !include base/includes/gap.yaml
                     - !include
-                      - base/templates/button/default_with_badge.yaml
+                      - base/templates/button/button-badge.yaml
                       - name: About
                         label: HKI
                         icon: mdi:help-circle
@@ -427,8 +427,15 @@
             subtitle: {{ _global.header.devices_subtitle|default('Overview') }}
             icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
             header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          max_columns: 3
+        - type: horizontal-stack
+          cards:
+            - !include base/includes/gap.yaml
+            - type: entities
+              entities:
+                - entity: input_select.floor_selector
+                  name: Select Floor
+            - !include base/includes/gap.yaml
+        - type: vertical-stack
           cards:
             !include_dir_merge_list user/views/devices/
 - path: energy
@@ -629,8 +636,15 @@
             subtitle: {{ _global.header.lights_subtitle|default('Overview') }}
             icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
             header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          max_columns: 3
+        - type: horizontal-stack
+          cards:
+            - !include base/includes/gap.yaml
+            - type: entities
+              entities:
+                - entity: input_select.floor_selector
+                  name: Select Floor
+            - !include base/includes/gap.yaml
+        - type: vertical-stack
           cards:
             !include_dir_merge_list user/views/lights/
 - path: location
