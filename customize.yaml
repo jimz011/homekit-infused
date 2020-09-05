@@ -13,7 +13,8 @@
 # Currently there are three custom attributes that you can use. You can use `type:`, `room:` and `lock`. If you do not
 # plan to use any of the HKI auto filling addons you can skip the next part.
 
-# You MUST have the `room` and `type` attribute set up for each device you want to expose to HKI.
+# You MUST have the `room` and `type` attribute set up for each device you want to expose to HKI. `lock` is not a requirement, however
+# if you want to lock a button you can try to put the following attribute `lock: true` (note that this only work on buttons)
 
 # You can name the room any name you want as long as they correspond to what you have
 # setup in the global settings. Note that the room is lowercase!! You can also specify
@@ -24,7 +25,7 @@
 #   friendly_name: Bedroom Lamp
 #   room: bedroom
 
-# The `type` attribute is the second attribute and has a few options to it, see example:
+# The `type` attribute is the other required attribute and has a few options to it, see example:
 
 # light.bedroom:
 #   icon: mdi:lamp
