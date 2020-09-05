@@ -54,6 +54,14 @@ input_select:
       - Sweet Pink
       - Valentine
 
+  floor_selector:
+    options:
+      - '0'
+      - 1
+      - 2
+      - 3
+      - 4
+
 input_text:
   good_morning:
   good_afternoon:

@@ -73,7 +73,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 3.0.0a
+        value_template: 3.0.1
 
   - platform: scrape
     name: HKI Latest Version
