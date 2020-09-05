@@ -9,7 +9,7 @@
       layout: horizontal
       cards:
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.automations_title|default('Automations') }}
             label: {{ _global.header.automations_subtitle|default('Overview') }}
             icon: {{ _global.header.automations_icon|default('mdi:alpha-a-box') }}
@@ -17,7 +17,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.battery_title|default('Battery') }}
             label: {{ _global.header.battery_subtitle|default('Overview') }}
             icon: {{ _global.header.battery_icon|default('mdi:battery-50') }}
@@ -25,7 +25,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.calendar_title|default('Calendar') }}
             label: {{ _global.header.calendar_subtitle|default('Overview') }}
             icon: {{ _global.header.calendar_icon|default('mdi:calendar-account') }}
@@ -33,7 +33,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.certificates_title|default('Certificates') }}
             label: {{ _global.header.certificates_subtitle|default('Expiry') }}
             icon: {{ _global.header.certificates_icon|default('mdi:certificate') }}
@@ -41,7 +41,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.cleaning_title|default('Cleaning') }}
             label: {{ _global.header.cleaning_subtitle|default('Overview') }}
             icon: {{ _global.header.cleaning_icon|default('mdi:washing-machine') }}
@@ -49,7 +49,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.climate_title|default('Climate') }}
             label: {{ _global.header.climate_subtitle|default('Control') }}
             icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
@@ -57,7 +57,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.computers_title|default('Computers') }}
             label: {{ _global.header.computers_subtitle|default('Overview') }}
             icon: {{ _global.header.computers_icon|default('mdi:desktop-tower-monitor') }}
@@ -65,7 +65,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.covers_title|default('Covers') }}
             label: {{ _global.header.covers_subtitle|default('Overview') }}
             icon: {{ _global.header.covers_icon|default('mdi:window-shutter') }}
@@ -73,7 +73,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.devices_title|default('Devices') }}
             label: {{ _global.header.devices_subtitle|default('Overview') }}
             icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
@@ -81,7 +81,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                           
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.energy_title|default('Energy') }}
             label: {{ _global.header.energy_subtitle|default('Overview') }}
             icon: {{ _global.header.energy_icon|default('mdi:chart-line') }}
@@ -89,7 +89,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.floorplan_title|default('Floorplan') }}
             label: {{ _global.header.floorplan_subtitle|default('Overview') }}
             icon: {{ _global.header.floorplan_icon|default('mdi:floor-plan') }}
@@ -97,7 +97,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.lights_title|default('Lights') }}
             label: {{ _global.header.lights_subtitle|default('Overview') }}
             icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
@@ -105,7 +105,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.location_title|default('Location') }}
             label: {{ _global.header.location_subtitle|default('Map') }}
             icon: {{ _global.header.location_icon|default('mdi:map-marker') }}
@@ -113,7 +113,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.media_title|default('Media') }}
             label: {{ _global.header.media_subtitle|default('Center') }}
             icon: {{ _global.header.media_icon|default('mdi:plex') }}
@@ -121,7 +121,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.scenes_title|default('Scenes') }}
             label: {{ _global.header.scenes_subtitle|default('Overview') }}
             icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
@@ -129,7 +129,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.security_title|default('Security') }}
             label: {{ _global.header.security_subtitle|default('Panel') }}
             icon: {{ _global.header.security_icon|default('mdi:cctv') }}
@@ -137,7 +137,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.system_title|default('System') }}
             label: {{ _global.header.system_subtitle|default('Overview') }}
             icon: {{ _global.header.system_icon|default('mdi:home-assistant') }}
@@ -145,7 +145,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                             
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.traffic_title|default('Traffic') }}
             label: {{ _global.header.traffic_subtitle|default('Information') }}
             icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
@@ -153,7 +153,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"        
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.vacuum_title|default('Vacuum') }}
             label: {{ _global.header.vacuum_subtitle|default('Control') }}
             icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
@@ -161,7 +161,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.waste_title|default('Waste') }}
             label: {{ _global.header.waste_subtitle|default('Overview') }}
             icon: {{ _global.header.waste_icon|default('mdi:trash-can') }}
@@ -169,7 +169,7 @@
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/default_with_badge.yaml'
+          - '../../../base/templates/button/button-badge.yaml'
           - name: {{ _global.header.weather_title|default('Weather') }}
             label: {{ _global.header.weather_subtitle|default('Information') }}
             icon: {{ _global.header.weather_icon|default('mdi:weather-partly-cloudy') }}
