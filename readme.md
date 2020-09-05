@@ -2,10 +2,10 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.0 (*updated: 06/08/2020)
+# Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.1 (*updated: 05/09/2020)
 Latest working Home Assistant version is 0.112.4 (do not update past this number for best compatibility)
 
-## Project currently unavailable! This will come back online soon, for older versions please click on one of the links below. Note that I will stop supporting v2.0.0 whenever I release v3.0.0. Users that were used to heavy loading will be pleased to know that these issues have all been addressed (it also means v3.0.0 will run on a pi!). See you soon!
+## Project currently under construction, you can download v3 by changing the branch. The base setup is available and a few addons. Until all addons are released v2 will be displayed on this page.
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ## [Click here](https://discord.gg/7yt64uX) to join our Discord Community with over 750+ members.
