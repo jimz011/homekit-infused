@@ -26,7 +26,7 @@
 #      state_not: "Clean"
 #  card:
 #    !include
-#    - '../base/templates/header/notification_template.yaml'
+#    - '../base/templates/header/notification-template.yaml'
 #    - icon: mdi:check-box-outline
 #      name: All clear, there are no notifications.
 
@@ -36,7 +36,7 @@
 #      state: "on"
 #  card:
 #    !include
-#    - '../base/templates/header/notification_template.yaml'
+#    - '../base/templates/header/notification-template.yaml'
 #    - icon: mdi:check-box-outline
 #      name: Smoke detected in the Kitchen!
 
@@ -46,7 +46,7 @@
       state_not: "dummy"
   card:
     !include
-    - '../base/templates/header/notification_template.yaml'
+    - '../base/templates/header/notification-template.yaml'
     - icon: mdi:alert
       name: Insert Notification, please open user/notifications.yaml
 
