@@ -1,0 +1,103 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+name: {{ name }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+icon: "{{ icon }}"
+size: {{ size|default('25%') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+show_name: true
+show_icon: true
+show_state: true
+show_label: false
+show_last_changed: true
+tap_action: 
+  action: more-info
+  haptic: light
+hold_action:
+  action: more-info
+  haptic: light
+double_tap_action:
+  action: more-info
+  haptic: light
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+  label:
+    - font-weight: normal
+    - font-size: 10px
+    - font-family: var(--font-family)
+    - padding: 0px 10px
+    - justify-self: start
+#    - color: var(--primary-text-color) 
+  state:
+    - font-size: 10px
+    - font-family: var(--font-family)
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: bold
+#    - color: var(--state-color-off) 
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - align-items: flex-start
+    - justify-content: flex-start
+  name:
+    - justify-self: start
+    - padding: 0px 10px
+    - font-weight: bold
+    - font-family: var(--font-family) 
+    - font-size: 12px
+#    - color: var(--primary-text-color) 
+  icon:
+    -  padding: 0px 10px
+  entity_picture:
+    - margin-top: 10px
+state:
+  - operator: "default"
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}
+#      icon:
+#        - color: var(--paper-item-icon-color)
+#      name:
+#        - color: var(--primary-text-color)
+#      state:
+#        - color: var(--state-color-off)
+#      label:
+#        - color: var(--primary-text-color)
+#      lock:
+#        - color: var(--paper-item-icon-color)
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: {{ ha_card_background|default('white') }}
+        - opacity: 1.0
+        - box-shadow: none
+      name:
+        - color: black
+      state:
+        - color: black
+      lock:
+        - color: gray 
+      label:
+        - color: gray
+  - value: "unavailable"
+    styles:
+      card:
+        - opacity: 0.2
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: hsl(0, 100%, 50%)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color) 

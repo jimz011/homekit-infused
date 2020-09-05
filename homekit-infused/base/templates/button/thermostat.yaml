@@ -2,28 +2,22 @@
 
 # card
 type: custom:button-card
-name: "{{ name }}"
-icon: "{{ icon }}"
-show_entity_picture: {{ show_entity_picture|default('true') }}
-color: {{ color|default('auto') }}
-size: {{ size|default('25%') }}
-lock:
-  enabled: {{ lock|default('false') }}
-  unlock: {{ lock_unlock|default('tap') }}
-  duration: {{ lock_duration|default('5') }}
+name: {{ name }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
-label: "{{ label|default('&nbsp;') }}"
-show_name: {{ show_name|default('true') }}
-show_icon: {{ show_icon|default('true') }}
-show_state: {{ show_state|default('true') }}
-show_label: {{ show_label|default('true') }}
-show_last_changed: {{ show_last_changed|default('false') }}
-tap_action: 
-  action: {{ tap_action|default('toggle') }}
+label: "[[[ return `${states['{{entity}}'].attributes.temperature}°` ]]]"
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: tap
+show_icon: false
+show_name: true
+show_label: true
+show_state: true
+tap_action:
+  action: toggle
   haptic: light
-hold_action:
-  action: {{ hold_action|default('call-service') }}
+hold_action: 
+  action: call-service
   service: browser_mod.popup
   service_data:
     title: ' '
@@ -51,14 +45,14 @@ hold_action:
           color: #FFF;
         }
     card:
-      !include
-      - {{ template|default('switch_popup.yaml') }}
-      - entity: {{ entity }}
+      type: custom:thermostat-popup-card
+      entity: {{ entity }}
+      fullscreen: false
     deviceID:
       - this
   haptic: heavy
-double_tap_action:
-  action: {{ hold_action|default('call-service') }}
+double_tap_action: 
+  action: call-service
   service: browser_mod.popup
   service_data:
     title: ' '
@@ -86,9 +80,9 @@ double_tap_action:
           color: #FFF;
         }
     card:
-      !include
-      - {{ template|default('switch_popup.yaml') }}
-      - entity: {{ entity }}
+      type: custom:thermostat-popup-card
+      entity: {{ entity }}
+      fullscreen: false
     deviceID:
       - this
   haptic: heavy
@@ -111,7 +105,6 @@ styles:
     - text-transform: capitalize
     - font-weight: bold
 #    - color: var(--state-color-off) 
-  grid: {{ grid }}
   img_cell:
     - align-self: start
     - text-align: start
@@ -125,66 +118,122 @@ styles:
     - font-size: 12px
 #    - color: var(--primary-text-color) 
   icon:
-    - padding: 0px 10px
-  entity_picture:
-    - margin-top: 10px
+    -  padding: 0px 10px
+  grid:
+    - grid-template-areas: '"i i" "n n" "area area" "s l"'
+    - grid-template-columns: 1fr  lfr
+    - grid-template-rows: 1fr min-content min-content min-content
+  custom_fields:
+    notification:
+      - background-color: var(--paper-item-icon-color)
+      - color: var(--notification-badge-color)
+      - font-weight: bold
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - left: 12%
+      - top: 12%
+      - height: 32px
+      - width: 32px
+      - font-size: 10px
+      - line-height: 32px
+custom_fields: 
+  notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
 state:
-  - value: "on" 
-    spin: {{ spin_on|default('false') }} 
+  - value: "heat"
+    spin: false
     styles:
       card:
-        - --ha-card-background: {{ ha_card_background|default('white') }}
         - opacity: 1.0
-        - box-shadow: none
+        - --ha-card-background: white
       name:
         - color: black
-      state:
-        - color: black
-      lock:
-        - color: gray 
       label:
         - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `#1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66`; else return `#EE7600`; ]]]"
+          - color: white
+      lock:
+        - color: gray
+  - value: "cool"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#1E90FF'
+          - color: white
+      lock:
+        - color: gray
+  - value: "heat_cool"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: gray
+  - value: "idle"
+    spin: false
+    styles:
+      card:
+        - opacity: 1.0
+        - --ha-card-background: white
+      name:
+        - color: black
+      label:
+        - color: gray
+      state:
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: gray
   - value: "off"
-    spin: {{ spin_off|default('false') }}
+    spin: false
     styles:
       card:
-        - opacity: {{ opacity_off|default('0.5') }}
-      icon:
-        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
-      name:
-        - color: var(--primary-text-color)
-      state:
-        - color: var(--primary-text-color)
-      label:
-        - color: var(--primary-text-color)
-      lock:
-        - color: var(--primary-text-color)
-  - value: "unavailable"
+        - opacity: 0.5
+      custom_fields:
+        notification:
+          - background-color: var(--paper-item-icon-color)
+          - color: var(--notification-badge-color)
+  - operator: 'default'
+    spin: false
     styles:
       card:
-        - opacity: 0.2
-      icon:
-        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+        - opacity: 1.0
+        - --ha-card-background: white
       name:
-        - color: var(--primary-text-color)
-      state:
-        - color: hsl(0, 100%, 50%)
+        - color: black
       label:
-        - color: var(--primary-text-color)
-      lock:
-        - color: var(--paper-item-icon-color)
-  - value: "scening"
-    spin: {{ spin_off|default('false') }}
-    styles:
-      card:
-        - opacity: {{ opacity_off|default('0.8') }}
-      icon:
-        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
-      name:
-        - color: var(--primary-text-color)
+        - color: gray
       state:
-        - color: var(--primary-text-color)
-      label:
-        - color: var(--primary-text-color)
-      lock:
-        - color: var(--paper-item-icon-color)
+        - color: black
+      custom_fields:
+        notification:
+          - background-color: '#0C3966'
+          - color: white

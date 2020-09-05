@@ -1,0 +1,47 @@
+# lovelace_gen
+
+# card
+type: custom:light-popup-card
+entity: {{ entity }}
+brightnessWidth: 110px
+brightnessHeight: 410px
+fullscreen: false
+settings: true
+settingsPosition: bottom
+settingsCard:
+  type: custom:more-info-card
+  cardOptions:
+    entity: {{ entity }}
+actionsInARow: 3
+actionSize: 30px
+actions:
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 153
+    color: "#a6d1ff"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 180
+    color: "#bfdeff"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 240
+    color: "#e0efff"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 330
+    color: "#ffca70"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 390
+    color: "#ffbc4a"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 450
+    color: "#ffa000"

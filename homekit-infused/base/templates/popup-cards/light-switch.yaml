@@ -1,0 +1,15 @@
+# lovelace_gen
+
+# card
+type: custom:light-popup-card
+entity: {{ entity }}
+brightnessWidth: 110px
+brightnessHeight: 410px
+switchWidth: 110px
+switchHeight: 410px
+fullscreen: false
+settings: true
+settingsCard:
+  type: custom:more-info-card
+  cardOptions:
+    entity: {{ entity }}

@@ -1,0 +1,27 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - !include ../../includes/gap.yaml
+  - type: custom:auto-entities
+    filter:
+      include:
+        - attributes:
+            type: camera
+          options:
+            type: picture-entity
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                overflow: hidden;
+              }
+            aspect_ratio: {{ aspect_ratio|default('16x9')}}
+            entity: this.entity_id
+    sort:
+      method: name
+      numeric: true
+    card:
+      type: custom:layout-card
+      column_num: {{ columns|default('3') }}
+  - !include ../../includes/gap.yaml
