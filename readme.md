@@ -3,18 +3,16 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 # Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.2 (*updated: 06/09/2020)
-Latest working Home Assistant version is 0.112.4 (do not update past this number for best compatibility)
+Latest working Home Assistant version is 0.114.4 (do not update past this number for best compatibility)
 
-## Project currently under construction, you can download v3 by changing the branch. The base setup is available and most of the addons. Until all addons are released v2 will be displayed on this page. HKI 3.0.2 is the first actual release since 1.1 that is not a beta!
-
-## This information will change soon for HKI 3.0.x
+## Project currently under construction, you can download v3 by changing the branch. The documentation on this page is for V2, please select the 3.0.0 branch for the correct instructions. This page will be updated soon for HKI 3.0.x
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ## [Click here](https://discord.gg/7yt64uX) to join our Discord Community with over 750+ members.
 
-### [Click here](https://jimz011.github.io/homekit-infused/) for documentation (previous version only)
-### [Click here](error) to download the current release (CURRENTLY NOT AVAILABLE)
-### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases
+### [Click here](https://jimz011.github.io/homekit-infused/) for documentation (previous version only, for current version visit the 3.0.0 branch)
+### [Click here](https://github.com/jimz011/homekit-infused/releases/tag/3.0.2) to download the current release
+### [Click here](https://github.com/jimz011/homekit-infused/releases) for all previous releases
 ### [Click here](https://github.com/jimz011/homekit-infused/tree/personal) for my personal setup (Coming Soon!)
 ### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
