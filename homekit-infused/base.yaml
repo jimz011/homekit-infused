@@ -427,14 +427,19 @@
             subtitle: {{ _global.header.devices_subtitle|default('Overview') }}
             icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
             header-bottom: header-bottom.yaml
-        - type: horizontal-stack
-          cards:
-            - !include base/includes/gap.yaml
-            - type: entities
-              entities:
-                - entity: input_select.floor_selector
-                  name: Select Floor
-            - !include base/includes/gap.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_floor_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                entities:
+                  - entity: input_select.floor_selector
+                    name: Select Floor
+              - !include base/includes/gap.yaml
         - type: vertical-stack
           cards:
             !include_dir_merge_list user/views/devices/
@@ -624,6 +629,18 @@
                         - name: Good Night
                           entity: input_text.good_night
                     - !include base/includes/gap.yaml
+                - !include
+                  - base/templates/other/title-text.yaml
+                  - name: Show floor selector in lights/devices view?
+                - type: horizontal-stack
+                  cards:
+                    - !include base/includes/gap.yaml
+                    - type: entities
+                      show_header_toggle: false                                 
+                      entities: 
+                        - name: Good Morning
+                          entity: input_select.show_floor_selector
+                    - !include base/includes/gap.yaml
 - path: lights
   visible: false
   panel: true
@@ -636,14 +653,19 @@
             subtitle: {{ _global.header.lights_subtitle|default('Overview') }}
             icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
             header-bottom: header-bottom.yaml
-        - type: horizontal-stack
-          cards:
-            - !include base/includes/gap.yaml
-            - type: entities
-              entities:
-                - entity: input_select.floor_selector
-                  name: Select Floor
-            - !include base/includes/gap.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_floor_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                entities:
+                  - entity: input_select.floor_selector
+                    name: Select Floor
+              - !include base/includes/gap.yaml
         - type: vertical-stack
           cards:
             !include_dir_merge_list user/views/lights/
