@@ -14,7 +14,7 @@ elements:
     image: {{ image_path }}
     tap_action:
       action: navigate
-      navigation_path: /hki-personal/{{ navigation_path }}
+      navigation_path: /homekit-infused/{{ navigation_path }}
     hold_action:
       action: none
     style:
