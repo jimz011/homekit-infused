@@ -638,7 +638,7 @@
                     - type: entities
                       show_header_toggle: false                                 
                       entities: 
-                        - name: Good Morning
+                        - name: Show Floor Selector
                           entity: input_select.show_floor_selector
                     - !include base/includes/gap.yaml
 - path: lights
