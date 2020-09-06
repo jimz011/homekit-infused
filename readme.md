@@ -2,10 +2,12 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-# Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.1 (*updated: 05/09/2020)
+# Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.2 (*updated: 06/09/2020)
 Latest working Home Assistant version is 0.112.4 (do not update past this number for best compatibility)
 
-## Project currently under construction, you can download v3 by changing the branch. The base setup is available and a few addons. Until all addons are released v2 will be displayed on this page.
+## Project currently under construction, you can download v3 by changing the branch. The base setup is available and most of the addons. Until all addons are released v2 will be displayed on this page. HKI 3.0.2 is the first actual release since 1.1 that is not a beta!
+
+## This information will change soon for HKI 3.0.x
 
 ## [Click here](https://www.youtube.com/jimz011) for my YouTube channel
 ## [Click here](https://discord.gg/7yt64uX) to join our Discord Community with over 750+ members.
