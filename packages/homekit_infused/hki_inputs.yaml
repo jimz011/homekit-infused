@@ -62,6 +62,11 @@ input_select:
       - 3
       - 4
 
+  show_floor_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
 input_text:
   good_morning:
   good_afternoon:
