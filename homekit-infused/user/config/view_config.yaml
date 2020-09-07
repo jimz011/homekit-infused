@@ -1,0 +1,11 @@
+# View Configuration File
+view:
+# This file will change the views properties
+
+# Layout Card Columns,set the minimum and maximum of columns lovelace should make when viewing lovelace.
+# It is advised to set the minimum to `1` (since that will look the best on a smartphone). The number of
+# shown columns depends on the size of the browser.
+
+# Columns
+  min_columns: 1
+  max_columns: 3
