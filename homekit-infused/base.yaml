@@ -16,7 +16,8 @@
             {% endraw %}
             header_bottom: header-notifications.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/frontpage/
 - path: menu
@@ -300,7 +301,8 @@
             icon: {{ _global.header.automations_icon|default('mdi:alpha-a-box') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/automations/
 - path: battery
@@ -316,7 +318,8 @@
             icon: {{ _global.header.battery_icon|default('mdi:battery-50') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/battery/
 - path: calendar
@@ -332,7 +335,8 @@
             icon: {{ _global.header.calendar_icon|default('mdi:calendar') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/calendar/
 - path: certificates
@@ -348,7 +352,8 @@
             icon: {{ _global.header.certificates_icon|default('mdi:certificate') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/certificates/
 - path: cleaning
@@ -364,7 +369,8 @@
             icon: {{ _global.header.cleaning_icon|default('mdi:broom') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/cleaning/
 - path: climate
@@ -380,7 +386,8 @@
             icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/climate/
 - path: computers
@@ -396,7 +403,8 @@
             icon: {{ _global.header.computers_icon|default('mdi:desktop-tower-monitor') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/computers/
 - path: covers
@@ -412,7 +420,8 @@
             icon: {{ _global.header.covers_icon|default('mdi:window-shutter') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/covers/
 - path: devices
@@ -456,7 +465,8 @@
             icon: {{ _global.header.energy_icon|default('mdi:chart-line') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/energy/
 - path: floorplan
@@ -472,7 +482,8 @@
             icon: {{ _global.header.floorplan_icon|default('mdi:floor-plan') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/floorplan/
 - path: ha_settings
@@ -488,7 +499,8 @@
             icon: {{ _global.header.ha_settings_icon|default('mdi:cogs') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             - type: vertical-stack
               cards:
@@ -572,7 +584,8 @@
             icon: {{ _global.header.hki_settings_icon|default('mdi:palette') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             - type: vertical-stack
               cards:
@@ -682,7 +695,8 @@
             icon: {{ _global.header.location_icon|default('mdi:map-marker') }}
             header-bottom: header-bottom.yaml 
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/location/
 - path: media
@@ -698,7 +712,8 @@
             icon: {{ _global.header.media_icon|default('mdi:plex') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/media/
 - path: person_1
@@ -714,7 +729,8 @@
             icon: {{ _global.header.person_1_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/person_1/
 - path: person_2
@@ -730,7 +746,8 @@
             icon: {{ _global.header.person_2_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/person_2/
 - path: person_3
@@ -746,7 +763,8 @@
             icon: {{ _global.header.person_3_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/person_3/
 - path: person_4
@@ -762,7 +780,8 @@
             icon: {{ _global.header.person_4_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/person_4/
 - path: scenes
@@ -778,7 +797,8 @@
             icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/scenes/
 - path: security
@@ -794,7 +814,8 @@
             icon: {{ _global.header.security_icon|default('mdi:cctv') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/security/
 - path: system
@@ -810,7 +831,8 @@
             icon: {{ _global.header.system_icon|default('mdi:home-assistant') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/system/
 - path: traffic
@@ -826,7 +848,8 @@
             icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/traffic/
 - path: vacuum
@@ -842,7 +865,8 @@
             icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/vacuum/
 - path: waste
@@ -858,7 +882,8 @@
             icon: {{ _global.header.waste_icon|default('mdi:trash-can') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/waste/
 - path: weather
@@ -874,6 +899,7 @@
             icon: {{ _global.header.weather_icon|default('mdi:weather-partly-cloudy') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          max_columns: 3
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/weather/
