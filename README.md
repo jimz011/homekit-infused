@@ -1,5 +1,5 @@
 # Homekit Infused Framework
-Homekit Infused v3.0.0 Framework
+Homekit Infused v3.0.3 Framework
 
 ### [Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
 ### [Homekit Infused Addons Documentation](https://github.com/jimz011/homekit-infused/tree/addons)
