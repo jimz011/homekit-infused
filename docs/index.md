@@ -6,7 +6,6 @@
 - [Homekit Infused Addons](addons.md)
 - [Addon List](addon_list.md)
 - [Updates](updates.md)
-- [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
