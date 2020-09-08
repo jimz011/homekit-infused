@@ -2,10 +2,9 @@
 
 ## Contents
 - [Introduction](index.md)
-- [Preparation](preparation.md)
-- [Installation](installation.md)
-- [Configuration](configuration.md)
-- [Updates and Addons](updates.md)
+- [Homekit Infused Framework]
+- [Addons](addons.md)
+- [Updates](updates.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
