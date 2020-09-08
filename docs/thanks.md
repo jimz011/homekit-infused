@@ -2,10 +2,9 @@
 
 ## Contents
 - [Introduction](index.md)
-- [Preparation](preparation.md)
-- [Installation](installation.md)
-- [Configuration](configuration.md)
-- [Updates and Addons](updates.md)
+- [Homekit Infused Framework](framework.md)
+- [Homekit Infused Addons](addons.md)
+- [Updates](updates.md)
 - [Feature Requests](requests.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
@@ -74,4 +73,4 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @fabiopergola
   - @sergiusuciu
 
-I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot.
+I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot. Translations are no longer used, however I still want to thank them for their great input!
