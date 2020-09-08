@@ -1,11 +1,17 @@
+# Homekit Infused
+
+## Contents
+- [Introduction](index.md)
+- [Homekit Infused Framework](framework.md)
+- [Homekit Infused Addons](addons.md)
+- [Updates](updates.md)
+- [Feature Requests](requests.md)
+- [Issues & Questions](issues.md)
+- [About Me](about.md)
+- [Thanks](thanks.md)
+
 # Homekit Infused Framework
-Homekit Infused v3.0.3 Framework
-
-### [Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
-### [Homekit Infused Addons Documentation](https://github.com/jimz011/homekit-infused/tree/addons)
-### [Homekit Infused All Available Addons](https://github.com/jimz011/homekit-infused/tree/addons/ADDON_LIST.md)
-
-This is the Homekit Infused 3.0.0 framework, this is only the framework and will contain unfilled views. The framework contains a set of predefined (empty) views, a beautiful header with embedded alarm management, sensor event monitoring, a greeting and notifications. It also contains a footer with the user currently logged in and two buttons that goes to home or the menu. The Homekit Infused Framework can run standalone, the views can be setup manually.
+This is the Homekit Infused 3.x.x framework, this is only the framework and will contain unfilled views. The framework contains a set of predefined (empty) views, a beautiful header with embedded alarm management, sensor event monitoring, a greeting and notifications. It also contains a footer with the user currently logged in and two buttons that goes to home or the menu. The Homekit Infused Framework can run standalone, the views can be setup manually.
 
 For the entire Homekit Infused Package you will need to install this first! This is the base of Homekit Infused, without it none of the addons will work.
 After the installation of the framework you can go on to install the addons (or create your own cards), the addons will decide the looks and layout of your installation.
@@ -141,4 +147,4 @@ Auto-filled-views still exist but can now be downloaded as an addon (instruction
 
 Everything that was included in HKI 2.x.x is now available separately. After installation over an existing one I recommend to go to the sidebar>configuration>entities and then sort entities by status and remove EVERY SINGLE entity that is in red (unavailable). This will take a while on existing setups. If started clean this is not an issue and you can simply ignore this. The purpose of this is to remove all the entities that HKI 2.x.x introduced and to clean out the entities we no longer need. Most notably the largest speed improvements are because of this!
 
-## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself. (Coming Soon!) [Click Here](https://github.com/jimz011/homekit-infused/tree/addons)
+## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself.
