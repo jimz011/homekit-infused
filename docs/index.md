@@ -2,7 +2,7 @@
 
 ## Contents
 - [Introduction](index.md)
-- [Homekit Infused Framework]
+- [Homekit Infused Framework](framework.md)
 - [Addons](addons.md)
 - [Updates](updates.md)
 - [Feature Requests](requests.md)
