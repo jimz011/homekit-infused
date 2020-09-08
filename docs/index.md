@@ -31,7 +31,6 @@ Oh, and did I mention that your existing dashboard made with the lovelace UI edi
 Warning:
 - I am not responsible for any data loss or defects that are caused by user error.
 - Any custom addon used in this project is not made by me.
-- 
 
 # Hardware I use personally for this setup
 #### Computer
@@ -49,7 +48,7 @@ Warning:
 - 6x Philips Hue dimmers (deCONZ controlled)
 - 3x IKEA Tradfri remotes (deCONZ controlled)
 - 1x hardware switch from Koogeek (connected through HA with Homekit Controller)
-- 6x LED strips (around 30 meters in total) with MagicHome controllers (Flashed with ESPHome)
+- 7x LED strips (around 30 meters in total) with MagicHome controllers (Flashed with ESPHome, varying from RGB to RGBWC)
 - 8x Ikea Tradfri smart switches  (deCONZ controlled)
 - 12x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
 - 4x Philips Hue lights (ranging from filament to color temperature ones)  (deCONZ controlled)
