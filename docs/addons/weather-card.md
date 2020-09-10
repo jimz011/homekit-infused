@@ -31,7 +31,7 @@ weather:
     api_key: YOUR_API_KEY
     mode: daily
 ```
-If you want to show the sunrise and sunset times, make sure the sun component is enabled:
+If you want to show the sunrise and sunset times, make sure the sun component. This integration is by default enabled, unless you’ve disabled or removed the default_config: line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 ```
 # Example configuration.yaml entry
 sun:
