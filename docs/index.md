@@ -46,19 +46,19 @@ Warning:
 #### Smart Devices
 - 6x Philips Hue dimmers (deCONZ controlled)
 - 3x IKEA Tradfri remotes (deCONZ controlled)
-- 1x hardware switch from Koogeek (connected through HA with Homekit Controller)
+- 1x Koogeek kh01cn hardware switch (connected through HA with Homekit Controller)
 - 7x LED strips (around 30 meters in total) with MagicHome controllers (Flashed with ESPHome, varying from RGB to RGBWC)
-- 8x Ikea Tradfri smart switches  (deCONZ controlled)
-- 12x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
+- 9x Ikea Tradfri smart switches  (deCONZ controlled)
+- 10x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
 - 4x Philips Hue lights (ranging from filament to color temperature ones)  (deCONZ controlled)
-- 9x Sonoffs used as switches for devices (ranging from basic to POW R2) (Flashed with ESPHome
-- 1x TP-Link HS110 Energy Reading smart switch
-- 2x Blitwolf SHP13 Energy Reading smart switch
-- 11x Sonoff Basic used as light switches (Flashed with ESPHome)
+- 3x Sonoff POW R2 (to monitor the washingmachine, dryer and dishwasher)
+- 7x Sonoff Basic used as light or device switches (Flashed with ESPHome)
+- 2x Sonoffs TH-16 (used to monitor temperature and humidity, but also doubles as a switch)  (Flashed with ESPHome)
+- 1x TP-Link HS110 Energy Reading smart switch (to monitor the refrigerator)
+- 2x Blitwolf SHP13 Energy Reading smart switch (to monitor the freezer and unraid server)
 - 1x Honeywell smoke detector by Xiaomi  (deCONZ controlled)
-- 6x Aqara door/window sensors by Xiaomi  (deCONZ controlled)
+- 6x Aqara door/window sensors by Xiaomi (3 used on doors, 3 on windows)  (deCONZ controlled)
 - 3x Aqara temperature/humidity sensors by Xiaomi  (deCONZ controlled)
-- 2x temperature/humidity sensors by Sonoff (they double as switches mentioned above)
 - 1x Xiaomi Roborock S55 (Rooted and flashed with Valetudo RE)
 - 1x Apple TV 4K
 - 1x Nvidia Shield TV Pro (2019)
@@ -73,5 +73,6 @@ Warning:
 - 1x Simple webcam (in motioneye)
 - 1x deCONZ stick by Dresden Elektronic
 - 1x Xiaomi Mija Gateway (Lumigateway version 3) (I only ever use this as speaker/light, no other devices are attached to this and it is cut off from the internet)
+- 1x Xiaomi Aqara Airconditioning Companion (version 3) (I don't have a compatible airco yet, though it does work as a switch and energy reader, not yet in my HA)
 
 There is probably more, but I can't think of it right now XD
