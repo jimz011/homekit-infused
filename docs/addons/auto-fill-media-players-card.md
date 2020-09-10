@@ -12,6 +12,7 @@ This card will automatically fetch your media players and create cards for them.
 - No additional config required 
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | exclude | List | none | Sets the media_player entities to be excluded from the card |

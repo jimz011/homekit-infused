@@ -9,6 +9,7 @@ Back to [Addon List](../addon_list.md)
 This is a small and elegant card that shows you air quality.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Air Visual Card](https://github.com/dnguyen800/air-visual-card) | Frontend | This is a small and elegant air quality card |
@@ -22,6 +23,7 @@ Add the following line to your lovelace resources
 - To get an Air Visual API key you can click [here](https://www.iqair.com/air-pollution-data-api)
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | air_pollution_level | String | sensor.u_s_air_pollution_level | Sets the air pollution sensor for this card |

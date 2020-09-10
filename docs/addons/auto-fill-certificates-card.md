@@ -8,14 +8,6 @@ Back to [Addon List](../addon_list.md)
 ### Description
 This card will automatically create an entities card with ALL your certificate expiry sensors without the need of configuration.
 
-### Requirements (HACS)
-| Name | Type  | Description |
-|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [NONE] | None | Not applicable |
-
-### Resources
-None required
-
 ### Configuration
 - No additional configuration required 
 - Experienced users can change the style and change include/exclude parameters if they wish (https://github.com/thomasloven/lovelace-auto-entities)

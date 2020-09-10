@@ -9,6 +9,7 @@ Back to [Addon List](../addon_list.md)
 This is a calendar card for use with calendar entities.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Calendar Card](https://github.com/ljmerza/calendar-card) | Frontend | This is a calendar card, see screenshot for details (this example is a birthday card) |
@@ -22,6 +23,7 @@ Add the following line to your lovelace resources
 - Experienced users can add way more options to the card, visit https://github.com/ljmerza/calendar-card for all options
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entities | List | none | Sets the calendar entity or entities used for this card |

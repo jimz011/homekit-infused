@@ -9,6 +9,7 @@ Back to [Addon List](../addon_list.md)
 This is a normal (animated) weather card.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Weather Card](https://github.com/bramkragten/weather-card) | Frontend | This is a customizable animated weather card, see screenshot for details |
@@ -35,6 +36,7 @@ sun:
 ```
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | String | weather.dark_sky | Sets the weather entity used for this card |

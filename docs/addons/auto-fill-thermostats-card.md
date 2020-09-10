@@ -12,6 +12,7 @@ Back to [Addon List](../addon_list.md)
 This is an auto filled thermostat button with a homekit style popup embedded.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Frontend | This is the popup that opens when holding/double tapping the buttons |
@@ -30,6 +31,7 @@ climate.living_room:
 *note: an entity can not have two types, HKI auto filled cards work by filtering the type attribute. This means you can not have an entity auto filled on two views. You can however always create a custom button to do this.
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | lock | String | false | Sets a lock on the button to avoid accidental presses (unlocking is done by a single tap) |

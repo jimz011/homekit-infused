@@ -12,6 +12,7 @@ Back to [Addon List](../addon_list.md)
 This is a good looking mini-graph-card that you can use in your setup, it has been templated like other addons for ease of use.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Frontend | This is an elegant mini-graph-card for creating cards with graphs and bars |
@@ -24,6 +25,7 @@ Add the following line to your lovelace resources
 - To use this create a card as in the example below, all paramaters that have a default are not required (see examples)
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | String | none | Sets the entity used for the graph, unfortunately templating only works when using a single entity, if you want a card that shows multiple entities visit https://github.com/kalkih/mini-graph-card for more information (this card must be created by yourself) |

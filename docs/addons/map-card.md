@@ -12,6 +12,7 @@ This is a map card to show the location of person and/or device_trackers.
 - To use this you can simply change and/or add person and/or device_tracker entities to the list
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_zoom | Integer | 15 | Sets the default zoom when opening the map |

@@ -15,6 +15,7 @@ This is the default HKI navigation button, it is by default used in the [menu](m
 - You can add a button badge if you like
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | String | none | Sets the name for the button |

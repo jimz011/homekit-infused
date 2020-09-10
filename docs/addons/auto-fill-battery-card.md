@@ -14,6 +14,7 @@ This card is used to automatically fill your battery entities and make a nice ov
 - No additional config required
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | exclude | List | none | Sets the battery entities to be excluded from the card |

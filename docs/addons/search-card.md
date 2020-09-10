@@ -9,6 +9,7 @@ Back to [Addon List](../addon_list.md)
 This card can be used to quickly find an entity, just type a portion of the entity name inside the search bar and it will find it for you.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Search Card](https://github.com/postlund/search-card) | Frontend | This is a card that can search your entities quickly |

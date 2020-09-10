@@ -12,6 +12,7 @@ This card is used to create a header style name for the views (see screenshot)
 - You can only change the name section of this card!
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | String | none | Sets the name/title to show |

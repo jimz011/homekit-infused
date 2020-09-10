@@ -14,6 +14,7 @@ This is a predefined set of buttons to use with your climate entities. It is adv
 - Please change the parameters you need to set below
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | String | none | Sets the name of the button |

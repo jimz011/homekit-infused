@@ -35,6 +35,7 @@ binary_sensor.living_room_motion:
 *note: an entity can not have two types, HKI auto filled cards work by filtering the type attribute. This means you can not have an entity auto filled on two views. You can however always create a custom button to do this.
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | type | String | none | Sets the type that needs to be auto-filled, use the same type as you have set in your customize.yaml file |

@@ -14,6 +14,7 @@ This is a card that will fetch all your scenes and create a button page for it a
 - No additional config required
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | column_num | Integer | 1 | Sets how many battery entities should be stacked horizontally on each column |

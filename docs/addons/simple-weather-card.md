@@ -9,6 +9,7 @@ Back to [Addon List](../addon_list.md)
 This is a small and elegant (but simple) weather card.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Frontend | This is a small weather card, see screenshot for details |
@@ -22,6 +23,7 @@ Add the following line to your lovelace resources
 - Experienced users can play with the styles or the backdrop if they want
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | String | weather.dark_sky | Sets the weather entity used for this card |

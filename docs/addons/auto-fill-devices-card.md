@@ -11,6 +11,7 @@ Back to [Addon List](../addon_list.md)
 This is an auto filled devices card with a homekit style popup embedded.
 
 ### Requirements (HACS)
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Light Popup Card](https://github.com/DBuit/light-popup-card) | Frontend | This is the popup that opens when holding/double tapping the buttons |
@@ -51,6 +52,7 @@ Open the file you've just downloaded and enter room names for each floor you wan
 When using multi floor setups you will have to change the code slightly, you can find the parameters below, there is also example code)
 
 ### Advanced
+
 | Parameters | Type | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | state | Integer | 0 | Sets a floor number, this is needed to create conditions as to when to show what floors |
