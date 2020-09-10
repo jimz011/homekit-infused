@@ -22,15 +22,15 @@ Coming Soon!
 #### Video and screenshots
 ##### Screenshots
 
-![Homekit Infused](addons/images/HiShoot_20200402_013646.png)
+![Homekit Infused](docs/addons/images/HiShoot_20200402_013646.png)
 
-![Homekit Infused](addons/images/HiShoot_20200422_201852.png)
+![Homekit Infused](docs/addons/images/HiShoot_20200422_201852.png)
 
-![Homekit Infused](addons/images/HiShoot_20200422_202500.png)
+![Homekit Infused](docs/addons/images/HiShoot_20200422_202500.png)
 
-![Homekit Infused](addons/images/HiShoot_20200422_202526.png)
+![Homekit Infused](docs/addons/images/HiShoot_20200422_202526.png)
 
-![Homekit Infused](addons/images/HiShoot_20200422_202622.png)
+![Homekit Infused](docs/addons/images/HiShoot_20200422_202622.png)
 
 ##### Video
 Coming Soon!
