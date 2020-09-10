@@ -16,7 +16,9 @@ This is a normal (animated) weather card.
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/weather-card/weather-card.js```
+```
+/hacsfiles/weather-card/weather-card.js
+```
 
 ### Configuration
 To use this you must have dark sky setup, If you do NOT have a dark sky API key then you are out of luck since dark sky no longer hands out API keys. Existing users of darksky can use their API keys until 2021 until they cease to work. The card might work with other weather entities, however this has NOT been tested!
