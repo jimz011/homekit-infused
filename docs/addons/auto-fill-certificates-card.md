@@ -38,4 +38,5 @@ This card will automatically create an entities card with ALL your certificate e
             box-shadow: var(--box-shadow);
           }
     - !include ../../../base/includes/gap.yaml
-    ```
+  ```
+ 
