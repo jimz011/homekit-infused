@@ -3,7 +3,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homeassistant/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 # Homekit Infused (Lovelace) by Jimz011 September 2020 v3.0.3 (*updated: 10/09/2020)
-Latest working Home Assistant version is 0.115.0b4 (do not update past this number for best compatibility)
+Latest working Home Assistant version is 0.115.0b5 (do not update past this number for best compatibility)
 
 ### About
 Homekit Infused is a project that consists out of two major components, the framework and the addons. The framework can be run standalone and will not require any of the addons to be installed. This is useful for people that just want the header/footer and the menu that is present in HKI.
