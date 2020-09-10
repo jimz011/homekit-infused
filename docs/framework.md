@@ -44,6 +44,7 @@ NOTE: The customize.yaml file is the only way that you can change the names/icon
 
 ### HACS
 Below is a list of all the addons required to run the framework, you can install all of them through HACS
+
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Frontend | This mod will help with auto filling entities and such |
