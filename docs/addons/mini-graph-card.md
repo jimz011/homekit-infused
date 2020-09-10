@@ -19,7 +19,9 @@ This is a good looking mini-graph-card that you can use in your setup, it has be
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/mini-graph-card/mini-graph-card-bundle.js```
+```
+/hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+```
 
 ### Configuration
 - To use this create a card as in the example below, all paramaters that have a default are not required (see examples)
