@@ -16,7 +16,9 @@ This is a small and elegant card that shows you air quality.
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/air-visual-card/air-visual-card.js```
+```
+/hacsfiles/air-visual-card/air-visual-card.js
+```
 
 ### Configuration
 - To use this you MUST setup Air Visual, you can do this by adding it as an integration in Home Assistant (sidebar > configuration > integrations > add).
