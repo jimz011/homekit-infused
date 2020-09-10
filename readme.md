@@ -13,7 +13,7 @@ Homekit Infused is a project that consists out of two major components, the fram
 #### [Click here](https://jimz011.github.io/homekit-infused/framework.html) for the framework documentation
 #### [Click here](https://jimz011.github.io/homekit-infused/addons.html) for the addons documentation
 #### [Click here](https://jimz011.github.io/homekit-infused/addon_list.html) for a list of all available addons
-#### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases
+#### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
 
 ### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
