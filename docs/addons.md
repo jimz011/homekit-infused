@@ -11,6 +11,9 @@
 - [Thanks](thanks.md)
 
 # Addons
+### NOTE
+Any custom card used in these addons are not made by myself and credits should go to the original creator! The addons you'll find on this page are specifically designed to work with the HKI Framework, they will most likely not work without the HKI framework (seasoned Home Assistant users will probably be able to make them work for their own setup, but I will not give support on that). 
+
 ### What are addons?
 Addons are just files with cards/code in them. All addons can be used inside of the `/homekit-infused/user/views/VIEW_NAME` folders. Inside of the files there is code for a card. Lets say we have a file that is named `button-and-title.yaml` (the name is not relevant, only the code inside is) E.g.
 ```
