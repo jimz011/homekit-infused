@@ -149,4 +149,5 @@ Auto-filled-views still exist but can now be downloaded as an addon (instruction
 
 Everything that was included in HKI 2.x.x is now available separately. After installation over an existing one I recommend to go to the sidebar>configuration>entities and then sort entities by status and remove EVERY SINGLE entity that is in red (unavailable). This will take a while on existing setups. If started clean this is not an issue and you can simply ignore this. The purpose of this is to remove all the entities that HKI 2.x.x introduced and to clean out the entities we no longer need. Most notably the largest speed improvements are because of this!
 
-## That's it! You have succesfully installed the Homekit Infused Framework, please continue to the next section on how to download addons for the views and/or create them yourself.
+## That's it! You have succesfully installed the Homekit Infused Framework.
+To continue on with the addon documentation [click here](addons.md)
