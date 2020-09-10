@@ -16,7 +16,9 @@ This card can be used to quickly find an entity, just type a portion of the enti
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/search-card/search-card.js```
+```
+/hacsfiles/search-card/search-card.js
+```
 
 ### Configuration
 - No additional configuration required
