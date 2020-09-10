@@ -16,7 +16,9 @@ This is a small and elegant (but simple) weather card.
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/simple-weather-card/simple-weather-card-bundle.js```
+```
+/hacsfiles/simple-weather-card/simple-weather-card-bundle.js
+```
 
 ### Configuration
 - To use this you can simply change the entity and the name (which is the city name)
