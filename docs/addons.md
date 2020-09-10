@@ -10,6 +10,7 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
+# Addons
 ### What are addons?
 Addons are just files with cards/code in them. All addons can be used inside of the `/homekit-infused/user/views/VIEW_NAME` folders. Inside of the files there is code for a card. Lets say we have a file that is named `button-and-title.yaml` (the name is not relevant, only the code inside is) E.g.
 ```
