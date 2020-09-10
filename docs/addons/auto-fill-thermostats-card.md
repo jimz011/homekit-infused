@@ -19,7 +19,9 @@ This is an auto filled thermostat button with a homekit style popup embedded.
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/thermostat-popup-card/thermostat-popup-card.js```
+```
+/hacsfiles/thermostat-popup-card/thermostat-popup-card.js
+```
 
 ### Configuration
 Open your `customize.yaml` file and add the following attribute to your climate entities. If you don't have your climate entities in this file yet then you must create them first. The attribute you will need to add is `type: thermostat`. Example:
