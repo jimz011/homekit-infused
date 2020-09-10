@@ -25,7 +25,7 @@ All the cards that were previously included in HKI will be available separately 
 - Obviously download this project, you can grab the latest release from [here](https://github.com/jimz011/homekit-infused/releases)
 
 ##### Requirements
-- Create a custom alarm, HKI has a lock/alarm in the header, you MUST set this up even if you are never going to use it! https://www.home-assistant.io/integrations/manual/
+- Create a custom alarm, HKI has a lock/alarm in the header, you MUST set this up even if you are never going to use it! https://www.home-assistant.io/integrations/manual/. There is an example config in the configuration.yaml file of this project. You MUST set a secret inside of the `secrets.yaml` file. The code can be anything you want as long as it is inside this file. Just create a line and copy this, put it anywhere, if it is empty just put it on the first line. `alarm_code: 123456`.
 - Create a time sensor https://www.home-assistant.io/integrations/time_date/, you MUST have this for the homepage greeting to work properly.
 - Install HACS https://hacs.xyz/docs/installation/manual
 - Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config, you can also download the example customize.yaml file instead.
