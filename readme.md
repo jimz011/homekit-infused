@@ -14,11 +14,11 @@ Homekit Infused is a project that consists out of two major components, the fram
 #### [Click here](https://jimz011.github.io/homekit-infused/addons.html) for the addons documentation
 #### [Click here](https://jimz011.github.io/homekit-infused/addon_list.html) for a list of all available addons
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) for all releases
-#### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
-
+### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
-#### [Click here](https://discord.gg/7yt64uX) to join our Discord Community with over 800+ members.
+#### [Click here](https://discord.gg/7yt64uX) to join our Discord Community with over 800+ members
+#### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
 #### Video and screenshots
 ##### Screenshots
