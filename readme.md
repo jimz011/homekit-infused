@@ -36,9 +36,5 @@ Homekit Infused is a project that consists out of two major components, the fram
 ##### Video
 Coming Soon!
 
-### Questions and Support
-
-Please ask any question you have on the [HA Community Forums](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1)
-
 #### Featured Theme
 Dwains Theme is a beautiful theme created by @Dwains which can be found [here](https://github.com/dwainscheeren/lovelace-dwains-theme). I will recommend this theme as an alternative to HKI when you are using lighter hardware.
