@@ -32,65 +32,65 @@ For detailed instructions on how to use this, please follow read the [button (na
       cards:  
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.climate_title|default('Climate') }}
-            label: {{ _global.header.climate_subtitle|default('Control') }}
-            icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
+          - name: Climate
+            label: Control
+            icon: mdi:thermometer
             navigation_path: /homekit-infused/climate
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.devices_title|default('Devices') }}
-            label: {{ _global.header.devices_subtitle|default('Overview') }}
-            icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
+          - name: Devices
+            label: Overview
+            icon: mdi:power-plug
             navigation_path: /homekit-infused/devices
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                             
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.lights_title|default('Lights') }}
-            label: {{ _global.header.lights_subtitle|default('Overview') }}
-            icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
+          - name: Lights
+            label: Overview
+            icon: mdi:floor-lamp
             navigation_path: /homekit-infused/lights
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.security_title|default('Security') }}
-            label: {{ _global.header.security_subtitle|default('Panel') }}
-            icon: {{ _global.header.security_icon|default('mdi:cctv') }}
+          - name: Security
+            label: Panel
+            icon: mdi:cctv
             navigation_path: /homekit-infused/security
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.energy_title|default('Energy') }}
-            label: {{ _global.header.energy_subtitle|default('Overview') }}
-            icon: {{ _global.header.energy_icon|default('mdi:chart-line') }}
+          - name: Energy
+            label: Overview
+            icon: mdi:chart-line
             navigation_path: /homekit-infused/energy
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.scenes_title|default('Scenes') }}
-            label: {{ _global.header.scenes_subtitle|default('Overview') }}
-            icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
+          - name: Scenes
+            label: Overview
+            icon: mdi:arrange-send-backward
             navigation_path: /homekit-infused/scenes
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.media_title|default('Media') }}
-            label: {{ _global.header.media_subtitle|default('Center') }}
-            icon: {{ _global.header.media_icon|default('mdi:plex') }}
+          - name: Media
+            label: Center
+            icon: mdi:plex
             navigation_path: /homekit-infused/media
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
         - !include
           - '../../../base/templates/button/button-badge.yaml'
-          - name: {{ _global.header.vacuum_title|default('Vacuum') }}
-            label: {{ _global.header.vacuum_subtitle|default('Control') }}
-            icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
+          - name: Vacuum
+            label: Control
+            icon: mdi:robot-vacuum
             navigation_path: /homekit-infused/vacuum
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
