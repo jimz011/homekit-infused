@@ -86,8 +86,8 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             label: Control
             icon: mdi:thermometer
             navigation_path: /homekit-infused/climate
-            notification: "[[[ if (states['sensor.average_house_temperature'].state == 0) return '&nbsp'; else return `${states['sensor.average_house_temperature'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.average_house_temperature'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Computers
@@ -110,16 +110,16 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             label: Overview
             icon: mdi:power-plug
             navigation_path: /homekit-infused/devices
-            notification: "[[[ if (states['sensor.current_devices_on'].state == 0) return '&nbsp'; else return `${states['sensor.current_devices_on'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.current_devices_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                           
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                       
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Energy
             label: Overview
             icon: mdi:chart-line
             navigation_path: /homekit-infused/energy
-            notification: "[[[ if (states['sensor.current_power_usage'].state == 0) return '&nbsp'; else return `${states['sensor.current_power_usage'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.current_power_usage'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Floorplan
@@ -134,40 +134,40 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             label: Overview
             icon: mdi:floor-lamp
             navigation_path: /homekit-infused/lights
-            notification: "[[[ if (states['sensor.current_lights_on'].state == 0) return '&nbsp'; else return `${states['sensor.current_lights_on'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.current_lights_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Location
             label: Map
             icon: mdi:map-marker
             navigation_path: /homekit-infused/location
-            notification: "[[[ if (states['group.device_status'].state == 0) return '&nbsp'; else return `${states['group.device_status'].state}`; ]]]"
-            background_color: "[[[ if (states['group.device_status'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                          
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                       
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Media
             label: Center
             icon: mdi:plex
             navigation_path: /homekit-infused/media
-            notification: "[[[ if (states['sensor.media_players_playing'].state == 0) return '&nbsp'; else return `${states['sensor.media_players_playing'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.media_players_playing'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Scenes
             label: Overview
             icon: mdi:arrange-send-backward
             navigation_path: /homekit-infused/scenes
-            notification: "[[[ if (states['sensor.current_scenes_on'].state == 0) return '&nbsp'; else return `${states['sensor.current_scenes_on'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.current_scenes_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Security
             label: Panel
             icon: mdi:cctv
             navigation_path: /homekit-infused/security
-            notification: "[[[ if (states['sensor.current_sensors_on'].state == 0) return '&nbsp'; else return `${states['sensor.current_sensors_on'].state}`; ]]]"
-            background_color: "[[[ if (states['sensor.current_sensors_on'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: System
@@ -175,7 +175,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             icon: mdi:home-assistant
             navigation_path: /homekit-infused/system
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                             
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Traffic
@@ -183,15 +183,15 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             icon: mdi:waze
             navigation_path: /homekit-infused/traffic
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"        
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"         
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Vacuum
             label: Control
             icon: mdi:robot-vacuum
             navigation_path: /homekit-infused/vacuum
-            notification: "[[[ if (states['vacuum.xiaomi_vacuum_cleaner'].state == 0) return '&nbsp'; else return `${states['vacuum.xiaomi_vacuum_cleaner'].state}`; ]]]"
-            background_color: "[[[ if (states['vacuum.xiaomi_vacuum_cleaner'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
           - '../../../base/templates/button/button-badge.yaml'
           - name: Waste
@@ -206,8 +206,8 @@ This is the default HKI menu (in case you require this and deleted it by acciden
             label: Information
             icon: mdi:weather-partly-cloudy
             navigation_path: /homekit-infused/weather
-            notification: "[[[ if (states['weather.dark_sky'].state == 0) return '&nbsp'; else return `${states['weather.dark_sky'].state}`; ]]]"
-            background_color: "[[[ if (states['weather.dark_sky'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include ../../../base/includes/gap.yaml
 ```
 
