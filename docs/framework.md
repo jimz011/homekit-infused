@@ -22,6 +22,7 @@ All the cards that were previously included in HKI will be available separately 
 - Install Home Assistant or create a backup of your current setup. I will advise you to install this on a clean Home Assistant install, though it is not a requirement.
 - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually.
 - Create person entities in the UI go to configuration>persons and create all the persons in your house. Add the device_trackers you have to the person entities.
+- Obviously download this project, you can grab the latest release from [here](https://github.com/jimz011/homekit-infused/releases)
 
 ##### Requirements
 - Create a custom alarm, HKI has a lock/alarm in the header, you MUST set this up even if you are never going to use it! https://www.home-assistant.io/integrations/manual/
