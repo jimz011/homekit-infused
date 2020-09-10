@@ -1,8 +1,14 @@
-# Addons for Homekit Infused v3.x
+# Homekit Infused
 
-### [Homekit Infused Framework](https://github.com/jimz011/homekit-infused/tree/3.0.0)
-### [Homekit Infused Addons Documentation](https://github.com/jimz011/homekit-infused/tree/addons)
-### [Homekit Infused All Available Addons](https://github.com/jimz011/homekit-infused/tree/addons/ADDON_LIST.md)
+## Contents
+- [Introduction](index.md)
+- [Homekit Infused Framework](framework.md)
+- [Homekit Infused Addons](addons.md)
+- [Addon List](addon_list.md)
+- [Updates](updates.md)
+- [Issues & Questions](issues.md)
+- [About Me](about.md)
+- [Thanks](thanks.md)
 
 ### What are addons?
 Addons are just files with cards/code in them. All addons can be used inside of the `/homekit-infused/user/views/VIEW_NAME` folders. Inside of the files there is code for a card. Lets say we have a file that is named `button-and-title.yaml` (the name is not relevant, only the code inside is) E.g.
