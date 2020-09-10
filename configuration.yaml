@@ -14,7 +14,7 @@ browser_mod:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: 123456
+    code: !secret alarm_code
     delay_time: 0
     trigger_time: 100
     disarmed:
