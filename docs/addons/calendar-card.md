@@ -16,7 +16,9 @@ This is a calendar card for use with calendar entities.
 
 ### Resources
 Add the following line to your lovelace resources 
-```/hacsfiles/calendar-card/calendar-card.js```
+```
+/hacsfiles/calendar-card/calendar-card.js
+```
 
 ### Configuration
 - To use this you can simply change the entity and the name (which is the city name)
