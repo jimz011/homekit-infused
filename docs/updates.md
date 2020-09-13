@@ -15,6 +15,7 @@ To update the HKI framework in most cases you can copy the entire repo and repla
 - `/homekit-infused/user/`
 - `configuration.yaml`
 - `customize.yaml`
+- `secrets.yaml`
 
 All other files should be copied and replace your existing ones. IF there are additional things to do I will mention this in the update notes!
 
