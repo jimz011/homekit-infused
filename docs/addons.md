@@ -70,4 +70,4 @@ So there are 3 files, but 4 cards (as in the first file there are two cards).
 If you wish to stick cards together you can use vertical or horizontal stacks within a file (https://www.home-assistant.io/lovelace/horizontal-stack/ and https://www.home-assistant.io/lovelace/vertical-stack/).
 
 ### Get Addons
-To view all the available addons and their code [click here](addon_list.md).
+To view all the available addons and their code [click here](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md).
