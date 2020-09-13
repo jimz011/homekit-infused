@@ -3,7 +3,7 @@
 
 Back to [Addon List](../addon_list.md)
 
-# Button (Light or Switch)
+# Button (Light, Switch or Sensor)
 
 ![Homekit Infused](../images/button-switch.png)
 
@@ -31,6 +31,7 @@ Add the following lines to your lovelace resources
 - When using a layout-card you can also set a column size, else just use a horizontal-stack to stack buttons
 - The options for this button are limited simply for the sake of simplicity, you can use other button addons that have more flexibility in the future
 - By default this button has a preprogrammed popup that will by default either show a switch or a slider depending on the type after a hold_action, at the bottom right it will show a settings button that will take you to the more-info window of that entity. Read below on how to change this behaviour.
+- If you want to use the button to display a single sensor, you MUST set `hold_action` to `more-info` or `none`.
 
 ### Advanced
 
@@ -51,7 +52,7 @@ Add the following lines to your lovelace resources
 | show_label | no | true | Show/hide the label on the button |
 | show_icon | no | true | Show/hide the icon on the button |
 | show_state | no | true | Show/hide the state on the button |
-| show_last_changed | no | false | Show/hide the state of the entities last activityon the button (this might not work nicely with the included grid, if it doesn't remove the grid line from this button's config) |
+| show_last_changed | no | false | Show/hide the state of the entities last activity on the button, this is best used when setting a sensor entity (this might not work nicely with the included grid, if it doesn't remove the grid line from this button's config) |
 | spin_on | no | false | If the entity has `on` and `off` states you can make the icon spin when the device is turned on by setting this to true |
 | spin_off | no | false | If the entity has `on` and `off` states you can make the icon spin when the devices is turned off by setting this to true |
 | opacity_off | no | 0.5 | When entities are turned off, the opacity of this button is 0.5, you can set values from 0.0 to 1.0, where 0.0 is completely transparant and 1.0 completely opaque |
