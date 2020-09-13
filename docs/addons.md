@@ -52,6 +52,8 @@ You could also do this by naming them `a.weather-card.yaml` and `b.buttons.yaml`
 
 You can also add your own files (since HKI doesn't care about the file names, it just cares about the order). 
 
+*NOTE: if any of the addons contain `# lovelace_gen`, you MUST copy this line and make sure it is the first line of the file. When copying multiple addons to a single file you will only need this line once, but you will have to add this line to every new file you create that requires this!
+
 ### Advanced
 You can have multiple cards in a single file if you so desire, which might be the case if you want to organise your cards differently or you prefer to have the same type of cards in the same file for easier editing.
 When having multiple cards in a file it will still render everything in the same order, so imagine in our previous example that the `weather-card.yaml` file would have two cards (e.g. a simple weather card and a forecast card), it will render the FILES on alphabetical/numerical order, NOT the cards! Remember this!
