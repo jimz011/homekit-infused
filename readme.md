@@ -14,7 +14,7 @@ Homekit Infused is a project that consists out of two major components, the fram
 #### [Click here](https://jimz011.github.io/homekit-infused/addons.html) for the addons documentation
 #### [Click here](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md) for a list of all available addons
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
-#### [Click here](https://github.com/jimz011/homekit-infused/tree/personal/homekit-infused/user) to view how I've setup HKI for myself (only lovelace is included for now)
+#### [Click here](https://github.com/jimz011/homekit-infused/tree/personal/homekit-infused/user) to view how my personal Home Assistant is setup (including automations and such)
 
 ### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
