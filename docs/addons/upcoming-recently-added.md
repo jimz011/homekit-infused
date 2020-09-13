@@ -3,7 +3,7 @@
 Back to [Addon List](../addon_list.md)
 
 # Upcoming and Recently Added Media Card
-![Homekit Infused](../images/upcoming-card.png)
+![Homekit Infused](../images/upcoming.png)
 
 ### Description
 This is a nice card to show your upcoming and recently added media from your Plex/Sonarr/Radarr libraries.
