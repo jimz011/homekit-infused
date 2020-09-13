@@ -5,7 +5,7 @@ Back to [Addon List](../addon_list.md)
 # Auto Filled Fan Card
 * HKI Framework 3.0.4 or higher required
 
-![Homekit Infused](../images/appliances-card.png)
+![Homekit Infused](../images/appliance-card.png)
 
 ### Description
 This card will create a beautiful picture-elements card which is simple, clean and very easy to setup!
