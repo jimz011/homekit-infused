@@ -4,7 +4,7 @@
 - [Introduction](index.md)
 - [Homekit Infused Framework](framework.md)
 - [Homekit Infused Addons](addons.md)
-- [Addon List](addon_list.md)
+- [Addon List](https://github.com/jimz011/homekit-infused/edit/master/docs/addon_list.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
