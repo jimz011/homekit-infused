@@ -38,11 +38,11 @@
   - [Map Card](addons/map-card.md)
   - [Menu Card](addons/menu-card.md)
   - [Mini Graph Card](addons/mini-graph-card.md)
-  - [Remote Control Card](addons/remote-control.md) (for Nvidia SHIELD TV/Android TV) *new
+  - [Remote Control Card](addons/nvidia-remote.md) (for Nvidia SHIELD TV/Android TV) *new
   - [Search Card](addons/search-card.md)
   - [Simple Weather Card](addons/simple-weather-card.md)
   - [Single Homekit Button](addons/button-navigation.md) (navigation) *new
-  - [Single Homekit Button](addons/button-switch.md) (switch and light) *new
+  - [Single Homekit Button](addons/button-light-switch.md) (switch and light) *new
   - [Title Text](addons/title-text-card.md)
   - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
   - Vacuum Card
