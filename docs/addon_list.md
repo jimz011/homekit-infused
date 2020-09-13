@@ -17,9 +17,7 @@
 
 *note: None of the custom cards/addons that you will need to download through HACS are created by me!!!
 
-#### Addons
-  - [Air Visual Card](addons/air-visual-card.md)
-  - [Appliance Card](addons/appliances-card.md) *new
+#### Auto Fill Addons
   - [Auto-Filled Automations Card](addons/auto-fill-automations-card.md)
   - [Auto-Filled Battery Card](addons/auto-fill-battery-card.md)
   - [Auto-Filled Camera Card](addons/auto-fill-camera-card.md)
@@ -31,28 +29,54 @@
   - [Auto-Filled Scenes Card](addons/auto-fill-scenes-card.md)
   - [Auto-Filled Sensors Card](addons/auto-fill-sensors-card.md)
   - [Auto-Filled Thermostat Card](addons/auto-fill-thermostats-card.md) (including popups)
-  - [Calendar Card](addons/calendar-card.md)
+  
+#### Buttons  
   - [Climate Preset Buttons](addons/climate-preset-buttons.md)
   - [Frontpage Button Row](addons/frontpage-buttons.md) (navigation)
-  - [Frontpage Photo/Image](addons/frontpage-photo.md)
-  - [Google Home Card](addons/google-home-card.md)
-  - [iFrame Card](addons/iframe-card.md)
-  - [Map Card](addons/map-card.md)
   - [Menu Card](addons/menu-card.md)
-  - [Mini Graph Card](addons/mini-graph-card.md)
-  - [Remote Control Card](addons/nvidia-remote.md) (for Nvidia SHIELD TV/Android TV) *new
-  - [Search Card](addons/search-card.md)
-  - [Simple Weather Card](addons/simple-weather-card.md)
   - [Single Homekit Button](addons/button-navigation.md) (navigation) *new
   - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor) *new
-  - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
-  - Vacuum Card
-  - [Waste Collection Card](addons/waste-collection-card.md)
-  - [Waze Card](addons/waze-card.md)
-  - [Weather Card](addons/weather-card.md) (animated)
+  
+#### Calendar
+  - [Calendar Card](addons/calendar-card.md)
 
-#### Utilities and Extra Information
+#### Map
+  - [Map Card](addons/map-card.md)
+  - [Waze Card](addons/waze-card.md)
+  
+#### Media 
+  - [Google Home Card](addons/google-home-card.md)
+  - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
+  - [Remote Control Card](addons/nvidia-remote.md) (for Nvidia SHIELD TV/Android TV) *new
+
+#### Other
+  - [iFrame Card](addons/iframe-card.md)
+  - [Mini Graph Card](addons/mini-graph-card.md)
+  - [Search Card](addons/search-card.md)
+  - [Waste Collection Card](addons/waste-collection-card.md)
+
+#### Picture Elements
+  - [Appliance Card](addons/appliances-card.md) *new
+  - [Frontpage Photo/Image](addons/frontpage-photo.md)
+
+#### Utilities
   - [Title Text](addons/title-text-card.md)
   - [Gap Card](addons/gap-card.md)
+  
+#### Vacuum
+  - [Vacuum Card]
+  - [Vacuum Control Card]
+  - [Vacuum Speed Control Card]
+  - [Vacuum Live Map] (Valetudo RE only!)
+  - [Vacuum Presets] (Valetudo RE only!)
+  
+#### Weather
+  - [Air Visual Card](addons/air-visual-card.md)
+  - [Simple Weather Card](addons/simple-weather-card.md)
+  - [Weather Card](addons/weather-card.md) (animated)
+
+### Other Documentation
+#### Extra Information
   - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
   - [Header Templates](addons/header_templates.md) *new
+  - [Notifications]
