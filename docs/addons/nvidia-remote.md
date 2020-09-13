@@ -19,7 +19,7 @@ This is a predefined remote control solution for your Nvidia SHIELD TV (pro). Th
 | Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity_media_player | yes | none | This MUST be your Android TV entity!
-| entity_media_player_sound | yes | none | You can use this if you use a different media_player to control sound (this MUST be an entity in the media_player domain!) |
+| entity_media_player_sound | yes | none | You can use this if you use a different media_player to control sound (this MUST be an entity in the media_player domain!). If you don't have a separate media_player for sound you must enter the same entity as above |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/frontpage/), you can name the file however you want (e.g. frontpage-buttons.yaml)
