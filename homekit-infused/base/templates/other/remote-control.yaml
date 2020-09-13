@@ -1,0 +1,143 @@
+# lovelace_gen
+
+# Card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: Youtube
+          icon: mdi:youtube
+          margin_right: 40px
+          opacity_off: 0.9
+          icon_color_off: red
+          entity_id: {{ entity_media_player }}
+          source: 'YouTube'
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: Volume
+          label: Down
+          icon: mdi:volume-minus
+          service: media_player.volume_down
+          service_entity: {{ entity_media_player_sound }}
+          margin_right: 40px
+          opacity_off: 0.9
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: Volume
+          label: Up
+          icon: mdi:volume-plus
+          service: media_player.volume_up
+          service_entity: {{ entity_media_player_sound }}
+          margin_right: 40px
+          opacity_off: 0.9
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: Mute
+          icon: mdi:volume-mute
+          service: media_player.volume_mute
+          service_entity: {{ entity_media_player_sound }}
+          margin_right: 40px
+          opacity_off: 0.9
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: Plex
+          icon: mdi:plex
+          margin_right: 40px
+          opacity_off: 0.9
+          icon_color_off: gold
+          entity_id: {{ entity_media_player }}
+          source: 'Plex'
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:power
+          service_entity: {{ entity_media_player }}
+          command: "POWER"
+          opacity_off: 0.7
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-up-drop-circle-outline
+          service_entity: {{ entity_media_player }}
+          command: "UP"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:menu
+          service_entity: {{ entity_media_player }}
+          command: "MENU"
+          opacity_off: 0.7
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: Netflix
+          icon: mdi:netflix
+          margin_right: 40px
+          opacity_off: 0.9
+          icon_color_off: red
+          entity_id: {{ entity_media_player }}
+          source: 'Netflix'
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-left-drop-circle-outline
+          service_entity: {{ entity_media_player }}
+          command: "LEFT"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:crop-square
+          service_entity: {{ entity_media_player }}
+          command: "CENTER"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-right-drop-circle-outline
+          service_entity: {{ entity_media_player }}
+          command: "RIGHT"
+          opacity_off: 1.0
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: Spotify
+          icon: mdi:spotify
+          margin_right: 40px
+          opacity_off: 0.9
+          icon_color_off: limegreen
+          entity_id: {{ entity_media_player }}
+          source: 'Spotify'
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:keyboard-backspace
+          service_entity: {{ entity_media_player }}
+          command: "BACK"
+          opacity_off: 0.7
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-down-drop-circle-outline
+          service_entity: {{ entity_media_player }}
+          command: "DOWN"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:home
+          service_entity: {{ entity_media_player }}
+          command: "HOME"
+          opacity_off: 0.7
+  - type: media-control
+    style: |
+      ha-card {
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+    entity: {{ entity_media_player }}

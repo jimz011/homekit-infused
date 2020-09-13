@@ -47,7 +47,7 @@ tap_action:
       cards:
         - !include
           - '../popup-cards/header-sensors.yaml'
-          - entity: {{ entity }}
+          - entity: {{ entity|default('input_boolean.dummy1') }}
     deviceID:
       - this
   haptic: light
@@ -64,7 +64,7 @@ styles:
     - text-align: start
   custom_fields:
     notification:
-      - background-color: "{{ background_color }}"
+      - background-color: "{{ background_color|default('rgba(0,0,0,0.0)') }}"
       - color: white
       - border-radius: 50%
       - overflow: visible
@@ -77,7 +77,7 @@ styles:
   icon:
     - color: var(--header-color)
 custom_fields: 
-  notification: "{{ badge }}"
+  notification: "{{ badge|default("'&nbsp;'") }}"
 state:
   - value: "off"
     spin: {{ spin_off|default('false') }}

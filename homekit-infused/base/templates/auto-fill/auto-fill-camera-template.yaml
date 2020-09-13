@@ -19,7 +19,7 @@ cards:
             aspect_ratio: {{ aspect_ratio|default('16x9')}}
             entity: this.entity_id
     sort:
-      method: name
+      method: {{ sort|default('name') }}
       numeric: true
     card:
       type: custom:layout-card

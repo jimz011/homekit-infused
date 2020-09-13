@@ -30,17 +30,17 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.menu_title|default('Menu') }}
-            subtitle: {{ _global.header.menu_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.menu_subtitle|default('Overview') }}"
             icon: {{ _global.header.menu_icon|default('mdi:menu') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
-          layout: vertical
-          max_columns: 2
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
-            - type: custom:layout-card
-              max_columns: 3
-              cards:
-                !include_dir_merge_list user/views/menu/
+            !include_dir_merge_list user/views/menu/
+        - type: custom:layout-card
+          max_columns: 1
+          cards:
             - type: vertical-stack
               cards:
                 - !include
@@ -297,7 +297,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.automations_title|default('Automations') }}
-            subtitle: {{ _global.header.automations_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.automations_subtitle|default('Overview') }}"
             icon: {{ _global.header.automations_icon|default('mdi:alpha-a-box') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -314,7 +314,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.battery_title|default('Battery') }}
-            subtitle: {{ _global.header.battery_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.battery_subtitle|default('Overview') }}"
             icon: {{ _global.header.battery_icon|default('mdi:battery-50') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -331,7 +331,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.calendar_title|default('Calendar') }}
-            subtitle: {{ _global.header.calendar_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.calendar_subtitle|default('Overview') }}"
             icon: {{ _global.header.calendar_icon|default('mdi:calendar') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -348,7 +348,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.certificates_title|default('Certificates') }}
-            subtitle: {{ _global.header.certificates_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.certificates_subtitle|default('Overview') }}"
             icon: {{ _global.header.certificates_icon|default('mdi:certificate') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -365,7 +365,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.cleaning_title|default('Cleaning') }}
-            subtitle: {{ _global.header.cleaning_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.cleaning_subtitle|default('Overview') }}"
             icon: {{ _global.header.cleaning_icon|default('mdi:broom') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -382,7 +382,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.climate_title|default('Climate') }}
-            subtitle: {{ _global.header.climate_subtitle|default('Control') }}
+            subtitle: "{{ _global.header.climate_subtitle|default('Control') }}"
             icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -399,7 +399,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.computers_title|default('Computers') }}
-            subtitle: {{ _global.header.computers_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.computers_subtitle|default('Overview') }}"
             icon: {{ _global.header.computers_icon|default('mdi:desktop-tower-monitor') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -416,7 +416,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.covers_title|default('Covers') }}
-            subtitle: {{ _global.header.covers_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.covers_subtitle|default('Overview') }}"
             icon: {{ _global.header.covers_icon|default('mdi:window-shutter') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -433,7 +433,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.devices_title|default('Devices') }}
-            subtitle: {{ _global.header.devices_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.devices_subtitle|default('Overview') }}"
             icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
             header-bottom: header-bottom.yaml
         - type: conditional
@@ -445,6 +445,11 @@
             cards:
               - !include base/includes/gap.yaml
               - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
                 entities:
                   - entity: input_select.floor_selector
                     name: Select Floor
@@ -461,7 +466,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.energy_title|default('Energy') }}
-            subtitle: {{ _global.header.energy_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.energy_subtitle|default('Overview') }}"
             icon: {{ _global.header.energy_icon|default('mdi:chart-line') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -478,7 +483,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.floorplan_title|default('Floorplan') }}
-            subtitle: {{ _global.header.floorplan_subtitle|default('Map') }}
+            subtitle: "{{ _global.header.floorplan_subtitle|default('Map') }}"
             icon: {{ _global.header.floorplan_icon|default('mdi:floor-plan') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -495,7 +500,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: HA
-            subtitle: {{ _global.header.settings|default('Settings') }}
+            subtitle: "{{ _global.header.settings|default('Settings') }}"
             icon: {{ _global.header.ha_settings_icon|default('mdi:cogs') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -580,7 +585,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: HKI
-            subtitle: {{ _global.header.settings|default('Settings') }}
+            subtitle: Settings
             icon: {{ _global.header.hki_settings_icon|default('mdi:palette') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -644,15 +649,25 @@
                     - !include base/includes/gap.yaml
                 - !include
                   - base/templates/other/title-text.yaml
-                  - name: Show floor selector in lights/devices view?
+                  - name: Show Selectors
                 - type: horizontal-stack
                   cards:
                     - !include base/includes/gap.yaml
                     - type: entities
                       show_header_toggle: false                                 
                       entities: 
-                        - name: Show Floor Selector
+                        - name: Show Floor Selector (light/devices)
                           entity: input_select.show_floor_selector
+                        - name: Show Media View Selector
+                          entity: input_select.show_media_view_selector
+                        - name: Show Person 1 View Selector
+                          entity: input_select.show_person_1_selector
+                        - name: Show Person 2 View Selector
+                          entity: input_select.show_person_1_selector
+                        - name: Show Person 3 View Selector
+                          entity: input_select.show_person_1_selector
+                        - name: Show Person 4 View Selector
+                          entity: input_select.show_person_1_selector
                     - !include base/includes/gap.yaml
 - path: lights
   visible: false
@@ -663,7 +678,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.lights_title|default('Lights') }}
-            subtitle: {{ _global.header.lights_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.lights_subtitle|default('Overview') }}"
             icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
             header-bottom: header-bottom.yaml
         - type: conditional
@@ -675,6 +690,11 @@
             cards:
               - !include base/includes/gap.yaml
               - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
                 entities:
                   - entity: input_select.floor_selector
                     name: Select Floor
@@ -691,7 +711,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.location_title|default('Location') }}
-            subtitle: {{ _global.header.location_subtitle|default('Map') }}
+            subtitle: "{{ _global.header.location_subtitle|default('Map') }}"
             icon: {{ _global.header.location_icon|default('mdi:map-marker') }}
             header-bottom: header-bottom.yaml 
         - type: custom:layout-card
@@ -708,9 +728,27 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.media_title|default('Media') }}
-            subtitle: {{ _global.header.media_subtitle|default('Center') }}
+            subtitle: "{{ _global.header.media_subtitle|default('Center') }}"
             icon: {{ _global.header.media_icon|default('mdi:plex') }}
             header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_media_view_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
+                entities:
+                  - entity: input_select.media_view_selector
+                    name: Select Category
+              - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
@@ -725,9 +763,27 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.person_1_title|default('Person_1') }}
-            subtitle: {{ _global.header.person_1_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.person_1_subtitle|default('Overview') }}"
             icon: {{ _global.header.person_1_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_person_1_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
+                entities:
+                  - entity: input_select.person_1
+                    name: Select Category
+              - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
@@ -742,9 +798,27 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.person_2_title|default('Person_2') }}
-            subtitle: {{ _global.header.person_2_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.person_2_subtitle|default('Overview') }}"
             icon: {{ _global.header.person_2_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_person_1_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
+                entities:
+                  - entity: input_select.person_2
+                    name: Select Category
+              - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
@@ -759,9 +833,27 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.person_3_title|default('Person_3') }}
-            subtitle: {{ _global.header.person_3_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.person_3_subtitle|default('Overview') }}"
             icon: {{ _global.header.person_3_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_person_1_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
+                entities:
+                  - entity: input_select.person_3
+                    name: Select Category
+              - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
@@ -776,9 +868,27 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.person_4_title|default('Person_4') }}
-            subtitle: {{ _global.header.person_4_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.person_4_subtitle|default('Overview') }}"
             icon: {{ _global.header.person_4_icon|default('mdi:account') }}
             header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_person_1_selector
+              state: "Yes"
+          card:
+            type: horizontal-stack
+            cards:
+              - !include base/includes/gap.yaml
+              - type: entities
+                style: |
+                  ha-card {
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                  }
+                entities:
+                  - entity: input_select.person_4
+                    name: Select Category
+              - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
@@ -793,7 +903,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.scenes_title|default('Scenes') }}
-            subtitle: {{ _global.header.scenes_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.scenes_subtitle|default('Overview') }}"
             icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -810,7 +920,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.security_title|default('Security') }}
-            subtitle: {{ _global.header.security_subtitle|default('Panel') }}
+            subtitle: "{{ _global.header.security_subtitle|default('Panel') }}"
             icon: {{ _global.header.security_icon|default('mdi:cctv') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -827,7 +937,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.system_title|default('System') }}
-            subtitle: {{ _global.header.system_subtitle|default('Overview') }}
+            subtitle: "{{ _global.header.system_subtitle|default('Overview') }}"
             icon: {{ _global.header.system_icon|default('mdi:home-assistant') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -844,7 +954,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.traffic_title|default('Traffic') }}
-            subtitle: {{ _global.header.traffic_subtitle|default('Information') }}
+            subtitle: "{{ _global.header.traffic_subtitle|default('Information') }}"
             icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -861,7 +971,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.vacuum_title|default('Vacuum') }}
-            subtitle: {{ _global.header.vacuum_subtitle|default('Cleaner') }}
+            subtitle: "{{ _global.header.vacuum_subtitle|default('Cleaner') }}"
             icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -878,7 +988,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.waste_title|default('Waste') }}
-            subtitle: {{ _global.header.waste_subtitle|default('Collection') }}
+            subtitle: "{{ _global.header.waste_subtitle|default('Collection') }}"
             icon: {{ _global.header.waste_icon|default('mdi:trash-can') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
@@ -895,7 +1005,7 @@
         - !include
           - base/templates/header/header-base-template.yaml
           - title: {{ _global.header.weather_title|default('Weather') }}
-            subtitle: {{ _global.header.weather_subtitle|default('Information') }}
+            subtitle: "{{ _global.header.weather_subtitle|default('Information') }}"
             icon: {{ _global.header.weather_icon|default('mdi:weather-partly-cloudy') }}
             header-bottom: header-bottom.yaml
         - type: custom:layout-card

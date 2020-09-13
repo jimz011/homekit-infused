@@ -2,11 +2,9 @@
 
 # card
 type: custom:button-card
-triggers_update: all
-name: "{{ name }}"
-icon: "{{ icon }}"
-show_entity_picture: {{ show_entity_picture|default('true') }}
-entity_picture: "{{ entity_picture }}"
+name: {{ name }}
+icon: {{ icon }}
+color: {{ color|default('auto') }}
 size: {{ size|default('25%') }}
 lock:
   enabled: {{ lock|default('false') }}
@@ -14,21 +12,33 @@ lock:
   duration: {{ lock_duration|default('5') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity|default('input_boolean.dummy1') }}
-label: "{{ label|default('&nbsp;') }}"
+label: {{ label|default('"&nbsp;"') }}
 show_name: {{ show_name|default('true') }}
 show_icon: {{ show_icon|default('true') }}
 show_state: {{ show_state|default('false') }}
 show_label: {{ show_label|default('true') }}
 show_last_changed: {{ show_last_changed|default('false') }}
 tap_action: 
-  action: navigate
-  navigation_path: "{{ navigation_path|default('/hki/about') }}"
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
 hold_action:
-  action: "{{ navigation_path|default('/hki/about') }}"
-  haptic: heavy
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
 double_tap_action:
-  action: "{{ navigation_path|default('/hki/about') }}"
-  haptic: heavy
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
 styles:
   card:
     - border-radius: var(--border-radius)
@@ -41,7 +51,7 @@ styles:
     - justify-self: start
 #    - color: var(--primary-text-color) 
   state:
-    - font-size: 10px
+    - font-size: 12px
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
@@ -57,32 +67,24 @@ styles:
     - justify-self: start
     - padding: 0px 10px
     - font-weight: bold
-    - font-family: var(--font-family)
+    - font-family: var(--font-family) 
     - font-size: 12px
 #    - color: var(--primary-text-color) 
   icon:
     -  padding: 0px 10px
-  custom_fields:
-    notification:
-      - background-color: "{{ background_color }}"
-      - color: var(--ha-card-background)
-      - border-radius: 12px
-      - overflow: visible
-      - position: absolute
-      - right: 7px
-      - top: 7px
-      - padding: 0px 5px
-      - height: 22px
-      - min-width: 12px
-      - font-size: 10px
-      - line-height: 22px
-      - font-weight: bold
-      - text-transform: capitalize
-custom_fields: 
-  notification: "{{ notification }}"
 state:
   - value: "off"
     spin: {{ spin_off|default('false') }}
     styles:
       card:
-        - opacity: {{ opacity_off|default('0.8') }}
+        - opacity: {{ opacity_off|default('0.5') }}
+        - --ha-card-background: "{{ card_color_off|default('var(--ha-card-background)') }}"
+      icon:
+        - color: "{{ icon_color_off|default('var(--paper-item-icon-color)') }}"
+        - animation: {{ animation|default('none') }}
+      name:
+        - color: "{{ name_color_off|default('var(--primary-text-color)') }}"
+      state:
+        - color: "{{ state_color_off|default('var(--primary-text-color)') }}"
+      label:
+        - color: "{{ label_color_off|default('var(--primary-text-color)') }}"

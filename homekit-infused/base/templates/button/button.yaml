@@ -5,6 +5,7 @@ type: custom:button-card
 name: "{{ name }}"
 icon: "{{ icon }}"
 show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
 color: {{ color|default('auto') }}
 size: {{ size|default('25%') }}
 lock:
@@ -52,7 +53,7 @@ hold_action:
         }
     card:
       !include
-      - {{ template|default('switch_popup.yaml') }}
+      - {{ template|default('../popup-cards/light-switch.yaml') }}
       - entity: {{ entity }}
     deviceID:
       - this
@@ -87,7 +88,7 @@ double_tap_action:
         }
     card:
       !include
-      - {{ template|default('switch_popup.yaml') }}
+      - {{ template|default('../popup-cards/light-switch.yaml') }}
       - entity: {{ entity }}
     deviceID:
       - this

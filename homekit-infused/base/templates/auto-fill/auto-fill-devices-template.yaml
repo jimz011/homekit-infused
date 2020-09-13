@@ -131,7 +131,7 @@ cards:
               color_type: blank-card
               aspect_ratio: 1/1
         sort:
-          method: name
+          method: {{ sort|default('name') }}
           numeric: true
         card:
           type: custom:layout-card
