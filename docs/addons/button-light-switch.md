@@ -96,6 +96,16 @@ Add the following lines to your lovelace resources
     hold_action: more-info
 ```
 ```
+# example of a button with a sensor and last_changed label
+- !include
+  - '../../../base/templates/button/button.yaml'
+  - entity: sensor.woonkamer
+    lock: false
+    tap_action: more-info
+    hold_action: none
+    show_last_changed: true
+```
+```
 # example (this is how I have set them up personally in my own setup)
 - !include
   - '../../../base/templates/button/button.yaml'
