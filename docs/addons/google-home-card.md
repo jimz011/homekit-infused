@@ -8,6 +8,18 @@ Back to [Addon List](../addon_list.md)
 ### Description
 This card is used to create a quick google home speaker card
 
+### Requirements (HACS)
+
+| Name | Type  | Description |
+|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Mini Media Player](https://github.com/kalkih/mini-media-player) | Frontend | This is a minimalistic media player |
+
+### Resources
+Add the following lines to your lovelace resources 
+```
+/hacsfiles/mini-media-player/mini-media-player-bundle.js
+```
+
 ### Configuration
 Create two groups in your own group configuration in `configuration.yaml`. Then add the following 2 groups, the first group is used to enter the all speakers cast group. You can create this group by opening Google Home and then create a speaker group (I will suggest selecting all the speakers and name the group `All Speakers` or something like that, you might need to restart HA to get the entity). The second group is used to put all the google home speakers you have, note that you can ONLY use speakers that can otherwise be grouped by the Google Home app. If you create a speaker group in the Google Home app and your speaker is not listed, then this will also not work in this card!
 
