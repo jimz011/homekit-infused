@@ -120,7 +120,9 @@ Some of the properties accept templating, unfortunately I do not know all of the
     icon: "[[[ if (states['switch.washing-machine'].state == "on") return 'mdi:washing-machine'; else return 'mdi:power'; ]]]"
 ```
 The example below is how to easily create a template to show as the label, I use this for example to show the energy readings of a certain device that uses a different entity.
+
 ![Homekit Infused](../images/button-energy.png)
+
 ```
 # example device switch with energy monitoring (this is how I personally use this button)
 - !include
