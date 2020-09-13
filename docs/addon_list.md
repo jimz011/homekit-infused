@@ -45,7 +45,6 @@
   - [Simple Weather Card](addons/simple-weather-card.md)
   - [Single Homekit Button](addons/button-navigation.md) (navigation) *new
   - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor) *new
-  - [Title Text](addons/title-text-card.md)
   - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
   - Vacuum Card
   - [Waste Collection Card](addons/waste-collection-card.md)
@@ -53,6 +52,7 @@
   - [Weather Card](addons/weather-card.md) (animated)
 
 #### Utilities and Extra Information
+  - [Title Text](addons/title-text-card.md)
   - [Gap Card](addons/gap-card.md)
   - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
   - [Header Templates](addons/header_templates.md) *new
