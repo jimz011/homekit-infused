@@ -39,13 +39,13 @@ Add the following line to your lovelace resources
 | decimals | no | 1 | Amount of decimals shown |
 | font_size | no | 53 | Sets the font size of the card |
 | height | no | 90 | Sets the height of the card |
-| graph_type | String | line | Sets the card to have a `graph` or a `bar`|
+| graph_type | no | line | Sets the card to have a `graph` or a `bar`|
 | show_icon | no | false | Show icon on the card |
 | show_fill | no | true | Fills the line with the same color |
 | show_extrema | no | false | Show extra information like high/low on the card |
 | show_average | no | false | Show average on the card |
 | font_size_header | no | 9 | Sets the header font size |
-| line_color | String | red | Sets the color of the line/bar |
+| line_color | no | red | Sets the color of the line/bar |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/energy/), you can name the file however you want (e.g. mini-graph-card.yaml)
