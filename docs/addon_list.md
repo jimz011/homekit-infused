@@ -17,6 +17,7 @@
 
 *note: None of the custom cards/addons that you will need to download through HACS are created by me!!!
 
+### Default Addons
 #### Auto Fill Addons
   - [Auto-Filled Automations Card](addons/auto-fill-automations-card.md)
   - [Auto-Filled Battery Card](addons/auto-fill-battery-card.md)
@@ -74,6 +75,9 @@
   - [Air Visual Card](addons/air-visual-card.md)
   - [Simple Weather Card](addons/simple-weather-card.md)
   - [Weather Card](addons/weather-card.md) (animated)
+
+### User submitted addons
+  - Coming Soon
 
 ### Other Documentation
 #### Extra Information
