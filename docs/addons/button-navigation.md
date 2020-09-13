@@ -59,8 +59,8 @@ This is the default HKI navigation button, it is by default used in the [menu](m
     label: Control
     icon: mdi:thermometer
     navigation_path: /homekit-infused/climate
-    notification: "[[[ if (states['sensor.average_house_temperature'].state == 0) return '&nbsp'; else return `${states['sensor.average_house_temperature'].state}`; ]]]"
-    background_color: "[[[ if (states['sensor.average_house_temperature'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
+    notification: "[[[ if (states['weather.dark_sky'].state == 0) return '&nbsp'; else return `${states['weather.dark_sky'].state}`; ]]]"
+    background_color: "[[[ if (states['weather.dark_sky'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
 ```
 ### Layout card and horizontal/vertical stacks
 I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)
