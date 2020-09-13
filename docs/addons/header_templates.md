@@ -12,7 +12,9 @@ A header template can help you change the subtitle of ANY view (except the front
 ### Configuration
 - To set a template you must open your `../user/config/header_config.yaml` file
 - You can ONLY template the subtitle and the icon, do NOT try to template the title!!
-- For this to work properly users of HKI 3.0.3 and below MUST update the menu and frontpage button addons (in the original versions )
+- For this to work properly users of HKI 3.0.3 and below MUST update the menu and frontpage button addons (in the original versions)
+- For the changes to take effect you must restart Home Assistant
+- It is hard to troubleshoot, so the best way to tackle this is to add the templates one by one and restart after each edit. If a template is wrong your lovelace will NOT load! (you will need to fix the error before you can continue from here)
 
 ### Examples
 ```
