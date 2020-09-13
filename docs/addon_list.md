@@ -44,7 +44,7 @@
   - [Search Card](addons/search-card.md)
   - [Simple Weather Card](addons/simple-weather-card.md)
   - [Single Homekit Button](addons/button-navigation.md) (navigation) *new
-  - [Single Homekit Button](addons/button-light-switch.md) (switch, light or sensor) *new
+  - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor) *new
   - [Title Text](addons/title-text-card.md)
   - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
   - Vacuum Card
