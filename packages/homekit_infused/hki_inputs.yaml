@@ -67,6 +67,77 @@ input_select:
       - 'Yes'
       - 'No'
 
+  media_view_selector:
+    name: media_view_selector
+    options:
+      - Media Players
+      - Remote Control
+      - Google Home
+      - Upcoming Media
+    initial: Media Players
+
+  show_media_view_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
+  person_1:
+    options:
+      - Overview
+      - Location
+      - Calendar
+      - Vehicle
+
+  show_person_1_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
+  person_2:
+    options:
+      - Overview
+      - Location
+      - Calendar
+      - Vehicle
+
+  show_person_2_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
+  person_3:
+    options:
+      - Overview
+      - Location
+      - Calendar
+      - Vehicle
+
+  show_person_3_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
+  person_4:
+    options:
+      - Overview
+      - Location
+      - Calendar
+      - Vehicle
+
+  show_person_4_selector:
+    options:
+      - 'Yes'
+      - 'No'
+
+  xiaomi_vacuum:
+    name: Xiaomi Vacuum
+    options:
+      - Silent
+      - Standard
+      - Medium
+      - Turbo
+      - Gentle
+
 input_text:
   good_morning:
   good_afternoon:
