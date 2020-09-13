@@ -26,11 +26,11 @@ Add the following line to your lovelace resources
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entities | List | none | Sets the calendar entity or entities used for this card |
-| numberOfDays | Integer | 60 | Sets the number of days ahead shown on the card |
-| dateTopFormat | String | DD/MM | Sets the date format |
+| entities | yes | none | Sets the calendar entity or entities used for this card |
+| numberOfDays | no | 60 | Sets the number of days ahead shown on the card |
+| dateTopFormat | no | DD/MM | Sets the date format |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/calendar/), you can name the file however you want (e.g. calendar-card.yaml)
@@ -59,3 +59,5 @@ Add the following line to your lovelace resources
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

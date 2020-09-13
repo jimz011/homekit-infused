@@ -14,10 +14,10 @@ This is an iFrame to embed a websites in.
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| aspect_ratio | String | 125% | Sets the aspect ratio, this MUST be a percentage |
-| url | String | none | Sets the url of the website that needs to be embedded, note that if you use https you can ONLY embed https websites! Also note that not all websites can be embedded. |
+| aspect_ratio | no | 125% | Sets the aspect ratio, this MUST be a percentage |
+| url | String | yes | Sets the url of the website that needs to be embedded, note that if you use https you can ONLY embed https websites! Also note that not all websites can be embedded. |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/weather/), you can name the file however you want (e.g. iframe-card.yaml)
@@ -48,3 +48,5 @@ This is an iFrame to embed a websites in.
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

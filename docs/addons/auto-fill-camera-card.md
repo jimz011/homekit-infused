@@ -21,10 +21,11 @@ camera.living_room:
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| aspect_ratio | String | 16x9 | Sets the aspect ratio of the camera image |
-| columns | Integer | 1 | Sets the number of images stacked horizontally |
+| aspect_ratio | no | 16x9 | Sets the aspect ratio of the camera image |
+| columns | no | 1 | Sets the number of images stacked horizontally |
+| sort | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/security/), you can name the file however you want (e.g. camera-card.yaml)
@@ -35,4 +36,5 @@ camera.living_room:
   - '../../../base/templates/auto-fill/auto-fill-camera-template.yaml'
   - aspect_ratio: 16x9
     columns: 1
+    sort: name
 ```

@@ -30,16 +30,16 @@ sensor:
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| person | String | none | Sets the person entity for this card |
-| image_path | String | none | Sets the location of the image used on this card |
-| navigation_path | String | none | You can choose between: `person_1, person_2, person_3 and person_4`, there are only 4 dedicated views for persons, to rename the person view header text you will need to edit the `/user/config/header_config.yaml` file! |
-| alignment | String | left | Sets the alignment of the text and icons, choose from left or right (my advice would be to use left for the left photo and right for the right photo (if you use more than one) |
-| text_color | String | white | Sets the text color within the card |
-| phone_battery_sensor | String | none | Enter the phone battery sensor of this person (this is required!) |
-| travel_time_to_home | String | none | Enter the sensor that shows you the travel time to home (this is required!) |
-| travel_time_to_work | String | none | Enter the sensor that shows you the travel time to work (this is required!) |
+| person | yes | none | Sets the person entity for this card |
+| image_path | no | none | Sets the path of the image used on this card (usually www/images/) |
+| navigation_path | yes | none | You can choose between: `person_1, person_2, person_3 and person_4`, there are only 4 dedicated views for persons, to rename the person view header text you will need to edit the `/user/config/header_config.yaml` file! |
+| alignment | yes | left | Sets the alignment of the text and icons, choose from left or right (my advice would be to use left for the left photo and right for the right photo (if you use more than one) |
+| text_color | no | white | Sets the text color within the card |
+| phone_battery_sensor | yes | none | Enter the phone battery sensor of this person |
+| travel_time_to_home | yes | none | Enter the sensor that shows you the travel time to home |
+| travel_time_to_work | yes | none | Enter the sensor that shows you the travel time to work |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/frontpage/), you can name the file however you want (e.g.frontpage-photos-card.yaml)

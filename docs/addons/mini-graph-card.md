@@ -28,23 +28,23 @@ Add the following line to your lovelace resources
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | String | none | Sets the entity used for the graph, unfortunately templating only works when using a single entity, if you want a card that shows multiple entities visit https://github.com/kalkih/mini-graph-card for more information (this card must be created by yourself) |
-| name | String | none | Sets the name of the card |
-| points_per_hour | Integer | 2 | Sets the points measured per hour |
-| line_width | Integer | 3 | Sets the line/bar width of the card |
-| hour24 | Boolean | true | Show 12 or 24 hours |
-| animate | Boolean | true | Animate the line when opening the card |
-| decimals | Integer | 1 | Amount of decimals shown |
-| font_size | Integer | 53 | Sets the font size of the card |
-| height | Integer | 90 | Sets the height of the card |
+| entity | yes | none | Sets the entity used for the graph, unfortunately templating only works when using a single entity, if you want a card that shows multiple entities visit https://github.com/kalkih/mini-graph-card for more information (this card must be created by yourself) |
+| name | yes | none | Sets the name of the card |
+| points_per_hour | no | 2 | Sets the points measured per hour |
+| line_width | no | 3 | Sets the line/bar width of the card |
+| hour24 | no | true | Show 12 or 24 hours |
+| animate | no | true | Animate the line when opening the card |
+| decimals | no | 1 | Amount of decimals shown |
+| font_size | no | 53 | Sets the font size of the card |
+| height | no | 90 | Sets the height of the card |
 | graph_type | String | line | Sets the card to have a `graph` or a `bar`|
-| show_icon | Boolean | false | Show icon on the card |
-| show_fill | Boolean | true | Fills the line with the same color |
-| show_extrema | Boolean | false | Show extra information like high/low on the card |
-| show_average | Boolean | false | Show average on the card |
-| font_size_header | Integer | 9 | Sets the header font size |
+| show_icon | no | false | Show icon on the card |
+| show_fill | no | true | Fills the line with the same color |
+| show_extrema | no | false | Show extra information like high/low on the card |
+| show_average | no | false | Show average on the card |
+| font_size_header | no | 9 | Sets the header font size |
 | line_color | String | red | Sets the color of the line/bar |
 
 ### Install
@@ -89,3 +89,5 @@ Add the following line to your lovelace resources
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

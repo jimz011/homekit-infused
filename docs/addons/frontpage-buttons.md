@@ -10,8 +10,8 @@ Back to [Addon List](../addon_list.md)
 This is the default HKI frontpage navigation row. 
 
 ### Configuration
-- For detailed instructions on how to use this, please follow read the [button (navigation)](button-navigation.md) documentation!
-- If you use the default config (the config below) then no additional config is required.
+- For detailed instructions on how to use this, please read the [button (navigation)](button-navigation.md) documentation!
+- If you use the default config (the config below) then no additional config is required, you can simply copy and paste this to your own setup.
 
 ### Advanced
 For detailed instructions on how to use this, please follow read the [button (navigation)](button-navigation.md) documentation!

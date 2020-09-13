@@ -13,9 +13,9 @@ This card is used to create a header style name for the views (see screenshot)
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name | String | none | Sets the name/title to show |
+| name | yes | none | Sets the name/title to show |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/location/), you can name the file however you want (e.g. title-text-card.yaml)
@@ -45,3 +45,6 @@ This card is probably best used when placed inside a vertical-stack (this will a
           entity: light.livingroom_lamp_3
 ```
 Vertical stacks will render from top to bottom, horizontal-stacks from left to right. In this example the vertical-stack is the 'parent'. It will render the title-text-card as it's first card, the second card is a horizontal-stack (which has 3 buttons in it). Since the buttons are placed inside the horizontal-stack the buttons will be stacked next to each other horizontally.
+
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

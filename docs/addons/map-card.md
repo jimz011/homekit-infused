@@ -13,11 +13,11 @@ This is a map card to show the location of person and/or device_trackers.
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| default_zoom | Integer | 15 | Sets the default zoom when opening the map |
-| aspect_ratio | String | 16x9 | Sets the height/width of the map |
-| entities | List | none | Sets the entities that will be shown on the map |
+| default_zoom | no | 15 | Sets the default zoom when opening the map |
+| aspect_ratio | no | 16x9 | Sets the height/width of the map |
+| entities | yes | none | Sets the entities that will be shown on the map |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/location/), you can name the file however you want (e.g. map-card.yaml)
@@ -48,3 +48,5 @@ This is a map card to show the location of person and/or device_trackers.
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

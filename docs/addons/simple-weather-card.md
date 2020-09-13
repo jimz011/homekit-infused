@@ -26,12 +26,12 @@ Add the following line to your lovelace resources
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | String | weather.dark_sky | Sets the weather entity used for this card |
-| name | String | none | Sets the city name shown on the card |
-| backdrop | Boolean | false | Sets a backdrop for the card |
-| tap_action | You can simply change the tap_action to navigate elsewhere or call a service |
+| entity | yes | weather.dark_sky | Sets the weather entity used for this card |
+| name | no | none | Sets the city name shown on the card |
+| backdrop | no | false | Sets a backdrop for the card |
+| tap_action | no | navigate | You can simply change the tap_action to navigate elsewhere or call a service just as you'd do with core HA lovelace cards |
 
 
 ### Install
@@ -60,3 +60,5 @@ Add the following line to your lovelace resources
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

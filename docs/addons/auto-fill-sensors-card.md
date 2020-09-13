@@ -36,11 +36,11 @@ binary_sensor.living_room_motion:
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type | String | none | Sets the type that needs to be auto-filled, use the same type as you have set in your customize.yaml file |
-| columns | Integer | 3 | Sets the number of buttons stacked horizontally |
-| sort | String | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
+| type | yes | none | Sets the type that needs to be auto-filled, use the same type as you have set in your customize.yaml file |
+| columns | no | 3 | Sets the number of buttons stacked horizontally |
+| sort | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/climate/), you can name the file however you want (e.g. temperature-sensors-card.yaml)

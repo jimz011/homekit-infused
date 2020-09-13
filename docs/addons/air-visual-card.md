@@ -26,13 +26,13 @@ Add the following line to your lovelace resources
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| air_pollution_level | String | sensor.u_s_air_pollution_level | Sets the air pollution sensor for this card |
-| air_quality_index | String | sensor.u_s_air_quality_index | Sets the air quality index sensor for this card |
-| main_pollutant | String | sensor.u_s_main_pollutant | Sets the main pollutant sensor for this card |
-| temp | String | weather.dark_sky | Sets your current weather entity for this card |
-| city | String | Eindhoven | Sets the city name that you are currently monitoring |
+| air_pollution_level | yes | sensor.u_s_air_pollution_level | Sets the air pollution sensor for this card |
+| air_quality_index | yes | sensor.u_s_air_quality_index | Sets the air quality index sensor for this card |
+| main_pollutant | yes | sensor.u_s_main_pollutant | Sets the main pollutant sensor for this card |
+| temp | yes | weather.dark_sky | Sets your current weather entity for this card |
+| city | yes | Eindhoven | Sets the city name that you are currently monitoring |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/weather/), you can name the file however you want (e.g. air-visual-card.yaml)
@@ -57,3 +57,5 @@ Add the following line to your lovelace resources
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

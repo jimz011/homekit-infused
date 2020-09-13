@@ -39,13 +39,13 @@ sun:
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | String | weather.dark_sky | Sets the weather entity used for this card |
-| current | Boolean | true | Show the current weather icon, the current temperature and title |
-| forecast | Boolean | true | Shows forecast |
-| hourly_forecast | Boolean | False | Shows hourly forecast |
-| number_of_forecasts | Integer | 5 | Shows number of forecasts |
+| entity | yes | weather.dark_sky | Sets the weather entity used for this card |
+| current | no | true | Show the current weather icon, the current temperature and title |
+| forecast | no | true | Shows forecast |
+| hourly_forecast | no | False | Shows hourly forecast |
+| number_of_forecasts | no | 5 | Shows number of forecasts |
 
 
 ### Install
@@ -74,3 +74,5 @@ sun:
     - !include ../../../base/includes/gap.yaml
 ```
 
+### Layout card and horizontal/vertical stacks
+I know the HA documentation has this perfectly explained already, but to make it easier on you I will try to explain in more detail [here](../addons/stacks.md)

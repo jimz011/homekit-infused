@@ -12,18 +12,8 @@ This is the default HKI menu (in case you require this and deleted it by acciden
 
 ### Configuration
 - No additional configuration required
-- To configure badges inside the buttons please read the advanced section
-
-### Advanced
-
-| Parameters | Type | Default | Description |
-|----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name | String | none | Sets the name for the button |
-| icon | String | none | Sets the icon for the button |
-| label | String | none | Sets the label for the button |
-| notification | Template | none | Set a badge on a button, the badge will show what is set in the template, to make it easy all you'd need to do is replace the `input_number.empty` entity for an entity of which you want the state to be shown inside the badge (experienced users can set any template they want) |
-| background_color | Template | none | Sets background color of the badge, to make it easy all you'd need to do is replace the `input_number.empty` with the exact same entity as you have put inside the notification parameter explained above |
-| navigation_path | String | none | HKI views are hardcoded, unless you know what you are doing you should NOT touch this! |
+- For detailed instructions on how to use this, please read the [button (navigation)](button-navigation.md) documentation! (this can help you create cool badges inside of the menu/frontpage buttons)
+- Note for HKI 3.0.3 users and below, please update the menu with the new code!
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/menu/), you can name the file however you want (e.g. menu-card.yaml)

@@ -8,20 +8,21 @@ Back to [Addon List](../addon_list.md)
 ![Homekit Infused](../images/climate-preset-buttons.png)
 
 ### Description
-This is a predefined set of buttons to use with your climate entities. It is advised to put this on your climate view.
+This is a predefined set of buttons to use with your climate entities. It is advised to put this on your climate view. 
 
 ### Configuration
-- Please change the parameters you need to set below
+- The addon is plug and play and should work immediately without any adjustments
+- Please change the parameters you need to set below if you do need to change something
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name | String | none | Sets the name of the button |
-| label | String | none | Sets the label of the button |
-| icon | String | none | Sets the icon of the button |
-| option | Integer | none | Sets the temperature preset of the button |
-| other | Do NOT touch the other stuff! |
+| name | yes | none | Sets the name of the button |
+| label | yes | none | Sets the label of the button |
+| icon | yes | none | Sets the icon of the button |
+| option | yes | none | Sets the temperature preset of the button |
+| other | | | Do NOT touch the other stuff! |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/climate/), you can name the file however you want (e.g. climate-presets-card.yaml)

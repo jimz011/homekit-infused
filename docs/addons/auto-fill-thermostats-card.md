@@ -34,10 +34,11 @@ climate.living_room:
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lock | String | false | Sets a lock on the button to avoid accidental presses (unlocking is done by a single tap) |
-| columns | Integer | 1 | Sets the number of images stacked horizontally |
+| lock | no | false | Sets a lock on the button to avoid accidental presses (unlocking is done by a single tap) |
+| columns | no | 3 | Sets the number of images stacked horizontally |
+| sort | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/climate/), you can name the file however you want (e.g. thermostat-card.yaml)
@@ -48,5 +49,6 @@ climate.living_room:
   - '../../../base/templates/auto-fill/auto-fill-thermostat-template.yaml'
   - lock: false
     columns: 3
+    sort: name
 ```
 

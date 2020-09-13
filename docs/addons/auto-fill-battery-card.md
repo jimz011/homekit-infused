@@ -15,12 +15,12 @@ This card is used to automatically fill your battery entities and make a nice ov
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| exclude | List | none | Sets the battery entities to be excluded from the card |
-| column_num | Integer | 1 | Sets how many battery entities should be stacked horizontally on each column |
-| method | String | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
-| other | It is probably best if you leave all the other settings alone! |
+| exclude | no | none | Sets the battery entities to be excluded from the card |
+| column_num | no | 1 | Sets how many battery entities should be stacked horizontally on each column |
+| method | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
+| other | | | It is probably best if you leave all the other settings alone! |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/battery/), you can name the file however you want (e.g. battery-card.yaml)

@@ -53,12 +53,13 @@ When using multi floor setups you will have to change the code slightly, you can
 
 ### Advanced
 
-| Parameters | Type | Default | Description |
+| Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| state | Integer | 0 | Sets a floor number, this is needed to create conditions as to when to show what floors |
-| max_columns | Integer | 3 | Do NOT touch this!! Use the parameter below for setting the columns! |
-| columns | Integer | 1 | Sets the number of buttons stacked horizontally |
-| _global.devices_rooms_floor_X | Integer | 0 | Replace `X` with a floor number, this MUST match the state condition |
+| state | yes/no | 0 | Sets a floor number, this is needed to create conditions as to when to show what floors (the conditional card is only required when using multiple floors) |
+| max_columns | no | 3 | Do NOT touch this!! Use the parameter below for setting the columns! |
+| columns | no | 3 | Sets the number of buttons stacked horizontally |
+| sort | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
+| _global.devices_rooms_floor_X | yes/no | 0 | Replace `X` with a floor number, this MUST match the state condition when using multi-floor. When using a single floor make sure you use the same floor as defined in room_config.yaml |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/devices/), you can name the file however you want (e.g. devices-card.yaml)
@@ -67,20 +68,15 @@ When using multi floor setups you will have to change the code slightly, you can
 ##### Basic, only one floor
 ```
 # lovelace_gen
-- type: conditional
-  conditions:
-    - entity: input_select.floor_selector
-      state: "0"
-  card:
-    type: custom:layout-card
-    max_columns: 3
-    cards:
-      {% for rooms in _global.devices_rooms_floor_0 %}
-      - !include
-        - '../../../base/templates/auto-fill/auto-fill-devices-template.yaml'
-        - rooms: {{ rooms }}
-          columns: 3
-      {% endfor %}
+- type: custom:layout-card
+  max_columns: 3
+  cards:
+    {% for rooms in _global.devices_rooms_floor_0 %}
+    - !include
+      - '../../../base/templates/auto-fill/auto-fill-devices-template.yaml'
+      - rooms: {{ rooms }}
+        columns: 3
+    {% endfor %}
 ```
 
 ##### Multifloor
