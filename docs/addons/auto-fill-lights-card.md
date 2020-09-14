@@ -62,6 +62,29 @@ When using multi floor setups you will have to change the code slightly, you can
 | sort | no | name | Sorts the cards in a different order, choose from: domain, entity_id, name, state, attribute, last_changed last_updated or last_triggered |
 | _global.lights_rooms_floor_X | yes/no | 0 | Replace `X` with a floor number, this MUST match the state condition when using multi-floor. When using a single floor make sure you use the same floor as defined in room_config.yaml |
 
+##### Popup Settings
+*Requires HKI Framework 3.0.5 or higher
+
+Only the slider_height will be applied to all popups, all other settings will ONLY apply to the rgb popup card!
+You should try to match the colors from the image to the color you are actually calling the service for. Unfortunately the image shown needs a hex color and the service called wants an rgb color. To find out color names you can check out the [Google Color Picker](https://www.google.com/search?q=color+picker&oq=color+picker&aqs=chrome..69i57j35i39j0l6.1308j0j4&sourceid=chrome&ie=UTF-8).
+
+| Properties | Required | Default | Description |
+|----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+slider_height | 410px
+slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+color_1 | no | '#ff8800' | Sets the image color of the upper left preset |
+color_2 | no | '#ff005f' | Sets the image color of the upper middle preset |
+color_3 | no | '#28ff00' | Sets the image color of the upper right preset |
+color_4 | no | '#00a0ff' | Sets the image color of the lower left preset |
+color_5 | no | '#8300ff' | Sets the image color of the lower middle preset |
+color_6 | no | '#0300ff' | Sets the image color of the lower right preset |
+service_color_1 | no | [255, 136, 0] | Sets the color of the actual service-call |
+service_color_2 | no | [255, 0, 95] | Sets the color of the actual service-call |
+service_color_3 | no | [40, 255, 0] | Sets the color of the actual service-call |
+service_color_4 | no | [0, 160, 255] | Sets the color of the actual service-call |
+service_color_5 | no | [131, 0, 255] | Sets the color of the actual service-call |
+service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call |
+
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/lights/), you can name the file however you want (e.g. lights-card.yaml)
 - Copy the code below and make changes if needed
