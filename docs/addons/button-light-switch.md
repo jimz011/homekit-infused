@@ -62,6 +62,34 @@ Add the following lines to your lovelace resources
 | template | no | `'../popup-cards/light-switch.yaml'` | Only change this if you need a different popup for your lights, by default you have the choice between `light-switch.yaml`, `light-rgb.yaml` and `light-color-temp.yaml`, but you could copy one of these light templates from the base folder and create your own (which is useful if you want to change the preset colors in the popup) |
 | grid | no | `'!include ../../../base/includes/light-devices-grid.yaml'` | By default this will set the label to be shown at the bottom right corner of the button, to have the name, state and label alligned vertically you must remove this line! Experienced users could slightly change the grid to their likings, but it has to be in a separate file! (e.g. `../user/templates/custom-grid.yaml`) |
 
+##### Popup Settings
+*Requires HKI Framework 3.0.5 or higher
+
+*If you don't need any changes to the popups or if you have set the hold_action to be a more-info or none action you can skip this part!
+
+You can add different settings to the popups, the `display_type` and `slider_height` will work with all three popup templates (light-switch.yaml light-rgb.yaml and light-color-temp.yaml). All other settings will ONLY work with the light-rgb.yaml popup!
+
+You should try to match the colors from the image to the color you are actually calling the service for. Unfortunately the image shown needs a hex color and the service called wants an rgb color. To find out color names you can check out the [Google Color Picker](https://www.google.com/search?q=color+picker&oq=color+picker&aqs=chrome..69i57j35i39j0l6.1308j0j4&sourceid=chrome&ie=UTF-8).
+
+| Properties | Required | Default | Description |
+|----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+display_type | no | auto | Force a `slider` or a `switch`, else set to `auto` |
+slider_height | no | 410px | Sets the height for the switch/slider |
+
+slider_colored_by_light | no | true | Set the slider to have the same color as the light currently is |
+color_1 | no | '#ff8800' | Sets the image color of the upper left preset |
+color_2 | no | '#ff005f' | Sets the image color of the upper middle preset |
+color_3 | no | '#28ff00' | Sets the image color of the upper right preset |
+color_4 | no | '#00a0ff' | Sets the image color of the lower left preset |
+color_5 | no | '#8300ff' | Sets the image color of the lower middle preset |
+color_6 | no | '#0300ff' | Sets the image color of the lower right preset |
+service_color_1 | no | [255, 136, 0] | Sets the color of the actual service-call |
+service_color_2 | no | [255, 0, 95] | Sets the color of the actual service-call |
+service_color_3 | no | [40, 255, 0] | Sets the color of the actual service-call |
+service_color_4 | no | [0, 160, 255] | Sets the color of the actual service-call |
+service_color_5 | no | [131, 0, 255] | Sets the color of the actual service-call |
+service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call |
+
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/lights/), you can name the file however you want (e.g. custom-buttons.yaml)
