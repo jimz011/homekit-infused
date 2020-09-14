@@ -64,14 +64,15 @@ When using multi floor setups you will have to change the code slightly, you can
 
 ##### Popup Settings
 *Requires HKI Framework 3.0.5 or higher
+*If you don't need any changes to the popups you can skip this part!
 
 Only the slider_height will be applied to all popups, all other settings will ONLY apply to the rgb popup card!
 You should try to match the colors from the image to the color you are actually calling the service for. Unfortunately the image shown needs a hex color and the service called wants an rgb color. To find out color names you can check out the [Google Color Picker](https://www.google.com/search?q=color+picker&oq=color+picker&aqs=chrome..69i57j35i39j0l6.1308j0j4&sourceid=chrome&ie=UTF-8).
 
 | Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-slider_height | 410px
-slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+slider_height | no | 410px | Sets the height for the switch/slider (this will change all the light popups!) |
+slider_colored_by_light | no | true | Set the slider to have the same color as the light currently is |
 color_1 | no | '#ff8800' | Sets the image color of the upper left preset |
 color_2 | no | '#ff005f' | Sets the image color of the upper middle preset |
 color_3 | no | '#28ff00' | Sets the image color of the upper right preset |
