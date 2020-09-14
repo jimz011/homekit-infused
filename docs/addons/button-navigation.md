@@ -12,7 +12,7 @@ This is the default HKI navigation button, it is by default used in the [menu](m
 ### Configuration
 - You will need to set the name, icon, label and navigation path
 - When using a layout-card you can also set a column size, else just use a horizontal-stack to stack buttons
-- You can add a button badge if you like
+- You can add a button badge if you like, the easiest way would be to replace `input_number.empty` with the entity you want to show in the badge.
 
 ### Advanced
 
