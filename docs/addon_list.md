@@ -81,6 +81,7 @@
 
 ### Other Documentation
 #### Extra Information
-  - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
+  - [Device Counters](addons/device_counters.md) *new
   - [Header Templates](addons/header_templates.md) *new
   - [Notifications](addons/notifications.md) *new
+  - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
