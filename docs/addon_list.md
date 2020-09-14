@@ -83,4 +83,4 @@
 #### Extra Information
   - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
   - [Header Templates](addons/header_templates.md) *new
-  - [Notifications]
+  - [Notifications](addons/notifications.md) *new
