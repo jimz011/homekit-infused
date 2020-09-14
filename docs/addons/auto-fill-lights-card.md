@@ -64,6 +64,7 @@ When using multi floor setups you will have to change the code slightly, you can
 
 ##### Popup Settings
 *Requires HKI Framework 3.0.5 or higher
+
 *If you don't need any changes to the popups you can skip this part!
 
 Only the slider_height will be applied to all popups, all other settings will ONLY apply to the rgb popup card!
