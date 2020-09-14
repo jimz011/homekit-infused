@@ -68,7 +68,7 @@
   - [Vacuum Card]
   - [Vacuum Control Card]
   - [Vacuum Speed Control Card]
-  - [Vacuum Live Map] (Valetudo RE only!)
+  - [Vacuum Live Map](addons/vacuum-live-map.md) (Valetudo RE only!)
   - [Vacuum Presets] (Valetudo RE only!)
   
 #### Weather
