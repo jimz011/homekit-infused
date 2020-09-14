@@ -75,7 +75,7 @@ You should try to match the colors from the image to the color you are actually 
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 display_type | no | auto | Force a `slider` or a `switch`, else set to `auto` |
 slider_height | no | 410px | Sets the height for the switch/slider |
-
+||||
 slider_colored_by_light | no | true | Set the slider to have the same color as the light currently is |
 color_1 | no | '#ff8800' | Sets the image color of the upper left preset |
 color_2 | no | '#ff005f' | Sets the image color of the upper middle preset |
