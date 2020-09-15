@@ -40,7 +40,7 @@ Themes are a personal thing and so I want HKI to be your personal thing too, so 
 | state-font-size | yes | 10px | Sets the font size for button states |
 | state-font-weight | yes | bold | Sets the font weight for button states |
 | badge-font-size | yes | 10px | Sets the font size of text inside badges |
-| badge-font-weight | yes | Sets the font weight of text inside badges |
-| badge-text-transform | yes | Set if text inside badges need to be transformed (e.g. `uppercase`, `lowercase` or `capitalize`) |
+| badge-font-weight | yes | normal | Sets the font weight of text inside badges |
+| badge-text-transform | yes | capitalize | Set if text inside badges need to be transformed (e.g. `uppercase`, `lowercase` or `capitalize`) |
 
 After changing any of these properties in your theme files you can simply go to the menu in lovelace and go to `menu > ha settings > reload themes`. Wait a second or 2 and the changes should be instant.
