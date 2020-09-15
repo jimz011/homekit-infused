@@ -36,8 +36,8 @@ sensor:
 The automation below may or may not work correctly out of the box, your vacuum might have different names for the speed settings on your xiaomi. The settings used here should be default for a Roborock S50/S55.
 If it doesn't work out of the box, note that you will have to change the entity_id first and then you might need to change the set_fan_speed property. Do NOT change the input_select.xiaomi_vacuum names or options, even if it doesn't correspond with your own fan settings!
 More examples of this in the extra information section
-{% raw %}
-```
+
+{% raw %}```
 # example automations
 automation:
   # Xiaomi Fan Speed
@@ -167,4 +167,4 @@ automation:
           {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '105') %}
             Gentle
           {% endif %}
-```
+```{% endraw %}
