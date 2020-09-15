@@ -58,17 +58,21 @@
                         notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return '&nbsp'; else return `Update`; ]]]"
                         background_color: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
                     - !include
-                      - base/templates/button/navigation.yaml
+                      - base/templates/button/button-badge.yaml
                       - name: HKI
                         label: Settings
                         icon: mdi:palette
                         navigation_path: ../homekit-infused/hki_settings
+                        notification: "[[[ return '&nbsp'; ]]]"
+                        background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
                     - !include
-                      - base/templates/button/navigation.yaml
+                      - base/templates/button/button-badge.yaml
                       - name: HA
                         label: Settings
                         icon: mdi:cogs
                         navigation_path: ../homekit-infused/ha_settings
+                        notification: "[[[ return '&nbsp'; ]]]"
+                        background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
                     - !include base/includes/gap.yaml
 - path: about
   visible: false
@@ -136,6 +140,7 @@
                       aspect_ratio: 5/1
                       layout: icon_name_state
                       size: 50%
+                      entity: input_boolean.dummy1
                       name: Follow me on Youtube
                       icon: mdi:youtube
                       tap_action:
@@ -159,6 +164,7 @@
                       aspect_ratio: 5/1
                       layout: icon_name_state
                       size: 50%
+                      entity: input_boolean.dummy1
                       name: Follow me on Github
                       icon: mdi:github-box
                       tap_action:
@@ -182,6 +188,7 @@
                       aspect_ratio: 5/1
                       layout: icon_name_state
                       size: 50%
+                      entity: input_boolean.dummy1
                       name: Follow me on the HA Forums
                       icon: mdi:home-assistant
                       tap_action:
@@ -205,6 +212,7 @@
                       aspect_ratio: 5/1
                       layout: icon_name_state
                       size: 50%
+                      entity: input_boolean.dummy1
                       name: Feature Requests
                       icon: mdi:plus-circle-outline
                       tap_action:
@@ -228,6 +236,7 @@
                       aspect_ratio: 5/1
                       layout: icon_name_state
                       size: 50%
+                      entity: input_boolean.dummy1
                       name: Bug Reports & Issues
                       icon: mdi:bug
                       tap_action:
@@ -524,6 +533,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Reload
+                            entity: input_boolean.dummy1
                             label: Core Config
                             icon: mdi:home-assistant
                             service: homeassistant.reload_core_config
@@ -533,6 +543,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Reload
+                            entity: input_boolean.dummy1
                             label: Groups
                             icon: mdi:account-multiple-plus
                             service: group.reload
@@ -542,6 +553,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Reload
+                            entity: input_boolean.dummy1
                             label: Themes
                             icon: mdi:format-color-fill
                             service: frontend.reload_themes
@@ -551,6 +563,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Reload
+                            entity: input_boolean.dummy1
                             label: Automations
                             icon: mdi:alpha-a-box
                             service: automation.reload
@@ -560,6 +573,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Reload
+                            entity: input_boolean.dummy1
                             label: Lovelace
                             icon: mdi:cards-heart
                             service: browser_mod.lovelace_reload
@@ -569,6 +583,7 @@
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Restart
+                            entity: input_boolean.dummy1
                             label: Home Assistant
                             icon: mdi:restart
                             service: homeassistant.restart
