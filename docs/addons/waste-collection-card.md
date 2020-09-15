@@ -48,6 +48,8 @@ sensor.mijnafvalwijzer_restafval:
         ha-card {
           box-shadow: var(--box-shadow);
           border-radius: var(--border-radius);
+          font-family: var(--font-family);
+          font-size: var(--name-font-size);
           opacity: 0.8;
         }
       entities:
