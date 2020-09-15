@@ -1,14 +1,16 @@
 # Homekit Infused
 
-## Contents
+## Framework Content
 - [Introduction](index.md)
-- [Homekit Infused Framework](framework.md)
-- [Homekit Infused Addons](addons.md)
-- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
+- [Framework Documentation](framework.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
+
+## Addons Content
+- [Addons Documentation](addons.md)
+- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 
 # Addon List
 
