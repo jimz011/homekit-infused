@@ -45,8 +45,8 @@ Add the following line to your lovelace resources
         ha-card {
           border-radius: var(--border-radius);
           box-shadow: var(--box-shadow);
-          font-family: Helvetica;
-          font-size: 12px;
+          font-family: var(--font-family;
+          font-size: var(--name-font-size);
           opacity: 0.8;
           overflow: hidden;
         }
