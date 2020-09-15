@@ -7,73 +7,43 @@
 # All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
 all_climate_entities:
   entities:
-   # - climate.tado_smart_radiator_thermostat_va1671957504
-   # - climate.tado_smart_radiator_thermostat_va2898201344
 
 # All Fans (Enter all your fans in here)
-all_fans:
-  entities:
-
-# All Temperature Sensors
-all_temperature_sensors:
-  entities:
-
-# All Humidity Sensors
-all_humidity_sensors:
-  entities:
-
-# All Air Pressure Sensors
-all_air_pressure_sensors:
+all_fan_entities:
   entities:
 
 # Window Sensors
-all_window_sensors:
+all_window_sensor_entities:
   entities:
 
 # Door Sensors
-all_door_sensors:
+all_door_sensor_entities:
   entities:
 
 # Motion Sensors
-all_motion_sensors:
+all_motion_sensor_entities:
   entities:
 
-# Smoke Detectors
-all_smoke_detectors:
+# All Detectors (smoke/gas/fire etc)
+all_detector_entities:
   entities:
 
-# All Binary Sensors (door/window/motion/smoke/gas etc)
-all_binary_sensors:
+# All Binary Sensors (put all your binary sensors here e.g. smoke/gas/fire/door/window/motion etc. You can use this as a counter on the security button)
+all_binary_sensor_entities:
+  entities:
+    
+# All Lights
+all_light_entities:
   entities:
 
-# All Motion, Smoke, Fire and Gas Sensors
-all_motion_smoke_sensors:
+# All Devices
+all_device_switch_entities:
   entities:
-  
-# All Lights (Used in counters only)
-all_lighting:
-  entities:
-
-# All Devices (Used in counters only)
-all_device_switches:
-  entities:
-
-# All Computers (This isn't used yet, though you can just fill it in)
-all_computers:
-  entities:
-
-# All TV's (Can be shown on the remote button to show the number of tv's)
-all_tvs:
-  entities:
-
-# All Laundry Devices (e.g. washing-machine, tumble-dryer or dishwasher)
-all_laundry_devices:
-  entities:
-
+    
 # All Covers
-all_covers:
+all_cover_entities:
   entities:
 
 # All Garage Doors
-all_garage_doors:
+all_garage_door_entities:
   entities:
