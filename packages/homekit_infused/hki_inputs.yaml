@@ -10,6 +10,7 @@ input_boolean:
   update_ha:
   update_hki:
   day_night_cycle:
+  empty:
 
 input_number:
   empty:
