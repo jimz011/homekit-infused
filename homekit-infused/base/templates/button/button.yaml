@@ -105,6 +105,21 @@ double_tap_action:
       !include
       - {{ template|default('../popup-cards/light-switch.yaml') }}
       - entity: {{ entity }}
+        slider_height: "{{ slider_height|default('410px') }}"
+        display_type: {{ display_type|default('auto') }}
+        slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+        color_1: "{{ color_1|default('#ff8800') }}"
+        color_2: "{{ color_2|default('#ff005f') }}"
+        color_3: "{{ color_3|default('#28ff00') }}"
+        color_4: "{{ color_4|default('#00a0ff') }}"
+        color_5: "{{ color_5|default('#8300ff') }}"
+        color_6: "{{ color_6|default('#0300ff') }}"
+        service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+        service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+        service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+        service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+        service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+        service_color_6: {{ service_color_6|default([3, 0, 255]) }}
     deviceID:
       - this
   haptic: heavy
@@ -113,20 +128,18 @@ styles:
     - border-radius: var(--border-radius)
     - box-shadow: var(--box-shadow)
   label:
-    - font-weight: normal
-    - font-size: 10px
+    - font-weight: var(--label-font-weight)
+    - font-size: var(--label-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
-#    - color: var(--primary-text-color) 
   state:
-    - font-size: 10px
+    - font-size: var(--state-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
-    - font-weight: bold
-#    - color: var(--state-color-off) 
+    - font-weight: var(--state-font-weight)
   grid: {{ grid }}
   img_cell:
     - align-self: start
@@ -136,14 +149,14 @@ styles:
   name:
     - justify-self: start
     - padding: 0px 10px
-    - font-weight: bold
+    - font-weight: var(--name-font-weight)
     - font-family: var(--font-family) 
-    - font-size: 12px
-#    - color: var(--primary-text-color) 
+    - font-size: var(--name-font-size)
   icon:
     - padding: 0px 10px
   entity_picture:
     - margin-top: 10px
+    - margin-left: 6px
 state:
   - value: "on" 
     spin: {{ spin_on|default('false') }} 
@@ -204,3 +217,12 @@ state:
         - color: var(--primary-text-color)
       lock:
         - color: var(--paper-item-icon-color)
+  - value: 20
+    operator: '<='
+    color: red
+  - value: 50
+    operator: '<='
+    color: orange
+  - value: 100
+    operator: '<='
+    color: green

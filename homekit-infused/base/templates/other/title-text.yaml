@@ -17,9 +17,9 @@ cards:
             - box-shadow: none
           name:
             - justify-self: start
-            - font-size: 12px
+            - font-size: var(--title-text-font-size)
             - margin-left: 5px
             - font-family: var(--font-family)
-            - font-weight: bolder
-            - color: var(--category-text)
+            - font-weight: var(--title-text-font-weight)
+            - color: var(--title-text-color)
       - !include ../../includes/gap.yaml

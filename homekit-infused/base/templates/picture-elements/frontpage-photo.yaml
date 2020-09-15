@@ -29,6 +29,7 @@ elements:
       bottom: 0
       pointer-events: none
       font-size: 13px
+      font-family: var(--font-family)
       line-height: 15px
       color: {{ text_color }}
       background-color: rgba(0, 0, 0, 0.3)
@@ -43,6 +44,7 @@ elements:
       pointer-events: none
       transform: initial
       font-size: 12px
+      font-family: var(--font-family)
       color: {{ text_color }}
       line-height: 32px
       padding: 0px 28px
@@ -57,6 +59,7 @@ elements:
       line-height: 32px
       padding: 7px 7px
       font-size: 11px
+      font-family: var(--font-family)
   - type: conditional
     conditions:
       - state: "home"
@@ -70,6 +73,7 @@ elements:
           pointer-events: none
           transform: initial
           font-size: 12px
+          font-family: var(--font-family)
           color: {{ text_color }}
           line-height: 32px
           padding: 28px 28px
@@ -84,6 +88,7 @@ elements:
           line-height: 32px
           padding: 35px 7px
           font-size: 11px  
+          font-family: var(--font-family)
   - type: conditional
     conditions:
       - state_not: "home"
@@ -97,6 +102,7 @@ elements:
           pointer-events: none
           transform: initial
           font-size: 12px
+          font-family: var(--font-family)
           color: {{ text_color }}
           line-height: 32px
           padding: 28px 28px
@@ -111,3 +117,4 @@ elements:
           line-height: 32px
           padding: 35px 7px
           font-size: 11px  
+          font-family: var(--font-family)

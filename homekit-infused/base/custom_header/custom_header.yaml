@@ -16,11 +16,11 @@ hide_config: true
 hide_raw: true
 # default_tab: home
 shadow: 'false'
-all_tabs_css: "color: var(--header-color) !important;"
+all_tabs_css: "color: var(--header-text-color) !important;"
 hidden_tab_redirect: false
 # header_text: "{{ viewTitle }}"
 # header_text_css: 'font-weight: bold;'
-options_css: "color: var(--header-color) !important;"
+options_css: "color: var(--header-text-color) !important;"
 button_text:
   options: "&nbsp; {{ user }}"
 tab_icons:

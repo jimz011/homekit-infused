@@ -8,7 +8,7 @@ style: |
     background: transparant;
     box-shadow: none;
     color: white !important;
-    font-size: 12px;
+    font-size: var(--name-font-size);
     font-family: var(--font-family);
     --paper-item-icon-color: white !important;
     --primary-text-color: white !important;

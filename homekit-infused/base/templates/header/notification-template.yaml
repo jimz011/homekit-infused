@@ -27,12 +27,12 @@ styles:
     - height: 45px
     - width: {{ width|default('350px') }}
   name:
-    - font-size: 12px
+    - font-size: var(--subtitle-font-size)
     - font-family: var(--font-family)
-    - color: var(--header-color)
+    - color: var(--subtitle-text-color)
     - justify-self: {{ justify_self|default('start') }}
     - padding-left: {{ padding_left|default('0px') }}
-    - font-weight: normal
+    - font-weight: var(--subtitle-font-weight)
 #  img_cell:
 #    - align-self: start
 #    - text-align: start
@@ -42,7 +42,7 @@ styles:
     - grid-template-columns: 8% 1fr
     - grid-template-rows: 1fr
   icon:
-    - color: var(--header-color)
+    - color: var(--subtitle-text-color)
     - padding-bottom: 3px
 state:
   - value: "off"

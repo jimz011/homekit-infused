@@ -29,7 +29,9 @@ entities:
             style: |
               ha-card {
                 font-family: var(--font-family);
-                color: var(--header-color);
+                font-size: var(--header-font-size);
+                font-weight: var(--header-font-weight);
+                color: var(--header-text-color);
                 box-shadow: none;
                 height: 20px;
                 margin-top: 1px;

@@ -34,20 +34,18 @@ styles:
     - border-radius: var(--border-radius)
     - box-shadow: var(--box-shadow)
   label:
-    - font-weight: normal
-    - font-size: 10px
+    - font-weight: var(--label-font-weight)
+    - font-size: var(--label-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
-    - justify-self: start
-#    - color: var(--primary-text-color) 
+    - justify-self: start 
   state:
-    - font-size: 10px
+    - font-size: var(--state-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
-    - font-weight: bold
-#    - color: var(--state-color-off) 
+    - font-weight: var(--state-font-weight)
   img_cell:
     - align-self: start
     - text-align: start
@@ -56,12 +54,14 @@ styles:
   name:
     - justify-self: start
     - padding: 0px 10px
-    - font-weight: bold
+    - font-weight: var(--name-font-weight)
     - font-family: var(--font-family)
-    - font-size: 12px
-#    - color: var(--primary-text-color) 
+    - font-size: var(--name-font-size) 
   icon:
     -  padding: 0px 10px
+  entity_picture:
+    - margin-top: 10px
+    - margin-left: 6px
   custom_fields:
     notification:
       - background-color: "{{ background_color }}"
@@ -74,10 +74,10 @@ styles:
       - padding: 0px 5px
       - height: 22px
       - min-width: 12px
-      - font-size: 10px
+      - font-size: var(--badge-font-size)
       - line-height: 22px
-      - font-weight: bold
-      - text-transform: capitalize
+      - font-weight: var(--badge-font-weight)
+      - text-transform: var(--badge-text-transform)
 custom_fields: 
   notification: "{{ notification }}"
 state:

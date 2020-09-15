@@ -3,6 +3,8 @@
 type: custom:button-card
 name: {{ name|default('Trash') }}
 icon: {{ icon|default('mdi:trash-can') }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
 size: 25%
 aspect_ratio: 1/1
 show_state: false
@@ -31,8 +33,12 @@ styles:
   name:
     - justify-self: start
     - padding: 0px 10px
-    - font-weight: bold
+    - font-weight: var(--name-font-weight)
     - font-family: var(--font-family) 
-    - font-size: 12px
+    - font-size: var(--name-font-size)
   icon:
-    -  padding: 0px 10px
+    - padding: 0px 10px
+  entity_picture:
+    - margin-top: 10px
+    - margin-left: 6px
+    

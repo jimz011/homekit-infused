@@ -4,10 +4,11 @@ style: |
     border-radius: none;
     box-shadow: none;
     --ha-card-background: rgba(0,0,0,0.0);
-    --primary-text-color: var(--category-text) !important;
-    color: var(--category-text) !important;
-    --text-primary-color: var(--category-text) !important;
-    --secondary-text-color: var(--category-text) !important;
-    --disabled-text-color: var(--category-text) !important;
+    --primary-text-color: var(--title-text-color) !important;
+    color: var(--title-text-color) !important !important;
+    --text-primary-color: var(--title-text-color) !important;
+    --secondary-text-color: var(--title-text-color) !important;
+    --disabled-text-color: var(--title-text-color) !important;
+    font-family: var(--font-family) !important;
   }
 max_results: 10

@@ -27,16 +27,17 @@ cards:
         - height: 45px
         - width: 350px
       name:
-        - font-size: 12px
+        - font-size: var(--subtitle-font-size)
         - font-family: var(--font-family)
-        - color: var(--header-color)
+        - color: var(--subtitle-text-color)
         - justify-self: start
+        - font-weight: var(--subtitle-font-weight)
       grid: 
         - grid-template-areas: '"i n"'
         - grid-template-columns: 8% 1fr
         - grid-template-rows: 1fr
       icon:
-        - color: var(--header-color)
+        - color: var(--subtitle-text-color)
         - padding-bottom: 3px
     state:
       - value: "off"

@@ -75,7 +75,7 @@ styles:
       - width: 15px
       - font-size: 10px
   icon:
-    - color: var(--header-color)
+    - color: var(--header-text-color)
 custom_fields: 
   notification: "{{ badge|default("'&nbsp;'") }}"
 state:

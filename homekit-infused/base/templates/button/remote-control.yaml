@@ -32,33 +32,30 @@ styles:
     - border-radius: var(--border-radius)
     - box-shadow: var(--box-shadow)
   label:
-    - font-weight: normal
-    - font-size: 10px
+    - font-weight: var(--label-font-weight)
+    - font-size: var(--label-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
-#    - color: var(--primary-text-color) 
   state:
-    - font-size: 12px
+    - font-size: var(--state-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
-    - font-weight: bold
-    - padding-left: 10px
-#    - color: var(--state-color-off) 
+    - font-weight: var(--state-font-weight)
   grid: {{ grid }}
   img_cell:
     - align-self: start
     - text-align: start
-    - margin-right: {{ margin_right|default('0px') }}
+    - align-items: flex-start
+    - justify-content: flex-start
   name:
     - justify-self: start
-    - padding-left: 10px
-    - font-weight: bold
+    - padding: 0px 10px
+    - font-weight: var(--name-font-weight)
     - font-family: var(--font-family) 
-    - font-size: bold
-    - font-size: 12px
+    - font-size: var(--name-font-size)
 state:
   - value: "on" 
     spin: {{ spin_on|default('false') }} 
