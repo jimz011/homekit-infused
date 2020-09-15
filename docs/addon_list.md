@@ -60,6 +60,9 @@
   - [Appliance Card](addons/appliances-card.md) *new
   - [Frontpage Photo/Image](addons/frontpage-photo.md)
 
+#### Unraid
+  - [Docker Container/VM Card](addons/unraid-docker.md) *new
+
 #### Utilities
   - [Empty Button](addons/empty-button.md) *new
   - [Title Text](addons/title-text-card.md)
