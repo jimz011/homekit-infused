@@ -31,7 +31,7 @@ Themes are a personal thing and so I want HKI to be your personal thing too, so 
 | title-text-font-weight | yes | bolder | Sets the title-text addon font weight |
 | border-radius | yes | 12px | Sets the border radius of all the cards |
 | box-shadow | yes | var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) ) | Sets the box shadow for all the cards |
-| bar-card-border-radius | yes | Sets the border radius of all bar cards (not yet included) |
+| bar-card-border-radius | yes | 12px | Sets the border radius of all bar cards (not yet included) |
 | font-family | yes | Helvetica | Sets the global font family |
 | name-font-size | yes | 12px | Sets the font size for button names |
 | name-font-weight | yes | bold | Sets the font weight for button names |
