@@ -1,5 +1,5 @@
 # Homekit Infused
-*Requires HKI Framework 3.0.4 or higher
+*HKI Framework 3.0.4 or higher required
 
 Back to [Addon List](../addon_list.md)
 
