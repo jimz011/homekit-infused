@@ -3,7 +3,7 @@
 Back to [Addon List](../addon_list.md)
 
 # Auto Filled Battery Card
-*HKI Framework 3.0.2 or higher required
+*HKI Framework 3.1.0 or higher required
 
 ![Homekit Infused](../images/auto-fill-battery-card.png)
 
@@ -42,13 +42,13 @@ This card is used to automatically fill your battery entities and make a nice ov
           - entity_id: '*battery*'
             options:
               !include
-              - '../../../base/templates/button/button-more-info-only.yaml'
+              - '../../../base/templates/button/button.yaml'
               - entity: this.entity_id
-                show_last_changed: false
+                show_last_changed: true
                 show_label: false
                 tap_action: more-info
                 hold_action: more-info
-                icon: "'[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]'"
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
