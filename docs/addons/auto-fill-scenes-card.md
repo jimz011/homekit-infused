@@ -3,7 +3,7 @@
 Back to [Addon List](../addon_list.md)
 
 # Auto Filled Scenes Card
-- HKI Framework 3.0.2 or higher required
+*HKI Framework 3.0.2 or higher required
 
 ![Homekit Infused](../images/auto-fill-scenes-card.png)
 
