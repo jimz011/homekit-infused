@@ -4,7 +4,7 @@ Back to [Addon List](../addon_list.md)
 
 # Empty Button
 ![Homekit Infused](../images/empty-button.png)
-![Homekit Infused](../images/empty-button_2.png)
+![Homekit Infused](../images/empty-button2.png)
 
 ### Description
 Lovelace is great, but unfortunately when not using the same amount of cards in a horizontal-stack it will try to stretch the buttons to fit the full width of the column. This can or will not look great depending on your own preferences.
