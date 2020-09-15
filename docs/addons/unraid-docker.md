@@ -96,7 +96,7 @@ switch.jimmy_docker_bitwardenrs:
         exclude:
           - entity_id: '*usb*'
         include:
-          - entity_id: 'switch.jimmy_vm*'
+          - entity_id: 'switch.jimmy_vm*' ### Replace jimmy with your own server name, check the dev_tools if you aren't sure!
       show_empty: false
       sort:
         method: name
