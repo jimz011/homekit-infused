@@ -66,8 +66,8 @@
   - [Gap Card](addons/gap-card.md)
   
 #### Vacuum
-  - [Vacuum Control Card](addons/vacuum-controls.md) (Any Vacuum) *new
-  - [Vacuum Speed Control Card]
+  - [Vacuum Basic Controls](addons/vacuum-controls.md) (Any Vacuum) *new
+  - [Vacuum Speed Controls](addons/vacuum-speed-controls.md) (Any Vacuum) *new
   - [Vacuum Live Map](addons/vacuum-live-map.md) (Valetudo RE only!) *new
   - [Xiaomi Vacuum Card]
   - [Valetudo Preset Button](addons/valetudo-preset-button.md) (Valetudo RE only!) *new
