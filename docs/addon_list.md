@@ -72,8 +72,8 @@
   - [Simple Vacuum Card](addons/simple-vacuum-card.md) (Any Vacuum) *new
   - [Vacuum Basic Controls](addons/vacuum-controls.md) (Any Vacuum) *new
   - [Vacuum Speed Controls](addons/vacuum-mode-presets.md) (Any Vacuum) *new
-  - [Vacuum Live Map](addons/vacuum-live-map.md) (Valetudo RE only!) *new
-  - [Valetudo Preset Button](addons/valetudo-preset-button.md) (Valetudo RE only!) *new
+  - [Vacuum Live Map](addons/vacuum-live-map.md) (Valetudo/Valetudo RE only!) *new
+  - [Valetudo Preset Button](addons/valetudo-preset-button.md) (Valetudo/Valetudo RE only!) *new
   
 #### Weather
   - [Air Visual Card](addons/air-visual-card.md)
