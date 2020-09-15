@@ -91,3 +91,4 @@
   - [Header Templates](addons/header_templates.md)
   - [Notifications](addons/notifications.md) *new
   - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical)
+  - [Theming](addons/theming.md) *new
