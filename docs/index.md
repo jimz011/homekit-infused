@@ -1,14 +1,16 @@
 # Homekit Infused
 
-## Contents
+## Framework Content
 - [Introduction](index.md)
 - [Homekit Infused Framework](framework.md)
-- [Homekit Infused Addons](addons.md)
-- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
+
+## Addons Content
+- [Homekit Infused Addons](addons.md)
+- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 
 # About Homekit Infused
 Homekit Infused v3.x.x is the a lovelace setup out there in YAML mode. The main goal of this project was to make it easy for people to have a nice interface that is similar to Apple's Homekit.
