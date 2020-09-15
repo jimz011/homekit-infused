@@ -22,7 +22,7 @@
 ### Default Addons
 #### Auto Fill Addons
   - [Auto-Filled Automations Card](addons/auto-fill-automations-card.md)
-  - [Auto-Filled Battery Card](addons/auto-fill-battery-card.md)
+  - [Auto-Filled Battery Card](addons/auto-fill-battery-card.md) *updated
   - [Auto-Filled Camera Card](addons/auto-fill-camera-card.md)
   - [Auto-Filled Certificates Card](addons/auto-fill-certificates-card.md)
   - [Auto-Filled Devices Card](addons/auto-fill-devices-card.md) (including popups)
@@ -41,10 +41,10 @@
   - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor)
   
 #### Calendar
-  - [Calendar Card](addons/calendar-card.md)
+  - [Calendar Card](addons/calendar-card.md) *updated
 
 #### Map
-  - [Map Card](addons/map-card.md)
+  - [Map Card](addons/map-card.md) *updated
   - [Waze Card](addons/waze-card.md)
   
 #### Media 
@@ -56,7 +56,7 @@
   - [iFrame Card](addons/iframe-card.md)
   - [Mini Graph Card](addons/mini-graph-card.md)
   - [Search Card](addons/search-card.md)
-  - [Waste Collection Card](addons/waste-collection-card.md)
+  - [Waste Collection Card](addons/waste-collection-card.md) *updated
 
 #### Picture Elements
   - [Appliance Card](addons/appliances-card.md)
@@ -79,8 +79,8 @@
   
 #### Weather
   - [Air Visual Card](addons/air-visual-card.md)
-  - [Simple Weather Card](addons/simple-weather-card.md)
-  - [Weather Card](addons/weather-card.md) (animated)
+  - [Simple Weather Card](addons/simple-weather-card.md) *updated
+  - [Weather Card](addons/weather-card.md) (animated) *updated
 
 ### User submitted addons
   - Coming Soon
