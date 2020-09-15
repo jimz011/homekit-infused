@@ -1,26 +1,53 @@
 Silver:
-  ### Theme Silver for Homekit Infused v1.2 or newer
-  
-  ## Lovelace Theme
-  
-  # Wallpaper/Background Image
-  background-image: 'linear-gradient(290deg, #a30088 -30%, #111111 65%)'
-  
-  # Lovelace Header Text
-  header-color: 'White'
-  category-text: 'White'
-  paper-toast-background-color: '#821414'
-  # Border Radius and Box Shadow
+  ### Theme Silver for Homekit Infused
+
+  ## User Settings
+
+  ### Background image (can be an image or a color)
+  background-image: 'linear-gradient(290deg, #a30088 -30%, #111111 65%)' 
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'White'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Border Radius and Box Shadow
   border-radius: 12px
   box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
   bar-card-border-radius: 12px
-  # Notification Badge
-  notification-badge-color: 'white'
-  notification-popup-action-color: 'black'
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
   
-  ## Main Home Assistant Colors
+
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
   
   # Base colors
+  paper-toast-background-color: '#821414'
   primary-color: '#333333'
   accent-color: 'var(--md-teal-A700)'
   dark-primary-color: 'var(--md-teal-900)'
@@ -160,3 +187,7 @@ Silver:
   
   button-card-light-color: var(--primary-color)
   button-card-light-color-no-temperature: var(--primary-color)
+
+  # Notification Badge
+  notification-badge-color: 'white'
+  notification-popup-action-color: 'black'

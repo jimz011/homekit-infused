@@ -1,25 +1,51 @@
 Valentine:
-  ### Theme Valentine for Homekit Infused v1.2 or newer
+  ### Theme Valentine for Homekit Infused
   
-  ## Lovelace Theme
-  
-  # Wallpaper/Background Image
+  ## User Settings
+
+  ### Background image (can be an image or a color)
   background-image: 'center / cover no-repeat url("/local/images/wallpapers/valentine-test1.jpg") fixed'
-  
-  # Lovelace Header Text
-  header-color: 'White'
-  category-text: 'White'
-  paper-toast-background-color: '#821414'
-  # Border Radius and Box Shadow
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'White'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Border Radius and Box Shadow
   border-radius: 12px
   box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
   bar-card-border-radius: 12px
-  # Notification Badge
-  notification-badge-color: 'black'
-  notification-popup-action-color: 'white'
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
   
-  ## Main Home Assistant Colors
-  
+
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+
   # Base colors
   primary-color: '#910039'
   accent-color: 'var(--md-teal-A400)'
@@ -161,3 +187,8 @@ Valentine:
   
   md-black: '#000000'
   md-white: '#FFFFFF'
+
+  # Notification Badge
+  notification-badge-color: 'black'
+  notification-popup-action-color: 'white'
+  paper-toast-background-color: '#821414' 
