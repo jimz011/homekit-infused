@@ -61,6 +61,7 @@
   - [Frontpage Photo/Image](addons/frontpage-photo.md)
 
 #### Utilities
+  - [Empty Button](addons/empty-button.md) *new
   - [Title Text](addons/title-text-card.md)
   - [Gap Card](addons/gap-card.md)
   
