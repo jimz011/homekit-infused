@@ -34,8 +34,8 @@ This is a map card to show the location of person and/or device_trackers.
           color: black;
           border-radius: var(--border-radius);
           box-shadow: var(--box-shadow);
-          font-family: Helvetica;
-          font-size: 12px;
+          font-family: var(--font-family);
+          font-size: var(--name-font-size);
           opacity: 0.8;
           overflow: hidden;
         }                      
