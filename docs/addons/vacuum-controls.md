@@ -1,9 +1,10 @@
 # Homekit Infused
-*HKI Framework 3.0.5 or higher required
 
 Back to [Addon List](../addon_list.md)
 
 # Vacuum Controls (Any Vacuum)
+*HKI Framework 3.0.5 or higher required
+
 ![Homekit Infused](../images/vacuum-controls-preset.png)
 
 ### Description
