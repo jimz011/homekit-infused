@@ -59,8 +59,8 @@ sun:
     - type: custom:weather-card
       style: |
         ha-card {
-          font-size: 12px;
-          font-family: Helvetica;
+          font-size: var(--name-font-size);
+          font-family: var(--font-family);
           border-radius: var(--border-radius);
           box-shadow: var(--box-shadow);
           opacity: 0.8;
