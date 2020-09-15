@@ -3,8 +3,8 @@
 Back to [Addon List](../addon_list.md)
 
 # Simple Vacuum Card (Any Vacuum)
-![Homekit Infused](../images/robot_vacuum.png)
-![Homekit Infused](../images/robot_vacuum2.png)
+![Homekit Infused](../images/robot-vacuum.png)
+![Homekit Infused](../images/robot-vacuum2.png)
 
 ### Description
 This is a small and elegant (but simple) vacuum card. This card had integrated support for most vacuums from the following brands/models: Xiaomi, Roomba, Neato, Robovac, Valetudo, Ecovacs, Deebot.
