@@ -1,14 +1,16 @@
 # Homekit Infused
 
-## Contents
+## Framework Content
 - [Introduction](index.md)
 - [Homekit Infused Framework](framework.md)
-- [Homekit Infused Addons](addons.md)
-- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
+
+## Addons Content
+- [Homekit Infused Addons](addons.md)
+- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 
 ## ISSUES
 If there are any issues please report them via GitHub. When doing so please be thorough in your explanation as the more details the better. Saying things like, "I have an issue, my lights view wont show" is not a good issue explanation as I will still be completely clueless as to why it won't show for you. Issues like these will be closed without an answer!
