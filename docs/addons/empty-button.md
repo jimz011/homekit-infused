@@ -7,8 +7,8 @@ Back to [Addon List](../addon_list.md)
 ![Homekit Infused](../images/empty-button2.png)
 
 ### Description
-Lovelace is great, but unfortunately when not using the same amount of cards in a horizontal-stack it will try to stretch the buttons to fit the full width of the column. This can or will not look great depending on your own preferences.
-To fight this there is this empty button card. It will act as another button with a 1/1 aspect_ratio, however it will be completely transparant (and not clickable). Basically you won't see this at all.
+Lovelace is great, but unfortunately when not using the same amount of cards in a horizontal-stack it will try to stretch the buttons to fit the full width of the column. This can or will not look great depending on your own preferences (see second screenshot).
+To fight this there is this empty button card. It will act as another button with a 1/1 aspect_ratio, however it will be completely transparant (and not clickable). Basically you won't see this at all. (see first screenshot, the x marks where the transparant button is)
 
 ### Configuration
 - You will have to put this piece of code inside of a horizontal-stack
