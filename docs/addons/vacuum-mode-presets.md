@@ -36,6 +36,7 @@ sensor:
 The automation below may or may not work correctly out of the box, your vacuum might have different names for the speed settings on your xiaomi. The settings used here should be default for a Roborock S50/S55.
 If it doesn't work out of the box, note that you will have to change the entity_id first and then you might need to change the set_fan_speed property. Do NOT change the input_select.xiaomi_vacuum names or options, even if it doesn't correspond with your own fan settings!
 More examples of this in the extra information section
+
 {% raw %}
 ```
 # example automations
@@ -119,54 +120,55 @@ Here is an example of what you'll need to change when this card doesn't work out
 You will have to figure out the correct names for your fan speed.
 If you use the miHome app, you can simply set any fan speed and then check the sensor we've just created in your developer-tools. It should show you the correct fan speed state/name if you've setup the sensor correctly.
 You can use these names to fix the automation like in the example below. Please compare this to the example above, do NOT change anything that is the same in both examples!
+
 {% raw %}
-  ```
-  # example automations
-  automation:
-    # Xiaomi Fan Speed
-    - alias: xiaomi vacuum set fan speed
-      initial_state: 'true'
-      trigger:
-      - platform: state
+```
+# example automations
+automation:
+  # Xiaomi Fan Speed
+  - alias: xiaomi vacuum set fan speed
+    initial_state: 'true'
+    trigger:
+    - platform: state
+      entity_id: input_select.xiaomi_vacuum
+    action:
+      service: vacuum.set_fan_speed
+      data_template:
+        entity_id: vacuum.rockrobo
+        fan_speed: >
+          {% if is_state('input_select.xiaomi_vacuum', 'Silent') %}
+            101
+          {% elif is_state('input_select.xiaomi_vacuum', 'Standard') %}
+            102
+          {% elif is_state('input_select.xiaomi_vacuum', 'Medium') %}
+            103
+          {% elif is_state('input_select.xiaomi_vacuum', 'Turbo') %}
+            104
+          {% elif is_state('input_select.xiaomi_vacuum', 'Gentle') %}
+            105
+          {% endif %}
+  
+  # Xiaomi Fan Speed Input Select
+  - alias: xiaomi vacuum set fan speed
+    initial_state: 'true'
+    trigger:
+    - platform: state
+      entity_id: sensor.xiaomi_vacuum_fan_speed_state
+    action:
+      service: input_select.select_option
+      data_template:
         entity_id: input_select.xiaomi_vacuum
-      action:
-        service: vacuum.set_fan_speed
-        data_template:
-          entity_id: vacuum.rockrobo
-          fan_speed: >
-            {% if is_state('input_select.xiaomi_vacuum', 'Silent') %}
-              101
-            {% elif is_state('input_select.xiaomi_vacuum', 'Standard') %}
-              102
-            {% elif is_state('input_select.xiaomi_vacuum', 'Medium') %}
-              103
-            {% elif is_state('input_select.xiaomi_vacuum', 'Turbo') %}
-              104
-            {% elif is_state('input_select.xiaomi_vacuum', 'Gentle') %}
-              105
-            {% endif %}
-    
-    # Xiaomi Fan Speed Input Select
-    - alias: xiaomi vacuum set fan speed
-      initial_state: 'true'
-      trigger:
-      - platform: state
-        entity_id: sensor.xiaomi_vacuum_fan_speed_state
-      action:
-        service: input_select.select_option
-        data_template:
-          entity_id: input_select.xiaomi_vacuum
-          option: >
-            {% if is_state('sensor.xiaomi_vacuum_fan_speed_state', '101') %}
-              Silent
-            {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '102') %}
-              Standard
-            {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '103') %}
-              Medium
-            {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '104') %}
-              Turbo
-            {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '105') %}
-              Gentle
-            {% endif %}
-  ```
+        option: >
+          {% if is_state('sensor.xiaomi_vacuum_fan_speed_state', '101') %}
+            Silent
+          {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '102') %}
+            Standard
+          {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '103') %}
+            Medium
+          {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '104') %}
+            Turbo
+          {% elif is_state('sensor.xiaomi_vacuum_fan_speed_state', '105') %}
+            Gentle
+          {% endif %}
+```
 {% endraw %}
