@@ -24,7 +24,7 @@
   - [Auto-Filled Camera Card](addons/auto-fill-camera-card.md)
   - [Auto-Filled Certificates Card](addons/auto-fill-certificates-card.md)
   - [Auto-Filled Devices Card](addons/auto-fill-devices-card.md) (including popups)
-  - [Auto-Filled Fans Card](addons/auto-fill-fans-card.md) *new
+  - [Auto-Filled Fans Card](addons/auto-fill-fans-card.md)
   - [Auto-Filled Lights Card](addons/auto-fill-lights-card.md) (including popups)
   - [Auto-Filled Media Players Card](addons/auto-fill-media-players-card.md)
   - [Auto-Filled Scenes Card](addons/auto-fill-scenes-card.md)
@@ -35,8 +35,8 @@
   - [Climate Preset Buttons](addons/climate-preset-buttons.md)
   - [Frontpage Button Row](addons/frontpage-buttons.md) (navigation)
   - [Menu Card](addons/menu-card.md)
-  - [Single Homekit Button](addons/button-navigation.md) (navigation) *new
-  - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor) *new
+  - [Single Homekit Button](addons/button-navigation.md) (navigation)
+  - [Single Homekit Button](addons/button-light-switch.md) (light, switch or sensor)
   
 #### Calendar
   - [Calendar Card](addons/calendar-card.md)
@@ -47,7 +47,7 @@
   
 #### Media 
   - [Google Home Card](addons/google-home-card.md)
-  - [Upcoming Media Card](addons/upcoming-recently-added.md) *new
+  - [Upcoming Media Card](addons/upcoming-recently-added.md)
   - [Remote Control Card](addons/nvidia-remote.md) (for Nvidia SHIELD TV/Android TV) *new
 
 #### Other
@@ -57,7 +57,7 @@
   - [Waste Collection Card](addons/waste-collection-card.md)
 
 #### Picture Elements
-  - [Appliance Card](addons/appliances-card.md) *new
+  - [Appliance Card](addons/appliances-card.md)
   - [Frontpage Photo/Image](addons/frontpage-photo.md)
 
 #### Unraid
@@ -88,4 +88,4 @@
   - [Device Counters](addons/device_counters.md) *new
   - [Header Templates](addons/header_templates.md) *new
   - [Notifications](addons/notifications.md) *new
-  - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical) *new
+  - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical)
