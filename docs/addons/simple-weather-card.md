@@ -48,7 +48,7 @@ Add the following line to your lovelace resources
           border-radius: var(--border-radius);
           box-shadow: var(--box-shadow);
           opacity: 0.8;
-          font-size: 12px;
+          font-size: var(--name-font-size);
           font-family: var(--font-family);
         }                      
       entity: weather.dark_sky
