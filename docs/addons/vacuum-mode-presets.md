@@ -88,7 +88,6 @@ automation:
         
 # change xiaomi_vacuum_cleaner with your own entity!
 ```
-{% endraw %}
 
 ### Advanced
 
@@ -169,4 +168,3 @@ automation:
             Gentle
           {% endif %}
 ```
-{% endraw %}
