@@ -1,14 +1,16 @@
 # Homekit Infused
 
-## Contents
+## Framework Content
 - [Introduction](index.md)
-- [Homekit Infused Framework](framework.md)
-- [Homekit Infused Addons](addons.md)
-- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
+- [Framework Documentation](framework.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
+
+## Addons Content
+- [Addons Documentation](addons.md)
+- [Addon List](https://github.com/jimz011/homekit-infused/blob/master/docs/addon_list.md)
 
 # THANKS TO ALL OF YOU
 I wanted to thank everyone for supporting me, watching and subscribing to my channels, donating, downloading etc, helping me out, having posted addons or other great stuff for the community, and obviously the community itself ofcourse.
