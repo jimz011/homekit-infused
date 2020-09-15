@@ -2,7 +2,7 @@
 
 Back to [Addon List](../addon_list.md)
 
-# Vacuum Preset Button (Valetudo and Valetudo RE only)
+# Valetudo Preset Button (Valetudo and Valetudo RE only)
 *HKI Framework 3.0.5 or higher required
 
 ![Homekit Infused](../images/vacuum-valetudo-zoned-cleaning-presets.png)
