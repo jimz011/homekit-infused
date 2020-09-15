@@ -1,0 +1,100 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - !include ../../includes/gap.yaml
+  - type: custom:state-switch
+    entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+    default: default
+    states:
+      default:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_start|default('Start') }}
+          icon: {{ icon_play|default('mdi:play-circle-outline') }}
+          service: vacuum.start
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          margin_right: 40px
+      cleaning:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_start|default('Start') }}
+          icon: {{ icon_play|default('mdi:play-circle-outline') }}
+          service: vacuum.start
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          opacity_off: 1.0
+          margin_right: 40px
+          card_color_off: 'white'
+          icon_color_off: 'Green'
+          name_color_off: 'black'
+          label_color_off: 'black'
+          animation: blink 2s ease infinite
+  - type: custom:state-switch
+    entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+    default: default
+    states:
+      default:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_pause|default('Pause') }}
+          icon: {{ icon_pause|default('mdi:pause-circle-outline') }}
+          service: vacuum.pause
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          margin_right: 40px
+      paused:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_pause|default('Pause') }}
+          icon: {{ icon_pause|default('mdi:pause-circle-outline') }}
+          service: vacuum.pause
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          opacity_off: 1.0
+          margin_right: 40px
+          card_color_off: 'white'
+          icon_color_off: 'Orange'
+          name_color_off: 'black'
+          label_color_off: 'black'
+          animation: blink 2s ease infinite
+  - type: custom:state-switch
+    entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+    default: default
+    states:
+      default:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_stop|default('Stop') }}
+          icon: {{ icon_stop|default('mdi:stop-circle-outline') }}
+          service: vacuum.return_to_base
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          margin_right: 40px
+      returning:
+        !include
+        - '../../templates/button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_stop|default('Stop') }}
+          icon: {{ icon_stop|default('mdi:stop-circle-outline') }}
+          service: vacuum.return_to_base
+          service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+          opacity_off: 1.0
+          margin_right: 40px
+          card_color_off: 'white'
+          icon_color_off: 'Red'
+          name_color_off: 'black'
+          label_color_off: 'black'
+          animation: blink 2s ease infinite
+  - !include
+    - '../../templates/button/service-call.yaml'
+    - entity: input_boolean.dummy1
+      name: {{ name_find_me|default('Find Me') }}
+      icon: {{ icon_map|default('mdi:map-marker') }}
+      service: vacuum.locate
+      service_entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
+      margin_right: 40px
+      opacity_off: 0.8
+      icon_color_off: MediumVioletRed
+  - !include ../../includes/gap.yaml

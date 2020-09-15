@@ -45,19 +45,19 @@ entities:
               background_color: "[[[ if (states['sensor.current_doors_open'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['sensor.current_doors_open'].state > 0) return states['sensor.current_doors_open'].state; else return '&nbsp;'; ]]]"
               size: 100%
-              entity: group.all_door_sensors 
+              entity: group.all_door_sensor_entities 
           - !include
             - '../../templates/header/sensor-icons.yaml'
             - icon: mdi:window-closed
               background_color: "[[[ if (states['sensor.current_windows_open'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['sensor.current_windows_open'].state > 0) return states['sensor.current_windows_open'].state; else return '&nbsp;'; ]]]"
-              entity: group.all_window_sensors
+              entity: group.all_window_sensor_entities
           - !include
             - '../../templates/header/sensor-icons.yaml'
             - icon: mdi:motion-sensor
-              background_color: "[[[ if (states['sensor.current_sensors_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
-              badge: "[[[ if (states['sensor.current_sensors_on'].state > 0) return states['sensor.current_sensors_on'].state; else return '&nbsp;'; ]]]"
-              entity: group.all_motion_smoke_sensors
+              background_color: "[[[ if (states['sensor.current_motion_sensors_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['sensor.current_motion_sensors_on'].state > 0) return states['sensor.current_motion_sensors_on'].state; else return '&nbsp;'; ]]]"
+              entity: group.all_motion_sensor_entities
           - !include ../../includes/gap.yaml
       - !include 
         - '../../templates/header/{{ header_bottom|default('header-bottom.yaml') }}'

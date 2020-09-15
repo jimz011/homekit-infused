@@ -1,0 +1,38 @@
+# lovelace_gen
+
+type: custom:button-card
+name: {{ name|default('Livingroom') }}
+icon: {{ icon|default('mdi:sofa') }}
+size: 25%
+aspect_ratio: 1/1
+show_state: false
+show_label: false
+tap_action: 
+  action: call-service
+  service: vacuum.send_command
+  service_data:
+    entity_id: {{ entity|default('vacuum.rockrobo') }}
+    command: zoned_cleanup
+    params:
+      'zone_ids': {{ zone_id|default(['Woonkamer']) }}
+  haptic: heavy
+hold_action:
+  action: none
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+    - opacity: 0.7
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - align-items: flex-start
+    - justify-content: flex-start
+  name:
+    - justify-self: start
+    - padding: 0px 10px
+    - font-weight: bold
+    - font-family: var(--font-family) 
+    - font-size: 12px
+  icon:
+    -  padding: 0px 10px

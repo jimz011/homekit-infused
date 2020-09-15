@@ -9,9 +9,12 @@ cards:
             type: {{ type }}
           options:
             !include
-            - '../button/sensors.yaml'
+            - '../button/button.yaml'
             - entity: this.entity_id
               lock: false
+              tap_action: more-info
+              hold_action: more-info
+              show_last_changed: true
         - type: custom:button-card
           color_type: blank-card
           aspect_ratio: 1/1
