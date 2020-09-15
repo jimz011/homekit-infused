@@ -3,6 +3,7 @@
 Back to [Addon List](../addon_list.md)
 
 # Remote Control (Nvidia SHIELD TV/Android TV)
+*HKI Framework 3.0.4 or higher required
 
 ![Homekit Infused](../images/remote-control.png)
 
