@@ -1,5 +1,10 @@
 # Updates
 
-This branch will have update packages so you can easily update without worrying. Below I'll mention which upgrade paths you have and for which ones you'll need to do something extra.
+This branch will have update packages so you can easily update without worrying. Below I'll mention which upgrade paths you have and for which ones you'll need to do something extra. If you have HKI 3.0.5 or below please check out the releases page and update them from going from 1 version to another. Do NOT skip a version.
 
-- 3.1.0 > 3.1.1 [download here](coming soon)
+Starting from 3.1.0 you can get your updates below without the need to download the full release every single time.
+
+# Upgrade Paths
+
+### From 3.1.0
+- update to 3.1.1 [download here](coming soon)
