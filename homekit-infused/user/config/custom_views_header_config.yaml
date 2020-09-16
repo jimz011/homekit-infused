@@ -1,0 +1,28 @@
+header_user:
+# This file will change the Custom Views Header Properties, do NOT delete or comment any of
+# these lines. Titles can NOT have templates, subtitles CAN have JS templates.
+# e.g. "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are off`; if (states['sensor.current_lights_on'].state == 1) return `There is 1 light on`; else return `There are ${states['sensor.current_lights_on'].state} lights on`; ]]]"
+# To change the language you can either do this manually or download the appropriate language file for predefined names in your language.
+
+
+# ========================= Headers Titles ==================================== #
+  custom_view_1_title: Custom View 1
+  custom_view_1_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_2_title: Custom View 2
+  custom_view_2_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_3_title: Custom View 3
+  custom_view_3_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_4_title: Custom View 4
+  custom_view_4_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+# ============================================================================= #
+
+# ========================= Subtitle Icons ==================================== #
+  custom_view_1_icon: mdi:account-alert
+  custom_view_2_icon: mdi:account-alert
+  custom_view_3_icon: mdi:account-alert
+  custom_view_4_icon: mdi:account-alert
+# ============================================================================= #
