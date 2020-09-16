@@ -88,15 +88,6 @@ header:
   
   weather_title: Weather
   weather_subtitle: Info
-  
-  about_title: About
-  about_subtitle: FAQ
-  
-  theme_title: Theme
-  theme_subtitle: Settings
-  
-  ha_title: Home Assistant
-  ha_subtitle: Settings
 
   covers_title: Covers
   covers_subtitle: Overview
