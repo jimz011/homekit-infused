@@ -58,11 +58,10 @@ styles:
     - font-family: var(--font-family) 
     - font-size: var(--name-font-size)
   icon:
-    - padding: 0px 10px
+    - padding: 2px 10px
   entity_picture:
-    - margin-top: 10px
-    - margin-left: 6px
-  grid: {{ grid }}
+    - padding: 7px 10px
+  grid: {{ grid|default('!include ../../includes/default-hki-grid.yaml') }}
 state:
   - value: "on" 
     spin: {{ spin_on|default('false') }} 

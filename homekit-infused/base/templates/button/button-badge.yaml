@@ -58,10 +58,10 @@ styles:
     - font-family: var(--font-family)
     - font-size: var(--name-font-size) 
   icon:
-    -  padding: 0px 10px
+    - padding: 2px 10px
   entity_picture:
-    - margin-top: 10px
-    - margin-left: 6px
+    - padding: 7px 10px
+  grid: {{ grid|default('!include ../../includes/default-hki-grid.yaml') }}
   custom_fields:
     notification:
       - background-color: "{{ background_color }}"
@@ -86,3 +86,13 @@ state:
     styles:
       card:
         - opacity: {{ opacity_off|default('0.8') }}
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--primary-text-color)

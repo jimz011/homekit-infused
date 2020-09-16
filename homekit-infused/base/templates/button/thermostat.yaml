@@ -126,12 +126,12 @@ styles:
       - border-radius: 50%
       - overflow: visible
       - position: absolute
-      - left: 12%
-      - top: 12%
+      - left: 9%
+      - top: 9%
       - height: 32px
       - width: 32px
       - font-size: 10px
-      - line-height: 32px
+      - line-height: 34px
 custom_fields: 
   notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
 state:

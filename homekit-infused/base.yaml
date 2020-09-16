@@ -678,11 +678,11 @@
                         - name: Show Person 1 View Selector
                           entity: input_select.show_person_1_selector
                         - name: Show Person 2 View Selector
-                          entity: input_select.show_person_1_selector
+                          entity: input_select.show_person_2_selector
                         - name: Show Person 3 View Selector
-                          entity: input_select.show_person_1_selector
+                          entity: input_select.show_person_3_selector
                         - name: Show Person 4 View Selector
-                          entity: input_select.show_person_1_selector
+                          entity: input_select.show_person_4_selector
                     - !include base/includes/gap.yaml
 - path: lights
   visible: false
@@ -818,7 +818,7 @@
             header-bottom: header-bottom.yaml
         - type: conditional
           conditions:
-            - entity: input_select.show_person_1_selector
+            - entity: input_select.show_person_2_selector
               state: "Yes"
           card:
             type: horizontal-stack
@@ -853,7 +853,7 @@
             header-bottom: header-bottom.yaml
         - type: conditional
           conditions:
-            - entity: input_select.show_person_1_selector
+            - entity: input_select.show_person_3_selector
               state: "Yes"
           card:
             type: horizontal-stack
@@ -888,7 +888,7 @@
             header-bottom: header-bottom.yaml
         - type: conditional
           conditions:
-            - entity: input_select.show_person_1_selector
+            - entity: input_select.show_person_4_selector
               state: "Yes"
           card:
             type: horizontal-stack
@@ -1028,3 +1028,73 @@
           max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/weather/
+- path: custom_1
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_1_title|default('Custom View 1') }}
+            subtitle: "{{ _global.header_user.custom_view_1_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_1_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_1/
+- path: custom_2
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_2_title|default('Custom View 2') }}
+            subtitle: "{{ _global.header_user.custom_view_2_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_2_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_2/
+
+- path: custom_3
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_3_title|default('Custom View 3') }}
+            subtitle: "{{ _global.header_user.custom_view_3_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_3_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_3/
+
+- path: custom_4
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_4_title|default('Custom View 4') }}
+            subtitle: "{{ _global.header_user.custom_view_4_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_4_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_4/

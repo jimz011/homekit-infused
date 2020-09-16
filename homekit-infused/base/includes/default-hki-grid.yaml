@@ -7,6 +7,6 @@
 
 # Card Config
 # Do NOT change this unless you know what you are doing!
-- grid-template-areas: '"i i" "area area" "n n" "s l"'
+- grid-template-areas: '"i i" "area area" "n n" "s s" "l l"'
 - grid-template-columns: 1fr
-- grid-template-rows: 1fr 1fr min-content min-content
+- grid-template-rows: 1fr 1fr min-content min-content min-content
