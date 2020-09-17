@@ -18,7 +18,7 @@ cards:
               }
             aspect_ratio: {{ aspect_ratio|default('16x9')}}
             entity: this.entity_id
-            camera_view: {{ camera_view|default('live')}}
+            camera_view: {{ camera_view|default('auto')}}
             show_name: {{ show_name|default('false')}}
             show_state: {{ show_state|default('false')}}
     sort:
@@ -26,5 +26,5 @@ cards:
       numeric: true
     card:
       type: custom:layout-card
-      column_num: {{ columns|default('3') }}
+      column_num: {{ columns|default('1') }}
   - !include ../../includes/gap.yaml
