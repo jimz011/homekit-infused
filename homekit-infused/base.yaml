@@ -1098,3 +1098,74 @@
           max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             !include_dir_merge_list user/views/custom_4/
+
+- path: custom_5
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_5_title|default('Custom View 5') }}
+            subtitle: "{{ _global.header_user.custom_view_5_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_5_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_5/
+- path: custom_6
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_6_title|default('Custom View 6') }}
+            subtitle: "{{ _global.header_user.custom_view_6_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_6_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_6/
+
+- path: custom_7
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_7_title|default('Custom View 7') }}
+            subtitle: "{{ _global.header_user.custom_view_7_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_7_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_7/
+
+- path: custom_8
+  visible: false
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header_user.custom_view_8_title|default('Custom View 8') }}
+            subtitle: "{{ _global.header_user.custom_view_8_subtitle|default('Customize this in ../user/config/custom_views_header_config.yaml') }}"
+            icon: {{ _global.header_user.custom_view_8_icon|default('mdi:account-alert') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:layout-card
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
+          cards:
+            !include_dir_merge_list user/views/custom_8/

@@ -73,6 +73,7 @@ styles:
     - padding: 2px 10px
   entity_picture:
     - padding: 7px 10px
+  grid: {{ grid|default('!include ../../includes/default-hki-grid.yaml') }}
 state:
   - value: "off"
     spin: {{ spin_off|default('false') }}

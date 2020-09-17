@@ -17,6 +17,18 @@ header_user:
   
   custom_view_4_title: Custom View 4
   custom_view_4_subtitle: Edit ../user/config/custom_views_header_config.yaml
+
+  custom_view_5_title: Custom View 5
+  custom_view_5_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_6_title: Custom View 6
+  custom_view_6_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_7_title: Custom View 7
+  custom_view_7_subtitle: Edit ../user/config/custom_views_header_config.yaml
+  
+  custom_view_8_title: Custom View 8
+  custom_view_8_subtitle: Edit ../user/config/custom_views_header_config.yaml
   
 # ============================================================================= #
 
@@ -25,4 +37,8 @@ header_user:
   custom_view_2_icon: mdi:account-alert
   custom_view_3_icon: mdi:account-alert
   custom_view_4_icon: mdi:account-alert
+  custom_view_5_icon: mdi:account-alert
+  custom_view_6_icon: mdi:account-alert
+  custom_view_7_icon: mdi:account-alert
+  custom_view_8_icon: mdi:account-alert
 # ============================================================================= #

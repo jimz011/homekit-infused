@@ -44,12 +44,6 @@ styles:
     - justify-self: start
     - text-transform: capitalize
     - font-weight: var(--state-font-weight)
-  grid: {{ grid }}
-  img_cell:
-    - align-self: start
-    - text-align: start
-    - align-items: flex-start
-    - justify-content: flex-start
   name:
     - justify-self: start
     - padding: 0px 10px
