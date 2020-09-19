@@ -1,3 +1,4 @@
+# Input Booleans
 input_boolean:
   dummy1:
     initial: off
@@ -12,12 +13,14 @@ input_boolean:
   day_night_cycle:
   empty:
 
+# Input Numbers
 input_number:
   empty:
     initial: 0
     min: 0
     max: 1
-    
+
+# Input Selects
 input_select:
   theme_selector:
     name: Theme Selector 
@@ -30,6 +33,8 @@ input_select:
       - Space Gray
       - Sweet Pink
       - Valentine
+      - Dwains Theme Light (HKI Edition)
+      - Dwains Theme Dark (HKI Edition)
 
   theme_selector_day:
     name: Theme Selector Day
@@ -42,6 +47,8 @@ input_select:
       - Space Gray
       - Sweet Pink
       - Valentine
+      - Dwains Theme Light (HKI Edition)
+      - Dwains Theme Dark (HKI Edition)
   
   theme_selector_night:
     name: Theme Selector Night
@@ -54,6 +61,8 @@ input_select:
       - Space Gray
       - Sweet Pink
       - Valentine
+      - Dwains Theme Light (HKI Edition)
+      - Dwains Theme Dark (HKI Edition)
 
   floor_selector:
     options:
@@ -139,6 +148,7 @@ input_select:
       - Turbo
       - Gentle
 
+# Input Texts
 input_text:
   good_morning:
   good_afternoon:

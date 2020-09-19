@@ -1,4 +1,11 @@
 sensor:
+# Version
+  - platform: template
+    sensors:
+      hki_current_version:
+        value_template: 3.2.0
+
+# Template Sensors (device counting)
   - platform: template
     sensors:
       current_lights_on:
@@ -45,7 +52,8 @@ sensor:
         friendly_name: All Detectors Currently On
         value_template: >-
           {{ states|selectattr('entity_id','in',state_attr('group.all_detector_entities','entity_id'))|selectattr('state','eq','on')|list|count }}  
-          
+
+# Frontend Greeting          
   - platform: template
     sensors:
       greeting:
@@ -62,11 +70,39 @@ sensor:
             {{ states.input_text.good_evening.state }}
           {% endif %}
 
-  - platform: template
-    sensors:
-      hki_current_version:
-        value_template: 3.1.2
+# System Monitor
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /home
+      - type: disk_free
+        arg: /home
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: memory_use
+      - type: memory_use_percent
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: throughput_network_in
+        arg: eth0
+      - type: throughput_network_out
+        arg: eth0
+      - type: ipv4_address
+        arg: eth0
+      - type: packets_in
+        arg: eth0
+      - type: packets_out
+        arg: eth0
+      - type: processor_use
 
+# Current HA Version
+  - platform: version
+    name: version_current
+
+# Latest HKI Version
   - platform: scrape
     name: HKI Latest Version
     resource: https://jimz011.github.io/homekit-infused/version

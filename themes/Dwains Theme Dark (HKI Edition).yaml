@@ -1,0 +1,138 @@
+Dwains Theme Dark (HKI Edition):
+  ### Theme Dwains Theme Dark (modified) for Homekit Infused
+
+  ## User Settings
+
+  ### Background image (can be an image or a color)
+  background-image: '#2d2d30' 
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'White'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Border Radius and Box Shadow
+  border-radius: 12px
+  box-shadow: var(--ha-card-box-shadow, 2px 4px 2px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+  bar-card-border-radius: 12px
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
+  
+
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+
+  # Toast / Badge
+  paper-toast-background-color: '#821414'
+
+  #color for top small bar notch on ios
+  primary-color: '#262628'
+  primary-text-color: '#f2f2f7'
+  text-primary-color: 'var(--primary-text-color)'
+  secondary-text-color: 'var(--primary-text-color)'
+
+  #left header
+  primary-background-color: '#28292b' #background
+
+  #left sidebar
+  paper-listbox-background-color: '#121314' #background
+  sidebar-icon-color: '#d0d0d0'
+  sidebar-selected-icon-color: '#2fbae5'
+  sidebar-selected-text-color: '#ffffff'
+
+  #Paper cards
+  paper-card-header-color: 'var(--primary-text-color)'
+  ha-card-background: '#262628'
+  paper-card-background-color: 'var(--ha-card-background)' # 'rgba(52, 73, 94, 0.8)'
+  paper-dialog-background-color: '#262628'
+  paper-item-icon-color: 'var(--primary-text-color)'
+  paper-item-icon-active-color: '#b58e31'
+  paper-item-icon_-_color: 'var(--primary-text-color)'
+  paper-item-selected_-_background-color: '#262628'
+  paper-tabs-selection-bar-color: 'var(--primary-text-color)'
+  secondary-background-color: '#262628'
+
+  mdc-theme-primary: '#6c6c75'
+
+  #Tables
+  card-background-color: '#262628'
+  table-row-background-color: '#6e6e6e'
+  table-row-alternative-background-color: 'darkgrey'
+
+  #Custom header
+  ch-active-tab-color: '#2fbae5'
+  ch-tab-indicator-color: '#2fbae5'
+
+  # Labels
+  label-badge-red: 'var(--primary-color)'
+  label-badge-text-color: 'var(--primary-text-color)'
+  label-badge-background-color: 'var(--mdc-grey-darken-4)'
+  
+  # Switches
+  paper-toggle-button-checked-button-color: 'var(--light-primary-color)'
+  paper-toggle-button-checked-bar-color: 'var(--light-primary-color)'
+  paper-toggle-button-checked-ink-color: 'var(--light-primary-color)'
+  paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
+  paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
+  paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)'
+  
+  # Sliders
+  paper-slider-knob-color: '#2fbae5'
+  paper-slider-knob-start-color: 'var(--light-primary-color)'
+  paper-slider-pin-color: 'var(--light-primary-color)'
+  paper-slider-active-color: 'var(--light-primary-color)'
+  paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
+  paper-slider-secondary-color: 'var(--secondary-background-color)'
+  paper-slider-disabled-active-color: 'var(--disabled-text-color)'
+  paper-slider-disabled-secondary-color: 'var(--disabled-text-color)'
+
+  # Google colors
+  google-red-500: '#de0000'
+  google-green-500: 'gray'
+  
+  # History/Logbook
+  lumo-primary-text-color: 'white'
+  lumo-secondary-text-color: 'white'
+  lumo-primary-color: 'white'
+  lumo-body-text-color: 'AliceBlue' # Calendar Day
+  lumo-base-color: 'white' #Calendar/Date-Picker Background
+  lumo-header-text-color: 'white' #Month/Year header
+
+  #DayOfWeek Header
+  lumo-tertiary-text-color: 'white'
+  lumo-shade: 'grey'
+  lumo-shade-90pct: 'rgba(34, 34, 34, .9)'
+  lumo-shade-80pct: 'rgba(34, 34, 34, .8)'
+  lumo-shade-70pct: 'rgba(34, 34, 34, .7)'
+  lumo-shade-60pct: 'rgba(34, 34, 34, .6)'
+  lumo-shade-50pct: 'rgba(34, 34, 34, .5)'
+  lumo-shade-40pct: 'rgba(34, 34, 34, .4)'
+  lumo-shade-30pct: 'rgba(34, 34, 34, .3)'
+  lumo-shade-20pct: 'rgba(34, 34, 34, .2)'
+  lumo-shade-10pct: 'rgba(34, 34, 34, .1)'
+  lumo-shade-5pct: 'rgba(34, 34, 34, .05)'
+  lumo-tint-5pct: 'grey'
