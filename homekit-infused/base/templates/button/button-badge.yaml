@@ -4,9 +4,11 @@
 type: custom:button-card
 template: 
   - style-default
+  - {{ grid|default('default-hki-grid') }}
 triggers_update: all
 name: "{{ name }}"
 icon: "{{ icon }}"
+color: {{ icon_color_on|default('auto') }}
 show_entity_picture: {{ show_entity_picture|default('true') }}
 entity_picture: "{{ entity_picture }}"
 size: {{ size|default('25%') }}
@@ -26,13 +28,12 @@ tap_action:
   action: navigate
   navigation_path: "{{ navigation_path|default('/hki/about') }}"
 hold_action:
-  action: "{{ navigation_path|default('/hki/about') }}"
+  action: "{{ hold_action|default('none') }}"
   haptic: heavy
 double_tap_action:
-  action: "{{ navigation_path|default('/hki/about') }}"
+  action: "{{ hold_action|default('none') }}"
   haptic: heavy
 styles:
-  grid: {{ grid|default('!include ../../includes/default-hki-grid.yaml') }}
   custom_fields:
     notification:
       - background-color: "{{ background_color }}"
@@ -52,7 +53,7 @@ styles:
 custom_fields: 
   notification: "{{ notification }}"
 state:
-  - value: {{ custom_state|default("on") }} 
+  - value: "{{ custom_state|default('on') }}" 
     spin: {{ spin_on|default('false') }} 
     styles:
       card:
@@ -63,13 +64,15 @@ state:
         - color: black
       state:
         - color: black
-      icon:
-        - color: {{ icon_color_on|default('var(--paper-item-icon-color)') }}
       lock:
         - color: gray 
       label:
         - color: gray
-  - value: "off"
+      custom_fields:
+        notification:
+          - background-color: "black"
+          - color: var(--ha-card-background)
+  - value: "default"
     spin: {{ spin_off|default('false') }}
     styles:
       card:

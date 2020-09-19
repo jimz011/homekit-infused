@@ -14,7 +14,7 @@ cards:
           icon_color_off: {{ icon_color_preset_button_1|default('red') }}
           entity_id: {{ entity_media_player }}
           source: '{{ source_preset_button_1|default('YouTube') }}'
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/service-call.yaml'
         - entity: input_boolean.dummy1
@@ -24,7 +24,7 @@ cards:
           service: media_player.volume_down
           service_entity: {{ entity_media_player_sound }}
           opacity_off: 0.9
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/service-call.yaml'
         - entity: input_boolean.dummy1
@@ -34,7 +34,7 @@ cards:
           service: media_player.volume_up
           service_entity: {{ entity_media_player_sound }}
           opacity_off: 0.9
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/service-call.yaml'
         - entity: input_boolean.dummy1
@@ -44,7 +44,7 @@ cards:
           service: media_player.volume_mute
           service_entity: {{ entity_media_player_sound }}
           opacity_off: 0.9
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
   - type: horizontal-stack
     cards:
       - !include
@@ -56,7 +56,7 @@ cards:
           icon_color_off: {{ icon_color_preset_button_2|default('gold') }}
           entity_id: {{ entity_media_player }}
           source: '{{ source_preset_button_2|default('Plex') }}'
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:power
@@ -86,7 +86,7 @@ cards:
           icon_color_off: {{ icon_color_preset_button_3|default('red') }}
           entity_id: {{ entity_media_player }}
           source: '{{ source_preset_button_3|default('Netflix') }}'
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:arrow-left-drop-circle-outline
@@ -116,7 +116,7 @@ cards:
           icon_color_off: {{ icon_color_preset_button_4|default('limegreen') }}
           entity_id: {{ entity_media_player }}
           source: '{{ source_preset_button_4|default('Spotify') }}'
-          grid: "{{ grid|default('!include ../../includes/default-hki-grid.yaml') }}"
+          grid: {{ grid|default('default-hki-grid') }}
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:keyboard-backspace

@@ -10,8 +10,9 @@ switchHeight: {{ slider_height|default('410px') }}
 displayType: {{ display_type|default('auto') }}
 fullscreen: false
 settings: true
+settingsPosition: bottom
 settingsCard:
-  type: entity-button
+  type: custom:button-card
   cardOptions:
     entity: {{ entity }}
     color: white
