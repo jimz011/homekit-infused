@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 3.2.0
+        value_template: 3.2.1
 
 # Template Sensors (device counting)
   - platform: template

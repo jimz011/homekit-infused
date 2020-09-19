@@ -18,7 +18,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: true
                   color: Red
@@ -32,7 +32,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: false
                   color: Red
@@ -44,7 +44,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   spin_on: true
                   lock: true
@@ -59,7 +59,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   spin_on: true
                   lock: false
@@ -72,7 +72,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: true
                   spin_on: true
@@ -87,7 +87,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: false
                   spin_on: true
@@ -100,7 +100,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: true
             - attributes:
@@ -113,7 +113,7 @@ cards:
                 !include
                 - '../button/button.yaml'
                 - entity: this.entity_id
-                  grid: "{{ grid|default('!include ../../includes/light-devices-grid.yaml') }}"
+                  grid: "{{ grid|default('light-devices-grid') }}"
                   template: '../popup-cards/light-switch.yaml'
                   lock: false
             - type: custom:button-card
