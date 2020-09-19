@@ -12,9 +12,21 @@ fullscreen: false
 settings: true
 settingsPosition: bottom
 settingsCard:
-  type: custom:more-info-card
+  type: custom:button-card
   cardOptions:
     entity: {{ entity }}
+    color: white
+    name: Show More Info
+    label: click here
+    icon: mdi:palette
+    show_state: false
+    layout: icon_name_state2nd
+    tap_action:
+      action: more-info
+    hold_action:
+      action: more-info
+    double_tap_action:
+      action: more-info
 actionsInARow: 3
 actionSize: 30px
 sliderColoredByLight: {{ slider_colored_by_light|default('true') }}

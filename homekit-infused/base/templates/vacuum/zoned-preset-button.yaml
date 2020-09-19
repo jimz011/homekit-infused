@@ -1,6 +1,9 @@
 # lovelace_gen
 
 type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
 name: {{ name|default('Livingroom') }}
 icon: {{ icon|default('mdi:sofa') }}
 show_entity_picture: {{ show_entity_picture|default('true') }}
@@ -20,23 +23,17 @@ tap_action:
   haptic: heavy
 hold_action:
   action: none
-styles:
-  card:
-    - border-radius: var(--border-radius)
-    - box-shadow: var(--box-shadow)
-    - opacity: 0.7
-  img_cell:
-    - align-self: start
-    - text-align: start
-    - align-items: flex-start
-    - justify-content: flex-start
-  name:
-    - justify-self: start
-    - padding: 0px 10px
-    - font-weight: var(--name-font-weight)
-    - font-family: var(--font-family) 
-    - font-size: var(--name-font-size)
-  icon:
-    - padding: 2px 10px
-  entity_picture:
-    - padding: 7px 10px
+state:
+  - value: "default"
+    styles:
+      card:
+        - opacity: 0.8
+        - --ha-card-background: var(--ha-card-background)
+      icon:
+        - color: var(--paper-item-icon-color)
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)

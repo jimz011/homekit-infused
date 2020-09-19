@@ -3,20 +3,18 @@ styles:
     - border-radius: var(--border-radius)
     - box-shadow: var(--box-shadow)
   label:
-    - font-weight: normal
-    - font-size: 10px
+    - font-weight: var(--label-font-weight)
+    - font-size: var(--label-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
-#    - color: var(--primary-text-color) 
   state:
-    - font-size: 10px
+    - font-size: var(--state-font-size)
     - font-family: var(--font-family)
     - padding: 0px 10px
     - justify-self: start
     - text-transform: capitalize
-    - font-weight: bold
-#    - color: var(--state-color-off) 
+    - font-weight: var(--state-font-weight)
   img_cell:
     - align-self: start
     - text-align: start
@@ -25,9 +23,10 @@ styles:
   name:
     - justify-self: start
     - padding: 0px 10px
-    - font-weight: bold
+    - font-weight: var(--name-font-weight)
     - font-family: var(--font-family) 
-    - font-size: 12px
-#    - color: var(--primary-text-color) 
+    - font-size: var(--name-font-size)
   icon:
-    -  padding: 0px 10px
+    - padding: 2px 10px
+  entity_picture:
+    - padding: 7px 10px

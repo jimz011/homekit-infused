@@ -11,6 +11,18 @@ displayType: {{ display_type|default('auto') }}
 fullscreen: false
 settings: true
 settingsCard:
-  type: custom:more-info-card
+  type: entity-button
   cardOptions:
     entity: {{ entity }}
+    color: white
+    name: Show More Info
+    label: click here
+    icon: mdi:palette
+    show_state: false
+    layout: icon_name_state2nd
+    tap_action:
+      action: more-info
+    hold_action:
+      action: more-info
+    double_tap_action:
+      action: more-info

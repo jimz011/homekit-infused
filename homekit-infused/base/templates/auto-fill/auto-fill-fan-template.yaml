@@ -12,8 +12,7 @@ cards:
             !include
             - '../button/button.yaml'
             - entity: this.entity_id
-              grid:
-                '!include ../../includes/light-devices-grid.yaml'
+              grid: {{ grid|default('default-hki-grid') }}
               template: '../popup-cards/light-switch.yaml'
               lock: false
               color: DodgerBlue

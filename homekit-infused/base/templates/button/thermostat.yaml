@@ -2,6 +2,8 @@
 
 # card
 type: custom:button-card
+template: 
+  - style-default
 name: {{ name }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
@@ -87,33 +89,6 @@ double_tap_action:
       - this
   haptic: heavy
 styles:
-  card:
-    - border-radius: var(--border-radius)
-    - box-shadow: var(--box-shadow)
-  label:
-    - font-weight: var(--label-font-weight)
-    - font-size: var(--label-font-size)
-    - font-family: var(--font-family)
-    - padding: 0px 10px
-    - justify-self: start
-  state:
-    - font-size: var(--state-font-size)
-    - font-family: var(--font-family)
-    - padding: 0px 10px
-    - justify-self: start
-    - text-transform: capitalize
-    - font-weight: var(--state-font-weight)
-  img_cell:
-    - align-self: start
-    - text-align: start
-    - align-items: flex-start
-    - justify-content: flex-start
-  name:
-    - justify-self: start
-    - padding: 0px 10px
-    - font-weight: var(--name-font-weight)
-    - font-family: var(--font-family) 
-    - font-size: var(--name-font-size)
   grid:
     - grid-template-areas: '"i i" "n n" "area area" "s l"'
     - grid-template-columns: 1fr  lfr
@@ -215,7 +190,7 @@ state:
       custom_fields:
         notification:
           - background-color: var(--paper-item-icon-color)
-          - color: var(--notification-badge-color)
+          - color: var(--ha-card-background)
   - operator: 'default'
     spin: false
     styles:

@@ -15,6 +15,7 @@ cards:
               tap_action: more-info
               hold_action: more-info
               show_last_changed: true
+              grid: {{ grid|default('default-hki-grid') }}
         - type: custom:button-card
           color_type: blank-card
           aspect_ratio: 1/1

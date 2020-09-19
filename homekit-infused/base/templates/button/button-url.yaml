@@ -2,6 +2,9 @@
 
 # card
 type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
 name: {{ name }}
 icon: {{ icon }}
 show_entity_picture: {{ show_entity_picture|default('true') }}
@@ -41,45 +44,12 @@ double_tap_action:
     entity_id: {{ entity_id }}
     source: {{ source}}
   haptic: light
-styles:
-  card:
-    - border-radius: var(--border-radius)
-    - box-shadow: var(--box-shadow)
-  label:
-    - font-weight: var(--label-font-weight)
-    - font-size: var(--label-font-size)
-    - font-family: var(--font-family)
-    - padding: 0px 10px
-    - justify-self: start
-  state:
-    - font-size: var(--state-font-size)
-    - font-family: var(--font-family)
-    - padding: 0px 10px
-    - justify-self: start
-    - text-transform: capitalize
-    - font-weight: var(--state-font-weight)
-  img_cell:
-    - align-self: start
-    - text-align: start
-    - align-items: flex-start
-    - justify-content: flex-start
-  name:
-    - justify-self: start
-    - padding: 0px 10px
-    - font-weight: var(--name-font-weight)
-    - font-family: var(--font-family) 
-    - font-size: var(--name-font-size)
-  icon:
-    - padding: 2px 10px
-  entity_picture:
-    - padding: 7px 10px
-  grid: {{ grid|default('!include ../../includes/default-hki-grid.yaml') }}
 state:
   - value: "off"
     spin: {{ spin_off|default('false') }}
     styles:
       card:
-        - opacity: {{ opacity_off|default('0.5') }}
+        - opacity: {{ opacity_off|default('0.8') }}
         - --ha-card-background: "{{ card_color_off|default('var(--ha-card-background)') }}"
       icon:
         - color: "{{ icon_color_off|default('var(--paper-item-icon-color)') }}"

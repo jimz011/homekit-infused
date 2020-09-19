@@ -39,7 +39,8 @@
           cards:
             !include_dir_merge_list user/views/menu/
         - type: custom:layout-card
-          max_columns: 1
+          min_columns: {{ _global.view.min_columns|default('1') }}
+          max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
             - type: vertical-stack
               cards:
@@ -49,30 +50,57 @@
                 - type: horizontal-stack
                   cards:
                     - !include base/includes/gap.yaml
-                    - !include
-                      - base/templates/button/button-badge.yaml
-                      - name: About
-                        label: HKI
-                        icon: mdi:help-circle
-                        navigation_path: ../homekit-infused/about
-                        notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return '&nbsp'; else return `Update`; ]]]"
-                        background_color: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
-                    - !include
-                      - base/templates/button/button-badge.yaml
-                      - name: HKI
-                        label: Settings
-                        icon: mdi:palette
-                        navigation_path: ../homekit-infused/hki_settings
-                        notification: "[[[ return '&nbsp'; ]]]"
-                        background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
-                    - !include
-                      - base/templates/button/button-badge.yaml
-                      - name: HA
-                        label: Settings
-                        icon: mdi:cogs
-                        navigation_path: ../homekit-infused/ha_settings
-                        notification: "[[[ return '&nbsp'; ]]]"
-                        background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+                    - type: custom:state-switch
+                      entity: group
+                      states:
+                        admin:
+                          type: horizontal-stack
+                          cards:
+                            - !include
+                              - base/templates/button/button-badge.yaml
+                              - name: About
+                                label: HKI
+                                icon: mdi:help-circle
+                                navigation_path: ../homekit-infused/about
+                                notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `${states['sensor.hki_current_version'].state}`; else return `Update`; ]]]"
+                                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
+                            - !include
+                              - base/templates/button/button-badge.yaml
+                              - name: HKI
+                                label: Settings
+                                icon: mdi:palette
+                                navigation_path: ../homekit-infused/hki_settings
+                                notification: "[[[ return '&nbsp'; ]]]"
+                                background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+                            - !include
+                              - base/templates/button/button-badge.yaml
+                              - name: HA
+                                label: Settings
+                                icon: mdi:cogs
+                                navigation_path: ../homekit-infused/ha_settings
+                                notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
+                                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
+                        user:
+                          type: horizontal-stack
+                          cards:
+                            - !include
+                              - base/templates/button/button-badge.yaml
+                              - name: About
+                                label: HKI
+                                aspect_ratio: 2/1
+                                icon: mdi:help-circle
+                                navigation_path: ../homekit-infused/about
+                                notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `${states['sensor.hki_current_version'].state}`; else return `Update`; ]]]"
+                                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
+                            - !include
+                              - base/templates/button/button-badge.yaml
+                              - name: Go to
+                                label: Profile
+                                aspect_ratio: 2/1
+                                icon: mdi:account
+                                navigation_path: /profile
+                                notification: "[[[ return '&nbsp'; ]]]"
+                                background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
                     - !include base/includes/gap.yaml
 - path: about
   visible: false
@@ -166,7 +194,7 @@
                       size: 50%
                       entity: input_boolean.dummy1
                       name: Follow me on Github
-                      icon: mdi:github-box
+                      icon: mdi:github
                       tap_action:
                         action: url
                         url_path: https://www.github.com/jimz011/homeassistant
@@ -508,14 +536,247 @@
       cards:
         - !include
           - base/templates/header/header-base-template.yaml
-          - title: HA
-            subtitle: "{{ _global.header.settings|default('Settings') }}"
-            icon: {{ _global.header.ha_settings_icon|default('mdi:cogs') }}
+          - title: HA Settings
+            subtitle: "[[[ if (states['sensor.version_current'].state != 0) return `Home Assistant version ${states['sensor.version_current'].state}`; else return 'Version sensor not set up!'; ]]]"
+            icon: mdi:home-assistant
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
           cards:
+            - type: vertical-stack
+              cards:
+                - !include
+                  - base/templates/other/title-text.yaml
+                  - name: System
+                - type: horizontal-stack
+                  cards:
+                    - !include base/includes/gap.yaml
+                    - type: gauge
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                        }
+                      entity: sensor.processor_use
+                    - type: gauge
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                        }
+                      entity: sensor.memory_use_percent
+                    - !include base/includes/gap.yaml
+            - type: vertical-stack
+              cards:
+                - !include
+                  - base/templates/other/title-text.yaml
+                  - name: Quick Links
+                - type: horizontal-stack
+                  cards:
+                    - !include base/includes/gap.yaml
+                    - type: custom:layout-card
+                      min_columns: 4
+                      max_columns: 4
+                      justify_content: start
+                      layout: horizontal
+                      cards:
+                        - !include
+                          - 'base/templates/button/button-badge.yaml'
+                          - name: Go to
+                            label: Dashboard
+                            icon: mdi:view-dashboard
+                            navigation_path: /config/dashboard
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                            opacity_off: 0.8
+                        - !include
+                          - 'base/templates/button/button-badge.yaml'
+                          - name: Go to
+                            label: Resources
+                            icon: mdi:language-javascript
+                            navigation_path: /config/lovelace/resources
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                            opacity_off: 0.8
+                        - !include
+                          - 'base/templates/button/button-badge.yaml'
+                          - name: Go to
+                            label: NFC Tags
+                            icon: mdi:nfc
+                            navigation_path: /config/tags
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                            opacity_off: 0.8
+                        - !include
+                          - 'base/templates/button/button-badge.yaml'
+                          - name: Go to
+                            label: Logs
+                            icon: mdi:clipboard-text
+                            navigation_path: /config/logs
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                            opacity_off: 0.8
+                    - !include base/includes/gap.yaml
+            - type: vertical-stack
+              cards:
+                - !include
+                  - base/templates/other/title-text.yaml
+                  - name: Reload Configuration
+                - type: horizontal-stack
+                  cards:
+                    - !include base/includes/gap.yaml
+                    - type: custom:layout-card
+                      min_columns: 4
+                      max_columns: 4
+                      justify_content: start
+                      layout: horizontal
+                      cards:
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Automations
+                            icon: mdi:alpha-a-box
+                            service: automation.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload automations? This might take up to 10 seconds!` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Core Config
+                            icon: mdi:home-assistant
+                            service: homeassistant.reload_core_config
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload core config? This might take a while!` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Groups
+                            icon: mdi:account-multiple-plus
+                            service: group.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload groups? This feature might not work well!` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Homekit
+                            icon: mdi:apple
+                            service: input_boolean.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload the Homekit Component?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Input Booleans
+                            icon: mdi:toggle-switch
+                            service: input_boolean.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload input_booleans?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Input Date Times
+                            icon: mdi:calendar-clock
+                            service: input_datetime.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload input_datetimes?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Input Numbers
+                            icon: mdi:numeric-1-box-outline
+                            service: input_number.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload input_numbers?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Input Selects
+                            icon: mdi:text
+                            service: input_select.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload input_selects?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Input Texts
+                            icon: mdi:form-textbox
+                            service: input_text.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload input_texts?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Lovelace
+                            icon: mdi:cards-heart
+                            service: browser_mod.lovelace_reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload lovelace? This might take up to 10 seconds! You will be notified when the reload is completed.` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Persons
+                            icon: mdi:account-multiple
+                            service: person.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload persons?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Python Scripts
+                            icon: mdi:language-python
+                            service: python_script.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload python_scripts?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Scenes
+                            icon: mdi:arrange-send-backward
+                            service: scene.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload scenes?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Scripts
+                            icon: mdi:script
+                            service: script.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload scripts?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Themes
+                            icon: mdi:format-color-fill
+                            service: frontend.reload_themes
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload themes?` ]]]"
+                        - !include
+                          - base/templates/button/home-assistant-service.yaml
+                          - name: Reload
+                            entity: input_boolean.dummy1
+                            label: Zones
+                            icon: mdi:map-search
+                            service: zone.reload
+                            opacity_off: 0.8
+                            confirmation: "[[[ return `Are you sure you want to reload zones?` ]]]"
+                    - !include base/includes/gap.yaml
             - type: vertical-stack
               cards:
                 - !include
@@ -532,54 +793,31 @@
                       cards:
                         - !include
                           - base/templates/button/home-assistant-service.yaml
-                          - name: Reload
+                          - type: custom:button-card
+                            template:
+                              - style-default
+                            name: Home Assistant
                             entity: input_boolean.dummy1
-                            label: Core Config
-                            icon: mdi:home-assistant
-                            service: homeassistant.reload_core_config
-                            margin_right: 40px
-                            opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to reload core config?` ]]]"
+                            label: Release Notes
+                            icon: mdi:restart
+                            tap_action:
+                              action: url
+                              url_path: 'https://www.home-assistant.io/latest-release-notes/'
+                            state:
+                              - value: "default"
+                                style:
+                                  card:
+                                    - opacity: 0.8
+                            
                         - !include
                           - base/templates/button/home-assistant-service.yaml
-                          - name: Reload
+                          - name: Check
                             entity: input_boolean.dummy1
-                            label: Groups
-                            icon: mdi:account-multiple-plus
-                            service: group.reload
-                            margin_right: 40px
+                            label: HA Config
+                            icon: mdi:check-box-outline
+                            service: homeassistant.restart
                             opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to reload groups? This feature might not work well!` ]]]"
-                        - !include
-                          - base/templates/button/home-assistant-service.yaml
-                          - name: Reload
-                            entity: input_boolean.dummy1
-                            label: Themes
-                            icon: mdi:format-color-fill
-                            service: frontend.reload_themes
-                            margin_right: 40px
-                            opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to reload themes?` ]]]"
-                        - !include
-                          - base/templates/button/home-assistant-service.yaml
-                          - name: Reload
-                            entity: input_boolean.dummy1
-                            label: Automations
-                            icon: mdi:alpha-a-box
-                            service: automation.reload
-                            margin_right: 40px
-                            opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to reload automations?` ]]]"
-                        - !include
-                          - base/templates/button/home-assistant-service.yaml
-                          - name: Reload
-                            entity: input_boolean.dummy1
-                            label: Lovelace
-                            icon: mdi:cards-heart
-                            service: browser_mod.lovelace_reload
-                            margin_right: 40px
-                            opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to reload lovelace? This might take up to 30 seconds!` ]]]"
+                            confirmation: "[[[ return `This will check the HA config, it will show a notification in the sidebar if there is an error. If no error is shown the config is OK!` ]]]"
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Restart
@@ -587,9 +825,8 @@
                             label: Home Assistant
                             icon: mdi:restart
                             service: homeassistant.restart
-                            margin_right: 40px
                             opacity_off: 0.8
-                            confirmation: "[[[ return `Are you sure you want to restart Home Assistant?` ]]]"
+                            confirmation: "[[[ return `Make sure you check the config first! Are you sure you want to restart Home Assistant?` ]]]"
                     - !include base/includes/gap.yaml
 - path: hki_settings
   visible: false
@@ -599,9 +836,9 @@
       cards:
         - !include
           - base/templates/header/header-base-template.yaml
-          - title: HKI
+          - title: HKI 
             subtitle: Settings
-            icon: {{ _global.header.hki_settings_icon|default('mdi:palette') }}
+            icon: mdi:palette
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}

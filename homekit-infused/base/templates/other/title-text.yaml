@@ -13,13 +13,14 @@ cards:
         styles:
           card:
             - height: 33px
-            - --ha-card-background: rgba(0,0,0,0.0)
-            - box-shadow: none
+            - --ha-card-background: "{{ background_color|default('rgba(0,0,0,0.0)') }}"
+            - box-shadow: "{{ box_shadow|default('none') }}"
+            - border-radius: "{{ border_radius|default('none') }}"
           name:
-            - justify-self: start
-            - font-size: var(--title-text-font-size)
+            - justify-self: {{ justify_self|default('start') }}
+            - font-size: "{{ font_size|default('var(--title-text-font-size)') }}"
             - margin-left: 5px
             - font-family: var(--font-family)
-            - font-weight: var(--title-text-font-weight)
-            - color: var(--title-text-color)
+            - font-weight: "{{ font_weight|default('var(--title-text-font-weight)') }}"
+            - color: "{{ font_color|default('var(--title-text-color)') }}"
       - !include ../../includes/gap.yaml

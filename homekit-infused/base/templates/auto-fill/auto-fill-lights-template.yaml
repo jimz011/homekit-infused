@@ -21,8 +21,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-rgb.yaml'
                   lock: false
             - attributes:
@@ -34,8 +33,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-rgb.yaml'
                   lock: true
             - attributes:
@@ -49,8 +47,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-color-temp.yaml'
                   lock: false
             - attributes:
@@ -62,8 +59,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-color-temp.yaml'
                   lock: true
             - attributes:
@@ -77,8 +73,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-switch.yaml'
                   lock: false
             - attributes:
@@ -90,8 +85,7 @@ cards:
                 - '../button/button.yaml'
                 - entity: this.entity_id
                   label: !include ../../includes/brightness-label.yaml
-                  grid:
-                    '!include ../../includes/light-devices-grid.yaml'
+                  grid: {{ grid|default('light-devices-grid') }}
                   template: '../popup-cards/light-switch.yaml'
                   lock: true
             - type: custom:button-card
