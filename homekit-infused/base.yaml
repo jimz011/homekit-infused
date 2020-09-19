@@ -791,31 +791,31 @@
                       justify_content: start
                       layout: horizontal
                       cards:
-                        - !include
-                          - base/templates/button/home-assistant-service.yaml
-                          - type: custom:button-card
-                            template:
-                              - style-default
-                            name: Home Assistant
-                            entity: input_boolean.dummy1
-                            label: Release Notes
-                            icon: mdi:restart
-                            tap_action:
-                              action: url
-                              url_path: 'https://www.home-assistant.io/latest-release-notes/'
-                            state:
-                              - value: "default"
-                                style:
-                                  card:
-                                    - opacity: 0.8
-                            
+                        - type: custom:button-card
+                          template:
+                            - style-default
+                            - default-hki-grid
+                          name: Home Assistant
+                          size: 25%
+                          aspect_ratio: 1/1
+                          entity: input_boolean.dummy1
+                          label: Release Notes
+                          icon: mdi:chevron-up-circle
+                          tap_action:
+                            action: url
+                            url_path: 'https://www.home-assistant.io/latest-release-notes/'
+                          state:
+                            - value: "default"
+                              style:
+                                card:
+                                  - opacity: 0.8
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Check
                             entity: input_boolean.dummy1
                             label: HA Config
                             icon: mdi:check-box-outline
-                            service: homeassistant.restart
+                            service: homeassistant.check_config
                             opacity_off: 0.8
                             confirmation: "[[[ return `This will check the HA config, it will show a notification in the sidebar if there is an error. If no error is shown the config is OK!` ]]]"
                         - !include
