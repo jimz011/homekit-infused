@@ -1,11 +1,64 @@
 automation:
 # State Change Automations used for device counting
-  - alias: All States Change
-    id: 'StaesChanged'
+
+# 1  
+  - alias: 'group state change 1'
+    id: 'State changed 1'
     trigger:
       - platform: event
         event_type: state_changed
-    condition:
+    condition: 
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state is defined }}"
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.entity_id in state_attr('group.all_light_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_lights_on
+
+# 2
+  - alias: 'group state change 2'
+    id: 'State changed 2'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state is defined }}"
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.entity_id in state_attr('group.all_device_switch_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_devices_on
+
+# 3
+  - alias: 'group state change 3'
+    id: 'State changed 3'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state is defined }}"
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.entity_id in state_attr('group.all_climate_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_climate_entities_on
+
+# 4
+  - alias: 'group state change 4'
+    id: 'State changed 4'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
       condition: and
       conditions:
         - condition: template
@@ -13,44 +66,88 @@ automation:
         - condition: or
           conditions:
             - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_light_entities','entity_id') }}"
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_binary_sensor_entities','entity_id') }}
             - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_device_switch_entities','entity_id') }}"
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_detector_entities','entity_id') }}
             - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_climate_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_binary_sensor_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_detector_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_binary_sensors','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_motion_sensor_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_door_sensor_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_window_sensor_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_cover_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_garage_door_entities','entity_id') }}"
-            - condition: template
-              value_template: "{{ trigger.event.data.entity_id in state_attr('group.all_fan_entities','entity_id') }}"
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_motion_sensor_entities','entity_id') }}
     action:
-      - service: homeassistant.update_entity  
-        entity_id:      
-          - sensor.current_lights_on
-          - sensor.current_devices_on
-          - sensor.current_climate_entities_on
-          - sensor.current_binary_sensors_on
-          - sensor.current_detectors_on
-          - sensor.current_motion_sensors_on
-          - sensor.current_doors_open
-          - sensor.current_windows_open
-          - sensor.current_covers_open
-          - sensor.current_garage_doors_open
-          - sensor.current_fans_on
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_binary_sensors_on
+        - sensor.current_detectors_on
+        - sensor.current_motion_sensors_on
 
+# 5        
+  - alias: 'group state change 5'
+    id: 'State changed 5'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.new_state is defined }}"
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_door_sensor_entities','entity_id') }}
+            - condition: template
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_window_sensor_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_doors_open
+        - sensor.current_windows_open
+
+# 6
+  - alias: 'group state change 6'
+    id: 'State changed 6'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.new_state is defined }}"
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_cover_entities','entity_id') }}
+            - condition: template
+              value_template: >
+                {{ trigger.event.data.entity_id in state_attr('group.all_garage_door_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_covers_open
+        - sensor.current_garage_doors_open
+
+# 7
+  - alias: 'group state change 7'
+    id: 'State changed 7'
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition: 
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state is defined }}"
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.entity_id in state_attr('group.all_fan_entities','entity_id') }}
+    action:
+      service: homeassistant.update_entity
+      entity_id: 
+        - sensor.current_fans_on
+        
 # Theme Selector
   - alias: 'themes'
     initial_state: 'true'

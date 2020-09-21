@@ -3,7 +3,18 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 3.2.1
+        value_template: 3.3.0
+
+# Time Date
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+      - date_time_iso
+      - time_date
+      - time_utc
+      - beat
 
 # Template Sensors (device counting)
   - platform: template
@@ -35,7 +46,10 @@ sensor:
       current_climate_entities_on:
         friendly_name: All Climate Entities Currently On
         value_template: >-
-          {{ states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','heat')|list|count }}
+          {% set heat = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','heat')|list|count %}
+          {% set cool = states|selectattr('entity_id','in',state_attr('group.all_climate_entities','entity_id'))|selectattr('state','eq','cool')|list|count %}
+          {% set total = heat + cool %}
+          {{ total }}
       current_covers_open:
         friendly_name: All Covers Currently Open
         value_template: >-
@@ -106,5 +120,12 @@ sensor:
   - platform: scrape
     name: HKI Latest Version
     resource: https://jimz011.github.io/homekit-infused/version
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
+# Latest Home Assistant Version
+  - platform: scrape
+    name: Home Assistant Latest Version
+    resource: https://home-assistant.io
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'

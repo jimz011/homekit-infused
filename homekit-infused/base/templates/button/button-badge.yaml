@@ -72,6 +72,11 @@ state:
         notification:
           - background-color: "black"
           - color: var(--ha-card-background)
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}
   - value: "default"
     spin: {{ spin_off|default('false') }}
     styles:

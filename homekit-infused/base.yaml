@@ -800,15 +800,14 @@
                           aspect_ratio: 1/1
                           entity: input_boolean.dummy1
                           label: Release Notes
+                          show_label: true
                           icon: mdi:chevron-up-circle
                           tap_action:
                             action: url
                             url_path: 'https://www.home-assistant.io/latest-release-notes/'
-                          state:
-                            - value: "default"
-                              style:
-                                card:
-                                  - opacity: 0.8
+                          styles:
+                            card:
+                              - opacity: 0.8
                         - !include
                           - base/templates/button/home-assistant-service.yaml
                           - name: Check
@@ -828,6 +827,11 @@
                             opacity_off: 0.8
                             confirmation: "[[[ return `Make sure you check the config first! Are you sure you want to restart Home Assistant?` ]]]"
                     - !include base/includes/gap.yaml
+            - !include
+              - base/templates/other/title-text.yaml
+              - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
+                background_color: var(--ha-card-background)
+                font_weight: bold
 - path: hki_settings
   visible: false
   panel: true
@@ -1209,11 +1213,16 @@
             subtitle: "{{ _global.header.traffic_subtitle|default('Information') }}"
             icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
             header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          min_columns: {{ _global.view.min_columns|default('1') }}
-          max_columns: {{ _global.view.max_columns|default('3') }}
-          cards:
-            !include_dir_merge_list user/views/traffic/
+        - type: iframe
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+              margin-left: 15px;
+              margin-right: 15px;
+            }
+          url: https://embed.waze.com/iframe
+          aspect_ratio: 150%
 - path: vacuum
   visible: false
   panel: true

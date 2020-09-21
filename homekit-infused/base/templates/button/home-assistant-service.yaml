@@ -14,7 +14,6 @@ size: {{ size|default('25%') }}
 confirmation:
   text: "{{ confirmation }}"
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
-entity: {{ entity }}
 label: {{ label|default('"&nbsp;"') }}
 show_name: {{ show_name|default('true') }}
 show_icon: {{ show_icon|default('true') }}
@@ -27,17 +26,15 @@ tap_action:
   haptic: heavy
 hold_action:
   action: none
-state:
-  - value: "default"
-    styles:
-      card:
-        - opacity: 0.8
-        - --ha-card-background: var(--ha-card-background)
-      icon:
-        - color: var(--paper-item-icon-color)
-      name:
-        - color: var(--primary-text-color)
-      state:
-        - color: var(--primary-text-color)
-      label:
-        - color: var(--primary-text-color)
+styles:
+  card:
+    - opacity: 0.8
+    - --ha-card-background: var(--ha-card-background)
+  icon:
+    - color: var(--paper-item-icon-color)
+  name:
+    - color: var(--primary-text-color)
+  state:
+    - color: var(--primary-text-color)
+  label:
+    - color: var(--primary-text-color)

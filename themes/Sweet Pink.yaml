@@ -47,7 +47,7 @@ Sweet Pink:
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
   # Base colors
-  primary-color: 'Pink'
+  primary-color: '#FFC0CB'
   accent-color: 'var(--md-teal-A700)'
   dark-primary-color: 'var(--md-teal-900)'
   light-primary-color: 'var(--md-teal-400)'

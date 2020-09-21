@@ -27,6 +27,7 @@ input_select:
     options:
       - Home Assistant
       - Orange Delight
+      - Orange Darkness
       - Paper
       - Silver
       - Slate
@@ -41,6 +42,7 @@ input_select:
     options:
       - Home Assistant
       - Orange Delight
+      - Orange Darkness
       - Paper
       - Silver
       - Slate
@@ -55,6 +57,7 @@ input_select:
     options:
       - Home Assistant
       - Orange Delight
+      - Orange Darkness
       - Paper
       - Silver
       - Slate

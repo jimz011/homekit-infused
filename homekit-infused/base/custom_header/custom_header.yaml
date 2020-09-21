@@ -26,3 +26,9 @@ button_text:
 tab_icons:
   menu: mdi:menu
   home: mdi:home
+exceptions:
+  - conditions:
+      user: ipad, tablet, browser
+    config:
+      button_text:
+        options: "&nbsp; {{ hours12LZ }}:{{ minutesLZ }} - {{ date }}"
