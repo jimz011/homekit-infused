@@ -832,6 +832,7 @@
               - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
                 background_color: var(--ha-card-background)
                 font_weight: bold
+                font_color: var(--primary-text-color)
 - path: hki_settings
   visible: false
   panel: true
@@ -858,32 +859,106 @@
                     - !include base/includes/gap.yaml
                     - type: custom:layout-card
                       cards:
-                        - type: conditional
-                          conditions:
-                            - entity: input_boolean.day_night_cycle
-                              state: "on"
-                          card:
-                            type: entities
-                            show_header_toggle: false                                 
-                            entities: 
-                              - entity: input_boolean.day_night_cycle
-                                name: Light and Dark Mode
-                              - entity: input_select.theme_selector_day
-                                name: Select Light Theme
-                              - entity: input_select.theme_selector_night
-                                name: Select Dark Theme
-                        - type: conditional
-                          conditions:
-                            - entity: input_boolean.day_night_cycle
-                              state: "off"
-                          card:
-                            type: entities
-                            show_header_toggle: false                                   
-                            entities: 
-                              - entity: input_boolean.day_night_cycle
-                                name: Light and Dark Mode
-                              - entity: input_select.theme_selector
-                                name: Select Palette
+                        # - type: conditional
+                        #   conditions:
+                        #     - entity: input_boolean.day_night_cycle
+                        #       state: "on"
+                        #   card:
+                        #     type: entities
+                        #     show_header_toggle: false                                 
+                        #     entities: 
+                        #       - entity: input_boolean.day_night_cycle
+                        #         name: Light and Dark Mode
+                        #       - entity: input_select.theme_selector_day
+                        #         name: Select Light Theme
+                        #       - entity: input_select.theme_selector_night
+                        #         name: Select Dark Theme
+                        # - type: conditional
+                        #   conditions:
+                        #     - entity: input_boolean.day_night_cycle
+                        #       state: "off"
+                        #   card:
+                        #     type: entities
+                        #     show_header_toggle: false                                   
+                        #     entities: 
+                        #       - entity: input_boolean.day_night_cycle
+                        #         name: Light and Dark Mode
+                        #       - entity: input_select.theme_selector
+                        #         name: Select Palette
+                          - type: conditional
+                            conditions:
+                              - entity: input_boolean.user_themes
+                                state: 'off'
+                            card:
+                              type: vertical-stack
+                              cards:
+                                - type: conditional
+                                  conditions:
+                                    - entity: input_boolean.day_night_cycle
+                                      state: 'on'
+                                  card:
+                                    type: entities
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_boolean.user_themes
+                                        name: User created themes
+                                      - entity: input_boolean.day_night_cycle
+                                        name: Light and Dark Mode
+                                      - entity: input_select.theme_selector_day
+                                        name: Select Light Theme
+                                      - entity: input_select.theme_selector_night
+                                        name: Select Dark Theme
+                                - type: conditional
+                                  conditions:
+                                    - entity: input_boolean.day_night_cycle
+                                      state: 'off'
+                                  card:
+                                    type: entities
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_boolean.user_themes
+                                        name: User created themes
+                                      - entity: input_boolean.day_night_cycle
+                                        name: Light and Dark Mode
+                                      - entity: input_select.theme_selector
+                                        name: Select Palette
+                          - type: conditional
+                            conditions:
+                              - entity: input_boolean.user_themes
+                                state: 'on'
+                            card:
+                              type: vertical-stack
+                              cards:
+                                - type: conditional
+                                  conditions:
+                                    - entity: input_boolean.user_day_night_cycle
+                                      state: 'on'
+                                  card:
+                                    type: entities
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_boolean.user_themes
+                                        name: User created themes
+                                      - entity: input_boolean.user_day_night_cycle
+                                        name: Light and Dark Mode
+                                      - entity: input_select.user_theme_selector_day
+                                        name: Select Light Theme
+                                      - entity: input_select.user_theme_selector_night
+                                        name: Select Dark Theme
+                                - type: conditional
+                                  conditions:
+                                    - entity: input_boolean.user_day_night_cycle
+                                      state: 'off'
+                                  card:
+                                    type: entities
+                                    show_header_toggle: false
+                                    entities:
+                                      - entity: input_boolean.user_themes
+                                        name: User created themes
+                                      - entity: input_boolean.user_day_night_cycle
+                                        name: Light and Dark Mode
+                                      - entity: input_select.user_theme_selector
+                                        name: Select Palette
                     - !include base/includes/gap.yaml
                 - !include
                   - base/templates/other/title-text.yaml
