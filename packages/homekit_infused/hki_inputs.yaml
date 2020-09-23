@@ -11,6 +11,8 @@ input_boolean:
   update_ha:
   update_hki:
   day_night_cycle:
+  user_day_night_cycle:
+  user_themes:
   empty:
 
 # Input Numbers
