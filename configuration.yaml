@@ -1,6 +1,22 @@
 
 # EXAMPLE CONFIGURATION.YAML, IT CONTAINS ALL THE NECESSARY LINES YOU NEED IN YOUR OWN CONFIGURATION.YAML
 # DO NOT USE THIS FILE!!!!!
+# User themes
+input_select:
+  user_theme_selector:
+    name: User Theme Selector 
+    options:
+      - Name of your created theme
+
+  user_theme_selector_day:
+    name: User Theme Selector 
+    options:
+      - Name of your created theme
+
+  user_theme_selector_night:
+    name: User Theme Selector 
+    options:
+      - Name of your created theme
 
 homeassistant:
   customize: !include customize.yaml
