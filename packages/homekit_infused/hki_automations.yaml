@@ -160,6 +160,16 @@ automation:
         entity_id: input_select.theme_selector_day
       - platform: state
         entity_id: input_select.theme_selector_night
+      - platform: state
+        entity_id: input_boolean.user_day_night_cycle
+      - platform: state
+        entity_id: input_select.user_theme_selector
+      - platform: state
+        entity_id: input_select.user_theme_selector_day
+      - platform: state
+        entity_id: input_select.user_theme_selector_night
+      - platform: state
+        entity_id: input_boolean.user_themes
       - platform: homeassistant
         event: start
       - platform: state
@@ -168,10 +178,16 @@ automation:
       - service: frontend.set_theme
         data_template:
           name: >
-            {% if (is_state('sun.sun', 'above_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+            {% if (is_state('sun.sun', 'above_horizon')) and (is_state('input_boolean.day_night_cycle', 'on')) and (is_state('input_boolean.user_day_night_cycle', 'off')) and (is_state('input_boolean.user_themes', 'off')) %}
               {{ states('input_select.theme_selector_day') }}
-            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_boolean.day_night_cycle', 'on'))  %}
+            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_boolean.day_night_cycle', 'on')) and (is_state('input_boolean.user_day_night_cycle', 'off')) and (is_state('input_boolean.user_themes', 'off'))  %}
               {{ states('input_select.theme_selector_night') }}
+            {% elif (is_state('sun.sun', 'above_horizon')) and (is_state('input_boolean.user_day_night_cycle', 'on')) and (is_state('input_boolean.user_themes', 'on')) %}
+              {{ states('input_select.user_theme_selector_day') }}
+            {% elif (is_state('sun.sun', 'below_horizon')) and (is_state('input_boolean.user_day_night_cycle', 'on')) and (is_state('input_boolean.user_themes', 'on'))  %}
+              {{ states('input_select.user_theme_selector_night') }}
+            {% elif (is_state('input_boolean.user_themes', 'on')) %}
+              {{ states('input_select.user_theme_selector') }}
             {% else %}
               {{ states('input_select.theme_selector') }}
             {% endif %}
