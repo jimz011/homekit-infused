@@ -38,7 +38,7 @@
           - !include base/includes/gap.yaml
           - type: custom:layout-card
             min_columns: 3
-            max_columns: 5
+            max_columns: {{ _global.view.menu_max_columns|default('6') }}
             layout: horizontal
             column_width: 175px
             cards:
