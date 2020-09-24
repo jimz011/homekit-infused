@@ -885,6 +885,8 @@
                               - entity: input_select.theme_selector
                                 name: Select Palette
                     - !include base/includes/gap.yaml
+            - type: vertical-stack
+              cards:
                 - !include
                   - base/templates/other/title-text.yaml
                   - name: Greeting
@@ -903,6 +905,8 @@
                         - name: Good Night
                           entity: input_text.good_night
                     - !include base/includes/gap.yaml
+            - type: vertical-stack
+              cards:
                 - !include
                   - base/templates/other/title-text.yaml
                   - name: Show Selectors
