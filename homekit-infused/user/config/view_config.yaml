@@ -9,3 +9,4 @@ view:
 # Columns
   min_columns: 1
   max_columns: 3
+  menu_max_columns: 6
