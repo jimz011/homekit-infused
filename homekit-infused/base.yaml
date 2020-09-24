@@ -33,11 +33,17 @@
             subtitle: "{{ _global.header.menu_subtitle|default('Overview') }}"
             icon: {{ _global.header.menu_icon|default('mdi:menu') }}
             header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          min_columns: {{ _global.view.min_columns|default('1') }}
-          max_columns: {{ _global.view.max_columns|default('3') }}
+        - type: horizontal-stack
           cards:
-            !include_dir_merge_list user/views/menu/
+          - !include base/includes/gap.yaml
+          - type: custom:layout-card
+            min_columns: 3
+            max_columns: 5
+            layout: horizontal
+            column_width: 175px
+            cards:
+              !include_dir_merge_list user/views/menu/
+          - !include base/includes/gap.yaml
         - type: custom:layout-card
           min_columns: {{ _global.view.min_columns|default('1') }}
           max_columns: {{ _global.view.max_columns|default('3') }}
