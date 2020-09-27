@@ -1,4 +1,3 @@
-# lovelace_gen
 - type: custom:mod-card
   style: |
     ha-card {
