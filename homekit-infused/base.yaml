@@ -1078,16 +1078,16 @@
         - type: custom:layout-card
           max_columns: 3
           cards:
-            - type: vertical-stack
-              cards:
-                - type: custom:mod-card
-                  style: |
-                    ha-card {
-                      margin-left: 7px;
-                      margin-right: 7px;
-                    }
-                  card:
-                    type: horizontal-stack
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - type: horizontal-stack
                     cards:
                       - type: custom:button-card
                         name: Theme
@@ -1221,204 +1221,194 @@
                                 - color: var(--button-on-label-color)
                               icon:
                                 - color: var(--button-on-icon-color)
-                - type: conditional
-                  conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "Themes"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      - !include
-                        - base/templates/other/title-text.yaml
-                        - name: Select if you want a persistent theme or a day/night cycle
-                      - type: conditional
-                        conditions:
-                          - entity: input_boolean.day_night_cycle
-                            state: "on"
-                        card:
-                          type: entities
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.hki_settings_selector
+                        state: "Themes"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - !include
+                          - base/templates/other/title-text.yaml
+                          - name: Select if you want a persistent theme or a day/night cycle
+                        - type: conditional
+                          conditions:
+                            - entity: input_boolean.day_night_cycle
+                              state: "on"
+                          card:
+                            type: entities
+                            style: |
+                              ha-card {
+                                border-radius: var(--border-radius);
+                                box-shadow: var(--box-shadow);
+                              }
+                            show_header_toggle: false                                 
+                            entities: 
+                              - entity: input_boolean.day_night_cycle
+                                name: Light and Dark Mode
+                              - entity: input_select.theme_selector_day
+                                name: Select Light Theme
+                              - entity: input_select.theme_selector_night
+                                name: Select Dark Theme
+                        - type: conditional
+                          conditions:
+                            - entity: input_boolean.day_night_cycle
+                              state: "off"
+                          card:
+                            type: entities
+                            style: |
+                              ha-card {
+                                border-radius: var(--border-radius);
+                                box-shadow: var(--box-shadow);
+                              }
+                            show_header_toggle: false                                   
+                            entities: 
+                              - entity: input_boolean.day_night_cycle
+                                name: Light and Dark Mode
+                              - entity: input_select.theme_selector
+                                name: Select Palette
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.hki_settings_selector
+                        state: "Greeting"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - !include
+                          - base/templates/other/title-text.yaml
+                          - name: Set the Frontpage Greeting lines
+                        - type: entities
                           style: |
                             ha-card {
                               border-radius: var(--border-radius);
                               box-shadow: var(--box-shadow);
-                              margin-left: 7px;
-                              margin-right: 7px;
                             }
                           show_header_toggle: false                                 
                           entities: 
-                            - entity: input_boolean.day_night_cycle
-                              name: Light and Dark Mode
-                            - entity: input_select.theme_selector_day
-                              name: Select Light Theme
-                            - entity: input_select.theme_selector_night
-                              name: Select Dark Theme
-                      - type: conditional
-                        conditions:
-                          - entity: input_boolean.day_night_cycle
-                            state: "off"
-                        card:
-                          type: entities
+                            - name: Good Morning
+                              entity: input_text.good_morning
+                            - name: Good Afternoon
+                              entity: input_text.good_afternoon
+                            - name: Good Evening
+                              entity: input_text.good_evening
+                            - name: Good Night
+                              entity: input_text.good_night
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.hki_settings_selector
+                        state: "View Selector"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - !include
+                          - base/templates/other/title-text.yaml
+                          - name: Select which selectors to show
+                        - type: entities
                           style: |
                             ha-card {
                               border-radius: var(--border-radius);
                               box-shadow: var(--box-shadow);
-                              margin-left: 7px;
-                              margin-right: 7px;
                             }
-                          show_header_toggle: false                                   
+                          show_header_toggle: false                                 
                           entities: 
-                            - entity: input_boolean.day_night_cycle
-                              name: Light and Dark Mode
-                            - entity: input_select.theme_selector
-                              name: Select Palette
-                - type: conditional
-                  conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "Greeting"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      - !include
-                        - base/templates/other/title-text.yaml
-                        - name: Set the Frontpage Greeting lines
-                      - type: entities
-                        style: |
-                          ha-card {
-                            border-radius: var(--border-radius);
-                            box-shadow: var(--box-shadow);
-                            margin-left: 7px;
-                            margin-right: 7px;
-                          }
-                        show_header_toggle: false                                 
-                        entities: 
-                          - name: Good Morning
-                            entity: input_text.good_morning
-                          - name: Good Afternoon
-                            entity: input_text.good_afternoon
-                          - name: Good Evening
-                            entity: input_text.good_evening
-                          - name: Good Night
-                            entity: input_text.good_night
-                - type: conditional
-                  conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "View Selector"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      - !include
-                        - base/templates/other/title-text.yaml
-                        - name: Select which selectors to show
-                      - type: entities
-                        style: |
-                          ha-card {
-                            border-radius: var(--border-radius);
-                            box-shadow: var(--box-shadow);
-                            margin-left: 7px;
-                            margin-right: 7px;
-                          }
-                        show_header_toggle: false                                 
-                        entities: 
-                          - name: Show Floor Selector (light/devices)
-                            entity: input_select.show_floor_selector
-                          - name: Show Media View Selector
-                            entity: input_select.show_media_view_selector
-                          - name: Show Person 1 View Selector
-                            entity: input_select.show_person_1_selector
-                          - name: Show Person 2 View Selector
-                            entity: input_select.show_person_2_selector
-                          - name: Show Person 3 View Selector
-                            entity: input_select.show_person_3_selector
-                          - name: Show Person 4 View Selector
-                            entity: input_select.show_person_4_selector
-                      - !include base/includes/empty-button.yaml
-                - type: conditional
-                  conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "View Advanced"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      - !include
-                        - base/templates/other/title-text.yaml
-                        - name: Select which view type you want per view
-                      - type: entities
-                        style: |
-                          ha-card {
-                            border-radius: var(--border-radius);
-                            box-shadow: var(--box-shadow);
-                            margin-left: 7px;
-                            margin-right: 7px;
-                          }
-                        show_header_toggle: false                                 
-                        entities: 
-                          - name: Automations
-                            entity: input_select.view_style_automations
-                          - name: Battery
-                            entity: input_select.view_style_battery
-                          - name: Calendar
-                            entity: input_select.view_style_calendar
-                          - name: Certificates
-                            entity: input_select.view_style_certificates
-                          - name: Cleaning
-                            entity: input_select.view_style_cleaning
-                          - name: Climate
-                            entity: input_select.view_style_climate
-                          - name: Computers
-                            entity: input_select.view_style_computers
-                          - name: Covers
-                            entity: input_select.view_style_covers
-                          - name: Devices
-                            entity: input_select.view_style_devices
-                          - name: Energy
-                            entity: input_select.view_style_energy
-                          - name: Floorplan
-                            entity: input_select.view_style_floorplan
-                          - name: Frontpage
-                            entity: input_select.view_style_home
-                          - name: Lights
-                            entity: input_select.view_style_lights
-                          - name: Media
-                            entity: input_select.view_style_media
-                          - name: Menu
-                            entity: input_select.view_style_menu
-                          - name: Person 1
-                            entity: input_select.view_style_person_1
-                          - name: Person 2
-                            entity: input_select.view_style_person_2
-                          - name: Person 3
-                            entity: input_select.view_style_person_3
-                          - name: Person 4
-                            entity: input_select.view_style_person_4
-                          - name: Scenes
-                            entity: input_select.view_style_scenes
-                          - name: Security
-                            entity: input_select.view_style_security
-                          - name: System
-                            entity: input_select.view_style_system
-                          - name: Vacuum
-                            entity: input_select.view_style_vacuum
-                          - name: Waste
-                            entity: input_select.view_style_waste
-                          - name: Weather
-                            entity: input_select.view_style_weather
-                          - name: Custom 1
-                            entity: input_select.view_style_custom_1
-                          - name: Custom 2
-                            entity: input_select.view_style_custom_2
-                          - name: Custom 3
-                            entity: input_select.view_style_custom_3
-                          - name: Custom 4
-                            entity: input_select.view_style_custom_4
-                          - name: Custom 5
-                            entity: input_select.view_style_custom_5
-                          - name: Custom 6
-                            entity: input_select.view_style_custom_6
-                          - name: Custom 7
-                            entity: input_select.view_style_custom_7
-                          - name: Custom 8
-                            entity: input_select.view_style_custom_8
-                      - !include base/includes/empty-button.yaml
+                            - name: Show Floor Selector (light/devices)
+                              entity: input_select.show_floor_selector
+                            - name: Show Media View Selector
+                              entity: input_select.show_media_view_selector
+                            - name: Show Person 1 View Selector
+                              entity: input_select.show_person_1_selector
+                            - name: Show Person 2 View Selector
+                              entity: input_select.show_person_2_selector
+                            - name: Show Person 3 View Selector
+                              entity: input_select.show_person_3_selector
+                            - name: Show Person 4 View Selector
+                              entity: input_select.show_person_4_selector
+                        - !include base/includes/empty-button.yaml
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.hki_settings_selector
+                        state: "View Advanced"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - !include
+                          - base/templates/other/title-text.yaml
+                          - name: Select which view type you want per view
+                        - type: entities
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                            }
+                          show_header_toggle: false                                 
+                          entities: 
+                            - name: Automations
+                              entity: input_select.view_style_automations
+                            - name: Battery
+                              entity: input_select.view_style_battery
+                            - name: Calendar
+                              entity: input_select.view_style_calendar
+                            - name: Certificates
+                              entity: input_select.view_style_certificates
+                            - name: Cleaning
+                              entity: input_select.view_style_cleaning
+                            - name: Climate
+                              entity: input_select.view_style_climate
+                            - name: Computers
+                              entity: input_select.view_style_computers
+                            - name: Covers
+                              entity: input_select.view_style_covers
+                            - name: Devices
+                              entity: input_select.view_style_devices
+                            - name: Energy
+                              entity: input_select.view_style_energy
+                            - name: Floorplan
+                              entity: input_select.view_style_floorplan
+                            - name: Frontpage
+                              entity: input_select.view_style_home
+                            - name: Lights
+                              entity: input_select.view_style_lights
+                            - name: Media
+                              entity: input_select.view_style_media
+                            - name: Menu
+                              entity: input_select.view_style_menu
+                            - name: Person 1
+                              entity: input_select.view_style_person_1
+                            - name: Person 2
+                              entity: input_select.view_style_person_2
+                            - name: Person 3
+                              entity: input_select.view_style_person_3
+                            - name: Person 4
+                              entity: input_select.view_style_person_4
+                            - name: Scenes
+                              entity: input_select.view_style_scenes
+                            - name: Security
+                              entity: input_select.view_style_security
+                            - name: System
+                              entity: input_select.view_style_system
+                            - name: Vacuum
+                              entity: input_select.view_style_vacuum
+                            - name: Waste
+                              entity: input_select.view_style_waste
+                            - name: Weather
+                              entity: input_select.view_style_weather
+                            - name: Custom 1
+                              entity: input_select.view_style_custom_1
+                            - name: Custom 2
+                              entity: input_select.view_style_custom_2
+                            - name: Custom 3
+                              entity: input_select.view_style_custom_3
+                            - name: Custom 4
+                              entity: input_select.view_style_custom_4
+                            - name: Custom 5
+                              entity: input_select.view_style_custom_5
+                            - name: Custom 6
+                              entity: input_select.view_style_custom_6
+                            - name: Custom 7
+                              entity: input_select.view_style_custom_7
+                            - name: Custom 8
+                              entity: input_select.view_style_custom_8
+                        - !include base/includes/empty-button.yaml
 
 # Lights View
 - path: lights
