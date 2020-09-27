@@ -2,169 +2,161 @@
 
 type: vertical-stack
 cards:
-  - type: horizontal-stack
+  - type: custom:layout-card
+    min_columns: 4
+    max_columns: 4
+    justify_content: start
+    layout: horizontal
     cards:
-      - !include ../../includes/gap.yaml
-      - type: custom:layout-card
-        min_columns: 4
-        max_columns: 4
-        justify_content: start
-        layout: horizontal
-        cards:
-          - type: custom:state-switch
-            entity: input_select.xiaomi_vacuum
-            default: default
-            states:
-              default:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_silent|default('Silent') }}
-                  icon: mdi:fan
-                  size: 15%
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  option: Silent
-              Silent:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_silent|default('Silent') }}
-                  icon: mdi:fan
-                  size: 15%
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  opacity_off: 1.0
-                  card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `white`; ]]]"
-                  icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `Dodgerblue`; ]]]"
-                  name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `black` ]]]"
-                  label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `gray` ]]]"
-                  spin_off: true
-                  option: Silent
-          - type: custom:state-switch
-            entity: input_select.xiaomi_vacuum
-            default: default
-            states:
-              default:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_turbo|default('Turbo') }}
-                  icon: mdi:fan
-                  size: 20%
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  option: Medium
-              Medium:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_turbo|default('Turbo') }}
-                  icon: mdi:fan
-                  size: 20%
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  opacity_off: 1.0
-                  card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `white`; ]]]"
-                  icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `Dodgerblue`; ]]]"
-                  name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `black` ]]]"
-                  label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `gray` ]]]"
-                  spin_off: true
-                  option: Medium
-          - type: custom:state-switch
-            entity: input_select.xiaomi_vacuum
-            default: default
-            states:
-              default:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_max|default('Max') }}
-                  icon: mdi:fan
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  option: Turbo
-              Turbo:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_max|default('Max') }}
-                  icon: mdi:fan
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  opacity_off: 1.0
-                  card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `white`; ]]]"
-                  icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `Dodgerblue`; ]]]"
-                  name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `black` ]]]"
-                  label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `gray` ]]]"
-                  spin_off: true
-                  option: Turbo
-          - type: custom:state-switch
-            entity: input_select.xiaomi_vacuum
-            default: default
-            states:
-              default:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_balanced|default('balanced') }}
-                  icon: mdi:sync
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  option: Standard
-              Standard:
-                !include
-                - '../../templates/button/service-call-with-option.yaml'
-                - entity: input_boolean.dummy1
-                  name: {{ name_balanced|default('balanced') }}
-                  icon: mdi:sync
-                  service_entity: input_select.xiaomi_vacuum
-                  margin_right: 40px
-                  opacity_off: 1.0
-                  card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `white`; ]]]"
-                  icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `Orange`; ]]]"
-                  name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `black` ]]]"
-                  label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `gray` ]]]"
-                  spin_off: true
-                  option: Standard
-      - !include ../../includes/gap.yaml
-  - type: horizontal-stack
-    cards:
-      - !include ../../../base/includes/gap.yaml
       - type: custom:state-switch
         entity: input_select.xiaomi_vacuum
         default: default
         states:
           default:
             !include
-            - '../../../base/templates/button/service-call-with-option.yaml'
+            - '../../templates/button/service-call-with-option.yaml'
             - entity: input_boolean.dummy1
-              name: {{ name_mop|default('Mop') }}
-              icon: mdi:alpha-o-circle-outline
-              size: 8%
-              aspect_ratio: 6/1
-              show_label: false
-              show_state: false
+              name: {{ name_silent|default('Silent') }}
+              icon: mdi:fan
+              size: 15%
               service_entity: input_select.xiaomi_vacuum
-              margin_right: 300px
-              option: Gentle
-          Gentle:
+              margin_right: 40px
+              option: Silent
+          Silent:
             !include
-            - '../../../base/templates/button/service-call-with-option.yaml'
+            - '../../templates/button/service-call-with-option.yaml'
             - entity: input_boolean.dummy1
-              name: {{ name_mop|default('Mop') }}
-              icon: mdi:alpha-o-circle-outline
-              size: 8%
-              aspect_ratio: 6/1
-              show_label: false
-              show_state: false
+              name: {{ name_silent|default('Silent') }}
+              icon: mdi:fan
+              size: 15%
               service_entity: input_select.xiaomi_vacuum
-              margin_right: 300px
+              margin_right: 40px
               opacity_off: 1.0
-              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `white`; ]]]"
-              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `Navy`; ]]]"
-              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `black` ]]]"
-              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `gray` ]]]"
+              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `black` ]]]"
+              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Silent') return `gray` ]]]"
               spin_off: true
-              option: Gentle
-      - !include ../../../base/includes/gap.yaml
+              option: Silent
+      - type: custom:state-switch
+        entity: input_select.xiaomi_vacuum
+        default: default
+        states:
+          default:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_turbo|default('Turbo') }}
+              icon: mdi:fan
+              size: 20%
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              option: Medium
+          Medium:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_turbo|default('Turbo') }}
+              icon: mdi:fan
+              size: 20%
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `black` ]]]"
+              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Medium') return `gray` ]]]"
+              spin_off: true
+              option: Medium
+      - type: custom:state-switch
+        entity: input_select.xiaomi_vacuum
+        default: default
+        states:
+          default:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_max|default('Max') }}
+              icon: mdi:fan
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              option: Turbo
+          Turbo:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_max|default('Max') }}
+              icon: mdi:fan
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `Dodgerblue`; ]]]"
+              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `black` ]]]"
+              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Turbo') return `gray` ]]]"
+              spin_off: true
+              option: Turbo
+      - type: custom:state-switch
+        entity: input_select.xiaomi_vacuum
+        default: default
+        states:
+          default:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_balanced|default('balanced') }}
+              icon: mdi:sync
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              option: Standard
+          Standard:
+            !include
+            - '../../templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: {{ name_balanced|default('balanced') }}
+              icon: mdi:sync
+              service_entity: input_select.xiaomi_vacuum
+              margin_right: 40px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `Orange`; ]]]"
+              name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `black` ]]]"
+              label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Standard') return `gray` ]]]"
+              spin_off: true
+              option: Standard
+  - type: custom:state-switch
+    entity: input_select.xiaomi_vacuum
+    default: default
+    states:
+      default:
+        !include
+        - '../../../base/templates/button/service-call-with-option.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_mop|default('Mop') }}
+          icon: mdi:alpha-o-circle-outline
+          size: 8%
+          aspect_ratio: 6/1
+          show_label: false
+          show_state: false
+          service_entity: input_select.xiaomi_vacuum
+          margin_right: 300px
+          option: Gentle
+      Gentle:
+        !include
+        - '../../../base/templates/button/service-call-with-option.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_mop|default('Mop') }}
+          icon: mdi:alpha-o-circle-outline
+          size: 8%
+          aspect_ratio: 6/1
+          show_label: false
+          show_state: false
+          service_entity: input_select.xiaomi_vacuum
+          margin_right: 300px
+          opacity_off: 1.0
+          card_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `white`; ]]]"
+          icon_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `Navy`; ]]]"
+          name_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `black` ]]]"
+          label_color_off: "[[[ if (states['input_select.xiaomi_vacuum'].state == 'Gentle') return `gray` ]]]"
+          spin_off: true
+          option: Gentle

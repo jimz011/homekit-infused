@@ -12,21 +12,13 @@ fullscreen: false
 settings: true
 settingsPosition: bottom
 settingsCard:
-  type: custom:button-card
+  type: custom:light-entity-card
   cardOptions:
     entity: {{ entity }}
-    color: white
-    name: Show More Info
-    label: click here
-    icon: mdi:palette
-    show_state: false
-    layout: icon_name_state2nd
-    tap_action:
-      action: more-info
-    hold_action:
-      action: more-info
-    double_tap_action:
-      action: more-info
+    persist_features: true
+    smooth_color_wheel: true
+    child_card: true
+    consolidate_entities: true
 actionsInARow: 3
 actionSize: 30px
 sliderColoredByLight: {{ slider_colored_by_light|default('true') }}

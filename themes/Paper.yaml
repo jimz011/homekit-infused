@@ -10,6 +10,7 @@ Paper:
   header-text-color: 'White'
   header-font-size: 15px
   header-font-weight: normal
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
 
   subtitle-text-color: 'White'
   subtitle-font-size: 12px
@@ -20,10 +21,25 @@ Paper:
   title-text-font-size: 12px
   title-text-font-weight: bolder
 
+  ### Display a gap at the left and right side of cards on a smartphone
+  display-gap: 10px
+
   ### Border Radius and Box Shadow
   border-radius: 12px
   box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
   bar-card-border-radius: 12px
+
+  ### Button Colors
+  button-color: '#fdf6e3'
+  
+  button-on-color: '#FFFFFF'
+  button-on-name-color: black
+  button-on-state-color: black
+  button-on-label-color: gray
+  button-on-lock-color: gray
+  button-on-icon-color: var(--paper-item-icon-active-color)
+  button-on-opacity: 1.0
+  button-on-box-shadow: none
 
   ### Fonts
   font-family: Roboto
@@ -63,7 +79,7 @@ Paper:
   label-badge-red: "#586e75"
   label-badge-text-color: "var(--primary-text-color)"
   light-primary-color: "var(--accent-color)"
-  ha-card-background: "var(--accent-color)"
+  ha-card-background: "var(--button-color)"
   paper-card-background-color: "var(--ha-card-background)"
   paper-card-header-color: "var(--dark-primary-color)"
   paper-dialog-background-color: "#fdf6e3"

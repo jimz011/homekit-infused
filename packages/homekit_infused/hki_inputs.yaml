@@ -151,6 +151,146 @@ input_select:
       - Turbo
       - Gentle
 
+  hki_settings_selector:
+    options:
+      - Themes
+      - Greeting
+      - View Selector
+      - View Advanced
+
+  view_style_home:
+    options:
+      - Default
+      - Advanced
+  view_style_menu:
+    options:
+      - Default
+      - Advanced
+  view_style_lights:
+    options:
+      - Default
+      - Advanced
+  view_style_devices:
+    options:
+      - Default
+      - Advanced
+  view_style_climate:
+    options:
+      - Default
+      - Advanced
+  view_style_security:
+    options:
+      - Default
+      - Advanced
+  view_style_scenes:
+    options:
+      - Default
+      - Advanced
+  view_style_vacuum:
+    options:
+      - Default
+      - Advanced
+  view_style_computers:
+    options:
+      - Default
+      - Advanced
+  view_style_system:
+    options:
+      - Default
+      - Advanced
+  view_style_waste:
+    options:
+      - Default
+      - Advanced
+  view_style_energy:
+    options:
+      - Default
+      - Advanced
+  view_style_floorplan:
+    options:
+      - Default
+      - Advanced
+  view_style_media:
+    options:
+      - Default
+      - Advanced
+  view_style_person_1:
+    options:
+      - Default
+      - Advanced
+  view_style_person_2:
+    options:
+      - Default
+      - Advanced
+  view_style_person_3:
+    options:
+      - Default
+      - Advanced
+  view_style_person_4:
+    options:
+      - Default
+      - Advanced
+  view_style_weather:
+    options:
+      - Default
+      - Advanced
+  view_style_battery:
+    options:
+      - Default
+      - Advanced
+  view_style_automations:
+    options:
+      - Default
+      - Advanced
+  view_style_calendar:
+    options:
+      - Default
+      - Advanced
+  view_style_certificates:
+    options:
+      - Default
+      - Advanced
+  view_style_covers:
+    options:
+      - Default
+      - Advanced
+  view_style_cleaning:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_1:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_2:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_3:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_4:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_5:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_6:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_7:
+    options:
+      - Default
+      - Advanced
+  view_style_custom_8:
+    options:
+      - Default
+      - Advanced
+
 # Input Texts
 input_text:
   good_morning:

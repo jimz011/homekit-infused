@@ -36,17 +36,20 @@ state:
     spin: {{ spin_on|default('false') }} 
     styles:
       card:
-        - --ha-card-background: white
-        - opacity: 1.0
-        - box-shadow: none
+        - --ha-card-background: {{ ha_card_background|default('var(--button-on-color)') }}
+        - opacity: var(--button-on-opacity)
+        - -webkit-box-shadow: var(--button-on-box-shadow)
+        - box-shadow: var(--button-on-box-shadow)
       name:
-        - color: black 
+        - color: var(--button-on-name-color)
       state:
-        - color: black 
+        - color: var(--button-on-state-color)
       lock:
-        - color: gray
+        - color: var(--button-on-lock-color) 
       label:
-        - color: gray
+        - color: var(--button-on-label-color)
+      icon:
+        - color: var(--button-on-icon-color)
   - value: "unknown" 
     spin: {{ spin_on|default('false') }} 
     styles:

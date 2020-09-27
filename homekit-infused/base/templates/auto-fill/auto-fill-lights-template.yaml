@@ -4,101 +4,97 @@ cards:
   - !include
     - '../other/title-text.yaml'
     - name: {{ rooms|capitalize }}
-  - type: horizontal-stack
-    cards:
-      - !include ../../includes/gap.yaml
-      - type: custom:auto-entities
-        filter:
-          include:
-            - attributes:
-                room: {{ rooms }}
-                type: light-rgb
-              not:
-                attributes:
-                  lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-rgb.yaml'
-                  lock: false
-            - attributes:
-                room: {{ rooms }}
-                type: light-rgb
-                lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-rgb.yaml'
-                  lock: true
-            - attributes:
-                room: {{ rooms }}
-                type: light-color-temp
-              not:
-                attributes:
-                  lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-color-temp.yaml'
-                  lock: false
-            - attributes:
-                room: {{ rooms }}
-                type: light-color-temp
-                lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-color-temp.yaml'
-                  lock: true
-            - attributes:
-                room: {{ rooms }}
-                type: light-standard
-              not:
-                attributes:
-                  lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-switch.yaml'
-                  lock: false
-            - attributes:
-                room: {{ rooms }}
-                type: light-standard
-                lock: true
-              options:
-                !include
-                - '../button/button.yaml'
-                - entity: this.entity_id
-                  label: !include ../../includes/brightness-label.yaml
-                  grid: {{ grid|default('light-devices-grid') }}
-                  template: '../popup-cards/light-switch.yaml'
-                  lock: true
-            - type: custom:button-card
-              color_type: blank-card
-              aspect_ratio: 1/1
-            - type: custom:button-card
-              color_type: blank-card
-              aspect_ratio: 1/1
-        sort:
-          method: {{ sort|default('name') }}
-          numeric: true
-        card:
-          type: custom:layout-card
-          column_num: {{ columns|default('3') }}
-          layout: horizontal
-      - !include ../../includes/gap.yaml
+  - type: custom:auto-entities
+    filter:
+      include:
+        - attributes:
+            room: {{ rooms }}
+            type: light-rgb
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-rgb.yaml'
+              lock: false
+        - attributes:
+            room: {{ rooms }}
+            type: light-rgb
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-rgb.yaml'
+              lock: true
+        - attributes:
+            room: {{ rooms }}
+            type: light-color-temp
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-color-temp.yaml'
+              lock: false
+        - attributes:
+            room: {{ rooms }}
+            type: light-color-temp
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-color-temp.yaml'
+              lock: true
+        - attributes:
+            room: {{ rooms }}
+            type: light-standard
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-switch.yaml'
+              lock: false
+        - attributes:
+            room: {{ rooms }}
+            type: light-standard
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-switch.yaml'
+              lock: true
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1
+    sort:
+      method: {{ sort|default('name') }}
+      numeric: true
+    card:
+      type: custom:layout-card
+      column_num: {{ columns|default('3') }}
+      layout: horizontal

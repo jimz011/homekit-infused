@@ -2,7 +2,6 @@
 
 type: horizontal-stack
 cards:
-  - !include ../../includes/gap.yaml
   - type: custom:state-switch
     entity: "{{ entity|default('vacuum.xiaomi_vacuum_cleaner') }}"
     default: default
@@ -97,4 +96,3 @@ cards:
       margin_right: 40px
       opacity_off: 0.8
       icon_color_off: MediumVioletRed
-  - !include ../../includes/gap.yaml

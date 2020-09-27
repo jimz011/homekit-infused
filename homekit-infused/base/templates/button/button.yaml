@@ -9,7 +9,7 @@ name: "{{ name }}"
 icon: "{{ icon }}"
 show_entity_picture: {{ show_entity_picture|default('true') }}
 entity_picture: "{{ entity_picture }}"
-color: {{ color|default('auto') }}
+color: {{ color|default('var(--paper-item-icon-active-color') }}
 size: {{ size|default('25%') }}
 lock:
   enabled: {{ lock|default('false') }}
@@ -75,6 +75,7 @@ hold_action:
         service_color_4: {{ service_color_4|default([0, 160, 255]) }}
         service_color_5: {{ service_color_5|default([131, 0, 255]) }}
         service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        line_color: {{ line_color|default('red') }}
     deviceID:
       - this
   haptic: heavy
@@ -127,6 +128,7 @@ double_tap_action:
         service_color_4: {{ service_color_4|default([0, 160, 255]) }}
         service_color_5: {{ service_color_5|default([131, 0, 255]) }}
         service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        line_color: {{ line_color|default('red') }}
     deviceID:
       - this
   haptic: heavy
@@ -135,17 +137,20 @@ state:
     spin: {{ spin_on|default('false') }} 
     styles:
       card:
-        - --ha-card-background: {{ ha_card_background|default('white') }}
-        - opacity: 1.0
-        - box-shadow: none
+        - --ha-card-background: {{ ha_card_background|default('var(--button-on-color)') }}
+        - opacity: var(--button-on-opacity)
+        - -webkit-box-shadow: var(--button-on-box-shadow)
+        - box-shadow: var(--button-on-box-shadow)
       name:
-        - color: black
+        - color: var(--button-on-name-color)
       state:
-        - color: black
+        - color: var(--button-on-state-color)
       lock:
-        - color: gray 
+        - color: var(--button-on-lock-color) 
       label:
-        - color: gray
+        - color: var(--button-on-label-color)
+      icon:
+        - color: var(--button-on-icon-color)
   - value: "off"
     spin: {{ spin_off|default('false') }}
     styles:
@@ -190,12 +195,6 @@ state:
         - color: var(--primary-text-color)
       lock:
         - color: var(--paper-item-icon-color)
-  - value: 20
+  - value: 1000
     operator: '<='
-    color: red
-  - value: 50
-    operator: '<='
-    color: orange
-  - value: 100
-    operator: '<='
-    color: green
+    color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}

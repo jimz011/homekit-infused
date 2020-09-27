@@ -4,12 +4,13 @@ Dwains Theme Dark (HKI Edition):
   ## User Settings
 
   ### Background image (can be an image or a color)
-  background-image: '#2d2d30' 
+  background-image: '#3b3b40' 
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
   header-font-size: 15px
   header-font-weight: normal
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
 
   subtitle-text-color: 'White'
   subtitle-font-size: 12px
@@ -20,10 +21,25 @@ Dwains Theme Dark (HKI Edition):
   title-text-font-size: 12px
   title-text-font-weight: bolder
 
+  ### Display a gap at the left and right side of cards on a smartphone
+  display-gap: 10px
+
   ### Border Radius and Box Shadow
   border-radius: 12px
   box-shadow: var(--ha-card-box-shadow, 2px 4px 2px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
   bar-card-border-radius: 12px
+
+  ### Button Colors
+  button-color: '#262628'
+
+  button-on-color: '#FFFFFF'
+  button-on-name-color: black
+  button-on-state-color: black
+  button-on-label-color: gray
+  button-on-lock-color: gray
+  button-on-icon-color: var(--paper-item-icon-active-color)
+  button-on-opacity: 1.0
+  button-on-box-shadow: none
 
   ### Fonts
   font-family: Roboto
@@ -66,7 +82,7 @@ Dwains Theme Dark (HKI Edition):
 
   #Paper cards
   paper-card-header-color: 'var(--primary-text-color)'
-  ha-card-background: '#262628'
+  ha-card-background: 'var(--button-color)'
   paper-card-background-color: 'var(--ha-card-background)' # 'rgba(52, 73, 94, 0.8)'
   paper-dialog-background-color: '#262628'
   paper-item-icon-color: 'var(--primary-text-color)'
@@ -99,12 +115,13 @@ Dwains Theme Dark (HKI Edition):
   paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
   paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
   paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)'
-  
+  switch-checked-color: 'var(--paper-slider-knob-color)'
+
   # Sliders
   paper-slider-knob-color: '#2fbae5'
   paper-slider-knob-start-color: 'var(--light-primary-color)'
   paper-slider-pin-color: 'var(--light-primary-color)'
-  paper-slider-active-color: 'var(--light-primary-color)'
+  paper-slider-active-color: '#2fbae5'
   paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
   paper-slider-secondary-color: 'var(--secondary-background-color)'
   paper-slider-disabled-active-color: 'var(--disabled-text-color)'

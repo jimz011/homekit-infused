@@ -5,9 +5,9 @@ type: entities
 style: |
   ha-card {
     --ha-card-background: transparant;
-    -webkit-box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
-    box-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75);
+    -webkit-box-shadow: var(--header-shadow);
+    -moz-box-shadow: var(--header-shadow);
+    box-shadow: var(--header-shadow);
     background: var(--primary-color);
     border-radius: 0px !important;
   }

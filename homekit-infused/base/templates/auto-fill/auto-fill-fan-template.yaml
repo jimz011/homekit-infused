@@ -1,36 +1,32 @@
 # lovelace_gen
 
-type: horizontal-stack
-cards:
-  - !include ../../includes/gap.yaml
-  - type: custom:auto-entities
-    filter:
-      include:
-        - attributes: 
-            type: fan
-          options:
-            !include
-            - '../button/button.yaml'
-            - entity: this.entity_id
-              grid: {{ grid|default('default-hki-grid') }}
-              template: '../popup-cards/light-switch.yaml'
-              lock: false
-              color: DodgerBlue
-              spin_on: true
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-    sort:
-      method: {{ sort|default('name') }}
-      numeric: true
-    card:
-      type: custom:layout-card
-      column_num: {{ columns|default('3') }}
-      layout: horizontal
-  - !include ../../includes/gap.yaml
+type: custom:auto-entities
+filter:
+  include:
+    - attributes: 
+        type: fan
+      options:
+        !include
+        - '../button/button.yaml'
+        - entity: this.entity_id
+          grid: {{ grid|default('default-hki-grid') }}
+          template: '../popup-cards/light-switch.yaml'
+          lock: false
+          color: DodgerBlue
+          spin_on: true
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
+sort:
+  method: {{ sort|default('name') }}
+  numeric: true
+card:
+  type: custom:layout-card
+  column_num: {{ columns|default('3') }}
+  layout: horizontal
