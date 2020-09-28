@@ -25,6 +25,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/frontpage/
         - type: conditional
@@ -58,6 +59,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/menu/
         - type: conditional
@@ -399,6 +401,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/automations/
         - type: conditional
@@ -431,6 +434,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/battery/
         - type: conditional
@@ -463,6 +467,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/calendar/
         - type: conditional
@@ -495,6 +500,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/certificates/
         - type: conditional
@@ -527,6 +533,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/cleaning/
         - type: conditional
@@ -559,6 +566,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/climate/
         - type: conditional
@@ -591,6 +599,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/computers/
         - type: conditional
@@ -623,6 +632,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/covers/
         - type: conditional
@@ -670,6 +680,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/devices/
         - type: conditional
@@ -702,6 +713,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/energy/
         - type: conditional
@@ -734,6 +746,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/floorplan/
         - type: conditional
@@ -1447,6 +1460,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/lights/
         - type: conditional
@@ -1555,6 +1569,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/media/
         - type: conditional
@@ -1603,6 +1618,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/person_1/
         - type: conditional
@@ -1651,6 +1667,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/person_2/
         - type: conditional
@@ -1699,6 +1716,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/person_3/
         - type: conditional
@@ -1747,6 +1765,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/person_4/
         - type: conditional
@@ -1779,6 +1798,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/scenes/
         - type: conditional
@@ -1811,6 +1831,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/security/
         - type: conditional
@@ -1843,6 +1864,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/system/
         - type: conditional
@@ -1904,6 +1926,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/vacuum/
         - type: conditional
@@ -1936,6 +1959,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/waste/
         - type: conditional
@@ -1968,6 +1992,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/weather/
         - type: conditional
@@ -2000,6 +2025,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_1/
         - type: conditional
@@ -2032,6 +2058,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_2/
         - type: conditional
@@ -2064,6 +2091,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_3/
         - type: conditional
@@ -2096,6 +2124,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_4/
         - type: conditional
@@ -2128,6 +2157,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_5/
         - type: conditional
@@ -2160,6 +2190,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_6/
         - type: conditional
@@ -2192,6 +2223,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_7/
         - type: conditional
@@ -2224,6 +2256,7 @@
             type: custom:layout-card
             min_columns: {{ _global.view.min_columns|default('1') }}
             max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
             cards:
               !include_dir_merge_list user/views/custom_8/
         - type: conditional

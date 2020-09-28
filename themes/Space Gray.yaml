@@ -37,7 +37,7 @@ Space Gray:
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-  button-on-icon-color: var(--paper-item-icon-active-color)
+   
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
