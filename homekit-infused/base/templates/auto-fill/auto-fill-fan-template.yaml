@@ -12,6 +12,7 @@ filter:
           grid: {{ grid|default('default-hki-grid') }}
           template: '../popup-cards/light-switch.yaml'
           lock: false
+          size: {{ icon_size|default('25%') }}
           color: DodgerBlue
           spin_on: true
     - type: custom:button-card

@@ -18,6 +18,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
               color: Red
         - attributes:
             room: {{ rooms }}
@@ -32,6 +33,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
               color: Red
         - attributes:
             room: {{ rooms }}
@@ -44,6 +46,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               spin_on: true
+              size: {{ icon_size|default('25%') }}
               lock: true
               color: Green
         - attributes:
@@ -59,6 +62,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               spin_on: true
+              size: {{ icon_size|default('25%') }}
               lock: false
               color: Green
         - attributes:
@@ -72,6 +76,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
               spin_on: true
               color: DodgerBlue
         - attributes:
@@ -87,6 +92,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
               spin_on: true
               color: DodgerBlue
         - attributes:
@@ -100,6 +106,7 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: switch
@@ -113,6 +120,10 @@ cards:
               grid: "{{ grid|default('light-devices-grid') }}"
               template: '../popup-cards/light-switch.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1
         - type: custom:button-card
           color_type: blank-card
           aspect_ratio: 1/1

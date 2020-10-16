@@ -108,7 +108,7 @@ styles:
       - font-size: 10px
       - line-height: 34px
 custom_fields: 
-  notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
+  notification: "[[[ return `${states['{{ambient_entity}}'].{{attributes}} }°` ]]]"
 state:
   - value: "heat"
     spin: false

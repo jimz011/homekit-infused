@@ -21,6 +21,7 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-rgb.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: light-rgb
@@ -33,6 +34,7 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-rgb.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: light-color-temp
@@ -47,6 +49,7 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-color-temp.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: light-color-temp
@@ -59,6 +62,7 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-color-temp.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: light-standard
@@ -73,6 +77,7 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-switch.yaml'
               lock: false
+              size: {{ icon_size|default('25%') }}
         - attributes:
             room: {{ rooms }}
             type: light-standard
@@ -85,6 +90,10 @@ cards:
               grid: {{ grid|default('light-devices-grid') }}
               template: '../popup-cards/light-switch.yaml'
               lock: true
+              size: {{ icon_size|default('25%') }}
+        - type: custom:button-card
+          color_type: blank-card
+          aspect_ratio: 1/1
         - type: custom:button-card
           color_type: blank-card
           aspect_ratio: 1/1

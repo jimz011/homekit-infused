@@ -25,6 +25,12 @@ entities:
     cards:
       - type: horizontal-stack
         cards:
+          - !include ../../includes/gap.yaml
+          - !include
+            - '../../templates/header/nav-icons.yaml'
+            - icon: {{ nav_icon|default('mdi:chevron-left') }}
+              path: {{ nav_path|default('menu') }}
+              icon_size: {{ icon_size|default('100%') }}
           - type: markdown
             style: |
               ha-card {
@@ -35,7 +41,7 @@ entities:
                 box-shadow: none;
                 height: 20px;
                 margin-top: 1px;
-                margin-left: 2px;
+                margin-left: -15px;
                 letter-spacing: -1px;
                 overflow: visible;
               }

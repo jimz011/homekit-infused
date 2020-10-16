@@ -48,8 +48,6 @@ state:
         - color: var(--button-on-lock-color) 
       label:
         - color: var(--button-on-label-color)
-      icon:
-        - color: var(--button-on-icon-color)
   - value: "unknown" 
     spin: {{ spin_on|default('false') }} 
     styles:

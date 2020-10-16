@@ -10,6 +10,11 @@ filter:
         - '../button/thermostat.yaml'
         - entity: this.entity_id
           lock: {{ lock|default('false') }}
+          ambient_entity: {{ ambient_entity|default('this.entity_id') }}
+          attributes: {{ attributes|default('attributes.current_temperature') }}
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
     - type: custom:button-card
       color_type: blank-card
       aspect_ratio: 1/1

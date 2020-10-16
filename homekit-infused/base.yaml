@@ -17,27 +17,25 @@
           - title: "{{ states('sensor.greeting') }}"
             {% endraw %}
             header_bottom: header-notifications.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_home
-              state: "Default"
-          card:
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/frontpage/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_home
-              state: "Advanced"
-          card:
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/frontpage/
-
-# Menu View
+            nav_icon: mdi:menu
+            nav_path: menu
+            icon_size: 80%
+        - type: custom:state-switch
+          entity: input_select.view_style_home
+          states:
+            Default:
+              type: custom:layout-card
+              min_columns: {{ _global.view.min_columns|default('1') }}
+              max_columns: {{ _global.view.max_columns|default('3') }}
+              layout: horizontal
+              cards:
+                !include_dir_merge_list user/views/frontpage/
+            Advanced:
+              type: vertical-stack
+              cards:
+                !include_dir_merge_list user/views/frontpage/
+  
+# Menu View  
 - path: menu
   icon: mdi:menu
   visible: true
@@ -51,6 +49,7 @@
             subtitle: "{{ _global.header.menu_subtitle|default('Overview') }}"
             icon: {{ _global.header.menu_icon|default('mdi:menu') }}
             header-bottom: header-bottom.yaml
+            nav_path: home
         - type: conditional
           conditions:
             - entity: input_select.view_style_menu
@@ -73,20 +72,21 @@
         - type: custom:layout-card
           max_columns: 3
           cards:
-            - type: vertical-stack
-              cards:
-                - !include
-                  - base/templates/other/title-text.yaml
-                  - name: Homekit Infused
-                - type: custom:mod-card
-                  style: |
-                    ha-card {
-                      margin-left: 7px;
-                      margin-right: 7px;
-                    }
-                  card:
-                    type: custom:state-switch
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - base/templates/other/title-text.yaml
+                    - name: Homekit Infused
+                  - type: custom:state-switch
                     entity: group
+                    default: admin
                     states:
                       admin:
                         type: horizontal-stack
@@ -96,7 +96,7 @@
                             - name: About
                               label: HKI
                               icon: mdi:help-circle
-                              navigation_path: ../homekit-infused/about
+                              navigation_path: /homekit-infused/about
                               notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `${states['sensor.hki_current_version'].state}`; else return `Update`; ]]]"
                               background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
                           - !include
@@ -104,7 +104,7 @@
                             - name: HKI
                               label: Settings
                               icon: mdi:palette
-                              navigation_path: ../homekit-infused/hki_settings
+                              navigation_path: /homekit-infused/hki_settings
                               notification: "[[[ return '&nbsp'; ]]]"
                               background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
                           - !include
@@ -112,7 +112,7 @@
                             - name: HA
                               label: Settings
                               icon: mdi:cogs
-                              navigation_path: ../homekit-infused/ha_settings
+                              navigation_path: /homekit-infused/ha_settings
                               notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
                               background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
                       user:
@@ -124,7 +124,7 @@
                               label: HKI
                               aspect_ratio: 2/1
                               icon: mdi:help-circle
-                              navigation_path: ../homekit-infused/about
+                              navigation_path: /homekit-infused/about
                               notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `${states['sensor.hki_current_version'].state}`; else return `Update`; ]]]"
                               background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
                           - !include
@@ -133,10 +133,10 @@
                               label: Profile
                               aspect_ratio: 2/1
                               icon: mdi:account
-                              navigation_path: /profile
+                              navigation_path: /homekit-infused/profile
                               notification: "[[[ return '&nbsp'; ]]]"
                               background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
-                - !include base/includes/empty-button.yaml
+                  - !include base/includes/empty-button.yaml
 
 # About View
 - path: about
@@ -151,18 +151,18 @@
             subtitle: "[[[ return `Homekit Infused Framework Current Version: ${states['sensor.hki_current_version'].state}`; ]]]"
             icon: {{ _global.header.about_icon|default('mdi:help-circle') }}
             header-bottom: header-bottom.yaml
-        - type: custom:mod-card
-          style: |
-            ha-card {
-              margin-left: 7px;
-              margin-right: 7px;
-            }
-          card:
-            type: custom:layout-card
-            max_columns: 3
-            layout: vertical
-            cards:
-              - type: custom:button-card
+        - type: custom:layout-card
+          max_columns: 3
+          layout: vertical
+          cards:
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state2nd
                 size: 50%
@@ -206,7 +206,14 @@
                           if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `none`; 
                           else return `blink 2s ease infinite`; 
                         ]]]
-              - type: custom:button-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state
                 size: 50%
@@ -231,8 +238,15 @@
                   state:
                     - font-size: 12px
                   label:
-                    - font-size: 12px                      
-              - type: custom:button-card
+                    - font-size: 12px  
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:              
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state
                 size: 50%
@@ -257,8 +271,15 @@
                   state:
                     - font-size: 12px
                   label:
-                    - font-size: 12px                      
-              - type: custom:button-card
+                    - font-size: 12px   
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:         
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state
                 size: 50%
@@ -284,7 +305,14 @@
                     - font-size: 12px
                   label:
                     - font-size: 12px
-              - type: custom:button-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state
                 size: 50%
@@ -310,7 +338,14 @@
                     - font-size: 12px
                   label:
                     - font-size: 12px
-              - type: custom:button-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state
                 size: 50%
@@ -336,7 +371,14 @@
                     - font-size: 12px
                   label:
                     - font-size: 12px  
-              - type: custom:button-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: custom:button-card
                 aspect_ratio: 5/1
                 layout: icon_name_state2nd
                 size: 50%
@@ -365,21 +407,20 @@
                   label:
                     - color: var(--primary-text-color)
                     - font-size: 12px  
-              - type: custom:layout-card
-                cards:
-                  - type: markdown
-                    style: |
-                      ha-card {
-                        background: rgba(0, 0, 0, 0.5);
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        font-size: 13px;
-                        font-family: var(--font-family);
-                        color: white;
-                      }                    
-                    content: HKI Framework October 2020 created by Jimz011
-              - !include base/includes/empty-button.yaml
-
+            - type: markdown
+              style: |
+                ha-card {
+                  background: rgba(0, 0, 0, 0.5);
+                  border-radius: var(--border-radius);
+                  box-shadow: var(--box-shadow);
+                  font-size: 13px;
+                  font-family: var(--font-family);
+                  color: white;
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }                    
+              content: HKI Framework Oct/Nov 2020 created by Jimz011
+            - !include base/includes/empty-button.yaml
 # Automations View
 - path: automations
   visible: false
@@ -773,43 +814,51 @@
             header-bottom: header-bottom.yaml
         - type: custom:layout-card
           max_columns: 3
+          layout: horizontal
           cards:
-            - type: vertical-stack
-              cards:
-                - !include
-                  - base/templates/other/title-text.yaml
-                  - name: System
-                - type: horizontal-stack
-                  cards:
-                    - type: gauge
-                      style: |
-                        ha-card {
-                          border-radius: var(--border-radius);
-                          box-shadow: var(--box-shadow);
-                          margin-left: 7px;
-                        }
-                      entity: sensor.processor_use
-                    - type: gauge
-                      style: |
-                        ha-card {
-                          border-radius: var(--border-radius);
-                          box-shadow: var(--box-shadow);
-                          margin-right: 7px;
-                        }
-                      entity: sensor.memory_use_percent
-            - type: vertical-stack
-              cards:
-                - !include
-                  - base/templates/other/title-text.yaml
-                  - name: Quick Links
-                - type: custom:mod-card
-                  style: |
-                    ha-card {
-                      margin-left: 7px;
-                      margin-right: 7px;
-                    }
-                  card:
-                    type: custom:layout-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - base/templates/other/title-text.yaml
+                    - name: System
+                  - type: horizontal-stack
+                    cards:
+                      - type: gauge
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            margin-left: 7px;
+                          }
+                        entity: sensor.processor_use
+                      - type: gauge
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            margin-right: 7px;
+                          }
+                        entity: sensor.memory_use_percent
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - base/templates/other/title-text.yaml
+                    - name: Quick Links
+                  - type: custom:layout-card
                     min_columns: 4
                     max_columns: 4
                     justify_content: start
@@ -851,19 +900,19 @@
                           notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
                           background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
                           opacity_off: 0.8
-            - type: vertical-stack
-              cards:
-                - !include
-                  - base/templates/other/title-text.yaml
-                  - name: Reload Configuration
-                - type: custom:mod-card
-                  style: |
-                    ha-card {
-                      margin-left: 7px;
-                      margin-right: 7px;
-                    }
-                  card:
-                    type: custom:layout-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - base/templates/other/title-text.yaml
+                    - name: Reload Configuration
+                  - type: custom:layout-card
                     min_columns: 4
                     max_columns: 4
                     justify_content: start
@@ -1013,19 +1062,19 @@
                           service: zone.reload
                           opacity_off: 0.8
                           confirmation: "[[[ return `Are you sure you want to reload zones?` ]]]"
-            - type: vertical-stack
-              cards:
-                - !include
-                  - base/templates/other/title-text.yaml
-                  - name: Home Assistant
-                - type: custom:mod-card
-                  style: |
-                    ha-card {
-                      margin-left: 7px;
-                      margin-right: 7px;
-                    }
-                  card:
-                    type: custom:layout-card
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - base/templates/other/title-text.yaml
+                    - name: Home Assistant
+                  - type: custom:layout-card
                     min_columns: 3
                     max_columns: 3
                     justify_content: start
@@ -1066,13 +1115,20 @@
                           service: homeassistant.restart
                           opacity_off: 0.8
                           confirmation: "[[[ return `Make sure you check the config first! Are you sure you want to restart Home Assistant?` ]]]"
-            - !include
-              - base/templates/other/title-text.yaml
-              - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
-                background_color: var(--ha-card-background)
-                font_weight: bold
-                font_color: var(--primary-text-color)
-                justify_self: center
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                !include
+                - base/templates/other/title-text.yaml
+                - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
+                  background_color: var(--ha-card-background)
+                  font_weight: bold
+                  font_color: var(--primary-text-color)
+                  justify_self: center
             - !include base/includes/empty-button.yaml
 
 # HKI Settings View

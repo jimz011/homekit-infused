@@ -15,6 +15,10 @@ filter:
           grid: {{ grid|default('default-hki-grid') }}
           template: '../popup-cards/mini-graph.yaml'
           line_color: {{ line_color|default('red') }}
+          size: {{ icon_size|default('25%') }}
+    - type: custom:button-card
+      color_type: blank-card
+      aspect_ratio: 1/1
     - type: custom:button-card
       color_type: blank-card
       aspect_ratio: 1/1
