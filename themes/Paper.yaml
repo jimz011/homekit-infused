@@ -5,6 +5,7 @@ Paper:
 
   ### Background image (can be an image or a color)
   background-image: "#fdf6e3"
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +38,7 @@ Paper:
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: var(--paper-item-icon-active-color)
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -62,6 +63,16 @@ Paper:
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
   
+  # Card Mod
+  card-mod-theme: Paper
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
+
   # Lovelace Header Text
   paper-toast-background-color: '#821414'
   # Notification Badge

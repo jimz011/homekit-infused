@@ -5,6 +5,7 @@ Orange Delight:
 
   ### Background image (can be an image or a color)
   background-image: 'linear-gradient(290deg, #fc9003 -30%, #ffe2bd 65%)'
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +38,7 @@ Orange Delight:
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: var(--paper-item-icon-active-color)
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -62,6 +63,16 @@ Orange Delight:
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
+  # Card Mod
+  card-mod-theme: Orange Delight
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
+
   # Base colors
   primary-color: '#ff7b00'
   accent-color: 'var(--md-teal-A700)'
@@ -79,7 +90,6 @@ Orange Delight:
   sidebar-icon-color: 'var(--mdc-grey-darken-2)'
   
   # Background colors
-  primary-background-color: 'var(--md-grey-120)'
   secondary-background-color: 'var(--mdc-grey-lighten-5)'
   divider-color: 'rgba(0, 0, 0, .12)'
   table-row-background-color: '#f0f0f0'

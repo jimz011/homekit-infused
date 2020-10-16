@@ -5,6 +5,7 @@ Home Assistant:
 
   ### Background image (can be an image or a color)
   background-image: '#FFFFFF' 
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +38,7 @@ Home Assistant:
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: var(--paper-item-icon-active-color)
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -62,8 +63,35 @@ Home Assistant:
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
+  # Card Mod
+  card-mod-theme: Home Assistant
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
+
   # Primary Color
   primary-color: '#03a9f4'
   ha-card-background: 'var(--button-color)'
   paper-card-background-color: 'var(--ha-card-background)'
   paper-toast-background-color: '#821414'
+
+  # Weather
+#  weather-icon-clear-night: url("/www/images/weather-icons/clear-night.svg")
+#  weather-icon-cloudy: url("/www/images/weather-icons/cloudy.svg")
+#  weather-icon-fog: url("/www/images/weather-icons/fog.svg")
+#  weather-icon-lightning: url("/www/images/weather-icons/lightning.svg")
+#  weather-icon-lightning-rainy: url("/www/images/weather-icons/lightning.svg")
+#  weather-icon-partlycloudy: url("/www/images/weather-icons/partlycloudy.svg")
+#  weather-icon-pouring: url("/www/images/weather-icons/pouring.svg")
+#  weather-icon-rainy: url("/www/images/weather-icons/rainy.svg")
+#  weather-icon-hail: url("/www/images/weather-icons/hail.svg")
+#  weather-icon-snowy: url("/www/images/weather-icons/snowy.svg")
+#  weather-icon-snowy-rainy: url("/www/images/weather-icons/hail.svg")
+#  weather-icon-sunny: url("/www/images/weather-icons/sunny.svg")
+#  weather-icon-windy: url("/www/images/weather-icons/cloudy.svg")
+#  weather-icon-windy-variant: url("/www/images/weather-icons/partlycloudy.svg")
+#  weather-icon-exceptional: url("/www/images/weather-icons/exceptional.svg")

@@ -1,10 +1,12 @@
 Dwains Theme Dark (HKI Edition):
+
   ### Theme Dwains Theme Dark (modified) for Homekit Infused
 
   ## User Settings
 
   ### Background image (can be an image or a color)
-  background-image: '#3b3b40' 
+  background-image: '#3b3b40'
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +39,7 @@ Dwains Theme Dark (HKI Edition):
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: 'auto'
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -62,6 +64,16 @@ Dwains Theme Dark (HKI Edition):
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
+  # Card Mod
+  card-mod-theme: Dwains Theme Dark (HKI Edition)
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
+
   # Toast / Badge
   paper-toast-background-color: '#821414'
 
@@ -72,7 +84,6 @@ Dwains Theme Dark (HKI Edition):
   secondary-text-color: 'var(--primary-text-color)'
 
   #left header
-  primary-background-color: '#28292b' #background
 
   #left sidebar
   paper-listbox-background-color: '#121314' #background

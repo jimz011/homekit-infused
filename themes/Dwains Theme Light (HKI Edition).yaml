@@ -5,6 +5,7 @@ Dwains Theme Light (HKI Edition):
 
   ### Background image (can be an image or a color)
   background-image: '#e6e6ed' 
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +38,7 @@ Dwains Theme Light (HKI Edition):
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: var(--paper-item-icon-active-color)
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -60,6 +61,16 @@ Dwains Theme Light (HKI Edition):
   
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+
+  # Card Mod
+  card-mod-theme: Dwains Theme Light (HKI Edition)
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
 
   # Toast / Badge
   paper-toast-background-color: '#821414'

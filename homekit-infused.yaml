@@ -3,9 +3,6 @@
 ## Button Card Templates
 button_card_templates: !include_dir_named homekit-infused/base/templates/button/button-card-templates/
 
-## Custom Header
-custom_header: !include homekit-infused/base/custom_header/custom_header.yaml
-
 ## Base Configuration
 title: Home
 background: var(--background-image)

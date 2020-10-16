@@ -5,6 +5,7 @@ Slate:
 
   ### Background image (can be an image or a color)
   background-image: "#222222"
+  primary-background-color: 'var(--background-image)'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -37,7 +38,7 @@ Slate:
   button-on-state-color: black
   button-on-label-color: gray
   button-on-lock-color: gray
-   
+  button-on-icon-color: var(--paper-item-icon-active-color)
   button-on-opacity: 1.0
   button-on-box-shadow: none
 
@@ -62,6 +63,16 @@ Slate:
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
+  # Card Mod
+  card-mod-theme: Slate
+  card-mod-root: |
+    app-header {
+      display: none !important;
+    }
+    #view {
+      min-height: calc(100vh) !important;
+    }
+
   paper-toast-background-color: '#821414'
 
   # Notification Badge
@@ -82,7 +93,6 @@ Slate:
   # Sidebar
   sidebar-icon-color: '#777777'
   # Background colors
-  primary-background-color: '#222222'
   secondary-background-color: '#222222'
   divider-color: 'rgba(0, 0, 0, .12)'
   table-row-background-color: '#292929'
