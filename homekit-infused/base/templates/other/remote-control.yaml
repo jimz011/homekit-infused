@@ -60,20 +60,23 @@ cards:
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:power
-          service_entity: {{ entity_media_player }}
-          command: "POWER"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_power|default("POWER") }}"
           opacity_off: 0.7
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:arrow-up-drop-circle-outline
-          service_entity: {{ entity_media_player }}
-          command: "UP"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_up|default("UP") }}"
           opacity_off: 1.0
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:menu
-          service_entity: {{ entity_media_player }}
-          command: "MENU"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_menu|default("MENU") }}"
           opacity_off: 0.7
   - type: horizontal-stack
     cards:
@@ -90,20 +93,23 @@ cards:
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:arrow-left-drop-circle-outline
-          service_entity: {{ entity_media_player }}
-          command: "LEFT"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("LEFT") }}"
           opacity_off: 1.0
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:crop-square
-          service_entity: {{ entity_media_player }}
-          command: "CENTER"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_center|default("CENTER") }}"
           opacity_off: 1.0
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:arrow-right-drop-circle-outline
-          service_entity: {{ entity_media_player }}
-          command: "RIGHT"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_right|default("RIGHT") }}"
           opacity_off: 1.0
   - type: horizontal-stack
     cards:
@@ -120,20 +126,23 @@ cards:
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:keyboard-backspace
-          service_entity: {{ entity_media_player }}
-          command: "BACK"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_back|default("BACK") }}"
           opacity_off: 0.7
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:arrow-down-drop-circle-outline
-          service_entity: {{ entity_media_player }}
-          command: "DOWN"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_down|default("DOWN") }}"
           opacity_off: 1.0
       - !include
         - '../button/remote-control.yaml'
         - icon: mdi:home
-          service_entity: {{ entity_media_player }}
-          command: "HOME"
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_home|default("HOME") }}"
           opacity_off: 0.7
   - type: media-control
     style: |

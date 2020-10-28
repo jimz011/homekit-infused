@@ -12,6 +12,7 @@ input_boolean:
   update_hki:
   day_night_cycle:
   empty:
+  remote_control:
 
 # Input Numbers
 input_number:
@@ -75,7 +76,12 @@ input_select:
       - 3
       - 4
 
-  show_floor_selector:
+  show_floor_selector_lights:
+    options:
+      - 'Yes'
+      - 'No'
+      
+  show_floor_selector_devices:
     options:
       - 'Yes'
       - 'No'

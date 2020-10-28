@@ -31,6 +31,7 @@ hold_action:
   service: browser_mod.popup
   service_data:
     title: ' '
+    #hide_header: true
     style:
       .: |
         :host {
@@ -84,6 +85,7 @@ double_tap_action:
   service: browser_mod.popup
   service_data:
     title: ' '
+    #hide_header: true
     style:
       .: |
         :host {

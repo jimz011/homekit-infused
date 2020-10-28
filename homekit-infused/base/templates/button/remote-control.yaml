@@ -24,7 +24,6 @@ tap_action:
   service_data:
     entity_id: {{ service_entity }}
     command: {{ command }}
-  haptic: heavy
 hold_action:
   action: none
 styles:

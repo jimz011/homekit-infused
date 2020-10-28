@@ -14,7 +14,7 @@
     --switch-checked-track-color: green !important;
     --switch-unchecked-track-color: red !important;
   }
-  app-header, app-toolbar {
+  app-toolbar {
     background-color: rgba(0,0,0,0.0) !important;
   }
   mwc-icon-button {

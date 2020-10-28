@@ -1,0 +1,14 @@
+- type: horizontal-stack
+  cards:
+    - !include
+      - '../../../base/templates/button/input-select-button.yaml'
+      - entity: input_select.floor_selector
+        option: 0
+        icon: mdi:home-floor-negative-1
+        aspect_ratio: 4/1
+    - !include
+      - '../../../base/templates/button/input-select-button.yaml'
+      - entity: input_select.floor_selector
+        option: 1
+        icon: mdi:home-floor-0
+        aspect_ratio: 4/1

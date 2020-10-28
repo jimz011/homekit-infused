@@ -9,7 +9,7 @@ filter:
         !include
         - '../button/button.yaml'
         - entity: this.entity_id
-          grid: {{ grid|default('default-hki-grid') }}
+          grid: {{ grid|default('light-devices-grid') }}
           template: '../popup-cards/light-switch.yaml'
           lock: false
           size: {{ icon_size|default('25%') }}

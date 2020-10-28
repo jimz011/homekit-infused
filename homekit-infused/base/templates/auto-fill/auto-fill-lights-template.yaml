@@ -22,6 +22,21 @@ cards:
               template: '../popup-cards/light-rgb.yaml'
               lock: false
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - attributes:
             room: {{ rooms }}
             type: light-rgb
@@ -35,6 +50,21 @@ cards:
               template: '../popup-cards/light-rgb.yaml'
               lock: true
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - attributes:
             room: {{ rooms }}
             type: light-color-temp
@@ -50,6 +80,21 @@ cards:
               template: '../popup-cards/light-color-temp.yaml'
               lock: false
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - attributes:
             room: {{ rooms }}
             type: light-color-temp
@@ -63,6 +108,21 @@ cards:
               template: '../popup-cards/light-color-temp.yaml'
               lock: true
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - attributes:
             room: {{ rooms }}
             type: light-standard
@@ -78,6 +138,21 @@ cards:
               template: '../popup-cards/light-switch.yaml'
               lock: false
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - attributes:
             room: {{ rooms }}
             type: light-standard
@@ -91,6 +166,21 @@ cards:
               template: '../popup-cards/light-switch.yaml'
               lock: true
               size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         - type: custom:button-card
           color_type: blank-card
           aspect_ratio: 1/1
