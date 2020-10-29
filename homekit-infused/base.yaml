@@ -713,7 +713,7 @@
               type: custom:layout-card
               max_columns: 1
               cards:
-                !include_dir_merge_list user/views/view_selectors/
+                !include_dir_merge_list user/views/floor_selector/
         - type: conditional
           conditions:
             - entity: input_select.view_style_devices
@@ -836,7 +836,7 @@
                         box-shadow: var(--box-shadow);
                         overflow: hidden;
                       }
-                    image: "/local/images/home-assistant-logo.png"
+                    image: "/local/images/home-assistant.png"
                     elements:
                       - type: state-label
                         entity: sensor.version_current
@@ -1607,7 +1607,7 @@
               type: custom:layout-card
               max_columns: 1
               cards:
-                !include_dir_merge_list user/views/view_selectors/
+                !include_dir_merge_list user/views/floor_selector/
         - type: conditional
           conditions:
             - entity: input_select.view_style_lights
