@@ -46,3 +46,7 @@ Starting from 3.1.0 you can get your updates below without the need to download 
 
 ### From 3.5.0
 - update to 3.5.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.1.zip) *WARNING: Breaking Changes
+- update to 3.5.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.2.zip) *WARNING: Breaking Changes in 3.5.0
+
+### From 3.5.1
+- update to 3.5.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.1-to-3.5.2.zip)
