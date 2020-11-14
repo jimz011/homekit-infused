@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 3.5.2
+        value_template: 3.5.3
 
 # Time Date
   - platform: time_date
@@ -66,7 +66,6 @@ sensor:
         friendly_name: All Detectors Currently On
         value_template: >-
           {{ expand('group.all_detector_entities')|selectattr('state','eq','on')|list|count }}  
-
 # Frontend Greeting          
   - platform: template
     sensors:

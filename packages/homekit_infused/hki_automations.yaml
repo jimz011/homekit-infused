@@ -1,4 +1,4 @@
-automation:
+automation:     
 # Theme Selector
   - alias: 'themes'
     initial_state: 'true'
