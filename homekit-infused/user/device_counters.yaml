@@ -12,15 +12,15 @@ all_climate_entities:
 all_fan_entities:
   entities:
 
-# Window Sensors
+# Window Sensors (This is used in the header badges, without this the header badge won't work)
 all_window_sensor_entities:
   entities:
 
-# Door Sensors
+# Door Sensors (This is used in the header badges, without this the header badge won't work)
 all_door_sensor_entities:
   entities:
 
-# Motion Sensors
+# Motion Sensors (This is used in the header badges, without this the header badge won't work)
 all_motion_sensor_entities:
   entities:
 
