@@ -10,42 +10,42 @@ Starting from 3.1.0 you can get your updates below without the need to download 
 ### From 3.1.0
 - update to 3.1.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/update.v3.1.1.zip)
 - update to 3.1.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.0-to-3.1.2.zip)
-- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.0-to-3.2.0.zip) *WARNING: Breaking Changes
+- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.0-to-3.2.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.2.0 first
 
 ### From 3.1.1
 - update to 3.1.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.1-to-3.1.2.zip)
-- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.1-to-3.2.0.zip) *WARNING: Breaking Changes
+- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.1-to-3.2.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.2.0 first
 
 ### From 3.1.2
-- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.2-to-3.2.0.zip) *WARNING: Breaking Changes
+- update to 3.2.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.1.2-to-3.2.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.2.0 first
 
 ### From 3.2.0
 - update to 3.2.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.2.0-to-3.2.1.zip)
-- update to 3.3.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.2.0-to-3.3.0.zip) *WARNING: Breaking Changes
+- update to 3.3.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.2.0-to-3.3.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.3.0 first
 
 ### From 3.2.1
-- update to 3.3.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.2.1-to-3.3.0.zip) *WARNING: Breaking Changes
+- update to 3.3.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.2.1-to-3.3.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.3.0 first
 
 ### From 3.3.0
-- update to 3.4.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.3.0-to-3.4.0.zip) *WARNING: Breaking Changes
+- update to 3.4.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.3.0-to-3.4.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - update to 3.4.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.3.0-to-3.4.1.zip) *WARNING: Breaking Changes in 3.4.0!
 - no update path beyond this, please update to 3.4.0 or 3.4.1 first
 
 ### From 3.4.0
 - update to 3.4.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.4.0-to-3.4.1.zip)
-- update to 3.5.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.4.0-to-3.5.0.zip) *WARNING: Breaking Changes
+- update to 3.5.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.4.0-to-3.5.0.zip) *WARNING: Breaking Changes (please read the release notes)
 
 ### From 3.4.1
-- update to 3.5.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.4.1-to-3.5.0.zip) *WARNING: Breaking Changes
+- update to 3.5.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.4.1-to-3.5.0.zip) *WARNING: Breaking Changes (please read the release notes)
 - no update path beyond this, please update to 3.5.0 first
 
 ### From 3.5.0
-- update to 3.5.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.1.zip) *WARNING: Breaking Changes
+- update to 3.5.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.1.zip) *WARNING: Breaking Changes (please read the release notes)
 - update to 3.5.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.2.zip)
 - update to 3.5.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.0-to-3.5.3.zip)
 
@@ -55,3 +55,6 @@ Starting from 3.1.0 you can get your updates below without the need to download 
 
 ### From 3.5.2
 - update to 3.5.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.2-to-3.5.3.zip)
+
+### From 3.5.3
+- update to 3.6.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.0.zip) *WARNING: Breaking Changes (please read the release notes)
