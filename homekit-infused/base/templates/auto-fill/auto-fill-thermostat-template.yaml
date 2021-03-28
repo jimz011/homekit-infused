@@ -12,15 +12,8 @@ filter:
           lock: {{ lock|default('false') }}
           ambient_entity: {{ ambient_entity|default('this.entity_id') }}
           attributes: {{ attributes|default('attributes.current_temperature') }}
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
+    - !include ../../../base/includes/empty-button.yaml
+    - !include ../../../base/includes/empty-button.yaml
 show_empty: false
 sort:
   method: {{ sort|default('name') }}

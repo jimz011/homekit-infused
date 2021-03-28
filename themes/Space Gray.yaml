@@ -64,14 +64,14 @@ Space Gray:
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
   
   # Card Mod
-  card-mod-theme: Space Gray
-  card-mod-root: |
-    app-header {
-      display: none !important;
-    }
-    #view {
-      min-height: calc(100vh) !important;
-    }
+# card-mod-theme: Space Gray
+# card-mod-root: |
+#   app-header {
+#     display: none !important;
+#   }
+#   #view {
+#     min-height: calc(100vh) !important;
+#   }
 
   # Base colors
   primary-color: '#333333'

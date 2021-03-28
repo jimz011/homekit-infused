@@ -15,9 +15,10 @@ show_label: false
 layout: icon_name
 show_icon: {{ show_icon|default('true') }}
 tap_action: 
-  action: {{ tap_action|default('more-info') }}
+  action: navigate
+  navigation_path: /homekit-infused/menu
   haptic: light
-hold_action: 
+double_tap_action: 
   action: {{ hold_action|default('more-info')}}
   haptic: heavy
 styles:

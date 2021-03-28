@@ -181,15 +181,8 @@ cards:
               service_color_4: {{ service_color_4|default([0, 160, 255]) }}
               service_color_5: {{ service_color_5|default([131, 0, 255]) }}
               service_color_6: {{ service_color_6|default([3, 0, 255]) }}
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
+        - !include ../../../base/includes/empty-button.yaml
+        - !include ../../../base/includes/empty-button.yaml
     sort:
       method: {{ sort|default('name') }}
       numeric: true

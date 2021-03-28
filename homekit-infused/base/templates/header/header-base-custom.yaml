@@ -1,5 +1,7 @@
 # lovelace_gen
 
+# Base Header without Notifications
+
 # Card 
 type: entities
 style: |
@@ -66,24 +68,18 @@ entities:
               background_color: "[[[ if (states['sensor.current_motion_sensors_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['sensor.current_motion_sensors_on'].state > 0) return states['sensor.current_motion_sensors_on'].state; else return '&nbsp;'; ]]]"
               entity: group.all_motion_sensor_entities
-#          - !include
-#            - '../../templates/header/sensor-icons.yaml'
-#            - icon: mdi:power-plug
-#              background_color: "[[[ if (states['sensor.current_devices_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
-#              badge: "[[[ if (states['sensor.current_devices_on'].state > 0) return states['sensor.current_devices_on'].state; else return '&nbsp;'; ]]]"
-#              size: 100%
-#              entity: group.all_device_switch_entities 
-#          - !include
-#            - '../../templates/header/sensor-icons.yaml'
-#            - icon: mdi:lightbulb
-#              background_color: "[[[ if (states['sensor.current_lights_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
-#              badge: "[[[ if (states['sensor.current_lights_on'].state > 0) return states['sensor.current_lights_on'].state; else return '&nbsp;'; ]]]"
-#              size: 100%
-#              entity: group.all_light_entities
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:power-plug
+              background_color: "[[[ if (states['sensor.current_devices_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['sensor.current_devices_on'].state > 0) return states['sensor.current_devices_on'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_device_switch_entities 
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: mdi:lightbulb
+              background_color: "[[[ if (states['sensor.current_lights_on'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['sensor.current_lights_on'].state > 0) return states['sensor.current_lights_on'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_light_entities
           - !include ../../includes/gap.yaml
-      - !include 
-        - '../../templates/header/{{ header_bottom|default('header-bottom.yaml') }}'
-        - subtitle: "{{ subtitle|default('undefined') }}"
-          icon: "{{ icon|default('mdi:home') }}"
-          entity: {{ entity|default('input_boolean.dummy1') }}
-          spin: {{ spin|default('false') }}

@@ -50,8 +50,8 @@ hold_action:
       type: custom:thermostat-popup-card
       entity: {{ entity }}
       fullscreen: false
-    deviceID:
-      - this
+#    deviceID:
+#      - this
   haptic: heavy
 double_tap_action: 
   action: call-service
@@ -85,8 +85,8 @@ double_tap_action:
       type: custom:thermostat-popup-card
       entity: {{ entity }}
       fullscreen: false
-    deviceID:
-      - this
+#    deviceID:
+#      - this
   haptic: heavy
 styles:
   grid:

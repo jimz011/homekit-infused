@@ -65,14 +65,14 @@ Dwains Theme Dark (HKI Edition):
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
   # Card Mod
-  card-mod-theme: Dwains Theme Dark (HKI Edition)
-  card-mod-root: |
-    app-header {
-      display: none !important;
-    }
-    #view {
-      min-height: calc(100vh) !important;
-    }
+#  card-mod-theme: Dwains Theme Dark (HKI Edition)
+#  card-mod-root: |
+#    app-header {
+#      display: none !important;
+#    }
+#    #view {
+#      min-height: calc(100vh) !important;
+#    }
 
   # Toast / Badge
   paper-toast-background-color: '#821414'

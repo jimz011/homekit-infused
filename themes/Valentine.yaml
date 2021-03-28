@@ -64,14 +64,14 @@ Valentine:
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
   # Card Mod
-  card-mod-theme: Valentine
-  card-mod-root: |
-    app-header {
-      display: none !important;
-    }
-    #view {
-      min-height: calc(100vh) !important;
-    }
+# card-mod-theme: Valentine
+# card-mod-root: |
+#   app-header {
+#     display: none !important;
+#   }
+#   #view {
+#     min-height: calc(100vh) !important;
+#   }
   # Base colors
   primary-color: '#910039'
   accent-color: 'var(--md-teal-A400)'

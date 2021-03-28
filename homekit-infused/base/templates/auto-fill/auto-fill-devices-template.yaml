@@ -121,15 +121,8 @@ cards:
               template: '../popup-cards/light-switch.yaml'
               lock: false
               size: {{ icon_size|default('25%') }}
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
-        - type: custom:button-card
-          color_type: blank-card
-          aspect_ratio: 1/1
+        - !include ../../../base/includes/empty-button.yaml
+        - !include ../../../base/includes/empty-button.yaml
     sort:
       method: {{ sort|default('name') }}
       numeric: true

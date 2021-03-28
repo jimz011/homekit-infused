@@ -15,15 +15,8 @@ filter:
           size: {{ icon_size|default('25%') }}
           color: DodgerBlue
           spin_on: true
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
+    - !include ../../../base/includes/empty-button.yaml
+    - !include ../../../base/includes/empty-button.yaml
 sort:
   method: {{ sort|default('name') }}
   numeric: true

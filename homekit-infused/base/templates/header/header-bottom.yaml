@@ -15,9 +15,10 @@ cards:
     show_state: false
     show_label: false
     tap_action: 
-      action: more-info
+      action: navigate
+      navigation_path: /homekit-infused/home
       haptic: light
-    hold_action: 
+    double_tap_action: 
       action: more-info
       haptic: heavy
     styles:

@@ -48,8 +48,8 @@ tap_action:
         - !include
           - '../popup-cards/header-sensors.yaml'
           - entity: {{ entity|default('input_boolean.dummy1') }}
-    deviceID:
-      - this
+#    deviceID:
+#      - this
   haptic: light
 hold_action:
   action: none

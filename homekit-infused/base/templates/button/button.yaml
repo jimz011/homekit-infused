@@ -77,8 +77,8 @@ hold_action:
         service_color_5: {{ service_color_5|default([131, 0, 255]) }}
         service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         line_color: {{ line_color|default('red') }}
-    deviceID:
-      - this
+#    deviceID:
+#      - this
   haptic: heavy
 double_tap_action:
   action: {{ hold_action|default('call-service') }}
@@ -131,8 +131,8 @@ double_tap_action:
         service_color_5: {{ service_color_5|default([131, 0, 255]) }}
         service_color_6: {{ service_color_6|default([3, 0, 255]) }}
         line_color: {{ line_color|default('red') }}
-    deviceID:
-      - this
+#    deviceID:
+#      - this
   haptic: heavy
 state:
   - value: "on" 

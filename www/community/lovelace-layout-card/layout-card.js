@@ -22,6 +22,7 @@
         padding: 0;
         display: block;
         margin-bottom: 0!important;
+        overflow: hidden;
       }
       :host(.panel) {
         padding: 0 4px;

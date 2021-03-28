@@ -16,15 +16,8 @@ filter:
           template: '../popup-cards/mini-graph.yaml'
           line_color: {{ line_color|default('red') }}
           size: {{ icon_size|default('25%') }}
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
-    - type: custom:button-card
-      color_type: blank-card
-      aspect_ratio: 1/1
+    - !include ../../../base/includes/empty-button.yaml
+    - !include ../../../base/includes/empty-button.yaml
 show_empty: false
 sort:
   method: {{ sort|default('name') }}

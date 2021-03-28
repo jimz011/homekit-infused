@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 3.5.3
+        value_template: 3.6.0
 
 # Time Date
   - platform: time_date
@@ -122,9 +122,40 @@ sensor:
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
 
+# Latest Compatible HA Version
+  - platform: scrape
+    name: Latest Compatible HA Version
+    resource: https://jimz011.github.io/homekit-infused/version_compatible
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
 # Latest Home Assistant Version
   - platform: scrape
     name: Home Assistant Latest Version
     resource: https://home-assistant.io
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
+
+# Latest Home Assistant Beta Version
+  - platform: version
+    beta: true
+    image: default
+    source: docker
+
+# Updater Sensors
+  - platform: template
+    sensors:
+      ha_updater:
+        value_template: >
+          {% if states.sensor.version_current.state > states.sensor.home_assistant_latest_version.state %}
+            Up to date
+          {% else %}
+            Update available
+          {% endif %}
+      hki_updater:
+        value_template: >
+          {% if states.sensor.hki_latest_version.state == states.sensor.hki_current_version.state %}
+            Up to date
+          {% else %}
+            Update available
+          {% endif %}
