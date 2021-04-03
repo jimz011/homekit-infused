@@ -34,7 +34,8 @@
               type: vertical-stack
               cards:
                 !include_dir_merge_list user/views/frontpage/
-  
+        - !include base/includes/gap-height.yaml
+
 # Menu View  
 - path: menu
   icon: mdi:menu
@@ -137,6 +138,179 @@
                               notification: "[[[ return '&nbsp'; ]]]"
                               background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
                   - !include base/includes/empty-button.yaml
+        - !include base/includes/gap-height.yaml
+
+# Lights View
+- path: lights
+  icon: mdi:floor-lamp
+  visible: {{ _global.footer.lights_view|default('false') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.lights_title|default('Lights') }}
+            subtitle: "{{ _global.header.lights_subtitle|default('Overview') }}"
+            icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_floor_selector_lights
+              state: "Yes"
+          card:
+            type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:layout-card
+              max_columns: 1
+              cards:
+                !include_dir_merge_list user/views/floor_selector/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_lights
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/lights/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_lights
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/lights/
+        - !include base/includes/gap-height.yaml
+
+# Devices View
+- path: devices
+  icon: mdi:power-plug
+  visible: {{ _global.footer.devices_view|default('false') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.devices_title|default('Devices') }}
+            subtitle: "{{ _global.header.devices_subtitle|default('Overview') }}"
+            icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.show_floor_selector_devices
+              state: "Yes"
+          card:
+            type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:layout-card
+              max_columns: 1
+              cards:
+                !include_dir_merge_list user/views/floor_selector/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_devices
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/devices/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_devices
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/devices/
+        - !include base/includes/gap-height.yaml
+
+# Climate View
+- path: climate
+  icon: mdi:thermometer
+  visible: {{ _global.footer.climate_view|default('false') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.climate_title|default('Climate') }}
+            subtitle: "{{ _global.header.climate_subtitle|default('Control') }}"
+            icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_climate
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/climate/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_climate
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/climate/
+        - !include base/includes/gap-height.yaml
+
+# Security View
+- path: security
+  icon: mdi:cctv
+  visible: {{ _global.footer.security_view|default('false') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.security_title|default('Security') }}
+            subtitle: "{{ _global.header.security_subtitle|default('Panel') }}"
+            icon: {{ _global.header.security_icon|default('mdi:cctv') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_security
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/security/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_security
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/security/
+        - !include base/includes/gap-height.yaml
 
 # About View
 - path: about
@@ -421,9 +595,12 @@
                 }                    
               content: HKI Framework Oct/Nov 2020 created by Jimz011
             - !include base/includes/empty-button.yaml
+        - !include base/includes/gap-height.yaml
+
 # Automations View
 - path: automations
-  visible: false
+  visible: {{ _global.footer.automations_view|default('false') }}
+  icon: mdi:alpha-a-box
   panel: true
   cards:
     - type: vertical-stack
@@ -453,10 +630,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/automations/
+        - !include base/includes/gap-height.yaml
 
 # Battery View
 - path: battery
-  visible: false
+  visible: {{ _global.footer.battery_view|default('false') }}
+  icon: mdi:battery-50
   panel: true
   cards:
     - type: vertical-stack
@@ -486,10 +665,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/battery/
+        - !include base/includes/gap-height.yaml
 
 # Calendar View              
 - path: calendar
-  visible: false
+  visible: {{ _global.footer.calendar_view|default('false') }}
+  icon: mdi:calendar-account
   panel: true
   cards:
     - type: vertical-stack
@@ -519,10 +700,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/calendar/
+        - !include base/includes/gap-height.yaml
 
 # Certificates
 - path: certificates
-  visible: false
+  visible: {{ _global.footer.certificates_view|default('false') }}
+  icon: mdi:certificate
   panel: true
   cards:
     - type: vertical-stack
@@ -552,10 +735,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/certificates/
+        - !include base/includes/gap-height.yaml
 
 # Cleaning View
 - path: cleaning
-  visible: false
+  visible: {{ _global.footer.cleaning_view|default('false') }}
+  icon: mdi:washing-machine
   panel: true
   cards:
     - type: vertical-stack
@@ -585,43 +770,13 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/cleaning/
+        - !include base/includes/gap-height.yaml
 
-# Climate View
-- path: climate
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.climate_title|default('Climate') }}
-            subtitle: "{{ _global.header.climate_subtitle|default('Control') }}"
-            icon: {{ _global.header.climate_icon|default('mdi:thermometer') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_climate
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/climate/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_climate
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/climate/
 
 # Computers View
 - path: computers
-  visible: false
+  visible: {{ _global.footer.computers_view|default('false') }}
+  icon: mdi:desktop-tower-monitor
   panel: true
   cards:
     - type: vertical-stack
@@ -651,10 +806,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/computers/
+        - !include base/includes/gap-height.yaml
 
 # Covers View
 - path: covers
-  visible: false
+  visible: {{ _global.footer.covers_view|default('false') }}
+  icon: mdi:window-shutter
   panel: true
   cards:
     - type: vertical-stack
@@ -684,59 +841,14 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/covers/
+        - !include base/includes/gap-height.yaml
 
-# Devices View
-- path: devices
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.devices_title|default('Devices') }}
-            subtitle: "{{ _global.header.devices_subtitle|default('Overview') }}"
-            icon: {{ _global.header.devices_icon|default('mdi:power-plug') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.show_floor_selector_devices
-              state: "Yes"
-          card:
-            type: custom:mod-card
-            style: |
-              ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
-              }
-            card:
-              type: custom:layout-card
-              max_columns: 1
-              cards:
-                !include_dir_merge_list user/views/floor_selector/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_devices
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/devices/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_devices
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/devices/
+
 
 # Energy View
 - path: energy
-  visible: false
+  visible: {{ _global.footer.energy_view|default('false') }}
+  icon: mdi:chart-line
   panel: true
   cards:
     - type: vertical-stack
@@ -766,10 +878,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/energy/
+        - !include base/includes/gap-height.yaml
 
 # Floorplan View
 - path: floorplan
-  visible: false
+  visible: {{ _global.footer.floorplan_view|default('false') }}
+  icon: mdi:floor-plan
   panel: true
   cards:
     - type: vertical-stack
@@ -799,6 +913,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/floorplan/
+        - !include base/includes/gap-height.yaml
 
 # HA Settings View
 - path: ha_settings
@@ -1269,6 +1384,7 @@
                   font_color: var(--primary-text-color)
                   justify_self: center
             - !include base/includes/empty-button.yaml
+        - !include base/includes/gap-height.yaml
 
 # HKI Settings View
 - path: hki_settings
@@ -1619,59 +1735,12 @@
                             - name: Custom 8
                               entity: input_select.view_style_custom_8
                         - !include base/includes/empty-button.yaml
-
-# Lights View
-- path: lights
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.lights_title|default('Lights') }}
-            subtitle: "{{ _global.header.lights_subtitle|default('Overview') }}"
-            icon: {{ _global.header.lights_icon|default('mdi:floor-lamp') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.show_floor_selector_lights
-              state: "Yes"
-          card:
-            type: custom:mod-card
-            style: |
-              ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
-              }
-            card:
-              type: custom:layout-card
-              max_columns: 1
-              cards:
-                !include_dir_merge_list user/views/floor_selector/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_lights
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/lights/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_lights
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/lights/
+        - !include base/includes/gap-height.yaml
 
 # Location View
 - path: location
-  visible: false
+  visible: {{ _global.footer.location_view|default('false') }}
+  icon: mdi:map-marker
   panel: true
   cards:
     - type: vertical-stack
@@ -1728,10 +1797,12 @@
                   }                      
                 default_zoom: 15
                 aspect_ratio: 4x3
+        - !include base/includes/gap-height.yaml
 
 # Media View
 - path: media
-  visible: false
+  visible: {{ _global.footer.media_view|default('false') }}
+  icon: mdi:plex
   panel: true
   cards:
     - type: vertical-stack
@@ -1838,6 +1909,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/media/
+        - !include base/includes/gap-height.yaml
 
 # Person 1 View
 - path: person_1
@@ -1908,6 +1980,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/person_1/
+        - !include base/includes/gap-height.yaml
 
 # Person 2 View
 - path: person_2
@@ -1978,6 +2051,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/person_2/
+        - !include base/includes/gap-height.yaml
 
 # Person 3 View
 - path: person_3
@@ -2048,6 +2122,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/person_3/
+        - !include base/includes/gap-height.yaml
 
 # Person 4 View
 - path: person_4
@@ -2118,10 +2193,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/person_4/
+        - !include base/includes/gap-height.yaml
 
 # Scenes View
 - path: scenes
-  visible: false
+  visible: {{ _global.footer.scenes_view|default('false') }}
+  icon: mdi:arrange-send-backward
   panel: true
   cards:
     - type: vertical-stack
@@ -2151,43 +2228,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/scenes/
-
-# Security View
-- path: security
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.security_title|default('Security') }}
-            subtitle: "{{ _global.header.security_subtitle|default('Panel') }}"
-            icon: {{ _global.header.security_icon|default('mdi:cctv') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_security
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/security/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_security
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/security/
+        - !include base/includes/gap-height.yaml
 
 # System View
 - path: system
-  visible: false
+  visible: {{ _global.footer.system_view|default('false') }}
+  icon: mdi:home-assistant
   panel: true
   cards:
     - type: vertical-stack
@@ -2217,10 +2263,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/system/
+        - !include base/includes/gap-height.yaml
 
 # Traffic View
 - path: traffic
-  visible: false
+  visible: {{ _global.footer.traffic_view|default('false') }}
+  icon: mdi:waze
   panel: true
   cards:
     - type: vertical-stack
@@ -2246,10 +2294,12 @@
               }
             url: https://embed.waze.com/iframe
             aspect_ratio: 150%
+        - !include base/includes/gap-height.yaml
 
 # Vacuum View
 - path: vacuum
-  visible: false
+  visible: {{ _global.footer.vacuum_view|default('false') }}
+  icon: mdi:robot-vacuum
   panel: true
   cards:
     - type: vertical-stack
@@ -2279,10 +2329,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/vacuum/
+        - !include base/includes/gap-height.yaml
 
 # Waste View
 - path: waste
-  visible: false
+  visible: {{ _global.footer.waste_view|default('false') }}
+  icon: mdi:trash-can
   panel: true
   cards:
     - type: vertical-stack
@@ -2312,10 +2364,12 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/waste/
+        - !include base/includes/gap-height.yaml
 
 # Weather View
 - path: weather
-  visible: false
+  visible: {{ _global.footer.weather_view|default('false') }}
+  icon: mdi:weather-partly-cloudy
   panel: true
   cards:
     - type: vertical-stack
@@ -2345,6 +2399,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/weather/
+        - !include base/includes/gap-height.yaml
 
 # Custom 1 View
 - path: custom_1
@@ -2378,6 +2433,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_1/
+        - !include base/includes/gap-height.yaml
 
 # Custom 2 View
 - path: custom_2
@@ -2411,6 +2467,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_2/
+        - !include base/includes/gap-height.yaml
 
 # Custom 3 View
 - path: custom_3
@@ -2444,6 +2501,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_3/
+        - !include base/includes/gap-height.yaml
 
 # Custom 4 View
 - path: custom_4
@@ -2477,6 +2535,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_4/
+        - !include base/includes/gap-height.yaml
 
 # Custom 5 View
 - path: custom_5
@@ -2510,6 +2569,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_5/
+        - !include base/includes/gap-height.yaml
 
 # Custom 6 View
 - path: custom_6
@@ -2543,6 +2603,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_6/
+        - !include base/includes/gap-height.yaml
 
 # Custom 7 View
 - path: custom_7
@@ -2576,6 +2637,7 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_7/
+        - !include base/includes/gap-height.yaml
 
 # Custom 8 View
 - path: custom_8
@@ -2609,3 +2671,4 @@
             type: vertical-stack
             cards:
               !include_dir_merge_list user/views/custom_8/
+        - !include base/includes/gap-height.yaml

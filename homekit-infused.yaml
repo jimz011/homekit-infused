@@ -3,10 +3,6 @@
 ## Button Card Templates
 button_card_templates: !include_dir_named homekit-infused/base/templates/button/button-card-templates/
 
-## Hide Header
-kiosk_mode:
-  hide_header: true
-
 ## Base Configuration
 title: Home
 background: var(--background-image)

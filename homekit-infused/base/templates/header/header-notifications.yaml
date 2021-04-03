@@ -155,4 +155,5 @@ cards:
         - text-align: start
       icon:
         - color: "[[[ if (states['{{ _global.header.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'LimeGreen'; if (states['{{ _global.header.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'Orange'; else return 'DarkRed'; ]]]"
-  - !include ../../includes/gap.yaml   
+  - !include ../../includes/gap.yaml 
+  - !include ../../includes/gap.yaml

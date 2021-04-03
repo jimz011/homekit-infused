@@ -14,12 +14,12 @@ show_state: false
 show_label: false
 layout: icon_name
 show_icon: {{ show_icon|default('true') }}
-tap_action: 
-  action: navigate
-  navigation_path: /homekit-infused/menu
-  haptic: light
 double_tap_action: 
-  action: {{ hold_action|default('more-info')}}
+  action: navigate
+  navigation_path: /homekit-infused/ha_settings
+  haptic: light
+tap_action: 
+  action: more-info
   haptic: heavy
 styles:
   card:

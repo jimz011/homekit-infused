@@ -1,0 +1,31 @@
+footer:
+# This file will change the footer properties
+
+# Note that the footer is mostly done through CSS and is just the original tab header that has been moved down.
+# Because of this the options I can give you through this is very very limited!
+# You can only show/hide tabs in the footer and you can NOT adjust the order!!
+# The order is depicted by order of views, these are hardcoded and thus can not be changed.
+# You can add any view to the footer you want, but `home` and `menu` are there regardless of these settings!
+
+# Show Views (choose between true or false), note that the order you read from top to bottom should be seen in the footer as from right to left.
+  lights_view: false
+  devices_view: false
+  climate_view: false
+  security_view: false
+  automations_view: false
+  battery_view: false
+  calendar_view: false
+  certificates_view: false
+  cleaning_view: false
+  computers_view: false
+  covers_view: false
+  energy_view: false
+  floorplan_view: false
+  location_view: false
+  media_view: false
+  scenes_view: false
+  system_view: false
+  traffic_view: false
+  vacuum_view: false
+  waste_view: false
+  weather_view: false

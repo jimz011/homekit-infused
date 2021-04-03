@@ -64,14 +64,53 @@ Slate:
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
 
   # Card Mod
-# card-mod-theme: Slate
-# card-mod-root: |
-#   app-header {
-#     display: none !important;
-#   }
-#   #view {
-#     min-height: calc(100vh) !important;
-#   }
+  card-mod-theme: Slate
+  card-mod-root-yaml: |
+    .: |
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+        margin-left: 0px;
+        margin-right: 12px;
+        content: "{{ user }}";
+        position: absolute;
+        top: 14px;
+        right: 0px;
+        color: var(--header-text-color);
+        transform: rotateY(180deg) !important;
+      }
+      app-header {
+        top: auto !important;
+        border-top: 2px solid var(--primary-color);
+        bottom: -2px !important;
+        transform: unset !important;
+        box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
+      }
+      app-toolbar {
+        transform: rotateY(180deg) !important;
+      }
+      #view {
+        margin-top: -58px !important;
+      }
+      ha-icon {
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+      }
 
   paper-toast-background-color: '#821414'
 

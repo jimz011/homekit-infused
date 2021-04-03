@@ -2,6 +2,7 @@
 type: horizontal-stack
 cards:
   - !include ../../includes/gap.yaml
+  - !include ../../includes/gap.yaml
   - type: custom:button-card
     style: |
       ha-card {
@@ -14,11 +15,11 @@ cards:
     layout: icon_name
     show_state: false
     show_label: false
-    tap_action: 
-      action: navigate
-      navigation_path: /homekit-infused/home
-      haptic: light
     double_tap_action: 
+      action: navigate
+      navigation_path: /homekit-infused/ha_settings
+      haptic: light
+    tap_action: 
       action: more-info
       haptic: heavy
     styles:
@@ -43,4 +44,5 @@ cards:
     state:
       - value: "off"
         spin: {{ spin|default('false') }}
+  - !include ../../includes/gap.yaml
   - !include ../../includes/gap.yaml
