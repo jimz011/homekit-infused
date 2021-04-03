@@ -96,7 +96,7 @@ Space Gray:
       }
       app-header {
         top: auto !important;
-        border-top: 2px solid var(--primary-color);
+        border-top: 3px solid var(--primary-color);
         bottom: -2px !important;
         transform: unset !important;
         box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
@@ -105,7 +105,7 @@ Space Gray:
         transform: rotateY(180deg) !important;
       }
       #view {
-        margin-top: -58px !important;
+        margin-top: -59px !important;
       }
       ha-icon {
         transform: rotateY(180deg) !important;
