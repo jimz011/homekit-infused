@@ -29,3 +29,27 @@ footer:
   vacuum_view: false
   waste_view: false
   weather_view: false
+
+  custom_1: false
+  custom_1_icon: #icon name without MDI: 
+
+  custom_2: false
+  custom_2_icon:
+  
+  custom_3: false
+  custom_3_icon:
+  
+  custom_4: false
+  custom_4_icon:
+  
+  custom_5: false
+  custom_5_icon:
+  
+  custom_6: false
+  custom_6_icon:
+  
+  custom_7: false
+  custom_7_icon:
+  
+  custom_8: false
+  custom_8_icon:

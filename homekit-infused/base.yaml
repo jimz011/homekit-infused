@@ -2403,7 +2403,8 @@
 
 # Custom 1 View
 - path: custom_1
-  visible: false
+  visible: {{ _global.footer.custom_1|default('false') }}
+  icon: mdi:{{ _global.footer.custom_1_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2437,7 +2438,8 @@
 
 # Custom 2 View
 - path: custom_2
-  visible: false
+  visible: {{ _global.footer.custom_2|default('false') }}
+  icon: mdi:{{ _global.footer.custom_2_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2471,7 +2473,8 @@
 
 # Custom 3 View
 - path: custom_3
-  visible: false
+  visible: {{ _global.footer.custom_3|default('false') }}
+  icon: mdi:{{ _global.footer.custom_3_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2505,7 +2508,8 @@
 
 # Custom 4 View
 - path: custom_4
-  visible: false
+  visible: {{ _global.footer.custom_4|default('false') }}
+  icon: mdi:{{ _global.footer.custom_4_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2539,7 +2543,8 @@
 
 # Custom 5 View
 - path: custom_5
-  visible: false
+  visible: {{ _global.footer.custom_5|default('false') }}
+  icon: mdi:{{ _global.footer.custom_5_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2573,7 +2578,8 @@
 
 # Custom 6 View
 - path: custom_6
-  visible: false
+  visible: {{ _global.footer.custom_6|default('false') }}
+  icon: mdi:{{ _global.footer.custom_6_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2607,7 +2613,8 @@
 
 # Custom 7 View
 - path: custom_7
-  visible: false
+  visible: {{ _global.footer.custom_7|default('false') }}
+  icon: mdi:{{ _global.footer.custom_7_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2641,7 +2648,8 @@
 
 # Custom 8 View
 - path: custom_8
-  visible: false
+  visible: {{ _global.footer.custom_8|default('false') }}
+  icon: mdi:{{ _global.footer.custom_8_icon|default('border-none-variant') }}
   panel: true
   cards:
     - type: vertical-stack
