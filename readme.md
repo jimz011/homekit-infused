@@ -57,8 +57,13 @@ Starting from 3.1.0 you can get your updates below without the need to download 
 - update to 3.5.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.2-to-3.5.3.zip)
 
 ### From 3.5.3
-- update to 3.6.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.0.zip) *Please download the 3.6.1 package update instead!
+- update to 3.6.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.0.zip) *Please download the 3.6.2 package update instead!
 - update to 3.6.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.1.zip)
+- update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.2.zip)
 
 ### From 3.6.0
 - update to 3.6.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.0-to-3.6.1.zip) *WARNING: Breaking Changes (does not apply to people coming from v3.5.3!)
+- update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.0-to-3.6.2.zip) *WARNING: Read the breaking changes from v3.6.0 (does not apply to people coming from v3.5.3)
+
+### From 3.6.1
+- update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.1-to-3.6.2.zip) *WARNING: Breaking Changes
