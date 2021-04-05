@@ -8,24 +8,110 @@ footer:
 # You can add any view to the footer you want, but `home` and `menu` are there regardless of these settings!
 
 # Show Views (choose between true or false), note that the order you read from top to bottom should be seen in the footer as from right to left.
+
+# Navigation
+  # You can change the home and menu icons here, you can't remove these 2
+  home_icon: mdi:home
+  menu_icon: mdi:apps
+
+# All Views
   lights_view: false
+  lights_icon: mdi:floor-lamp
+
   devices_view: false
+  devices_icon: mdi:power-plug
+
   climate_view: false
+  climate_icon: mdi:thermometer
+
   security_view: false
+  security_icon: mdi:cctv
+
   automations_view: false
+  automations_icon: mdi:alpha-a-box
+
   battery_view: false
+  battery_icon: mdi:battery-50
+
   calendar_view: false
+  calendar_icon: mdi:calendar-account
+
   certificates_view: false
+  certificates_icon: mdi:certificate
+
   cleaning_view: false
+  cleaning_icon: mdi:washing-machine
+
   computers_view: false
+  computers_icon: mdi:desktop-tower-monitor
+
   covers_view: false
+  covers_icon: mdi:window-shutter
+
   energy_view: false
+  energy_icon: mdi:chart-line
+
   floorplan_view: false
+  floorplan_icon: mdi:floor-plan
+
   location_view: false
+  location_icon: mdi:map-marker
+
   media_view: false
+  media_icon: mdi:plex
+
   scenes_view: false
+  scenes_icon: mdi:arrange-send-backward
+
   system_view: false
+  system_icon: mdi:home-assistant
+
   traffic_view: false
+  traffic_icon: mdi:waze
+
   vacuum_view: false
+  vacuum_icon: mdi:robot-vacuum
+
   waste_view: false
+  waste_icon: mdi:trash-can
+
   weather_view: false
+  weather_icon: mdi:weather-partly-cloudy
+
+# Person Views
+  person_1: false 
+  person_1_icon: mdi:account
+
+  person_2: false 
+  person_2_icon: mdi:account
+
+  person_3: false 
+  person_3_icon: mdi:account
+
+  person_4: false 
+  person_4_icon: mdi:account
+
+# Custom Views
+  custom_1: false
+  custom_1_icon: mdi:numeric-1-box
+
+  custom_2: false
+  custom_2_icon: mdi:numeric-2-box
+
+  custom_3: false
+  custom_3_icon: mdi:numeric-3-box
+
+  custom_4: false
+  custom_4_icon: mdi:numeric-4-box
+
+  custom_5: false
+  custom_5_icon: mdi:numeric-5-box
+
+  custom_6: false
+  custom_6_icon: mdi:numeric-6-box
+
+  custom_7: false
+  custom_7_icon: mdi:numeric-7-box
+
+  custom_8: false
+  custom_8_icon: mdi:numeric-8-box

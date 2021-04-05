@@ -11,4 +11,4 @@ type: 'custom:button-card'
 color_type: blank-card
 styles:
   card:
-    - height: 47px
+    - height: 65px

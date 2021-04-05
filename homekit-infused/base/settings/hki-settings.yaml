@@ -1,0 +1,407 @@
+path: hki_settings
+visible: false
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../templates/header/header-base-template.yaml'
+        - title: HKI 
+          subtitle: Settings
+          icon: mdi:palette
+          header-bottom: header-bottom.yaml
+      - type: custom:layout-card
+        max_columns: 3
+        cards:
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      name: Theme
+                      label: Settings
+                      icon: mdi:palette
+                      template:
+                        - style-default
+                        - default-hki-grid
+                        - hki-menu-style
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.hki_settings_selector
+                          option: Themes
+                        haptic: light
+                      state:
+                        - value: "Themes" 
+                          styles:
+                            card:
+                              - --ha-card-background: var(--button-on-color)
+                              - opacity: var(--button-on-opacity)
+                              - -webkit-box-shadow: var(--button-on-box-shadow)
+                              - box-shadow: var(--button-on-box-shadow)
+                            name:
+                              - color: var(--button-on-name-color)
+                            state:
+                              - color: var(--button-on-state-color)
+                            lock:
+                              - color: var(--button-on-lock-color) 
+                            label:
+                              - color: var(--button-on-label-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                    - type: custom:button-card
+                      name: Frontpage
+                      label: Greeting
+                      icon: mdi:form-textbox 
+                      template:
+                        - style-default
+                        - default-hki-grid
+                        - hki-menu-style
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.hki_settings_selector
+                          option: Greeting
+                        haptic: light
+                      state:
+                        - value: "Greeting" 
+                          styles:
+                            card:
+                              - --ha-card-background: var(--button-on-color)
+                              - opacity: var(--button-on-opacity)
+                              - -webkit-box-shadow: var(--button-on-box-shadow)
+                              - box-shadow: var(--button-on-box-shadow)
+                            name:
+                              - color: var(--button-on-name-color)
+                            state:
+                              - color: var(--button-on-state-color)
+                            lock:
+                              - color: var(--button-on-lock-color) 
+                            label:
+                              - color: var(--button-on-label-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                    - type: custom:button-card
+                      name: View Selector
+                      label: Settings
+                      icon: mdi:checkbox-multiple-blank
+                      template:
+                        - style-default
+                        - default-hki-grid
+                        - hki-menu-style
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.hki_settings_selector
+                          option: View Selector
+                        haptic: light
+                      state:
+                        - value: "View Selector" 
+                          styles:
+                            card:
+                              - --ha-card-background: var(--button-on-color)
+                              - opacity: var(--button-on-opacity)
+                              - -webkit-box-shadow: var(--button-on-box-shadow)
+                              - box-shadow: var(--button-on-box-shadow)
+                            name:
+                              - color: var(--button-on-name-color)
+                            state:
+                              - color: var(--button-on-state-color)
+                            lock:
+                              - color: var(--button-on-lock-color) 
+                            label:
+                              - color: var(--button-on-label-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                    - type: custom:button-card
+                      name: Advanced
+                      label: View
+                      icon: mdi:palette-advanced
+                      template:
+                        - style-default
+                        - default-hki-grid
+                        - hki-menu-style
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.hki_settings_selector
+                          option: View Advanced
+                        haptic: light
+                      state:
+                        - value: "View Advanced" 
+                          styles:
+                            card:
+                              - --ha-card-background: var(--button-on-color)
+                              - opacity: var(--button-on-opacity)
+                              - -webkit-box-shadow: var(--button-on-box-shadow)
+                              - box-shadow: var(--button-on-box-shadow)
+                            name:
+                              - color: var(--button-on-name-color)
+                            state:
+                              - color: var(--button-on-state-color)
+                            lock:
+                              - color: var(--button-on-lock-color) 
+                            label:
+                              - color: var(--button-on-label-color)
+                            icon:
+                              - color: var(--paper-item-icon-active-color)
+                - type: conditional
+                  conditions:
+                    - entity: input_select.hki_settings_selector
+                      state: "Themes"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - !include
+                        - '../templates/other/title-text.yaml'
+                        - name: Select if you want a persistent theme or a day/night cycle
+                      - type: conditional
+                        conditions:
+                          - entity: input_boolean.day_night_cycle
+                            state: "on"
+                        card:
+                          type: entities
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                            }
+                          show_header_toggle: false                                 
+                          entities: 
+                            - entity: input_boolean.day_night_cycle
+                              name: Light and Dark Mode
+                            - entity: input_select.theme_selector_day
+                              name: Select Light Theme
+                            - entity: input_select.theme_selector_night
+                              name: Select Dark Theme
+                      - type: conditional
+                        conditions:
+                          - entity: input_boolean.day_night_cycle
+                            state: "off"
+                        card:
+                          type: entities
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                            }
+                          show_header_toggle: false                                   
+                          entities: 
+                            - entity: input_boolean.day_night_cycle
+                              name: Light and Dark Mode
+                            - entity: input_select.theme_selector
+                              name: Select Palette
+                      - !include
+                        - '../templates/other/title-text.yaml'
+                        - name: Select your footer style
+                      - type: entities
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                          }
+                        show_header_toggle: false              
+                        entities: 
+                          - entity: input_boolean.footer
+                            name: Footer on/off
+                      - type: conditional
+                        conditions:
+                          - entity: input_boolean.footer
+                            state: "on"
+                        card:
+                          type: vertical-stack
+                          cards:
+                            - type: entities
+                              style: |
+                                ha-card {
+                                  border-radius: var(--border-radius);
+                                  box-shadow: var(--box-shadow);
+                                }
+                              show_header_toggle: false              
+                              entities: 
+                                - entity: input_select.footer_direction
+                                  name: Icons
+                                - entity: input_select.footer_options
+                                  name: Footer Text
+                      - type: conditional
+                        conditions:
+                          - entity: input_boolean.footer
+                            state: "off"
+                        card:
+                          type: markdown
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                            }              
+                          content: >
+                            **Note:** Enabling the footer will move the top navigation bar to the bottom, this is persistent through all the dashboards you may have.
+
+                            The functionality of that bar will not change at all, just the location has changed. Changes like the clock, date or username will also work on other dashboards as long as footer mode is active.
+
+
+                            If you don't want the footer on your other dashboards or it is simply in the way because your other dashboard already has a footer (e.g. Dwains Dashboard) you should turn this feature off!
+
+                            
+                            **This warning will NO longer show when the footer is turned on!**
+                - type: conditional
+                  conditions:
+                    - entity: input_select.hki_settings_selector
+                      state: "Greeting"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - !include
+                        - '../templates/other/title-text.yaml'
+                        - name: Set the Frontpage Greeting lines
+                      - type: entities
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                          }
+                        show_header_toggle: false                                 
+                        entities: 
+                          - name: Good Morning
+                            entity: input_text.good_morning
+                          - name: Good Afternoon
+                            entity: input_text.good_afternoon
+                          - name: Good Evening
+                            entity: input_text.good_evening
+                          - name: Good Night
+                            entity: input_text.good_night
+                - type: conditional
+                  conditions:
+                    - entity: input_select.hki_settings_selector
+                      state: "View Selector"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - !include
+                        - '../templates/other/title-text.yaml'
+                        - name: Select which selectors to show
+                      - type: entities
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                          }
+                        show_header_toggle: false                                 
+                        entities: 
+                          - name: Show Floor Selector (lights)
+                            entity: input_select.show_floor_selector_lights
+                          - name: Show Floor Selector (devices)
+                            entity: input_select.show_floor_selector_devices
+                          - name: Show Media View Selector
+                            entity: input_select.show_media_view_selector
+                          - name: Show Person 1 View Selector
+                            entity: input_select.show_person_1_selector
+                          - name: Show Person 2 View Selector
+                            entity: input_select.show_person_2_selector
+                          - name: Show Person 3 View Selector
+                            entity: input_select.show_person_3_selector
+                          - name: Show Person 4 View Selector
+                            entity: input_select.show_person_4_selector
+                      - !include '../includes/empty-button.yaml'
+                - type: conditional
+                  conditions:
+                    - entity: input_select.hki_settings_selector
+                      state: "View Advanced"
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - !include
+                        - '../templates/other/title-text.yaml'
+                        - name: Select which view type you want per view
+                      - type: entities
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                          }
+                        show_header_toggle: false                                 
+                        entities: 
+                          - name: Automations
+                            entity: input_select.view_style_automations
+                          - name: Battery
+                            entity: input_select.view_style_battery
+                          - name: Calendar
+                            entity: input_select.view_style_calendar
+                          - name: Certificates
+                            entity: input_select.view_style_certificates
+                          - name: Cleaning
+                            entity: input_select.view_style_cleaning
+                          - name: Climate
+                            entity: input_select.view_style_climate
+                          - name: Computers
+                            entity: input_select.view_style_computers
+                          - name: Covers
+                            entity: input_select.view_style_covers
+                          - name: Devices
+                            entity: input_select.view_style_devices
+                          - name: Energy
+                            entity: input_select.view_style_energy
+                          - name: Floorplan
+                            entity: input_select.view_style_floorplan
+                          - name: Frontpage
+                            entity: input_select.view_style_home
+                          - name: Lights
+                            entity: input_select.view_style_lights
+                          - name: Media
+                            entity: input_select.view_style_media
+                          - name: Menu
+                            entity: input_select.view_style_menu
+                          - name: Person 1
+                            entity: input_select.view_style_person_1
+                          - name: Person 2
+                            entity: input_select.view_style_person_2
+                          - name: Person 3
+                            entity: input_select.view_style_person_3
+                          - name: Person 4
+                            entity: input_select.view_style_person_4
+                          - name: Scenes
+                            entity: input_select.view_style_scenes
+                          - name: Security
+                            entity: input_select.view_style_security
+                          - name: System
+                            entity: input_select.view_style_system
+                          - name: Vacuum
+                            entity: input_select.view_style_vacuum
+                          - name: Waste
+                            entity: input_select.view_style_waste
+                          - name: Weather
+                            entity: input_select.view_style_weather
+                          - name: Custom 1
+                            entity: input_select.view_style_custom_1
+                          - name: Custom 2
+                            entity: input_select.view_style_custom_2
+                          - name: Custom 3
+                            entity: input_select.view_style_custom_3
+                          - name: Custom 4
+                            entity: input_select.view_style_custom_4
+                          - name: Custom 5
+                            entity: input_select.view_style_custom_5
+                          - name: Custom 6
+                            entity: input_select.view_style_custom_6
+                          - name: Custom 7
+                            entity: input_select.view_style_custom_7
+                          - name: Custom 8
+                            entity: input_select.view_style_custom_8
+                      - !include '../includes/empty-button.yaml'
+      - !include '../includes/gap-height.yaml'
+      - !include '../includes/gap-height.yaml'
+      - !include '../includes/gap-height.yaml'
+      - !include '../includes/gap-height.yaml'
+      - !include '../includes/gap-height.yaml'
+      - !include '../includes/gap-height.yaml'

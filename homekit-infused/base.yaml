@@ -5,7 +5,7 @@
 
 # Home View
 - path: home
-  icon: mdi:home
+  icon: {{ _global.footer.home_icon|default('mdi:home') }}
   visible: true
   panel: true
   cards:
@@ -17,8 +17,6 @@
           - title: "{{ states('sensor.greeting') }}"
             {% endraw %}
             header_bottom: header-notifications.yaml
-            nav_icon: mdi:menu
-            nav_path: menu
             icon_size: 80%
         - type: custom:state-switch
           entity: input_select.view_style_home
@@ -38,7 +36,7 @@
 
 # Menu View  
 - path: menu
-  icon: mdi:menu
+  icon: {{ _global.footer.menu_icon|default('mdi:apps') }}
   visible: true
   panel: true
   cards:
@@ -46,9 +44,9 @@
       cards:
         - !include
           - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.menu_title|default('Menu') }}
-            subtitle: "{{ _global.header.menu_subtitle|default('Overview') }}"
-            icon: {{ _global.header.menu_icon|default('mdi:menu') }}
+          - title: Menu
+            subtitle: Overview
+            icon: mdi:apps
             header-bottom: header-bottom.yaml
             nav_path: home
         - type: conditional
@@ -142,7 +140,7 @@
 
 # Lights View
 - path: lights
-  icon: mdi:floor-lamp
+  icon: {{ _global.footer.lights_icon|default('mdi:floor-lamp') }}
   visible: {{ _global.footer.lights_view|default('false') }}
   panel: true
   cards:
@@ -193,7 +191,7 @@
 
 # Devices View
 - path: devices
-  icon: mdi:power-plug
+  icon: {{ _global.footer.devices_icon|default('mdi:power-plug') }}
   visible: {{ _global.footer.devices_view|default('false') }}
   panel: true
   cards:
@@ -244,7 +242,7 @@
 
 # Climate View
 - path: climate
-  icon: mdi:thermometer
+  icon: {{ _global.footer.climate_icon|default('mdi:thermometer') }}
   visible: {{ _global.footer.climate_view|default('false') }}
   panel: true
   cards:
@@ -279,7 +277,7 @@
 
 # Security View
 - path: security
-  icon: mdi:cctv
+  icon: {{ _global.footer.security_icon|default('mdi:cctv') }}
   visible: {{ _global.footer.security_view|default('false') }}
   panel: true
   cards:
@@ -313,294 +311,12 @@
         - !include base/includes/gap-height.yaml
 
 # About View
-- path: about
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.about_title|default('About') }}
-            subtitle: "[[[ return `Homekit Infused Framework Current Version: ${states['sensor.hki_current_version'].state}`; ]]]"
-            icon: {{ _global.header.about_icon|default('mdi:help-circle') }}
-            header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          max_columns: 3
-          layout: vertical
-          cards:
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state2nd
-                size: 50%
-                entity: sensor.hki_latest_version
-                name: Latest Version
-                show_label: true
-                show_state: true
-                label: >
-                  [[[ 
-                    if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `You have the latest version`; 
-                    if (states['sensor.hki_current_version'].state < `${states['sensor.hki_latest_version'].state}`) return `There is an update available!`;
-                    else return `Error: Unknown Version!`; 
-                  ]]]
-                icon: mdi:information-outline
-                tap_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homekit-infused/releases
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homekit-infused/releases
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px
-                    - color: >
-                        [[[ 
-                          if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `green`; 
-                          else return `red`; 
-                        ]]]
-                    - animation: >
-                        [[[ 
-                          if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `none`; 
-                          else return `blink 2s ease infinite`; 
-                        ]]]
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Follow me on Youtube
-                icon: mdi:youtube
-                tap_action:
-                  action: url
-                  url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px  
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:              
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Follow me on Github
-                icon: mdi:github
-                tap_action:
-                  action: url
-                  url_path: https://www.github.com/jimz011/homeassistant
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://www.github.com/jimz011/homeassistant
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px   
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:         
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Follow me on the HA Forums
-                icon: mdi:home-assistant
-                tap_action:
-                  action: url
-                  url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Feature Requests
-                icon: mdi:plus-circle-outline
-                tap_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Bug Reports & Issues
-                icon: mdi:bug
-                tap_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://github.com/jimz011/homeassistant/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - font-size: 12px  
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: custom:button-card
-                aspect_ratio: 5/1
-                layout: icon_name_state2nd
-                size: 50%
-                entity: input_boolean.dummy1
-                name: Support this project
-                label: Paypal
-                show_label: true
-                icon: mdi:alpha-p-circle-outline
-                tap_action:
-                  action: url
-                  url_path: https://www.paypal.me/JimmySchings
-                  haptic: light
-                hold_action:
-                  action: url
-                  url_path: https://www.paypal.me/JimmySchings
-                  haptic: heavy
-                styles:
-                  card:
-                    - opacity: 0.8
-                    - border-radius: var(--border-radius)
-                    - box-shadow: var(--box-shadow)
-                  name:
-                    - font-size: 14px
-                  state:
-                    - font-size: 12px
-                  label:
-                    - color: var(--primary-text-color)
-                    - font-size: 12px  
-            - type: markdown
-              style: |
-                ha-card {
-                  background: rgba(0, 0, 0, 0.5);
-                  border-radius: var(--border-radius);
-                  box-shadow: var(--box-shadow);
-                  font-size: 13px;
-                  font-family: var(--font-family);
-                  color: white;
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }                    
-              content: HKI Framework Oct/Nov 2020 created by Jimz011
-            - !include base/includes/empty-button.yaml
-        - !include base/includes/gap-height.yaml
+- !include base/settings/about.yaml
 
 # Automations View
 - path: automations
   visible: {{ _global.footer.automations_view|default('false') }}
-  icon: mdi:alpha-a-box
+  icon: {{ _global.footer.automations_icon|default('mdi:alpha-a-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -635,7 +351,7 @@
 # Battery View
 - path: battery
   visible: {{ _global.footer.battery_view|default('false') }}
-  icon: mdi:battery-50
+  icon: {{ _global.footer.battery_icon|default('mdi:battery-50') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -670,7 +386,7 @@
 # Calendar View              
 - path: calendar
   visible: {{ _global.footer.calendar_view|default('false') }}
-  icon: mdi:calendar-account
+  icon: {{ _global.footer.calendar_icon|default('mdi:calendar-account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -705,7 +421,7 @@
 # Certificates
 - path: certificates
   visible: {{ _global.footer.certificates_view|default('false') }}
-  icon: mdi:certificate
+  icon: {{ _global.footer.certificate_icon|default('mdi:certificate') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -740,7 +456,7 @@
 # Cleaning View
 - path: cleaning
   visible: {{ _global.footer.cleaning_view|default('false') }}
-  icon: mdi:washing-machine
+  icon: {{ _global.footer.cleaning_icon|default('mdi:washing-machine') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -776,7 +492,7 @@
 # Computers View
 - path: computers
   visible: {{ _global.footer.computers_view|default('false') }}
-  icon: mdi:desktop-tower-monitor
+  icon: {{ _global.footer.computers_icon|default('mdi:desktop-tower-monitor') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -811,7 +527,7 @@
 # Covers View
 - path: covers
   visible: {{ _global.footer.covers_view|default('false') }}
-  icon: mdi:window-shutter
+  icon: {{ _global.footer.covers_icon|default('mdi:window-shutter') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -843,12 +559,10 @@
               !include_dir_merge_list user/views/covers/
         - !include base/includes/gap-height.yaml
 
-
-
 # Energy View
 - path: energy
   visible: {{ _global.footer.energy_view|default('false') }}
-  icon: mdi:chart-line
+  icon: {{ _global.footer.energy_icon|default('mdi:chart-line') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -883,7 +597,7 @@
 # Floorplan View
 - path: floorplan
   visible: {{ _global.footer.floorplan_view|default('false') }}
-  icon: mdi:floor-plan
+  icon: {{ _global.footer.floorplan_icon|default('mdi:floor-plan') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -916,831 +630,15 @@
         - !include base/includes/gap-height.yaml
 
 # HA Settings View
-- path: ha_settings
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: HA Settings
-            subtitle: "[[[ if (states['sensor.version_current'].state != 0) return `Home Assistant version ${states['sensor.version_current'].state}`; else return 'Version sensor not set up!'; ]]]"
-            icon: mdi:home-assistant
-            header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          max_columns: 3
-          layout: horizontal
-          cards:
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - base/templates/other/title-text.yaml
-                    - name: '&nbsp; Home Assistant'
-                  - type: picture-elements
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        overflow: hidden;
-                      }
-                    image: "/local/images/home-assistant.png"
-                    elements:
-                      - type: state-label
-                        entity: sensor.version_current
-                        prefix: 'Current HA '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 0px 10px
-                      - type: state-label
-                        entity: sensor.latest_compatible_ha_version
-                        prefix: 'HKI Compatible HA '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 20px 10px
-                      - type: state-label
-                        entity: sensor.home_assistant_latest_version
-                        prefix: 'Latest HA '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 40px 10px 
-                      - type: state-label
-                        entity: sensor.latest_version
-                        prefix: 'Latest Beta '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 60px 10px
-                      - type: state-label
-                        entity: sensor.hki_current_version
-                        prefix: 'Current HKI '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 100px 10px
-                      - type: state-label
-                        entity: sensor.hki_latest_version
-                        prefix: 'Latest HKI '
-                        style:
-                          top: 0
-                          left: 0
-                          pointer-events: none
-                          transform: initial
-                          font-size: 12px
-                          font-family: var(--font-family)
-                          color: rgba(255,255,255,0.8)
-                          line-height: 32px
-                          padding: 120px 10px
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - base/templates/other/title-text.yaml
-                    - name: '&nbsp; CPU and RAM usage'
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:mini-graph-card
-                        style: |
-                          ha-card {
-                            background: var(--paper-card-background-color);
-                            border-radius: 10px;
-                            box-shadow: 10px;
-                            font-weight: bold;
-                            opacity: 0.8;
-                          }
-                        entities:
-                          - entity: sensor.processor_use
-                            name: CPU
-                            color: '#14ff8d'
-                        name: CPU Usage
-                        icon: mdi:cpu-64-bit
-                        height: 200
-                        hours_to_show: 7
-                        points_per_hour: 60
-                        update_interval: 10
-                        aggregate_func: max
-                        line_width: 2
-                        smoothing: false
-                        font_size: 65
-                        font_size_header: 9
-                        show:
-                          average: true
-                          extrema: true
-                        tap_action: none
-                      - type: custom:mini-graph-card
-                        style: |
-                          ha-card {
-                            background: var(--paper-card-background-color);
-                            border-radius: 10px;
-                            box-shadow: 10px;
-                            font-weight: bold;
-                            opacity: 0.8;
-                          }
-                        entities:
-                          - entity: sensor.memory_use_percent
-                            name: RAM
-                            color: '#14ff8d'
-                        name: RAM Usage
-                        height: 200
-                        hours_to_show: 7
-                        points_per_hour: 60
-                        update_interval: 10
-                        aggregate_func: max
-                        line_width: 2
-                        smoothing: false
-                        font_size: 65
-                        font_size_header: 9
-                        show:
-                          average: true
-                          extrema: true
-                        tap_action: none
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - base/templates/other/title-text.yaml
-                    - name: '&nbsp; Quick Links'
-                  - type: custom:layout-card
-                    min_columns: 4
-                    max_columns: 4
-                    justify_content: start
-                    layout: horizontal
-                    cards:
-                      - !include
-                        - 'base/templates/button/button-badge.yaml'
-                        - name: Go to
-                          label: Dashboard
-                          icon: mdi:view-dashboard
-                          navigation_path: /config/dashboard
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
-                          opacity_off: 0.8
-                      - !include
-                        - 'base/templates/button/button-badge.yaml'
-                        - name: Go to
-                          label: Resources
-                          icon: mdi:language-javascript
-                          navigation_path: /config/lovelace/resources
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
-                          opacity_off: 0.8
-                      - !include
-                        - 'base/templates/button/button-badge.yaml'
-                        - name: Go to
-                          label: NFC Tags
-                          icon: mdi:nfc
-                          navigation_path: /config/tags
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
-                          opacity_off: 0.8
-                      - !include
-                        - 'base/templates/button/button-badge.yaml'
-                        - name: Go to
-                          label: Logs
-                          icon: mdi:clipboard-text
-                          navigation_path: /config/logs
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
-                          opacity_off: 0.8
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - base/templates/other/title-text.yaml
-                    - name: '&nbsp; Reload Configuration'
-                  - type: custom:layout-card
-                    min_columns: 4
-                    max_columns: 4
-                    justify_content: start
-                    layout: horizontal
-                    cards:
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Automations
-                          icon: mdi:alpha-a-box
-                          service: automation.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload automations? This might take up to 10 seconds!` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Core Config
-                          icon: mdi:home-assistant
-                          service: homeassistant.reload_core_config
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload core config? This might take a while!` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Groups
-                          icon: mdi:account-multiple-plus
-                          service: group.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload groups? This feature might not work well!` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Homekit
-                          icon: mdi:apple
-                          service: input_boolean.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload the Homekit Component?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Input Booleans
-                          icon: mdi:toggle-switch
-                          service: input_boolean.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload input_booleans?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Input Date Times
-                          icon: mdi:calendar-clock
-                          service: input_datetime.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload input_datetimes?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Input Numbers
-                          icon: mdi:numeric-1-box-outline
-                          service: input_number.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload input_numbers?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Input Selects
-                          icon: mdi:text
-                          service: input_select.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload input_selects?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Input Texts
-                          icon: mdi:form-textbox
-                          service: input_text.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload input_texts?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Lovelace
-                          icon: mdi:cards-heart
-                          service: browser_mod.lovelace_reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload lovelace? This might take up to 10 seconds! You will be notified when the reload is completed.` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Persons
-                          icon: mdi:account-multiple
-                          service: person.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload persons?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Python Scripts
-                          icon: mdi:language-python
-                          service: python_script.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload python_scripts?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Scenes
-                          icon: mdi:arrange-send-backward
-                          service: scene.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload scenes?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Scripts
-                          icon: mdi:script
-                          service: script.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload scripts?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Themes
-                          icon: mdi:format-color-fill
-                          service: frontend.reload_themes
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload themes?` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Reload
-                          entity: input_boolean.dummy1
-                          label: Zones
-                          icon: mdi:map-search
-                          service: zone.reload
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Are you sure you want to reload zones?` ]]]"
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - base/templates/other/title-text.yaml
-                    - name: '&nbsp; System'
-                  - type: custom:layout-card
-                    min_columns: 3
-                    max_columns: 3
-                    justify_content: start
-                    layout: horizontal
-                    cards:
-                      - type: custom:button-card
-                        template:
-                          - style-default
-                          - default-hki-grid
-                        name: Home Assistant
-                        size: 25%
-                        aspect_ratio: 1/1
-                        entity: input_boolean.dummy1
-                        label: Release Notes
-                        show_label: true
-                        icon: mdi:chevron-up-circle
-                        tap_action:
-                          action: url
-                          url_path: 'https://www.home-assistant.io/latest-release-notes/'
-                        styles:
-                          card:
-                            - opacity: 0.8
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Check
-                          entity: input_boolean.dummy1
-                          label: HA Config
-                          icon: mdi:check-box-outline
-                          service: homeassistant.check_config
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `This will check the HA config, it will show a notification in the sidebar if there is an error. If no error is shown the config is OK!` ]]]"
-                      - !include
-                        - base/templates/button/home-assistant-service.yaml
-                        - name: Restart
-                          entity: input_boolean.dummy1
-                          label: Home Assistant
-                          icon: mdi:restart
-                          service: homeassistant.restart
-                          opacity_off: 0.8
-                          confirmation: "[[[ return `Make sure you check the config first! Are you sure you want to restart Home Assistant?` ]]]"
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                !include
-                - base/templates/other/title-text.yaml
-                - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
-                  background_color: var(--ha-card-background)
-                  font_weight: bold
-                  font_color: var(--primary-text-color)
-                  justify_self: center
-            - !include base/includes/empty-button.yaml
-        - !include base/includes/gap-height.yaml
+- !include base/settings/ha-settings.yaml
 
 # HKI Settings View
-- path: hki_settings
-  visible: false
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: HKI 
-            subtitle: Settings
-            icon: mdi:palette
-            header-bottom: header-bottom.yaml
-        - type: custom:layout-card
-          max_columns: 3
-          cards:
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        name: Theme
-                        label: Settings
-                        icon: mdi:palette
-                        template:
-                          - style-default
-                          - default-hki-grid
-                          - hki-menu-style
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.hki_settings_selector
-                            option: Themes
-                          haptic: light
-                        state:
-                          - value: "Themes" 
-                            styles:
-                              card:
-                                - --ha-card-background: var(--button-on-color)
-                                - opacity: var(--button-on-opacity)
-                                - -webkit-box-shadow: var(--button-on-box-shadow)
-                                - box-shadow: var(--button-on-box-shadow)
-                              name:
-                                - color: var(--button-on-name-color)
-                              state:
-                                - color: var(--button-on-state-color)
-                              lock:
-                                - color: var(--button-on-lock-color) 
-                              label:
-                                - color: var(--button-on-label-color)
-                              icon:
-                                - color: var(--paper-item-icon-active-color)
-                      - type: custom:button-card
-                        name: Frontpage
-                        label: Greeting
-                        icon: mdi:form-textbox 
-                        template:
-                          - style-default
-                          - default-hki-grid
-                          - hki-menu-style
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.hki_settings_selector
-                            option: Greeting
-                          haptic: light
-                        state:
-                          - value: "Greeting" 
-                            styles:
-                              card:
-                                - --ha-card-background: var(--button-on-color)
-                                - opacity: var(--button-on-opacity)
-                                - -webkit-box-shadow: var(--button-on-box-shadow)
-                                - box-shadow: var(--button-on-box-shadow)
-                              name:
-                                - color: var(--button-on-name-color)
-                              state:
-                                - color: var(--button-on-state-color)
-                              lock:
-                                - color: var(--button-on-lock-color) 
-                              label:
-                                - color: var(--button-on-label-color)
-                              icon:
-                                - color: var(--paper-item-icon-active-color)
-                      - type: custom:button-card
-                        name: View Selector
-                        label: Settings
-                        icon: mdi:checkbox-multiple-blank
-                        template:
-                          - style-default
-                          - default-hki-grid
-                          - hki-menu-style
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.hki_settings_selector
-                            option: View Selector
-                          haptic: light
-                        state:
-                          - value: "View Selector" 
-                            styles:
-                              card:
-                                - --ha-card-background: var(--button-on-color)
-                                - opacity: var(--button-on-opacity)
-                                - -webkit-box-shadow: var(--button-on-box-shadow)
-                                - box-shadow: var(--button-on-box-shadow)
-                              name:
-                                - color: var(--button-on-name-color)
-                              state:
-                                - color: var(--button-on-state-color)
-                              lock:
-                                - color: var(--button-on-lock-color) 
-                              label:
-                                - color: var(--button-on-label-color)
-                              icon:
-                                - color: var(--paper-item-icon-active-color)
-                      - type: custom:button-card
-                        name: Advanced
-                        label: View
-                        icon: mdi:palette-advanced
-                        template:
-                          - style-default
-                          - default-hki-grid
-                          - hki-menu-style
-                        tap_action:
-                          action: call-service
-                          service: input_select.select_option
-                          service_data:
-                            entity_id: input_select.hki_settings_selector
-                            option: View Advanced
-                          haptic: light
-                        state:
-                          - value: "View Advanced" 
-                            styles:
-                              card:
-                                - --ha-card-background: var(--button-on-color)
-                                - opacity: var(--button-on-opacity)
-                                - -webkit-box-shadow: var(--button-on-box-shadow)
-                                - box-shadow: var(--button-on-box-shadow)
-                              name:
-                                - color: var(--button-on-name-color)
-                              state:
-                                - color: var(--button-on-state-color)
-                              lock:
-                                - color: var(--button-on-lock-color) 
-                              label:
-                                - color: var(--button-on-label-color)
-                              icon:
-                                - color: var(--paper-item-icon-active-color)
-                  - type: conditional
-                    conditions:
-                      - entity: input_select.hki_settings_selector
-                        state: "Themes"
-                    card:
-                      type: vertical-stack
-                      cards:
-                        - !include
-                          - base/templates/other/title-text.yaml
-                          - name: Select if you want a persistent theme or a day/night cycle
-                        - type: conditional
-                          conditions:
-                            - entity: input_boolean.day_night_cycle
-                              state: "on"
-                          card:
-                            type: entities
-                            style: |
-                              ha-card {
-                                border-radius: var(--border-radius);
-                                box-shadow: var(--box-shadow);
-                              }
-                            show_header_toggle: false                                 
-                            entities: 
-                              - entity: input_boolean.day_night_cycle
-                                name: Light and Dark Mode
-                              - entity: input_select.theme_selector_day
-                                name: Select Light Theme
-                              - entity: input_select.theme_selector_night
-                                name: Select Dark Theme
-                        - type: conditional
-                          conditions:
-                            - entity: input_boolean.day_night_cycle
-                              state: "off"
-                          card:
-                            type: entities
-                            style: |
-                              ha-card {
-                                border-radius: var(--border-radius);
-                                box-shadow: var(--box-shadow);
-                              }
-                            show_header_toggle: false                                   
-                            entities: 
-                              - entity: input_boolean.day_night_cycle
-                                name: Light and Dark Mode
-                              - entity: input_select.theme_selector
-                                name: Select Palette
-                  - type: conditional
-                    conditions:
-                      - entity: input_select.hki_settings_selector
-                        state: "Greeting"
-                    card:
-                      type: vertical-stack
-                      cards:
-                        - !include
-                          - base/templates/other/title-text.yaml
-                          - name: Set the Frontpage Greeting lines
-                        - type: entities
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }
-                          show_header_toggle: false                                 
-                          entities: 
-                            - name: Good Morning
-                              entity: input_text.good_morning
-                            - name: Good Afternoon
-                              entity: input_text.good_afternoon
-                            - name: Good Evening
-                              entity: input_text.good_evening
-                            - name: Good Night
-                              entity: input_text.good_night
-                  - type: conditional
-                    conditions:
-                      - entity: input_select.hki_settings_selector
-                        state: "View Selector"
-                    card:
-                      type: vertical-stack
-                      cards:
-                        - !include
-                          - base/templates/other/title-text.yaml
-                          - name: Select which selectors to show
-                        - type: entities
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }
-                          show_header_toggle: false                                 
-                          entities: 
-                            - name: Show Floor Selector (lights)
-                              entity: input_select.show_floor_selector_lights
-                            - name: Show Floor Selector (devices)
-                              entity: input_select.show_floor_selector_devices
-                            - name: Show Media View Selector
-                              entity: input_select.show_media_view_selector
-                            - name: Show Person 1 View Selector
-                              entity: input_select.show_person_1_selector
-                            - name: Show Person 2 View Selector
-                              entity: input_select.show_person_2_selector
-                            - name: Show Person 3 View Selector
-                              entity: input_select.show_person_3_selector
-                            - name: Show Person 4 View Selector
-                              entity: input_select.show_person_4_selector
-                        - !include base/includes/empty-button.yaml
-                  - type: conditional
-                    conditions:
-                      - entity: input_select.hki_settings_selector
-                        state: "View Advanced"
-                    card:
-                      type: vertical-stack
-                      cards:
-                        - !include
-                          - base/templates/other/title-text.yaml
-                          - name: Select which view type you want per view
-                        - type: entities
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }
-                          show_header_toggle: false                                 
-                          entities: 
-                            - name: Automations
-                              entity: input_select.view_style_automations
-                            - name: Battery
-                              entity: input_select.view_style_battery
-                            - name: Calendar
-                              entity: input_select.view_style_calendar
-                            - name: Certificates
-                              entity: input_select.view_style_certificates
-                            - name: Cleaning
-                              entity: input_select.view_style_cleaning
-                            - name: Climate
-                              entity: input_select.view_style_climate
-                            - name: Computers
-                              entity: input_select.view_style_computers
-                            - name: Covers
-                              entity: input_select.view_style_covers
-                            - name: Devices
-                              entity: input_select.view_style_devices
-                            - name: Energy
-                              entity: input_select.view_style_energy
-                            - name: Floorplan
-                              entity: input_select.view_style_floorplan
-                            - name: Frontpage
-                              entity: input_select.view_style_home
-                            - name: Lights
-                              entity: input_select.view_style_lights
-                            - name: Media
-                              entity: input_select.view_style_media
-                            - name: Menu
-                              entity: input_select.view_style_menu
-                            - name: Person 1
-                              entity: input_select.view_style_person_1
-                            - name: Person 2
-                              entity: input_select.view_style_person_2
-                            - name: Person 3
-                              entity: input_select.view_style_person_3
-                            - name: Person 4
-                              entity: input_select.view_style_person_4
-                            - name: Scenes
-                              entity: input_select.view_style_scenes
-                            - name: Security
-                              entity: input_select.view_style_security
-                            - name: System
-                              entity: input_select.view_style_system
-                            - name: Vacuum
-                              entity: input_select.view_style_vacuum
-                            - name: Waste
-                              entity: input_select.view_style_waste
-                            - name: Weather
-                              entity: input_select.view_style_weather
-                            - name: Custom 1
-                              entity: input_select.view_style_custom_1
-                            - name: Custom 2
-                              entity: input_select.view_style_custom_2
-                            - name: Custom 3
-                              entity: input_select.view_style_custom_3
-                            - name: Custom 4
-                              entity: input_select.view_style_custom_4
-                            - name: Custom 5
-                              entity: input_select.view_style_custom_5
-                            - name: Custom 6
-                              entity: input_select.view_style_custom_6
-                            - name: Custom 7
-                              entity: input_select.view_style_custom_7
-                            - name: Custom 8
-                              entity: input_select.view_style_custom_8
-                        - !include base/includes/empty-button.yaml
-        - !include base/includes/gap-height.yaml
+- !include base/settings/hki-settings.yaml
 
 # Location View
 - path: location
   visible: {{ _global.footer.location_view|default('false') }}
-  icon: mdi:map-marker
+  icon: {{ _global.footer.location_icon|default('mdi:map-marker') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1802,7 +700,7 @@
 # Media View
 - path: media
   visible: {{ _global.footer.media_view|default('false') }}
-  icon: mdi:plex
+  icon: {{ _global.footer.media_icon|default('mdi:plex') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1911,9 +809,216 @@
               !include_dir_merge_list user/views/media/
         - !include base/includes/gap-height.yaml
 
+# Scenes View
+- path: scenes
+  visible: {{ _global.footer.scenes_view|default('false') }}
+  icon: {{ _global.footer.scenes_icon|default('mdi:arrange-send-backward') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.scenes_title|default('Scenes') }}
+            subtitle: "{{ _global.header.scenes_subtitle|default('Overview') }}"
+            icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_scenes
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/scenes/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_scenes
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/scenes/
+        - !include base/includes/gap-height.yaml
+
+# System View
+- path: system
+  visible: {{ _global.footer.system_view|default('false') }}
+  icon: {{ _global.footer.system_icon|default('mdi:home-assistant') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.system_title|default('System') }}
+            subtitle: "{{ _global.header.system_subtitle|default('Overview') }}"
+            icon: {{ _global.header.system_icon|default('mdi:home-assistant') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_system
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/system/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_system
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/system/
+        - !include base/includes/gap-height.yaml
+
+# Traffic View
+- path: traffic
+  visible: {{ _global.footer.traffic_view|default('false') }}
+  icon: {{ _global.footer.traffic_icon|default('mdi:waze') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.traffic_title|default('Traffic') }}
+            subtitle: "{{ _global.header.traffic_subtitle|default('Information') }}"
+            icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
+            header-bottom: header-bottom.yaml
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 7px;
+              margin-right: 7px;
+            }
+          card:
+            type: iframe
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+              }
+            url: https://embed.waze.com/iframe
+            aspect_ratio: 150%
+        - !include base/includes/gap-height.yaml
+
+# Vacuum View
+- path: vacuum
+  visible: {{ _global.footer.vacuum_view|default('false') }}
+  icon: {{ _global.footer.vacuum_icon|default('mdi:robot-vacuum') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.vacuum_title|default('Vacuum') }}
+            subtitle: "{{ _global.header.vacuum_subtitle|default('Cleaner') }}"
+            icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_vacuum
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/vacuum/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_vacuum
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/vacuum/
+        - !include base/includes/gap-height.yaml
+
+# Waste View
+- path: waste
+  visible: {{ _global.footer.waste_view|default('false') }}
+  icon: {{ _global.footer.waste_icon|default('mdi:trash-can') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.waste_title|default('Waste') }}
+            subtitle: "{{ _global.header.waste_subtitle|default('Collection') }}"
+            icon: {{ _global.header.waste_icon|default('mdi:trash-can') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_waste
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/waste/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_waste
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/waste/
+        - !include base/includes/gap-height.yaml
+
+# Weather View
+- path: weather
+  visible: {{ _global.footer.weather_view|default('false') }}
+  icon: {{ _global.footer.weather_icon|default('mdi:weather-partly-cloudy') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - base/templates/header/header-base-template.yaml
+          - title: {{ _global.header.weather_title|default('Weather') }}
+            subtitle: "{{ _global.header.weather_subtitle|default('Information') }}"
+            icon: {{ _global.header.weather_icon|default('mdi:weather-partly-cloudy') }}
+            header-bottom: header-bottom.yaml
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_weather
+              state: "Default"
+          card: 
+            type: custom:layout-card
+            min_columns: {{ _global.view.min_columns|default('1') }}
+            max_columns: {{ _global.view.max_columns|default('3') }}
+            layout: horizontal
+            cards:
+              !include_dir_merge_list user/views/weather/
+        - type: conditional
+          conditions:
+            - entity: input_select.view_style_weather
+              state: "Advanced"
+          card: 
+            type: vertical-stack
+            cards:
+              !include_dir_merge_list user/views/weather/
+        - !include base/includes/gap-height.yaml
+
 # Person 1 View
 - path: person_1
-  visible: false
+  visible: {{ _global.footer.person_1|default('false') }}
+  icon: {{ _global.footer.person_1_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1984,7 +1089,8 @@
 
 # Person 2 View
 - path: person_2
-  visible: false
+  visible: {{ _global.footer.person_2|default('false') }}
+  icon: {{ _global.footer.person_2_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2055,7 +1161,8 @@
 
 # Person 3 View
 - path: person_3
-  visible: false
+  visible: {{ _global.footer.person_3|default('false') }}
+  icon: {{ _global.footer.person_3_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2126,7 +1233,8 @@
 
 # Person 4 View
 - path: person_4
-  visible: false
+  visible: {{ _global.footer.person_4|default('false') }}
+  icon: {{ _global.footer.person_4_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2195,215 +1303,10 @@
               !include_dir_merge_list user/views/person_4/
         - !include base/includes/gap-height.yaml
 
-# Scenes View
-- path: scenes
-  visible: {{ _global.footer.scenes_view|default('false') }}
-  icon: mdi:arrange-send-backward
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.scenes_title|default('Scenes') }}
-            subtitle: "{{ _global.header.scenes_subtitle|default('Overview') }}"
-            icon: {{ _global.header.scenes_icon|default('mdi:arrange-send-backward') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_scenes
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/scenes/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_scenes
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/scenes/
-        - !include base/includes/gap-height.yaml
-
-# System View
-- path: system
-  visible: {{ _global.footer.system_view|default('false') }}
-  icon: mdi:home-assistant
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.system_title|default('System') }}
-            subtitle: "{{ _global.header.system_subtitle|default('Overview') }}"
-            icon: {{ _global.header.system_icon|default('mdi:home-assistant') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_system
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/system/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_system
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/system/
-        - !include base/includes/gap-height.yaml
-
-# Traffic View
-- path: traffic
-  visible: {{ _global.footer.traffic_view|default('false') }}
-  icon: mdi:waze
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.traffic_title|default('Traffic') }}
-            subtitle: "{{ _global.header.traffic_subtitle|default('Information') }}"
-            icon: {{ _global.header.traffic_icon|default('mdi:waze') }}
-            header-bottom: header-bottom.yaml
-        - type: custom:mod-card
-          style: |
-            ha-card {
-              margin-left: 7px;
-              margin-right: 7px;
-            }
-          card:
-            type: iframe
-            style: |
-              ha-card {
-                border-radius: var(--border-radius);
-                box-shadow: var(--box-shadow);
-              }
-            url: https://embed.waze.com/iframe
-            aspect_ratio: 150%
-        - !include base/includes/gap-height.yaml
-
-# Vacuum View
-- path: vacuum
-  visible: {{ _global.footer.vacuum_view|default('false') }}
-  icon: mdi:robot-vacuum
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.vacuum_title|default('Vacuum') }}
-            subtitle: "{{ _global.header.vacuum_subtitle|default('Cleaner') }}"
-            icon: {{ _global.header.vacuum_icon|default('mdi:robot-vacuum') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_vacuum
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/vacuum/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_vacuum
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/vacuum/
-        - !include base/includes/gap-height.yaml
-
-# Waste View
-- path: waste
-  visible: {{ _global.footer.waste_view|default('false') }}
-  icon: mdi:trash-can
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.waste_title|default('Waste') }}
-            subtitle: "{{ _global.header.waste_subtitle|default('Collection') }}"
-            icon: {{ _global.header.waste_icon|default('mdi:trash-can') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_waste
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/waste/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_waste
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/waste/
-        - !include base/includes/gap-height.yaml
-
-# Weather View
-- path: weather
-  visible: {{ _global.footer.weather_view|default('false') }}
-  icon: mdi:weather-partly-cloudy
-  panel: true
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-          - base/templates/header/header-base-template.yaml
-          - title: {{ _global.header.weather_title|default('Weather') }}
-            subtitle: "{{ _global.header.weather_subtitle|default('Information') }}"
-            icon: {{ _global.header.weather_icon|default('mdi:weather-partly-cloudy') }}
-            header-bottom: header-bottom.yaml
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_weather
-              state: "Default"
-          card: 
-            type: custom:layout-card
-            min_columns: {{ _global.view.min_columns|default('1') }}
-            max_columns: {{ _global.view.max_columns|default('3') }}
-            layout: horizontal
-            cards:
-              !include_dir_merge_list user/views/weather/
-        - type: conditional
-          conditions:
-            - entity: input_select.view_style_weather
-              state: "Advanced"
-          card: 
-            type: vertical-stack
-            cards:
-              !include_dir_merge_list user/views/weather/
-        - !include base/includes/gap-height.yaml
-
 # Custom 1 View
 - path: custom_1
-  visible: false
+  visible: {{ _global.footer.custom_1|default('false') }}
+  icon: {{ _global.footer.custom_1_icon|default('mdi:numeric-1-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2437,7 +1340,8 @@
 
 # Custom 2 View
 - path: custom_2
-  visible: false
+  visible: {{ _global.footer.custom_2|default('false') }}
+  icon: {{ _global.footer.custom_2_icon|default('mdi:numeric-2-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2471,7 +1375,8 @@
 
 # Custom 3 View
 - path: custom_3
-  visible: false
+  visible: {{ _global.footer.custom_3|default('false') }}
+  icon: {{ _global.footer.custom_3_icon|default('mdi:numeric-3-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2505,7 +1410,8 @@
 
 # Custom 4 View
 - path: custom_4
-  visible: false
+  visible: {{ _global.footer.custom_4|default('false') }}
+  icon: {{ _global.footer.custom_4_icon|default('mdi:numeric-4-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2539,7 +1445,8 @@
 
 # Custom 5 View
 - path: custom_5
-  visible: false
+  visible: {{ _global.footer.custom_5|default('false') }}
+  icon: {{ _global.footer.custom_5_icon|default('mdi:numeric-5-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2573,7 +1480,8 @@
 
 # Custom 6 View
 - path: custom_6
-  visible: false
+  visible: {{ _global.footer.custom_6|default('false') }}
+  icon: {{ _global.footer.custom_6_icon|default('mdi:numeric-6-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2607,7 +1515,8 @@
 
 # Custom 7 View
 - path: custom_7
-  visible: false
+  visible: {{ _global.footer.custom_7|default('false') }}
+  icon: {{ _global.footer.custom_7_icon|default('mdi:numeric-7-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -2641,7 +1550,8 @@
 
 # Custom 8 View
 - path: custom_8
-  visible: false
+  visible: {{ _global.footer.custom_8|default('false') }}
+  icon: {{ _global.footer.custom_8_icon|default('mdi:numeric-8-box') }}
   panel: true
   cards:
     - type: vertical-stack

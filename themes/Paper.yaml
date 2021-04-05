@@ -67,6 +67,7 @@ Paper:
   card-mod-theme: Paper
   card-mod-root-yaml: |
     .: |
+      {% if is_state('input_boolean.footer', 'on') %}
       ha-menu-button {
         display: none !important;
       }
@@ -85,32 +86,72 @@ Paper:
         font-size: 18px;
         height: 20px; 
         width: 150px;
+        {% if is_state('input_select.footer_direction', 'Right') %}
         margin-left: 0px;
         margin-right: 12px;
-        content: "{{ user }}";
         position: absolute;
         top: 14px;
         right: 0px;
-        color: var(--header-text-color);
         transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+        {% else %}
+        margin-left: -12px;
+        margin-right: 0px;
+        justify-content: end;
+        position: absolute;
+        top: 14px;
+        left: 0px;
+        transform: none
+        color: var(--header-text-color) !important;
+        {% endif %}
+        color: var(--header-text-color) !important;
+        {% if is_state('input_select.footer_options', 'User') %}
+        content: "{{ user }}";
+        {% elif is_state('input_select.footer_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+        {% elif is_state('input_select.footer_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+        {% else %}
+        display: none !important;
+        {% endif %}
       }
       app-header {
         top: auto !important;
-        border-top: 3px solid var(--primary-color);
-        bottom: -2px !important;
+        bottom: 0 !important;
         transform: unset !important;
         box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
       }
       app-toolbar {
+        {% if is_state('input_select.footer_direction', 'Right') %}
         transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.footer_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
       }
       #view {
-        margin-top: -59px !important;
+        margin-top: -57px !important;
       }
       ha-icon {
+        {% if is_state('input_select.footer_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         color: var(--header-text-color) !important;
+        {% else %}
+        transform: none
+        color: var(--header-text-color) !important;
+        {% endif %}
+        color: var(--header-text-color) !important;
       }
+      {% endif %}
 
   # Lovelace Header Text
   paper-toast-background-color: '#821414'

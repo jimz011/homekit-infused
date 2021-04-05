@@ -1,0 +1,469 @@
+path: ha_settings
+visible: false
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../templates/header/header-base-template.yaml'
+        - title: HA Settings
+          subtitle: "[[[ if (states['sensor.version_current'].state != 0) return `Home Assistant version ${states['sensor.version_current'].state}`; else return 'Version sensor not set up!'; ]]]"
+          icon: mdi:home-assistant
+          header-bottom: header-bottom.yaml
+      - type: custom:layout-card
+        max_columns: 3
+        layout: horizontal
+        cards:
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: '&nbsp; Home Assistant'
+                - type: picture-elements
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      overflow: hidden;
+                    }
+                  image: "/local/images/home-assistant.png"
+                  elements:
+                    - type: state-label
+                      entity: sensor.version_current
+                      prefix: 'Current HA '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 0px 10px
+                    - type: state-label
+                      entity: sensor.latest_compatible_ha_version
+                      prefix: 'HKI Compatible HA '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 20px 10px
+                    - type: state-label
+                      entity: sensor.home_assistant_latest_version
+                      prefix: 'Latest HA '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 40px 10px 
+                    - type: state-label
+                      entity: sensor.latest_version
+                      prefix: 'Latest Beta '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 60px 10px
+                    - type: state-label
+                      entity: sensor.hki_current_version
+                      prefix: 'Current HKI '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 100px 10px
+                    - type: state-label
+                      entity: sensor.hki_latest_version
+                      prefix: 'Latest HKI '
+                      style:
+                        top: 0
+                        left: 0
+                        pointer-events: none
+                        transform: initial
+                        font-size: 12px
+                        font-family: var(--font-family)
+                        color: rgba(255,255,255,0.8)
+                        line-height: 32px
+                        padding: 120px 10px
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: '&nbsp; CPU and RAM usage'
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:mini-graph-card
+                      style: |
+                        ha-card {
+                          background: var(--paper-card-background-color);
+                          border-radius: 10px;
+                          box-shadow: 10px;
+                          font-weight: bold;
+                          opacity: 0.8;
+                        }
+                      entities:
+                        - entity: sensor.processor_use
+                          name: CPU
+                          color: '#14ff8d'
+                      name: CPU Usage
+                      icon: mdi:cpu-64-bit
+                      height: 200
+                      hours_to_show: 7
+                      points_per_hour: 60
+                      update_interval: 10
+                      aggregate_func: max
+                      line_width: 2
+                      smoothing: false
+                      font_size: 65
+                      font_size_header: 9
+                      show:
+                        average: true
+                        extrema: true
+                      tap_action: none
+                    - type: custom:mini-graph-card
+                      style: |
+                        ha-card {
+                          background: var(--paper-card-background-color);
+                          border-radius: 10px;
+                          box-shadow: 10px;
+                          font-weight: bold;
+                          opacity: 0.8;
+                        }
+                      entities:
+                        - entity: sensor.memory_use_percent
+                          name: RAM
+                          color: '#14ff8d'
+                      name: RAM Usage
+                      height: 200
+                      hours_to_show: 7
+                      points_per_hour: 60
+                      update_interval: 10
+                      aggregate_func: max
+                      line_width: 2
+                      smoothing: false
+                      font_size: 65
+                      font_size_header: 9
+                      show:
+                        average: true
+                        extrema: true
+                      tap_action: none
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: '&nbsp; Quick Links'
+                - type: custom:layout-card
+                  min_columns: 4
+                  max_columns: 4
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button/button-badge.yaml'
+                      - name: Go to
+                        label: Dashboard
+                        icon: mdi:view-dashboard
+                        navigation_path: /config/dashboard
+                        notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                        background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                        opacity_off: 0.8
+                    - !include
+                      - '../templates/button/button-badge.yaml'
+                      - name: Go to
+                        label: Resources
+                        icon: mdi:language-javascript
+                        navigation_path: /config/lovelace/resources
+                        notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                        background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                        opacity_off: 0.8
+                    - !include
+                      - '../templates/button/button-badge.yaml'
+                      - name: Go to
+                        label: NFC Tags
+                        icon: mdi:nfc
+                        navigation_path: /config/tags
+                        notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                        background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                        opacity_off: 0.8
+                    - !include
+                      - '../templates/button/button-badge.yaml'
+                      - name: Go to
+                        label: Logs
+                        icon: mdi:clipboard-text
+                        navigation_path: /config/logs
+                        notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                        background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
+                        opacity_off: 0.8
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: '&nbsp; Reload Configuration'
+                - type: custom:layout-card
+                  min_columns: 4
+                  max_columns: 4
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Automations
+                        icon: mdi:alpha-a-box
+                        service: automation.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload automations? This might take up to 10 seconds!` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Core Config
+                        icon: mdi:home-assistant
+                        service: homeassistant.reload_core_config
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload core config? This might take a while!` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Groups
+                        icon: mdi:account-multiple-plus
+                        service: group.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload groups? This feature might not work well!` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Homekit
+                        icon: mdi:apple
+                        service: input_boolean.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload the Homekit Component?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Input Booleans
+                        icon: mdi:toggle-switch
+                        service: input_boolean.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload input_booleans?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Input Date Times
+                        icon: mdi:calendar-clock
+                        service: input_datetime.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload input_datetimes?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Input Numbers
+                        icon: mdi:numeric-1-box-outline
+                        service: input_number.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload input_numbers?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Input Selects
+                        icon: mdi:text
+                        service: input_select.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload input_selects?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Input Texts
+                        icon: mdi:form-textbox
+                        service: input_text.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload input_texts?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Lovelace
+                        icon: mdi:cards-heart
+                        service: browser_mod.lovelace_reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload lovelace? This might take up to 10 seconds! You will be notified when the reload is completed.` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Persons
+                        icon: mdi:account-multiple
+                        service: person.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload persons?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Python Scripts
+                        icon: mdi:language-python
+                        service: python_script.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload python_scripts?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Scenes
+                        icon: mdi:arrange-send-backward
+                        service: scene.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload scenes?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Scripts
+                        icon: mdi:script
+                        service: script.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload scripts?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Themes
+                        icon: mdi:format-color-fill
+                        service: frontend.reload_themes
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload themes?` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Reload
+                        entity: input_boolean.dummy1
+                        label: Zones
+                        icon: mdi:map-search
+                        service: zone.reload
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Are you sure you want to reload zones?` ]]]"
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: '&nbsp; System'
+                - type: custom:layout-card
+                  min_columns: 3
+                  max_columns: 3
+                  justify_content: start
+                  layout: horizontal
+                  cards:
+                    - type: custom:button-card
+                      template:
+                        - style-default
+                        - default-hki-grid
+                      name: Home Assistant
+                      size: 25%
+                      aspect_ratio: 1/1
+                      entity: input_boolean.dummy1
+                      label: Release Notes
+                      show_label: true
+                      icon: mdi:chevron-up-circle
+                      tap_action:
+                        action: url
+                        url_path: 'https://www.home-assistant.io/latest-release-notes/'
+                      styles:
+                        card:
+                          - opacity: 0.8
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Check
+                        entity: input_boolean.dummy1
+                        label: HA Config
+                        icon: mdi:check-box-outline
+                        service: homeassistant.check_config
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `This will check the HA config, it will show a notification in the sidebar if there is an error. If no error is shown the config is OK!` ]]]"
+                    - !include
+                      - '../templates/button/home-assistant-service.yaml'
+                      - name: Restart
+                        entity: input_boolean.dummy1
+                        label: Home Assistant
+                        icon: mdi:restart
+                        service: homeassistant.restart
+                        opacity_off: 0.8
+                        confirmation: "[[[ return `Make sure you check the config first! Are you sure you want to restart Home Assistant?` ]]]"
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              !include
+              - '../templates/other/title-text.yaml'
+              - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
+                background_color: var(--ha-card-background)
+                font_weight: bold
+                font_color: var(--primary-text-color)
+                justify_self: center
+          - !include '../includes/empty-button.yaml'
+      - !include '../includes/gap-height.yaml'

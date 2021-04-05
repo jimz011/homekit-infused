@@ -1,0 +1,283 @@
+path: about
+visible: false
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../templates/header/header-base-template.yaml'
+        - title: About
+          subtitle: "[[[ return `Homekit Infused Framework Current Version: ${states['sensor.hki_current_version'].state}`; ]]]"
+          icon: mdi:help-circle
+          header-bottom: header-bottom.yaml
+      - type: custom:layout-card
+        max_columns: 3
+        layout: vertical
+        cards:
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state2nd
+              size: 50%
+              entity: sensor.hki_latest_version
+              name: Latest Version
+              show_label: true
+              show_state: true
+              label: >
+                [[[ 
+                  if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `You have the latest version`; 
+                  if (states['sensor.hki_current_version'].state < `${states['sensor.hki_latest_version'].state}`) return `There is an update available!`;
+                  else return `Error: Unknown Version!`; 
+                ]]]
+              icon: mdi:information-outline
+              tap_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/releases
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/releases
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px
+                  - color: >
+                      [[[ 
+                        if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `green`; 
+                        else return `red`; 
+                      ]]]
+                  - animation: >
+                      [[[ 
+                        if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `none`; 
+                        else return `blink 2s ease infinite`; 
+                      ]]]
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Follow me on Youtube
+              icon: mdi:youtube
+              tap_action:
+                action: url
+                url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px  
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:              
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Follow me on Github
+              icon: mdi:github
+              tap_action:
+                action: url
+                url_path: https://www.github.com/jimz011/homekit-infused
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://www.github.com/jimz011/homekit-infused
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px   
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:         
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Follow me on the HA Forums
+              icon: mdi:home-assistant
+              tap_action:
+                action: url
+                url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Feature Requests
+              icon: mdi:plus-circle-outline
+              tap_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/issues/new?assignees=jimz011&labels=enhancement%2C+good+first+issue%2C+question&template=feature_request.md&title=%5BFR%5D
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Bug Reports & Issues
+              icon: mdi:bug
+              tap_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://github.com/jimz011/homekit-infused/issues/new?assignees=jimz011&labels=bug%2C+help+wanted%2C+good+first+issue&template=bug-report-or-issue.md&title=%5BISSUE%5D
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - font-size: 12px  
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: custom:button-card
+              aspect_ratio: 5/1
+              layout: icon_name_state2nd
+              size: 50%
+              entity: input_boolean.dummy1
+              name: Support this project
+              label: Paypal
+              show_label: true
+              icon: mdi:alpha-p-circle-outline
+              tap_action:
+                action: url
+                url_path: https://www.paypal.me/JimmySchings
+                haptic: light
+              hold_action:
+                action: url
+                url_path: https://www.paypal.me/JimmySchings
+                haptic: heavy
+              styles:
+                card:
+                  - opacity: 0.8
+                  - border-radius: var(--border-radius)
+                  - box-shadow: var(--box-shadow)
+                name:
+                  - font-size: 14px
+                state:
+                  - font-size: 12px
+                label:
+                  - color: var(--primary-text-color)
+                  - font-size: 12px  
+          - type: markdown
+            style: |
+              ha-card {
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                font-size: 13px;
+                font-family: var(--font-family);
+                color: white;
+                margin-left: 7px;
+                margin-right: 7px;
+              }                    
+            content: HKI Framework April/May 2021 created by Jimz011
+          - !include '../includes/empty-button.yaml'
+      - !include '../includes/gap-height.yaml'
