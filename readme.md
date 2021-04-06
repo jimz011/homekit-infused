@@ -60,10 +60,16 @@ Starting from 3.1.0 you can get your updates below without the need to download 
 - update to 3.6.0 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.0.zip) *Please download the 3.6.2 package update instead!
 - update to 3.6.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.1.zip)
 - update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.2.zip)
+- update to 3.6.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.5.3-to-3.6.3.zip) *Please read all the notes in between these versions for breaking changes!
 
 ### From 3.6.0
 - update to 3.6.1 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.0-to-3.6.1.zip) *WARNING: Breaking Changes (does not apply to people coming from v3.5.3!)
 - update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.0-to-3.6.2.zip) *WARNING: Read the breaking changes from v3.6.0 (does not apply to people coming from v3.5.3)
+- update to 3.6.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.0-to-3.6.3.zip) *WARNING: Read all the notes in between the versions that you skip!
 
 ### From 3.6.1
 - update to 3.6.2 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.1-to-3.6.2.zip) *WARNING: Breaking Changes
+- update to 3.6.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.1-to-3.6.3.zip) *WARNING: Breaking Changes
+
+### From 3.6.2
+- update to 3.6.3 [download here](https://github.com/jimz011/homekit-infused/raw/updates/3.6.2-to-3.6.3.zip) *WARNING: Breaking Changes
