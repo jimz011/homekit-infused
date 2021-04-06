@@ -165,7 +165,7 @@ cards:
                     cards:
                       - !include
                         - '../templates/other/title-text.yaml'
-                        - name: Select if you want a persistent theme or a day/night cycle
+                        - name: Theme Options
                       - type: conditional
                         conditions:
                           - entity: input_boolean.day_night_cycle
@@ -204,7 +204,7 @@ cards:
                               name: Select Palette
                       - !include
                         - '../templates/other/title-text.yaml'
-                        - name: Select your footer style
+                        - name: Navigation Bar Options
                       - type: entities
                         style: |
                           ha-card {
@@ -213,12 +213,12 @@ cards:
                           }
                         show_header_toggle: false              
                         entities: 
-                          - entity: input_boolean.footer
-                            name: Footer on/off
+                          - entity: input_select.navigation_bar
+                            name: HKI Navigation Bar
                       - type: conditional
                         conditions:
-                          - entity: input_boolean.footer
-                            state: "on"
+                          - entity: input_select.navigation_bar
+                            state_not: "Off"
                         card:
                           type: vertical-stack
                           cards:
@@ -230,14 +230,14 @@ cards:
                                 }
                               show_header_toggle: false              
                               entities: 
-                                - entity: input_select.footer_direction
+                                - entity: input_select.navigation_bar_direction
                                   name: Icons
-                                - entity: input_select.footer_options
-                                  name: Footer Text
+                                - entity: input_select.navigation_bar_options
+                                  name: Navigation Bar Text
                       - type: conditional
                         conditions:
-                          - entity: input_boolean.footer
-                            state: "off"
+                          - entity: input_select.navigation_bar
+                            state: "Off"
                         card:
                           type: markdown
                           style: |
@@ -246,15 +246,16 @@ cards:
                               box-shadow: var(--box-shadow);
                             }              
                           content: >
-                            **Note:** Enabling the footer will move the top navigation bar to the bottom, this is persistent through all the dashboards you may have.
-
-                            The functionality of that bar will not change at all, just the location has changed. Changes like the clock, date or username will also work on other dashboards as long as footer mode is active.
+                            **Note:** Enabling options for the navigation bar will enable them on ALL dashboards! This can be useful if you want to have a clock/date and such on your other dashboards to be present.
 
 
-                            If you don't want the footer on your other dashboards or it is simply in the way because your other dashboard already has a footer (e.g. Dwains Dashboard) you should turn this feature off!
+                            Turn this feature off if you don't like to use this or if it is conflicting with your other dashboards.
 
-                            
-                            **This warning will NO longer show when the footer is turned on!**
+
+                            **WARNING:** Enabling the HKI navigation bar will remove the sidebar button, on iOS you can swipe from the left to open the sidebar. On Android this is probably not possible. Keep this in mind when you enable this and use other dashboards. You can always go to this dashboard and turn the feature off by going to https://YOURDOMAIN.com/homekit-infused (if you have a portnumber in the address don't forget to add that).
+
+
+                            **This warning will no longer show when you enable this feature!**
                 - type: conditional
                   conditions:
                     - entity: input_select.hki_settings_selector

@@ -5,7 +5,7 @@
 
 # Home View
 - path: home
-  icon: {{ _global.footer.home_icon|default('mdi:home') }}
+  icon: {{ _global.navigation_bar.home_icon|default('mdi:home') }}
   visible: true
   panel: true
   cards:
@@ -36,8 +36,8 @@
 
 # Menu View  
 - path: menu
-  icon: {{ _global.footer.menu_icon|default('mdi:apps') }}
-  visible: {{ _global.footer.menu_view|default('true') }}
+  icon: {{ _global.navigation_bar.menu_icon|default('mdi:apps') }}
+  visible: {{ _global.navigation_bar.menu_view|default('true') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -140,8 +140,8 @@
 
 # Lights View
 - path: lights
-  icon: {{ _global.footer.lights_icon|default('mdi:floor-lamp') }}
-  visible: {{ _global.footer.lights_view|default('false') }}
+  icon: {{ _global.navigation_bar.lights_icon|default('mdi:floor-lamp') }}
+  visible: {{ _global.navigation_bar.lights_view|default('false') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -191,8 +191,8 @@
 
 # Devices View
 - path: devices
-  icon: {{ _global.footer.devices_icon|default('mdi:power-plug') }}
-  visible: {{ _global.footer.devices_view|default('false') }}
+  icon: {{ _global.navigation_bar.devices_icon|default('mdi:power-plug') }}
+  visible: {{ _global.navigation_bar.devices_view|default('false') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -242,8 +242,8 @@
 
 # Climate View
 - path: climate
-  icon: {{ _global.footer.climate_icon|default('mdi:thermometer') }}
-  visible: {{ _global.footer.climate_view|default('false') }}
+  icon: {{ _global.navigation_bar.climate_icon|default('mdi:thermometer') }}
+  visible: {{ _global.navigation_bar.climate_view|default('false') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -277,8 +277,8 @@
 
 # Security View
 - path: security
-  icon: {{ _global.footer.security_icon|default('mdi:cctv') }}
-  visible: {{ _global.footer.security_view|default('false') }}
+  icon: {{ _global.navigation_bar.security_icon|default('mdi:cctv') }}
+  visible: {{ _global.navigation_bar.security_view|default('false') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -315,8 +315,8 @@
 
 # Automations View
 - path: automations
-  visible: {{ _global.footer.automations_view|default('false') }}
-  icon: {{ _global.footer.automations_icon|default('mdi:alpha-a-box') }}
+  visible: {{ _global.navigation_bar.automations_view|default('false') }}
+  icon: {{ _global.navigation_bar.automations_icon|default('mdi:alpha-a-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -350,8 +350,8 @@
 
 # Battery View
 - path: battery
-  visible: {{ _global.footer.battery_view|default('false') }}
-  icon: {{ _global.footer.battery_icon|default('mdi:battery-50') }}
+  visible: {{ _global.navigation_bar.battery_view|default('false') }}
+  icon: {{ _global.navigation_bar.battery_icon|default('mdi:battery-50') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -385,8 +385,8 @@
 
 # Calendar View              
 - path: calendar
-  visible: {{ _global.footer.calendar_view|default('false') }}
-  icon: {{ _global.footer.calendar_icon|default('mdi:calendar-account') }}
+  visible: {{ _global.navigation_bar.calendar_view|default('false') }}
+  icon: {{ _global.navigation_bar.calendar_icon|default('mdi:calendar-account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -420,8 +420,8 @@
 
 # Certificates
 - path: certificates
-  visible: {{ _global.footer.certificates_view|default('false') }}
-  icon: {{ _global.footer.certificate_icon|default('mdi:certificate') }}
+  visible: {{ _global.navigation_bar.certificates_view|default('false') }}
+  icon: {{ _global.navigation_bar.certificate_icon|default('mdi:certificate') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -455,8 +455,8 @@
 
 # Cleaning View
 - path: cleaning
-  visible: {{ _global.footer.cleaning_view|default('false') }}
-  icon: {{ _global.footer.cleaning_icon|default('mdi:washing-machine') }}
+  visible: {{ _global.navigation_bar.cleaning_view|default('false') }}
+  icon: {{ _global.navigation_bar.cleaning_icon|default('mdi:washing-machine') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -491,8 +491,8 @@
 
 # Computers View
 - path: computers
-  visible: {{ _global.footer.computers_view|default('false') }}
-  icon: {{ _global.footer.computers_icon|default('mdi:desktop-tower-monitor') }}
+  visible: {{ _global.navigation_bar.computers_view|default('false') }}
+  icon: {{ _global.navigation_bar.computers_icon|default('mdi:desktop-tower-monitor') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -526,8 +526,8 @@
 
 # Covers View
 - path: covers
-  visible: {{ _global.footer.covers_view|default('false') }}
-  icon: {{ _global.footer.covers_icon|default('mdi:window-shutter') }}
+  visible: {{ _global.navigation_bar.covers_view|default('false') }}
+  icon: {{ _global.navigation_bar.covers_icon|default('mdi:window-shutter') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -561,8 +561,8 @@
 
 # Energy View
 - path: energy
-  visible: {{ _global.footer.energy_view|default('false') }}
-  icon: {{ _global.footer.energy_icon|default('mdi:chart-line') }}
+  visible: {{ _global.navigation_bar.energy_view|default('false') }}
+  icon: {{ _global.navigation_bar.energy_icon|default('mdi:chart-line') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -596,8 +596,8 @@
 
 # Floorplan View
 - path: floorplan
-  visible: {{ _global.footer.floorplan_view|default('false') }}
-  icon: {{ _global.footer.floorplan_icon|default('mdi:floor-plan') }}
+  visible: {{ _global.navigation_bar.floorplan_view|default('false') }}
+  icon: {{ _global.navigation_bar.floorplan_icon|default('mdi:floor-plan') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -637,8 +637,8 @@
 
 # Location View
 - path: location
-  visible: {{ _global.footer.location_view|default('false') }}
-  icon: {{ _global.footer.location_icon|default('mdi:map-marker') }}
+  visible: {{ _global.navigation_bar.location_view|default('false') }}
+  icon: {{ _global.navigation_bar.location_icon|default('mdi:map-marker') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -699,8 +699,8 @@
 
 # Media View
 - path: media
-  visible: {{ _global.footer.media_view|default('false') }}
-  icon: {{ _global.footer.media_icon|default('mdi:plex') }}
+  visible: {{ _global.navigation_bar.media_view|default('false') }}
+  icon: {{ _global.navigation_bar.media_icon|default('mdi:plex') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -811,8 +811,8 @@
 
 # Scenes View
 - path: scenes
-  visible: {{ _global.footer.scenes_view|default('false') }}
-  icon: {{ _global.footer.scenes_icon|default('mdi:arrange-send-backward') }}
+  visible: {{ _global.navigation_bar.scenes_view|default('false') }}
+  icon: {{ _global.navigation_bar.scenes_icon|default('mdi:arrange-send-backward') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -846,8 +846,8 @@
 
 # System View
 - path: system
-  visible: {{ _global.footer.system_view|default('false') }}
-  icon: {{ _global.footer.system_icon|default('mdi:home-assistant') }}
+  visible: {{ _global.navigation_bar.system_view|default('false') }}
+  icon: {{ _global.navigation_bar.system_icon|default('mdi:home-assistant') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -881,8 +881,8 @@
 
 # Traffic View
 - path: traffic
-  visible: {{ _global.footer.traffic_view|default('false') }}
-  icon: {{ _global.footer.traffic_icon|default('mdi:waze') }}
+  visible: {{ _global.navigation_bar.traffic_view|default('false') }}
+  icon: {{ _global.navigation_bar.traffic_icon|default('mdi:waze') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -912,8 +912,8 @@
 
 # Vacuum View
 - path: vacuum
-  visible: {{ _global.footer.vacuum_view|default('false') }}
-  icon: {{ _global.footer.vacuum_icon|default('mdi:robot-vacuum') }}
+  visible: {{ _global.navigation_bar.vacuum_view|default('false') }}
+  icon: {{ _global.navigation_bar.vacuum_icon|default('mdi:robot-vacuum') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -947,8 +947,8 @@
 
 # Waste View
 - path: waste
-  visible: {{ _global.footer.waste_view|default('false') }}
-  icon: {{ _global.footer.waste_icon|default('mdi:trash-can') }}
+  visible: {{ _global.navigation_bar.waste_view|default('false') }}
+  icon: {{ _global.navigation_bar.waste_icon|default('mdi:trash-can') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -982,8 +982,8 @@
 
 # Weather View
 - path: weather
-  visible: {{ _global.footer.weather_view|default('false') }}
-  icon: {{ _global.footer.weather_icon|default('mdi:weather-partly-cloudy') }}
+  visible: {{ _global.navigation_bar.weather_view|default('false') }}
+  icon: {{ _global.navigation_bar.weather_icon|default('mdi:weather-partly-cloudy') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1017,8 +1017,8 @@
 
 # Person 1 View
 - path: person_1
-  visible: {{ _global.footer.person_1|default('false') }}
-  icon: {{ _global.footer.person_1_icon|default('mdi:account') }}
+  visible: {{ _global.navigation_bar.person_1|default('false') }}
+  icon: {{ _global.navigation_bar.person_1_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1089,8 +1089,8 @@
 
 # Person 2 View
 - path: person_2
-  visible: {{ _global.footer.person_2|default('false') }}
-  icon: {{ _global.footer.person_2_icon|default('mdi:account') }}
+  visible: {{ _global.navigation_bar.person_2|default('false') }}
+  icon: {{ _global.navigation_bar.person_2_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1161,8 +1161,8 @@
 
 # Person 3 View
 - path: person_3
-  visible: {{ _global.footer.person_3|default('false') }}
-  icon: {{ _global.footer.person_3_icon|default('mdi:account') }}
+  visible: {{ _global.navigation_bar.person_3|default('false') }}
+  icon: {{ _global.navigation_bar.person_3_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1233,8 +1233,8 @@
 
 # Person 4 View
 - path: person_4
-  visible: {{ _global.footer.person_4|default('false') }}
-  icon: {{ _global.footer.person_4_icon|default('mdi:account') }}
+  visible: {{ _global.navigation_bar.person_4|default('false') }}
+  icon: {{ _global.navigation_bar.person_4_icon|default('mdi:account') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1305,8 +1305,8 @@
 
 # Custom 1 View
 - path: custom_1
-  visible: {{ _global.footer.custom_1|default('false') }}
-  icon: {{ _global.footer.custom_1_icon|default('mdi:numeric-1-box') }}
+  visible: {{ _global.navigation_bar.custom_1|default('false') }}
+  icon: {{ _global.navigation_bar.custom_1_icon|default('mdi:numeric-1-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1340,8 +1340,8 @@
 
 # Custom 2 View
 - path: custom_2
-  visible: {{ _global.footer.custom_2|default('false') }}
-  icon: {{ _global.footer.custom_2_icon|default('mdi:numeric-2-box') }}
+  visible: {{ _global.navigation_bar.custom_2|default('false') }}
+  icon: {{ _global.navigation_bar.custom_2_icon|default('mdi:numeric-2-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1375,8 +1375,8 @@
 
 # Custom 3 View
 - path: custom_3
-  visible: {{ _global.footer.custom_3|default('false') }}
-  icon: {{ _global.footer.custom_3_icon|default('mdi:numeric-3-box') }}
+  visible: {{ _global.navigation_bar.custom_3|default('false') }}
+  icon: {{ _global.navigation_bar.custom_3_icon|default('mdi:numeric-3-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1410,8 +1410,8 @@
 
 # Custom 4 View
 - path: custom_4
-  visible: {{ _global.footer.custom_4|default('false') }}
-  icon: {{ _global.footer.custom_4_icon|default('mdi:numeric-4-box') }}
+  visible: {{ _global.navigation_bar.custom_4|default('false') }}
+  icon: {{ _global.navigation_bar.custom_4_icon|default('mdi:numeric-4-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1445,8 +1445,8 @@
 
 # Custom 5 View
 - path: custom_5
-  visible: {{ _global.footer.custom_5|default('false') }}
-  icon: {{ _global.footer.custom_5_icon|default('mdi:numeric-5-box') }}
+  visible: {{ _global.navigation_bar.custom_5|default('false') }}
+  icon: {{ _global.navigation_bar.custom_5_icon|default('mdi:numeric-5-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1480,8 +1480,8 @@
 
 # Custom 6 View
 - path: custom_6
-  visible: {{ _global.footer.custom_6|default('false') }}
-  icon: {{ _global.footer.custom_6_icon|default('mdi:numeric-6-box') }}
+  visible: {{ _global.navigation_bar.custom_6|default('false') }}
+  icon: {{ _global.navigation_bar.custom_6_icon|default('mdi:numeric-6-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1515,8 +1515,8 @@
 
 # Custom 7 View
 - path: custom_7
-  visible: {{ _global.footer.custom_7|default('false') }}
-  icon: {{ _global.footer.custom_7_icon|default('mdi:numeric-7-box') }}
+  visible: {{ _global.navigation_bar.custom_7|default('false') }}
+  icon: {{ _global.navigation_bar.custom_7_icon|default('mdi:numeric-7-box') }}
   panel: true
   cards:
     - type: vertical-stack
@@ -1550,8 +1550,8 @@
 
 # Custom 8 View
 - path: custom_8
-  visible: {{ _global.footer.custom_8|default('false') }}
-  icon: {{ _global.footer.custom_8_icon|default('mdi:numeric-8-box') }}
+  visible: {{ _global.navigation_bar.custom_8|default('false') }}
+  icon: {{ _global.navigation_bar.custom_8_icon|default('mdi:numeric-8-box') }}
   panel: true
   cards:
     - type: vertical-stack

@@ -67,7 +67,7 @@ Sweet Pink:
   card-mod-theme: Sweet Pink
   card-mod-root-yaml: |
     .: |
-      {% if is_state('input_boolean.footer', 'on') %}
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
       ha-menu-button {
         display: none !important;
       }
@@ -86,34 +86,41 @@ Sweet Pink:
         font-size: 18px;
         height: 20px; 
         width: 150px;
-        {% if is_state('input_select.footer_direction', 'Right') %}
-        margin-left: 0px;
-        margin-right: 12px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
         position: absolute;
         top: 14px;
-        right: 0px;
+        right: 12px;
         transform: rotateY(180deg) !important;
         color: var(--header-text-color) !important;
+
         {% else %}
-        margin-left: -12px;
-        margin-right: 0px;
-        justify-content: end;
+        text-align: right;
         position: absolute;
         top: 14px;
-        left: 0px;
+        right: 12px;
         transform: none
         color: var(--header-text-color) !important;
+
         {% endif %}
+
         color: var(--header-text-color) !important;
-        {% if is_state('input_select.footer_options', 'User') %}
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
         content: "{{ user }}";
-        {% elif is_state('input_select.footer_options', 'Date') %}
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
         content: "{{ states('sensor.date') }}";
-        {% elif is_state('input_select.footer_options', 'Time') %}
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
         content: "{{ states('sensor.time') }}";
+
         {% else %}
         display: none !important;
+
         {% endif %}
+
       }
       app-header {
         top: auto !important;
@@ -122,7 +129,7 @@ Sweet Pink:
         box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
       }
       app-toolbar {
-        {% if is_state('input_select.footer_direction', 'Right') %}
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         {% else %}
         transform: none
@@ -131,8 +138,11 @@ Sweet Pink:
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--primary-color) !important;
       }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
       paper-tab {
-        {% if is_state('input_select.footer_direction', 'Right') %}
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         {% else %}
         transform: none;
@@ -142,7 +152,96 @@ Sweet Pink:
         margin-top: -57px !important;
       }
       ha-icon {
-        {% if is_state('input_select.footer_direction', 'Right') %}
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+        {% else %}
+        transform: none
+        color: var(--header-text-color) !important;
+        {% endif %}
+        color: var(--header-text-color) !important;
+      }
+
+      {% elif is_state('input_select.navigation_bar', 'Top') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        box-shadow: none !important;
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      ha-icon {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         color: var(--header-text-color) !important;
         {% else %}

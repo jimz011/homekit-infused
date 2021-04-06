@@ -1,11 +1,11 @@
 navigation_bar:
-# This file will change the footer properties
+# This file will change the navigation bar properties
 
-# Note that the footer is mostly done through CSS and is just the original tab header that has been moved down.
+# Note that the navigation bar is mostly done through CSS and is just the original tabs header that has been styled.
 # Because of this the options I can give you through this is very very limited!
-# You can only show/hide tabs in the footer and you can NOT adjust the order!!
+# You can only show/hide tabs in the navigation bar and you can NOT adjust the order!!
 # The order is depicted by order of views, these are hardcoded and thus can not be changed.
-# You can add any view to the footer you want, but `home` and `menu` are there regardless of these settings!
+# You can add any view to the navigation bar you want, but `home` is always there regardless of these settings!
 
 # Show Views (choose between true or false), note that the order you read from top to bottom should be seen in the footer as from right to left.
 

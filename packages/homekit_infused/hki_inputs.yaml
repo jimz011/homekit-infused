@@ -13,8 +13,6 @@ input_boolean:
   day_night_cycle:
   empty:
   remote_control:
-  footer:
-    initial: on 
 
 # Input Numbers
 input_number:
@@ -299,17 +297,23 @@ input_select:
       - Default
       - Advanced
 
-  footer_direction:
+  navigation_bar_direction:
     options:
       - Left
       - Right
 
-  footer_options:
+  navigation_bar_options:
     options:
       - Date
       - Time
       - User
       - Hide
+
+  navigation_bar:
+    options:
+      - 'Off'
+      - Top
+      - Bottom
 
 # Input Texts
 input_text:
