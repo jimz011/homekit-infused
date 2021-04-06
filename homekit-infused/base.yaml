@@ -37,7 +37,7 @@
 # Menu View  
 - path: menu
   icon: {{ _global.footer.menu_icon|default('mdi:apps') }}
-  visible: true
+  visible: {{ _global.footer.menu_view|default('true') }}
   panel: true
   cards:
     - type: vertical-stack
