@@ -12,6 +12,8 @@ footer:
 # Navigation
   # You can change the home and menu icons here, you can't remove these 2
   home_icon: mdi:home
+  
+  menu_view: true
   menu_icon: mdi:apps
 
 # All Views
