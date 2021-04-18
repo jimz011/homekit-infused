@@ -31,7 +31,7 @@ my_second_view:
 ```
 # Available Addons
 | Name | Required | Default | Description |
-|-----------------------------|-------------|------------------------------------------------------------------|
+|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | climate | no | undefined | Set to true to give the view preset climate buttons (see options below) |
 | map | no | undefined | Set to true to show a map with all the persons in the house |
 | vacuum | no | undefined | Adds vacuum controls to the view (see options below) |
@@ -43,7 +43,7 @@ my_second_view:
 *By default none of the extra options are required
 To use this addon put `climate:` into your views config
 | Name | Required | Default | Description |
-|-----------------------------|-------------|------------------------------------------------------------------|
+|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | power_name_on | no | Power | Name of the `turn_on` power button |
 | power_label_on | no | All On | Label of the `turn_on` power button |
 | power_icon_on | no | mdi:power | The icon of the `turn_on` power button |
@@ -86,7 +86,7 @@ my_view:
 *By default only the entity is required
 To use this addon put `vacuum:` into your views config
 | Name | Required | Default | Description |
-|-----------------------------|-------------|------------------------------------------------------------------|
+|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | vacuum.rockrobo | Enter you vacuum entity |
 | show_controls | no | undefined/true | Set to false if you want to hide the controls |
 
