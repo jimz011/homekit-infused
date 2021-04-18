@@ -30,6 +30,7 @@ my_second_view:
     show_controls: true
 ```
 # Available Addons
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | climate | no | undefined | Set to true to give the view preset climate buttons (see options below) |
@@ -42,6 +43,7 @@ my_second_view:
 ## Climate Addon
 *By default none of the extra options are required
 To use this addon put `climate:` into your views config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | power_name_on | no | Power | Name of the `turn_on` power button |
@@ -85,6 +87,7 @@ my_view:
 ## Vacuum Addon
 *By default only the entity is required
 To use this addon put `vacuum:` into your views config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | vacuum.rockrobo | Enter you vacuum entity |
