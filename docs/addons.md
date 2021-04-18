@@ -58,6 +58,8 @@ To use this addon put `climate:` into your views config
 | power_name_on | no | Power | Name of the `turn_off` power button |
 | power_label_off | no | All Off | Label of the `turn_off` power button |
 | power_icon_off | no | mdi:power | The icon of the `turn_off` power button |
+
+Examples:
 ```
 # Example minimum
 my_view:
@@ -87,6 +89,8 @@ To use this addon put `vacuum:` into your views config
 |-----------------------------|-------------|------------------------------------------------------------------|
 | entity | yes | vacuum.rockrobo | Enter you vacuum entity |
 | show_controls | no | undefined/true | Set to false if you want to hide the controls |
+
+Examples:
 ```
 # Example minimum
 my_view:
