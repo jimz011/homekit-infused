@@ -47,7 +47,7 @@ Copy the following folders from the repo:
 - /hki-user/
 - /packages/
 
-Now go on and read the ENTIRE documentation. I know it sucks, but trust me, it took me hours to recreate and simplify the docs. So take 10 minutes of your time for all the work I have put into this! You will need to read them to understand the new and improved way of creating views anyways!
+## Now go on and read the ENTIRE documentation. I know it sucks, but trust me, it took me hours to recreate and simplify the docs. So take 10 minutes of your time for all the work I have put into this! You will need to read them to understand the new and improved way of creating views anyways!
 
 Migrate user files:
 - copy back your own templates folder (if you had one) to `/hki-user/templates/`
