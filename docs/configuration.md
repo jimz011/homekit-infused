@@ -153,7 +153,7 @@ E.g. `light.living_room.rgb` or `switch.kitchen_hood.fan`. You can have multiple
 *Tip: You can also set an entire category to be forced with these properties, see examples below.
 
 | Tag | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | lock | this locks an entity and will now need two taps to turn on/off, the first tap unlocks, the second toggles|
 | rgb | Use this tag to specify the entity type as an rgb-light, this lets HKI know that your light needs a different popup than other lights |
 | color-temp | Use this tag to specify the entity type as a color-temperature-light, this lets HKI know that your light needs a different popup than other lights |
