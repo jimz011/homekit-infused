@@ -346,7 +346,10 @@ view_config:
     max_columns: 3
     button_columns: 4
     icon: mdi:weather-partly-cloudy
-    custom_cards: true 
+    weather:
+      entity: weather.eindhoven
+      city_name: Eindhoven
+      windy_url: https://embed.windy.com/embed2.html?lat=51.402&lon=5.467&detailLat=51.477&detailLon=5.496&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1%22%20frameborder=%220%22
 
 # Stephanie
   stephanie:
