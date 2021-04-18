@@ -36,6 +36,7 @@ my_second_view:
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | climate | no | undefined | Set to true to give the view preset climate buttons (see options below) |
 | map | no | undefined | Set to true to show a map with all the persons in the house |
+| search_card | no | undefined | Set to add a search card to the top of the view |
 | vacuum | no | undefined | Adds vacuum controls to the view (see options below) |
 | waze | no | undefined | Adds a waze traffic map to the view |
 | weather | no | undefined | Adds a forecast card and/or windy map to the view |
@@ -84,6 +85,15 @@ To use this addon put `map:` into your views config, for now no extra options to
 my_view:
   icon: mdi:map-marker
   map: 
+```
+
+## Search Card Addon
+To use this addon put `search_card:` into your views config. No extra options to configure.
+```
+# Example
+my_view:
+  icon: mdi:map-marker
+  search_card: 
 ```
 
 ## Vacuum Addon
