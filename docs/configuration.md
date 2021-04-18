@@ -10,18 +10,18 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
-### Configuration
+## Configuration
 In Homekit Infused v4.x.x it is super easy to setup views and configure them for either auto-filling or custom cards.
 Homekit Infused only includes two preconfigured views, which is the `home` view and the `menu` view.
 Most of the config is preconfigured and doesn't require your input, please read the following steps below.
 
 *NOTE: For ANY change in the config below to take effect you MUST restart Home Assistant!!
 
-##### Setting up device counters
+### Setting up device counters
 Before continuing we should first open `/hki-user/device_counters.yaml`. Add all your known entities to their corresponding groups. This will help HKI count the amount of devices that are actually turned on.
 We can also re-use these entities again in buttons or in custom-cards. You can add groups yourself to this file, though they won't be used in any of the auto-filling options. Adding custom groups is only useful if you know how to use those entities in your own cards.
 
-##### Setting up the frontpage
+### Setting up the frontpage
 The frontpage is by default auto-filled, you can however change the settings of most of the visible items on this view.
 To setup the frontpage open the following file `/hki-user/config/general_config.yaml`. 
 It is recommended to never remove any line in this config and it is recommended to set define the properties with `true` or `false` rather than commenting it. Some of the configuration can be commented, but it is best to leave it this way. 
@@ -36,7 +36,7 @@ You must change/add the following items yourself:
 
 If you have set `custom_cards: true` you must create a folder with the same name as the path in `/hki-user/views/` by default this path is `home` unless you rename it in the settings. In this case your path would be `/hki-user/views/home/`.
 
-##### Setting up the menu
+### Setting up the menu
 The menu is by default auto-filled with new buttons whenever you add a new view, you can however change the settings of most of the visible items on this view.
 To setup the menu open the following file `/hki-user/config/general_config.yaml`. 
 It is recommended to never remove any line in this config and it is recommended to set define the properties with `true` or `false` rather than commenting it. Some of the configuration can be commented, but it is best to leave it this way. 
@@ -57,7 +57,7 @@ You can turn the sensors off in the header if you don't like them or set less ic
 
 The options for this are pretty straightforward.
 
-##### Setting up views
+### Setting up views
 Views are completely conditional, this means that Homekit Infused doesn't have predefined views (unlike older versions of the project). You can create views pretty fast and easy by only entering a name!
 To create a view open the following file `/hki-user/config/view_config.yaml`. 
 
@@ -144,7 +144,7 @@ The example above will create a view for you named Kitchen and automatically doe
           - lights.ceiling
 ```
 
-##### Extra Options
+### Extra Options
 You can pass some extra data to the entities so that HKI knows what kind of popup and/or color it should give to the buttons or even add a lock to a button. To set some extra keys add a dot at the end of the entity and then the extra key.
 E.g. `light.living_room.rgb` or `switch.kitchen_hood.fan`. You can have multiple tags. E.g. `switch.kitchen_hood.fan.lock`, the order of the keys do not matter, `switch.kitchen_hood.lock.fan` will also work!
 
@@ -191,5 +191,5 @@ kitchen:
       - switch.toilet_exhaust
 ```
 
-##### More examples
+### More examples
 I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
