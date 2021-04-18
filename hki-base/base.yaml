@@ -20,6 +20,9 @@
             {% endif %}
             icon_size: 80%
         {% endif %}
+        {% if ( (_global.general_config.frontpage.show_hide.show_search_card is defined) and (_global.general_config.frontpage.show_hide.show_search_card is true) ) %}
+        - !include includes/search-card.yaml
+        {% endif %}
         - type: custom:layout-card
           min_columns: {{ _global.general_config.frontpage.columns.view_min_columns|default('1') }}
           max_columns: {{ _global.general_config.frontpage.columns.view_max_columns|default('3') }}
@@ -318,6 +321,9 @@
             header_bottom: header-bottom.yaml
             {% endif %}
         {% endif %}
+        {% if ( (_global.general_config.menu.show_hide.show_search_card is defined) and (_global.general_config.menu.show_hide.show_search_card is true) ) %}
+        - !include includes/search-card.yaml
+        {% endif %}
         - type: custom:layout-card
           min_columns: {{ _global.general_config.menu.columns.view_min_columns|default('1') }}
           max_columns: {{ _global.general_config.menu.columns.view_max_columns|default('3') }}
@@ -530,6 +536,9 @@
             {% else %}
             header_bottom: header-bottom.yaml
             {% endif %}
+        {% endif %}
+        {% if data.show_search_card is defined %}
+        - !include includes/search-card.yaml
         {% endif %}
         - type: custom:layout-card
           min_columns: {{ data.min_columns|default('1') }}
