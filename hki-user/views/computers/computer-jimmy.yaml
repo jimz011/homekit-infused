@@ -1,0 +1,212 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; System'
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                margin-left: 7px;
+              }
+            entity: sensor.desktop_jimzz_cpu_usage
+          - type: gauge
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                margin-left: 7px;
+              }
+            entity: sensor.desktop_jimzz_memory_usage
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Displays'
+      - type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+          }
+        entity: camera.desktop_jimzz_screen_1
+        camera_view: live
+        name: Left Screen
+      - type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+          }
+        entity: camera.desktop_jimzz_screen_0
+        camera_view: live
+        name: Right Screen
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Disk Usage'
+      - type: custom:swipe-card
+        parameters:
+          spaceBetween: 8
+          touchEventsTarget: 'container'
+          pagination:
+            type: 'bullets'
+            dynamicBullets: true
+        cards:
+          - type: custom:bar-card
+            style: |
+              :host {
+                --ha-card-background: var(--ha-card-background);
+                --ha-card-border-radius: var(--border-radius);
+                --ha-card-box-shadow: var(--box-shadow);
+                --ha-card-font-weight: bold;
+                --ha-card-opacity: 0.8;
+              }
+              ha-card {
+                font-size: 10px;                 
+              }
+              bar-card-value {
+                font-size: 8px;
+              }
+            entities: 
+              - entity: sensor.desktop_jimzz_storage_c_usage
+                name: 'C:\'
+              - entity: sensor.desktop_jimzz_storage_d_usage
+                name: 'D:\'
+              - entity: sensor.desktop_jimzz_storage_e_usage
+                name: 'E:\'
+              - entity: sensor.desktop_jimzz_storage_f_usage
+                name: 'F:\'
+              - entity: sensor.desktop_jimzz_storage_g_usage
+                name: 'G:\'
+              - entity: sensor.desktop_jimzz_storage_h_usage
+                name: 'H:\'
+            show_icon: true
+            height: 200px
+            stack: horizontal
+            positions:
+              title: inside
+              value: inside
+              icon: inside
+            severity:
+              - color: '#e69422'
+                from: 0
+                to: 10
+              - color: '#ccff00'
+                from: 10
+                to: 20
+              - color: '#f1f505'
+                from: 40
+                to: 50
+              - color: '#f7da00'
+                from: 50
+                to: 60
+              - color: '#edac09'
+                from: 60
+                to: 70
+              - color: '#ffa408'
+                from: 70
+                to: 80
+              - color: '#ff5e08'
+                from: 80
+                to: 90
+              - color: '#ed0909'
+                from: 90
+                to: 100
+            direction: up
+            columns: 1
+            max: 100
+            min: 0
+            tap_action: none
+          - type: custom:bar-card
+            style: |
+              :host {
+                --ha-card-background: var(--ha-card-background);
+                --ha-card-border-radius: var(--border-radius);
+                --ha-card-box-shadow: var(--box-shadow);
+                --ha-card-font-weight: bold;
+                --ha-card-opacity: 0.8;
+              }
+              ha-card {
+                font-size: 10px;                 
+              }
+              bar-card-value {
+                font-size: 8px;
+              }
+            entities: 
+              - entity: sensor.desktop_jimzz_storage_c_total_free_space
+                name: 'C:\ Free'
+                min: 0
+                max: 5460
+              - entity: sensor.desktop_jimzz_storage_d_total_free_space
+                name: 'D:\ Free'
+                min: 0
+                max: 5460
+              - entity: sensor.desktop_jimzz_storage_e_total_free_space
+                name: 'E:\ Free'
+                min: 0
+                max: 5460
+              - entity: sensor.desktop_jimzz_storage_f_total_free_space
+                name: 'F:\ Free'
+                min: 0
+                max: 2730
+              - entity: sensor.desktop_jimzz_storage_g_total_free_space
+                name: 'G:\ Free'
+                min: 0
+                max: 5460
+              - entity: sensor.desktop_jimzz_storage_h_total_free_space
+                name: 'H:\ Free'
+                min: 0
+                max: 5460
+            show_icon: true
+            height: 200px
+            stack: horizontal
+            positions:
+              title: inside
+              value: inside
+              icon: inside
+            severity:
+              - color: '#fa0505'
+                from: 0
+                to: 700
+              - color: '#de4314'
+                from: 700
+                to: 800
+              - color: '#d1861d'
+                from: 800
+                to: 900
+              - color: '#d4c11c'
+                from: 900
+                to: 1000
+              - color: '#64c91c'
+                from: 1001
+                to: 5560
+            direction: up
+            tap_action: none

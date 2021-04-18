@@ -1,0 +1,53 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Presets'
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
+            - name: Woonkamer
+              icon: mdi:sofa
+              entity: vacuum.rockrobo
+              zone_id: ['Woonkamer']
+          - !include
+            - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
+            - name: Slaapkamer
+              icon: mdi:bed
+              entity: vacuum.rockrobo
+              zone_id: ['Slaapkamer']
+          - !include
+            - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
+            - name: Kleine Kamer
+              icon: mdi:desktop-tower-monitor
+              entity: vacuum.rockrobo
+              zone_id: ['Kleine Kamer']
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
+            - name: Keuken
+              icon: mdi:fridge
+              entity: vacuum.rockrobo
+              zone_id: ['Keuken']
+          - !include
+            - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
+            - name: Gang
+              icon: mdi:square-outline
+              entity: vacuum.rockrobo
+              zone_id: ['Gang']
+          - !include
+            - '../../../hki-base/templates/vacuum/go-to-spot-preset-button.yaml'
+            - name: Prullenbak
+              icon: mdi:trash-can
+              entity: vacuum.rockrobo
+              zone_id: 'Prullenbak'
+      

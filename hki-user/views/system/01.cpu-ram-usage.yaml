@@ -1,0 +1,75 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; CPU and RAM usage'
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            entities:
+              - entity: sensor.glances_cpu_used
+                name: System
+                color: '#14ff8d'
+              - entity: sensor.glances_containers_cpu_used
+                name: Containers
+                color: '#0293fa'
+            name: CPU Usage
+            icon: mdi:cpu-64-bit
+            height: 200
+            hours_to_show: 7
+            points_per_hour: 60
+            update_interval: 10
+            aggregate_func: max
+            line_width: 2
+            smoothing: false
+            font_size: 65
+            font_size_header: 9
+            show:
+              average: true
+              extrema: true
+            tap_action: none
+          - type: custom:mini-graph-card
+            style: |
+              ha-card {
+                background: var(--paper-card-background-color);
+                border-radius: 10px;
+                box-shadow: 10px;
+                font-weight: bold;
+                opacity: 0.8;
+              }
+            entities:
+              - entity: sensor.glances_ram_used
+                name: System
+                color: '#14ff8d'
+              - entity: sensor.glances_containers_ram_used
+                name: Containers
+                color: '#0293fa'
+            name: RAM Usage
+            height: 200
+            hours_to_show: 7
+            points_per_hour: 60
+            update_interval: 10
+            aggregate_func: max
+            line_width: 2
+            smoothing: false
+            font_size: 65
+            font_size_header: 9
+            show:
+              average: true
+              extrema: true
+            tap_action: none

@@ -1,0 +1,87 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Fire'
+      - type: markdown
+        style: |
+          ha-card {
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+          }
+        content: >
+          {{ states('sensor.p2000') }}
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Ambulance'
+      - type: markdown
+        style: |
+          ha-card {
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+          }
+        content: >
+          {{ states('sensor.p2000_2') }}
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Police'
+      - type: markdown
+        style: |
+          ha-card {
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+          }
+        content: >
+          {{ states('sensor.p2000_3') }}
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Live Map'
+      - type: map
+        style: |
+          ha-card {
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+          }
+        default_zoom: 7
+        entities:
+          - entity: sensor.p2000
+          - entity: sensor.p2000_2
+          - entity: sensor.p2000_3
+          - entity: zone.home

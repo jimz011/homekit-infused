@@ -1,0 +1,40 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Battery Levels'
+      - type: custom:auto-entities
+        filter:
+          exclude:
+            - entity_id: '*battery_state*'
+            - entity_id: '*desktop*'
+            - domain: input_boolean
+            - domain: input_text
+            - domain: input_select
+            - domain: automation
+          include:
+            - entity_id: '*battery*'
+              options:
+                type: custom:button-card
+                template:
+                  - style-default
+                  - default-hki-grid
+                  - battery-state
+                entity: this.entity_id
+                icon: "[[[ if (states[`this.entity_id`].state < 10) return `mdi:battery-10`; if (states[`this.entity_id`].state < 20) return `mdi:battery-20`; if (states[`this.entity_id`].state < 30) return `mdi:battery-30`; if (states[`this.entity_id`].state < 40) return `mdi:battery-40`; if (states[`this.entity_id`].state < 50) return `mdi:battery-50`; if (states[`this.entity_id`].state < 60) return `mdi:battery-60`; if (states[`this.entity_id`].state < 70) return `mdi:battery-70`; if (states[`this.entity_id`].state < 80) return `mdi:battery-80`; if (states[`this.entity_id`].state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+        show_empty: false
+        sort:
+          method: name
+          numeric: true
+        card:
+          type: custom:layout-card
+          column_num: 3
+          justify_content: start
+          layout: horizontal

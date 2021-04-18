@@ -1,0 +1,99 @@
+- type: conditional
+  conditions:
+    - entity: input_select.media_view_selector
+      state: "Upcoming Media"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Recently Added TV'
+        - type: 'custom:upcoming-media-card'
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+            }
+          entity: sensor.recently_added_tv 
+
+- type: conditional
+  conditions:
+    - entity: input_select.media_view_selector
+      state: "Upcoming Media"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Recently Added Movies'
+        - type: 'custom:upcoming-media-card'
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+            }
+          entity: sensor.recently_added_movies
+
+- type: conditional
+  conditions:
+    - entity: input_select.media_view_selector
+      state: "Upcoming Media"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Upcoming Movies'
+        - type: 'custom:upcoming-media-card'
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+            }
+          entity: sensor.radarr_upcoming_media
+
+- type: conditional
+  conditions:
+    - entity: input_select.media_view_selector
+      state: "Upcoming Media"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Upcoming TV Series'
+        - type: 'custom:upcoming-media-card'
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+            }
+          entity: sensor.sonarr_upcoming_media

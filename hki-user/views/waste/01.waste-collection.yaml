@@ -1,0 +1,23 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Waste Collection Schedule'
+      - type: entities
+        style: |
+          ha-card {
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            opacity: 0.8;
+          }
+        entities:
+          - sensor.mijnafvalwijzer_gft
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval

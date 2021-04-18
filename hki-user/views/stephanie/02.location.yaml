@@ -1,0 +1,77 @@
+# Travel Times
+- type: conditional
+  conditions:
+    - entity: input_select.person_1
+      state: "Location"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Travel Times'
+        - type: custom:ha-card-waze-travel-time
+          style: |
+            ha-card { border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+              font-family:  var(--font-family);
+              font-size: 12px;
+              opacity: 0.8;
+              overflow: hidden;
+            }
+            .ha-card-waze td {
+              color: var(--primary-text-color) !important;
+            }
+          unit: km
+          columns:
+            - to
+            - duration
+            - distance
+            - icon
+          header: 'false'
+          destinations:
+            - entity: sensor.reistijd_stephanie
+              to: "Home"
+            - entity: sensor.reistijd_stephanie_work
+              to: "Work"
+            - entity: sensor.reistijd_jimsteph
+              to: "Stephanie"
+
+# Map
+- type: conditional
+  conditions:
+    - entity: input_select.person_1
+      state: "Location"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/other/title-text.yaml'
+          - name: '&nbsp; Current Location'
+        - type: map
+          style: |
+            ha-card {
+              border-radius: var(--border-radius);
+              box-shadow: var(--box-shadow);
+              font-family:  var(--font-family);
+              font-size: 12px;
+              opacity: 0.8;
+              overflow: hidden;
+            }
+          aspect_ratio: 4x5
+          default_zoom: 15
+          entities:
+            - person.stephanie

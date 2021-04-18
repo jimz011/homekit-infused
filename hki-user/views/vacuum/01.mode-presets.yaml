@@ -1,0 +1,190 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Mode'
+      - type: custom:layout-card
+        min_columns: 4
+        max_columns: 4
+        justify_content: start
+        layout: horizontal
+        cards:
+          - type: custom:state-switch
+            entity: template
+            template: "{% if is_state_attr('vacuum.roborock_vacuum_s5', 'fan_speed', 'Silent') %} Silent {% else %} default {% endif %}"
+            states:
+              default:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Silent
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  size: 15%
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  option: Silent
+              Silent:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Silent
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  size: 15%
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  opacity_off: 1.0
+                  card_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Silent') return `white`; ]]]"
+                  icon_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Silent') return `Dodgerblue`; ]]]"
+                  name_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Silent') return `black` ]]]"
+                  label_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Silent') return `gray` ]]]"
+                  spin_off: true
+                  option: Silent
+          - type: custom:state-switch
+            entity: template
+            template: "{% if is_state_attr('vacuum.roborock_vacuum_s5', 'fan_speed', 'Medium') %} Medium {% else %} default {% endif %}"
+            states:
+              default:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Turbo
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  size: 20%
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  option: Medium
+              Medium:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Turbo
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  size: 20%
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  opacity_off: 1.0
+                  card_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Medium') return `white`; ]]]"
+                  icon_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Medium') return `Dodgerblue`; ]]]"
+                  name_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Medium') return `black` ]]]"
+                  label_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Medium') return `gray` ]]]"
+                  spin_off: true
+                  option: Medium
+          - type: custom:state-switch
+            entity: template
+            template: "{% if is_state_attr('vacuum.roborock_vacuum_s5', 'fan_speed', 'Turbo') %} Turbo {% else %} default {% endif %}"
+            states:
+              default:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Max
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  option: Turbo
+              Turbo:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Max
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:fan
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  opacity_off: 1.0
+                  card_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Turbo') return `white`; ]]]"
+                  icon_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Turbo') return `Dodgerblue`; ]]]"
+                  name_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Turbo') return `black` ]]]"
+                  label_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Turbo') return `gray` ]]]"
+                  spin_off: true
+                  option: Turbo
+          - type: custom:state-switch
+            entity: template
+            template: "{% if is_state_attr('vacuum.roborock_vacuum_s5', 'fan_speed', 'Standard') %} Standard {% else %} default {% endif %}"
+            states:
+              default:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Balanced
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:sync
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  option: Standard
+              Standard:
+                !include
+                - '../../../hki-base/templates/button/service-call-with-option.yaml'
+                - entity: input_boolean.dummy1
+                  name: Balanced
+                  service_entity: vacuum.roborock_vacuum_s5
+                  extra: fan_speed
+                  icon: mdi:sync
+                  service: vacuum.set_fan_speed
+                  margin_right: 40px
+                  opacity_off: 1.0
+                  card_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Standard') return `white`; ]]]"
+                  icon_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Standard') return `Orange`; ]]]"
+                  name_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Standard') return `black` ]]]"
+                  label_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Standard') return `gray` ]]]"
+                  spin_off: true
+                  option: Standard
+      - type: custom:state-switch
+        entity: template
+        template: "{% if is_state_attr('vacuum.roborock_vacuum_s5', 'fan_speed', 'Gentle') %} Gentle {% else %} default {% endif %}"
+        states:
+          default:
+            !include
+            - '../../../hki-base/templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: Mop
+              service_entity: vacuum.roborock_vacuum_s5
+              extra: fan_speed
+              icon: mdi:alpha-o-circle-outline
+              size: 8%
+              aspect_ratio: 6/1
+              show_label: false
+              show_state: false
+              service: vacuum.set_fan_speed
+              margin_right: 300px
+              option: Gentle
+          Gentle:
+            !include
+            - '../../../hki-base/templates/button/service-call-with-option.yaml'
+            - entity: input_boolean.dummy1
+              name: Mop
+              service_entity: vacuum.roborock_vacuum_s5
+              extra: fan_speed
+              icon: mdi:alpha-o-circle-outline
+              size: 8%
+              aspect_ratio: 6/1
+              show_label: false
+              show_state: false
+              service: vacuum.set_fan_speed
+              margin_right: 300px
+              opacity_off: 1.0
+              card_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Gentle') return `white`; ]]]"
+              icon_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Gentle') return `Navy`; ]]]"
+              name_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Gentle') return `black` ]]]"
+              label_color_off: "[[[ if (states['vacuum.roborock_vacuum_s5'].attributes.fan_speed == 'Gentle') return `gray` ]]]"
+              spin_off: true
+              option: Gentle

@@ -1,0 +1,14 @@
+- type: calendar
+  style: |
+    ha-card {
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-left: 7px;
+      margin-right; 7px;
+    }
+  entities:
+    - calendar.jimmy
+    - calendar.stephanievanduuren_gmail_com
+    - calendar.family
+    - calendar.contacts
+    - calendar.holidays_in_netherlands

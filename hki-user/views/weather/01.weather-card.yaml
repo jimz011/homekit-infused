@@ -1,0 +1,39 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Forecast'
+  #   - type: weather-forecast
+  #     style: |
+  #       ha-card {
+  #         font-size: 12px;
+  #         font-family:  var(--font-family);
+  #         border-radius: var(--border-radius);
+  #         box-shadow: var(--box-shadow);
+  #         opacity: 0.8;
+  #       }
+  #     entity: weather.eindhoven
+  #     name: Eindhoven
+      - type: custom:weather-card
+        style: |
+          ha-card {
+            font-size: var(--name-font-size);
+            font-family: var(--font-family);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            opacity: 0.8;
+          }
+        entity: weather.eindhoven
+        name: Eindhoven
+        current: true
+        details: true
+        forecast: true
+        hourly_forecast: false
+        number_of_forecasts: 5

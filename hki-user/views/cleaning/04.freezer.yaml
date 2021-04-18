@@ -1,0 +1,15 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    !include
+    - '../../../hki-base/templates/picture-elements/appliances-card.yaml'
+    - image: /local/images/appliances/freezer.jpg
+      entity_status: switch.vriezer
+      entity_switch: switch.vriezer
+      entity_wattage: sensor.ts0121_2
+      entity_extra: sensor.ts0121
+      entity_extra_icon: mdi:chart-line

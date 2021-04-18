@@ -1,0 +1,38 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Other Information'
+      - type: entities
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            font-family: var(--font-family);
+            font-size: 12px;
+            opacity: 0.8;
+          }
+        entities:        
+          - type: weblink
+            style: |
+              a {
+                color: var(--primary-text-color) !important;
+              }
+            name: Nossek & Verheijden Bellen
+            icon: 'mdi:phone'
+            url: tel:+31402571517
+          - type: weblink
+            style: |
+              a {
+                color: var(--primary-text-color) !important;
+              }
+            name: Dierenvoeding 
+            icon: 'mdi:earth'
+            url: https://www.zooplus.nl

@@ -1,0 +1,9 @@
+- type: grid
+  title: test grid
+  columns: 3
+  cards:
+    - type: entity
+      entity: light.kleine_kamer
+    - type: entity
+      entity: light.office_led_lampen
+    

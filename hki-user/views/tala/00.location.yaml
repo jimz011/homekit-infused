@@ -1,0 +1,26 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Current Location'
+      - type: map
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            font-family: var(--font-family);
+            font-size: 12px;
+            opacity: 0.8;
+            overflow: hidden;
+          }
+        aspect_ratio: 4x3
+        default_zoom: 15
+        entities:
+          - person.tala

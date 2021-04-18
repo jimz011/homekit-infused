@@ -1,0 +1,61 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: custom:swipe-card
+    parameters:
+      spaceBetween: 8
+      touchEventsTarget: 'container'
+      pagination:
+        type: 'bullets'
+        dynamicBullets: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - !include
+            - '../../../hki-base/templates/other/title-text.yaml'
+            - name: '&nbsp; Running Containers'
+          - type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: '*docker*'
+                  state: "on"
+            show_empty: false
+            sort:
+              method: name
+              numeric: true
+            card:
+              type: glance
+              style: |
+                ha-card {
+                  border-radius: var(--border-radius);
+                  box-shadow: var(--box-shadow);
+                }
+              show_state: false
+              columns: 4
+      - type: vertical-stack
+        cards:
+          - !include
+            - '../../../hki-base/templates/other/title-text.yaml'
+            - name: '&nbsp; Stopped Containers'
+          - type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: '*docker*'
+                  state: "off"
+            show_empty: false
+            sort:
+              method: name
+              numeric: true
+            card:
+              type: glance
+              style: |
+                ha-card {
+                  border-radius: var(--border-radius);
+                  box-shadow: var(--box-shadow);
+                }
+              show_state: false
+              columns: 4

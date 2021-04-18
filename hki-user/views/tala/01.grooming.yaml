@@ -1,0 +1,49 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/other/title-text.yaml'
+        - name: '&nbsp; Grooming'
+      - type: 'custom:vertical-stack-in-card'
+        cards:
+          - !include
+            - '../../../hki-user/templates/check-button.yaml'
+            - title: Borstelen
+              entity: sensor.animals_tala_borstel
+              value_1: 3 days
+              value_2: 6 days
+              value_3: 9 days
+          - !include
+            - '../../../hki-user/templates/check-button.yaml'
+            - title: Vaccinaties
+              entity: sensor.animals_tala_vaccinations
+              value_1: 3 months
+              value_2: 6 months
+              value_3: 9 months
+          - !include
+            - '../../../hki-user/templates/check-button.yaml'
+            - title: Vlooien
+              entity: sensor.animals_tala_fleadrops
+              value_1: 1 month
+              value_2: 3 months
+              value_3: 6 months
+          - !include
+            - '../../../hki-user/templates/check-button.yaml'
+            - title: Ontwormen
+              entity: sensor.animals_tala_worm
+              value_1: 2 months
+              value_2: 3 months
+              value_3: 4 months
+          - !include
+            - '../../../hki-user/templates/check-button.yaml'
+            - title: Trimmen
+              entity: sensor.animals_tala_trim
+              value_1: 9 months
+              value_2: 12 months
+              value_3: 18 months
