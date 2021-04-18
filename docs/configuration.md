@@ -79,6 +79,7 @@ This is the bare minimum that will give you a brand new view, however without an
 *Note: when `custom_cards: true` or `custom_cards: advanced` is set you MUST create a folder with the same name as the path in `/hki-user/views/`. From the example above this would be `/hki-user/views/living_room/`.
 Please read [this](custom_views.md) for more information on how to use this.
 
+
 | Name | Required | Default | Description |
 |-----------------------------|-------------|------------------------------------------------------------------|
 | 'key' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view |
@@ -98,6 +99,7 @@ Please read [this](custom_views.md) for more information on how to use this.
 | camera_columns | no | 1 | Set how many camera cards you want next to each other when having it auto-filled |
 | graph_columns | no | 3 | Set how many graph cards you want next to each other when having it auto-filled |
 | custom_cards | no | false | Set to `true` if you want to use your own cards from the user/views folder. By default custom cards are placed inside of a layout-card, set to `advanced` if you want to use the default lovelace layout instead. WARNING! This theme is built in panel mode, setting this to advanced means that you should know what you are doing and how to build your own layout! |
+
 
 ```
 # Example 
@@ -191,4 +193,4 @@ kitchen:
 ```
 
 ##### More examples
-I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/PLACEHOLDER)
+I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
