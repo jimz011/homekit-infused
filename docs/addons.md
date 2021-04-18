@@ -38,6 +38,7 @@ my_second_view:
 | map | no | undefined | Set to true to show a map with all the persons in the house |
 | vacuum | no | undefined | Adds vacuum controls to the view (see options below) |
 | waze | no | undefined | Adds a waze traffic map to the view |
+| weather | no | undefined | Adds a forecast card and/or windy map to the view |
 
 # Addon Details
 
@@ -91,7 +92,7 @@ To use this addon put `vacuum:` into your views config
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | vacuum.rockrobo | Enter you vacuum entity |
+| entity | yes | vacuum.rockrobo | Enter your vacuum entity |
 | show_controls | no | undefined/true | Set to false if you want to hide the controls |
 
 Examples:
@@ -118,4 +119,23 @@ To use this addon put `waze:` into your views config. No extra options to config
 my_view:
   icon: mdi:map-marker
   waze: 
+```
+
+## Weather Addon
+To use this addon put `weather:` into your views config. You must at least set OR `entity` and `city_name` OR `windy_url`, you can use them together if you want!.
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| entity | yes/no | weather.dark_sky | Enter your weather entity, this must be a weather entity and not a sensor e.g. `weather.dark_sky` |
+| city_name | yes/no | undefined | Set your city name to show on the card |
+| windy_url | yes/no | Set a nice windy iframe for your view, you must add an URL in this field, you can create your own URL by visiting [this website](https://www.windy.com/-Embed-widget-on-page/widgets?) |
+
+```
+# Example
+my_view:
+  icon: mdi:map-marker
+  weather:
+    entity: weather.eindhoven
+    city_name: Eindhoven
+    windy_url: YOUR WINDY URL
 ```
