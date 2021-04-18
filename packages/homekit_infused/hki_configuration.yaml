@@ -1,0 +1,31 @@
+lovelace_gen: !include_dir_merge_named ../../hki-user/config/
+
+group:
+  !include ../../hki-user/device_counters.yaml
+
+frontend:
+  themes: !include_dir_merge_named ../../hki-base/themes/
+
+lovelace:
+  mode: storage
+  dashboards:
+    homekit-infused:
+      mode: yaml
+      title: Homekit Infused
+      icon: mdi:home-assistant
+      show_in_sidebar: true
+      filename: "hki-base/homekit-infused.yaml"
+
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: !secret alarm_code
+    delay_time: 0
+    trigger_time: 100
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      delay_time: 0
+    disarm_after_trigger: false
+
+browser_mod:

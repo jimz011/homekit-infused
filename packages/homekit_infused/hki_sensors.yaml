@@ -1,0 +1,161 @@
+sensor:
+# Version
+  - platform: template
+    sensors:
+      hki_current_version:
+        value_template: 4.0.0a
+
+# Time Date
+  - platform: time_date
+    display_options:
+      - time
+      - date
+      - date_time
+      - date_time_iso
+      - time_date
+      - time_utc
+      - beat
+
+# Template Sensors (device counting)
+  - platform: template
+    sensors:
+      current_lights_on:
+        friendly_name: All Lights Currently On
+        value_template: >-
+          {{ expand('group.all_light_entities')|selectattr('state','eq','on')|list|count }}
+      current_devices_on:
+        friendly_name: All Devices Currently On
+        value_template: >-
+          {{ expand('group.all_device_switch_entities')|selectattr('state','eq','on')|list|count }}
+      current_motion_sensors_on:
+        friendly_name: All Motion Sensors Currently On
+        value_template: >-
+          {{ expand('group.all_motion_sensor_entities')|selectattr('state','eq','on')|list|count }}
+      current_binary_sensors_on:
+        friendly_name: All Binary Sensors Currently On
+        value_template: >-
+          {{ expand('group.all_binary_sensor_entities')|selectattr('state','eq','on')|list|count }}
+      current_doors_open:
+        friendly_name: All Doors Currently Open
+        value_template: >-
+          {{ expand('group.all_door_sensor_entities')|selectattr('state','eq','on')|list|count }}
+      current_windows_open:
+        friendly_name: All Windows Currently Open
+        value_template: >-
+          {{ expand('group.all_window_sensor_entities')|selectattr('state','eq','on')|list|count }}
+      current_climate_entities_on:
+        friendly_name: All Climate Entities Currently On
+        value_template: >-
+          {% set heat = expand('group.all_climate_entities')|selectattr('state','eq','heat')|list|count %}
+          {% set cool = expand('group.all_climate_entities')|selectattr('state','eq','cool')|list|count %}
+          {% set total = heat + cool %}
+          {{ total }}
+      current_covers_open:
+        friendly_name: All Covers Currently Open
+        value_template: >-
+          {{ expand('group.all_cover_entities')|selectattr('state','eq','open')|list|count }}   
+      current_garage_doors_open:
+        friendly_name: All Garage Doors Currently Open
+        value_template: >-
+          {{ expand('group.all_garage_door_entities')|selectattr('state','eq','open')|list|count }}  
+      current_fans_on:
+        friendly_name: All Fans Currently On
+        value_template: >-
+          {{ expand('group.all_fan_entities')|selectattr('state','eq','on')|list|count }}  
+      current_detectors_on:
+        friendly_name: All Detectors Currently On
+        value_template: >-
+          {{ expand('group.all_detector_entities')|selectattr('state','eq','on')|list|count }}  
+# Frontend Greeting          
+  - platform: template
+    sensors:
+      greeting:
+        friendly_name: Greeting
+        value_template: >-
+          {% set time = states('sensor.time') %}
+          {% if '00:00' < time < '06:00' %}
+            {{ states.input_text.good_night.state }}
+          {% elif '06:00' < time < '12:00' %}
+            {{ states.input_text.good_morning.state }}
+          {% elif '12:00' < time < '18:00' %}
+            {{ states.input_text.good_afternoon.state }}
+          {% else %}
+            {{ states.input_text.good_evening.state }}
+          {% endif %}
+
+# System Monitor
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /home
+      - type: disk_free
+        arg: /home
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: memory_use
+      - type: memory_use_percent
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: throughput_network_in
+        arg: eth0
+      - type: throughput_network_out
+        arg: eth0
+      - type: ipv4_address
+        arg: eth0
+      - type: packets_in
+        arg: eth0
+      - type: packets_out
+        arg: eth0
+      - type: processor_use
+
+# Current HA Version
+  - platform: version
+    name: version_current
+
+# Latest HKI Version
+  - platform: scrape
+    name: HKI Latest Version
+    resource: https://jimz011.github.io/homekit-infused/version
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
+# Latest Compatible HA Version
+  - platform: scrape
+    name: Latest Compatible HA Version
+    resource: https://jimz011.github.io/homekit-infused/version_compatible
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
+# Latest Home Assistant Version
+  - platform: scrape
+    name: Home Assistant Latest Version
+    resource: https://home-assistant.io
+    select: ".current-version h1"
+    value_template: '{{ value.split(":")[1] }}'
+
+# Latest Home Assistant Beta Version
+  - platform: version
+    beta: true
+    image: default
+    source: docker
+
+# Updater Sensors
+  - platform: template
+    sensors:
+      ha_updater:
+        value_template: >
+          {% if states.sensor.version_current.state > states.sensor.home_assistant_latest_version.state %}
+            Up to date
+          {% else %}
+            Update available
+          {% endif %}
+      hki_updater:
+        value_template: >
+          {% if states.sensor.hki_latest_version.state == states.sensor.hki_current_version.state %}
+            Up to date
+          {% else %}
+            Update available
+          {% endif %}
