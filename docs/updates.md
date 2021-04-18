@@ -6,6 +6,7 @@
 - [Configuration](configuration.md)
 - [Addons](addons.md)
 - [Custom Views](custom_views.md)
+- [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
@@ -70,7 +71,7 @@ I will once again stress out that you should do this slowly and with care or tro
 
 You can remove ALL the folders you do not intend to use anymore. You can also delete the folders where `custom_cards:` is not defined and want to use auto-filling instead. This will make your folder look a whole lot cleaner.
 
-You can see examples over [here](https://github.com/jimz011/PLACEHOLDER)
+You can see examples over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
 
 ## Versions (these are always up to date and are used as sensors within Home Assistant)
 [Current HKI Version](version.html)
