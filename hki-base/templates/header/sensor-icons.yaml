@@ -1,0 +1,83 @@
+# lovelace_gen
+
+# Card
+type: custom:button-card
+style: |
+  ha-card {
+    margin-top: 12px;
+  }
+name: Button
+icon: "{{ icon|default('mdi:menu') }}"
+size: {{ size|default('80%') }}
+color: auto
+entity: input_boolean.dummy1
+show_name: false
+show_state: false
+show_label: false
+tap_action:
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    style:
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+          --paper-slider-knob-color: #FFFFFF !important;
+          --paper-slider-active-color: #dedede !important;
+          --switch-checked-button-color: #FFFFFF !important;
+          --switch-unchecked-button-color: #FFFFFF !important;
+          --switch-checked-track-color: green !important;
+          --switch-unchecked-track-color: red !important;
+        }
+        app-header, app-toolbar {
+          background-color: rgba(0,0,0,0.0) !important;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: vertical-stack
+      cards:
+        - !include
+          - '../popup-cards/header-sensors.yaml'
+          - entity: {{ entity|default('input_boolean.dummy1') }}
+#    deviceID:
+#      - this
+  haptic: light
+hold_action:
+  action: none
+styles:
+  card:
+    - --ha-card-background: transparant
+    - box-shadow: none
+    - width: 30px
+    - height: 30px
+  img_cell:
+    - align-self: start
+    - text-align: start
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color|default('rgba(0,0,0,0.0)') }}"
+      - color: white
+      - border-radius: 50%
+      - overflow: visible !important
+      - position: absolute
+      - left: 50%
+      - bottom: 50%
+      - height: 15px
+      - width: 15px
+      - font-size: 10px
+  icon:
+    - color: var(--header-text-color)
+custom_fields: 
+  notification: "{{ badge|default("'&nbsp;'") }}"
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}

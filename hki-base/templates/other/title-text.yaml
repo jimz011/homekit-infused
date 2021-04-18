@@ -1,0 +1,18 @@
+# lovelace_gen
+type: custom:button-card
+layout: name_state
+name: "{{ name }}"
+show_icon: false
+show_state: false
+styles:
+  card:
+    - height: 33px
+    - --ha-card-background: "{{ background_color|default('rgba(0,0,0,0.0)') }}"
+    - box-shadow: "{{ box_shadow|default('none') }}"
+    - border-radius: "{{ border_radius|default('none') }}"
+  name:
+    - justify-self: {{ justify_self|default('start') }}
+    - font-size: "{{ font_size|default('var(--title-text-font-size)') }}"
+    - font-family: var(--font-family)
+    - font-weight: "{{ font_weight|default('var(--title-text-font-weight)') }}"
+    - color: "{{ font_color|default('var(--title-text-color)') }}"

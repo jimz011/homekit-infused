@@ -1,0 +1,132 @@
+# lovelace_gen
+type: vertical-stack
+cards:
+  - !include
+    - '../other/title-text.yaml'
+    - name: {{ rooms|capitalize }}
+  - type: custom:auto-entities
+    filter:
+      include:
+        - attributes:
+            room: {{ rooms }}
+            type: playstation
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+              color: Red
+        - attributes:
+            room: {{ rooms }}
+            type: playstation
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+              color: Red
+        - attributes:
+            room: {{ rooms }}
+            type: xbox
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              spin_on: true
+              size: {{ icon_size|default('25%') }}
+              lock: true
+              color: Green
+        - attributes:
+            room: {{ rooms }}
+            type: xbox
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              spin_on: true
+              size: {{ icon_size|default('25%') }}
+              lock: false
+              color: Green
+        - attributes:
+            room: {{ rooms }}
+            type: non-climate-fan
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+              spin_on: true
+              color: DodgerBlue
+        - attributes:
+            room: {{ rooms }}
+            type: non-climate-fan
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+              spin_on: true
+              color: DodgerBlue
+        - attributes:
+            room: {{ rooms }}
+            type: switch
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+        - attributes:
+            room: {{ rooms }}
+            type: switch
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              grid: "{{ grid|default('light-devices-grid') }}"
+              template: '../popup-cards/light-switch.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+        - !include ../../../hki-base/includes/empty-button.yaml
+        - !include ../../../hki-base/includes/empty-button.yaml
+    sort:
+      method: {{ sort|default('name') }}
+      numeric: true
+    card:
+      type: custom:layout-card
+      column_num: {{ columns|default('3') }}
+      layout: horizontal

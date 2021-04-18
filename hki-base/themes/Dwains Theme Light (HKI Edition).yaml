@@ -1,0 +1,261 @@
+Dwains Theme Light (HKI Edition):
+  ### Theme Dwains Theme Light (modified) for Homekit Infused
+
+  ## User Settings
+
+  ### Background image (can be an image or a color)
+  background-image: '#e6e6ed' 
+  primary-background-color: 'var(--background-image)'
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'Black'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Display a gap at the left and right side of cards on a smartphone
+  display-gap: 10px
+
+  ### Border Radius and Box Shadow
+  border-radius: 12px
+  box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+  bar-card-border-radius: 12px
+
+  ### Button Colors
+  button-color: '#FFFFFF'
+
+  button-on-color: '#FFFFFF'
+  button-on-name-color: black
+  button-on-state-color: black
+  button-on-label-color: gray
+  button-on-lock-color: gray
+  button-on-icon-color: var(--paper-item-icon-active-color)
+  button-on-opacity: 1.0
+  button-on-box-shadow: none
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
+  
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+
+  # Card Mod
+  card-mod-theme: Dwains Theme Light (HKI Edition)
+  card-mod-root-yaml: |
+    .: |
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        top: auto !important;
+        bottom: 0 !important;
+        transform: unset !important;
+        box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      #view {
+        margin-top: -57px !important;
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+
+      {% elif is_state('input_select.navigation_bar', 'Top') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        box-shadow: none !important;
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+      {% endif %}
+
+  # Toast / Badge
+  paper-toast-background-color: '#821414'
+
+  ha-card-background: 'var(--button-color)'
+  paper-card-background-color: 'var(--ha-card-background)'
+  paper-item-icon-color: '#262628'
+  paper-item-icon-active-color: '#b58e31'
+  paper-item-icon_-_color: 'var(--primary-text-color)'
+
+  #color for top small bar notch on ios
+  primary-color: '#262628'
+
+  #Custom header
+  ch-active-tab-color: '#2fbae5'
+  ch-tab-indicator-color: '#2fbae5'
+
+  #left sidebar
+  sidebar-icon-color: '#d0d0d0'
+  sidebar-selected-icon-color: '#2fbae5'
+  sidebar-selected-text-color: 'black'

@@ -1,0 +1,11 @@
+entity: input_select.hki_settings_selector
+size: 25%
+aspect_ratio: 1/1
+show_last_changed: false
+show_label: true
+show_state: false
+styles:
+  card:
+    - opacity: 0.8
+hold_action:
+  action: none

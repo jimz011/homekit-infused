@@ -1,0 +1,7 @@
+# lovelace_gen
+type: markdown
+style: |
+  ha-card {
+    height: 0px !important;
+  }
+content: ' '

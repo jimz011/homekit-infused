@@ -1,0 +1,62 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
+name: {{ name }}
+icon: {{ icon }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
+hold_action:
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
+double_tap_action:
+  action: call-service
+  service: media_player.select_source
+  service_data:
+    entity_id: {{ entity_id }}
+    source: {{ source}}
+  haptic: light
+state:
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}
+        - --ha-card-background: "{{ card_color_off|default('var(--ha-card-background)') }}"
+      icon:
+        - color: "{{ icon_color_off|default('var(--paper-item-icon-color)') }}"
+        - animation: {{ animation|default('none') }}
+      name:
+        - color: "{{ name_color_off|default('var(--primary-text-color)') }}"
+      state:
+        - color: "{{ state_color_off|default('var(--primary-text-color)') }}"
+      label:
+        - color: "{{ label_color_off|default('var(--primary-text-color)') }}"

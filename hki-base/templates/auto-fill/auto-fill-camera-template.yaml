@@ -1,0 +1,26 @@
+# lovelace_gen
+
+type: custom:auto-entities
+filter:
+  include:
+    - attributes:
+        type: camera
+      options:
+        type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: {{ aspect_ratio|default('16x9')}}
+        entity: this.entity_id
+        camera_view: {{ camera_view|default('auto')}}
+        show_name: {{ show_name|default('false')}}
+        show_state: {{ show_state|default('false')}}
+sort:
+  method: {{ sort|default('name') }}
+  numeric: true
+card:
+  type: custom:layout-card
+  column_num: {{ columns|default('1') }}

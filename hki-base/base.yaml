@@ -1,0 +1,876 @@
+# lovelace_gen
+- path: {{ _global.general_config.frontpage.path|default('home') }}
+  icon: {{ _global.general_config.frontpage.icon|default('mdi:home') }}
+  visible: {{ _global.general_config.frontpage.show_in_navbar|default('true') }}
+  title: {{ _global.general_config.frontpage.title|default('Home') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        {% if _global.general_config.frontpage.show_hide.show_header is true %}
+        - !include
+          - templates/header/header-base-template.yaml
+            {% raw %}
+          - title: "{{ states('sensor.greeting') }}"
+            {% endraw %}
+            {% if ((_global.general_config.frontpage.show_hide.show_notifications is defined) and (_global.general_config.frontpage.show_hide.show_notifications == false )) %}
+            header_bottom: empty-subtitle.yaml
+            {% else %}
+            header_bottom: header-notifications.yaml
+            {% endif %}
+            icon_size: 80%
+        {% endif %}
+        - type: custom:layout-card
+          min_columns: {{ _global.general_config.frontpage.columns.view_min_columns|default('1') }}
+          max_columns: {{ _global.general_config.frontpage.columns.view_max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            {% if _global.general_config.frontpage.auto_fill is true %}
+            {% if (_global.general_config.frontpage.persons is undefined) and (_global.general_config.frontpage.custom_cards is false) and (_global.general_config.frontpage.show_hide.show_persons is true) %}
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  content: >
+                    **WELCOME:**
+    
+    
+                    You have succesfully installed Homekit Infused. Please read the documentation on https://github.com/jimz011/homekit-infused.
+    
+    
+                    To start configuring your first pieces, please open /hki-user/config/general_config.yaml and adjust the settings accordingly. By default everything should work out of the box, but you must either set one of the following parameters. Either enter all of your households person information at the `persons:` line or set `auto-fill: false` and `custom_cards: true`.
+                    
+    
+                    This message and the messages below will disappear when setting either one of those settings.
+    
+    
+                    Enjoy Homekit Infused!
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  content: >
+                    **GENERAL CONFIG:**
+    
+    
+                    The general config file holds all of the information that is required to configure the frontpage, menu and the header. The settings in this file are pretty straightforward and you can change them at will.
+    
+    
+                    When you use auto-filling on either of these views you should uncomment the weather and persons pieces and add your own persons accordingly. When using an uneven number make sure you put the last person in your household under the `persons_alt:` tab.
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  content: >
+                    **VIEWS:**
+    
+    
+                    To create views you should open the following file `/hki-user/config/view_config.yaml`. To create views you need at least the keyname (which will be the name of the view). This will render a new view with that name for you and put a shortcut in the menu.
+    
+    
+                    Make sure that you set at least `devices:` and/or `custom_cards: true` to make the view configurable and useful.
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  content: >
+                    **AUTO-FILLING AND CUSTOM-CARDS:**
+    
+    
+                    Homekit Infused has auto-filling capabilities and can be set at the view level `/hki-user/config/view_config.yaml`. For all the available options please refer to the documentation.
+    
+    
+                    When setting `custom_cards: true` on any of the views that you create, you can add your own custom cards to that view. The path to this view is always `/hki-../hki-user/views/NAME_OF_THE_VIEW`. These folders will not be created automatically and has to be done manually.
+                    
+                    If you would have setup a view named lights and have `custom_cards: true` you should create a folder named lights like this `/hki-../hki-user/views/lights`. You can then put your own code in there, read the documentation for more information.
+            {% endif %}
+            {% if (_global.general_config.frontpage.weather is defined) or (_global.general_config.frontpage.persons is defined) or (_global.general_config.frontpage.persons_alt is defined) %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+            {% endif %}
+                  {% if ( (_global.general_config.frontpage.weather is defined) and (_global.general_config.frontpage.show_hide.show_weather is true) ) %}
+                  - type: custom:simple-weather-card                    
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                        opacity: 0.8;
+                        font-size: 12px;
+                        font-family: var(--font-family);
+                      }                      
+                    entity: {{ _global.general_config.frontpage.weather.entity }}
+                    name: {{ _global.general_config.frontpage.weather.city_name }}
+                    backdrop: false
+                    tap_action:
+                      action: navigate
+                      navigation_path: /homekit-infused/{{ _global.general_config.frontpage.weather.weather_path_shortcut }}
+                  {% endif %}
+                  {% if ( (_global.general_config.frontpage.persons is defined) and (_global.general_config.frontpage.show_hide.show_persons is true) ) %}
+                  - type: grid
+                    columns: {{ _global.general_config.frontpage.columns.persons }}
+                    square: false
+                    cards:
+                      {% for name, data in _global.general_config.frontpage.persons.items() %}
+                      - !include
+                        {% if ( (data.phone_battery_sensor is defined) or (data.travel_time_to_work is defined) or (data.travel_time_to_home is defined) ) %}
+                        - templates/picture-elements/frontpage-photo.yaml
+                        {% else %}
+                        - templates/picture-elements/frontpage-photo-simple.yaml
+                        {% endif %}
+                        - person: {{ data.person_entity }}
+                          image_path: {{ data.image_path|default('/local/images/default_person.png') }}
+                          navigation_path: {{ name|lower }}
+                          alignment: {{ data.alignment }}
+                          text_color: {{ data.text_color }}
+                          phone_battery_sensor: {{ data.phone_battery_sensor }}
+                          travel_time_to_home: {{ data.travel_time_to_home }}
+                          travel_time_to_work: {{ data.travel_time_to_work }}
+                      {% endfor %}
+                  {% endif %}
+                  {% if ( (_global.general_config.frontpage.persons_alt is defined) and (_global.general_config.frontpage.show_hide.show_persons is true) ) %}
+                  - type: grid
+                    columns: {{ _global.general_config.frontpage.columns.persons_alt }}
+                    square: false
+                    cards:
+                      {% for name, data in _global.general_config.frontpage.persons_alt.items() %}
+                      - !include
+                        {% if ( (data.phone_battery_sensor is defined) or (data.travel_time_to_work is defined) or (data.travel_time_to_home is defined) ) %}
+                        - templates/picture-elements/frontpage-photo.yaml
+                        {% else %}
+                        - templates/picture-elements/frontpage-photo-simple.yaml
+                        {% endif %}
+                        - person: {{ data.person_entity }}
+                          image_path: {{ data.image_path|default('/local/images/default_person.png') }}
+                          navigation_path: {{ name|lower }}
+                          alignment: {{ data.alignment }}
+                          text_color: {{ data.text_color }}
+                          phone_battery_sensor: {{ data.phone_battery_sensor }}
+                          travel_time_to_home: {{ data.travel_time_to_home }}
+                          travel_time_to_work: {{ data.travel_time_to_work }}
+                      {% endfor %}
+                  {% endif %}
+            {% if (_global.general_config.frontpage.show_hide.show_favorites is true) or (_global.general_config.frontpage.show_hide.show_rooms is true) %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  {% if _global.general_config.frontpage.show_hide.show_favorites is true %}
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                      }
+                    content: '&nbsp; {{ _global.general_config.menu.name.favorites|default('Favorites') }}' 
+                  - type: grid
+                    columns: {{ _global.general_config.frontpage.columns.buttons }}
+                    cards:
+                      {% for name, data in _global.view_config.items() %}
+                      {% if data.show_in_favorites is defined %}
+                      - !include
+                        - templates/button/button-badge.yaml
+                        - name: {{ name|replace("_", " ")|title }}
+                          label: Overview
+                          icon: {{ data.icon }}
+                          navigation_path: /homekit-infused/{{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% else %}
+                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                  {% endif %}
+                  {% if _global.general_config.frontpage.show_hide.show_rooms is true %}
+                  - type: markdown
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                      }
+                    content: '&nbsp; {{ _global.general_config.menu.name.rooms|default('Rooms') }}' 
+                  - type: grid
+                    columns: {{ _global.general_config.frontpage.columns.buttons }}
+                    cards:
+                      {% for name, data in _global.view_config.items()|sort %}
+                      {% if data.type is defined %}
+                      - !include
+                        - templates/button/button-badge.yaml
+                        - name: {{ name|replace("_", " ")|title }}
+                          label: Overview
+                          icon: {{ data.icon }}
+                          navigation_path: /homekit-infused/{{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% else %}
+                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %} 
+                  {% endif %}
+            {% endif %}  
+            {% if _global.general_config.frontpage.show_hide.show_map is true %}
+            - type: custom:state-switch
+              entity: mediaquery
+              states:
+                "(min-width: 1000px)":
+                  type: custom:mod-card
+                  style: |
+                    ha-card {
+                      margin-left: 7px;
+                      margin-right: 7px;
+                    }
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - type: markdown
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                          }
+                        content: '&nbsp; Map' 
+                      - type: custom:auto-entities
+                        filter:
+                          include:
+                            - entity_id: '*person*'
+                        show_empty: false
+                        sort:
+                          method: name
+                          numeric: true
+                        card:
+                          type: map                    
+                          style: |
+                            ha-card {
+                              --paper-item-icon-color: black;
+                              color: black;
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                              font-family: var(--font-family);
+                              font-size: 12px;
+                              opacity: 0.8;
+                              overflow: hidden;
+                            }                      
+                          default_zoom: 15
+                          aspect_ratio: 4x3
+                "all":
+                  !include includes/gap-height.yaml
+            {% endif %}
+            {% endif %}
+        {% if _global.general_config.frontpage.custom_cards is true %}
+        - type: custom:layout-card
+          min_columns: {{ _global.general_config.frontpage.columns.view_min_columns|default('1') }}
+          max_columns: {{ _global.general_config.frontpage.columns.view_max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            !include_dir_merge_list ../hki-user/views/frontpage/
+        {% endif %}
+        {% if _global.general_config.frontpage.custom_cards == "advanced" %}
+        - type: vertical-stack
+          cards:
+            !include_dir_merge_list ../hki-user/views/frontpage/
+        {% endif %}
+        - !include includes/gap-height.yaml
+
+- path: {{ _global.general_config.menu.path|default('menu') }}
+  icon: {{ _global.general_config.menu.icon|default('mdi:apps') }}
+  visible: {{ _global.general_config.menu.show_in_navbar|default('true') }}
+  title: {{ _global.general_config.menu.title|default('Menu') }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        {% if _global.general_config.menu.show_hide.show_header is true %}
+        - !include
+          - templates/header/header-base-template.yaml
+          - title: {{ _global.general_config.menu.title|default('Menu') }}
+            icon: {{ _global.general_config.menu.icon|default('mdi:apps') }}
+            subtitle: "[[[ return `Homekit Infused Version: ${states['sensor.hki_current_version'].state}`; ]]]"
+            {% if ((_global.general_config.menu.show_hide.show_subtitle is defined) and (_global.general_config.menu.show_hide.show_subtitle == false)) %}
+            header_bottom: empty-subtitle.yaml
+            {% else %}
+            header_bottom: header-bottom.yaml
+            {% endif %}
+        {% endif %}
+        - type: custom:layout-card
+          min_columns: {{ _global.general_config.menu.columns.view_min_columns|default('1') }}
+          max_columns: {{ _global.general_config.menu.columns.view_max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            {% if _global.general_config.menu.auto_fill is true %}
+            {% if _global.general_config.menu.show_hide.show_favorites is true %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ _global.general_config.menu.name.favorites|default('Favorites') }}' 
+                  - type: grid
+                    columns: {{ _global.general_config.menu.columns.buttons|default('3') }}
+                    cards:
+                      {% for name, data in _global.view_config.items() %}
+                      {% if data.show_in_favorites is true %}
+                      - !include
+                        - templates/button/button-badge.yaml
+                        - name: {{ name|replace("_", " ")|title }}
+                          label: Overview
+                          icon: {{ data.icon }}
+                          navigation_path: /homekit-infused/{{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% else %}
+                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %} 
+            {% endif %}
+            {% if _global.general_config.menu.show_hide.show_rooms is true %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ _global.general_config.menu.name.rooms|default('Rooms') }}' 
+                  - type: grid
+                    columns: {{ _global.general_config.menu.columns.buttons|default('3') }}
+                    cards:
+                      {% for name, data in _global.view_config.items()|sort %}
+                      {% if data.type is defined %}
+                      - !include
+                        - templates/button/button-badge.yaml
+                        - name: {{ name|replace("_", " ")|title }}
+                          label: Overview
+                          icon: {{ data.icon }}
+                          navigation_path: /homekit-infused/{{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% else %}
+                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %} 
+            {% endif %}
+            {% if _global.general_config.menu.show_hide.show_all is true %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ _global.general_config.menu.name.other|default('Other') }}' 
+                  - type: grid
+                    columns: {{ _global.general_config.menu.columns.buttons|default('3') }}
+                    cards:
+                      {% for name, data in _global.view_config.items()|sort %}
+                      {% if data.type is not defined %}
+                      - !include
+                        - templates/button/button-badge.yaml
+                        - name: {{ name|replace("_", " ")|title }}
+                          label: Overview
+                          icon: {{ data.icon }}
+                          navigation_path: /homekit-infused/{{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% else %}
+                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %}
+            {% endif %}
+            {% endif %}
+        {% if _global.general_config.menu.custom_cards is true %}
+        - type: custom:layout-card
+          min_columns: {{ _global.general_config.menu.columns.view_min_columns|default('1') }}
+          max_columns: {{ _global.general_config.menu.columns.view_max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            !include_dir_merge_list ../hki-user/views/{{ _global.general_config.menu.path|default('menu') }}
+        {% elif _global.general_config.menu.custom_cards == "advanced" %}
+        - type: vertical-stack
+          cards:
+            !include_dir_merge_list ../hki-user/views/{{ _global.general_config.menu.path|default('menu') }}
+        {% endif %}
+        - type: custom:layout-card
+          min_columns: 1
+          max_columns: 3
+          layout: horizontal
+          cards:
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; Homekit Infused'
+                  - type: custom:state-switch
+                    entity: group
+                    default: admin
+                    states:
+                      admin:
+                        type: grid
+                        columns: 3
+                        cards:
+                          - !include
+                            - templates/button/button-badge.yaml
+                            - name: About
+                              label: HKI
+                              icon: mdi:help-circle
+                              navigation_path: /homekit-infused/about
+                              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
+                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
+                          - !include
+                            - templates/button/button-badge.yaml
+                            - name: HKI
+                              label: Settings
+                              icon: mdi:palette
+                              navigation_path: /homekit-infused/hki_settings
+                              notification: "[[[ return '&nbsp'; ]]]"
+                              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+                          - !include
+                            - templates/button/button-badge.yaml
+                            - name: HA
+                              label: Settings
+                              icon: mdi:cogs
+                              navigation_path: /homekit-infused/ha_settings
+                              notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
+                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
+                      user:
+                        type: grid
+                        columns: 3
+                        cards:
+                          - !include
+                            - templates/button/button-badge.yaml
+                            - name: About
+                              label: HKI
+                              icon: mdi:help-circle
+                              navigation_path: /homekit-infused/about
+                              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
+                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
+                          - !include
+                            - templates/button/button-badge.yaml
+                            - name: Go to
+                              label: Profile
+                              icon: mdi:account
+                              navigation_path: /profile
+                              notification: "[[[ return '&nbsp'; ]]]"
+                              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+        - !include includes/gap-height.yaml
+
+{% for name, data in _global.view_config.items() %}
+- path: {{ name }}
+  icon: {{ data.icon|default('mdi:home') }}
+  visible: {{ data.show_in_navbar|default('false') }}
+  title: {{ name|replace("_", " ")|title }}
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards:
+        {% if (data.show_header is undefined) or (data.show_header is true) %}
+        - !include
+          - templates/header/header-base-template.yaml
+          - title: {{ name|replace("_", " ")|title }}
+            icon: {{ data.icon|default('mdi:home') }}
+            subtitle: "{{ data.subtitle }}"
+            {% if ((data.show_subtitle is defined) and (data.show_subtitle == false)) %}
+            header_bottom: empty-subtitle.yaml
+            {% else %}
+            header_bottom: header-bottom.yaml
+            {% endif %}
+        {% endif %}
+        - type: custom:layout-card
+          min_columns: {{ data.min_columns|default('1') }}
+          max_columns: {{ data.max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            {% if data.weather is defined %}
+            {% if data.weather.entity is defined %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: weather-forecast
+                style: |
+                  ha-card {
+                    font-size: var(--name-font-size);
+                    font-family: var(--font-family);
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                    opacity: 0.8;
+                  }
+                entity: {{ data.weather.entity }}
+                name: {{ data.city_name }}
+            {% endif %}
+            {% if data.weather.windy_url is defined%}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: iframe
+                style: |
+                  ha-card {
+                    position: relative !important;
+                    overflow: hidden !important;
+                    border-radius: var(--border-radius) !important;
+                    box-shadow: var(--box-shadow);
+                    -webkit-border-radius: var(--border-radius) !important;
+                    border-radius-x: var(--border-radius) !important;;
+                  }
+                  iframe {
+                    border-radius: var(--border-radius) !important;
+                    -webkit-border-radius: var(--border-radius);
+                    border-radius-x: var(--border-radius) !important;
+                    overflow: hidden !important;
+                  }
+                aspect_ratio: 125%
+                url: {{ data.weather.windy_url }}
+            {% endif %}
+            {% endif %}
+            {% if data.vacuum is defined %}
+            {% if (data.vacuum.show_controls is not false) or (data.vacuum.show_controls is undefined) %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ data.vacuum.controls_title|default('Controls') }}'
+                  - !include
+                    - templates/vacuum/controls.yaml
+                    - entity: {{ data.vacuum.entity|default('vacuum.rockrobo') }}
+            {% endif %}
+            {% endif %}
+            {% if data.devices is defined %}
+            {% if data.climate is defined %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ data.climate.preset_name|default('Presets') }}'
+                  - type: horizontal-stack
+                    cards:
+                      - !include
+                        - templates/button/service-call.yaml
+                        - name: {{ data.climate.power_name_on|default('Power') }}
+                          label: {{ data.climate.power_label_on|default('All') }}
+                          icon: {{ data.climate.power_icon_on|default('mdi:power') }}
+                          service: climate.turn_on
+                          service_entity: all
+                          margin_right: 40px
+                          opacity_off: 0.8
+                      - !include
+                        - templates/button/service-call-with-option.yaml
+                        - name: {{ data.climate.frost_protection_name|default('Frost') }}
+                          label: {{ data.climate.frost_protection_label|default('Protection') }}
+                          icon: {{ data.climate.frost_protection_icon|default('mdi:snowflake-melt') }}
+                          service: climate.set_temperature
+                          service_entity: all
+                          extra: temperature
+                          option: {{ data.climate.frost_protection_temperature|default('11') }}
+                          margin_right: 40px
+                          opacity_off: 0.8
+                      - !include
+                        - templates/button/service-call-with-option.yaml
+                        - name: {{ data.climate.heat_all_name|default('Heat') }}
+                          label: {{ data.climate.heat_all_label|default('All') }}
+                          icon: {{ data.climate.heat_all_icon|default('mdi:fire') }}
+                          service: climate.set_temperature
+                          service_entity: all
+                          extra: temperature
+                          option: {{ data.climate.heat_all_temperature|default('22') }}
+                          margin_right: 40px
+                          opacity_off: 0.8
+                      - !include
+                        - templates/button/service-call.yaml
+                        - name: {{ data.climate.power_name_off|default('Power') }}
+                          label: {{ data.climate.power_label_off|default('All Off') }}
+                          icon: {{ data.climate.power_icon|default('mdi:power') }}
+                          service: climate.turn_off
+                          service_entity: all
+                          margin_right: 40px
+                          opacity_off: 0.8
+            {% endif %}
+            {% for content, items in data.devices.items() %}
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-left: 7px;
+                  margin-right: 7px;
+                }
+              card:
+                type: vertical-stack
+                cards:
+                  - !include
+                    - templates/other/title-text.yaml
+                    - name: '&nbsp; {{ content|replace("_", " ")|replace(".lock", " ")|replace(".fan", " ")|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".graph", " ")|replace(".red", " ")|replace(".blue", " ")|replace(".yellow", " ")|replace(".black", " ")|replace(".white", " ")|replace(".purple", " ")|replace(".pink", " ")|replace(".cyan", " ")|replace(".green", " ")|replace(".orange", " ")|title }}'
+                  - type: grid
+                    {% for device in items %}
+                    {% if 'camera.' in device %}
+                    columns: {{ data.camera_columns|default('1') }}
+                    square: false
+                    {% elif ('.graph' in device) or ('.graph' in content) %}
+                    columns: {{ data.graph_columns|default('3') }}
+                    {% else %}
+                    columns: {{ data.button_columns|default('3') }}
+                    {% endif %}
+                    {% endfor %}
+                    cards:
+                      {% for device in items %}
+                      {% if 'camera.' in device %}
+                      {% if ('vacuum' in device) or ('roborock' in device) or ('rockrobo' in device) or ('rock_robo' in device) or ('ecovac' in device) or ('roomba' in device) %}
+                      - !include
+                        - templates/vacuum/vacuum_map.yaml
+                        - entity: {{ device }}
+                          vacuum_entity: {{ data.vacuum.entity }}
+                      {% else %}
+                      - type: picture-entity
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            overflow: hidden;
+                          }
+                        aspect_ratio: 16x10.5
+                        entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                        show_state: false
+                      {% endif %}
+                      {% elif 'light.' in device %}
+                      - !include
+                        - templates/button/button.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                          label: !include includes/brightness-label.yaml
+                          grid: light-devices-grid
+                          {% if ('.rgb' in device) or ('.rgb' in content) %}
+                          template: '../popup-cards/light-rgb.yaml'
+                          {% elif ('.color-temp' in device) or ('.color-temp' in content) %}
+                          template: '../popup-cards/light-color-temp.yaml'
+                          {% else %}
+                          template: '../popup-cards/light-switch.yaml'
+                          {% endif %}
+                      {% elif 'binary_sensor.' in device %}
+                      - !include
+                        - templates/button/button.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                          tap_action: more-info
+                          hold_action: more-info
+                          show_last_changed: true
+                      {% elif 'media_player.' in device %}
+                      - !include
+                        - templates/button/button.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                          tap_action: more-info
+                          hold_action: more-info
+                          show_entity_picture: true
+                      {% elif ('switch.' in device) or ('.fan' in content) or ('fan' in device) %}
+                      - !include
+                        - templates/button/button.yaml
+                        {% if 'switch.fan' in device %}
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan.fan", ".fan") }}
+                        {% else %}
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan", " ") }}
+                        {% endif %}
+                          template: '../popup-cards/light-switch.yaml'
+                          grid: light-devices-grid
+                          {% if ('fan' in device) or ('fan' in content) %}
+                          hold_action: more-info
+                          spin_on: true
+                          color: DodgerBlue
+                          {% endif %}
+                      {% elif 'climate.' in device %}
+                      - !include
+                        - templates/button/thermostat.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                      {% elif ('.graph' in device) or ('.graph' in content) %}
+                      - !include
+                        - templates/other/mini-graph.yaml
+                        - entity: {{ device|replace(".graph", " ")|replace(".red", " ")|replace(".orange", " ")|replace(".blue", " ")|replace(".yellow", " ")|replace(".black", " ")|replace(".white", " ")|replace(".purple", " ")|replace(".pink", " ")|replace(".cyan", " ")|replace(".green", " ") }}
+                          {% if ('.red' in device) or ('.red' in content) %}
+                          line_color: red
+                          {% elif ('.blue' in device) or ('.blue' in content) %}
+                          line_color: blue
+                          {% elif ('.yellow' in device) or ('.yellow' in content) %}
+                          line_color: yellow
+                          {% elif ('.black' in device) or ('.black' in content) %}
+                          line_color: black
+                          {% elif ('.white' in device) or ('.white' in content) %}
+                          line_color: white
+                          {% elif ('.purple' in device) or ('.purple' in content) %}
+                          line_color: purple
+                          {% elif ('.pink' in device) or ('.pink' in content) %}
+                          line_color: pink
+                          {% elif ('.cyan' in device) or ('.cyan' in content) %}
+                          line_color: cyan
+                          {% elif ('.orange' in device) or ('.orange' in content) %}
+                          line_color: orange
+                          {% else %}
+                          line_color: green
+                          {% endif %}
+                          graph_type: line
+                          show_extrema: true
+                          show_average: true
+                          decimals: 2
+                          font_size: 65
+                      {% elif 'sensor.' in device %}
+                      - !include
+                        - templates/button/button.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                          template: '../popup-cards/mini-graph.yaml'
+                          tap_action: more-info
+                          show_last_changed: true
+                      {% else %}
+                      - !include
+                        - templates/button/button.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
+                          tap_action: more-info
+                          hold_action: more-info
+                      {% endif %}
+                          {% if ( ('.lock' in device) or ('.lock' in content) ) %}
+                          lock: true 
+                          {% endif %}
+                      {% endfor %}
+            {% endfor %} 
+        {% endif %}  
+        {% if data.map is true %}
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 7px;
+              margin-right: 7px;
+            }
+          card:
+            type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: '*person*'
+            show_empty: false
+            sort:
+              method: name
+              numeric: true
+            card:
+              type: map                    
+              style: |
+                ha-card {
+                  --paper-item-icon-color: black;
+                  color: black;
+                  border-radius: var(--border-radius);
+                  box-shadow: var(--box-shadow);
+                  font-family: var(--font-family);
+                  font-size: 12px;
+                  opacity: 0.8;
+                  overflow: hidden;
+                }                      
+              default_zoom: 15
+              aspect_ratio: 4x3
+        {% endif %}
+        {% if data.waze is true %}
+        - type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 7px;
+              margin-right: 7px;
+            }
+          card:
+            type: iframe
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+              }
+            url: https://embed.waze.com/iframe
+        {% endif %}
+        {% if data.custom_cards is defined %}
+        {% if data.custom_cards is true %}
+        - type: custom:layout-card
+          min_columns: {{ data.min_columns|default('1') }}
+          max_columns: {{ data.max_columns|default('3') }}
+          layout: horizontal
+          cards:
+            !include_dir_merge_list ../hki-user/views/{{ name }}
+        {% elif data.custom_cards == "advanced" %}
+        - type: vertical-stack
+          cards:
+            !include_dir_merge_list ../hki-user/views/{{ name }}
+        {% endif %}
+        {% endif %}
+        - !include includes/gap-height.yaml
+{% endfor %}
+
+# About View
+- !include settings/about.yaml
+
+# HA Settings View
+- !include settings/ha-settings.yaml
+
+# HKI Settings View
+- !include settings/hki-settings.yaml

@@ -1,0 +1,200 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
+name: "{{ name }}"
+icon: "{{ icon }}"
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+label: "{{ label|default('&nbsp;') }}"
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('true') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: {{ tap_action|default('toggle') }}
+  haptic: light
+hold_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    #hide_header: true
+    style:
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+          --paper-slider-knob-color: #FFFFFF !important;
+          --paper-slider-active-color: #dedede !important;
+          --switch-checked-button-color: #FFFFFF !important;
+          --switch-unchecked-button-color: #FFFFFF !important;
+          --switch-checked-track-color: green !important;
+          --switch-unchecked-track-color: red !important;
+          --primary-text-color: white !important;
+          --paper-item-icon-color: white !important;
+        }
+        app-header, app-toolbar {
+          background-color: rgba(0,0,0,0.0) !important;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      !include
+      - {{ template|default('../popup-cards/light-switch.yaml') }}
+      - entity: {{ entity }}
+        slider_height: "{{ slider_height|default('410px') }}"
+        display_type: {{ display_type|default('auto') }}
+        slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+        color_1: "{{ color_1|default('#ff8800') }}"
+        color_2: "{{ color_2|default('#ff005f') }}"
+        color_3: "{{ color_3|default('#28ff00') }}"
+        color_4: "{{ color_4|default('#00a0ff') }}"
+        color_5: "{{ color_5|default('#8300ff') }}"
+        color_6: "{{ color_6|default('#0300ff') }}"
+        service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+        service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+        service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+        service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+        service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+        service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        line_color: {{ line_color|default('red') }}
+#    deviceID:
+#      - this
+  haptic: heavy
+double_tap_action:
+  action: {{ hold_action|default('call-service') }}
+  service: browser_mod.popup
+  service_data:
+    title: ' '
+    #hide_header: true
+    style:
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+          --paper-slider-knob-color: #FFFFFF !important;
+          --paper-slider-active-color: #dedede !important;
+          --switch-checked-button-color: #FFFFFF !important;
+          --switch-unchecked-button-color: #FFFFFF !important;
+          --switch-checked-track-color: green !important;
+          --switch-unchecked-track-color: red !important;
+          --primary-text-color: white !important;
+          --paper-item-icon-color: white !important;
+        }
+        app-header, app-toolbar {
+          background-color: rgba(0,0,0,0.0) !important;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      !include
+      - {{ template|default('../popup-cards/light-switch.yaml') }}
+      - entity: {{ entity }}
+        slider_height: "{{ slider_height|default('410px') }}"
+        display_type: {{ display_type|default('auto') }}
+        slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+        color_1: "{{ color_1|default('#ff8800') }}"
+        color_2: "{{ color_2|default('#ff005f') }}"
+        color_3: "{{ color_3|default('#28ff00') }}"
+        color_4: "{{ color_4|default('#00a0ff') }}"
+        color_5: "{{ color_5|default('#8300ff') }}"
+        color_6: "{{ color_6|default('#0300ff') }}"
+        service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+        service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+        service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+        service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+        service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+        service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        line_color: {{ line_color|default('red') }}
+#    deviceID:
+#      - this
+  haptic: heavy
+state:
+  - value: "on" 
+    spin: {{ spin_on|default('false') }} 
+    styles:
+      card:
+        - --ha-card-background: {{ ha_card_background|default('var(--button-on-color)') }}
+        - opacity: var(--button-on-opacity)
+        - -webkit-box-shadow: var(--button-on-box-shadow)
+        - box-shadow: var(--button-on-box-shadow)
+      name:
+        - color: var(--button-on-name-color)
+      state:
+        - color: var(--button-on-state-color)
+      lock:
+        - color: var(--button-on-lock-color) 
+      label:
+        - color: var(--button-on-label-color)
+  - value: "off"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.5') }}
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--primary-text-color)
+  - value: "unavailable"
+    styles:
+      card:
+        - opacity: 0.2
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: hsl(0, 100%, 50%)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color)
+  - value: "scening"
+    spin: {{ spin_off|default('false') }}
+    styles:
+      card:
+        - opacity: {{ opacity_off|default('0.8') }}
+      icon:
+        - color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--paper-item-icon-color)
+  - value: 1000
+    operator: '<='
+    color: {{ icon_color_off|default('var(--paper-item-icon-color)') }}

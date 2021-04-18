@@ -1,0 +1,294 @@
+Paper:
+  ### Theme Paper for Homekit Infused
+
+  ## User Settings
+
+  ### Background image (can be an image or a color)
+  background-image: "#fdf6e3"
+  primary-background-color: 'var(--background-image)'
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'Black'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Display a gap at the left and right side of cards on a smartphone
+  display-gap: 10px
+
+  ### Border Radius and Box Shadow
+  border-radius: 12px
+  box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+  bar-card-border-radius: 12px
+
+  ### Button Colors
+  button-color: '#fdf6e3'
+  
+  button-on-color: '#FFFFFF'
+  button-on-name-color: black
+  button-on-state-color: black
+  button-on-label-color: gray
+  button-on-lock-color: gray
+  button-on-icon-color: var(--paper-item-icon-active-color)
+  button-on-opacity: 1.0
+  button-on-box-shadow: none
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
+  
+
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+  
+  # Card Mod
+  card-mod-theme: Paper
+  card-mod-root-yaml: |
+    .: |
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        top: auto !important;
+        bottom: 0 !important;
+        transform: unset !important;
+        box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      #view {
+        margin-top: -57px !important;
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+
+      {% elif is_state('input_select.navigation_bar', 'Top') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        box-shadow: none !important;
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+      {% endif %}
+
+  # Lovelace Header Text
+  paper-toast-background-color: '#821414'
+  # Notification Badge
+  notification-badge-color: 'black'
+  notification-popup-action-color: 'white'
+  # Solarized Light Theme (Renamed to Paper to fit match the HKI experience)
+  accent-color: "#fdf6e3"
+  dark-primary-color: "#586e75"
+  disabled-text-color: "#7F848E"
+  divider-color: "rgba(0, 0, 0, .12)"
+  google-green-500: "#859900"
+  google-red-500: "#dc322f"
+  label-badge-background-color: "var(--accent-color)"
+  label-badge-border-color: "green"
+  label-badge-red: "#586e75"
+  label-badge-text-color: "var(--primary-text-color)"
+  light-primary-color: "var(--accent-color)"
+  ha-card-background: "var(--button-color)"
+  paper-card-background-color: "var(--ha-card-background)"
+  paper-card-header-color: "var(--dark-primary-color)"
+  paper-dialog-background-color: "#fdf6e3"
+  paper-grey-200: "var(--accent-color)"
+  paper-grey-50: "var(--primary-text-color)"
+  paper-item-icon-active-color: "#b58900"
+  paper-item-icon-color: "var(--primary-text-color)"
+  paper-item-icon_-_color: "green"
+  paper-item-selected_-_background-color: "#cb4b16"
+  paper-item-selected_-_color: "var(--accent-color)"
+  paper-listbox-background-color: "var(--accent-color)"
+  paper-listbox-color: "var(--primary-color)"
+  paper-slider-active-color: "var(--secondary-text-color)"
+  paper-slider-container-color: "linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat"
+  paper-slider-disabled-active-color: "var(--disabled-text-color)"
+  paper-slider-disabled-secondary-color: "var(--disabled-text-color)"
+  paper-slider-knob-color: "var(--secondary-text-color)"
+  paper-slider-knob-start-color: "var(--secondary-text-color)"
+  paper-slider-pin-color: "var(--secondary-text-color)"
+  paper-slider-secondary-color: "var(--secondary-background-color)"
+  paper-tabs-selection-bar-color: "green"
+  paper-toggle-button-checked-bar-color: "var(--primary-color)"
+  paper-toggle-button-checked-button-color: "#268bd2"
+  paper-toggle-button-checked-ink-color: "#268bd2"
+  paper-toggle-button-unchecked-bar-color: "var(--secondary-text-color)"
+  paper-toggle-button-unchecked-button-color: "var(--secondary-background-color)"
+  paper-toggle-button-unchecked-ink-color: "var(--secondary-background-color)"
+  primary-color: "#586e75"
+  primary-text-color: "#657b83"
+  secondary-background-color: "#eee8d5"
+  secondary-text-color: "#93a1a1"
+  table-row-alternative-background-color: "#eee8d5"
+  table-row-background-color: "#fdf6e3"
+  text-primary-color: "var(--primary-background-color)"

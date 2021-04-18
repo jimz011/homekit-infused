@@ -1,0 +1,20 @@
+size: 25%
+aspect_ratio: 1/1
+show_last_changed: true
+show_label: false
+show_state: true
+tap_action: more-info
+hold_action: more-info
+styles:
+  card:
+    - opacity: 0.8
+state:
+  - value: 20
+    operator: '<='
+    color: red
+  - value: 50
+    operator: '<='
+    color: orange
+  - value: 100
+    operator: '<='
+    color: green

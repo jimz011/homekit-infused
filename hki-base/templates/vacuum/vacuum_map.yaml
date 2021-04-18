@@ -1,0 +1,49 @@
+# lovelace_gen
+
+type: picture-elements
+style: |
+  ha-card{
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+camera_image: {{ entity }}
+camera_view: live
+elements:
+  - type: state-label
+    entity: {{ vacuum_entity }}
+    style:
+      left: 0
+      bottom: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      line-height: 15px
+      color: white
+      background-color: rgba(0, 0, 0, 0.3)
+      width: 100%
+      transform: initial
+      padding: 0 8px
+  - type: icon
+    icon: mdi:battery
+    style:
+      bottom: 0
+      right: 0
+      color: white
+      font-family: var(--font-family)
+      line-height: 15px
+      padding: 5px 48px
+      transform: scale(0.75,0.75)
+  - type: state-label
+    entity: {{ vacuum_entity }}
+    attribute: battery_level
+    suffix: '%'
+    style:
+      bottom: 0
+      right: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      transform: initial
+      color: white
+      line-height: 15px
+      padding: 0px 8px

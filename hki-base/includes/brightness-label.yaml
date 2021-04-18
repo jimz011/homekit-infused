@@ -1,0 +1,10 @@
+# This is the brightness label used on light entities.
+# With this template it will only show a label whenever
+# a light is 'on'. It will not display a label when a 
+# light is 'off'.
+
+#### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+# Do NOT change this unless you know what you are doing!
+"[[[ if (typeof(entity) === 'undefined') return; if ('brightness' in entity.attributes) { if (entity.attributes && (entity.attributes.brightness <= 255)) { var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; } } ]]]"

@@ -1,0 +1,101 @@
+# lovelace_gen
+
+# Card
+type: picture-elements
+style: |
+  ha-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+image: "{{ image }}"
+elements:
+  - type: state-label
+    entity: "{{ entity_status}}"
+    style:
+      left: 0
+      bottom: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      line-height: 15px
+      color: white
+      background-color: rgba(0, 0, 0, 0.3)
+      width: 100%
+      transform: initial
+      text-transform: capitalize
+      padding: 0 8px
+  - type: state-label
+    entity: "{{ entity_switch }}"
+    style:
+      bottom: 0
+      right: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      transform: initial
+      color: white
+      line-height: 15px
+      padding: 0px 44px
+  - type: icon
+    icon: mdi:power
+    tap_action:
+      action: toggle
+    entity: "{{ entity_switch }}"
+    style:
+      bottom: 0
+      right: 0
+      transform: initial
+      color: white
+      font-size: 13px
+      font-family: var(--font-family)
+      line-height: 15px
+      padding: 5px 16px
+  - type: state-label
+    entity: "{{ entity_wattage }}"
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: initial
+      font-size: 12px
+      font-family: var(--font-family)
+      color: rgba(255,255,255,0.8)
+      line-height: 32px
+      padding: 2px 35px
+  - type: icon
+    icon: mdi:alpha-w-box
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: scale(0.8)
+      color: rgba(255,255,255,0.8)
+      line-height: 32px
+      padding: 8px 13px
+
+  - type: state-label
+    entity: "{{ entity_extra }}"
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: initial
+      font-size: 12px
+      font-family: var(--font-family)
+      color: rgba(255,255,255,0.8)
+      line-height: 32px
+      padding: 28px 35px
+  - type: icon
+    icon: "{{ entity_extra_icon|default('mdi:alpha-v-box') }}"
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: scale(0.8)
+      color: rgba(255,255,255,0.8)
+      line-height: 32px
+      padding: 35px 13px
+
+                
+          
