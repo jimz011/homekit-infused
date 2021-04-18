@@ -1,0 +1,140 @@
+general_config:
+
+# Alarm Entity ##########################################################################################################################
+  alarm_entity: alarm_control_panel.home_alarm
+
+# Frontpage #############################################################################################################################
+  frontpage:
+  # General
+    title: Home
+    icon: mdi:home
+
+  # Custom Cards
+    custom_cards: false
+    path: home
+
+  # Hide options
+    show_hide:
+      show_header: true
+      show_notifications: true
+      show_in_navbar: true 
+
+      # Auto Fill Only
+      show_weather: true 
+      show_persons: true 
+      show_favorites: true 
+      show_rooms: false
+      show_map: true # Even when set to true this will only show on larger screens, it will not show for mobile phones!
+
+  # Columns
+    columns:
+      view_min_columns: 1
+      view_max_columns: 3
+
+      # Auto Fill Only
+      persons: 2
+      persons_alt: 1
+      buttons: 4
+
+  ### The following options are only required for auto-filling on the frontpage ###
+  # Auto Fill
+  # *Setting auto_fill to false will make the options below inactive!!
+    auto_fill: true
+
+  # Weather
+#   weather:
+#     entity: weather.eindhoven
+#     city_name: Eindhoven
+#     weather_path_shortcut: weather # Create a view with the same name as the path and the frontpage weather bar will take you to that view, you can also have it go to other views!
+
+  # Persons (you can continue to add more people to this list as long as it is an even number, if you have an uneven number put the uneven numbered person in the tab below!)
+#   persons:
+#     stephanie:
+#       name: Stephanie
+#       person_entity: person.stephanie
+#       image_path: /local/images/stephanie_small.png
+#       text_color: white
+#       phone_battery_sensor: sensor.sm_n986b_batterijniveau
+#       travel_time_to_home: sensor.reistijd_stephanie
+#       travel_time_to_work: sensor.reistijd_stephanie_work
+#     jimmy:
+#       name: Jimmy
+#       person_entity: person.jimmy
+#       image_path: /local/images/jimmy_small.png
+#       alignment: right
+#       text_color: white
+#       phone_battery_sensor: sensor.sm_n976b_battery_level
+#       travel_time_to_home: sensor.reistijd_jimmy
+#       travel_time_to_work: sensor.reistijd_jimmy_work
+
+  # Persons (useful when having an uneven family number, use this for your last person when you have e.g. 3, 5 or 7 persons in your home)
+#   persons_alt:
+#     tala:
+#       name: Tala
+#       person_entity: person.tala
+#       image_path: /local/images/tala2.png
+#       location_in_stack: second_row
+#       text_color: white
+
+  ### End of auto-filling options on the frontpage ###
+
+# Menu ##################################################################################################################################
+  menu:
+  # General
+    title: Menu
+    icon: mdi:apps
+
+  # Custom Cards
+    custom_cards: false
+    path: menu
+
+  # Hide Options
+    show_hide:
+      show_header: true
+      show_subtitle: true
+      show_in_navbar: true 
+
+      # Auto Fill Only
+      show_favorites: true 
+      show_rooms: true 
+      show_all: true 
+
+  # Columns
+    columns: 
+      view_min_columns: 1
+      view_max_columns: 3
+
+      # Auto Fill Only
+      buttons: 3
+
+  ### The following options are only required for auto-filling on the frontpage ###
+
+  # Auto Generate Menu
+    auto_fill: true
+
+  # Menu Item Names
+    name:
+      favorites: Favorites
+      rooms: Rooms
+      Other: Other
+      
+# Header ################################################################################################################################
+  header:
+    show_sensors: true 
+    sensors: # You can remove the sensors you don't want to show, you can have a maximum of 5 header sensors
+      sensor_1:
+        icon: mdi:door
+        entity: sensor.current_doors_open
+      sensor_2:
+        icon: mdi:window-closed
+        entity: sensor.current_windows_open
+      sensor_3:
+        icon: mdi:motion-sensor
+        entity: sensor.current_binary_sensors_on
+      sensor_4:
+        icon: mdi:power-plug
+        entity: sensor.current_devices_on
+      sensor_5:
+        icon: mdi:lightbulb
+        entity: sensor.current_lights_on
+  
