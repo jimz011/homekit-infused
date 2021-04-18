@@ -40,7 +40,6 @@ Warning:
 - 32GB DDR3 1600MHz RAM
 - 4x HDD (2x 3TB, 2x 2TB)
 - 2x SSD (1x 120GB, 1x 480GB)
-
 - Hypervisor used: Unraid
 - Docker: Yes
 - VM's: None
