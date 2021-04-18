@@ -35,6 +35,7 @@ Warning:
 
 # Hardware I use personally for this setup
 #### Computer
+
 - Intel i5 4690 3,6GHz
 - 32GB DDR3 1600MHz RAM
 - 4x HDD (2x 3TB, 2x 2TB)
