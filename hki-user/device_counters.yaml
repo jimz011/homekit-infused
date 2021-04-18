@@ -7,119 +7,38 @@
 # All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
 all_climate_entities:
   entities:
-    - climate.tado_smart_radiator_thermostat_va1671957504
-    - climate.tado_smart_radiator_thermostat_va2898201344
-    - climate.tado_smart_radiator_thermostat_va0882906624
-    - climate.tado_smart_radiator_thermostat_va2711623168
 
 # All Fans (Enter all your fans in here)
 all_fan_entities:
   entities:
-    - switch.fan
 
-# Window Sensors
+# Window Sensors (This is used in the header badges, without this the header badge won't work)
 all_window_sensor_entities:
   entities:
-    - binary_sensor.bijkeukenraam
-    - binary_sensor.kleine_kamerraam
-    - binary_sensor.keukenraam
 
-# Door Sensors
+# Door Sensors (This is used in the header badges, without this the header badge won't work)
 all_door_sensor_entities:
   entities:
-  - binary_sensor.voordeur
-  - binary_sensor.woonkamer_deur
-  - binary_sensor.slaapkamer_deur
 
-# Motion Sensors
+# Motion Sensors (This is used in the header badges, without this the header badge won't work)
 all_motion_sensor_entities:
   entities:
-    - binary_sensor.motion_gallerij_camera
-    - binary_sensor.motion_bijkeuken
-    - binary_sensor.motion_toilet
-    - binary_sensor.motion_woonkamer_camera
-    - binary_sensor.motion_office
-    - binary_sensor.motion_gang
-    - binary_sensor.motion_gallerij_camera_2
-    - binary_sensor.motion_kennedylaan_links
 
 # All Detectors (smoke/gas/fire etc)
 all_detector_entities:
   entities:
-    - binary_sensor.smoke_sensor
 
 # All Binary Sensors (put all your binary sensors here e.g. smoke/gas/fire/door/window/motion etc. You can use this as a counter on the security button)
 all_binary_sensor_entities:
   entities:
-    - binary_sensor.bijkeukenraam
-    - binary_sensor.kleine_kamerraam
-    - binary_sensor.keukenraam
-    - binary_sensor.voordeur
-    - binary_sensor.woonkamer_deur
-    - binary_sensor.slaapkamer_deur
-    - binary_sensor.motion_bijkeuken
-    - binary_sensor.motion_toilet
-    - binary_sensor.motion_woonkamer
-    - binary_sensor.motion_office
-    - binary_sensor.motion_gang
-    - binary_sensor.motion_gallerij_camera_2
-    - binary_sensor.motion_gallerij_camera
-    - binary_sensor.smoke_sensor
-    - binary_sensor.motion_kennedylaan_links
     
 # All Lights
 all_light_entities:
   entities:
-    - light.woonkamer_led_lampen
-    - light.gateway_light_7811dcdef324
-    - light.plafond
-    - light.eettafel
-    - light.tafellamp
-    - light.vloerlamp
-    - light.slaapkamer_led_lampen
-    - light.nachtkastje_jimmy
-    - light.nachtkastje_stephanie
-    - light.bed_lamp
-    - light.kast_lamp
-    - light.office_led_lampen
-    - light.kleine_kamer
-    - light.keuken
-    - light.keuken_leds
-    - light.keuken_leds_onder
-    - light.bijkeuken
-    - light.entree_lamp
-    - light.gang_lamp
-    - light.berging
-    - light.koogeek_sw_056ce9
-    - light.toilet
-    - light.balkon
 
 # All Devices
 all_device_switch_entities:
   entities:
-    - switch.fan
-    - switch.receiver
-    - switch.samsung_tv
-    - switch.nespresso_apparaat
-    - switch.receiver_slaapkamer_2
-    - switch.tv_slaapkamer
-    - switch.pc_van_stephanie
-    - switch.pc_van_jimmy
-    - switch.printer
-    - switch.xbox_one
-    - switch.waterkoker
-    - switch.afzuigkap
-    - switch.koelkast_always_on
-    - switch.vriezer_always_on
-    - switch.cappumaker
-    - switch.vaatwasser
-    - switch.airfryer
-    - switch.wasmachine
-    - switch.droger
-    - switch.oven
-    - switch.piano
-    - switch.monitors_jimmy
-    - switch.monitors_stephanie
     
 # All Covers
 all_cover_entities:
