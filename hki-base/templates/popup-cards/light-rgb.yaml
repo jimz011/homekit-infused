@@ -1,0 +1,55 @@
+# lovelace_gen
+
+# card
+type: custom:light-popup-card
+entity: {{ entity }}
+brightnessWidth: 110px
+brightnessHeight: {{ slider_height|default('410px') }}
+switchWidth: 110px
+switchHeight: {{ slider_height|default('410px') }}
+displayType: {{ display_type|default('auto') }}
+fullscreen: false
+settings: true
+settingsPosition: bottom
+settingsCard:
+  type: custom:light-entity-card
+  cardOptions:
+    entity: {{ entity }}
+    persist_features: true
+    smooth_color_wheel: true
+    child_card: true
+    consolidate_entities: true
+actionsInARow: 3
+actionSize: 30px
+sliderColoredByLight: {{ slider_colored_by_light|default('true') }}
+actions:
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_1|default([255, 136, 0]) }}
+    color: "{{ color_1|default('#ff8800') }}"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_2|default([255, 0, 95]) }}
+    color: "{{ color_2|default('#ff005f') }}"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_3|default([40, 255, 0]) }}
+    color: "{{ color_3|default('#28ff00') }}"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_4|default([0, 160, 255]) }}
+    color: "{{ color_4|default('#00a0ff') }}"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_5|default([131, 0, 255]) }}
+    color: "{{ color_5|default('#8300ff') }}"
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ service_color_6|default([3, 0, 255]) }}
+    color: "{{ color_6|default('#0300ff') }}"

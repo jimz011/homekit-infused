@@ -1,0 +1,98 @@
+# lovelace_gen
+
+# Card 
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    -webkit-box-shadow: var(--header-shadow);
+    -moz-box-shadow: var(--header-shadow);
+    box-shadow: var(--header-shadow);
+    background: var(--primary-color);
+    border-radius: 0px !important;
+  }
+  .card-content {
+    padding: 0
+  }
+  :host {
+    z-index: 999;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: horizontal-stack
+        cards:
+          - !include ../../includes/gap.yaml
+          - !include ../../includes/gap.yaml
+          - type: markdown
+            style: |
+              ha-card {
+                font-family: var(--font-family);
+                font-size: var(--header-font-size);
+                font-weight: var(--header-font-weight);
+                color: var(--header-text-color);
+                box-shadow: none;
+                height: 20px;
+                margin-top: 1px;
+                margin-left: -15px;
+                letter-spacing: -1px;
+                overflow: visible;
+              }
+            content: >
+              ## {{ title|default('undefined') }}
+          {% if _global.general_config.header.show_sensors is true %}
+          {% if _global.general_config.header.sensors.sensor_1 is defined %}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: {{ _global.general_config.header.sensors.sensor_1.icon }}
+              background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_door_sensor_entities 
+          {% endif %}
+          {% if _global.general_config.header.sensors.sensor_2 is defined %}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: {{ _global.general_config.header.sensors.sensor_2.icon }}
+              background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state; else return '&nbsp;'; ]]]"
+              entity: group.all_window_sensor_entities
+          {% endif %}
+          {% if _global.general_config.header.sensors.sensor_3 is defined %}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: {{ _global.general_config.header.sensors.sensor_3.icon }}
+              background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state; else return '&nbsp;'; ]]]"
+              entity: group.all_motion_sensor_entities
+          {% endif %}
+          {% if _global.general_config.header.sensors.sensor_4 is defined %}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: {{ _global.general_config.header.sensors.sensor_4.icon }}
+              background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_device_switch_entities 
+          {% endif %}
+          {% if _global.general_config.header.sensors.sensor_5 is defined %}
+          - !include
+            - '../../templates/header/sensor-icons.yaml'
+            - icon: {{ _global.general_config.header.sensors.sensor_5.icon }}
+              background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
+              badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state; else return '&nbsp;'; ]]]"
+              size: 100%
+              entity: group.all_light_entities
+          {% endif %}
+          {% endif %}
+          - !include ../../includes/gap.yaml
+          - !include ../../includes/gap.yaml
+      - !include 
+        - '../../templates/header/{{ header_bottom|default('header-bottom.yaml') }}'
+        - subtitle: "{{ subtitle|default('undefined') }}"
+          icon: "{{ icon|default('mdi:home') }}"
+          entity: {{ entity|default('input_boolean.dummy1') }}
+          spin: {{ spin|default('false') }}

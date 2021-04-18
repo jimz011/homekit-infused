@@ -1,0 +1,34 @@
+# lovelace_gen
+
+# Card
+type: entities
+style: |
+  ha-card {
+    --ha-card-background: transparant;
+    background: transparant;
+    box-shadow: none;
+    color: white !important;
+    font-size: var(--name-font-size);
+    font-family: var(--font-family);
+    --paper-item-icon-color: white !important;
+    --primary-text-color: white !important;
+    --text-primary-color: white !important;
+  }
+entities:
+  - type: 'custom:auto-entities'
+    card:
+      type: glance
+      columns: 3
+      show_empty: true
+    filter:
+      include:
+        - group: {{ entity }}
+          state: 'on'
+          options:
+            tap_action:
+              action: toggle
+        - group: {{ entity }}
+          state: 'heat'
+          options:
+            tap_action:
+              action: toggle

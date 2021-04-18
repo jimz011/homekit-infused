@@ -1,0 +1,153 @@
+# lovelace_gen
+
+# Card
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_preset_button_1|default('Youtube') }}
+          icon: {{ icon_preset_button_1|default('mdi:youtube') }}
+          opacity_off: 0.9
+          icon_color_off: {{ icon_color_preset_button_1|default('red') }}
+          entity_id: {{ entity_media_player }}
+          source: '{{ source_preset_button_1|default('YouTube') }}'
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_volume_down|default('Volume') }}
+          label: {{ label_volume_down|default('Down') }}
+          icon: {{ icon_volume_down|default('mdi:volume-minus') }}
+          service: media_player.volume_down
+          service_entity: {{ entity_media_player_sound }}
+          opacity_off: 0.9
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_volume_up|default('Volume') }}
+          label: {{ label_volume_up|default('Up') }}
+          icon: {{ icon_volume_up|default('mdi:volume-plus') }}
+          service: media_player.volume_up
+          service_entity: {{ entity_media_player_sound }}
+          opacity_off: 0.9
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/service-call.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_volume_mute|default('Volume') }}
+          label: {{ label_volume_mute|default('Mute') }}
+          icon: {{ icon_volume_mute|default('mdi:volume-mute') }}
+          service: media_player.volume_mute
+          service_entity: {{ entity_media_player_sound }}
+          opacity_off: 0.9
+          grid: {{ grid|default('default-hki-grid') }}
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_preset_button_2|default('Plex') }}
+          icon: {{ icon_preset_button_2|default('mdi:plex') }}
+          opacity_off: 0.9
+          icon_color_off: {{ icon_color_preset_button_2|default('gold') }}
+          entity_id: {{ entity_media_player }}
+          source: '{{ source_preset_button_2|default('Plex') }}'
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:power
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_power|default("POWER") }}"
+          opacity_off: 0.7
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-up-drop-circle-outline
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_up|default("UP") }}"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:menu
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_menu|default("MENU") }}"
+          opacity_off: 0.7
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_preset_button_3|default('Netflix') }}
+          icon: {{ icon_preset_button_3|default('mdi:netflix') }}
+          opacity_off: 0.9
+          icon_color_off: {{ icon_color_preset_button_3|default('red') }}
+          entity_id: {{ entity_media_player }}
+          source: '{{ source_preset_button_3|default('Netflix') }}'
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-left-drop-circle-outline
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("LEFT") }}"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:crop-square
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_center|default("CENTER") }}"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-right-drop-circle-outline
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_right|default("RIGHT") }}"
+          opacity_off: 1.0
+  - type: horizontal-stack
+    cards:
+      - !include
+        - '../button/button-url.yaml'
+        - entity: input_boolean.dummy1
+          name: {{ name_preset_button_4|default('Spotify') }}
+          icon: {{ icon_preset_button_4|default('mdi:spotify') }}
+          opacity_off: 0.9
+          icon_color_off: {{ icon_color_preset_button_4|default('limegreen') }}
+          entity_id: {{ entity_media_player }}
+          source: '{{ source_preset_button_4|default('Spotify') }}'
+          grid: {{ grid|default('default-hki-grid') }}
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:keyboard-backspace
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_back|default("BACK") }}"
+          opacity_off: 0.7
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:arrow-down-drop-circle-outline
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_down|default("DOWN") }}"
+          opacity_off: 1.0
+      - !include
+        - '../button/remote-control.yaml'
+        - icon: mdi:home
+          service: {{ service|default('androidtv.adb_command') }}
+          service_entity: {{ entity_media_player_remote }}
+          command: "{{ command_home|default("HOME") }}"
+          opacity_off: 0.7
+  - type: media-control
+    style: |
+      ha-card {
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+    entity: {{ entity_media_player }}

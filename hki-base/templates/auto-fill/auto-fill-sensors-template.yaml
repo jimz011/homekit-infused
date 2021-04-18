@@ -1,0 +1,28 @@
+# lovelace_gen
+type: custom:auto-entities
+filter:
+  include:
+    - attributes:
+        type: {{ type }}
+      options:
+        !include
+        - '../button/button.yaml'
+        - entity: this.entity_id
+          lock: false
+          tap_action: {{ tap_action|default('more-info') }}
+          hold_action: {{ hold_action|default('more-info') }}
+          show_last_changed: true
+          grid: {{ grid|default('default-hki-grid') }}
+          template: '../popup-cards/mini-graph.yaml'
+          line_color: {{ line_color|default('red') }}
+          size: {{ icon_size|default('25%') }}
+    - !include ../../../hki-base/includes/empty-button.yaml
+    - !include ../../../hki-base/includes/empty-button.yaml
+show_empty: false
+sort:
+  method: {{ sort|default('name') }}
+  numeric: true
+card:
+  type: custom:layout-card
+  column_num: {{ columns|default('3') }}
+  layout: horizontal

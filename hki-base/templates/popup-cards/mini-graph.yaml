@@ -1,0 +1,29 @@
+# lovelace_gen
+
+# Card
+type: 'custom:mini-graph-card'
+style: |
+  ha-card {
+    background: rgba(0,0,0,0.0) !important;
+    border-radius: none;
+    --paper-item-icon-color: white !important;
+    color: white !important;
+    box-shadow: none;
+    font-weight: bold;
+    --paper-dialog-color: white !important;
+  }
+entities: 
+  - entity: {{ entity }}
+hours_to_show: 24
+points_per_hour: 2
+line_width: 3
+hour24: true
+animate: true
+decimals: 2
+show:
+  graph: line
+  icon: false
+  fill: true
+  extrema: true
+  average: true
+line_color: {{ line_color|default('red') }}

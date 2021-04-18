@@ -1,0 +1,11 @@
+# Main Lovelace Config
+
+## Button Card Templates
+button_card_templates: !include_dir_named templates/button/button-card-templates/
+
+## Base Configuration
+title: Home
+background: var(--background-image)
+popup_cards: !include templates/popup-cards/popup-cards.yaml
+views: 
+  !include base.yaml

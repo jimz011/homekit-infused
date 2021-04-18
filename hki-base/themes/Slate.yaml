@@ -1,0 +1,338 @@
+Slate:
+  ### Theme Slate for Homekit Infused
+
+  ## User Settings
+
+  ### Background image (can be an image or a color)
+  background-image: "#222222"
+  primary-background-color: 'var(--background-image)'
+
+  ### Header Title and Subtitle/Notifications
+  header-text-color: 'White'
+  header-font-size: 15px
+  header-font-weight: normal
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
+
+  subtitle-text-color: 'White'
+  subtitle-font-size: 12px
+  subtitle-font-weight: normal
+
+  ### Title Text Addon
+  title-text-color: 'White'
+  title-text-font-size: 12px
+  title-text-font-weight: bolder
+
+  ### Display a gap at the left and right side of cards on a smartphone
+  display-gap: 10px
+
+  ### Border Radius and Box Shadow
+  border-radius: 12px
+  box-shadow: var(--ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+  bar-card-border-radius: 12px
+
+  ### Button Colors
+  button-color: '#292929'
+
+  button-on-color: '#FFFFFF'
+  button-on-name-color: black
+  button-on-state-color: black
+  button-on-label-color: gray
+  button-on-lock-color: gray
+  button-on-icon-color: var(--paper-item-icon-active-color)
+  button-on-opacity: 1.0
+  button-on-box-shadow: none
+
+  ### Fonts
+  font-family: Roboto
+
+  name-font-size: 12px
+  name-font-weight: bold
+
+  label-font-size: 10px
+  label-font-weight: normal
+
+  state-font-size: 10px
+  state-font-weight: bold
+
+  ### Badges
+  badge-font-size: 10px
+  badge-font-weight: normal
+  badge-text-transform: capitalize
+  
+
+  #######################################################################################################################################################
+  ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
+
+  # Card Mod
+  card-mod-theme: Slate
+  card-mod-root-yaml: |
+    .: |
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        top: auto !important;
+        bottom: 0 !important;
+        transform: unset !important;
+        box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      #view {
+        margin-top: -57px !important;
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+
+      {% elif is_state('input_select.navigation_bar', 'Top') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      mwc-icon-button[slot="trigger"] > ha-svg-icon {
+        display: none;
+      }
+      mwc-icon-button[slot="trigger"]::after {
+        font-size: 18px;
+        height: 20px; 
+        width: 150px;
+
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        text-align: left;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: rotateY(180deg) !important;
+        color: var(--header-text-color) !important;
+
+        {% else %}
+        text-align: right;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        transform: none
+        color: var(--header-text-color) !important;
+
+        {% endif %}
+
+        color: var(--header-text-color) !important;
+
+        {% if is_state('input_select.navigation_bar_options', 'User') %}
+        content: "{{ user }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+        content: "{{ states('sensor.date') }}";
+
+        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+        content: "{{ states('sensor.time') }}";
+
+        {% else %}
+        display: none !important;
+
+        {% endif %}
+
+      }
+      app-header {
+        box-shadow: none !important;
+      }
+      app-toolbar {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none
+        {% endif %}
+      }
+      ha-tabs {
+        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+      }
+      [main-title] {
+        color: var(--primary-color) !important;
+      }
+      paper-tab {
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% else %}
+        transform: none;
+        {% endif %}
+      }
+      ha-icon {
+
+        color: var(--header-text-color) !important;
+      }
+      {% endif %}
+
+  paper-toast-background-color: '#821414'
+
+  # Notification Badge
+  notification-badge-color: 'black'
+  notification-popup-action-color: 'white'
+
+  # Main colors
+  primary-color: '#2980b9'
+  accent-color: '#b58e31'
+  dark-primary-color: '#2980b9'
+  light-primary-color: '#2980b9'
+  # Text colors
+  primary-text-color: '#FFFFFF'
+  text-primary-color: 'var(--primary-text-color)'
+  secondary-text-color: '#b58e31'
+  disabled-text-color: '#777777'
+  label-badge-border-color: 'green'
+  # Sidebar
+  sidebar-icon-color: '#777777'
+  # Background colors
+  secondary-background-color: '#222222'
+  divider-color: 'rgba(0, 0, 0, .12)'
+  table-row-background-color: '#292929'
+  table-row-alternative-background-color: '#292929'
+  # Nav Menu
+  paper-listbox-color: '#777777'
+  paper-listbox-background-color: '#141414'
+  paper-grey-50: 'var(--primary-text-color)'
+  paper-grey-200: '#222222'
+  # Paper card
+  paper-card-header-color: '#2980b9'
+  ha-card-background: 'var(--button-color)'
+  paper-card-background-color: "var(--ha-card-background)"
+  paper-dialog-background-color: '#292929'
+  paper-item-icon-color: 'var(--primary-text-color)'
+  paper-item-icon-active-color: '#b58e31'
+  paper-item-icon_-_color: 'green'
+  paper-item-selected_-_background-color: '#292929'
+  paper-tabs-selection-bar-color: 'green'
+  # Labels
+  label-badge-red: 'var(--primary-color)'
+  label-badge-text-color: 'var(--primary-text-color)'
+  label-badge-background-color: '#222222'
+  # Switches
+  paper-toggle-button-checked-button-color: '#2980b9'
+  paper-toggle-button-checked-bar-color: '#2980b9'
+  paper-toggle-button-checked-ink-color: '#2980b9'
+  paper-toggle-button-unchecked-button-color: 'var(--disabled-text-color)'
+  paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'
+  paper-toggle-button-unchecked-ink-color: 'var(--disabled-text-color)'
+  switch-checked-color: 'var(--paper-toggle-button-checked-button-color)'
+  switch-unchecked-color: 'var(--disabled-text-color)'
+  switch-unchecked-button-color: 'var(--disabled-text-color)'
+  switch-unchecked-track-color: 'var(--disabled-text-color)'
+  # Sliders
+  paper-slider-knob-color: '#2980b9'
+  paper-slider-knob-start-color: '#2980b9'
+  paper-slider-pin-color: '#2980b9'
+  paper-slider-active-color: '#2980b9'
+  paper-slider-container-color: 'linear-gradient(var(--primary-background-color), var(--secondary-background-color)) no-repeat'
+  paper-slider-secondary-color: 'var(--secondary-background-color)'
+  paper-slider-disabled-active-color: 'var(--disabled-text-color)'
+  paper-slider-disabled-secondary-color: 'var(--disabled-text-color)'
+  # Google colors
+  google-red-500: '#b93829'
+  google-green-500: '#2980b9'
+  # Changes to fix history/logbook menus
+  lumo-primary-text-color: '#2980b9'
+  lumo-secondary-text-color: '#2980b9'
+  lumo-primary-color: '#2980b9'
+  # Calendar day numbers
+  lumo-body-text-color: '#b58e31'
+  # Calendar/Date-Picker Background
+  lumo-base-color: '#222222'
+  # Month/Year header
+  lumo-header-text-color: 'var(--lumo-body-text-color)'
+  # DayOfWeek Header
+  lumo-tertiary-text-color: 'var(--lumo-body-text-color)'
+  lumo-shade: '#222222'
+  lumo-shade-90pct: 'rgba(34, 34, 34, .9)'
+  lumo-shade-80pct: 'rgba(34, 34, 34, .8)'
+  lumo-shade-70pct: 'rgba(34, 34, 34, .7)'
+  lumo-shade-60pct: 'rgba(34, 34, 34, .6)'
+  lumo-shade-50pct: 'rgba(34, 34, 34, .5)'
+  lumo-shade-40pct: 'rgba(34, 34, 34, .4)'
+  lumo-shade-30pct: 'rgba(34, 34, 34, .3)'
+  lumo-shade-20pct: 'rgba(34, 34, 34, .2)'
+  lumo-shade-10pct: 'rgba(34, 34, 34, .1)'
+  lumo-shade-5pct: 'rgba(34, 34, 34, .05)'
+  lumo-tint-5pct: '#222222'
+  # fix for device configuration screen
+  card-background-color: "var(--paper-card-background-color)"
+  # Fix for Person Device Chooser - thanks to vajonam!
+  material-background-color: "var(--paper-listbox-background-color)"
+  material-secondary-background-color: '#222222'
+  material-body-text-color: '#FFFFFF'

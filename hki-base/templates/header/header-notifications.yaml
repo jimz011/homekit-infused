@@ -1,0 +1,164 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - type: 'custom:button-card'
+    color_type: blank-card
+    styles:
+      card:
+        - width: 0px
+        - height: 43px
+  - type: custom:swipe-card
+    parameters:
+      allowTouchMove: true
+      grabCursor: true
+      autoplay:
+        disableOnInteraction: false
+    cards:
+      !include ../../../hki-user/notifications.yaml
+  - type: custom:button-card
+    icon: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'mdi:lock-open'; else return 'mdi:lock-alert'; ]]]"
+    size: 75%
+    color: auto
+    show_name: false
+    show_state: false
+    show_label: false
+    hold_action:
+      action: none
+    tap_action:
+      action: call-service
+      service: browser_mod.popup
+      service_data:
+        title: ' '
+        style:
+          .: |
+            :host {
+              --mdc-theme-surface: rgba(0,0,0,0);
+              --secondary-background-color: rgba(0,0,0,0);
+              --ha-card-background: rgba(0,0,0,0);
+              --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+              --mdc-dialog-min-height: 100%;
+              --mdc-dialog-min-width: 100%;
+              --mdc-dialog-max-width: 100%;
+              --paper-slider-knob-color: #FFFFFF !important;
+              --paper-slider-active-color: #dedede !important;
+              --switch-checked-button-color: #FFFFFF !important;
+              --switch-unchecked-button-color: #FFFFFF !important;
+              --switch-checked-track-color: green !important;
+              --switch-unchecked-track-color: red !important;
+            }
+            app-header, app-toolbar {
+              background-color: rgba(0,0,0,0.0) !important;
+            }
+            mwc-icon-button {
+              color: #FFF;
+            }
+        card:
+          type: custom:mod-card
+          style: |
+            ha-card {
+              margin-left: 7px;
+              margin-right: 7px;
+            }
+          card:
+            type: vertical-stack
+            cards:
+              - !include
+                - '../other/title-text.yaml'
+                - name: '&nbsp; Alarm Options'
+              - type: custom:button-card
+                icon: mdi:lock-open-outline
+                name: Disarm
+                confirmation:
+                  text: Are you sure you want to disarm the alarm?
+                layout: icon_name_state
+                size: 50%
+                tap_action:
+                  action: call-service
+                  service: alarm_control_panel.alarm_disarm
+                  service_data:
+                    entity_id: {{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}
+                    code: !secret alarm_code
+                  haptic: light
+                hold_action:
+                  action: none
+                styles:
+                  card:
+                    - opacity: 0.7
+                    - border-radius: var(--border-radius)
+                    - box-shadow: var(--box-shadow)
+                    - height: 65px
+                    - --ha-card-background: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'white'; else return 'var(--ha-card-background)' ]]]"
+                  name:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                  icon:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'LimeGreen'; else return 'var(--paper-card-icon-color)' ]]]"
+              - type: custom:button-card
+                icon: mdi:lock-outline
+                name: Arm Home
+                confirmation:
+                  text: Are you sure you want to arm the alarm for Home?
+                layout: icon_name_state
+                size: 50%
+                tap_action:
+                  action: call-service
+                  service: alarm_control_panel.alarm_arm_home
+                  service_data:
+                    entity_id: {{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}
+                    code: !secret alarm_code
+                  haptic: light
+                hold_action:
+                  action: none
+                styles:
+                  card:
+                    - opacity: 0.7
+                    - border-radius: var(--border-radius)
+                    - box-shadow: var(--box-shadow)
+                    - height: 65px
+                    - --ha-card-background: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'white'; else return 'var(--ha-card-background)' ]]]"
+                  name:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                  icon:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'Orange'; else return 'var(--paper-card-icon-color)' ]]]"
+              - type: custom:button-card
+                icon: mdi:lock-outline
+                name: Arm Away
+                confirmation:
+                  text: Are you sure you want to arm the alarm for Away?
+                layout: icon_name_state
+                size: 50%
+                tap_action:
+                  action: call-service
+                  service: alarm_control_panel.alarm_arm_away
+                  service_data:
+                    entity_id: {{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}
+                    code: !secret alarm_code
+                  haptic: light
+                hold_action:
+                  action: none
+                styles:
+                  card:
+                    - opacity: 0.7
+                    - border-radius: var(--border-radius)
+                    - box-shadow: var(--box-shadow)
+                    - height: 65px
+                    - --ha-card-background: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'white'; else return 'var(--ha-card-background)' ]]]"
+                  name:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'black'; else return 'var(--primary-text-color)' ]]]"
+                  icon:
+                    - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'DarkRed'; else return 'var(--paper-card-icon-color)' ]]]"
+      haptics: light
+    styles:
+      card:
+        - --ha-card-background: var(--header-text-color)
+        - border-radius: 50%
+        - box-shadow: none
+        - width: 30px
+        - height: 30px
+      img_cell:
+        - align-self: start
+        - text-align: start
+      icon:
+        - color: "[[[ if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'LimeGreen'; if (states['{{ _global.general_config.alarm_entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'Orange'; else return 'DarkRed'; ]]]"
+  - !include ../../includes/gap.yaml 
+  - !include ../../includes/gap.yaml

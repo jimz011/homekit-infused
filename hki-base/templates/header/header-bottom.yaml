@@ -1,0 +1,48 @@
+# lovelace_gen
+type: horizontal-stack
+cards:
+  - !include ../../includes/gap.yaml
+  - !include ../../includes/gap.yaml
+  - type: custom:button-card
+    style: |
+      ha-card {
+        margin-top: -5px;
+      }
+    name: "{{ subtitle|default('undefined') }}"
+    icon: "{{ icon|default('mdi:home') }}"
+    size: 100%
+    entity: {{ entity|default('input_boolean.dummy1') }}
+    layout: icon_name
+    show_state: false
+    show_label: false
+    double_tap_action: 
+      action: navigate
+      navigation_path: /homekit-infused/ha_settings
+      haptic: light
+    tap_action: 
+      action: more-info
+      haptic: heavy
+    styles:
+      card:
+        - --ha-card-background: rgba(0,0,0,0.0)
+        - box-shadow: none
+        - height: 45px
+        - width: 350px
+      name:
+        - font-size: var(--subtitle-font-size)
+        - font-family: var(--font-family)
+        - color: var(--subtitle-text-color)
+        - justify-self: start
+        - font-weight: var(--subtitle-font-weight)
+      grid: 
+        - grid-template-areas: '"i n"'
+        - grid-template-columns: 8% 1fr
+        - grid-template-rows: 1fr
+      icon:
+        - color: var(--subtitle-text-color)
+        - padding-bottom: 3px
+    state:
+      - value: "off"
+        spin: {{ spin|default('false') }}
+  - !include ../../includes/gap.yaml
+  - !include ../../includes/gap.yaml

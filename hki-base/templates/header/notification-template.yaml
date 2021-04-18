@@ -1,0 +1,50 @@
+# lovelace_gen
+
+# Card
+type: custom:button-card
+style: |
+  ha-card {
+    margin-top: -5px;
+  }
+name: "{{ name }}"
+icon: "{{ icon|default('mdi:home') }}"
+size: 100%
+entity: {{ entity|default('input_boolean.dummy1') }}
+show_state: false
+show_label: false
+layout: icon_name
+show_icon: {{ show_icon|default('true') }}
+double_tap_action: 
+  action: navigate
+  navigation_path: /homekit-infused/ha_settings
+  haptic: light
+tap_action: 
+  action: more-info
+  haptic: heavy
+styles:
+  card:
+    - --ha-card-background: rgba(0,0,0,0.0)
+    - box-shadow: none
+    - height: 45px
+    - width: {{ width|default('350px') }}
+  name:
+    - font-size: var(--subtitle-font-size)
+    - font-family: var(--font-family)
+    - color: var(--subtitle-text-color)
+    - justify-self: {{ justify_self|default('start') }}
+    - padding-left: {{ padding_left|default('0px') }}
+    - font-weight: var(--subtitle-font-weight)
+#  img_cell:
+#    - align-self: start
+#    - text-align: start
+#    - margin-left: {{ margin_left|default('25px') }}
+  grid: 
+    - grid-template-areas: '"i n"'
+    - grid-template-columns: 8% 1fr
+    - grid-template-rows: 1fr
+  icon:
+    - color: var(--subtitle-text-color)
+    - padding-bottom: 3px
+state:
+  - value: "off"
+    spin: {{ spin|default('false') }}

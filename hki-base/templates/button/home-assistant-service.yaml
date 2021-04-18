@@ -1,0 +1,32 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
+name: {{ name }}
+icon: {{ icon }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+confirmation:
+  text: "{{ confirmation }}"
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+label: {{ label|default('"&nbsp;"') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: call-service
+  service: {{ service|default('scene.turn_on') }}
+  haptic: heavy
+hold_action:
+  action: none
+styles:
+  card:
+    - ha-card-background: var(--ha-card-background)
+     

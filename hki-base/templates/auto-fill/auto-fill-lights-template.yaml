@@ -1,0 +1,192 @@
+# lovelace_gen
+type: vertical-stack
+cards:
+  - !include
+    - '../other/title-text.yaml'
+    - name: {{ rooms|capitalize }}
+  - type: custom:auto-entities
+    filter:
+      include:
+        - attributes:
+            room: {{ rooms }}
+            type: light-rgb
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-rgb.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - attributes:
+            room: {{ rooms }}
+            type: light-rgb
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-rgb.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - attributes:
+            room: {{ rooms }}
+            type: light-color-temp
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-color-temp.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - attributes:
+            room: {{ rooms }}
+            type: light-color-temp
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-color-temp.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - attributes:
+            room: {{ rooms }}
+            type: light-standard
+          not:
+            attributes:
+              lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-switch.yaml'
+              lock: false
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - attributes:
+            room: {{ rooms }}
+            type: light-standard
+            lock: true
+          options:
+            !include
+            - '../button/button.yaml'
+            - entity: this.entity_id
+              label: !include ../../includes/brightness-label.yaml
+              grid: {{ grid|default('light-devices-grid') }}
+              template: '../popup-cards/light-switch.yaml'
+              lock: true
+              size: {{ icon_size|default('25%') }}
+              slider_height: "{{ slider_height|default('410px') }}"
+              display_type: {{ display_type|default('auto') }}
+              slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+              color_1: "{{ color_1|default('#ff8800') }}"
+              color_2: "{{ color_2|default('#ff005f') }}"
+              color_3: "{{ color_3|default('#28ff00') }}"
+              color_4: "{{ color_4|default('#00a0ff') }}"
+              color_5: "{{ color_5|default('#8300ff') }}"
+              color_6: "{{ color_6|default('#0300ff') }}"
+              service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+              service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+              service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+              service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+              service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+              service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+        - !include ../../../hki-base/includes/empty-button.yaml
+        - !include ../../../hki-base/includes/empty-button.yaml
+    sort:
+      method: {{ sort|default('name') }}
+      numeric: true
+    card:
+      type: custom:layout-card
+      column_num: {{ columns|default('3') }}
+      layout: horizontal

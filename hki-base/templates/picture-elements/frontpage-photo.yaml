@@ -1,0 +1,120 @@
+# lovelace_gen
+
+type: picture-elements
+style: |
+  ha-card {  
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+image: {{ image_path }}
+elements:
+  - type: image
+    entity: {{ person }}
+    image: {{ image_path }}
+    tap_action:
+      action: navigate
+      navigation_path: /homekit-infused/{{ navigation_path }}
+    hold_action:
+      action: none
+    style:
+      left: 50%
+      top: 50%
+      width: 100%
+      heigth: 100%
+  - type: state-label
+    entity: {{ person }}
+    style:
+      left: 0
+      bottom: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      line-height: 15px
+      color: {{ text_color }}
+      background-color: rgba(0, 0, 0, 0.3)
+      width: 100%
+      transform: initial
+      text-align: {{alignment}}
+  - type: state-label
+    entity: {{ phone_battery_sensor }}
+    style:
+      top: 0
+      '{{alignment}}': 0
+      pointer-events: none
+      transform: initial
+      font-size: 12px
+      font-family: var(--font-family)
+      color: {{ text_color }}
+      line-height: 32px
+      padding: 0px 28px
+  - type: icon
+    icon: mdi:cellphone
+    style:
+      top: 0
+      '{{alignment}}': 0
+      pointer-events: none
+      transform: scale(0.8)
+      color: {{ text_color }}
+      line-height: 32px
+      padding: 7px 7px
+      font-size: 11px
+      font-family: var(--font-family)
+  - type: conditional
+    conditions:
+      - state: "home"
+        entity: {{ person }}
+    elements:
+      - type: state-label
+        entity: {{ travel_time_to_work }}
+        style:
+          top: 0
+          '{{alignment}}': 0
+          pointer-events: none
+          transform: initial
+          font-size: 12px
+          font-family: var(--font-family)
+          color: {{ text_color }}
+          line-height: 32px
+          padding: 28px 28px
+      - type: icon
+        icon: mdi:office-building
+        style:
+          top: 0
+          '{{alignment}}': 0
+          pointer-events: none
+          transform: scale(0.8)
+          color: {{ text_color }}
+          line-height: 32px
+          padding: 35px 7px
+          font-size: 11px  
+          font-family: var(--font-family)
+  - type: conditional
+    conditions:
+      - state_not: "home"
+        entity: {{ person }}
+    elements:
+      - type: state-label
+        entity: {{ travel_time_to_home }}
+        style:
+          top: 0
+          '{{alignment}}': 0
+          pointer-events: none
+          transform: initial
+          font-size: 12px
+          font-family: var(--font-family)
+          color: {{ text_color }}
+          line-height: 32px
+          padding: 28px 28px
+      - type: icon
+        icon: mdi:home
+        style:
+          top: 0
+          '{{alignment}}': 0
+          pointer-events: none
+          transform: scale(0.8)
+          color: {{ text_color }}
+          line-height: 32px
+          padding: 35px 7px
+          font-size: 11px  
+          font-family: var(--font-family)

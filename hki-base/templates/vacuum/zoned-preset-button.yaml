@@ -1,0 +1,37 @@
+# lovelace_gen
+
+type: custom:button-card
+template: 
+  - style-default
+  - {{ grid|default('default-hki-grid') }}
+name: {{ name|default('Livingroom') }}
+icon: {{ icon|default('mdi:sofa') }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+size: 25%
+aspect_ratio: 1/1
+show_state: false
+show_label: false
+tap_action: 
+  action: call-service
+  service: vacuum.send_command
+  service_data:
+    entity_id: {{ entity|default('vacuum.rockrobo') }}
+    command: zoned_cleanup
+    params:
+      'zone_ids': {{ zone_id|default(['Woonkamer']) }}
+  haptic: heavy
+hold_action:
+  action: none
+styles:
+  card:
+    - opacity: 0.8
+    - --ha-card-background: var(--ha-card-background)
+  icon:
+    - color: var(--paper-item-icon-color)
+  name:
+    - color: var(--primary-text-color)
+  state:
+    - color: var(--primary-text-color)
+  label:
+    - color: var(--primary-text-color)
