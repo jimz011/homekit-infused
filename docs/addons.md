@@ -6,6 +6,7 @@
 - [Configuration](configuration.md)
 - [Addons](addons.md)
 - [Custom Views](custom_views.md)
+- [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
