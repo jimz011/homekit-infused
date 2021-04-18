@@ -10,7 +10,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
 Homekit Infused is in a nutshell a customizable 'framework' that you can use to build your own dashboard on, it is preconfigured to have an Apple style to it.
 By default it contains the following things:
-- A beautiful header with notifications that can be customizable per view and is added to each view for you automatically
+- A beautiful header with notifications that is customizable per view and is added to each view for you automatically
 - A customizable navigation bar which can also be set at the bottom of the screen 
 - An auto generated shortcut menu to each view
 - 11 color schemes
