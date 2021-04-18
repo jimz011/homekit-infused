@@ -79,9 +79,8 @@ This is the bare minimum that will give you a brand new view, however without an
 *Note: when `custom_cards: true` or `custom_cards: advanced` is set you MUST create a folder with the same name as the path in `/hki-user/views/`. From the example above this would be `/hki-user/views/living_room/`.
 Please read [this](custom_views.md) for more information on how to use this.
 
-
 | Name | Required | Default | Description |
-|-----------------------------|-------------|------------------------------------------------------------------|
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 'key' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view |
 ||||
 | show_subtitle | no | subtitle | Change the header subtitle, choose between `false`, `notifications` or `subtitle` |
