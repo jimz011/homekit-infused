@@ -42,14 +42,16 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [Search Card](https://github.com/postlund/search-card) | Frontend | An easy to use search card |
 | [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Frontend | This is a small weather card, see screenshot for details |
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is needed for the scrolling notifications, but also for most popups |
+| [Search Card] | Frontend | this is the search card addon |
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | This card is needed for the layout, IMPORTANT: Read the note below |
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Integration | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more! |
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Integration | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
 
+
 *Note: After install, open the following folder `/www/community/lovelace-layout-card/` and remove all of its contents, do NOT remove the folder! The file will be added back when copying HKI.
 
 ### Adding Resources
-Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`. It should have 15 resources listed (or more if you have added your own)
+Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`. It should have 16 resources listed (or more if you have added your own)
 
 ### Installation
 Copy the following files/folders to the root of your Home Assistant installation
