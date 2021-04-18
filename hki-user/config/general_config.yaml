@@ -18,6 +18,7 @@ general_config:
       show_header: true
       show_notifications: true
       show_in_navbar: true 
+      show_search_card: true
 
       # Auto Fill Only
       show_weather: true 
@@ -93,6 +94,7 @@ general_config:
       show_header: true
       show_subtitle: true
       show_in_navbar: true 
+      show_search_card: true
 
       # Auto Fill Only
       show_favorites: true 

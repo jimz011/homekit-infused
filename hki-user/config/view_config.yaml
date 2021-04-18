@@ -247,6 +247,7 @@ view_config:
     max_columns: 3
     button_columns: 4
     icon: mdi:alpha-a-box
+    search_card:
     custom_cards: true
 
 # Battery
