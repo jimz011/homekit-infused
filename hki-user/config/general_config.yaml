@@ -25,6 +25,7 @@ general_config:
       show_favorites: true 
       show_rooms: true
       show_map: true # Even when set to true this will only show on larger screens, it will not show for mobile phones!
+      show_search_card: true
 
   # Columns
     columns:
@@ -93,6 +94,7 @@ general_config:
       show_header: true
       show_subtitle: true
       show_in_navbar: true 
+      show_search_card: true
 
       # Auto Fill Only
       show_favorites: true 
