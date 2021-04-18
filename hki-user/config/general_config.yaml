@@ -23,7 +23,7 @@ general_config:
       show_weather: true 
       show_persons: true 
       show_favorites: true 
-      show_rooms: false
+      show_rooms: true
       show_map: true # Even when set to true this will only show on larger screens, it will not show for mobile phones!
 
   # Columns
