@@ -66,8 +66,8 @@ To setup a new view you can enter ANY name you want, just make SURE your name is
 ```
 # Example Minimal
   living_room:
-      subtitle: Overview
-      icon: mdi:floor-lamp
+    subtitle: Overview
+    icon: mdi:floor-lamp
 ```
 The example above will create a view for you named Living Room and automatically does the following:
 - sets the title of the view (in this case Living Room)
@@ -104,24 +104,24 @@ Please read [this](custom_views.md) for more information on how to use this.
 ```
 # Example 
   kitchen:
-      subtitle: My Kitchen
-      button_badge: sensor.kitchen_temp
-      icon: mdi:fridge
-      type: room
-      devices:
-        switches:
-          - switch.afzuigkap
-          - switch.oven
-          - switch.airfryer
-          - switch.nespresso_apparaat
-          - switch.cappumaker
-          - switch.waterkoker
-          - switch.vaatwasser
-          - switch.koelkast_2
-        lights:
-          - light.keuken
-          - light.keuken_leds
-          - light.keuken_leds_onder
+    subtitle: My Kitchen
+    button_badge: sensor.kitchen_temp
+    icon: mdi:fridge
+    type: room
+    devices:
+      switches:
+        - switch.afzuigkap
+        - switch.oven
+        - switch.airfryer
+        - switch.nespresso_apparaat
+        - switch.cappumaker
+        - switch.waterkoker
+        - switch.vaatwasser
+        - switch.koelkast_2
+      lights:
+        - light.keuken
+        - light.keuken_leds
+        - light.keuken_leds_onder
 ```  
 The example above will create a view for you named Kitchen and automatically does the following:
 - sets the title of the view (in this case Kitchen)
@@ -136,13 +136,13 @@ The example above will create a view for you named Kitchen and automatically doe
 ```
 # Example 
   bedroom:
-      subtitle: My Bedroom
-      devices:
-        my_crazy_lights:
-          - light.lamp
-          - light.wand
-        my_other_wicked_lights:
-          - lights.ceiling
+    subtitle: My Bedroom
+    devices:
+      my_crazy_lights:
+        - light.lamp
+        - light.wand
+      my_other_wicked_lights:
+        - lights.ceiling
 ```
 
 ### Extra Options
