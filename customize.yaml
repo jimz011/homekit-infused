@@ -1,0 +1,959 @@
+# Customize sample file, you MUST create your own!
+
+# To create customized entities, enter the entity you want to edit as follows, by setting
+# a customization for an entity it will persist everywhere in Home Assistant and not just in lovelace.
+
+# light.bedroom:
+#   icon: mdi:lamp
+#   friendly_name: Bedroom Lamp
+
+# Afvalbeheer
+sensor.mijnafvalwijzer_gft:
+  friendly_name: GFT
+  entity_picture: /local/images/afvalbeheer/afval_gft_small.png
+sensor.mijnafvalwijzer_pmd:
+  friendly_name: PMD
+  entity_picture: /local/images/afvalbeheer/afval_pmd_small.png
+sensor.mijnafvalwijzer_papier:
+  friendly_name: Papier
+  entity_picture: /local/images/afvalbeheer/afval_papier_small.png
+sensor.mijnafvalwijzer_restafval:
+  friendly_name: Restafval
+  entity_picture: /local/images/afvalbeheer/afval_rest_small.png
+
+# Binary Sensors
+binary_sensor.voordeur:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:door
+  friendly_name: Voordeur
+  type: door
+  room: Voordeur
+
+binary_sensor.woonkamer_deur:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:door
+  friendly_name: Woonkamer
+  type: door
+  room: Woonkamer
+
+binary_sensor.slaapkamer_deur:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:door
+  friendly_name: Slaapkamer
+  type: door
+  room: Slaapkamer
+
+binary_sensor.bijkeukenraam:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:window-closed
+  friendly_name: Bijkeuken
+  type: window
+  room: Bijkeuken
+
+binary_sensor.keukenraam:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:window-closed
+  friendly_name: Keuken
+  type: window
+  room: Keuken
+
+binary_sensor.kleine_kamerraam:
+#  entity_picture: /local/images/icons/door-window-sensor.png
+  icon: mdi:window-closed
+  friendly_name: Kleine Kamer
+  type: window
+  room: Kleine Kamer
+
+binary_sensor.motion_bijkeuken:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Bijkeuken
+  type: motion
+  room: Bijkeuken
+
+binary_sensor.motion_toilet:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Toilet
+  type: motion
+  room: Toilet
+
+binary_sensor.motion_woonkamer_camera:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Woonkamer
+  type: motion
+  room: Woonkamer
+
+binary_sensor.motion_gang:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Gang
+  type: motion
+  room: Gang
+
+binary_sensor.motion_office:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Kleine Kamer
+  type: motion
+  room: Kleine Kamer
+
+binary_sensor.motion_gallerij_camera:
+#  entity_picture: /local/images/icons/motion-sensor.png
+  icon: mdi:motion-sensor
+  friendly_name: Kennedy Rechts
+  type: motion
+  room: Kennedylaan Rechts
+
+binary_sensor.smoke_sensor:
+#  entity_picture: /local/images/icons/smoke-detector.png
+  icon: mdi:smoke-detector
+  friendly_name: Rookmelder
+  type: smoke
+  room: Keuken
+
+binary_sensor.motion_gallerij_camera_2:
+  icon: mdi:motion-sensor
+  friendly_name: Gallerij
+  type: motion
+  room: Gallerij
+
+binary_sensor.motion_kennedylaan_links:
+  icon: mdi:motion-sensor
+  friendly_name: Kennedy Links
+  type: motion
+  room: Kennedylaan Links
+
+# Camera's
+camera.gallerij_camera:
+  icon: mdi:cctv
+  friendly_name: Gallerij
+
+camera.woonkamer_camera:
+  icon: mdi:cctv
+  friendly_name: Woonkamer
+
+camera.kennedylaan_camera:
+  icon: mdi:cctv
+  friendly_name: Kennedylaan Rechts
+
+camera.kennedylaan_links:
+  icon: mdi:cctv
+  friendly_name: Kennedylaan Links
+
+# Climate and Radiators
+climate.tado_smart_radiator_thermostat_va1671957504:
+  icon: mdi:thermostat
+  friendly_name: Kleine Kamer
+  room: Kleine Kamer
+climate.tado_smart_radiator_thermostat_va2898201344:
+  icon: mdi:thermostat
+  friendly_name: Woonkamer
+  room: Woonkamer
+climate.tado_smart_radiator_thermostat_va0882906624:
+  icon: mdi:thermostat
+  friendly_name: Slaapkamer
+  room: Slaapkamer
+climate.tado_smart_radiator_thermostat_va2711623168:
+  icon: mdi:thermostat
+  friendly_name: Keuken
+  room: Keuken
+
+# Device Trackers
+device_tracker.tile_a6d1d863adaa4d5e:
+  entity_picture: /local/images/keys-steph.jpg
+  friendly_name: Sleutels Stephanie
+
+device_tracker.tile_8a746078c8c64271:
+  entity_picture: /local/images/keys-jim.jpg
+  friendly_name: Sleutels Jimmy
+
+# Devices
+switch.fan:
+  icon: mdi:fan
+  friendly_name: Ventilator
+
+switch.receiver:
+  icon: mdi:speaker-multiple
+  friendly_name: Receiver
+  room: Woonkamer
+
+switch.samsung_tv:
+  icon: mdi:television
+  friendly_name: TV
+  room: Woonkamer
+
+switch.xbox_one:
+  icon: mdi:microsoft-xbox
+  friendly_name: Xbox One
+  room: Woonkamer
+
+switch.receiver_slaapkamer_2:
+  icon: mdi:speaker-multiple
+  friendly_name: Receiver
+  room: Slaapkamer
+
+switch.tv_slaapkamer:
+  icon: mdi:television
+  friendly_name: TV
+  room: Slaapkamer
+
+switch.pc_van_stephanie:
+  icon: mdi:desktop-tower
+  friendly_name: PC Stephanie
+  room: Kleine Kamer
+
+switch.pc_van_jimmy:
+  icon: mdi:desktop-tower
+  friendly_name: PC Jimmy
+  room: Kleine Kamer
+
+switch.monitors_stephanie:
+  icon: mdi:monitor
+  friendly_name: Monitor Steph
+  room: Kleine Kamer
+
+switch.monitors_jimmy:
+  icon: mdi:monitor
+  friendly_name: Monitor Jim
+  room: Kleine Kamer
+
+switch.piano:
+  icon: mdi:piano
+  friendly_name: Piano
+  room: Kleine Kamer
+
+switch.printer:
+  icon: mdi:printer-wireless
+  friendly_name: Printer
+  room: Kleine Kamer
+
+switch.waterkoker:
+  icon: mdi:tea
+  friendly_name: Waterkoker
+  room: Keuken
+
+switch.afzuigkap:
+  icon: mdi:fan
+  friendly_name: Afzuigkap
+  room: Keuken
+
+switch.airfryer:
+  icon: mdi:alpha-a-circle
+  friendly_name: Air Fryer
+  room: Keuken
+  
+switch.cappumaker:
+  icon: mdi:coffee
+  friendly_name: Cappumaker
+  room: Keuken
+
+switch.koelkast_always_on:
+  icon: mdi:fridge
+  friendly_name: Koelkast
+  room: Keuken
+
+switch.koelkast_2:
+  icon: mdi:fridge
+  friendly_name: Koelkast
+  room: Keuken
+
+switch.vriezer_always_on:
+  icon: mdi:snowflake
+  friendly_name: Vriezer
+  room: Bijkeuken
+
+switch.oven:
+  icon: mdi:toaster-oven
+  friendly_name: Oven
+  room: Keuken
+
+switch.vaatwasser:
+  icon: mdi:dishwasher
+  friendly_name: Vaatwasser
+  room: Keuken
+
+switch.nespresso_apparaat:
+  icon: mdi:coffee-maker
+  friendly_name: Nespresso
+  room: Keuken
+
+switch.wasmachine:
+  icon: mdi:washing-machine
+  friendly_name: Wasmachine
+  room: Bijkeuken
+
+switch.droger:
+  icon: mdi:tumble-dryer
+  friendly_name: Wasdroger
+  room: Bijkeuken
+
+switch.network_switch_always_on:
+  icon: mdi:server-network
+  friendly_name: Network Switch
+
+# Lights
+light.plafond:
+  icon: mdi:ceiling-light
+  friendly_name: Plafond
+  room: Woonkamer
+
+light.eettafel:
+  icon: mdi:ceiling-light
+  friendly_name: Eettafel
+  room: Woonkamer
+
+light.tafellamp:
+  icon: mdi:lamp
+  friendly_name: Tafellamp
+  room: Woonkamer
+  
+light.vloerlamp:
+  icon: mdi:floor-lamp
+  friendly_name: Vloerlamp
+  room: Woonkamer
+
+light.woonkamer_led_lampen:
+  icon: mdi:led-strip-variant
+  friendly_name: LEDs
+  room: Woonkamer
+
+light.gateway_light_7811dcdef324:
+  icon: mdi:hockey-puck
+  friendly_name: Xiaomi LED
+  room: Woonkamer
+
+light.nachtkastje_stephanie:
+  icon: mdi:lamp
+  friendly_name: Stephanie
+  room: Slaapkamer
+  
+light.nachtkastje_jimmy:
+  icon: mdi:lamp
+  friendly_name: Jimmy
+  room: Slaapkamer
+
+light.slaapkamer_led_lampen:
+  icon: mdi:led-strip-variant
+  friendly_name: LEDs
+  supported_features: 191
+  room: Slaapkamer
+
+light.nachtkastjes:
+  icon: mdi:lightbulb-multiple
+  friendly_name: Nachtkastjes
+  room: Slaapkamer
+
+light.bfb4e244cda19c807fhz5e:
+  icon: mdi:led-strip-variant
+  friendly_name: Keuken LEDs Onder
+  supported_features: 191
+  room: Keuken
+
+light.bf0fd4959e5c9daf1eit1t:
+  icon: mdi:led-strip-variant
+  friendly_name: Keuken LEDs Onder
+  supported_features: 191
+  room: Keuken
+
+light.keuken_leds_onder:
+  icon: mdi:led-strip-variant
+  friendly_name: LEDs Kastjes
+  supported_features: 191
+  room: Keuken
+
+light.kast_lamp:
+  icon: mdi:ceiling-light
+  friendly_name: Kast
+  room: Slaapkamer
+
+light.bed_lamp:
+  icon: mdi:ceiling-light
+  friendly_name: Bed
+  room: Slaapkamer
+  
+light.kleine_kamer:
+  icon: mdi:ceiling-light
+  friendly_name: Plafond
+  room: Kleine Kamer
+
+light.office_led_lampen:
+  icon: mdi:led-strip-variant
+  friendly_name: LEDs
+  room: Kleine Kamer
+
+light.keuken:
+  icon: mdi:ceiling-light
+  friendly_name: Plafond
+  room: Keuken
+
+light.keuken_leds:
+  icon: mdi:led-strip-variant
+  friendly_name: LEDs Aanrecht
+  room: Keuken
+  
+light.bijkeuken:
+  icon: mdi:ceiling-light
+  friendly_name: Bijkeuken
+  room: Bijkeuken
+
+light.entree_lamp:
+  icon: mdi:ceiling-light
+  friendly_name: Hal
+  room: Gang
+  
+light.gang_lamp:
+  icon: mdi:ceiling-light
+  friendly_name: Gang
+  room: Gang
+
+switch.koogeek_sw_056ce9:
+  icon: mdi:ceiling-light
+  friendly_name: Badkamer
+  room: Badkamer
+
+light.koogeek_sw_056ce9:
+  icon: mdi:ceiling-light
+  friendly_name: Badkamer
+  room: Badkamer
+
+light.toilet:
+  icon: mdi:ceiling-light
+  friendly_name: Toilet
+  room: Toilet
+
+light.balkon:
+  icon: mdi:coach-lamp
+  friendly_name: Balkon
+  room: Balkon
+  
+light.berging:
+  icon: mdi:ceiling-light
+  friendly_name: Berging
+  room: Berging
+
+# Media Players
+media_player.samsung_ue65ku6000:
+  icon: mdi:television
+  friendly_name: Woonkamer
+  device_class: tv
+
+media_player.samsung_ue46es5500:
+  icon: mdi:television
+  friendly_name: Slaapkamer
+  device_class: tv
+
+media_player.shield_tv:
+  friendly_name: Shield TV
+media_player.woonkamer_speaker:
+  friendly_name: Google Home
+media_player.slaapkamer:
+  friendly_name: Apple TV
+media_player.slaapkamer_display:
+  friendly_name: Nest Hub
+media_player.kleine_kamer_speaker:
+  friendly_name: Nest Mini
+media_player.keuken_display:
+  friendly_name: Nest Hub
+media_player.bijkeuken_speaker:
+  friendly_name: Home Mini
+media_player.badkamer_speaker:
+  friendly_name: Nest Mini
+
+# Person
+person.stephanie:
+  entity_picture: /local/images/stephanie_small.png
+  friendly_name: Stephanie
+person.jimmy:
+  entity_picture: /local/images/jimmy_small.png
+  friendly_name: Jimmy
+person.tala:
+  entity_picture: /local/images/tala.png
+  friendly_name: Tala
+
+# Sensors
+## Temperature
+sensor.woonkamer:
+  friendly_name: Woonkamer
+  icon: mdi:thermometer
+  room: Woonkamer
+
+sensor.kleine_kamer_temperatuur:
+  friendly_name: Kleine Kamer
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Kleine Kamer
+
+sensor.slaapkamer:
+  friendly_name: Slaapkamer
+  icon: mdi:thermometer
+  room: Slaapkamer
+
+sensor.keuken_temperatuur:
+  friendly_name: Keuken
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Keuken
+
+sensor.badkamer:
+  friendly_name: Badkamer
+  icon: mdi:thermometer
+  room: Badkamer
+
+sensor.motion_bijkeuken_temperature:
+  friendly_name: Bijkeuken
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Bijkeuken
+
+sensor.voordeur_temperature:
+  friendly_name: Hal
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Gang
+
+sensor.motion_toilet_temperature:
+  friendly_name: Toilet
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Toilet
+
+sensor.buiten_temperatuur:
+  icon: mdi:thermometer
+  device_class: temperature
+  room: Balkon
+
+## Humidity
+sensor.woonkamer_2:
+  friendly_name: Woonkamer
+  icon: mdi:water-percent
+  room: Woonkamer
+
+sensor.buiten_luchtvochtigheid:
+  icon: mdi:water-percent
+  device_class: humidity
+  room: Balkon
+
+sensor.kleine_kamer_luchtvochtigheid:
+  friendly_name: Kleine Kamer
+  icon: mdi:water-percent
+  device_class: humidity
+  room: Kleine Kamer
+
+sensor.slaapkamer_2:
+  friendly_name: Slaapkamer
+  icon: mdi:water-percent
+  room: Slaapkamer
+
+sensor.keuken_luchtvochtigheid:
+  friendly_name: Keuken
+  icon: mdi:water-percent
+  device_class: humidity
+  room: Keuken
+
+sensor.badkamer_2:
+  friendly_name: Badkamer
+  icon: mdi:water-percent
+  room: Badkamer
+
+## Air Pressure
+sensor.slaapkamer_3:
+  friendly_name: Slaapkamer
+  icon: mdi:gauge
+  room: Slaapkamer
+
+sensor.badkamer_3:
+  friendly_name: Badkamer
+  icon: mdi:gauge
+  room: Badkamer
+
+sensor.buiten_luchtdruk:
+  icon: mdi:gauge
+  device_class: pressure
+  room: Balkon
+
+# Template Sensors
+sensor.vacuum_battery:
+  friendly_name: Xiaomi Vacuum
+  unit_of_measurement: '%'
+  device_class: battery
+sensor.vacuum_total_cleaned_area:
+  friendly_name: Total Cleaned Area
+  icon: mdi:shape-square-plus
+  unit_of_measurement: 'm2'
+sensor.vacuum_cleaning_count:
+  friendly_name: Total Times Cleaned
+  icon: mdi:table-clock
+  unit_of_measurement: 'times'
+sensor.vacuum_total_cleaning_time:
+  friendly_name: Total Cleaning Time
+  icon: mdi:history 
+  unit_of_measurement: 'minutes'
+sensor.vacuum_main_brush_left:
+  friendly_name: Main Brush
+  icon: mdi:broom 
+  unit_of_measurement: 'hours'
+sensor.vacuum_side_brush_left:
+  friendly_name: Side Brush
+  icon: mdi:broom 
+  unit_of_measurement: 'hours'
+sensor.vacuum_filter_left:
+  friendly_name: Air Filter
+  icon: mdi:air-filter 
+  unit_of_measurement: 'hours'
+sensor.vacuum_sensor_dirty_left:
+  friendly_name: Sensors
+  icon: mdi:motion-sensor
+  unit_of_measurement: 'hours'
+sensor.vacuum_cleaner_error_sensor:
+  friendly_name: Error Sensor
+  icon: mdi:alert-circle-outline
+sensor.vacuum_cleaner_status_sensor:
+  friendly_name: Status
+  icon: mdi:robot-vacuum
+sensor.xiaomi_vacuum_fan_speed_state:
+  friendly_name: Fan Speed
+  icon: mdi:fan
+
+# Waze Sensors
+sensor.reistijd_jimmy:
+  icon: "mdi:home"
+sensor.reistijd_jimmy_work:
+  icon: "mdi:office-building"
+sensor.reistijd_stephanie:
+  icon: "mdi:home"
+sensor.reistijd_stephanie_work:
+  icon: "mdi:office-building"
+sensor.reistijd_jimsteph:
+  icon: "mdi:ring"
+
+# Battery Sensors
+sensor.ab_gang_muur_battery_level:
+  friendly_name: Hue Hall
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_keuken_muur_battery_level:
+  friendly_name: Hue Kitchen
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_kleine_kamer_muur_battery_level:
+  friendly_name: Hue Office
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_slaapkamer_muur_battery_level:
+  friendly_name: Hue Bedroom
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_toilet_muur_battery_level:
+  friendly_name: Hue Toilet
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_woonkamer_muur_battery_level:
+  friendly_name: Hue Living
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_kleine_kamer_battery_level:
+  friendly_name: Tradfri Office
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_slaapkamer_jim_battery_level:
+  friendly_name: Tradfri Jim
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.ab_slaapkamer_steph_battery_level:
+  friendly_name: Tradfri Steph
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.badkamer_battery_level:
+  friendly_name: TH Bathroom
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.slaapkamer_battery_level:
+  friendly_name: TH Bedroom
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.woonkamer_battery_level:
+  friendly_name: TH Living
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.lumi_sensor_smoke_battery_level:
+  friendly_name: Smoke
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.woonkamer_deur_battery_level:
+  friendly_name: Door Living
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.slaapkamer_deur_battery_level:
+  friendly_name: Door Bedroom
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.voordeur_battery_level:
+  friendly_name: Door Front
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.motion_woonkamer_battery_level:
+  friendly_name: Motion Living
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.motion_gang_battery_level:
+  friendly_name: Motion Hall
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.motion_office_battery_level:
+  friendly_name: Motion Office
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.motion_bijkeuken_battery_level:
+  friendly_name: Motion Laundry
+  device_class: battery
+  unit_of_measurement: '%'
+sensor.motion_toilet_battery_level:
+  friendly_name: Motion Toilet
+  device_class: battery
+sensor.battery_level_2:
+  friendly_name: iPhone Jim
+sensor.battery_level:
+  friendly_name: iPhone Steph
+sensor.battery_level_3:
+  friendly_name: iPad Air
+
+# Scenes
+scene.avondverlichting:
+  friendly_name: Avond
+  icon: mdi:weather-sunset-down
+scene.dagverlichting:
+  friendly_name: Dag
+  icon: mdi:weather-sunset-up
+scene.nachtverlichting:
+  friendly_name: Nacht
+  icon: mdi:weather-night
+scene.koken:
+  friendly_name: Koken
+  entity_picture: /local/images/icons/ceiling-light.png
+
+# Docker Containers
+switch.schings_docker_adguard_home:
+  friendly_name: AdGuard
+  entity_picture: /local/images/docker-container-images/adguard.png
+switch.schings_docker_appdaemon:
+  friendly_name: AppDaemon4
+  entity_picture: /local/images/docker-container-images/appdaemon.png
+switch.schings_docker_bitwardenrs:
+  friendly_name: BitwardenRS
+  entity_picture: /local/images/docker-container-images/bitwarden.png
+switch.schings_docker_codeserver:
+  friendly_name: CodeServer
+  entity_picture: /local/images/docker-container-images/codeserver.png
+switch.schings_docker_deconz:
+  friendly_name: deCONZ
+  entity_picture: /local/images/docker-container-images/deconz.png
+switch.schings_docker_dsmrreader:
+  friendly_name: DSMR Reader
+  entity_picture: /local/images/docker-container-images/dsmrreader.png
+switch.schings_docker_esphome:
+  friendly_name: ESPHome
+  entity_picture: /local/images/docker-container-images/esphome.png
+switch.schings_docker_flextv:
+  friendly_name: FlexTV
+  entity_picture: /local/images/docker-container-images/flextv.png
+switch.schings_docker_grafana:
+  friendly_name: Grafana
+  entity_picture: /local/images/docker-container-images/grafana.png
+switch.schings_docker_grocy:
+  friendly_name: Grocy
+  entity_picture: /local/images/docker-container-images/grocy.png
+switch.schings_docker_home_assistant_core:
+  friendly_name: Home Assistant
+  entity_picture: /local/images/docker-container-images/homeassistant.png
+switch.schings_docker_influxdb:
+  friendly_name: InfluxDB
+  entity_picture: /local/images/docker-container-images/influxdb.png
+switch.schings_docker_lidarr:
+  friendly_name: Lidarr
+  entity_picture: /local/images/docker-container-images/lidarr.png
+switch.schings_docker_macinabox:
+  friendly_name: MacinaBox
+  entity_picture: /local/images/docker-container-images/macos.png
+switch.schings_docker_mariadb:
+  friendly_name: MariaDB
+  entity_picture: /local/images/docker-container-images/mariadb.png
+switch.schings_docker_mosquitto:
+  friendly_name: Mosquitto
+  entity_picture: /local/images/docker-container-images/mosquitto.png
+switch.schings_docker_motioneye:
+  friendly_name: MotionEye
+  entity_picture: /local/images/docker-container-images/motioneye.png
+switch.schings_docker_nextcloud:
+  friendly_name: NextCloud
+  entity_picture: /local/images/docker-container-images/nextcloud.png
+switch.schings_docker_nginxproxymanager:
+  friendly_name: Nginx Proxy Manager
+  entity_picture: /local/images/docker-container-images/npm.png
+switch.schings_docker_nzbget:
+  friendly_name: NZBGet
+  entity_picture: /local/images/docker-container-images/nzbget.png
+switch.schings_docker_ombi:
+  friendly_name: Ombi
+  entity_picture: /local/images/docker-container-images/ombi.png
+switch.schings_docker_pgadmin4:
+  friendly_name: PgAdmin4
+  entity_picture: /local/images/docker-container-images/pgadmin4.png
+switch.schings_docker_phpmyadmin:
+  friendly_name: PhpMyAdmin
+  entity_picture: /local/images/docker-container-images/phpmyadmin.png
+switch.schings_docker_plexmediaserver:
+  friendly_name: Plex Media Server
+  entity_picture: /local/images/docker-container-images/plex.png
+switch.schings_docker_postgres11:
+  friendly_name: Postgres11
+  entity_picture: /local/images/docker-container-images/postgres11.png
+switch.schings_docker_qbittorrent:
+  friendly_name: qBittorent
+  entity_picture: /local/images/docker-container-images/qbittorrent.png
+switch.schings_docker_radarr:
+  friendly_name: Radarr
+  entity_picture: /local/images/docker-container-images/radarr.png
+switch.schings_docker_readarr:
+  friendly_name: Readarr
+  entity_picture: /local/images/docker-container-images/readarr.png
+switch.schings_docker_sonarr:
+  friendly_name: Sonarr
+  entity_picture: /local/images/docker-container-images/sonarr.png
+switch.schings_docker_spotweb:
+  friendly_name: Spotweb
+  entity_picture: /local/images/docker-container-images/spotweb.png
+switch.schings_docker_unraid_api:
+  friendly_name: Unraid API
+  entity_picture: /local/images/docker-container-images/unraid-api.png
+switch.schings_docker_valetudo_mapper:
+  friendly_name: Valetudo Mapper
+  entity_picture: /local/images/docker-container-images/valetudo.png
+switch.schings_docker_xboxsmartglass:
+  friendly_name: Xbox Smartglass
+  entity_picture: /local/images/docker-container-images/xbox.png
+switch.schings_docker_binhex_delugevpn:
+  friendly_name: Deluge
+  entity_picture: /local/images/docker-container-images/deluge.png
+switch.schings_docker_nodered_official_docker:
+  friendly_name: NodeRed
+  entity_picture: /local/images/docker-container-images/node-red.png
+switch.schings_docker_novnc_proxy:
+  friendly_name: NoVNC
+  entity_picture: /local/images/docker-container-images/novnc.png
+switch.schings_docker_glances:
+  friendly_name: Glances
+  entity_picture: /local/images/docker-container-images/glances.png
+  
+# VM's
+switch.schings_vm_macinaboxcatalina:
+  friendly_name: MacOS Catalina
+  entity_picture: /local/images/docker-container-images/vm_catalina.png
+switch.schings_vm_ubuntu:
+  friendly_name: Ubuntu 20.04
+  entity_picture: /local/images/docker-container-images/vm_ubuntu.png
+switch.schings_vm_windows_10:
+  friendly_name: Windows 10
+  entity_picture: /local/images/docker-container-images/vm_windows.png
+
+# Graphs
+sensor.dsmr_consumption_gas_delivered:
+  friendly_name: Gas
+  icon: mdi:fire
+
+sensor.dsmr_total_power_delivered:
+  friendly_name: Electricity
+  icon: mdi:flash
+
+sensor.dsmr_day_consumption_gas:
+  friendly_name: Gas
+  icon: mdi:fire
+
+sensor.dsmr_day_consumption_electricity_merged:
+  friendly_name: Electricity
+  icon: mdi:flash
+
+sensor.dsmr_day_consumption_gas_cost:
+  friendly_name: Gas
+  icon: mdi:fire
+
+sensor.dsmr_day_consumption_electricity_cost_merged:
+  friendly_name: Electricity
+  icon: mdi:flash
+
+sensor.wasmachine_power:
+  friendly_name: Wasmachine
+  icon: mdi:washing-machine
+
+sensor.droger_power:
+  friendly_name: Droger
+  icon: mdi:tumble-dryer
+
+sensor.koelkast_power:
+  friendly_name: Koelkast
+  icon: mdi:fridge
+
+sensor.vaatwasser_power:
+  friendly_name: Vaatwasser
+  icon: mdi:dishwasher
+
+sensor.power_52:
+  friendly_name: Oven
+  icon: mdi:toaster-oven
+
+sensor.consumption_49:
+  friendly_name: Oven
+  icon: mdi:toaster-oven
+
+sensor.ts0121_2:
+  friendly_name: Vriezer
+  icon: mdi:flash
+
+sensor.power_60:
+  friendly_name: Bureau Stephanie
+  icon: mdi:desktop-tower-monitor
+
+sensor.consumption_39:
+  friendly_name: Bureau Stephanie
+  icon: mdi:desktop-tower-monitor
+
+sensor.power_57:
+  friendly_name: Bureau Jimmy
+  icon: mdi:desktop-tower-monitor
+
+sensor.consumption_56:
+  friendly_name: Bureau Jimmy
+  icon: mdi:desktop-tower-monitor
+
+sensor.wasmachine_current:
+  friendly_name: Wasmachine
+  icon: mdi:washing-machine
+
+sensor.droger_current:
+  friendly_name: Droger
+  icon: mdi:tumble-dryer
+
+sensor.koelkast_current:
+  friendly_name: Koelkast
+  icon: mdi:fridge
+
+sensor.vaatwasser_current:
+  friendly_name: Vaatwasser
+  icon: mdi:dishwasher
+
+sensor.wasmachine_voltage:
+  friendly_name: Wasmachine
+  icon: mdi:washing-machine
+
+sensor.droger_voltage:
+  friendly_name: Droger
+  icon: mdi:tumble-dryer
+
+sensor.koelkast_voltage:
+  friendly_name: Koelkast
+  icon: mdi:fridge
+
+sensor.vaatwasser_voltage:
+  friendly_name: Vaatwasser
+  icon: mdi:dishwasher
