@@ -86,6 +86,7 @@ Please read [this](custom_views.md) for more information on how to use this.
 ||||
 | show_subtitle | no | subtitle | Change the header subtitle, choose between `false`, `notifications` or `subtitle` |
 | show_header | no | true | Show or hide the entire HKI header (this includes the subtitle) |
+| title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead |
 | subtitle | no | undefined | Set the subtitle text, this accepts button-card JS templates |
 | icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this accepts button-card JS templates and FA icons |
 | type | no | undefined | Set the type to `room` if you want this view to show up as a room (e.g. bathroom), this only has effect on the menu shortcut buttons! |
