@@ -2,7 +2,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/blob/master/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-## Homekit Infused (Lovelace) by Jimz011 April 2021 v4.0.0 Beta (*updated: 18/04/2021)
+## Homekit Infused (Lovelace) by Jimz011 April 2021 v4.0.0 Beta (*updated: 20/04/2021)
 *Note: You MUST have a working Home Assistant install to use this project, you can download Home Assistant [here](https://home-assistant.io).
 *Latest compatible Home Assistant version is 2021.4.x (do not update past this number for best compatibility)
 
@@ -25,6 +25,7 @@ By default it contains the following things:
 ### Quick Links
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/docs/index.md) for the documentation
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
+#### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/docs/addon_list.md) for legacy (v3.x.x) addons
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal/) to view how my personal Home Assistant is setup for v4.x.x
 
 ### Support Links
