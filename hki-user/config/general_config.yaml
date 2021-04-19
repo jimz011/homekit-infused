@@ -123,20 +123,25 @@ general_config:
 # Header ################################################################################################################################
   header:
     show_sensors: true 
-    sensors: # You can remove the sensors you don't want to show, you can have a maximum of 5 header sensors
+    sensors: # You can remove the sensors you don't want to show, you can have a maximum of 5 header sensors. Note: Leaving group_entity empty will disable it's popup.
       sensor_1:
         icon: mdi:door
         entity: sensor.current_doors_open
+        group_entity: group.all_door_sensor_entities
       sensor_2:
         icon: mdi:window-closed
         entity: sensor.current_windows_open
+        group_entity: group.all_window_sensor_entities
       sensor_3:
         icon: mdi:motion-sensor
         entity: sensor.current_binary_sensors_on
+        group_entity: group.all_binary_sensor_entities
       sensor_4:
         icon: mdi:power-plug
         entity: sensor.current_devices_on
+        group_entity: group.all_device_switch_entities
       sensor_5:
         icon: mdi:lightbulb
         entity: sensor.current_lights_on
+        group_entity: group.all_light_entities
   
