@@ -150,7 +150,10 @@ The example above will create a view for you named Kitchen and automatically doe
 You can pass some extra data to the entities so that HKI knows what kind of popup and/or color it should give to the buttons or even add a lock to a button. To set some extra keys add a dot at the end of the entity and then the extra key.
 E.g. `light.living_room.rgb` or `switch.kitchen_hood.fan`. You can have multiple tags. E.g. `switch.kitchen_hood.fan.lock`, the order of the keys do not matter, `switch.kitchen_hood.lock.fan` will also work!
 
-*Note: You can ONLY use .lock in conjunction with another tag e.g. `switch.lamp.lock.rgb`. Do not try to combine e.g. `rgb` with `color-temp`.
+*Notes: 
+- You can use .lock in conjunction with another tag e.g. `switch.lamp.lock.rgb`. Do not try to combine e.g. `rgb` with `color-temp`.
+- You can ONLY use .lock on entities that switch something on or off
+ 
 *Tip: You can also set an entire category to be forced with these properties, see examples below.
 
 | Tag | Description |
