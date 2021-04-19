@@ -14,7 +14,7 @@
 *Updated 20/04/2021
 
 ### Select an addon below, each addon has an image and documentation on how to install.
-*note: the addons on this page are specifically written to work with the HKI 3.x.x framework. They may or may not work with HKI 4.x.x.
+*note: the addons on this page are specifically written to work with the HKI 3.x.x framework. They may or may not work with HKI 4.x.x. though for now most of them have been updated to work with v4.x.x!
 *note: None of the custom cards/addons that you will need to download through HACS are created by me and ALL the [credit](thanks.md) should go to their original creators!!!
 
 #### Buttons  
