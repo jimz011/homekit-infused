@@ -23,189 +23,74 @@ cards:
             card:
               type: vertical-stack
               cards:
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      name: Theme
-                      label: Settings
-                      icon: mdi:palette
-                      template:
-                        - style-default
-                        - default-hki-grid
-                        - hki-menu-style
-                      tap_action:
-                        action: call-service
-                        service: input_select.select_option
-                        service_data:
-                          entity_id: input_select.hki_settings_selector
-                          option: Themes
-                        haptic: light
-                      state:
-                        - value: "Themes" 
-                          styles:
-                            card:
-                              - --ha-card-background: var(--button-on-color)
-                              - opacity: var(--button-on-opacity)
-                              - -webkit-box-shadow: var(--button-on-box-shadow)
-                              - box-shadow: var(--button-on-box-shadow)
-                            name:
-                              - color: var(--button-on-name-color)
-                            state:
-                              - color: var(--button-on-state-color)
-                            lock:
-                              - color: var(--button-on-lock-color) 
-                            label:
-                              - color: var(--button-on-label-color)
-                            icon:
-                              - color: var(--paper-item-icon-active-color)
-                    - type: custom:button-card
-                      name: Frontpage
-                      label: Greeting
-                      icon: mdi:form-textbox 
-                      template:
-                        - style-default
-                        - default-hki-grid
-                        - hki-menu-style
-                      tap_action:
-                        action: call-service
-                        service: input_select.select_option
-                        service_data:
-                          entity_id: input_select.hki_settings_selector
-                          option: Greeting
-                        haptic: light
-                      state:
-                        - value: "Greeting" 
-                          styles:
-                            card:
-                              - --ha-card-background: var(--button-on-color)
-                              - opacity: var(--button-on-opacity)
-                              - -webkit-box-shadow: var(--button-on-box-shadow)
-                              - box-shadow: var(--button-on-box-shadow)
-                            name:
-                              - color: var(--button-on-name-color)
-                            state:
-                              - color: var(--button-on-state-color)
-                            lock:
-                              - color: var(--button-on-lock-color) 
-                            label:
-                              - color: var(--button-on-label-color)
-                            icon:
-                              - color: var(--paper-item-icon-active-color)
-                    - type: custom:button-card
-                      name: View Selector
-                      label: Settings
-                      icon: mdi:checkbox-multiple-blank
-                      template:
-                        - style-default
-                        - default-hki-grid
-                        - hki-menu-style
-                      tap_action:
-                        action: call-service
-                        service: input_select.select_option
-                        service_data:
-                          entity_id: input_select.hki_settings_selector
-                          option: View Selector
-                        haptic: light
-                      state:
-                        - value: "View Selector" 
-                          styles:
-                            card:
-                              - --ha-card-background: var(--button-on-color)
-                              - opacity: var(--button-on-opacity)
-                              - -webkit-box-shadow: var(--button-on-box-shadow)
-                              - box-shadow: var(--button-on-box-shadow)
-                            name:
-                              - color: var(--button-on-name-color)
-                            state:
-                              - color: var(--button-on-state-color)
-                            lock:
-                              - color: var(--button-on-lock-color) 
-                            label:
-                              - color: var(--button-on-label-color)
-                            icon:
-                              - color: var(--paper-item-icon-active-color)
-                    - type: custom:button-card
-                      name: Advanced
-                      label: View
-                      icon: mdi:palette-advanced
-                      template:
-                        - style-default
-                        - default-hki-grid
-                        - hki-menu-style
-                      tap_action:
-                        action: call-service
-                        service: input_select.select_option
-                        service_data:
-                          entity_id: input_select.hki_settings_selector
-                          option: View Advanced
-                        haptic: light
-                      state:
-                        - value: "View Advanced" 
-                          styles:
-                            card:
-                              - --ha-card-background: var(--button-on-color)
-                              - opacity: var(--button-on-opacity)
-                              - -webkit-box-shadow: var(--button-on-box-shadow)
-                              - box-shadow: var(--button-on-box-shadow)
-                            name:
-                              - color: var(--button-on-name-color)
-                            state:
-                              - color: var(--button-on-state-color)
-                            lock:
-                              - color: var(--button-on-lock-color) 
-                            label:
-                              - color: var(--button-on-label-color)
-                            icon:
-                              - color: var(--paper-item-icon-active-color)
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: Theme Options
                 - type: conditional
                   conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "Themes"
+                    - entity: input_boolean.day_night_cycle
+                      state: "on"
+                  card:
+                    type: entities
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                      }
+                    show_header_toggle: false                                 
+                    entities: 
+                      - entity: input_boolean.day_night_cycle
+                        name: Light and Dark Mode
+                      - entity: input_select.theme_selector_day
+                        name: Select Light Theme
+                      - entity: input_select.theme_selector_night
+                        name: Select Dark Theme
+                - type: conditional
+                  conditions:
+                    - entity: input_boolean.day_night_cycle
+                      state: "off"
+                  card:
+                    type: entities
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                      }
+                    show_header_toggle: false                                   
+                    entities: 
+                      - entity: input_boolean.day_night_cycle
+                        name: Light and Dark Mode
+                      - entity: input_select.theme_selector
+                        name: Select Palette
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards: 
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: Navigation Bar Options
+                - type: entities
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  show_header_toggle: false              
+                  entities: 
+                    - entity: input_select.navigation_bar
+                      name: HKI Navigation Bar
+                - type: conditional
+                  conditions:
+                    - entity: input_select.navigation_bar
+                      state_not: "Off"
                   card:
                     type: vertical-stack
                     cards:
-                      - !include
-                        - '../templates/other/title-text.yaml'
-                        - name: Theme Options
-                      - type: conditional
-                        conditions:
-                          - entity: input_boolean.day_night_cycle
-                            state: "on"
-                        card:
-                          type: entities
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }
-                          show_header_toggle: false                                 
-                          entities: 
-                            - entity: input_boolean.day_night_cycle
-                              name: Light and Dark Mode
-                            - entity: input_select.theme_selector_day
-                              name: Select Light Theme
-                            - entity: input_select.theme_selector_night
-                              name: Select Dark Theme
-                      - type: conditional
-                        conditions:
-                          - entity: input_boolean.day_night_cycle
-                            state: "off"
-                        card:
-                          type: entities
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }
-                          show_header_toggle: false                                   
-                          entities: 
-                            - entity: input_boolean.day_night_cycle
-                              name: Light and Dark Mode
-                            - entity: input_select.theme_selector
-                              name: Select Palette
-                      - !include
-                        - '../templates/other/title-text.yaml'
-                        - name: Navigation Bar Options
                       - type: entities
                         style: |
                           ha-card {
@@ -214,76 +99,93 @@ cards:
                           }
                         show_header_toggle: false              
                         entities: 
-                          - entity: input_select.navigation_bar
-                            name: HKI Navigation Bar
-                      - type: conditional
-                        conditions:
-                          - entity: input_select.navigation_bar
-                            state_not: "Off"
-                        card:
-                          type: vertical-stack
-                          cards:
-                            - type: entities
-                              style: |
-                                ha-card {
-                                  border-radius: var(--border-radius);
-                                  box-shadow: var(--box-shadow);
-                                }
-                              show_header_toggle: false              
-                              entities: 
-                                - entity: input_select.navigation_bar_direction
-                                  name: Icons
-                                - entity: input_select.navigation_bar_options
-                                  name: Navigation Bar Text
-                      - type: conditional
-                        conditions:
-                          - entity: input_select.navigation_bar
-                            state: "Off"
-                        card:
-                          type: markdown
-                          style: |
-                            ha-card {
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                            }              
-                          content: >
-                            **Note:** Enabling options for the navigation bar will enable them on ALL dashboards! This can be useful if you want to have a clock/date and such on your other dashboards to be present.
-
-
-                            Turn this feature off if you don't like to use this or if it is conflicting with your other dashboards.
-
-
-                            **WARNING:** Enabling the HKI navigation bar will remove the sidebar button, on iOS you can swipe from the left to open the sidebar. On Android this is probably not possible. Keep this in mind when you enable this and use other dashboards. You can always go to this dashboard and turn the feature off by going to https://YOURDOMAIN.com/homekit-infused (if you have a portnumber in the address don't forget to add that).
-
-
-                            **This warning will no longer show when you enable this feature!**
+                          - entity: input_select.navigation_bar_direction
+                            name: Icons
+                          - entity: input_select.navigation_bar_options
+                            name: Navigation Bar Text
                 - type: conditional
                   conditions:
-                    - entity: input_select.hki_settings_selector
-                      state: "Greeting"
+                    - entity: input_select.navigation_bar
+                      state: "Off"
                   card:
-                    type: vertical-stack
-                    cards:
-                      - !include
-                        - '../templates/other/title-text.yaml'
-                        - name: Set the Frontpage Greeting lines
-                      - type: entities
-                        style: |
-                          ha-card {
-                            border-radius: var(--border-radius);
-                            box-shadow: var(--box-shadow);
-                          }
-                        show_header_toggle: false                                 
-                        entities: 
-                          - name: Good Morning
-                            entity: input_text.good_morning
-                          - name: Good Afternoon
-                            entity: input_text.good_afternoon
-                          - name: Good Evening
-                            entity: input_text.good_evening
-                          - name: Good Night
-                            entity: input_text.good_night
-                            
+                    type: markdown
+                    style: |
+                      ha-card {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--box-shadow);
+                      }              
+                    content: >
+                      **Note:** Enabling options for the navigation bar will enable them on ALL dashboards! This can be useful if you want to have a clock/date and such on your other dashboards to be present.
+    
+    
+                      Turn this feature off if you don't like to use this or if it is conflicting with your other dashboards.
+    
+    
+                      **WARNING:** Enabling the HKI navigation bar will remove the sidebar button, on iOS you can swipe from the left to open the sidebar. On Android this is probably not possible. Keep this in mind when you enable this and use other dashboards. You can always go to this dashboard and turn the feature off by going to https://YOURDOMAIN.com/homekit-infused (if you have a portnumber in the address don't forget to add that).
+    
+    
+                      **This warning will no longer show when you enable this feature!**
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:    
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: Set the Frontpage Greeting lines
+                - type: entities
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                  show_header_toggle: false                                 
+                  entities: 
+                    - name: Good Morning
+                      entity: input_text.good_morning
+                    - name: Good Afternoon
+                      entity: input_text.good_afternoon
+                    - name: Good Evening
+                      entity: input_text.good_evening
+                    - name: Good Night
+                      entity: input_text.good_night
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin-left: 7px;
+                margin-right: 7px;
+              }
+            card:
+              type: vertical-stack
+              cards:
+                - !include
+                  - '../templates/other/title-text.yaml'
+                  - name: GUI-Sandbox 
+                - type: custom:gui-sandbox
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }  
+                - type: markdown
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }  
+                  content: >
+                    **GUI Sandbox:** This tool will help you to create custom-cards visually like you would with the default Lovelace card editor.
+
+
+                    You can NOT save the code directly, you can however copy the code to your custom views. Please read the documentation on how to use custom cards on your views!
+
+
+                    **WARNING:** You should temporarily turn off the nav_bar features if this doesn't work right for you!
+                  
       - !include '../includes/gap-height.yaml'
       - !include '../includes/gap-height.yaml'
       - !include '../includes/gap-height.yaml'

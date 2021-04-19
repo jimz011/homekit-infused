@@ -51,7 +51,7 @@ entities:
               background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_1.entity }}'].state; else return '&nbsp;'; ]]]"
               size: 100%
-              entity: group.all_door_sensor_entities 
+              entity: {{ _global.general_config.header.sensors.sensor_1.group_entity|default('group.all_door_sensor_entities') }}
           {% endif %}
           {% if _global.general_config.header.sensors.sensor_2 is defined %}
           - !include
@@ -59,7 +59,7 @@ entities:
             - icon: {{ _global.general_config.header.sensors.sensor_2.icon }}
               background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_2.entity }}'].state; else return '&nbsp;'; ]]]"
-              entity: group.all_window_sensor_entities
+              entity: {{ _global.general_config.header.sensors.sensor_2.group_entity|default('group.all_window_sensor_entities') }}
           {% endif %}
           {% if _global.general_config.header.sensors.sensor_3 is defined %}
           - !include
@@ -67,7 +67,7 @@ entities:
             - icon: {{ _global.general_config.header.sensors.sensor_3.icon }}
               background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_3.entity }}'].state; else return '&nbsp;'; ]]]"
-              entity: group.all_motion_sensor_entities
+              entity: {{ _global.general_config.header.sensors.sensor_3.group_entity|default('group.all_motion_sensor_entities') }}
           {% endif %}
           {% if _global.general_config.header.sensors.sensor_4 is defined %}
           - !include
@@ -76,7 +76,7 @@ entities:
               background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_4.entity }}'].state; else return '&nbsp;'; ]]]"
               size: 100%
-              entity: group.all_device_switch_entities 
+              entity: {{ _global.general_config.header.sensors.sensor_4.group_entity|default('group.all_device_switch_entities') }}
           {% endif %}
           {% if _global.general_config.header.sensors.sensor_5 is defined %}
           - !include
@@ -85,7 +85,7 @@ entities:
               background_color: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state > 0) return 'red'; else return 'rgba(0,0,0,0.0)' ]]]"
               badge: "[[[ if (states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state > 0) return states['{{ _global.general_config.header.sensors.sensor_5.entity }}'].state; else return '&nbsp;'; ]]]"
               size: 100%
-              entity: group.all_light_entities
+              entity: {{ _global.general_config.header.sensors.sensor_5.group_entity|default('group.all_light_entities') }}
           {% endif %}
           {% endif %}
           - !include ../../includes/gap.yaml

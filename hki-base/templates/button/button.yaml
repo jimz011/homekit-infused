@@ -27,112 +27,114 @@ tap_action:
   action: {{ tap_action|default('toggle') }}
   haptic: light
 hold_action:
-  action: {{ hold_action|default('call-service') }}
-  service: browser_mod.popup
-  service_data:
-    title: ' '
-    #hide_header: true
-    style:
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-          --paper-slider-knob-color: #FFFFFF !important;
-          --paper-slider-active-color: #dedede !important;
-          --switch-checked-button-color: #FFFFFF !important;
-          --switch-unchecked-button-color: #FFFFFF !important;
-          --switch-checked-track-color: green !important;
-          --switch-unchecked-track-color: red !important;
-          --primary-text-color: white !important;
-          --paper-item-icon-color: white !important;
-        }
-        app-header, app-toolbar {
-          background-color: rgba(0,0,0,0.0) !important;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      !include
-      - {{ template|default('../popup-cards/light-switch.yaml') }}
-      - entity: {{ entity }}
-        slider_height: "{{ slider_height|default('410px') }}"
-        display_type: {{ display_type|default('auto') }}
-        slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
-        color_1: "{{ color_1|default('#ff8800') }}"
-        color_2: "{{ color_2|default('#ff005f') }}"
-        color_3: "{{ color_3|default('#28ff00') }}"
-        color_4: "{{ color_4|default('#00a0ff') }}"
-        color_5: "{{ color_5|default('#8300ff') }}"
-        color_6: "{{ color_6|default('#0300ff') }}"
-        service_color_1: {{ service_color_1|default([255, 136, 0]) }}
-        service_color_2: {{ service_color_2|default([255, 0, 95]) }}
-        service_color_3: {{ service_color_3|default([40, 255, 0]) }}
-        service_color_4: {{ service_color_4|default([0, 160, 255]) }}
-        service_color_5: {{ service_color_5|default([131, 0, 255]) }}
-        service_color_6: {{ service_color_6|default([3, 0, 255]) }}
-        line_color: {{ line_color|default('red') }}
-#    deviceID:
-#      - this
+  action: {{ hold_action|default('fire-dom-event') }}
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: ' '
+      deviceID:
+        - this
+      style:
+        .: |
+          :host {
+            --mdc-theme-surface: rgba(0,0,0,0);
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-background: rgba(0,0,0,0);
+            --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+            --mdc-dialog-min-height: 100%;
+            --mdc-dialog-min-width: 100%;
+            --mdc-dialog-max-width: 100%;
+            --paper-slider-knob-color: #FFFFFF !important;
+            --paper-slider-active-color: #dedede !important;
+            --switch-checked-button-color: #FFFFFF !important;
+            --switch-unchecked-button-color: #FFFFFF !important;
+            --switch-checked-track-color: green !important;
+            --switch-unchecked-track-color: red !important;
+            --primary-text-color: white !important;
+            --paper-item-icon-color: white !important;
+          }
+          app-header, app-toolbar {
+            background-color: rgba(0,0,0,0.0) !important;
+          }
+          mwc-icon-button {
+            color: #FFF;
+          }
+      card:
+        !include
+        - {{ template|default('../popup-cards/light-switch.yaml') }}
+        - entity: {{ entity }}
+          slider_height: "{{ slider_height|default('410px') }}"
+          display_type: {{ display_type|default('auto') }}
+          slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+          color_1: "{{ color_1|default('#ff8800') }}"
+          color_2: "{{ color_2|default('#ff005f') }}"
+          color_3: "{{ color_3|default('#28ff00') }}"
+          color_4: "{{ color_4|default('#00a0ff') }}"
+          color_5: "{{ color_5|default('#8300ff') }}"
+          color_6: "{{ color_6|default('#0300ff') }}"
+          service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+          service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+          service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+          service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+          service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+          service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+          line_color: {{ line_color|default('red') }}
   haptic: heavy
 double_tap_action:
-  action: {{ hold_action|default('call-service') }}
-  service: browser_mod.popup
-  service_data:
-    title: ' '
-    #hide_header: true
-    style:
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-          --paper-slider-knob-color: #FFFFFF !important;
-          --paper-slider-active-color: #dedede !important;
-          --switch-checked-button-color: #FFFFFF !important;
-          --switch-unchecked-button-color: #FFFFFF !important;
-          --switch-checked-track-color: green !important;
-          --switch-unchecked-track-color: red !important;
-          --primary-text-color: white !important;
-          --paper-item-icon-color: white !important;
-        }
-        app-header, app-toolbar {
-          background-color: rgba(0,0,0,0.0) !important;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      !include
-      - {{ template|default('../popup-cards/light-switch.yaml') }}
-      - entity: {{ entity }}
-        slider_height: "{{ slider_height|default('410px') }}"
-        display_type: {{ display_type|default('auto') }}
-        slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
-        color_1: "{{ color_1|default('#ff8800') }}"
-        color_2: "{{ color_2|default('#ff005f') }}"
-        color_3: "{{ color_3|default('#28ff00') }}"
-        color_4: "{{ color_4|default('#00a0ff') }}"
-        color_5: "{{ color_5|default('#8300ff') }}"
-        color_6: "{{ color_6|default('#0300ff') }}"
-        service_color_1: {{ service_color_1|default([255, 136, 0]) }}
-        service_color_2: {{ service_color_2|default([255, 0, 95]) }}
-        service_color_3: {{ service_color_3|default([40, 255, 0]) }}
-        service_color_4: {{ service_color_4|default([0, 160, 255]) }}
-        service_color_5: {{ service_color_5|default([131, 0, 255]) }}
-        service_color_6: {{ service_color_6|default([3, 0, 255]) }}
-        line_color: {{ line_color|default('red') }}
-#    deviceID:
-#      - this
+  action: {{ hold_action|default('fire-dom-event') }}
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: ' '
+      deviceID:
+        - this
+      style:
+        .: |
+          :host {
+            --mdc-theme-surface: rgba(0,0,0,0);
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-background: rgba(0,0,0,0);
+            --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
+            --mdc-dialog-min-height: 100%;
+            --mdc-dialog-min-width: 100%;
+            --mdc-dialog-max-width: 100%;
+            --paper-slider-knob-color: #FFFFFF !important;
+            --paper-slider-active-color: #dedede !important;
+            --switch-checked-button-color: #FFFFFF !important;
+            --switch-unchecked-button-color: #FFFFFF !important;
+            --switch-checked-track-color: green !important;
+            --switch-unchecked-track-color: red !important;
+            --primary-text-color: white !important;
+            --paper-item-icon-color: white !important;
+          }
+          app-header, app-toolbar {
+            background-color: rgba(0,0,0,0.0) !important;
+          }
+          mwc-icon-button {
+            color: #FFF;
+          }
+      card:
+        !include
+        - {{ template|default('../popup-cards/light-switch.yaml') }}
+        - entity: {{ entity }}
+          slider_height: "{{ slider_height|default('410px') }}"
+          display_type: {{ display_type|default('auto') }}
+          slider_colored_by_light: {{ slider_colored_by_light|default('true') }}
+          color_1: "{{ color_1|default('#ff8800') }}"
+          color_2: "{{ color_2|default('#ff005f') }}"
+          color_3: "{{ color_3|default('#28ff00') }}"
+          color_4: "{{ color_4|default('#00a0ff') }}"
+          color_5: "{{ color_5|default('#8300ff') }}"
+          color_6: "{{ color_6|default('#0300ff') }}"
+          service_color_1: {{ service_color_1|default([255, 136, 0]) }}
+          service_color_2: {{ service_color_2|default([255, 0, 95]) }}
+          service_color_3: {{ service_color_3|default([40, 255, 0]) }}
+          service_color_4: {{ service_color_4|default([0, 160, 255]) }}
+          service_color_5: {{ service_color_5|default([131, 0, 255]) }}
+          service_color_6: {{ service_color_6|default([3, 0, 255]) }}
+          line_color: {{ line_color|default('red') }}
   haptic: heavy
 state:
   - value: "on" 

@@ -30,72 +30,7 @@
           cards:
             {% if _global.general_config.frontpage.auto_fill is true %}
             {% if (_global.general_config.frontpage.persons is undefined) and (_global.general_config.frontpage.custom_cards is false) and (_global.general_config.frontpage.show_hide.show_persons is true) %}
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  style: |
-                    ha-card {
-                      border-radius: var(--border-radius);
-                      box-shadow: var(--box-shadow);
-                    }
-                  content: >
-                    **WELCOME:**
-    
-    
-                    You have succesfully installed Homekit Infused. Please read the documentation on https://github.com/jimz011/homekit-infused.
-    
-    
-                    To start configuring your first pieces, please open /hki-user/config/general_config.yaml and adjust the settings accordingly. By default everything should work out of the box, but you must either set one of the following parameters. Either enter all of your households person information at the `persons:` line or set `auto-fill: false` and `custom_cards: true`.
-                    
-    
-                    This message and the messages below will disappear when setting either one of those settings.
-    
-    
-                    Enjoy Homekit Infused!
-                - type: markdown
-                  style: |
-                    ha-card {
-                      border-radius: var(--border-radius);
-                      box-shadow: var(--box-shadow);
-                    }
-                  content: >
-                    **GENERAL CONFIG:**
-    
-    
-                    The general config file holds all of the information that is required to configure the frontpage, menu and the header. The settings in this file are pretty straightforward and you can change them at will.
-    
-    
-                    When you use auto-filling on either of these views you should uncomment the weather and persons pieces and add your own persons accordingly. When using an uneven number make sure you put the last person in your household under the `persons_alt:` tab.
-                - type: markdown
-                  style: |
-                    ha-card {
-                      border-radius: var(--border-radius);
-                      box-shadow: var(--box-shadow);
-                    }
-                  content: >
-                    **VIEWS:**
-    
-    
-                    To create views you should open the following file `/hki-user/config/view_config.yaml`. To create views you need at least the keyname (which will be the name of the view). This will render a new view with that name for you and put a shortcut in the menu.
-    
-    
-                    Make sure that you set at least `devices:` and/or `custom_cards: true` to make the view configurable and useful.
-                - type: markdown
-                  style: |
-                    ha-card {
-                      border-radius: var(--border-radius);
-                      box-shadow: var(--box-shadow);
-                    }
-                  content: >
-                    **AUTO-FILLING AND CUSTOM-CARDS:**
-    
-    
-                    Homekit Infused has auto-filling capabilities and can be set at the view level `/hki-user/config/view_config.yaml`. For all the available options please refer to the documentation.
-    
-    
-                    When setting `custom_cards: true` on any of the views that you create, you can add your own custom cards to that view. The path to this view is always `/hki-../hki-user/views/NAME_OF_THE_VIEW`. These folders will not be created automatically and has to be done manually.
-                    
-                    If you would have setup a view named lights and have `custom_cards: true` you should create a folder named lights like this `/hki-../hki-user/views/lights`. You can then put your own code in there, read the documentation for more information.
+            - !include settings/welcome-message.yaml
             {% endif %}
             {% if (_global.general_config.frontpage.weather is defined) or (_global.general_config.frontpage.persons is defined) or (_global.general_config.frontpage.persons_alt is defined) %}
             - type: custom:mod-card
@@ -259,29 +194,31 @@
                             box-shadow: var(--box-shadow);
                           }
                         content: '&nbsp; Map' 
-                      - type: custom:auto-entities
-                        filter:
-                          include:
-                            - entity_id: '*person*'
-                        show_empty: false
-                        sort:
-                          method: name
-                          numeric: true
-                        card:
-                          type: map                    
-                          style: |
-                            ha-card {
-                              --paper-item-icon-color: black;
-                              color: black;
-                              border-radius: var(--border-radius);
-                              box-shadow: var(--box-shadow);
-                              font-family: var(--font-family);
-                              font-size: 12px;
-                              opacity: 0.8;
-                              overflow: hidden;
-                            }                      
-                          default_zoom: 15
-                          aspect_ratio: 4x3
+                      - type: map                    
+                        style: |
+                          ha-card {
+                            --paper-item-icon-color: black;
+                            color: black;
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            font-family: var(--font-family);
+                            font-size: 12px;
+                            opacity: 0.8;
+                            overflow: hidden;
+                          }                      
+                        default_zoom: 15
+                        aspect_ratio: 4x3
+                        entities:
+                        {% if _global.general_config.frontpage.persons is defined %}
+                        {% for person, id in _global.general_config.frontpage.persons.items() %}
+                          - {{ id.person_entity }}
+                        {% endfor %}  
+                        {% endif %}
+                        {% if _global.general_config.frontpage.persons_alt is defined %}
+                        {% for person, id in _global.general_config.frontpage.persons_alt.items() %}
+                          - {{ id.person_entity }}
+                        {% endfor %}  
+                        {% endif %}
                 "all":
                   !include includes/gap-height.yaml
             {% endif %}
@@ -292,12 +229,12 @@
           max_columns: {{ _global.general_config.frontpage.columns.view_max_columns|default('3') }}
           layout: horizontal
           cards:
-            !include_dir_merge_list ../hki-user/views/frontpage/
+            !include_dir_merge_list ../hki-user/views/{{ _global.general_config.frontpage.path|default('home') }}/
         {% endif %}
         {% if _global.general_config.frontpage.custom_cards == "advanced" %}
         - type: vertical-stack
           cards:
-            !include_dir_merge_list ../hki-user/views/frontpage/
+            !include_dir_merge_list ../hki-user/views/{{ _global.general_config.frontpage.path|default('home') }}/
         {% endif %}
         - !include includes/gap-height.yaml
 
@@ -450,77 +387,18 @@
           max_columns: 3
           layout: horizontal
           cards:
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: 7px;
-                  margin-right: 7px;
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; Homekit Infused'
-                  - type: custom:state-switch
-                    entity: group
-                    default: admin
-                    states:
-                      admin:
-                        type: grid
-                        columns: 3
-                        cards:
-                          - !include
-                            - templates/button/button-badge.yaml
-                            - name: About
-                              label: HKI
-                              icon: mdi:help-circle
-                              navigation_path: /homekit-infused/about
-                              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
-                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
-                          - !include
-                            - templates/button/button-badge.yaml
-                            - name: HKI
-                              label: Settings
-                              icon: mdi:palette
-                              navigation_path: /homekit-infused/hki_settings
-                              notification: "[[[ return '&nbsp'; ]]]"
-                              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
-                          - !include
-                            - templates/button/button-badge.yaml
-                            - name: HA
-                              label: Settings
-                              icon: mdi:cogs
-                              navigation_path: /homekit-infused/ha_settings
-                              notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
-                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
-                      user:
-                        type: grid
-                        columns: 3
-                        cards:
-                          - !include
-                            - templates/button/button-badge.yaml
-                            - name: About
-                              label: HKI
-                              icon: mdi:help-circle
-                              navigation_path: /homekit-infused/about
-                              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
-                              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
-                          - !include
-                            - templates/button/button-badge.yaml
-                            - name: Go to
-                              label: Profile
-                              icon: mdi:account
-                              navigation_path: /profile
-                              notification: "[[[ return '&nbsp'; ]]]"
-                              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+            - !include settings/hki-menu.yaml
         - !include includes/gap-height.yaml
 
 {% for name, data in _global.view_config.items() %}
 - path: {{ name }}
   icon: {{ data.icon|default('mdi:home') }}
   visible: {{ data.show_in_navbar|default('false') }}
+  {% if data.title is defined %}
+  title: {{ data.title }}
+  {% else %}
   title: {{ name|replace("_", " ")|title }}
+  {% endif %}
   panel: true
   cards:
     - type: vertical-stack
@@ -528,7 +406,11 @@
         {% if (data.show_header is undefined) or (data.show_header is true) %}
         - !include
           - templates/header/header-base-template.yaml
+          {% if data.title is defined %}
+          - title: {{ data.title }}
+          {% else %}
           - title: {{ name|replace("_", " ")|title }}
+          {% endif %}
             icon: {{ data.icon|default('mdi:home') }}
             subtitle: "{{ data.subtitle }}"
             {% if ((data.show_subtitle is defined) and (data.show_subtitle == false)) %}
@@ -741,25 +623,6 @@
                           tap_action: more-info
                           hold_action: more-info
                           show_entity_picture: true
-                      {% elif ('switch.' in device) or ('.fan' in content) or ('fan' in device) %}
-                      - !include
-                        - templates/button/button.yaml
-                        {% if 'switch.fan' in device %}
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan.fan", ".fan") }}
-                        {% else %}
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan", " ") }}
-                        {% endif %}
-                          template: '../popup-cards/light-switch.yaml'
-                          grid: light-devices-grid
-                          {% if ('fan' in device) or ('fan' in content) %}
-                          hold_action: more-info
-                          spin_on: true
-                          color: DodgerBlue
-                          {% endif %}
-                      {% elif 'climate.' in device %}
-                      - !include
-                        - templates/button/thermostat.yaml
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
                       {% elif ('.graph' in device) or ('.graph' in content) %}
                       - !include
                         - templates/other/mini-graph.yaml
@@ -790,6 +653,25 @@
                           show_average: true
                           decimals: 2
                           font_size: 65
+                      {% elif ('switch.' in device) or ('.fan' in content) or ('.fan' in device) %}
+                      - !include
+                        - templates/button/button.yaml
+                        {% if 'switch.fan' in device %}
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan.fan", ".fan") }}
+                        {% else %}
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan", " ") }}
+                        {% endif %}
+                          template: '../popup-cards/light-switch.yaml'
+                          grid: light-devices-grid
+                          {% if ('.fan' in device) or ('.fan' in content) %}
+                          hold_action: more-info
+                          spin_on: true
+                          color: DodgerBlue
+                          {% endif %}
+                      {% elif 'climate.' in device %}
+                      - !include
+                        - templates/button/thermostat.yaml
+                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
                       {% elif 'sensor.' in device %}
                       - !include
                         - templates/button/button.yaml

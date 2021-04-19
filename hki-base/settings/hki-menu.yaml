@@ -1,0 +1,64 @@
+type: custom:mod-card
+style: |
+  ha-card {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+card:
+  type: vertical-stack
+  cards:
+    - !include
+      - '../templates/other/title-text.yaml'
+      - name: '&nbsp; Homekit Infused'
+    - type: custom:state-switch
+      entity: group
+      default: admin
+      states:
+        admin:
+          type: grid
+          columns: 3
+          cards:
+            - !include
+              - '../templates/button/button-badge.yaml'
+              - name: About
+                label: HKI
+                icon: mdi:help-circle
+                navigation_path: /homekit-infused/about
+                notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
+                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
+            - !include
+              - '../templates/button/button-badge.yaml'
+              - name: HKI
+                label: Settings
+                icon: mdi:palette
+                navigation_path: /homekit-infused/hki_settings
+                notification: "[[[ return '&nbsp'; ]]]"
+                background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
+            - !include
+              - '../templates/button/button-badge.yaml'
+              - name: HA
+                label: Settings
+                icon: mdi:cogs
+                navigation_path: /homekit-infused/ha_settings
+                notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
+                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
+        user:
+          type: grid
+          columns: 3
+          cards:
+            - !include
+              - '../templates/button/button-badge.yaml'
+              - name: About
+                label: HKI
+                icon: mdi:help-circle
+                navigation_path: /homekit-infused/about
+                notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
+                background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
+            - !include
+              - '../templates/button/button-badge.yaml'
+              - name: Go to
+                label: Profile
+                icon: mdi:account
+                navigation_path: /profile
+                notification: "[[[ return '&nbsp'; ]]]"
+                background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
