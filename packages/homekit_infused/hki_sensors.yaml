@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 4.0.0a
+        value_template: 4.0.0b
 
 # Time Date
   - platform: time_date
@@ -119,7 +119,7 @@ sensor:
   - platform: scrape
     name: HKI Latest Version
     resource: https://jimz011.github.io/homekit-infused/version
-    select: ".current-version h1"
+    select: ".beta-version h1"
     value_template: '{{ value.split(":")[1] }}'
 
 # Latest Compatible HA Version

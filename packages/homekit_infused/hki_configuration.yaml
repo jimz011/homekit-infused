@@ -29,3 +29,5 @@ alarm_control_panel:
     disarm_after_trigger: false
 
 browser_mod:
+  prefix: "browser_"
+  
