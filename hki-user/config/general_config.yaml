@@ -118,7 +118,7 @@ general_config:
     name:
       favorites: Favorites
       rooms: Rooms
-      Other: Other
+      other: Other
       
 # Header ################################################################################################################################
   header:
