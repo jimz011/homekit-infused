@@ -43,7 +43,7 @@ Add the following line to your lovelace resources
 ```
 # example of a basic climate entity
 - !include
-  - '../../../base/templates/button/thermostat.yaml'
+  - '../../../hki-base/templates/button/thermostat.yaml'
   - entity: climate.living_room
     lock: false
     ambient_entity: climate.living_room
@@ -52,7 +52,7 @@ Add the following line to your lovelace resources
 ```
 # example of a basic climate entity with external temperature sensor
 - !include
-  - '../../../base/templates/button/thermostat.yaml'
+  - '../../../hki-base/templates/button/thermostat.yaml'
   - entity: climate.living_room
     lock: false
     ambient_entity: sensor.living_room_temperature

@@ -27,7 +27,7 @@ For detailed instructions on how to use this, please follow read the [button (na
   layout: horizontal
   cards:  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Climate
         label: Control
         icon: mdi:thermometer
@@ -35,7 +35,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Devices
         label: Overview
         icon: mdi:power-plug
@@ -43,7 +43,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                                             
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Lights
         label: Overview
         icon: mdi:floor-lamp
@@ -51,7 +51,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Security
         label: Panel
         icon: mdi:cctv
@@ -59,7 +59,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Energy
         label: Overview
         icon: mdi:chart-line
@@ -67,7 +67,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]" 
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Scenes
         label: Overview
         icon: mdi:arrange-send-backward
@@ -75,7 +75,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Media
         label: Center
         icon: mdi:plex
@@ -83,7 +83,7 @@ For detailed instructions on how to use this, please follow read the [button (na
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Vacuum
         label: Control
         icon: mdi:robot-vacuum

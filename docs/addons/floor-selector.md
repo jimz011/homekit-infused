@@ -32,13 +32,13 @@ Experienced HA users can change this card into anything they'd like (it doesn't 
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 0
         icon: mdi:home-floor-negative-1
         aspect_ratio: 4/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 1
         icon: mdi:home-floor-0
@@ -49,19 +49,19 @@ Experienced HA users can change this card into anything they'd like (it doesn't 
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 0
         icon: mdi:home-floor-negative-1
         aspect_ratio: 3/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 1
         icon: mdi:home-floor-0
         aspect_ratio: 3/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 2
         icon: mdi:home-floor-1
@@ -72,25 +72,25 @@ Experienced HA users can change this card into anything they'd like (it doesn't 
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 0
         icon: mdi:home-floor-negative-1
         aspect_ratio: 2/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 1
         icon: mdi:home-floor-0
         aspect_ratio: 2/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 2
         icon: mdi:home-floor-1
         aspect_ratio: 2/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 3
         icon: mdi:home-floor-2
@@ -101,31 +101,31 @@ Experienced HA users can change this card into anything they'd like (it doesn't 
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 0
         icon: mdi:home-floor-negative-1
         aspect_ratio: 1/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 1
         icon: mdi:home-floor-0
         aspect_ratio: 1/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 2
         icon: mdi:home-floor-1
         aspect_ratio: 1/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 3
         icon: mdi:home-floor-2
         aspect_ratio: 1/1
     - !include
-      - '../../../base/templates/button/input-select-button.yaml'
+      - '../../../hki-base/templates/button/input-select-button.yaml'
       - entity: input_select.floor_selector
         option: 3
         icon: mdi:home-floor-3

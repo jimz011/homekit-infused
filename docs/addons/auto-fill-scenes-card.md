@@ -34,7 +34,7 @@ This is a card that will fetch all your scenes and create a button page for it a
       - domain: scene
         options:
           !include
-          - '../../../base/templates/button/service-call.yaml'
+          - '../../../hki-base/templates/button/service-call.yaml'
           - entity: this.entity_id
             grid: light-devices-grid
             service_entity: this.entity_id

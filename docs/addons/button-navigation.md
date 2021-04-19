@@ -50,7 +50,7 @@ This is the default HKI navigation button, it is by default used in the [menu](m
 ```
 # minimal example (without a badge)
 - !include
-  - '../../../base/templates/button/button-badge.yaml'
+  - '../../../hki-base/templates/button/button-badge.yaml'
   - name: Lights
     label: Overview
     icon: mdi:floor-lamp
@@ -62,7 +62,7 @@ This is the default HKI navigation button, it is by default used in the [menu](m
 ```
 # example (with a badge)
 - !include
-  - '../../../base/templates/button/button-badge.yaml'
+  - '../../../hki-base/templates/button/button-badge.yaml'
   - name: Climate
     label: Control
     icon: mdi:thermometer

@@ -108,7 +108,7 @@ automation:
 
 ```
 - !include
-  - '../../../base/templates/vacuum/modes.yaml'
+  - '../../../hki-base/templates/vacuum/modes.yaml'
   - name_silent: Silent
     name_turbo: Turbo
     name_max: Max

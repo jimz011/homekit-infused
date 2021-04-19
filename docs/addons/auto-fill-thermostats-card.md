@@ -46,7 +46,7 @@ climate.living_room:
 
 ```
 - !include
-  - '../../../base/templates/auto-fill/auto-fill-thermostat-template.yaml'
+  - '../../../hki-base/templates/auto-fill/auto-fill-thermostat-template.yaml'
   - lock: false
     columns: 3
     sort: name

@@ -20,7 +20,7 @@ This is a button that can call a service to either clean a zone or go to a spot.
 
 | Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| template | yes | '../../../base/templates/vacuum/zoned-preset-button.yaml' | Sets the template to either clean a zone or go to a spot, choices are `zoned-preset-button.yaml` or `go-to-spot-preset-button.yaml` |
+| template | yes | '../../../hki-base/templates/vacuum/zoned-preset-button.yaml' | Sets the template to either clean a zone or go to a spot, choices are `zoned-preset-button.yaml` or `go-to-spot-preset-button.yaml` |
 | entity | yes | vacuum.rockrobo | The entity MUST be  |
 | name | no | none | Name of the room/spot |
 | icon | no | none | Icon for the button |
@@ -35,7 +35,7 @@ This is a button that can call a service to either clean a zone or go to a spot.
 ```
 # example zoned cleaning preset button
 - !include
-  - '../../../base/templates/vacuum/zoned-preset-button.yaml'
+  - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
   - name: Livingroom
     icon: mdi:sofa
     entity: vacuum.rockrobo
@@ -44,7 +44,7 @@ This is a button that can call a service to either clean a zone or go to a spot.
 ```
 # example go to spot preset button
 - !include
-  - '../../../base/templates/vacuum/go-to-spot-preset-button.yaml'
+  - '../../../hki-base/templates/vacuum/go-to-spot-preset-button.yaml'
   - name: Go to Trash
     icon: mdi:trash-can
     entity: vacuum.rockrobo
@@ -55,19 +55,19 @@ This is a button that can call a service to either clean a zone or go to a spot.
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/vacuum/zoned-preset-button.yaml'
+      - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
       - name: Woonkamer
         icon: mdi:sofa
         entity: vacuum.rockrobo
         zone_id: ['Woonkamer']
     - !include
-      - '../../../base/templates/vacuum/zoned-preset-button.yaml'
+      - '../../../hki-base/templates/vacuum/zoned-preset-button.yaml'
       - name: Slaapkamer
         icon: mdi:bed
         entity: vacuum.rockrobo
         zone_id: ['Slaapkamer']
     - !include
-      - '../../../base/templates/vacuum/go-to-spot-preset-button.yaml'
+      - '../../../hki-base/templates/vacuum/go-to-spot-preset-button.yaml'
       - name: Go to Trash
         icon: mdi:trash-can
         entity: vacuum.rockrobo

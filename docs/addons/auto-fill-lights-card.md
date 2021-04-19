@@ -103,7 +103,7 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call |
   cards:
     {% for rooms in _global.lights_rooms_floor_0 %}
     - !include
-      - '../../../base/templates/auto-fill/auto-fill-lights-template.yaml'
+      - '../../../hki-base/templates/auto-fill/auto-fill-lights-template.yaml'
       - rooms: {{ rooms }}
         columns: 3
     {% endfor %}
@@ -122,7 +122,7 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call |
     cards:
       {% for rooms in _global.lights_rooms_floor_0 %}
       - !include
-        - '../../../base/templates/auto-fill/auto-fill-lights-template.yaml'
+        - '../../../hki-base/templates/auto-fill/auto-fill-lights-template.yaml'
         - rooms: {{ rooms }}
           columns: 3
       {% endfor %}
@@ -137,7 +137,7 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call |
     cards:
       {% for rooms in _global.lights_rooms_floor_1 %}
       - !include
-        - '../../../base/templates/auto-fill/auto-fill-lights-template.yaml'
+        - '../../../hki-base/templates/auto-fill/auto-fill-lights-template.yaml'
         - rooms: {{ rooms }}
           columns: 3
       {% endfor %}

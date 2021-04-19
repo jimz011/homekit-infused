@@ -27,7 +27,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
   layout: horizontal
   cards:
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Automations
         label: Overview
         icon: mdi:alpha-a-box
@@ -35,7 +35,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Battery
         label: Overview
         icon: mdi:battery-50
@@ -43,7 +43,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Calendar
         label: Overview
         icon: mdi:calendar-account
@@ -51,7 +51,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Certificates
         label: Expiry
         icon: mdi:certificate
@@ -59,7 +59,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Cleaning
         label: Overview
         icon: mdi:washing-machine
@@ -67,7 +67,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Climate
         label: Control
         icon: mdi:thermometer
@@ -75,7 +75,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"    
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Computers
         label: Overview
         icon: mdi:desktop-tower-monitor
@@ -83,7 +83,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Covers
         label: Overview
         icon: mdi:window-shutter
@@ -91,7 +91,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Devices
         label: Overview
         icon: mdi:power-plug
@@ -99,7 +99,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                       
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Energy
         label: Overview
         icon: mdi:chart-line
@@ -107,7 +107,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Floorplan
         label: Overview
         icon: mdi:floor-plan
@@ -115,7 +115,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Lights
         label: Overview
         icon: mdi:floor-lamp
@@ -123,7 +123,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Location
         label: Map
         icon: mdi:map-marker
@@ -131,7 +131,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"                       
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Media
         label: Center
         icon: mdi:plex
@@ -139,7 +139,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"     
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Scenes
         label: Overview
         icon: mdi:arrange-send-backward
@@ -147,7 +147,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Security
         label: Panel
         icon: mdi:cctv
@@ -155,7 +155,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"   
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: System
         label: Overview
         icon: mdi:home-assistant
@@ -163,7 +163,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Traffic
         label: Information
         icon: mdi:waze
@@ -171,7 +171,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"         
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Vacuum
         label: Control
         icon: mdi:robot-vacuum
@@ -179,7 +179,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Waste
         label: Collection
         icon: mdi:trash-can
@@ -187,7 +187,7 @@ This is the default HKI menu (in case you require this and deleted it by acciden
         notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
         background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Weather
         label: Information
         icon: mdi:weather-partly-cloudy

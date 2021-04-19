@@ -74,7 +74,7 @@ This is a predefined remote control solution for your Android or Apple TV. The r
 ```
 # example of minimal required config for Android TV
 - !include
-  - '../../../base/templates/other/remote-control.yaml'
+  - '../../../hki-base/templates/other/remote-control.yaml'
   - entity_media_player: media_player.nvidia_s_h_i_e_l_d_tv_pro
     entity_media_player_remote: media_player.nvidia_s_h_i_e_l_d_tv_pro
     entity_media_player_sound: media_player.samsung_ue65ku6000
@@ -82,7 +82,7 @@ This is a predefined remote control solution for your Android or Apple TV. The r
 ```
 # example of minimal required config for Apple TV
 - !include
-  - '../../../base/templates/other/remote-control.yaml'
+  - '../../../hki-base/templates/other/remote-control.yaml'
   - entity_media_player_sound: media_player.samsung_ue46es5500
     entity_media_player: media_player.slaapkamer
     entity_media_player_remote: remote.slaapkamer

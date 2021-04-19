@@ -42,7 +42,7 @@ vacuum:
 
 ```
 - !include
-  - '../../../base/templates/vacuum/controls.yaml'
+  - '../../../hki-base/templates/vacuum/controls.yaml'
   - entity: vacuum.xiaomi_vacuum_cleaner
     icon_find_me: mdi:map-marker
 ```

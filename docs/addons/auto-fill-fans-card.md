@@ -35,7 +35,7 @@ switch.living_room_fan:
 
 ```
 - !include
-  - '../../../base/templates/auto-fill/auto-fill-fan-template.yaml'
+  - '../../../hki-base/templates/auto-fill/auto-fill-fan-template.yaml'
   - columns: 3
     sort: name
 ```

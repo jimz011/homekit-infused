@@ -54,7 +54,7 @@ Add the following line to your lovelace resources
 *Minimum required options
 ```
 - !include
-  - '../../../base/templates/other/mini-graph.yaml'
+  - '../../../hki-base/templates/other/mini-graph.yaml'
   - entity: sensor.daily_energy
     name: Energy Today
 ```
@@ -62,7 +62,7 @@ Add the following line to your lovelace resources
 *Full options
 ```
 - !include
-  - '../../../base/templates/other/mini-graph.yaml'
+  - '../../../hki-base/templates/other/mini-graph.yaml'
   - entity: sensor.daily_energy
     name: Energy Today
     points_per_hour: 2

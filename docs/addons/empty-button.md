@@ -19,7 +19,7 @@ To fight this there is this empty button card. It will act as another button wit
 - Copy the code wherever you need this
 
 ```
-- !include ../../../base/includes/empty-button.yaml
+- !include ../../../hki-base/includes/empty-button.yaml
 ```
 
 ### Extra Information
@@ -27,35 +27,35 @@ To fight this there is this empty button card. It will act as another button wit
 # example of a row with 3 buttons
 - type: horizontal-stack
   cards:
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
     - type: entity-button
       entity: light.livingroom_lamp_1
     - type: entity-button
       entity: light.livingroom_lamp_2
     - type: entity-button
       entity: light.livingroom_lamp_3
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
 ```
 ```
 # example of a row with 2 button and an empty button
 - type: horizontal-stack
   cards:
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
     - type: entity-button
       entity: light.livingroom_lamp_1
     - type: entity-button
       entity: light.livingroom_lamp_2
-    - !include ../../../base/includes/empty-button.yaml
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/empty-button.yaml
+    - !include ../../../hki-base/includes/gap.yaml
 ```
 ```
 # example of a row with 1 button and 2 empty buttons
 - type: horizontal-stack
   cards:
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
     - type: entity-button
       entity: light.livingroom_lamp_1
-    - !include ../../../base/includes/empty-button.yaml
-    - !include ../../../base/includes/empty-button.yaml
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/empty-button.yaml
+    - !include ../../../hki-base/includes/empty-button.yaml
+    - !include ../../../hki-base/includes/gap.yaml
 ```

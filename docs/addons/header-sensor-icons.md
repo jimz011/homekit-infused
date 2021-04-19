@@ -23,7 +23,7 @@ These are the header sensor icons, they can be adjusted but the changes won't be
 
 
 ### How to
-To change the header sensors you must open the following file `/homekit-infused/base/templates/header/header-base-template.yaml`
+To change the header sensors you must open the following file `/homekit-infused/hki-base/templates/header/header-base-template.yaml`
 You can find out which sensors are included by default in HKI, if you did the initial HKI setup correctly you should have most of these working for you already! Please check out more information [HERE](device_counters.md)
 
 You can safely comment out the icons you don't want/need/use and/or add more yourself in a way described below.

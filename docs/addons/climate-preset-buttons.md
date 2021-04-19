@@ -33,7 +33,7 @@ This is a predefined set of buttons to use with your climate entities. It is adv
 - type: horizontal-stack
   cards:
     - !include
-      - '../../../base/templates/button/service-call.yaml'
+      - '../../../hki-base/templates/button/service-call.yaml'
       - name: Power
         label: All
         icon: mdi:power
@@ -42,7 +42,7 @@ This is a predefined set of buttons to use with your climate entities. It is adv
         margin_right: 40px
         opacity_off: 0.8
     - !include
-      - '../../../base/templates/button/service-call-with-option.yaml'
+      - '../../../hki-base/templates/button/service-call-with-option.yaml'
       - name: Frost
         label: Protection
         icon: mdi:snowflake-melt
@@ -53,7 +53,7 @@ This is a predefined set of buttons to use with your climate entities. It is adv
         margin_right: 40px
         opacity_off: 0.8
     - !include
-      - '../../../base/templates/button/service-call-with-option.yaml'
+      - '../../../hki-base/templates/button/service-call-with-option.yaml'
       - name: Heat
         label: All
         icon: mdi:fire
@@ -64,7 +64,7 @@ This is a predefined set of buttons to use with your climate entities. It is adv
         margin_right: 40px
         opacity_off: 0.8
     - !include
-      - '../../../base/templates/button/service-call.yaml'
+      - '../../../hki-base/templates/button/service-call.yaml'
       - name: Power
         label: All Off
         icon: mdi:power

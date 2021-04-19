@@ -34,7 +34,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "on"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:smoke-detector
       name: There is smoke detected in the Kitchen!!
       spin: true
@@ -49,7 +49,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "on"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:smoke-detector
       name: There is smoke detected in the Kitchen!!
       spin: true
@@ -61,7 +61,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "on"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:door
       name: The frontdoor is open!!
 ```
@@ -78,7 +78,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "off"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:check-box-outline
       name: All clear, no notifications.
       
@@ -89,7 +89,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "on"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:smoke-detector
       name: There is smoke detected in the Kitchen!!
       spin: true
@@ -101,7 +101,7 @@ This card will show you live notifications in the subtitle part of the header (t
       state: "on"
   card:
     !include
-    - '../base/templates/header/notification-template.yaml'
+    - '../hki-base/templates/header/notification-template.yaml'
     - icon: mdi:door
       name: The frontdoor is open!!
 ```

@@ -41,7 +41,7 @@ Add the following lines to your lovelace resources
 | size | no | 25% | Sets the size of the icon |
 | color | no | auto | Sets the color of the icon when device is turned `on` (this will ONLY work with entities that report `on` and `off` states) |
 | icon_color_off | no | var(--paper-item-icon-color) | Sets the color of the icon when device is turned `off` (this will ONLY work with entities that report `on` and `off` states) |
-| label | yes | `!include ../../../base/includes/brightness-label.yaml` | Sets the label for the button (this accepts JS templates, see examples below) |
+| label | yes | `!include ../../../hki-base/includes/brightness-label.yaml` | Sets the label for the button (this accepts JS templates, see examples below) |
 | show_entity_picture | no | true | Set to show entity_picture instead of an icon, set this to false if you've set an entity_picture in customize.yaml and want to override it by showing an icon instead, else just leave the default setting | 
 | entity_picture | no | none | Sets an entity_picture for this icon, this must be a path to an image (e.g. /local/images/your_image.png). This will override the icon setting! |
 | aspect_ratio | no | 1/1 | Sets the aspect_ratio for the button |
@@ -96,16 +96,16 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call (
 ```
 # minimal example (light)
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: light.living_room_lamp
     name: Living Room
-    label: !include ../../../base/includes/brightness-label.yaml
+    label: !include ../../../hki-base/includes/brightness-label.yaml
     icon: mdi:floor-lamp
 ```
 ```
 # minimal example (switch)
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: switch.washing-machine
     name: Washing
     label: Machine
@@ -114,7 +114,7 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call (
 ```
 # example of a button with the default toggle/more-info
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: switch.washing-machine
     name: Washing
     label: Machine
@@ -124,7 +124,7 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call (
 ```
 # example of a button with a sensor and last_changed label
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: sensor.woonkamer
     lock: false
     tap_action: more-info
@@ -134,10 +134,10 @@ service_color_6 | no | [3, 0, 255] | Sets the color of the actual service-call (
 ```
 # example (this is how I have set them up personally in my own setup)
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: light.bedside_lamp_wife
     name: Stephanie
-    label: !include ../../../base/includes/brightness-label.yaml
+    label: !include ../../../hki-base/includes/brightness-label.yaml
     lock: true
     template: '../popup-cards/light-color-temp.yaml'
     grid: light-devices-grid
@@ -151,7 +151,7 @@ Some of the properties accept templating, unfortunately I do not know all of the
 ```
 # example with a name, label and icon template
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: switch.washing-machine
     name: "[[[ if (states['switch.washing-machine'].state == "on") return 'Washing Machine'; else return 'Doing Nothing Machine' ]]]"
     label: "[[[ if (states['switch.washing-machine'].state == "on") return 'Turned On'; else return 'Stupid Machine'; ]]]"
@@ -164,7 +164,7 @@ The example below is how to easily create a template to show as the label, I use
 ```
 # example device switch with energy monitoring (this is how I personally use this button)
 - !include
-  - '../../../base/templates/button/button.yaml'
+  - '../../../hki-base/templates/button/button.yaml'
   - entity: switch.refrigerator
     grid: light-devices-grid
     label: "[[[ return `${states['sensor.refrigerator_power'].state} W`; ]]]"

@@ -31,7 +31,7 @@ The images have been modified to fit my own needs, hopefully you will find them 
 
 ```
 - !include
-  - '../../../base/templates/picture-elements/appliances-card.yaml'
+  - '../../../hki-base/templates/picture-elements/appliances-card.yaml'
   - image: /local/images/appliances/washingmachine.jpg
     entity_status: sensor.washing_machine_status
     entity_switch: switch.washing_machine

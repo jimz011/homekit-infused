@@ -31,7 +31,7 @@ This card is used to create a header style name for the views (see screenshot)
 
 ```
 - !include
-  - '../../../base/templates/other/title-text.yaml'
+  - '../../../hki-base/templates/other/title-text.yaml'
   - name: Living Room
 ```
 
@@ -41,7 +41,7 @@ This card is probably best used when placed inside a vertical-stack (this will a
 - type: vertical-stack
   cards:
     - !include
-      - '../../../base/templates/other/title-text.yaml'
+      - '../../../hki-base/templates/other/title-text.yaml'
       - name: Living Room
     - type: horizontal-stack
       cards:
@@ -60,10 +60,10 @@ This card is probably best used when placed inside a vertical-stack (this will a
     - type: horizontal-stack
       cards:
         - !include
-          - '../../../base/templates/other/title-text.yaml'
+          - '../../../hki-base/templates/other/title-text.yaml'
           - name: Bedroom
         - !include
-          - '../../../base/templates/other/title-text.yaml'
+          - '../../../hki-base/templates/other/title-text.yaml'
           - name: "[[[ return `${states['sensor.bedroom_temperature'].state} °C`; ]]]"
             justify_self: end
     - type: horizontal-stack

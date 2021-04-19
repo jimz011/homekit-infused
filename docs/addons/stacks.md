@@ -108,17 +108,17 @@ As you can see the stacks in Home Assistant are pretty versatile, see it this wa
   layout: horizontal
   cards:
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: {Automations
         label: Overview
         icon: mdi:alpha-a-box 
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Battery
         label: Overview
         icon: mdi:battery-50
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Calendar
         label: Overview
         icon: mdi:calendar-account     
@@ -131,32 +131,32 @@ As you can see the stacks in Home Assistant are pretty versatile, see it this wa
   layout: horizontal
   cards:
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: {Automations
         label: Overview
         icon: mdi:alpha-a-box
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Battery
         label: Overview
         icon: mdi:battery-50
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Calendar
         label: Overview
         icon: mdi:calendar-account
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: {Automations
         label: Overview
         icon: mdi:alpha-a-box 
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Battery
         label: Overview
         icon: mdi:battery-50
     - !include
-      - '../../../base/templates/button/button-badge.yaml'
+      - '../../../hki-base/templates/button/button-badge.yaml'
       - name: Calendar
         label: Overview
         icon: mdi:calendar-account

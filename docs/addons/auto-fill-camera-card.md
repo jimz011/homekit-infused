@@ -37,7 +37,7 @@ camera.living_room:
 
 ```
 - !include
-  - '../../../base/templates/auto-fill/auto-fill-camera-template.yaml'
+  - '../../../hki-base/templates/auto-fill/auto-fill-camera-template.yaml'
   - aspect_ratio: 16x9
     columns: 1
     sort: name

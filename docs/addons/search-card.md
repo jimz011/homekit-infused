@@ -28,6 +28,6 @@ Add the following line to your lovelace resources
 - Copy the code below and make changes if needed
 
 ```
-- !include ../../../base/includes/search-card.yaml
+- !include ../../../hki-base/includes/search-card.yaml
 ```
 

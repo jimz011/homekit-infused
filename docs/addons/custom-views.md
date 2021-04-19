@@ -35,7 +35,7 @@ The last part of this url can also be used inside a [navigation button](https://
 ```
 # example navigation button to a custom view
 - !include
-  - '../../../base/templates/button/button-badge.yaml'
+  - '../../../hki-base/templates/button/button-badge.yaml'
   - name: Custom View 1
     label: User
     icon: mdi:account
@@ -47,7 +47,7 @@ The last part of this url can also be used inside a [navigation button](https://
 # example of a menu card for all 4 custom views
 - type: horizontal-stack
   cards:
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
     - type: custom:layout-card
       min_columns: 3
       max_columns: 3
@@ -55,7 +55,7 @@ The last part of this url can also be used inside a [navigation button](https://
       layout: horizontal
       cards:
         - !include
-          - '../../../base/templates/button/button-badge.yaml'
+          - '../../../hki-base/templates/button/button-badge.yaml'
           - name: Custom View 1
             label: User
             icon: mdi:account
@@ -63,7 +63,7 @@ The last part of this url can also be used inside a [navigation button](https://
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/button-badge.yaml'
+          - '../../../hki-base/templates/button/button-badge.yaml'
           - name: Custom View 2
             label: User
             icon: mdi:account
@@ -71,7 +71,7 @@ The last part of this url can also be used inside a [navigation button](https://
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/button-badge.yaml'
+          - '../../../hki-base/templates/button/button-badge.yaml'
           - name: Custom View 3
             label: User
             icon: mdi:account
@@ -79,12 +79,12 @@ The last part of this url can also be used inside a [navigation button](https://
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
         - !include
-          - '../../../base/templates/button/button-badge.yaml'
+          - '../../../hki-base/templates/button/button-badge.yaml'
           - name: Custom View 4
             label: User
             icon: mdi:account
             navigation_path: /homekit-infused/custom_4
             notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
             background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
-    - !include ../../../base/includes/gap.yaml
+    - !include ../../../hki-base/includes/gap.yaml
 ```
