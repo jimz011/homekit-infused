@@ -34,6 +34,7 @@ You must change/add the following items yourself:
 - `weather:`
 
 *Note that these are already commented out by default and you should uncomment them and change them to your own respective configuration.
+*WARNING: Make sure that when you uncomment these lines the indentation is right!!
 
 If you have set `custom_cards: true` you must create a folder with the same name as the path in `/hki-user/views/` by default this path is `home` unless you rename it in the settings. In this case your path would be `/hki-user/views/home/`.
 
