@@ -1,0 +1,46 @@
+# lovelace_gen
+
+title: {{ _global.general_config.sidebar.sidebar_title|default('Homekit Infused') }}
+style: |
+  :host {
+      --sidebar-background: #FFF;
+      --sidebar-text-color: #000;
+      --face-color: #FFF;
+      --face-border-color: #FFF;
+      --clock-hands-color: #000;
+      --clock-seconds-hand-color: #FF4B3E;
+      --clock-middle-background: #FFF;
+      --clock-middle-border: #000;
+  }
+clock: {{ _global.general_config.sidebar.show_clock|default('true') }}
+width:
+  mobile: 0
+  tablet: 12
+  desktop: 12
+date: {{ _global.general_config.sidebar.show_date|default('true') }}  
+hideOnPath:
+  {% for name, data in _global.view_config.items() %}
+  {% if data.sidebar is undefined %}
+    - /homekit-infused/{{ name }}
+  {% endif %}
+  {% endfor %}
+  {% if (_global.general_config.frontpage.show_hide.show_sidebar is undefined) or (_global.general_config.frontpage.show_hide.show_sidebar is false) %}
+    - /homekit-infused/{{ _global.general_config.frontpage.path }}
+  {% endif %}
+  {% if (_global.general_config.menu.show_hide.show_sidebar is undefined) or (_global.general_config.menu.show_hide.show_sidebar is false) %}
+    - /homekit-infused/{{ _global.general_config.menu.path }}
+  {% endif %}
+sidebarMenu:
+  {% for name, data in _global.view_config.items() %}
+  {% if ( (data.sidebar is defined) and (data.show_in_favorites is true) ) %}
+  - action: navigate
+    navigation_path: "/homekit-infused/{{ name }}"
+    {% if data.title is defined %}
+    name: "{{ data.title }}"
+    {% else %}
+    name: "{{ name|replace("_", " ")|title }}"
+    {% endif %}
+    icon: {{ data.icon }}
+    active: true
+  {% endif %}
+  {% endfor %}

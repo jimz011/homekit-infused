@@ -193,7 +193,7 @@
                             border-radius: var(--border-radius);
                             box-shadow: var(--box-shadow);
                           }
-                        content: '&nbsp; Map' 
+                        content: '&nbsp; {{ _global.general_config.frontpage.map.title }}' 
                       - type: map                    
                         style: |
                           ha-card {
@@ -700,29 +700,31 @@
               margin-right: 7px;
             }
           card:
-            type: custom:auto-entities
-            filter:
-              include:
-                - entity_id: '*person*'
-            show_empty: false
-            sort:
-              method: name
-              numeric: true
-            card:
-              type: map                    
-              style: |
-                ha-card {
-                  --paper-item-icon-color: black;
-                  color: black;
-                  border-radius: var(--border-radius);
-                  box-shadow: var(--box-shadow);
-                  font-family: var(--font-family);
-                  font-size: 12px;
-                  opacity: 0.8;
-                  overflow: hidden;
-                }                      
-              default_zoom: 15
-              aspect_ratio: 4x3
+            type: map                    
+            style: |
+              ha-card {
+                --paper-item-icon-color: black;
+                color: black;
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                font-family: var(--font-family);
+                font-size: 12px;
+                opacity: 0.8;
+                overflow: hidden;
+              }                      
+            default_zoom: 15
+            aspect_ratio: 4x3
+            entities:
+            {% if _global.general_config.frontpage.persons is defined %}
+            {% for person, id in _global.general_config.frontpage.persons.items() %}
+              - {{ id.person_entity }}
+            {% endfor %}  
+            {% endif %}
+            {% if _global.general_config.frontpage.persons_alt is defined %}
+            {% for person, id in _global.general_config.frontpage.persons_alt.items() %}
+              - {{ id.person_entity }}
+            {% endfor %}  
+            {% endif %}
         {% endif %}
         {% if data.waze is true %}
         - type: custom:mod-card
