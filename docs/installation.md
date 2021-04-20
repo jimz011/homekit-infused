@@ -66,7 +66,7 @@ Copy the following files/folders to the root of your Home Assistant installation
 
 ```
 homeassistant:
-    packages: !include_dir_named packages/
+  packages: !include_dir_named packages/
 ```
 
 Note: If you have an existing setup and already have packages, you must cut/paste the packages/homekit_infused folder inside your currently exising packages folder! (depending on the way the folder is included within your configuration.yaml file)
@@ -77,7 +77,7 @@ You might need the following entry in your `configuration.yaml` file
 
 ```
 homeassistant:
-    customize: !include customize.yaml
+  customize: !include customize.yaml
 ```
 
 Now if you have created this file we will start and fill it with our own entities.
@@ -85,8 +85,8 @@ If you already have items in that file just add them below the last item, else j
 
 ```
 switch.washingmachine:
-    friendly_name: Washing Machine
-    icon: mdi:washing-machine
+  friendly_name: Washing Machine
+  icon: mdi:washing-machine
 ```
 
 NOTE: The customize.yaml file is the only way that you can change the names/icons for buttons that use HKI autofill addons. If you do not intend to use any of the HKI addons and just the framework you can skip doing this, however you will not be able to use any of the features besides the HKI framework itself.
