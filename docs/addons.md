@@ -56,7 +56,7 @@ To use this addon put `climate:` into your views config
 | frost_protection_name | no | Frost | Name of the frost_protection button |
 | frost_protection_label | no | Protection | Label of the frost_protection button |
 | frost_protection_icon | no | mdi:snowflake-melt | Icon of the frost_protection button |
-| frost_protection_temperature | no | 11 | | preset temperature of the frost_protection button |
+| frost_protection_temperature | no | 11 | preset temperature of the frost_protection button |
 | heat_all_name | no | Heat | Name of the heat_all button |
 | heat_all_label | no | All | Label of the heat_all button |
 | heat_all_icon | no | mdi:fire | Icon of the heat_all button |
@@ -151,7 +151,7 @@ To use this addon put `weather:` into your views config. You must at least set O
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes/no | weather.dark_sky | Enter your weather entity, this must be a weather entity and not a sensor e.g. `weather.dark_sky` |
 | city_name | yes/no | undefined | Set your city name to show on the card |
-| windy_url | yes/no | Set a nice windy iframe for your view, you must add an URL in this field, you can create your own URL by visiting [this website](https://www.windy.com/-Embed-widget-on-page/widgets?) |
+| windy_url | yes/no | undefined | Set a nice windy iframe for your view, you must add an URL in this field, you can create your own URL by visiting [this website](https://www.windy.com/-Embed-widget-on-page/widgets?) |
 
 ```
 # Example
