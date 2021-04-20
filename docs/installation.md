@@ -11,7 +11,7 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
-### General Preparation
+### Installation
 ##### Advice
 - Install Home Assistant or create a backup of your current setup. I will advise you to install this on a clean Home Assistant install, though it is not a requirement.
 - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually.
