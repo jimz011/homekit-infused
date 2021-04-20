@@ -11,15 +11,15 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
-# Updates
-## Procedure from v4.x.x to newer
+## Updates
+### Procedure from v4.x.x to newer
 To update Homekit Infused to a newer version all you need to do is download the latest release and replace the following 2 folders:
 - /hki-base/
 - /packages/
 
 Be sure to read any breaking changes.
 
-## Procedure from v3.x.x to v4.0.0
+### Procedure from v3.x.x to v4.0.0
 *Warning: the entire HKI structure has changed and thus will require some user input. Note that anything that was configured in the `/homekit-infused/user/config/` folder MUST be configured again in v4 since many of these options have been merged and/or no longer needed.
 
 To update Homekit Infused to version 4.0.0 you must do the following.
@@ -47,7 +47,7 @@ Copy the following folders from the repo:
 - /hki-user/
 - /packages/
 
-## Now go on and read the ENTIRE documentation. I know it sucks, but trust me, it took me hours to recreate and simplify the docs. So take 10 minutes of your time for all the work I have put into this! You will need to read them to understand the new and improved way of creating views anyways!
+#### Now go on and read the ENTIRE documentation. I know it sucks, but trust me, it took me hours to recreate and simplify the docs. So take 10 minutes of your time for all the work I have put into this! You will need to read them to understand the new and improved way of creating views anyways!
 
 Migrate user files:
 - copy back your own templates folder (if you had one) to `/hki-user/templates/`
