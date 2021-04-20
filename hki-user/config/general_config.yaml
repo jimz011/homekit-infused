@@ -149,3 +149,8 @@ general_config:
         entity: sensor.current_lights_on
         group_entity: group.all_light_entities
   
+# Sidebar ###############################################################################################################################
+  sidebar:
+    sidebar_title: Homekit Infused
+    show_clock: true
+    show_date: true
