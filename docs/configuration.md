@@ -84,7 +84,6 @@ Please read [this](custom_views.md) for more information on how to use this.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 'key' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view |
-||||
 | show_subtitle | no | subtitle | Change the header subtitle, choose between `false`, `notifications` or `subtitle` |
 | show_header | no | true | Show or hide the entire HKI header (this includes the subtitle) |
 | title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead |
