@@ -91,7 +91,7 @@ Please read [this](custom_views.md) for more information on how to use this.
 | icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this accepts button-card JS templates and FA icons |
 | type | no | undefined | Set the type to `room` if you want this view to show up as a room (e.g. bathroom), this only has effect on the menu shortcut buttons! |
 | min_columns | no | 1 | Set the minimal columns for this view, this has no effect when custom_cards is set to `advanced` |
-| max_columns | no | 3 | Set the maximum columns for this view, this has no effect when custom_cards is set to `advanced` |'
+| max_columns | no | 3 | Set the maximum columns for this view, this has no effect when custom_cards is set to `advanced` |
 | show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites of the menu and the frontpage |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar |
