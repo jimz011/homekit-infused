@@ -2,8 +2,10 @@
   title: test grid
   columns: 3
   cards:
-    - type: entity
-      entity: light.kleine_kamer
-    - type: entity
-      entity: light.office_led_lampen
+    - !include
+      - '../../../hki-base/templates/button/button_new.yaml'
+      - entity: light.kleine_kamer
+        tap_action: 
+          action: toggle
+            
     

@@ -18,7 +18,8 @@ general_config:
       show_header: true
       show_notifications: true
       show_in_navbar: true 
-      show_search_card: true
+      show_search_card: false
+      show_sidebar: false
 
       # Auto Fill Only
       show_weather: true 
@@ -77,6 +78,9 @@ general_config:
         location_in_stack: second_row
         text_color: white
 
+  # Map/Location
+    map:
+      title: Location
   ### End of auto-filling options on the frontpage ###
 
 # Menu ##################################################################################################################################
@@ -95,10 +99,11 @@ general_config:
       show_subtitle: true
       show_in_navbar: true 
       show_search_card: true
+      show_sidebar: false
 
       # Auto Fill Only
       show_favorites: true 
-      show_rooms: true 
+      show_rooms: false 
       show_all: true 
 
   # Columns
@@ -118,25 +123,35 @@ general_config:
     name:
       favorites: Favorites
       rooms: Rooms
-      Other: Other
+      other: Other
       
 # Header ################################################################################################################################
   header:
     show_sensors: true 
-    sensors: # You can remove the sensors you don't want to show, you can have a maximum of 5 header sensors
+    sensors: # You can remove the sensors you don't want to show, you can have a maximum of 5 header sensors. Note: Leaving group_entity empty will disable it's popup.
       sensor_1:
         icon: mdi:door
         entity: sensor.current_doors_open
+        group_entity: group.all_door_sensor_entities
       sensor_2:
         icon: mdi:window-closed
         entity: sensor.current_windows_open
+        group_entity: group.all_window_sensor_entities
       sensor_3:
         icon: mdi:motion-sensor
         entity: sensor.current_binary_sensors_on
+        group_entity: group.all_binary_sensor_entities
       sensor_4:
         icon: mdi:power-plug
         entity: sensor.current_devices_on
+        group_entity: group.all_device_switch_entities
       sensor_5:
         icon: mdi:lightbulb
         entity: sensor.current_lights_on
+        group_entity: group.all_light_entities
   
+# Sidebar ###############################################################################################################################
+  sidebar:
+    sidebar_title: Homekit Infused
+    show_clock: true
+    show_date: true

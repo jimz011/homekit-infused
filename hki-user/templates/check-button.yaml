@@ -1,0 +1,21 @@
+# lovelace_gen
+
+# Card
+type: 'custom:check-button-card'
+title: {{ title }}
+entity: {{ entity }}
+color: green
+{% raw %}
+style: |
+  ha-card {
+    border-radius: var(--border-radius);
+    var(--box-shadow)
+  }
+{% endraw %}
+severity:
+  - value: {{ value_1 }}
+    color: 'yellow'
+  - value: {{ value_2 }}
+    color: 'orange'
+  - value: {{ value_3 }}
+    color: 'red'

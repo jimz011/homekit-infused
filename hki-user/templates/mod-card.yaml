@@ -1,0 +1,7 @@
+# lovelace_gen
+
+.: |
+  ha-card {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
