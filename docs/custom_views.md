@@ -19,12 +19,12 @@ To add your own cards to the view you must:
 - add the following line to your view config:
 ```
 living_room:
-  custom_cards: true
+    custom_cards: true
 ```
 or
 ```
 living_room:
-  custom_cards: advanced
+    custom_cards: advanced
 ```
 *Note: The views have a baked in layout-card by default with a column number of 3, you can change the column number inside of the views settings, however if for whatever reason you really want to control the layout all by yourself you must set `custom_cards: advanced` and you will have a default view. Note that ALL views are in `panel` mode thus stretching the cards horizontally unless you add code to mitigate this yourself. ONLY set this to advanced if you really know what you are doing!
 
