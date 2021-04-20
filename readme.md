@@ -17,8 +17,12 @@ By default it contains the following things:
 - Shortcuts to the most common used HA items
 - Choose between custom or auto-filled views (or use them both at the same time)
 - An optional easy to setup auto-fill feature which will auto-fill your views completely by itself! This is really cool! This requires no coding knowledge at all, have your setup look like mine from the screenshots just by knowing your entity names and in just a few minutes!
-- Custom code is split into user folders which should make creating/reading code for your view easier to understand and less cluttered
-- A lot of addons that can be turned on/off at will without any coding knowledge
+- Custom views are split into user folders which should make creating/reading code for your view easier to understand and less cluttered
+- Use any lovelace card that you can find like on the default HA dashboard
+- An optional sidebar
+- A lot of (optional) addons that can be turned on/off at will without any coding knowledge
+- Easy updates, copy/replace 2 folders on each update!
+- And MUCH more!
 
 *Note: None of the custom-cards used in this project are made by me and every custom-card used has a reference to their original creators as well as the original link to their repo's. All contributors/donators and people that gave me the inspiration are mentioned in the docs on the last page!
 
@@ -27,6 +31,7 @@ By default it contains the following things:
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/docs/addon_list.md) for legacy (v3.x.x) addons
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal/) to view how my personal Home Assistant is setup for v4.x.x
+#### [Click here](https://github.com/jimz011/homekit-infused/tree/3.x.x-personal/) to view how my personal Home Assistant is setup for v3.x.x
 
 ### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
