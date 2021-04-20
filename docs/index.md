@@ -22,8 +22,12 @@ By default it contains the following things:
 - Shortcuts to the most common used HA items
 - Choose between custom or auto-filled views (or use them both at the same time)
 - An optional easy to setup auto-fill feature which will auto-fill your views completely by itself! This is really cool! This requires no coding knowledge at all, have your setup look like mine from the screenshots just by knowing your entity names and in just a few minutes!
-- Custom code is split into user folders which should make creating/reading code for your view easier to understand and less cluttered
-- A lot of addons that can be turned on/off at will without any coding knowledge
+- Custom views are split into user folders which should make creating/reading code for your view easier to understand and less cluttered
+- Use any lovelace card that you can find like on the default HA dashboard
+- An optional sidebar
+- A lot of (optional) addons that can be turned on/off at will without any coding knowledge
+- Easy updates, copy/replace 2 folders on each update!
+- And MUCH more!
 
 ### Follow me on YouTube
 [Click Here for all the latest updates/videos](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)
