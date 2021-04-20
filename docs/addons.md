@@ -11,7 +11,7 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
-# How to?
+## Addons
 Addons are baked in preconfigured cards that you can turn on/off on any view. The beta only has a few addons, but more will be added in the future. You can add an addon by adding the key to your view configuration (which is done in /hki-user/config/view_config.yaml)
 
 Looking for legacy v3 style addons? You can find them [here](addon_list.md), note that all the original auto-fill addons will no longer work!
