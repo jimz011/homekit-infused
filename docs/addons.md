@@ -106,6 +106,7 @@ my_view:
   sidebar: 
 ```
 *Note: This card may be a bit buggy when using back/forward controls of your browser. It is better to use the navigation buttons instead when this addon is activated.
+
 *Options: You can turn on/off the clock and/or date. The sidebar will be filled automatically with ALL the views that have `show_in_favorites: true`. More options might be added in the future. But this depends on the popularity of this addon as well as stability!
 
 ## Vacuum Addon
