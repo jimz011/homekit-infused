@@ -91,4 +91,4 @@ switch.washingmachine:
 
 NOTE: The customize.yaml file is the only way that you can change the names/icons for buttons that use HKI autofill addons. If you do not intend to use any of the HKI addons and just the framework you can skip doing this, however you will not be able to use any of the features besides the HKI framework itself.
 
-## That's it! You have succesfully installed the Homekit Infused Framework.
+## That's it! You have succesfully installed the Homekit Infused! Now go on with configuring it :P
