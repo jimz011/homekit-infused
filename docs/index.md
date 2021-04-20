@@ -11,7 +11,7 @@
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
-# About 
+# Introduction 
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
 Homekit Infused is in a nutshell a customizable 'framework' that you can use to build your own dashboard on, it is preconfigured to have an Apple style to it.
 By default it contains the following things:
