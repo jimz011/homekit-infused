@@ -14,7 +14,7 @@
 # How to?
 Addons are baked in preconfigured cards that you can turn on/off on any view. The beta only has a few addons, but more will be added in the future. You can add an addon by adding the key to your view configuration (which is done in /hki-user/config/view_config.yaml)
 
-Looking for legacy v3 style addons? You can find them [here](legacy_addons.md), note that all the original auto-fill addons will no longer work!
+Looking for legacy v3 style addons? You can find them [here](addon_list.md), note that all the original auto-fill addons will no longer work!
 
 ```
 # Example
@@ -40,6 +40,7 @@ my_second_view:
 | vacuum | no | undefined | Adds vacuum controls to the view (see options below) |
 | waze | no | undefined | Adds a waze traffic map to the view |
 | weather | no | undefined | Adds a forecast card and/or windy map to the view |
+| sidebar | no | undefined | Adds a sidebar to your view |
 
 # Addon Details
 
@@ -92,9 +93,20 @@ To use this addon put `search_card:` into your views config. No extra options to
 ```
 # Example
 my_view:
-  icon: mdi:map-marker
+  icon: mdi:looking-glass
   search_card: 
 ```
+
+## Sidebar
+To use this addon put `sidebar:` into your views config. No extra options to configure.
+```
+# Example
+my_view:
+  icon: mdi:home
+  sidebar: 
+```
+*Note: This card may be a bit buggy when using back/forward controls of your browser. It is better to use the navigation buttons instead when this addon is activated.
+*Options: You can turn on/off the clock and/or date. The sidebar will be filled automatically with ALL the views that have `show_in_favorites: true`. More options might be added in the future. But this depends on the popularity of this addon as well as stability!
 
 ## Vacuum Addon
 *By default only the entity is required
