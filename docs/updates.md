@@ -35,11 +35,11 @@ Delete the following folders and files:
 Delete the following entry from configuration.yaml
 ```
 lovelace:
-    mode: storage
+  mode: storage
 ```
 if you have multiple dashboards then only remove
 ```
-    mode: storage
+  mode: storage
 ```
 
 Copy the following folders from the repo:
