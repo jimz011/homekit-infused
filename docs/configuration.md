@@ -93,6 +93,7 @@ Please read [this](custom_views.md) for more information on how to use this.
 | min_columns | no | 1 | Set the minimal columns for this view, this has no effect when custom_cards is set to `advanced` |
 | max_columns | no | 3 | Set the maximum columns for this view, this has no effect when custom_cards is set to `advanced` |
 | show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites of the menu and the frontpage |
+| button_label | no | no label | Set the button label text, this accepts button-card JS templates *AVAILABLE IN HKI 4.0.0d! |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar |
 | devices | no | undefined | When devices are defined it will auto-fill the entities listed on this view (see examples below) |
