@@ -4,7 +4,7 @@
 - [Introduction](index.md)
 - [Installation](installation.md)
 - [Configuration](configuration.md)
-- [Addons](addons.md)
+- [Addons](../addons.md)
 - [Custom Views](custom_views.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
