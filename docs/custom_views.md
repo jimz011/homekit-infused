@@ -83,7 +83,7 @@ So there are 3 files, but 4 cards (as in the first file there are two cards).
 If you wish to stick cards together you can use vertical or horizontal stacks within a file (https://www.home-assistant.io/lovelace/horizontal-stack/ and https://www.home-assistant.io/lovelace/vertical-stack/).
 
 ### Legacy Addons
-To view all the available addons and their code [click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/legacy_addons.md)
+To view all the available addons and their code [click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/addon_list.md)
 
 ##### More examples
 I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
