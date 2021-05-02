@@ -25,9 +25,9 @@ By default it contains the following things:
 ### Quick Links
 #### [Click here](https://jimz011.github.io/homekit-infused/) for the documentation
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
+#### [Click here](https://jimz011.github.io/homekit-infused/addons.html) for addons
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/docs/addon_list.md) for legacy (v3.x.x) addons
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal/) to view how my personal Home Assistant is setup for v4.x.x
-#### [Click here](https://github.com/jimz011/homekit-infused/tree/3.x.x-personal/) to view how my personal Home Assistant is setup for v3.x.x
 
 ### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
