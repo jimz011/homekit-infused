@@ -32,15 +32,13 @@ my_second_view:
 ```
 # Available Addons
 
-All the available addons are listed below
-
 | Name | Description |
-|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [battery](addons-v4/battery.md) | An addon to give your view a battery levels overview |
 | [calendar](addons-v4/calendar.md) | The default Calendar card |
 | [certificates](addons-v4/certificates.md) | A list of web certificates and their expiration dates |
 | [columns](addons-v4/columns.md) | This addon enhances the columns of your other addons and/or view |
-| [climate](addons-v4/climated.md) | Preset buttons for your climate view |
+| [climate](addons-v4/climate.md) | Preset buttons for your climate view |
 | [devices](addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
 | [entities_card](addons-v4/entities.md) | An easy to use entities card |
 | [favorites](addons-v4/favorites.md) | Show a stack with shortcuts to your favorited views |
