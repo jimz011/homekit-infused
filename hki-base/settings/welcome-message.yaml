@@ -5,6 +5,8 @@ cards:
       ha-card {
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
+        margin-left: {{ _global.general_config.margins }};
+        margin-right: {{ _global.general_config.margins }};
       }
     content: >
       **WELCOME:**
@@ -13,54 +15,8 @@ cards:
       You have succesfully installed Homekit Infused. Please read the documentation on https://github.com/jimz011/homekit-infused.
 
 
-      To start configuring your first pieces, please open /hki-user/config/general_config.yaml and adjust the settings accordingly. By default everything should work out of the box, but you must either set one of the following parameters. Either enter all of your households person information at the `persons:` line or set `auto-fill: false` and `custom_cards: true`.
-      
-
-      This message and the messages below will disappear when setting either one of those settings.
+      You must setup some views for this dashboard to be functional. You can turn this message off by removing the `welcome_message:` line in your `/hki-user/config/view_config.yaml` file.
 
 
       Enjoy Homekit Infused!
-  - type: markdown
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-      }
-    content: >
-      **GENERAL CONFIG:**
 
-
-      The general config file holds all of the information that is required to configure the frontpage, menu and the header. The settings in this file are pretty straightforward and you can change them at will.
-
-
-      When you use auto-filling on either of these views you should uncomment the weather and persons pieces and add your own persons accordingly. When using an uneven number make sure you put the last person in your household under the `persons_alt:` tab.
-  - type: markdown
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-      }
-    content: >
-      **VIEWS:**
-
-
-      To create views you should open the following file `/hki-user/config/view_config.yaml`. To create views you need at least the keyname (which will be the name of the view). This will render a new view with that name for you and put a shortcut in the menu.
-
-
-      Make sure that you set at least `devices:` and/or `custom_cards: true` to make the view configurable and useful.
-  - type: markdown
-    style: |
-      ha-card {
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-      }
-    content: >
-      **AUTO-FILLING AND CUSTOM-CARDS:**
-
-
-      Homekit Infused has auto-filling capabilities and can be set at the view level `/hki-user/config/view_config.yaml`. For all the available options please refer to the documentation.
-
-
-      When setting `custom_cards: true` on any of the views that you create, you can add your own custom cards to that view. The path to this view is always `/hki-../hki-user/views/NAME_OF_THE_VIEW`. These folders will not be created automatically and has to be done manually.
-      
-      If you would have setup a view named lights and have `custom_cards: true` you should create a folder named lights like this `/hki-../hki-user/views/lights`. You can then put your own code in there, read the documentation for more information.

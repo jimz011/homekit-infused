@@ -1,3 +1,5 @@
+# lovelace_gen
+
 path: about
 visible: false
 panel: true
@@ -18,8 +20,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: custom:button-card
@@ -70,8 +72,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: custom:button-card
@@ -103,8 +105,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:              
               type: custom:button-card
@@ -136,8 +138,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:         
               type: custom:button-card
@@ -169,8 +171,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: custom:button-card
@@ -202,8 +204,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: custom:button-card
@@ -235,8 +237,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: custom:button-card
@@ -277,8 +279,8 @@ cards:
                 font-size: 13px;
                 font-family: var(--font-family);
                 color: white;
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }                    
             content: HKI Framework April/May 2021 created by Jimz011
           - !include '../includes/empty-button.yaml'

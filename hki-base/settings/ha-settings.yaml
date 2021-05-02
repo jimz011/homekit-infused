@@ -1,3 +1,5 @@
+# lovelace_gen
+
 path: ha_settings
 visible: false
 panel: true
@@ -18,8 +20,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: vertical-stack
@@ -117,8 +119,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: vertical-stack
@@ -186,8 +188,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: vertical-stack
@@ -240,8 +242,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: vertical-stack
@@ -402,8 +404,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               type: vertical-stack
@@ -455,8 +457,8 @@ cards:
           - type: custom:mod-card
             style: |
               ha-card {
-                margin-left: 7px;
-                margin-right: 7px;
+                margin-left: {{ _global.general_config.margins }};
+                margin-right: {{ _global.general_config.margins }};
               }
             card:
               !include

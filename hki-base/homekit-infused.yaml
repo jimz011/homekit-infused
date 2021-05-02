@@ -4,8 +4,8 @@
 button_card_templates: !include_dir_named templates/button/button-card-templates/
 
 ## Side Bar
-sidebar: 
-  !include templates/sidebar/sidebar.yaml
+# sidebar: 
+#   !include templates/sidebar/sidebar.yaml
 
 ## Base Configuration
 title: Home
