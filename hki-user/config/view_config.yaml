@@ -23,7 +23,14 @@ view_config: # For examples check out https://github.com/jimz011/homekit-infused
 
 # You can remove this line and the example views below or continue to build on them.
 
-
+# Example
+  lights:
+    icon: mdi:floor-lamp
+    subtitle: Overview
+    devices:
+      my_lights:
+        - light.my_lamp
+ 
 
 
 
