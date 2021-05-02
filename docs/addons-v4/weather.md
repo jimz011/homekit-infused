@@ -27,6 +27,7 @@ To add weather to your view add the following line:
 ```
 
 You can use any of the following options to modify your addon.
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | Weather Forecast | Set the title of the stack |
@@ -47,4 +48,5 @@ You can use any of the following options to modify your addon.
 ```
 
 More images:
+
 ![Homekit Infused](../images/weather_2.png)

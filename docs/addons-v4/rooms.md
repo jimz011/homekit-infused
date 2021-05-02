@@ -34,6 +34,7 @@ In the views you want this addon to show make sure you set `type: room`
 This addon will then create a shortcut to that view. You can put the rooms addon anywhere you want and it will always show shortcuts to your rooms. It is recommended to use this on your frontpage and/or menu views.
 
 You can use any of the following options to modify your addon.
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | Favorites | Set the title of the stack |

@@ -98,4 +98,5 @@ You can use `.this_view` to tell the view_selector that the button should light 
 ```
 
 More images:
+
 ![Homekit Infused](../images/vs_2.png)

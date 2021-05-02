@@ -29,6 +29,7 @@ To add devices to your view add the following line:
 This card has no Title unlike other addons since this addon was meant to be used on the frontpage, you can also set a core weather card as a replacement to this if you prefer.
 
 You can use any of the following options to modify your addon.
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | undefined | Set your weather entity, this must be in the weather domain! |

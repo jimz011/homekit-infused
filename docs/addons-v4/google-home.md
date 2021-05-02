@@ -27,6 +27,7 @@ To add google_home to your view add the following line:
 ```
 
 You can use any of the following options to modify your addon.
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | Google Home | Set the title of the stack |

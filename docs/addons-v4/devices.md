@@ -120,6 +120,7 @@ kitchen:
 ```
 
 More images:
+
 ![Homekit Infused](../images/auto-fill-devices-card.png)
 ![Homekit Infused](../images/auto-fill-thermostats-card.png)
 ![Homekit Infused](../images/auto-fill-media-players-card.png)

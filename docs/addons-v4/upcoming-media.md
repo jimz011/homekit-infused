@@ -29,6 +29,7 @@ To add upcoming_media to your view add the following line:
 ```
 
 You can use any of the following options to modify your addon.
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 'object' | no | undefined | Set the title of the stack, the title is the name of your object |
