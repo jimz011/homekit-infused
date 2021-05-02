@@ -6,30 +6,19 @@ If you find any information on this page useful, feel free to buy me a coffee:
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
 [![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.0b5%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![HKI Version](https://img.shields.io/badge/Current%20Homekit%20Infused-4.0.0c%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+[![HKI Version](https://img.shields.io/badge/Current%20Homekit%20Infused-4.0.0d%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
 
-## Homekit Infused (Lovelace) by Jimz011 April 2021 v4.0.0c Beta (*updated: 21/04/2021)
-*Note: You MUST have a working Home Assistant install to use this project, you can download Home Assistant [here](https://home-assistant.io).
-*Latest compatible Home Assistant version is 2021.4.x (do not update past this number for best compatibility)
-
-### About
+## Homekit Infused (Lovelace) by Jimz011
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
 Homekit Infused is in a nutshell a customizable 'framework' that you can use to build your own dashboard on, it is preconfigured to have an Apple style to it.
 By default it contains the following things:
 - A beautiful header with notifications that is customizable per view and is added to each view for you automatically
 - A customizable navigation bar which can also be set at the bottom of the screen 
-- An auto generated shortcut menu to each view
 - 11 color schemes
-- Shortcuts to the most common used HA items
-- Choose between custom or auto-filled views (or use them both at the same time)
-- An optional easy to setup auto-fill feature which will auto-fill your views completely by itself! This is really cool! This requires no coding knowledge at all, have your setup look like mine from the screenshots just by knowing your entity names and in just a few minutes!
-- Custom views are split into user folders which should make creating/reading code for your view easier to understand and less cluttered
-- Use any lovelace card that you can find like on the default HA dashboard
-- An optional sidebar
-- A lot of (optional) addons that can be turned on/off at will without any coding knowledge
+- A lot of (optional) addons that can be turned on/off at will without any coding knowledge to enhance your lovelace experience
 - Easy updates, copy/replace 2 folders on each update!
-- And MUCH more!
+- And MUCH MUCH I mean MUCH more!
 
 *Note: None of the custom-cards used in this project are made by me and every custom-card used has a reference to their original creators as well as the original link to their repo's. All contributors/donators and people that gave me the inspiration are mentioned in the docs on the last page!
 
