@@ -1,0 +1,17 @@
+# lovelace_gen
+
+type: custom:mod-card
+style: |
+  ha-card {
+    margin-left: {{ _global.general_config.margins }};
+    margin-right: {{ _global.general_config.margins }};
+  }
+card:
+  type: iframe
+  style: |
+    ha-card {
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+  url: https://embed.waze.com/iframe
+  aspect_ratio: 4x6

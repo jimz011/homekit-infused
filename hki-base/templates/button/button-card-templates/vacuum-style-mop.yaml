@@ -1,0 +1,21 @@
+# lovelace_gen
+
+state:
+  - value: "{{ _global.general_config.vacuum.mop }}" 
+    spin: true 
+    styles:
+      card:
+        - --ha-card-background: var(--button-on-color)
+        - opacity: var(--button-on-opacity)
+        - -webkit-box-shadow: var(--button-on-box-shadow)
+        - box-shadow: var(--button-on-box-shadow)
+      name:
+        - color: var(--button-on-name-color)
+      state:
+        - color: var(--button-on-state-color)
+      lock:
+        - color: var(--button-on-lock-color) 
+      label:
+        - color: var(--button-on-label-color)
+      icon:
+        - color: dodgerblue

@@ -30,6 +30,9 @@ hideOnPath:
   {% if (_global.general_config.menu.show_hide.show_sidebar is undefined) or (_global.general_config.menu.show_hide.show_sidebar is false) %}
     - /homekit-infused/{{ _global.general_config.menu.path }}
   {% endif %}
+    - /homekit-infused/about
+    - /homekit-infused/hki-settings
+    - /homekit-infused/ha-settings
 sidebarMenu:
   {% for name, data in _global.view_config.items() %}
   {% if ( (data.sidebar is defined) and (data.show_in_favorites is true) ) %}

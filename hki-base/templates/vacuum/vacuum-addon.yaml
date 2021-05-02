@@ -1,0 +1,46 @@
+# lovelace_gen
+
+type: horizontal-stack
+cards:
+  - !include
+    - '../button/vacuum-fanspeed-button.yaml'
+    - entity: {{ sensor }}
+      vacuum: {{ vacuum }}
+      name: Min
+      icon: mdi:fan
+      speed: "{{ _global.general_config.vacuum.min }}"
+      size: 15%
+      style: vacuum-style-min
+  - !include
+    - '../button/vacuum-fanspeed-button.yaml'
+    - entity: {{ sensor }}
+      vacuum: {{ vacuum }}
+      name: High
+      icon: mdi:fan
+      speed: "{{ _global.general_config.vacuum.high }}"
+      size: 20%
+      style: vacuum-style-high
+  - !include
+    - '../button/vacuum-fanspeed-button.yaml'
+    - entity: {{ sensor }}
+      vacuum: {{ vacuum }}
+      name: Max
+      icon: mdi:fan
+      speed: "{{ _global.general_config.vacuum.max }}"
+      style: vacuum-style-max
+  - !include
+    - '../button/vacuum-fanspeed-button.yaml'
+    - entity: {{ sensor }}
+      vacuum: {{ vacuum }}
+      name: Balanced
+      icon: mdi:sync
+      speed: "{{ _global.general_config.vacuum.medium }}"
+      style: vacuum-style-medium
+  - !include
+    - '../button/vacuum-fanspeed-button.yaml'
+    - entity: {{ sensor }}
+      vacuum: {{ vacuum }}
+      name: Mop
+      icon: mdi:pail
+      speed: "{{ _global.general_config.vacuum.mop }}"
+      style: vacuum-style-mop

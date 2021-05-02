@@ -1,0 +1,36 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - {{ style|default('vacuum-style-medium') }}
+name: "{{ name }}"
+icon: "{{ icon }}"
+size: {{ size|default('25%') }}
+aspect_ratio: "{{ aspect_ratio|default('1/1') }}"
+label: "{{ label|default('&nbsp;') }}"
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+entity: {{ entity }}
+tap_action: 
+  action: call-service
+  service: vacuum.set_fan_speed
+  service_data:
+    entity_id: {{ vacuum }}
+    fan_speed: "{{ speed }}"
+  haptic: heavy
+hold_action:
+  action: {{ hold_action|default('none') }}
+double_tap_action:
+  action: none
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+    - opacity: 0.8
+  name:
+    - font-weight: var(--name-font-weight)
+    - font-family: var(--font-family) 
+    - font-size: 10px

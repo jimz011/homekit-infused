@@ -1,0 +1,48 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - {{ template }}
+triggers_update: all
+entity: input_boolean.dummy1
+name: "{{ name }}"
+icon: "{{ icon }}"
+size: 10%
+aspect_ratio: 3/1
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: false
+show_label: false
+tap_action: 
+  action: navigate
+  navigation_path: {{ navigation_path|default('/about') }}
+hold_action:
+  action: none
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+    - opacity: 0.8
+  name:
+    - font-weight: var(--name-font-weight)
+    - font-family: var(--font-family) 
+    - font-size: 10px
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--ha-card-background)
+      - border-radius: 12px
+      - overflow: visible
+      - position: absolute
+      - right: 7px
+      - top: 7px
+      - padding: 0px 5px
+      - height: 22px
+      - min-width: 12px
+      - font-size: var(--badge-font-size)
+      - line-height: 22px
+      - font-weight: var(--badge-font-weight)
+      - text-transform: var(--badge-text-transform)
+custom_fields: 
+  notification: "{{ notification }}"

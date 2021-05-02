@@ -1,0 +1,18 @@
+# lovelace_gen
+
+type: map                    
+style: |
+  ha-card {
+    --paper-item-icon-color: black;
+    color: black;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+    font-size: 12px;
+    opacity: 0.8;
+    overflow: hidden;
+  }                      
+default_zoom: 15
+aspect_ratio: 4x6
+entities:
+  {{ entities }}

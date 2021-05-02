@@ -15,7 +15,7 @@ entities:
   - entity: {{ entity }}
 hours_to_show: {{ hours_to_show|default('24') }}
 points_per_hour: {{ points_per_hour|default('2') }}
-line_width: {{ line_width|default('3') }}
+line_width: {{ line_width|default('7') }}
 hour24: {{ hour24|default('true') }}
 animate: {{ animate|default('true') }}
 decimals: {{ decimals|default('1') }}

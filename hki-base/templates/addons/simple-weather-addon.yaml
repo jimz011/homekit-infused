@@ -1,0 +1,17 @@
+# lovelace_gen
+
+type: custom:simple-weather-card                    
+style: |
+  ha-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    opacity: 0.8;
+    font-size: 12px;
+    font-family: var(--font-family);
+  }                      
+entity: {{ entity }}
+name: {{ city_name }}
+backdrop: {{ backdrop }}
+tap_action:
+  action: navigate
+  navigation_path: /homekit-infused/{{ path }}
