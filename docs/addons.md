@@ -34,29 +34,29 @@ my_second_view:
 
 | Name | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [battery](addons/addons-v4/battery.md) | An addon to give your view a battery levels overview |
-| [calendar](addons/addons-v4/calendar.md) | The default Calendar card |
-| [certificates](addons/addons-v4/certificates.md) | A list of web certificates and their expiration dates |
-| [columns](addons/addons-v4/columns.md) | This addon enhances the columns of your other addons and/or view |
-| [climate](addons/addons-v4/climated.md) | Preset buttons for your climate view |
-| [devices](addons/addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
-| [entities_card](addons/addons-v4/entities.md) | An easy to use entities card |
-| [favorites](addons/addons-v4/favorites.md) | Show a stack with shortcuts to your favorited views |
-| [google_home](addons/addons-v4/google-home.md) | A Google Home TTS card |
-| [iframe](addons/addons-v4/iframe.md) | A handy iFrame card that you can use on your views |
-| [map](addons/addons-v4/map.md) | A map to track your entities |
-| [menu](addons/addons-v4/menu.md) | Show the menu on other views than.... menu! |
-| [persons](addons/addons-v4/persons.md) | Person photo's and links to use on your view |
-| [remote_control](addons/addons-v4/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
-| [rooms](addons/addons-v4/rooms.md) | Show a stack with shortcuts to your room views |
-| [search_card](addons/addons-v4/search-card.md) | A handy search card for your view to find entities quickly |
-| [simple_weather](addons/addons-v4/simple-weather.md) | A simple weather card |
-| [upcoming_media](addons/addons-v4/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
-| [vacuum](addons/addons-v4/vacuum.md) | Vacuum controls and fan speed |
-| [view_selector](addons/addons-v4/view-selector.md) | Create your own in view navigation bar |
-| [waze](addons/addons-v4/waze.md) | A waze traffic map |
-| [weather](addons/addons-v4/weather.md) | The core HA weather card |
-| [xbox_controller](addons/addons-v4/xbox-controller.md) | An Xbox controller card |
+| [battery](addons-v4/battery.md) | An addon to give your view a battery levels overview |
+| [calendar](addons-v4/calendar.md) | The default Calendar card |
+| [certificates](addons-v4/certificates.md) | A list of web certificates and their expiration dates |
+| [columns](addons-v4/columns.md) | This addon enhances the columns of your other addons and/or view |
+| [climate](addons-v4/climated.md) | Preset buttons for your climate view |
+| [devices](addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
+| [entities_card](addons-v4/entities.md) | An easy to use entities card |
+| [favorites](addons-v4/favorites.md) | Show a stack with shortcuts to your favorited views |
+| [google_home](addons-v4/google-home.md) | A Google Home TTS card |
+| [iframe](addons-v4/iframe.md) | A handy iFrame card that you can use on your views |
+| [map](addons-v4/map.md) | A map to track your entities |
+| [menu](addons-v4/menu.md) | Show the menu on other views than.... menu! |
+| [persons](addons-v4/persons.md) | Person photo's and links to use on your view |
+| [remote_control](addons-v4/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
+| [rooms](addons-v4/rooms.md) | Show a stack with shortcuts to your room views |
+| [search_card](addons-v4/search-card.md) | A handy search card for your view to find entities quickly |
+| [simple_weather](addons-v4/simple-weather.md) | A simple weather card |
+| [upcoming_media](addons-v4/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
+| [vacuum](addons-v4/vacuum.md) | Vacuum controls and fan speed |
+| [view_selector](addons-v4/view-selector.md) | Create your own in view navigation bar |
+| [waze](addons-v4/waze.md) | A waze traffic map |
+| [weather](addons-v4/weather.md) | The core HA weather card |
+| [xbox_controller](addons-v4/xbox-controller.md) | An Xbox controller card |
 
 This list will grow with new addons in the future.
 
