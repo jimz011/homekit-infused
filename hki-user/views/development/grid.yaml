@@ -1,11 +1,39 @@
-- type: grid
-  title: test grid
-  columns: 3
-  cards:
-    - !include
-      - '../../../hki-base/templates/button/button_new.yaml'
-      - entity: light.kleine_kamer
-        tap_action: 
-          action: toggle
-            
-    
+- type: custom:auto-entities
+  filter:
+    include:
+      - group: group.google_home_all_speakers
+        options:
+          type: custom:mini-media-player
+          entity: this.entity_id
+          group: true
+          source: icon
+          icon: mdi:google-home
+          info: short
+          tts:
+            platform: google_translate
+          hide:
+            volume: false
+            power: true
+      - group: group.google_home
+        options:
+          type: custom:mini-media-player
+          entity: this.entity_id
+          group: true
+          tts:
+            platform: google_translate
+          hide:
+            icon: true
+            volume: false
+            controls: true
+  show_empty: false
+  sort:
+    method: name
+    numeric: true
+  card:
+    type: entities
+    style: |
+      ha-card {
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+    show_header_toggle: false

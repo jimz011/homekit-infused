@@ -7,10 +7,14 @@
 # All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
 all_climate_entities:
   entities:
-    - climate.tado_smart_radiator_thermostat_va1671957504
-    - climate.tado_smart_radiator_thermostat_va2898201344
-    - climate.tado_smart_radiator_thermostat_va0882906624
-    - climate.tado_smart_radiator_thermostat_va2711623168
+   # - climate.tado_smart_radiator_thermostat_va1671957504
+   # - climate.tado_smart_radiator_thermostat_va2898201344
+   # - climate.tado_smart_radiator_thermostat_va0882906624
+   # - climate.tado_smart_radiator_thermostat_va2711623168
+    - climate.kleine_kamer
+    - climate.woonkamer
+    - climate.slaapkamer
+    - climate.keuken
 
 # All Fans (Enter all your fans in here)
 all_fan_entities:
