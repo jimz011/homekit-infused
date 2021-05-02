@@ -35,7 +35,7 @@ my_second_view:
 All the available addons are listed below
 
 | Name | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [battery](addons-v4/battery.md) | An addon to give your view a battery levels overview |
 | [calendar](addons-v4/calendar.md) | The default Calendar card |
 | [certificates](addons-v4/certificates.md) | A list of web certificates and their expiration dates |
