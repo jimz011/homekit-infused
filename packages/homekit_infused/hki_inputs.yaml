@@ -13,6 +13,7 @@ input_boolean:
   day_night_cycle:
   empty:
   remote_control:
+  set_temperature:
 
 # Input Numbers
 input_number:
@@ -20,6 +21,9 @@ input_number:
     initial: 0
     min: 0
     max: 1
+  set_temperature:
+    min: 1
+    max: 30
 
 # Input Selects
 input_select:
