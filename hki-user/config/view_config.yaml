@@ -8,7 +8,7 @@ view_config: # For examples check out https://github.com/jimz011/homekit-infused
     columns: 
       buttons: 4
     favorites:
-      hide_title: true
+      show_title: false
     welcome_message: true
 
   menu:
