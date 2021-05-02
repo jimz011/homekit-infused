@@ -1,7 +1,6 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.4.6%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![Commits Year](https://img.shields.io/github/commit-activity/y/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2021.5.0b5%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
 
 If you find any information on this page useful, feel free to buy me a coffee: 
