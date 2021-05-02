@@ -12,11 +12,11 @@
 - [Thanks](thanks.md)
 
 ## Addons
-Addons are baked in preconfigured cards that you can turn on/off on any view. The beta only has a few addons, but more will be added in the future. You can add an addon by adding the key to your view configuration (which is done in /hki-user/config/view_config.yaml)
+Addons are baked-in preconfigured cards that you can turn on/off on any view. You can add an addon by adding the key to your view configuration (which is done in /hki-user/config/view_config.yaml). Unfortunately you can't select the location of the rendered card but in most cases it should look pretty fine. Below you will find a quick example of how to add an addon to your view.
 
-Looking for legacy v3 style addons? You can find them [here](addon_list.md), note that all the original auto-fill addons will no longer work!
+*Note: Addons can be used together with custom_cards, however it might look a bit awkward on desktop browsers and tablets. It will work fine for phones. If you don't like this behaviour you must choose between either using addons or using custom_cards. There is no way for me to change this. Combining does however work fantastically when you use the view_selector addon.
 
-```
+```yaml
 # Example
 my_view:
   subtitle: Overview
@@ -32,133 +32,32 @@ my_second_view:
 ```
 # Available Addons
 
-| Name | Required | Default | Description |
+| Name | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| climate | no | undefined | Set to true to give the view preset climate buttons (see options below) |
-| map | no | undefined | Set to true to show a map with all the persons in the house |
-| search_card | no | undefined | Set to add a search card to the top of the view |
-| vacuum | no | undefined | Adds vacuum controls to the view (see options below) |
-| waze | no | undefined | Adds a waze traffic map to the view |
-| weather | no | undefined | Adds a forecast card and/or windy map to the view |
-| sidebar | no | undefined | Adds a sidebar to your view |
+| [battery](addons/addons-v4/battery.md) | An addon to give your view a battery levels overview |
+| [calendar](addons/addons-v4/calendar.md) | The default Calendar card |
+| [certificates](addons/addons-v4/certificates.md) | A list of web certificates and their expiration dates |
+| [columns](addons/addons-v4/columns.md) | This addon enhances the columns of your other addons and/or view |
+| [climate](addons/addons-v4/climated.md) | Preset buttons for your climate view |
+| [devices](addons/addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
+| [entities_card](addons/addons-v4/entities.md) | An easy to use entities card |
+| [favorites](addons/addons-v4/favorites.md) | Show a stack with shortcuts to your favorited views |
+| [google_home](addons/addons-v4/google-home.md) | A Google Home TTS card |
+| [iframe](addons/addons-v4/iframe.md) | A handy iFrame card that you can use on your views |
+| [map](addons/addons-v4/map.md) | A map to track your entities |
+| [menu](addons/addons-v4/menu.md) | Show the menu on other views than.... menu! |
+| [persons](addons/addons-v4/persons.md) | Person photo's and links to use on your view |
+| [remote_control](addons/addons-v4/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
+| [rooms](addons/addons-v4/rooms.md) | Show a stack with shortcuts to your room views |
+| [search_card](addons/addons-v4/search-card.md) | A handy search card for your view to find entities quickly |
+| [simple_weather](addons/addons-v4/simple-weather.md) | A simple weather card |
+| [upcoming_media](addons/addons-v4/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
+| [vacuum](addons/addons-v4/vacuum.md) | Vacuum controls and fan speed |
+| [view_selector](addons/addons-v4/view-selector.md) | Create your own in view navigation bar |
+| [waze](addons/addons-v4/waze.md) | A waze traffic map |
+| [weather](addons/addons-v4/weather.md) | The core HA weather card |
+| [xbox_controller](addons/addons-v4/xbox-controller.md) | An Xbox controller card |
 
-# Addon Details
+This list will grow with new addons in the future.
 
-## Climate Addon
-*By default none of the extra options are required
-To use this addon put `climate:` into your views config
-
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| power_name_on | no | Power | Name of the `turn_on` power button |
-| power_label_on | no | All On | Label of the `turn_on` power button |
-| power_icon_on | no | mdi:power | The icon of the `turn_on` power button |
-| frost_protection_name | no | Frost | Name of the frost_protection button |
-| frost_protection_label | no | Protection | Label of the frost_protection button |
-| frost_protection_icon | no | mdi:snowflake-melt | Icon of the frost_protection button |
-| frost_protection_temperature | no | 11 | preset temperature of the frost_protection button |
-| heat_all_name | no | Heat | Name of the heat_all button |
-| heat_all_label | no | All | Label of the heat_all button |
-| heat_all_icon | no | mdi:fire | Icon of the heat_all button |
-| heat_all_temperature | no | 22 | Preset temperature of the heat_all button |
-| power_name_on | no | Power | Name of the `turn_off` power button |
-| power_label_off | no | All Off | Label of the `turn_off` power button |
-| power_icon_off | no | mdi:power | The icon of the `turn_off` power button |
-
-Examples:
-```
-# Example minimum
-my_view:
-  icon: mdi:thermostat
-  climate:
-```
-```
-# Example with extra keys
-my_view:
-  icon: mdi:thermostat
-  climate:
-    power_name_on: Aan
-```
-## Map Addon
-To use this addon put `map:` into your views config, for now no extra options to configure.
-```
-# Example
-my_view:
-  icon: mdi:map-marker
-  map: 
-```
-
-## Search Card Addon
-To use this addon put `search_card:` into your views config. No extra options to configure.
-```
-# Example
-my_view:
-  icon: mdi:looking-glass
-  search_card: 
-```
-
-## Sidebar
-To use this addon put `sidebar:` into your views config. No extra options to configure.
-```
-# Example
-my_view:
-  icon: mdi:home
-  sidebar: 
-```
-*Note: This card may be a bit buggy when using back/forward controls of your browser. It is better to use the navigation buttons instead when this addon is activated.
-
-*Options: You can turn on/off the clock and/or date. The sidebar will be filled automatically with ALL the views that have `show_in_favorites: true`. More options MIGHT be added in the future. But this depends on the popularity of this addon as well as stability, for now little options and only one color scheme!
-
-## Vacuum Addon
-*By default only the entity is required
-To use this addon put `vacuum:` into your views config
-
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | vacuum.rockrobo | Enter your vacuum entity |
-| show_controls | no | undefined/true | Set to false if you want to hide the controls |
-
-Examples:
-```
-# Example minimum
-my_view:
-  icon: mdi:robot-vacuum
-  vacuum:
-    entity: vacuum.rockrobo
-```
-```
-# Example with extra keys
-my_view:
-  icon: mdi:robot-vacuum
-  vacuum:
-    entity: vacuum.rockrobo
-    show_controls: false
-```
-
-## Waze Addon
-To use this addon put `waze:` into your views config. No extra options to configure.
-```
-# Example
-my_view:
-  icon: mdi:map-marker
-  waze: 
-```
-
-## Weather Addon
-To use this addon put `weather:` into your views config. You must at least set OR `entity` and `city_name` OR `windy_url`, you can use them together if you want!.
-
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes/no | weather.dark_sky | Enter your weather entity, this must be a weather entity and not a sensor e.g. `weather.dark_sky` |
-| city_name | yes/no | undefined | Set your city name to show on the card |
-| windy_url | yes/no | undefined | Set a nice windy iframe for your view, you must add an URL in this field, you can create your own URL by visiting [this website](https://www.windy.com/-Embed-widget-on-page/widgets?) |
-
-```
-# Example
-my_view:
-  icon: mdi:map-marker
-  weather:
-    entity: weather.eindhoven
-    city_name: Eindhoven
-    windy_url: YOUR WINDY URL
-```
+Looking for legacy v3 style addons? You can find them [here](addon_list.md), note that all the original auto-fill addons will no longer work!

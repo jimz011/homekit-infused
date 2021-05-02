@@ -17,21 +17,24 @@ Users of Homekit Infused v3 are already known to this concept, but Homekit Infus
 To add your own cards to the view you must:
 - create a folder in `/hki-user/views` with the same name as the keyname of your view (in the example below this is `/hki-user/views/living_room`)
 - add the following line to your view config:
-```
+
+```yaml
 living_room:
-    custom_cards: true
+  custom_cards: true
 ```
 or
-```
+
+```yaml
 living_room:
-    custom_cards: advanced
+  custom_cards: advanced
 ```
 *Note: The views have a baked in layout-card by default with a column number of 3, you can change the column number inside of the views settings, however if for whatever reason you really want to control the layout all by yourself you must set `custom_cards: advanced` and you will have a default view. Note that ALL views are in `panel` mode thus stretching the cards horizontally unless you add code to mitigate this yourself. ONLY set this to advanced if you really know what you are doing!
 
 ### Custom Cards
 To use your custom cards on a view you must open the folder that we have just created and then create a new file. You can name the file anyway you want since the name of the file is not relevant for now.
 Lets say we have a file that is named `button-and-title.yaml` and add a piece of code to it. To make it easier to understand I chose a core lovelace card for this example
-```
+
+```yaml
 - type: entity-button
   entity: light.living_room
 ```
@@ -40,6 +43,7 @@ This will render an entity button on the chosen view.
 ### How to control the layout of the Custom Cards?
 Cards that are dropped into the views folder will be placed from top to bottom in alphabetical/numerical order (of the filename).
 E.g.
+
 ```
 In the following folder /hki-user/views/home/ you have
 buttons.yaml

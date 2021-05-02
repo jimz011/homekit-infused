@@ -17,17 +17,10 @@ Homekit Infused is in a nutshell a customizable 'framework' that you can use to 
 By default it contains the following things:
 - A beautiful header with notifications that is customizable per view and is added to each view for you automatically
 - A customizable navigation bar which can also be set at the bottom of the screen 
-- An auto generated shortcut menu to each view
 - 11 color schemes
-- Shortcuts to the most common used HA items
-- Choose between custom or auto-filled views (or use them both at the same time)
-- An optional easy to setup auto-fill feature which will auto-fill your views completely by itself! This is really cool! This requires no coding knowledge at all, have your setup look like mine from the screenshots just by knowing your entity names and in just a few minutes!
-- Custom views are split into user folders which should make creating/reading code for your view easier to understand and less cluttered
-- Use any lovelace card that you can find like on the default HA dashboard
-- An optional sidebar
-- A lot of (optional) addons that can be turned on/off at will without any coding knowledge
+- A lot of (optional) addons that can be turned on/off at will without any coding knowledge to enhance your lovelace experience
 - Easy updates, copy/replace 2 folders on each update!
-- And MUCH more!
+- And MUCH MUCH I mean MUCH more!
 
 ### Follow me on YouTube
 [Click Here for all the latest updates/videos](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)

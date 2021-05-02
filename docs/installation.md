@@ -43,17 +43,17 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [Search Card](https://github.com/postlund/search-card) | Frontend | An easy to use search card |
 | [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Frontend | This is a small weather card, see screenshot for details |
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is needed for the scrolling notifications, but also for most popups |
-| [Lovelace GUI Sandbox](https://github.com/thomasloven/lovelace-gui-sandbox) | Frontend |This card will help you create buttons visually |
+| [Lovelace GUI Sandbox](https://github.com/thomasloven/lovelace-gui-sandbox) | Frontend | This card will help you create buttons visually |
+| [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | Frontend | This card is used for the upcoming media addon |
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | This card is needed for the layout, IMPORTANT: Read the note below |
-| [Sidebar Card](https://github.com/DBuit/sidebar-card) | Frontend | You MUST add this repository to your custom repositories in HACS before you can install it. (open HACS, click on frontend, click on the three dots at the top right, click on add repository, add this repository as `lovelace`, finally install the card!) |
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Integration | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more! |
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Integration | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
 
 
-*Note: After install, open the following folder `/www/community/lovelace-layout-card/` and remove all of its contents, do NOT remove the folder! The file will be added back when copying HKI.
+*Note: After installing all the addons, open the following folder `/www/community/lovelace-layout-card/` and remove all of its contents, do NOT remove the folder! The file will be added back when copying HKI.
 
 ### Adding Resources
-Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`. It should have 16 resources listed (or more if you have added your own)
+Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`.
 
 ### Installation
 Copy the following files/folders to the root of your Home Assistant installation
@@ -64,7 +64,7 @@ Copy the following files/folders to the root of your Home Assistant installation
 - Copy the `/www/` folder to the root of your setup
 - Add the following lines to your `configuration.yaml` file
 
-```
+```yaml
 homeassistant:
   packages: !include_dir_named packages/
 ```
@@ -75,7 +75,7 @@ Note: If you have an existing setup and already have packages, you must cut/past
 - Create/edit a `customize.yaml` file, this file is automatically created whenever you edit an entity through the UI configuration>customize. However you can create this file yourself if you don't have it already. Just put the file at the root of your config, you can also download the example customize.yaml file instead.
 You might need the following entry in your `configuration.yaml` file
 
-```
+```yaml
 homeassistant:
   customize: !include customize.yaml
 ```
@@ -83,7 +83,7 @@ homeassistant:
 Now if you have created this file we will start and fill it with our own entities.
 If you already have items in that file just add them below the last item, else just start typing exactly as in the example below. You do NOT need to do all of your entities. Just do the ones that are going to get shown in the frontend (e.g. lights, switches, sensors, binary_sensors and your vacuum).
 
-```
+```yaml
 switch.washingmachine:
   friendly_name: Washing Machine
   icon: mdi:washing-machine

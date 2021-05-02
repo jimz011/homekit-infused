@@ -27,7 +27,7 @@
   - [Calendar Card](addons/calendar-card.md)
 
 #### Map
-  - [Map Card](addons/map-card.md) *v4 Deprecation Warning
+  - [Map Card](addons/map-card.md)
   
 #### Media 
   - [Google Home Card](addons/google-home-card.md)
@@ -38,26 +38,18 @@
   - [Frontpage Glances](addons/frontpage-glances.md)
   - [iFrame Card](addons/iframe-card.md)
   - [Mini Graph Card](addons/mini-graph-card.md)
-  - [Search Card](addons/search-card.md)
-  - [Waste Collection Card](addons/waste-collection-card.md)
 
 #### Picture Elements
   - [Appliance Card](addons/appliances-card.md)
-  - [Frontpage Photo/Image](addons/frontpage-photo.md)
 
 #### Unraid
   - [Docker Container/VM Card](addons/unraid-docker.md)
 
 #### Utilities
-  - [Empty Button](addons/empty-button.md)
   - [Gaps](addons/gap-card.md)
   - [Title Text](addons/title-text-card.md)
   
 #### Vacuum
-  - [Simple Vacuum Card](addons/simple-vacuum-card.md) (Any Vacuum)
-  - [Vacuum Basic Controls](addons/vacuum-controls.md) (Any Vacuum)
-  - [Vacuum Speed Controls](addons/vacuum-mode-presets.md) (Any Vacuum)
-  - [Vacuum Live Map](addons/vacuum-live-map.md) (Valetudo/Valetudo RE only!)
   - [Valetudo Preset Button](addons/valetudo-preset-button.md) (Valetudo/Valetudo RE only!)
 
 ### User submitted addons
