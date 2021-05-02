@@ -1,12 +1,13 @@
+If you find any information on this page useful, feel free to buy me a coffee: 
+
+<a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/paypal-donate-button.png" ></a>
+<a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
 [![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.0b5%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
 
-If you find any information on this page useful, feel free to buy me a coffee: 
-
-<a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/paypal-donate-button.png" ></a>
-<a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 ## Homekit Infused (Lovelace) by Jimz011 April 2021 v4.0.0c Beta (*updated: 21/04/2021)
 *Note: You MUST have a working Home Assistant install to use this project, you can download Home Assistant [here](https://home-assistant.io).
 *Latest compatible Home Assistant version is 2021.4.x (do not update past this number for best compatibility)
