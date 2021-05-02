@@ -1,15 +1,15 @@
 # Homekit Infused 4.x.x
 
 ## Content
-- [Introduction](index.md)
-- [Installation](installation.md)
-- [Configuration](configuration.md)
+- [Introduction](../index.md)
+- [Installation](../installation.md)
+- [Configuration](../configuration.md)
 - [Addons](../addons.md)
-- [Custom Views](custom_views.md)
-- [Updates](updates.md)
-- [Issues & Questions](issues.md)
-- [About Me](about.md)
-- [Thanks](thanks.md)
+- [Custom Views](../custom_views.md)
+- [Updates](../updates.md)
+- [Issues & Questions](../issues.md)
+- [About Me](../about.md)
+- [Thanks](../thanks.md)
 
 ## Addons > Weather
 
