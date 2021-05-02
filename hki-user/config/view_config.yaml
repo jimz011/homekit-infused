@@ -1,35 +1,27 @@
 view_config: # For examples check out https://github.com/jimz011/homekit-infused/tree/4.x.x-personal
 
+# Home
+  home:
+    title: greeting
+    show_in_navbar: true
+    show_in_menu: false
+    columns: 
+      buttons: 4
+    favorites:
+      hide_title: true
+    welcome_message: true
+
+  menu:
+    show_in_navbar: true
+    show_in_menu: false
+    icon: mdi:apps
+    subtitle: "[[[ return `Homekit Infused Version: ${states['sensor.hki_current_version'].state}`; ]]]"
+    search_card:
+    favorites: 
+    menu: 
+    hki_menu:
+
 # You can remove this line and the example views below or continue to build on them.
-
-# Lights
-  lights:
-    subtitle: Overview
-    icon: mdi:floor-lamp
-    show_in_favorites: true
-    button_badge: sensor.current_lights_on
-    devices:
-      living_room:
-        - light.tv
-        - light.table
-        - light.ceiling
-      kitchen:
-        - light.ceiling
-  
-  living_room:
-    subtitle: My Living Room
-    icon: mdi:sofa
-    type: room
-    devices:
-      switches:
-        - switch.receiver
-        - switch.xbox_one
-      lights:
-        - light.ceiling
-        - light.table
-        - light.tv
-  
-
 
 
 
