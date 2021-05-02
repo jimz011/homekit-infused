@@ -32,6 +32,8 @@ my_second_view:
 ```
 # Available Addons
 
+All the available addons are listed below
+
 | Name | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [battery](addons-v4/battery.md) | An addon to give your view a battery levels overview |
