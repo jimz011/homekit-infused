@@ -26,6 +26,7 @@ view_config: # For examples check out https://github.com/jimz011/homekit-infused
 # Example
   lights:
     icon: mdi:floor-lamp
+    show_in_favorites: true
     subtitle: Overview
     devices:
       my_lights:
