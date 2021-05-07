@@ -5,8 +5,8 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
-[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.0b5%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![HKI Version](https://img.shields.io/badge/Current%20Homekit%20Infused-4.0.0d%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.0%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-4.0.0d%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
 
 ## Homekit Infused (Lovelace) by Jimz011
