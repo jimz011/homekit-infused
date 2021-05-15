@@ -3,8 +3,6 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-<a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/discord/688401603811999885" /></a>
-
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
 [![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.3%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
