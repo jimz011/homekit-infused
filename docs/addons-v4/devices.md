@@ -43,7 +43,7 @@ You must define it as an object instead to make use of the options below. See ex
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | Set the entity used |
+| entity | yes | undefined | Set the entity used |
 | type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `sensor` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
 | name | no | global_name | Set a name for this button, this accepts button-card JS templates |
 | label | no | none | Set a label for this button, this accepts button-card JS templates |
