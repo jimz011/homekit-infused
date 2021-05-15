@@ -78,4 +78,4 @@ Warning:
 - 1x Unifi Dream Machine Pro
 - 2x Unifi Flex G3 Camera
 
-There is probably more, but I can't think of it right now XD
+There is probably more, but I can't think of it right now XD  
