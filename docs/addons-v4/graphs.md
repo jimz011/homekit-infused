@@ -43,7 +43,7 @@ By default you must enter an array of entities like in the examples above. You m
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | Set the entity used, note that this addon only supports 1 single entity per graph, if you want to be able to use more, you must create this yourself as a custom_card! |
+| entity | yes | undefined | Set the entity used, note that this addon only supports 1 single entity per graph, if you want to be able to use more, you must create this yourself as a custom_card! |
 | type | no | default | Choose between `button` or `graph`, when setting this as a button it will show up as a button with a graph inside |
 | hours_to_show | no | 24 | Sets the number of hours to show, when `type: button` this is by default 12 hours |
 | points_per_hour | no | 2 | Sets the points measured per hour, when `type: button` this is by default 1 |
