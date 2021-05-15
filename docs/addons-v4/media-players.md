@@ -41,7 +41,7 @@ By default you must enter an array of entities like in the examples above. You m
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | Set the entity used |
+| entity | yes | undefined | Set the entity used |
 | type | no | default | Choose between `default` HA media-player or `mini-media-player` |
 | name | no | global_name | Set a name for this media-player |
 
@@ -50,7 +50,7 @@ The options below can ONLY be used when the type is set to `mini-media-player`!
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | icon | no | undefined | Specify a custom icon from any of the available mdi icons |
-| artwork | no | undefined | `cover` to display current artwork in the card background, `full-cover` to display full artwork, `material` for alternate artwork display with dynamic colors, `none` to hide artwork, `full-cover-fit` for full cover without cropping. |
+| artwork | no | undefined | `cover` to display current artwork in the card background, `full-cover` to display full artwork, `material` for alternate artwork display with dynamic colors, `none` to hide artwork, `full-cover-fit` for full cover without cropping |
 | source | no | undefined | Change source select appearance, `icon` for just an icon, `full` for the full source name |
 | sound_mode | no | undefined | Change sound mode select appearance, `icon` for just an icon, `full` for the full sound mode name |
 | info | no | undefined | Change how the media information is displayed, `short` to limit media information to one row, `scroll` to scroll overflowing media info |
