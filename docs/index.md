@@ -23,7 +23,7 @@ By default it contains the following things:
 - And MUCH MUCH I mean MUCH more!
 
 ### Follow me on YouTube
-[Click Here for all the latest updates/videos](https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w)
+[Click Here for all the latest updates/videos](https://www.youtube.com/jimz011)
 
 # Disclaimer
 Warning:
