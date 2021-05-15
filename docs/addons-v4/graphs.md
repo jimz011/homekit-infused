@@ -13,7 +13,7 @@
 
 ## Addons > Graphs
 
-![Homekit Infused](../images/auto-fill-media-players-card.png)
+![Homekit Infused](../images/mini-graph-card.png)
 
 This addon lets you auto-fill your views with some media_player entities.
 
