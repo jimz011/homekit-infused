@@ -1,5 +1,3 @@
-# lovelace_gen
-
 input_boolean.set_temperature:
   title: 'Climate'
   style:
@@ -54,50 +52,3 @@ input_boolean.dummy1:
       type: vertical-stack
       cards:
         !include ../../../hki-user/notifications.yaml
-
-{% for name, data in _global.view_config.items() %}
-{% if data.devices is defined %}
-{% for content, items in data.devices.items() %}
-{% for device in items %}
-{% if 'sensor.' in device %}
-{{device}}:
-  title: ' '
-  style:
-    !include legacy-popup-template.yaml
-  card:
-    type: vertical-stack
-    cards:
-      - !include
-        - '../../templates/other/mini-graph.yaml'
-        - entity: {{ device|replace(".graph", " ")|replace(".red", " ")|replace(".orange", " ")|replace(".blue", " ")|replace(".yellow", " ")|replace(".black", " ")|replace(".white", " ")|replace(".purple", " ")|replace(".pink", " ")|replace(".cyan", " ")|replace(".green", " ") }}
-          {% if ('.red' in device) or ('.red' in content) %}
-          line_color: red
-          {% elif ('.blue' in device) or ('.blue' in content) %}
-          line_color: blue
-          {% elif ('.yellow' in device) or ('.yellow' in content) %}
-          line_color: yellow
-          {% elif ('.black' in device) or ('.black' in content) %}
-          line_color: black
-          {% elif ('.white' in device) or ('.white' in content) %}
-          line_color: white
-          {% elif ('.purple' in device) or ('.purple' in content) %}
-          line_color: purple
-          {% elif ('.pink' in device) or ('.pink' in content) %}
-          line_color: pink
-          {% elif ('.cyan' in device) or ('.cyan' in content) %}
-          line_color: cyan
-          {% elif ('.orange' in device) or ('.orange' in content) %}
-          line_color: orange
-          {% else %}
-          line_color: green
-          {% endif %}
-          graph_type: line
-          show_extrema: true
-          show_average: true
-          decimals: 2
-          font_size: 65
-{% endif %}
-{% endfor %}
-{% endfor %}
-{% endif %}
-{% endfor %}

@@ -1,0 +1,20 @@
+# lovelace_gen
+
+type: iframe
+style: |
+  ha-card {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--box-shadow);
+    -webkit-border-radius: var(--border-radius) !important;
+    border-radius-x: var(--border-radius) !important;
+  }
+  iframe {
+    border-radius: var(--border-radius) !important;
+    -webkit-border-radius: var(--border-radius);
+    border-radius-x: var(--border-radius) !important;
+    overflow: hidden !important;
+  }
+aspect_ratio: {{ aspect_ratio|default('125%') }}
+url: {{ url }}

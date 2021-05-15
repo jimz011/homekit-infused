@@ -167,12 +167,16 @@ cards:
                 - !include
                   - '../templates/other/title-text.yaml'
                   - name: GUI-Sandbox 
-                - type: custom:gui-sandbox
+                - type: custom:mod-card
                   style: |
                     ha-card {
                       border-radius: var(--border-radius);
                       box-shadow: var(--box-shadow);
-                    }  
+                      color: var(--primary-text-color);
+                      background: var(--ha-card-background);
+                    } 
+                  card: 
+                    type: custom:gui-sandbox
                 - type: markdown
                   style: |
                     ha-card {

@@ -24,7 +24,5 @@ sort:
   method: name
   numeric: true
 card:
-  type: custom:layout-card
-  column_num: {{ columns|default('3') }}
-  justify_content: start
-  layout: horizontal
+  type: grid
+  columns: {{ columns|default('3') }}

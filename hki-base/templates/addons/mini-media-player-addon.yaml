@@ -1,0 +1,23 @@
+# lovelace_gen
+
+type: custom:mini-media-player
+style: |
+  ha-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+entity: {{ entity }}
+name: {{ name }}
+icon: {{ icon }}
+tap_action:
+  action: more-info
+artwork: {{ artwork|default('default') }}
+source: {{ source|default('full') }}
+sound_mode: {{ sound_mode|default('full') }}
+info: {{ info|default('scroll') }}
+volume_stateless: {{ volume_stateless|default('false') }}
+volume_step: {{ volume_step|default('5') }}
+max_volume: {{ max_volume|default('100') }}
+min_volume: {{ min_volume|default('1') }}
+toggle_power: {{ toggle_power|default('true') }}
+scale: {{ scale|default('1') }}

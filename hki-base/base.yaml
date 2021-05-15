@@ -37,14 +37,9 @@
         {% endif %}
         {% if data.view_selector is defined %}
         - type: custom:layout-card
-          {% if ((data.columns is defined) and (data.columns.min_columns is defined)) %}
-          min_columns: {{ data.columns.min_columns }}
-          max_columns: {{ data.columns.max_columns }}
-          {% else %}
-          min_columns: 1
-          max_columns: 3
-          {% endif %}
-          layout: horizontal
+          layout_type: custom:horizontal-layout
+          layout:       
+            max_cols: 3
           cards:
             - type: custom:mod-card
               style: |
@@ -54,26 +49,33 @@
                 }
               card:
                 type: grid
-                {% if ((data.columns is defined) and (data.columns.view_selector is defined)) %}
-                columns: {{ data.columns.view_selector }}
+                {% if (data.view_selector.columns is defined) %}
+                columns: {{ data.view_selector.columns }}
                 {% else %}
                 columns: 4
                 {% endif %}
                 square: false
                 cards:
-                  {% for name, content in data.view_selector.items() %}
+                  {% for content in data.view_selector.elements %}
                   - !include
                     - templates/button/view-selector.yaml
                     - name: {{ content.name }}
                       label: "{{ content.button_label|default('&nbsp;') }}"
                       icon: {{ content.icon }}
-                      navigation_path: {{ name|replace(".this_view", " ") }}
-                      {% if ( ('.this_view' in name) and (content.button_badge is defined) ) %} 
-                      template: view-selector-on-style-badge
-                      {% elif '.this_view' in name %} 
+                      navigation_path: {{ content.path }}
+                      {% if ((content.this_view is defined) and (content.this_view is true) and (content.button_badge is defined)) %} 
+                      template: view-selector-on-style-with-badge
+                      {% elif ((content.this_view is defined) and (content.this_view is true)) %} 
                       template: view-selector-on-style
+                      {% elif content.button_badge is defined %} 
+                      template: view-selector-off-style-with-badge
                       {% else %}
                       template: view-selector-off-style
+                      {% endif %}
+                      {% if content.aspect_ratio is defined %}
+                      aspect_ratio: {{ content.aspect_ratio }}
+                      {% elif data.view_selector.aspect_ratio is defined %}
+                      aspect_ratio: {{ data.view_selector.aspect_ratio }}
                       {% endif %}
                       {% if content.button_badge is defined %}
                       notification: "[[[ if (states['{{ content.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ content.button_badge }}'].state}`; ]]]"
@@ -84,822 +86,1489 @@
                       {% endif %}
                   {% endfor %}
         {% endif %}
-        {% if data.show_search_card is defined %}
+        {% if data.search is defined %}
         - !include includes/search-card.yaml
         {% endif %}
+        {% if ((data.custom_cards is defined) and (data.custom_cards.position is defined) and (data.custom_cards.position == 'top')) %}
+        {% if ((data.custom_cards.type is defined) and (data.custom_cards.type == 'default') or (data.custom_cards.type is undefined)) %}
         - type: custom:layout-card
-          {% if ((data.columns is defined) and (data.columns.min_columns is defined)) %}
-          min_columns: {{ data.columns.min_columns }}
-          max_columns: {{ data.columns.max_columns }}
+          {% if ((data.layout is defined) and (data.layout.layout_type is defined)) %}  
+          layout_type: {{ data.layout.layout_type }}
           {% else %}
-          min_columns: 1
-          max_columns: 3
+          layout_type: custom:horizontal-layout
           {% endif %}
-          layout: horizontal
+          layout:
+            {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
+            max_cols: {{ data.layout.max_cols }}
+            {% else %}          
+            max_cols: 3
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.width is defined)) %}
+            width: {{ data.layout.width }}
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.column_widths is defined)) %}
+            column_widths: {{ data.layout.column_widths }}
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
+            rtl: {{ data.layout.rtl }}
+            {% endif %}
           cards:
-            {% if (data.weather is defined) or (data.persons is defined) or (data.simple_weather is defined) %}
+            !include_dir_merge_list ../hki-user/views/{{ name }}
+        {% elif ((data.custom_cards.type is defined) and (data.custom_cards.type == "advanced")) %}
+        - type: vertical-stack
+          cards:
+            !include_dir_merge_list ../hki-user/views/{{ name }}
+        {% endif %}
+        {% endif %}
+        {% if data.find_my is defined %}
+        - type: custom:layout-card
+          layout_type: custom:horizontal-layout
+          layout:
+            column_widths: auto 6fr;
+            max_width: 100%
+          cards:
             - type: custom:mod-card
               style: |
                 ha-card {
                   margin-left: {{ _global.general_config.margins }};
                   margin-right: {{ _global.general_config.margins }};
+                  box-shadow: none;
+                  min-width: 275px;
+                  max-width: 450px;
                 }
               card:
                 type: vertical-stack
                 cards:
-                  {% if ((data.simple_weather is defined) and (data.simple_weather.entity is defined)) %}
-                  - type: custom:simple-weather-card                    
+                  - type: custom:mod-card
                     style: |
                       ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        opacity: 0.8;
-                        font-size: 12px;
-                        font-family: var(--font-family);
-                      }                      
-                    entity: {{ data.simple_weather.entity }}
-                    name: {{ data.simple_weather.city_name }}
-                    backdrop: {{ data.simple_weather.backdrop|default('false') }}
-                    tap_action:
-                      action: navigate
-                      navigation_path: {{ data.simple_weather.path|default('weather') }}
-                  {% endif %}
-                  {% if ((data.weather is defined) and (data.weather.entity is defined)) %}
-                  {% if (data.weather.show_title is undefined) or (data.weather.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml              
-                    - name: '&nbsp; {{ data.weather.name|default('Weather Forecast') }}' 
-                  {% endif %}
-                  - type: weather-forecast
-                    style: |
-                      ha-card {
-                        font-family: var(--font-family);
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        {% if ((data.weather.show_forecast is defined) and (data.weather.show_forecast is false)) %}
-                        max-height: 85px;
-                        {% else %}
-                        min-height: 85px;
-                        {% endif %}
-                        opacity: 0.8;
+                        height: 35px;
                       }
-                    entity: {{ data.weather.entity }}
-                    name: {{ data.weather.city_name }}
-                    show_forecast: {{ data.weather.show_forecast|default('true') }}
-                    tap_action:
-                      action: navigate
-                      navigation_path: {{ data.weather.path|default('weather') }}
-                  {% endif %}
-                  {% if data.persons is defined %}
-                  - type: grid
-                    {% if ((data.columns is defined) and (data.columns.persons is defined)) %}
-                    columns: {{ data.columns.persons }}
-                    {% else %}
-                    columns: 2
-                    {% endif %}
-                    square: true
-                    cards:
-                      {% for title, content in data.persons.items() %}
-                      - !include
-                        {% if (content.travel_time_to_work is defined) or (content.travel_time_to_home is defined) %}
-                        - templates/picture-elements/frontpage-photo.yaml
-                        {% elif content.phone_battery_sensor is defined %}
-                        - templates/picture-elements/frontpage-photo-battery.yaml
-                        {% else %}
-                        - templates/picture-elements/frontpage-photo-simple.yaml
-                        {% endif %}
-                        - person: {{ content.entity }}
-                          {% if content.path is defined %}
-                          navigation_path: {{ content.path }}
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - !include
+                          - templates/other/find-my-button.yaml
+                          {% if ((data.find_my.icons is defined) and (data.find_my.icons.persons is defined)) %}
+                          - icon: {{ data.find_my.icons.persons }}
                           {% else %}
-                          navigation_path: {{ title }}
+                          - icon: mdi:account-supervisor
                           {% endif %}
-                          image_path: {{ content.image_path }}
-                          alignment: {{ content.alignment }}
-                          text_color: {{ content.text_color }}
-                          phone_battery_sensor: {{ content.phone_battery_sensor }}
-                          travel_time_to_home: {{ content.travel_time_to_home }}
-                          travel_time_to_work: {{ content.travel_time_to_work }}
-                      {% endfor %}
-                  {% endif %}
-                  {% if data.persons_alt is defined %}
-                  - type: grid
-                    {% if ((data.columns is defined) and (data.columns.persons_alt is defined)) %}
-                    columns: {{ data.columns.persons_alt }}
-                    {% else %}
-                    columns: 1
-                    {% endif %}
-                    square: false
-                    cards:
-                      {% for title, content in data.persons_alt.items() %}
-                      - !include
-                        {% if ( (content.phone_battery_sensor is defined) or (content.travel_time_to_work is defined) or (content.travel_time_to_home is defined) ) %}
-                        - templates/picture-elements/frontpage-photo.yaml
-                        {% else %}
-                        - templates/picture-elements/frontpage-photo-simple.yaml
-                        {% endif %}
-                        - person: {{ content.entity }}
-                          {% if content.path is defined %}
-                          navigation_path: {{ content.path }}
+                            justify_self: start
+                            option: Persons
+                            opacity: '[[[ if (entity.state == "Persons") return "1.0"; else return "0.4" ]]]'
+                            color: '[[[ if (entity.state == "Persons") return "var(--button-on-icon-color)"; else return "var(--button-on-name-color)" ]]]'
+                        - !include
+                          - templates/other/find-my-button.yaml
+                          {% if ((data.find_my.icons is defined) and (data.find_my.icons.devices is defined)) %}
+                          - icon: {{ data.find_my.icons.devices }}
                           {% else %}
-                          navigation_path: {{ title }}
+                          - icon: mdi:cellphone-link
                           {% endif %}
-                          image_path: {{ content.image_path }}
-                          alignment: {{ content.alignment }}
-                          text_color: {{ content.text_color }}
-                          phone_battery_sensor: {{ content.phone_battery_sensor }}
-                          travel_time_to_home: {{ content.travel_time_to_home }}
-                          travel_time_to_work: {{ content.travel_time_to_work }}
-                      {% endfor %}
-                  {% endif %}
-            {% endif %}
-            {% if data.favorites is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.favorites.show_title is undefined) or (data.favorites.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    {% if data.favorites.name is defined %}                 
-                    - name: '&nbsp; {{ data.favorites.name }}' 
-                    {% else %}
-                    - name: '&nbsp; Favorites' 
-                    {% endif %}
-                  {% endif %}
-                  - type: grid
-                    {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
-                    columns: {{ data.columns.buttons }}
-                    {% else %}
-                    columns: 3
-                    {% endif %}
-                    cards:
-                      {% for name, data in _global.view_config.items() %}
-                      {% if data.show_in_favorites is true %}
-                      - !include
-                        - templates/button/button-badge.yaml
-                        {% if data.title is defined %}
-                        - name: {{ data.title }}
-                        {% else %}
-                        - name: {{ name|replace("_", " ")|title }}
-                        {% endif %}
-                          label: "{{ data.button_label|default('&nbsp;') }}"
-                          icon: {{ data.icon }}
-                          navigation_path: {{ name }}
-                          {% if data.button_badge is defined %}
-                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
-                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            justify_self: center
+                            option: Devices
+                            opacity: '[[[ if (entity.state == "Devices") return "1.0"; else return "0.4" ]]]'
+                            color: '[[[ if (entity.state == "Devices") return "var(--button-on-icon-color)"; else return "var(--button-on-name-color)" ]]]'
+                        - !include
+                          - templates/other/find-my-button.yaml
+                          {% if ((data.find_my.icons is defined) and (data.find_my.icons.vehicles is defined)) %}
+                          - icon: {{ data.find_my.icons.vehicles }}
                           {% else %}
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                          - icon: mdi:car-multiple
                           {% endif %}
-                      {% endif %}
-                      {% endfor %} 
-            {% endif %}
-            {% if data.rooms is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.rooms.show_title is undefined) or (data.rooms.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    {% if data.rooms.name %}                
-                    - name: '&nbsp; {{ data.rooms.name }}' 
-                    {% else %}
-                    - name: '&nbsp; Rooms' 
-                    {% endif %}
-                  {% endif %}
-                  - type: grid
-                    {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
-                    columns: {{ data.columns.buttons }}
-                    {% else %}
-                    columns: 3
-                    {% endif %}
-                    cards:
-                      {% for name, data in _global.view_config.items()|sort %}
-                      {% if ( (data.type is defined) and (data.type == 'room') ) %}
-                      - !include
-                        - templates/button/button-badge.yaml
-                        {% if data.title is defined %}
-                        - name: {{ data.title }}
+                            justify_self: end
+                            option: Vehicles
+                            opacity: '[[[ if (entity.state == "Vehicles") return "1.0"; else return "0.4" ]]]'
+                            color: '[[[ if (entity.state == "Vehicles") return "var(--button-on-icon-color)"; else return "var(--button-on-name-color)" ]]]'
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Persons"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        {% if data.find_my.persons is defined %}
+                        {% for list in data.find_my.persons %}
+                        - type: custom:button-card
+                          template:
+                            - find-my-style
+                          entity: {{ list.entity }}
+                          name: {{ list.name }}
+                          {% if list.icon is defined %}
+                          icon: {{ list.icon }}
+                          {% endif %}
+                          {% if list.entity_picture is defined %}
+                          icon: {{ list.entity_picture }}
+                          {% endif %}
+                          custom_fields:
+                            {% if list.geocoded_location_entity is defined %}
+                            geocode: >
+                              [[[
+                                return `<span>${states['{{ list.geocoded_location_entity }}'].state}</span>`
+                              ]]]
+                            {% else %}
+                            geocode: "[[[ if (states['{{ list.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                            {% endif %}
+                            {% if list.battery_entity is defined %}
+                            battery: >
+                              [[[
+                                return `<span>${states['{{ list.battery_entity }}'].state} %</span>
+                                  <ha-icon
+                                  icon="mdi:battery"
+                                  style="width: 12px; height: 12px; margin-top: -3px;">
+                                  </ha-icon>`
+                              ]]]
+                            {% endif %}
+                        {% endfor %}
+                        - !include
+                          - templates/other/gap.yaml
+                          - height: 2px
                         {% else %}
-                        - name: {{ name|replace("_", " ")|title }}
+                        - type: custom:button-card
+                          template:
+                            - find-my-undefined
+                          icon: mdi:account-multiple
+                          name: 'No Persons Defined'
                         {% endif %}
-                          label: "{{ data.button_label|default('&nbsp;') }}"
-                          icon: {{ data.icon }}
-                          navigation_path: {{ name }}
-                          {% if data.button_badge is defined %}
-                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
-                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
-                          {% else %}
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Devices"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        {% if data.find_my.devices is defined %}
+                        {% for list in data.find_my.devices %}
+                        - type: custom:button-card
+                          template:
+                            - find-my-style
+                          entity: {{ list.entity }}
+                          name: {{ list.name }}
+                          {% if list.icon is defined %}
+                          icon: {{ list.icon }}
                           {% endif %}
-                      {% endif %}
-                      {% endfor %} 
-            {% endif %}
-            {% if data.menu is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.menu.show_title is undefined) or (data.menu.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    {% if data.menu.name is defined %}                
-                    - name: '&nbsp; {{ data.menu.name }}' 
-                    {% else %}
-                    - name: '&nbsp; Menu' 
-                    {% endif %}
-                  {% endif %}
-                  - type: grid
-                    {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
-                    columns: {{ data.columns.buttons }}
-                    {% else %}
-                    columns: 3
-                    {% endif %}
-                    cards:
-                      {% for name, data in _global.view_config.items()|sort %}
-                      {% if ( (data.type is not defined) and (data.view_selector is not defined) and (data.show_in_menu is undefined) or (data.show_in_menu is defined) and (data.show_in_menu is true) ) %}
-                      - !include
-                        - templates/button/button-badge.yaml
-                        {% if data.title is defined %}
-                        - name: {{ data.title }}
+                          {% if list.entity_picture is defined %}
+                          icon: {{ list.entity_picture }}
+                          {% endif %}
+                          custom_fields:
+                            {% if list.geocoded_location_entity is defined %}
+                            geocode: >
+                              [[[
+                                return `<span>${states['{{ list.geocoded_location_entity }}'].state}</span>`
+                              ]]]
+                            {% else %}
+                            geocode: "[[[ if (states['{{ list.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                            {% endif %}
+                            {% if list.battery_entity is defined %}
+                            battery: >
+                              [[[
+                                return `<span>${states['{{ list.battery_entity }}'].state} %</span>
+                                  <ha-icon
+                                  icon="mdi:battery"
+                                  style="width: 12px; height: 12px; margin-top: -3px;">
+                                  </ha-icon>`
+                              ]]]
+                            {% endif %}
+                        {% endfor %}
+                        - !include
+                          - templates/other/gap.yaml
+                          - height: 2px
                         {% else %}
-                        - name: {{ name|replace("_", " ")|title }}
+                        - type: custom:button-card
+                          template:
+                            - find-my-undefined
+                          icon: mdi:power-socket-eu
+                          name: 'No Devices Defined'
                         {% endif %}
-                          label: "{{ data.button_label|default('&nbsp;') }}"
-                          icon: {{ data.icon }}
-                          navigation_path: {{ name }}
-                          {% if data.button_badge is defined %}
-                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
-                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
-                          {% else %}
-                          notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
-                          background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Vehicles"
+                    card:
+                      type: vertical-stack
+                      cards:
+                        {% if data.find_my.vehicles is defined %}
+                        {% for list in data.find_my.vehicles %}
+                        - type: custom:button-card
+                          template:
+                            - find-my-style
+                          entity: {{ list.entity }}
+                          name: {{ list.name }}
+                          {% if list.icon is defined %}
+                          icon: {{ list.icon }}
                           {% endif %}
-                      {% endif %}
-                      {% endfor %}
-            {% endif %}
-            {% if data.iframe is defined%}
+                          {% if list.entity_picture is defined %}
+                          icon: {{ list.entity_picture }}
+                          {% endif %}
+                          custom_fields:
+                            {% if list.geocoded_location_entity is defined %}
+                            geocode: >
+                              [[[
+                                return `<span>${states['{{ list.geocoded_location_entity }}'].state}</span>`
+                              ]]]
+                            {% else %}
+                            geocode: "[[[ if (states['{{ list.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                            {% endif %}
+                            {% if list.battery_entity is defined %}
+                            battery: >
+                              [[[
+                                return `<span>${states['{{ list.battery_entity }}'].state} %</span>
+                                  <ha-icon
+                                  icon="mdi:battery"
+                                  style="width: 12px; height: 12px; margin-top: -3px;">
+                                  </ha-icon>`
+                              ]]]
+                            {% endif %}
+                        {% endfor %}
+                        - !include
+                          - templates/other/gap.yaml
+                          - height: 4px
+                        {% else %}
+                        - type: custom:button-card
+                          template:
+                            - find-my-undefined
+                          icon: mdi:car
+                          name: 'No Vehicles Defined'
+                        {% endif %}
             - type: custom:mod-card
               style: |
                 ha-card {
                   margin-left: {{ _global.general_config.margins }};
                   margin-right: {{ _global.general_config.margins }};
+                  box-shadow: none;
                 }
               card:
                 type: vertical-stack
                 cards:
-                  {% if (data.iframe.show_title is undefined) or (data.iframe.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml              
-                    - name: '&nbsp; {{ data.iframe.title|default('iFrame') }}' 
-                  {% endif %}
-                  - !include
-                    - templates/addons/windy-addon.yaml
-                    - url: {{ data.iframe.url }}
-            {% endif %}
-            {% if data.vacuum is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.vacuum.show_title is undefined) or (data.vacuum.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.vacuum.controls_title|default('Controls') }}'
-                  {% endif %}
-                  - !include
-                    - templates/vacuum/controls.yaml
-                    - entity: {{ data.vacuum.entity|default('vacuum.roborock_vacuum_s5') }}
-                  - !include
-                    {% if (data.vacuum.show_mop is undefined) or (data.vacuum.show_mop == true) %}
-                    - templates/vacuum/vacuum-addon.yaml
-                    {% else %}
-                    - templates/vacuum/vacuum-addon-without-mop.yaml
-                    {% endif %}
-                    - sensor: {{ data.vacuum.fan_speed_sensor|default('sensor.vacuum_fan_speed') }}
-                      vacuum: {{ data.vacuum.entity|default('vacuum.roborock_vacuum_s5') }}
-            {% endif %}
-            {% if data.devices is defined %}
-            {% if data.climate is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.climate.show_title is undefined) or (data.climate.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.climate.title|default('Presets') }}'
-                  {% endif %}
-                  - type: horizontal-stack
-                    cards:
-                      {% if ( (data.climate.show_power is undefined) or (data.climate.show_power is true) ) %}
-                      - !include
-                        - templates/button/service-call-alt.yaml
-                        - name: {{ data.climate.name_power|default('Power') }}
-                          icon: {{ data.climate.icon_power|default('mdi:power') }}
-                          service: climate.turn_off
-                          service_entity: all
-                      {% endif %}
-                      {% if ( (data.climate.show_auto is undefined) or (data.climate.show_auto is true) ) %}
-                      - !include
-                        - templates/button/service-call-with-option-alt.yaml
-                        - name: {{ data.climate.name_auto|default('Auto') }}
-                          icon: {{ data.climate.icon_auto|default('mdi:calendar-clock') }}
-                          service: climate.set_hvac_mode
-                          service_entity: all
-                          extra: hvac_mode
-                          option: auto
-                      {% endif %}
-                      {% if ( (data.climate.show_cool is undefined) or (data.climate.show_cool is true) ) %}
-                      - !include
-                        - templates/button/service-call-with-option-alt.yaml
-                        - name: {{ data.climate.name_cool|default('Cool') }}
-                          icon: {{ data.climate.icon_cool|default('mdi:air-conditioner') }}
-                          service: climate.set_hvac_mode
-                          service_entity: all
-                          extra: hvac_mode
-                          option: cool
-                      {% endif %}
-                      {% if ( (data.climate.show_heat is undefined) or (data.climate.show_heat is true) ) %}
-                      - !include
-                        - templates/button/service-call-with-option-alt.yaml
-                        - name: {{ data.climate.name_heat|default('Heat') }}
-                          icon: {{ data.climate.icon_heat|default('mdi:fire') }}
-                          service: climate.set_hvac_mode
-                          service_entity: all
-                          extra: hvac_mode
-                          option: heat
-                      {% endif %}
-                      {% if ( (data.climate.show_set_temperature is undefined) or (data.climate.show_set is true) ) %}
-                      - !include
-                        - templates/button/service-call-with-option-alt.yaml
-                        - name: "[[[ return `${states['input_number.set_temperature'].state}`; ]]]"
-                          entity: input_boolean.set_temperature
-                          icon: {{ data.climate.icon_set_temperature|default('mdi:thermometer') }}
-                          show_label: true
-                          service: climate.set_temperature
-                          service_entity: all
-                          extra: temperature
-                          option: "[[[ return `${states['input_number.set_temperature'].state}`; ]]]"
-                          hold_action: more-info
-                      {% endif %}
-            {% endif %}
-            {% for content, items in data.devices.items() %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if '.hide' is not in content %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ content|replace("_", " ")|replace(".lock", " ")|replace(".fan", " ")|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".graph", " ")|replace(".red", " ")|replace(".blue", " ")|replace(".yellow", " ")|replace(".black", " ")|replace(".white", " ")|replace(".purple", " ")|replace(".pink", " ")|replace(".cyan", " ")|replace(".green", " ")|replace(".orange", " ")|replace("_", " ")|title }}'
-                  {% endif %}
-                  - type: grid
-                    {% for device in items %}
-                    {% if 'camera.' in device %}
-                    {% if ((data.columns is defined) and (data.columns.cameras is defined)) %}
-                    columns: {{ data.columns.camera }}
-                    {% else %}
-                    columns: 1
-                    {% endif %}
-                    square: false
-                    {% elif ('.graph' in device) or ('.graph' in content) %} 
-                    {% if ((data.columns is defined) and (data.columns.graphs is defined)) %}
-                    columns: {{ data.columns.graphs }}
-                    {% else %}
-                    columns: 3
-                    {% endif %}
-                    {% elif 'media_player.' in device %} 
-                    {% if ((data.columns is defined) and (data.columns.media_players is defined)) %}
-                    columns: {{ data.columns.media_player }}
-                    {% else %}
-                    columns: 1
-                    {% endif %}
-                    square: false
-                    {% else %}
-                    {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
-                    columns: {{ data.columns.buttons }}
-                    {% else %}
-                    columns: 3
-                    {% endif %}
-                    {% endif %}
-                    {% endfor %}
-                    cards:
-                      {% for device in items %}
-                      {% if 'camera.' in device %}
-                      {% if ('vacuum' in device) or ('roborock' in device) or ('rockrobo' in device) or ('rock_robo' in device) or ('ecovac' in device) or ('roomba' in device) %}
-                      - !include
-                        - templates/vacuum/vacuum_map.yaml
-                        - entity: {{ device }}
-                          vacuum_entity: {{ data.vacuum.entity }}
-                      {% else %}
-                      - type: picture-entity
+                  {% if data.find_my.persons is defined %}
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Persons"
+                    card:
+                      type: map
+                      default_zoom: 13
+                      entities:
+                        {% for list in data.find_my.persons %}
+                        - {{ list.entity }}
+                        {% endfor %}
+                      card_mod:
                         style: |
                           ha-card {
                             border-radius: var(--border-radius);
                             box-shadow: var(--box-shadow);
-                            overflow: hidden;
+                            -webkit-border-radius: var(--border-radius) !important;
+                            border-radius-x: var(--border-radius) !important;
                           }
-                        aspect_ratio: 16x10.5
-                        entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
-                        show_state: false
-                      {% endif %}
-                      {% elif 'light.' in device %}
-                      - !include
-                        - templates/button/button.yaml
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
-                          label: !include includes/brightness-label.yaml
-                          grid: light-devices-grid
-                          {% if ('.rgb' in device) or ('.rgb' in content) %}
-                          template: '../popup-cards/light-rgb.yaml'
-                          {% elif ('.color-temp' in device) or ('.color-temp' in content) %}
-                          template: '../popup-cards/light-color-temp.yaml'
-                          {% else %}
-                          template: '../popup-cards/light-switch.yaml'
-                          {% endif %}
-                      {% elif 'binary_sensor.' in device %}
-                      - !include
-                        - templates/button/button.yaml
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
-                          tap_action: more-info
-                          hold_action: more-info
-                          show_last_changed: true
-                      {% elif 'media_player.' in device %}
-                      - !include 
-                        - templates/addons/media-player-addon.yaml
-                        - entity: {{ device }}
-                      {% elif ('.graph' in device) or ('.graph' in content) or ('sensor.' in device) %}
-                      - !include
-                        {% if ('.graph' in device) or ('.graph' in content) %}
-                        - templates/other/mini-graph.yaml
-                        {% else %}
-                        - templates/button/mini-graph.yaml
-                        {% endif %}
-                        - entity: {{ device|replace(".graph", " ")|replace(".red", " ")|replace(".orange", " ")|replace(".blue", " ")|replace(".yellow", " ")|replace(".black", " ")|replace(".white", " ")|replace(".purple", " ")|replace(".pink", " ")|replace(".cyan", " ")|replace(".green", " ") }}
-                          {% if ('.red' in device) or ('.red' in content) %}
-                          line_color: red
-                          {% elif ('.blue' in device) or ('.blue' in content) %}
-                          line_color: blue
-                          {% elif ('.yellow' in device) or ('.yellow' in content) %}
-                          line_color: yellow
-                          {% elif ('.black' in device) or ('.black' in content) %}
-                          line_color: black
-                          {% elif ('.white' in device) or ('.white' in content) %}
-                          line_color: white
-                          {% elif ('.purple' in device) or ('.purple' in content) %}
-                          line_color: purple
-                          {% elif ('.pink' in device) or ('.pink' in content) %}
-                          line_color: pink
-                          {% elif ('.cyan' in device) or ('.cyan' in content) %}
-                          line_color: cyan
-                          {% elif ('.orange' in device) or ('.orange' in content) %}
-                          line_color: orange
-                          {% else %}
-                          line_color: green
-                          {% endif %}
-                          graph_type: line
-                          show_extrema: true
-                          show_average: true
-                          decimals: 2
-                          font_size: 65
-                      {% elif ('switch.' in device) or ('.fan' in content) or ('.fan' in device) %}
-                      - !include
-                        - templates/button/button.yaml
-                        {% if 'switch.fan' in device %}
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan.fan", ".fan") }}
-                        {% else %}
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ")|replace(".fan", " ") }}
-                        {% endif %}
-                          template: '../popup-cards/light-switch.yaml'
-                          grid: light-devices-grid
-                          {% if ('.fan' in device) or ('.fan' in content) %}
-                          hold_action: more-info
-                          spin_on: true
-                          color: DodgerBlue
-                          {% endif %}
-                      {% elif 'climate.' in device %}
-                      - !include
-                        - templates/button/thermostat.yaml
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
-                      {% else %}
-                      - !include
-                        - templates/button/button.yaml
-                        - entity: {{ device|replace(".rgb", " ")|replace(".color-temp", " ")|replace(".lock", " ") }}
-                          tap_action: more-info
-                          hold_action: more-info
-                      {% endif %}
-                          {% if ( ('.lock' in device) or ('.lock' in content) ) %}
-                          lock: true 
-                          {% endif %}
-                      {% endfor %}
-            {% endfor %} 
-        {% endif %}  
-            {% if data.remote_control is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.remote_control.show_title is undefined) or (data.remote_control.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.remote_control.title|default('Remote Control') }}'
                   {% endif %}
-                  - !include
-                    - templates/other/remote-control.yaml
-                    - entity_media_player_sound: {{ data.remote_control.sound_player }}
-                      entity_media_player: {{ data.remote_control.media_player }}
-                      entity_media_player_remote: {{ data.remote_control.remote }}
-                      {% if ((data.remote_control.type is defined) and (data.remote_control.type == 'atv')) %}
-                      service: remote.send_command
-                      command_up: up
-                      command_menu: menu
-                      command_left: left
-                      command_center: select
-                      command_right: right
-                      command_back: menu
-                      command_down: down
-                      command_home: top_menu
-                      {% endif %}
-            {% endif%}
-            {% if data.xbox_controller is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.xbox_controller.show_title is undefined) or (data.xbox_controller.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.xbox_controller.title|default('Xbox Controller') }}'
+                  {% if data.find_my.devices is defined %}
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Devices"
+                    card:
+                      type: map
+                      default_zoom: 13
+                      entities:
+                        {% for list in data.find_my.devices %}
+                        - {{ list.entity }}
+                        {% endfor %}
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            margin-top: -4px;
+                            -webkit-border-radius: var(--border-radius) !important;
+                            border-radius-x: var(--border-radius) !important;
+                          }
                   {% endif %}
-                  - !include
-                    - templates/addons/xbox-controller-addon.yaml
-                    - remote_entity: {{ data.xbox_controller.remote_entity }}
-                      xbox_entity: {{ data.xbox_controller.xbox_entity }}
+                  {% if data.find_my.vehicles is defined %}
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.find_my
+                        state: "Vehicles"
+                    card:
+                      type: map
+                      default_zoom: 13
+                      entities:
+                        {% for list in data.find_my.vehicles %}
+                        - {{ list.entity }}
+                        {% endfor %}
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border-radius: var(--border-radius);
+                            box-shadow: var(--box-shadow);
+                            margin-top: -4px;
+                            -webkit-border-radius: var(--border-radius) !important;
+                            border-radius-x: var(--border-radius) !important;
+                          }
+                 {% endif %}
+        {% endif %}
+        - type: custom:mod-card
+          card:
+            type: custom:layout-card
+            {% if ((data.layout is defined) and (data.layout.layout_type is defined)) %}  
+            layout_type: {{ data.layout.layout_type }}
+            {% else %}
+            layout_type: custom:horizontal-layout
             {% endif %}
-            {% if data.google_home is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.google_home.show_title is undefined) or (data.google_home.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.google_home.title|default('Google Home') }}'
-                  {% endif %}
-                  - type: entities
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                      }
-                    show_header_toggle: false
-                    entities:
-                      {% if data.google_home.all_speakers is defined %}
-                      - type: custom:mini-media-player
-                        entity: {{ data.google_home.all_speakers }}
-                        group: true
-                        source: icon
-                        icon: mdi:google-home
-                        info: short
-                        tts:
-                          platform: google_translate
-                        hide:
-                          volume: false
-                          power: true
-                      {% endif %}
-                      {% for device in data.google_home.entities %}
-                      - type: custom:mini-media-player
-                        entity: {{ device }}
-                        group: true
-                        tts:
-                          platform: google_translate
-                        hide:
-                          icon: true
-                          volume: false
-                          controls: true
-                      {% endfor %}
-            {% endif %}
-            {% if data.entities_card is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.entities_card.show_title is undefined) or (data.entities_card.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.entities_card.title|default('Entities') }}'
-                  {% endif %}
-                  - type: entities
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        opacity: 0.8;
-                      }
-                    show_header_toggle: false
-                    entities:
-                      {% for entity in data.entities_card.entities %}
-                      - {{ entity }}
-                      {% endfor %}
-            {% endif %} 
-            {% if data.map is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.map.show_title is undefined) or (data.map.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.map.title|default('Map') }}'
-                  {% endif %}
-                  - !include 
-                    - templates/addons/map-addon.yaml
-                    {% for id, person in data.map.items() %}
-                    - entities: {{ person }}
+            layout:
+              {% if ((data.layout is defined) and (data.layout.max_width is defined)) %}
+              max_width: {{ data.layout.max_width }}
+              {% endif %}
+              {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
+              max_cols: {{ data.layout.max_cols }}
+              {% endif %}
+              {% if ((data.layout is defined) and (data.layout.width is defined)) %}
+              width: {{ data.layout.width }}
+              {% endif %}
+              {% if ((data.layout is defined) and (data.layout.column_widths is defined)) %}
+              column_widths: {{ data.layout.column_widths }}
+              {% endif %}
+              {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
+              rtl: {{ data.layout.rtl }}
+              {% endif %}
+            cards:
+              {% if (data.weather is defined) or (data.persons is defined) or (data.simple_weather is defined) %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if data.simple_weather is defined %}
+                    {% for content in data.simple_weather %}
+                    - type: vertical-stack
+                      cards:
+                        {% if content.title is defined %}
+                        - !include
+                          - templates/other/title-text.yaml
+                          - name: "&nbsp; {{ content.title }}"
+                        {% endif %}
+                        - type: custom:simple-weather-card                    
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                              opacity: 0.8;
+                              font-size: 12px;
+                              font-family: var(--font-family);
+                            }                      
+                          entity: {{ content.entity }}
+                          name: {{ content.city_name }}
+                          backdrop: {{ content.backdrop|default('false') }}
+                          tap_action:
+                            action: navigate
+                            navigation_path: {{ content.path|default('weather') }}
                     {% endfor %}
-            {% endif %}
-            {% if data.waze is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.waze.show_title is undefined) or (data.waze.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.waze.title|default('Waze') }}'
-                  {% endif %}
-                  - !include templates/addons/waze-addon.yaml
-            {% endif %}
-            {% if data.calendar is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if ( (data.calendar.show_title is undefined) or (data.calendar.show_title == true) ) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.calendar.title|default('Calendar') }}'
-                  {% endif %}
-                  - type: calendar
-                    initial_view: {{ data.calendar.initial_view|default('dayGridMonth') }}
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                      }
-                    entities: 
-                      - {{ data.calendar.entity }} 
-            {% endif %}
-            {% if data.upcoming_media is defined %}
-            {% for content, items in data.upcoming_media.items() %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if '.hide' is not in content %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ content|replace("_", " ")|replace(".hide", " ")|title }}'
-                  {% endif %}
-                  {% for entity in items %}
-                  - type: 'custom:upcoming-media-card'
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                      }
-                    entity: {{ entity }}
-                  {% endfor %}  
-            {% endfor %}      
-            {% endif %}
-            {% if data.certificates is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.certificates.show_title is undefined) or (data.certificates.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.certificates.title|default('Certificates') }}'
-                  {% endif %}
-                  - !include templates/addons/certificates-addon.yaml
-            {% endif %}
-            {% if data.battery is defined %}
-            - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-left: {{ _global.general_config.margins }};
-                  margin-right: {{ _global.general_config.margins }};
-                }
-              card:
-                type: vertical-stack
-                cards:
-                  {% if (data.battery.show_title is undefined) or (data.battery.show_title == true) %}
-                  - !include
-                    - templates/other/title-text.yaml
-                    - name: '&nbsp; {{ data.battery.title|default('Battery Levels') }}'
-                  {% endif %}
-                  - !include
-                    - templates/addons/battery-addon.yaml
-                    {% if ((data.columns is defined) and (data.columns.battery is defined)) %}
-                    - columns: {{ data.columns.battery }}
-                    {% else %}
-                    - columns: 3
                     {% endif %}
-            {% endif %}
-        {% if data.custom_cards is defined %}
-        {% if data.custom_cards is true %}
+                    {% if data.weather is defined %}
+                    {% for content in data.weather %}
+                    - type: vertical-stack
+                      cards:
+                        {% if content.title is defined %}
+                        - !include
+                          - templates/other/title-text.yaml
+                          - name: "&nbsp; {{ content.title }}"
+                        {% endif %}
+                        - type: weather-forecast
+                          style: |
+                            ha-card {
+                              font-family: var(--font-family);
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                              {% if ((content.show_forecast is defined) and (content.show_forecast is false)) %}
+                              max-height: 85px;
+                              {% else %}
+                              min-height: 85px;
+                              {% endif %}
+                              opacity: 0.8;
+                            }
+                          entity: {{ content.entity }}
+                          name: {{ content.city_name }}
+                          show_forecast: {{ content.show_forecast|default('true') }}
+                          tap_action:
+                            action: navigate
+                            navigation_path: {{ content.path|default('weather') }}
+                    {% endfor %}
+                    {% endif %}
+                    {% if data.persons is defined %}
+                    {% for content in data.persons %}
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.persons is defined)) %}
+                      columns: {{ data.columns.persons }}
+                      {% else %}
+                      columns: 2
+                      {% endif %}
+                      {% if content.square is defined %}
+                      square: {{ content.square }}
+                      {% else %}
+                      square: true
+                      {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for person in content.entities %}
+                        - !include
+                          {% if (person.travel_time_to_work is defined) or (person.travel_time_to_home is defined) %}
+                          - templates/picture-elements/frontpage-photo.yaml
+                          {% elif person.phone_battery_sensor is defined %}
+                          - templates/picture-elements/frontpage-photo-battery.yaml
+                          {% else %}
+                          - templates/picture-elements/frontpage-photo-simple.yaml
+                          {% endif %}
+                          - person: {{ person.entity }}
+                            navigation_path: {{ person.path }}
+                            image_path: {{ person.image_path }}
+                            alignment: {{ person.alignment }}
+                            text_color: {{ person.text_color }}
+                            phone_battery_sensor: {{ person.phone_battery_sensor }}
+                            travel_time_to_home: {{ person.travel_time_to_home }}
+                            travel_time_to_work: {{ person.travel_time_to_work }}
+                        {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    {% endif %}
+              {% endif %}
+              {% if data.favorites is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if (data.favorites.show_title is undefined) or (data.favorites.show_title == true) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      {% if data.favorites.title is defined %}                 
+                      - name: '&nbsp; {{ data.favorites.title }}' 
+                      {% else %}
+                      - name: '&nbsp; Favorites' 
+                      {% endif %}
+                    {% endif %}
+                    - type: grid
+                      {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
+                      columns: {{ data.columns.buttons }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      cards:
+                        {% for name, data in _global.view_config.items() %}
+                        {% if data.show_in_favorites is true %}
+                        - !include
+                          - templates/button/button-badge.yaml
+                          {% if data.title is defined %}
+                          - name: {{ data.title }}
+                          {% else %}
+                          - name: {{ name|replace("_", " ")|title }}
+                          {% endif %}
+                            label: "{{ data.button_label|default('&nbsp;') }}"
+                            icon: {{ data.icon }}
+                            navigation_path: {{ name }}
+                            {% if data.button_badge is defined %}
+                            notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                            background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% else %}
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% endif %}
+                        {% endif %}
+                        {% endfor %} 
+              {% endif %}
+              {% if data.rooms is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if (data.rooms.show_title is undefined) or (data.rooms.show_title == true) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      {% if data.rooms.title is defined %}                
+                      - name: '&nbsp; {{ data.rooms.title }}' 
+                      {% else %}
+                      - name: '&nbsp; Rooms' 
+                      {% endif %}
+                    {% endif %}
+                    - type: grid
+                      {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
+                      columns: {{ data.columns.buttons }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      cards:
+                        {% for name, data in _global.view_config.items()|sort %}
+                        {% if ( (data.type is defined) and (data.type == 'room') ) %}
+                        - !include
+                          - templates/button/button-badge.yaml
+                          {% if data.title is defined %}
+                          - name: {{ data.title }}
+                          {% else %}
+                          - name: {{ name|replace("_", " ")|title }}
+                          {% endif %}
+                            label: "{{ data.button_label|default('&nbsp;') }}"
+                            icon: {{ data.icon }}
+                            navigation_path: {{ name }}
+                            {% if data.button_badge is defined %}
+                            notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                            background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% else %}
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% endif %}
+                        {% endif %}
+                        {% endfor %} 
+              {% endif %}
+              {% if data.menu is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if (data.menu.show_title is undefined) or (data.menu.show_title == true) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      {% if data.menu.title is defined %}                
+                      - name: '&nbsp; {{ data.menu.title }}' 
+                      {% else %}
+                      - name: '&nbsp; Menu' 
+                      {% endif %}
+                    {% endif %}
+                    - type: grid
+                      {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
+                      columns: {{ data.columns.buttons }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      cards:
+                        {% for name, data in _global.view_config.items()|sort %}
+                        {% if ( (data.type is not defined) and (data.view_selector is not defined) and (data.show_in_menu is undefined) or (data.show_in_menu is defined) and (data.show_in_menu is true) ) %}
+                        - !include
+                          - templates/button/button-badge.yaml
+                          {% if data.title is defined %}
+                          - name: {{ data.title }}
+                          {% else %}
+                          - name: {{ name|replace("_", " ")|title }}
+                          {% endif %}
+                            label: "{{ data.button_label|default('&nbsp;') }}"
+                            icon: {{ data.icon }}
+                            navigation_path: {{ name }}
+                            {% if data.button_badge is defined %}
+                            notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                            background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% else %}
+                            notification: "[[[ if (states['input_number.empty'].state == 0) return '&nbsp'; else return `${states['input_number.empty'].state}`; ]]]"
+                            background_color: "[[[ if (states['input_number.empty'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--paper-item-icon-color)'; ]]]"  
+                            {% endif %}
+                        {% endif %}
+                        {% endfor %}
+              {% endif %}
+              {% if data.iframe is defined %}
+              {% for content in data.iframe %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {s
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    {% if content.url is defined %}
+                    - !include
+                      - templates/addons/iframe-addon.yaml
+                      - url: {{ content.url }}
+                        {% if content.aspect_ratio is defined %}
+                        aspect_ratio: {{ content.aspect_ratio }}
+                        {% endif %}
+                    {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.vacuum is defined %}
+              {% for content in data.vacuum %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {s
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    {% if (content.show_fan_speed is undefined) or (content.show_fan_speed is true) %}
+                    - !include
+                      - templates/vacuum/controls.yaml
+                      - entity: {{ content.entity|default('vacuum.roborock_vacuum_s5') }}
+                    - !include
+                      {% if (content.show_mop is undefined) or (data.vacuum.show_mop == true) %}
+                      - templates/vacuum/vacuum-addon.yaml
+                      {% else %}
+                      - templates/vacuum/vacuum-addon-without-mop.yaml
+                      {% endif %}
+                      - sensor: {{ content.fan_speed_sensor|default('sensor.vacuum_fan_speed') }}
+                        vacuum: {{ content.entity|default('vacuum.roborock_vacuum_s5') }}
+                    {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if ((data.climate is defined) and (data.climate.controls is defined)) %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if ((data.climate.controls is defined) and (data.climate.controls.title is defined)) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ data.climate.controls.title }}"
+                    {% endif %}
+                    {% if data.climate.controls is defined %}
+                    - type: horizontal-stack
+                      cards:
+                        {% if ( (data.climate.controls.show_power is undefined) or (data.climate.controls.show_power is true) ) %}
+                        - !include
+                          - templates/button/service-call-alt.yaml
+                          - name: {{ data.climate.controls.name_power|default('Power') }}
+                            icon: {{ data.climate.controls.icon_power|default('mdi:power') }}
+                            aspect_ratio: {{ data.climate.controls.aspect_ratio|default('1/1') }}
+                            service: climate.turn_off
+                            service_entity: all
+                        {% endif %}
+                        {% if ( (data.climate.controls.show_auto is undefined) or (data.climate.controls.show_auto is true) ) %}
+                        - !include
+                          - templates/button/service-call-with-option-alt.yaml
+                          - name: {{ data.climate.controls.name_auto|default('Auto') }}
+                            icon: {{ data.climate.controls.icon_auto|default('mdi:calendar-clock') }}
+                            aspect_ratio: {{ data.climate.controls.aspect_ratio|default('1/1') }}
+                            service: climate.set_hvac_mode
+                            service_entity: all
+                            extra: hvac_mode
+                            option: auto
+                        {% endif %}
+                        {% if ( (data.climate.controls.show_cool is undefined) or (data.climate.controls.show_cool is true) ) %}
+                        - !include
+                          - templates/button/service-call-with-option-alt.yaml
+                          - name: {{ data.climate.controls.name_cool|default('Cool') }}
+                            icon: {{ data.climate.controls.icon_cool|default('mdi:air-conditioner') }}
+                            aspect_ratio: {{ data.climate.controls.aspect_ratio|default('1/1') }}
+                            service: climate.set_hvac_mode
+                            service_entity: all
+                            extra: hvac_mode
+                            option: cool
+                        {% endif %}
+                        {% if ( (data.climate.controls.show_heat is undefined) or (data.climate.controls.show_heat is true) ) %}
+                        - !include
+                          - templates/button/service-call-with-option-alt.yaml
+                          - name: {{ data.climate.controls.name_heat|default('Heat') }}
+                            icon: {{ data.climate.controls.icon_heat|default('mdi:fire') }}
+                            aspect_ratio: {{ data.climate.controls.aspect_ratio|default('1/1') }}
+                            service: climate.set_hvac_mode
+                            service_entity: all
+                            extra: hvac_mode
+                            option: heat
+                        {% endif %}
+                        {% if ( (data.climate.controls.show_set_temperature is undefined) or (data.climate.controls.show_set is true) ) %}
+                        - !include
+                          - templates/button/service-call-with-option-alt.yaml
+                          - name: "[[[ return `${states['input_number.set_temperature'].state}`; ]]]"
+                            entity: input_boolean.set_temperature
+                            icon: {{ data.climate.controls.icon_set_temperature|default('mdi:thermometer') }}
+                            aspect_ratio: {{ data.climate.controls.aspect_ratio|default('1/1') }}
+                            show_label: true
+                            service: climate.set_temperature
+                            service_entity: all
+                            extra: temperature
+                            option: "[[[ return `${states['input_number.set_temperature'].state}`; ]]]"
+                            hold_action: more-info
+                        {% endif %}
+                    {% endif %}
+              {% endif %}
+              {% if ((data.climate is defined) and (data.climate.thermostats is defined)) %}
+              {% for content in data.climate.thermostats %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.thermostats is defined)) %}
+                      columns: {{ data.columns.thermostats }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for thermostat in content.entities %}
+                        - !include
+                          - templates/button/thermostat.yaml
+                          {% if thermostat.entity is defined %}
+                          - entity: {{ thermostat.entity }}
+                          {% else %}
+                          - entity: {{ thermostat }}
+                          {% endif %}
+                            {% if content.lock is defined %}
+                            lock: {{ content.lock }}
+                            {% elif thermostat.lock is defined %}
+                            lock: {{ thermostat.lock }}
+                            {% endif %}
+                            {% if thermostat.name is defined %}
+                            name: {{ thermostat.name }}
+                            {% endif %}
+                            {% if ((thermostat.ambient_temperature is defined) and (thermostat.entity is defined)) %}
+                            notification: "[[[ return `${states['{{thermostat.ambient_temperature}}'].state}°` ]]]"
+                            {% elif thermostat.entity is defined %}
+                            notification: "[[[ return `${states['{{thermostat.entity}}'].attributes.current_temperature}°` ]]]"
+                            {% else %}
+                            notification: "[[[ return `${states['{{thermostat}}'].attributes.current_temperature}°` ]]]"
+                            {% endif %}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.cameras is defined %}
+              {% for content in data.cameras %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.cameras is defined)) %}
+                      columns: {{ data.columns.cameras }}
+                      {% else %}
+                      columns: 1
+                      {% endif %}
+                      square: false
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for camera in content.entities %}
+                        - type: picture-entity
+                          style: |
+                            ha-card {
+                              border-radius: var(--border-radius);
+                              box-shadow: var(--box-shadow);
+                              overflow: hidden;
+                            }
+                          {% if camera.aspect_ratio is defined %}
+                          aspect_ratio: {{ camera.aspect_ratio }}
+                          {% elif content.aspect_ratio is defined %}
+                          aspect_ratio: {{ content.aspect_ratio }}
+                          {% else %}
+                          aspect_ratio: 16x10.5
+                          {% endif %}
+                          {% if camera.entity is defined %}
+                          entity: {{ camera.entity }}
+                          {% else %}
+                          entity: {{ camera }}
+                          {% endif %}
+                          {% if camera.show_state is defined %}
+                          show_state: {{ camera.show_state }}
+                          {% else %}
+                          show_state: false
+                          {% endif %}
+                          {% if camera.camera_view is defined %}
+                          camera_view: {{ camera.camera_view }}
+                          {% endif %}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.devices is defined %}
+              {% for content in data.devices %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.buttons is defined)) %}
+                      columns: {{ data.columns.buttons }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      {% if content.square is defined %}
+                      square: {{ content.square }}
+                      {% else %}
+                      square: true
+                      {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for device in content.entities %}
+                        - !include
+                          - templates/button/button.yaml
+                          {% if device.entity is defined %}
+                          - entity: {{ device.entity }}
+                          {% else %}
+                          - entity: {{ device }}
+                          {% endif %}
+                            {% if device.type is defined %}
+                            {% if (device.type == 'rgb') or (device.type == 'color-temp') %}
+                            template: ../popup-cards/light-{{ device.type }}.yaml
+                            display_type: slider
+                            {% elif device.type == 'switch' %}
+                            template: ../popup-cards/light-switch.yaml
+                            {% elif device.type == 'sensor' %}
+                            template: ../popup-cards/mini-graph.yaml
+                            tap_action: more-info
+                            show_last_changed: true
+                            {% elif device.type == 'fan' %}
+                            hold_action: more-info
+                            spin_on: true
+                            color: DodgerBlue
+                            {% else %}
+                            template: ../popup-cards/light-switch.yaml
+                            {% endif %}
+                            {% else %}
+                            {% if (('switch.' in device) or (device.entity is defined) and ('switch.' in device.entity) or ('light.' in device) or (device.entity is defined) and ('light.' in device.entity) or ('input_boolean.' in device) or (device.entity is defined) and ('input_boolean.' in device.entity)) %}
+                            template: ../popup-cards/light-switch.yaml
+                            {% elif (('binary_sensor.' in device) or (device.entity is defined) and ('binary_sensor.' in device.entity)) %}
+                            tap_action: more-info
+                            hold_action: more-info
+                            show_last_changed: true
+                            {% elif (('sensor.' in device) or (device.entity is defined) and ('sensor.' in device.entity)) %}
+                            tap_action: more-info
+                            template: ../popup-cards/mini-graph.yaml
+                            show_last_changed: true
+                            {% else %}
+                            hold_action: more-info
+                            {% endif %}
+                            {% endif %}
+                            {% if device.icon is defined %}
+                            icon: {{ device.icon }}
+                            {% endif %}
+                            {% if content.lock is defined %}
+                            lock: {{ content.lock }}
+                            {% elif device.lock is defined %}
+                            lock: {{ device.lock }}
+                            {% endif %}
+                            {% if device.aspect_ratio is defined %}
+                            aspect_ratio: {{ device.aspect_ratio }}
+                            {% endif %}
+                            {% if device.name is defined %}
+                            name: "{{ device.name }}"
+                            {% endif %}
+                            {% if device.label is defined %}
+                            label: "{{ device.label }}"
+                            {% else %}
+                            label: !include includes/brightness-label.yaml
+                            {% endif %}
+                            {% if device.entity_picture is defined %}
+                            entity_picture: "{{ device.entity_picture }}"
+                            {% endif %}
+                            {% if device.size is defined %}
+                            size: {{ device.size }}
+                            {% endif %}
+                            {% if device.show_name is defined %}
+                            show_name: {{ device.name }}
+                            {% endif %}
+                            {% if device.show_icon is defined %}
+                            show_icon: {{ device.show_icon }}
+                            {% endif %}
+                            {% if device.show_state is defined %}
+                            show_state: {{ device.show_state }}
+                            {% endif %}
+                            {% if device.show_label is defined %}
+                            show_label: {{ device.show_label }}
+                            {% endif %}
+                            {% if device.show_last_changed is defined %}
+                            show_last_changed: {{ device.show_last_changed }}
+                            {% endif %}
+                            {% if ((device.type == 'sensor') or (device.type is undefined) and ('sensor.' in device) or (device.type is defined) and ('sensor.' in device.entity)) %}
+                            grid: default-hki-grid
+                            {% else %}
+                            grid: light-devices-grid
+                            {% endif %}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.media_players is defined %}
+              {% for content in data.media_players %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.media_players is defined)) %}
+                      columns: {{ data.columns.media_players }}
+                      {% else %}
+                      columns: 1
+                      {% endif %}
+                      {% if content.square is defined %}
+                      square: {{ content.square }}
+                      {% else %}
+                      square: false
+                      {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for media in content.entities %}
+                        - !include
+                          {% if (media.type is undefined) or (media.type == 'default') %}
+                          - templates/addons/media-player-default-addon.yaml
+                          {% else %}
+                          - templates/addons/mini-media-player-addon.yaml
+                          {% endif %}
+                          {% if media.entity is defined %}
+                          - entity: {{ media.entity }}
+                          {% else %}
+                          - entity: {{ media }}
+                          {% endif %}
+                            {% if media.name is defined %}
+                            name: {{ media.name }}
+                            {% endif %}
+                            {% if media.icon is defined %}
+                            icon: {{ media.icon }}
+                            {% endif %}
+                            {% if media.artwork is defined %}
+                            artwork: {{ media.artwork }}
+                            {% endif %}
+                            {% if media.source is defined %}
+                            source: {{ media.source }}
+                            {% endif %}
+                            {% if media.sound_mode is defined %}
+                            sound_mode: {{ media.sound_mode }}
+                            {% endif %}
+                            {% if media.info is defined %}
+                            info: {{ media.info }}
+                            {% endif %}
+                            {% if media.volume_stateless is defined %}
+                            volume_stateless: {{ media.volume_stateless }}
+                            {% endif %}
+                            {% if media.volume_step is defined %}
+                            volume_step: {{ media.volume_step }}
+                            {% endif %}
+                            {% if media.max_volume is defined %}
+                            max_volume: {{ media.max_volume }}
+                            {% endif %}
+                            {% if media.min_volume is defined %}
+                            min_volume: {{ media.min_volume }}
+                            {% endif %}
+                            {% if media.replace_mute is defined %}
+                            replace_mute: {{ media.replace_mute }}
+                            {% endif %}
+                            {% if media.toggle_power is defined %}
+                            toggle_power: {{ media.toggle_power }}
+                            {% endif %}
+                            {% if media.background is defined %}
+                            background: {{ media.background }}
+                            {% endif %}
+                            {% if media.scale is defined %}
+                            scale: {{ media.scale }}
+                            {% endif %}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.graphs is defined %}
+              {% for content in data.graphs %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.graphs is defined)) %}
+                      columns: {{ data.columns.graphs }}
+                      {% else %}
+                      columns: 3
+                      {% endif %}
+                      {% if content.square is defined %}
+                      square: {{ content.square }}
+                      {% else %}
+                      square: false
+                      {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for device in content.entities %}
+                        - !include
+                          {% if ((device.type is defined) and (device.type == 'button')) %}
+                          - templates/button/button-mini-graph.yaml
+                          {% elif ((device.type is defined) and (device.type == 'graph')) %}
+                          - templates/button/mini-graph.yaml
+                          {% elif ((content.type is defined) and (content.type == 'button')) %}
+                          - templates/button/button-mini-graph.yaml
+                          {% elif ((content.type is defined) and (content.type == 'graph')) %}
+                          - templates/button/mini-graph.yaml
+                          {% else %}
+                          - templates/button/mini-graph.yaml
+                          {% endif %}
+                          {% if device.entity is defined %}
+                          - entity: {{ device.entity }}
+                          {% else %}
+                          - entity: {{ device }}
+                          {% endif %}
+                            {% if device.hours_to_show is defined %}
+                            hours_to_show: {{ device.hours_to_show }}
+                            {% elif content.hours_to_show is defined %}
+                            hours_to_show: {{ content.hours_to_show }}
+                            {% endif %}
+                            {% if device.points_per_hour is defined %}
+                            points_per_hour: {{ device.points_per_hour }}
+                            {% elif content.points_per_hour is defined %}
+                            points_per_hour: {{ content.points_per_hour }}
+                            {% endif %}
+                            {% if device.line_width is defined %}
+                            line_width: {{ device.line_width }}
+                            {% elif content.line_width is defined %}
+                            line_width: {{ content.line_width }}
+                            {% endif %}
+                            {% if device.hour24 is defined %}
+                            hour24: {{ device.hour24 }}
+                            {% elif content.hour24 is defined %}
+                            hour24: {{ content.hour24 }}
+                            {% endif %}
+                            {% if device.animate is defined %}
+                            animate: {{ device.animate }}
+                            {% elif content.animate is defined %}
+                            animate: {{ content.animate }}
+                            {% endif %}
+                            {% if device.decimals is defined %}
+                            decimals: {{ device.decimals }}
+                            {% elif content.decimals is defined %}
+                            decimals: {{ content.decimals }}
+                            {% endif %}
+                            {% if device.font_size is defined %}
+                            font_size: {{ device.font_size }}
+                            {% elif content.font_size is defined %}
+                            font_size: {{ content.font_size }}
+                            {% endif %}
+                            {% if device.height is defined %}
+                            height: {{ device.height }}
+                            {% elif content.height is defined %}
+                            height: {{ content.height }}
+                            {% endif %}
+                            {% if device.graph_type is defined %}
+                            graph_type: {{ device.graph_type }}
+                            {% elif content.graph_type is defined %}
+                            graph_type: {{ content.graph_type }}
+                            {% endif %}
+                            {% if device.show_icon is defined %}
+                            show_icon: {{ device.show_icon }}
+                            {% elif content.show_icon is defined %}
+                            show_icon: {{ content.show_icon }}
+                            {% endif %}
+                            {% if device.fill is defined %}
+                            fill: {{ device.fill }}
+                            {% elif content.fill is defined %}
+                            fill: {{ content.fill }}
+                            {% endif %}
+                            {% if device.show_average is defined %}
+                            show_average: {{ device.show_average }}
+                            {% elif content.show_average is defined %}
+                            show_average: {{ content.show_average }}
+                            {% endif %}
+                            {% if device.show_extrema is defined %}
+                            show_extrema: {{ device.show_extrema }}
+                            {% elif content.show_extrema is defined %}
+                            show_extrema: {{ content.show_extrema }}
+                            {% endif %}
+                            {% if device.font_size_header is defined %}
+                            font_size_header: {{ device.font_size_header }}
+                            {% elif content.font_size_header is defined %}
+                            font_size_header: {{ content.font_size_header }}
+                            {% endif %}
+                            {% if device.line_color is defined %}
+                            line_color: {{ device.line_color }}
+                            {% elif content.line_color is defined %}
+                            line_color: {{ content.line_color }}
+                            {% endif %}
+                            {% if device.name is defined %}
+                            name: {{ device.name }}
+                            {% endif %}
+                            {% if device.icon is defined %}
+                            icon: {{ device.icon }}
+                            {% endif %}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.remote_control is defined %}
+              {% for content in data.remote_control %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - !include
+                      - templates/other/remote-control.yaml
+                      - entity_media_player_sound: {{ content.sound_player }}
+                        entity_media_player: {{ content.media_player }}
+                        entity_media_player_remote: {{ content.remote }}
+                        {% if ((content.type is defined) and (content.type == 'atv')) %}
+                        service: remote.send_command
+                        command_up: up
+                        command_menu: menu
+                        command_left: left
+                        command_center: select
+                        command_right: right
+                        command_back: menu
+                        command_down: down
+                        command_home: top_menu
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.xbox_controller is defined %}
+              {% for content in data.xbox_controller %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - !include
+                      - templates/addons/xbox-controller-addon.yaml
+                      - remote_entity: {{ content.remote_entity }}
+                        xbox_entity: {{ content.xbox_entity }}
+              {% endfor %}
+              {% endif %}
+              {% if data.google_home is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if ( (data.google_home.show_title is undefined) or (data.google_home.show_title == true) ) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: '&nbsp; {{ data.google_home.title|default('Google Home') }}'
+                    {% endif %}
+                    - type: entities
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                        }
+                      show_header_toggle: false
+                      entities:
+                        {% if data.google_home.all_speakers is defined %}
+                        - type: custom:mini-media-player
+                          entity: {{ data.google_home.all_speakers }}
+                          group: true
+                          source: icon
+                          icon: mdi:google-home
+                          info: short
+                          tts:
+                            platform: google_translate
+                          hide:
+                            volume: false
+                            power: true
+                        {% endif %}
+                        {% for device in data.google_home.entities %}
+                        - type: custom:mini-media-player
+                          entity: {{ device }}
+                          group: true
+                          tts:
+                            platform: google_translate
+                          hide:
+                            icon: true
+                            volume: false
+                            controls: true
+                        {% endfor %}
+              {% endif %}
+              {% if data.entities_card is defined %}
+              {% for content in data.entities_card %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: entities
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          opacity: 0.8;
+                        }
+                      show_header_toggle: false
+                      entities:
+                        {% if content.entities is defined %}
+                        {% for entity in content.entities %}
+                        - {{ entity }}
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% if data.map is defined %}
+              {% for content in data.map %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: map                    
+                      style: |
+                        ha-card {
+                          --paper-item-icon-color: black;
+                          color: black;
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          font-family: var(--font-family);
+                          font-size: 12px;
+                          opacity: 0.8;
+                          overflow: hidden;
+                        }
+                      {% if content.default_zoom is defined %}
+                      default_zoom: {{ content.default_zoom }}
+                      {% endif %}
+                      {% if content.aspect_ratio is defined %}
+                      aspect_ratio: {{ content.aspect_ratio }}
+                      {% endif %}
+                      entities:
+                        {% for map in content.entities %}
+                        - {{ map }}
+                        {% endfor %}
+              {% endfor %}
+              {% endif %}
+              {% if data.calendar is defined %}
+              {% for content in data.calendar %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: calendar
+                      initial_view: {{ content.initial_view|default('dayGridMonth') }}
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                        }
+                      entities: 
+                        {% for entity in content.entities %}
+                        - {{ entity }}
+                        {% endfor %}
+              {% endfor %}
+              {% endif %}
+              {% if data.upcoming_media is defined %}
+              {% for content in data.upcoming_media %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if content.title is defined %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ content.title }}"
+                    {% endif %}
+                    - type: 'custom:upcoming-media-card'
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                        }
+                      entity: {{ content.entity }} 
+              {% endfor %}      
+              {% endif %}
+              {% if data.certificates is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if (data.certificates.show_title is undefined) or (data.certificates.show_title == true) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ data.certificates.title|default('Certificates') }}"
+                    {% endif %}
+                    - !include templates/addons/certificates-addon.yaml
+              {% endif %}
+              {% if data.battery is defined %}
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    margin-left: {{ _global.general_config.margins }};
+                    margin-right: {{ _global.general_config.margins }};
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if (data.battery.show_title is undefined) or (data.battery.show_title == true) %}
+                    - !include
+                      - templates/other/title-text.yaml
+                      - name: "&nbsp; {{ data.battery.title|default('Battery Levels') }}"
+                    {% endif %}
+                    - !include
+                      - templates/addons/battery-addon.yaml
+                      {% if ((data.columns is defined) and (data.columns.battery is defined)) %}
+                      - columns: {{ data.columns.battery }}
+                      {% else %}
+                      - columns: 3
+                      {% endif %}
+              {% endif %}
+        {% if ((data.custom_cards is defined) and (data.custom_cards.position is undefined) or (data.custom_cards is defined) and (data.custom_cards.position is defined) and (data.custom_cards.position == 'bottom')) %}
+        {% if ((data.custom_cards.type is defined) and (data.custom_cards.type == 'default') or (data.custom_cards.type is undefined)) %}
         - type: custom:layout-card
-          {% if ((data.columns is defined) and (data.columns.min_columns is defined)) %}
-          min_columns: {{ data.columns.min_columns }}
-          max_columns: {{ data.columns.max_columns }}
+          {% if ((data.layout is defined) and (data.layout.layout_type is defined)) %}  
+          layout_type: {{ data.layout.layout_type }}
           {% else %}
-          min_columns: 1
-          max_columns: 3
+          layout_type: custom:horizontal-layout
           {% endif %}
-          layout: horizontal
+          layout:
+            {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
+            max_cols: {{ data.layout.max_cols }}
+            {% else %}          
+            max_cols: 3
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.width is defined)) %}
+            width: {{ data.layout.width }}
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.column_widths is defined)) %}
+            column_widths: {{ data.layout.column_widths }}
+            {% endif %}
+            {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
+            rtl: {{ data.layout.rtl }}
+            {% endif %}
           cards:
             !include_dir_merge_list ../hki-user/views/{{ name }}
-        {% elif data.custom_cards == "advanced" %}
+        {% elif ((data.custom_cards.type is defined) and (data.custom_cards.type == "advanced")) %}
         - type: vertical-stack
           cards:
             !include_dir_merge_list ../hki-user/views/{{ name }}
@@ -910,14 +1579,13 @@
         {% endif %}
         {% if data.hki_menu is defined %}
         - type: custom:layout-card
-          min_columns: 1
-          max_columns: 3
-          layout: horizontal
+          layout_type: custom:horizontal-layout
+          layout:         
+            max_cols: 3
           cards:
             - !include settings/hki-menu.yaml
         {% endif %}
         - !include includes/gap-height.yaml
-
 {% endfor %}
 
 # About View

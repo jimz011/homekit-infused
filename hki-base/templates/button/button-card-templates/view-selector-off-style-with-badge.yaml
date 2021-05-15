@@ -1,0 +1,19 @@
+state:
+  - value: "off" 
+    styles:
+      card:
+        - opacity: 0.8
+      icon:
+        - color: var(--paper-item-icon-color)
+      name:
+        - color: var(--primary-text-color)
+      state:
+        - color: var(--primary-text-color)
+      label:
+        - color: var(--primary-text-color)
+      lock:
+        - color: var(--primary-text-color)
+      custom_fields:
+        notification:
+          - background-color: var(--paper-item-icon-color)
+          - color: var(--ha-card-background)

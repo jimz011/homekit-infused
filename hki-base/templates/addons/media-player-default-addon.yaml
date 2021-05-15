@@ -1,0 +1,10 @@
+# lovelace_gen
+
+type: media-control
+style: |
+  ha-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+entity: {{ entity }}
+name: {{ name }}

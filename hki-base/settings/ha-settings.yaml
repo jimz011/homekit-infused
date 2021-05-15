@@ -14,8 +14,9 @@ cards:
           icon: mdi:home-assistant
           header-bottom: header-bottom.yaml
       - type: custom:layout-card
-        max_columns: 3
-        layout: horizontal
+        layout_type: custom:horizontal-layout
+        layout:
+          max_cols: 3
         cards:
           - type: custom:mod-card
             style: |
@@ -197,11 +198,8 @@ cards:
                 - !include
                   - '../templates/other/title-text.yaml'
                   - name: '&nbsp; Quick Links'
-                - type: custom:layout-card
-                  min_columns: 4
-                  max_columns: 4
-                  justify_content: start
-                  layout: horizontal
+                - type: grid
+                  columns: 4
                   cards:
                     - !include
                       - '../templates/button/button-badge.yaml'
@@ -251,11 +249,8 @@ cards:
                 - !include
                   - '../templates/other/title-text.yaml'
                   - name: '&nbsp; Reload Configuration'
-                - type: custom:layout-card
-                  min_columns: 4
-                  max_columns: 4
-                  justify_content: start
-                  layout: horizontal
+                - type: grid
+                  columns: 4
                   cards:
                     - !include
                       - '../templates/button/home-assistant-service.yaml'
@@ -413,11 +408,8 @@ cards:
                 - !include
                   - '../templates/other/title-text.yaml'
                   - name: '&nbsp; System'
-                - type: custom:layout-card
-                  min_columns: 3
-                  max_columns: 3
-                  justify_content: start
-                  layout: horizontal
+                - type: grid
+                  columns: 3
                   cards:
                     - type: custom:button-card
                       template:

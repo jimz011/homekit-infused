@@ -1,0 +1,7 @@
+# lovelace_gen 
+
+type: 'custom:button-card'
+color_type: blank-card
+styles:
+  card:
+    - height: {{ height|default('7px') }}

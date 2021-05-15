@@ -133,6 +133,7 @@ cards:
                       - color: "[[[ if (states['{{ _global.general_config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'black'; else return 'var(--primary-text-color)' ]]]"
                     icon:
                       - color: "[[[ if (states['{{ _global.general_config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'Orange'; else return 'var(--paper-card-icon-color)' ]]]"
+                      - animation: blink 2s ease infinite
                 - type: custom:button-card
                   icon: mdi:lock-outline
                   name: Arm Away
@@ -160,6 +161,7 @@ cards:
                       - color: "[[[ if (states['{{ _global.general_config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'black'; else return 'var(--primary-text-color)' ]]]"
                     icon:
                       - color: "[[[ if (states['{{ _global.general_config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'DarkRed'; else return 'var(--paper-card-icon-color)' ]]]"
+                      - animation: blink 2s ease infinite
                 {% endif %}
       haptics: light
     styles:

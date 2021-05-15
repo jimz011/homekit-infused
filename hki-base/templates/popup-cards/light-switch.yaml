@@ -12,10 +12,6 @@ fullscreen: false
 settings: true
 settingsPosition: bottom
 settingsCard:
-  type: custom:light-entity-card
+  type: custom:more-info-card
   cardOptions:
     entity: {{ entity }}
-    persist_features: true
-    smooth_color_wheel: true
-    child_card: true
-    consolidate_entities: true

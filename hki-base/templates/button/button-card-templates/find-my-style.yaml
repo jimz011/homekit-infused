@@ -1,0 +1,93 @@
+show_entity_picture: true
+show_state: true
+show_last_changed: true
+custom_fields: 
+  last_changed: "."
+styles:
+  card:
+    - border-radius: var(--border-radius)
+    - box-shadow: var(--box-shadow)
+    - max-width: 400px
+    - min-height: 75px
+    - --ha-card-background: var(--button-on-color)
+  custom_fields:
+    geocode:
+      - font-size: 10px
+      - color: black
+      - white-space: initial
+      - text-overflow: initial
+      - overflow: initial
+      - padding: 2px 10px
+      - justify-self: center
+    battery:
+      - font-size: 10px
+      - color: black
+      - justify-self: end
+      - padding: 2px 7px
+    last_changed:
+      - border-radius: 50%
+      - position: absolute
+      - right: 10px
+      - bottom: 10px
+      - min-width: 6px
+      - min-height: 6px
+      - max-width: 6px
+      - max-height: 6px
+      - background-color: orange
+      - color: orange
+      - animation: blink 4s ease infinite
+  name:
+    - justify-self: end
+    - color: black
+    - font-weight: bold
+    - font-size: 12px
+    - padding: 2px 10px
+  state:
+    - justify-self: center
+    - color: black
+    - font-weight: bold
+    - font-size: 12px
+    - padding: 2px 10px
+  label:
+    - justify-self: end  
+    - color: black
+    - font-size: 8px
+    - padding: 2px 10px
+    - margin-left: -2px
+  icon:
+    - justify-content: start
+    - padding: 2px 10px
+  entity_picture:
+    - max-height: 55px
+    - max-width: 55px
+    - border-radius: 50%
+    - margin-left: -20px
+    - justify-content: start
+  grid:
+    - grid-template-areas: '"i s n" "i geocode l" "i geocode battery" "i geocode last_changed"'
+    - grid-template-columns: 1fr 1fr 1fr
+    - grid-template-rows: 1fr min-content min-content
+state:
+  - value: "unknown"
+    styles:
+      card:
+        - opacity: 0.7
+      custom_fields:
+        geocode:
+          - color: red
+          - animation: blink 2s ease infinite
+        last_changed:
+          - background-color: red
+          - color: red
+  - value: "away"
+    styles:
+      custom_fields:
+        last_changed:
+          - background-color: red
+          - color: red
+  - value: "home"
+    styles:
+      custom_fields:
+        last_changed:
+          - background-color: green
+          - color: green

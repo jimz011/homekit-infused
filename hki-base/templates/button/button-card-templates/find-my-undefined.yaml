@@ -1,0 +1,23 @@
+tap_action:
+  action: none 
+hold_action:
+  action: none 
+styles:
+  card:
+    - --ha-card-background: none
+    - box-shadow: none 
+    - max-width: 400px
+    - min-height: 85px
+  name:
+    - justify-self: start
+    - color: var(--title-text-color)
+    - padding: 0px 0px
+    - font-weight: bold
+    - font-size: 12px
+  icon:
+    - justify-content: start
+    - padding: 2px 10px
+  grid:
+    - grid-template-areas: '"i s n"'
+    - grid-template-columns: 1fr 1fr 1fr
+    - grid-template-rows: 1fr min-content min-content

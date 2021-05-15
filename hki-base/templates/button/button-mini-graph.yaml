@@ -1,0 +1,62 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - style-default
+name: "{{ name }}"
+icon: "{{ icon }}"
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+color: {{ color|default('auto') }}
+size: {{ size|default('25%') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+entity: {{ entity }}
+show_name: true
+show_icon: true
+show_state: false
+show_last_changed: true
+tap_action: 
+  action: more-info
+  haptic: heavy
+custom_fields:
+  graph:
+    card:
+      type: 'custom:mini-graph-card'
+      style: |
+        ha-card {
+          box-shadow: none;
+          --ha-card-background: transparant !important;
+          margin-left: -5px;
+          margin-right: -5px;
+        }
+      entities: 
+        - entity: {{ entity }}
+      hours_to_show: {{ hours_to_show|default('12') }}
+      points_per_hour: {{ points_per_hour|default('1') }}
+      line_width: {{ line_width|default('9') }}
+      hour24: {{ hour24|default('true') }}
+      animate: {{ animate|default('true') }}
+      decimals: {{ decimals|default('1') }}
+      font_size: 53
+      show:
+        graph: {{ graph_type|default('line')}}
+        icon: false
+        fill: false
+        extrema: false
+        average: false
+        name: false
+        labels: false
+      font_size_header: 9
+      line_color: "{{ line_color|default('red') }}"   
+styles:
+  custom_fields:
+    graph:
+      - filter: opacity(75%)
+      - overflow: unset
+  card:
+    - overflow: visible
+  grid:
+    - grid-template-areas: '"graph" "n" "area" "l"'
+    - grid-template-columns: 1fr 
+    - grid-template-rows: 80% 3% 10% 3%

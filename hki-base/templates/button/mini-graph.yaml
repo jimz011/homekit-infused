@@ -1,119 +1,33 @@
 # lovelace_gen
 
-# card
-type: custom:button-card
-template: 
-  - style-default
-name: "{{ name }}"
-icon: "{{ icon }}"
-show_entity_picture: {{ show_entity_picture|default('true') }}
-entity_picture: "{{ entity_picture }}"
-color: {{ color|default('auto') }}
-size: {{ size|default('25%') }}
-aspect_ratio: {{ aspect_ratio|default('1/1') }}
-entity: {{ entity }}
-show_name: true
-show_icon: true
-show_state: false
-show_last_changed: true
-tap_action: 
-  action: fire-dom-event
-  browser_mod:
-    command: call-service
-    service: browser_mod.popup
-    service_data:
-      title: ' '
-      deviceID:
-        - this
-      style:
-        .: |
-          :host {
-            --mdc-theme-surface: rgba(0,0,0,0);
-            --secondary-background-color: rgba(0,0,0,0);
-            --ha-card-background: rgba(0,0,0,0);
-            --mdc-dialog-scrim-color: rgba(0,0,0,0.9);
-            --mdc-dialog-min-height: 100%;
-            --mdc-dialog-min-width: 100%;
-            --mdc-dialog-max-width: 100%;
-            --paper-slider-knob-color: #FFFFFF !important;
-            --paper-slider-active-color: #dedede !important;
-            --switch-checked-button-color: #FFFFFF !important;
-            --switch-unchecked-button-color: #FFFFFF !important;
-            --switch-checked-track-color: green !important;
-            --switch-unchecked-track-color: red !important;
-            --primary-text-color: white !important;
-            --paper-item-icon-color: white !important;
-          }
-          app-header, app-toolbar {
-            background-color: rgba(0,0,0,0.0) !important;
-          }
-          mwc-icon-button {
-            color: #FFF;
-          }
-      card:
-        type: 'custom:mini-graph-card'
-        style: |
-          ha-card {
-            box-shadow: none;
-            margin-top: 20px;
-          }
-        entities: 
-          - entity: {{ entity }}
-        hours_to_show: 24
-        points_per_hour: 2
-        line_width: 7
-        height: 150
-        hour24: true
-        animate: true
-        decimals: 1
-        font_size: 53
-        show:
-          graph: line
-          icon: true
-          fill: true
-          extrema: true
-          average: true
-        font_size_header: 9
-        line_color: {{ line_color|default('red') }}
-  haptic: heavy
-custom_fields:
-  graph:
-    card:
-      type: 'custom:mini-graph-card'
-      style: |
-        ha-card {
-          box-shadow: none;
-          --ha-card-background: transparant !important;
-          margin-left: -5px;
-          margin-right: -5px;
-        }
-      entities: 
-        - entity: {{ entity }}
-      hours_to_show: 12
-      points_per_hour: 1
-      line_width: 7
-      hour24: true
-      animate: true
-      decimals: 1
-      font_size: 53
-      show:
-        graph: line
-        icon: false
-        fill: false
-        extrema: false
-        average: false
-        name: false
-        labels: false
-      font_size_header: 9
-      line_color: {{ line_color|default('red') }}
-styles:
-  custom_fields:
-    graph:
-      - filter: opacity(75%)
-      - overflow: unset
-  card:
-    - overflow: visible
-  grid:
-    - grid-template-areas: '"graph" "n" "area" "l"'
-    - grid-template-columns: 1fr 
-    - grid-template-rows: 80% 3% 10% 3%
+# Card
+type: 'custom:mini-graph-card'
+style: |
+  ha-card {
+    background: var(--ha-card-background);
+    --paper-item-icon-color: var(--paper-item-icon-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-family);
+    opacity: 0.8;
+  }
+entities: 
+  - entity: {{ entity }}
+hours_to_show: {{ hours_to_show|default('24') }}
+points_per_hour: {{ points_per_hour|default('2') }}
+line_width: {{ line_width|default('7') }}
+hour24: {{ hour24|default('true') }}
+animate: {{ animate|default('true') }}
+decimals: {{ decimals|default('1') }}
+font_size: {{ font_size|default('53') }}
+height: {{ height|default('90') }}
+show:
+  graph: {{ graph_type|default('line') }}
+  icon: {{ show_icon|default('true') }}
+  fill: {{ fill|default('true') }}
+  extrema: {{ show_extrema|default('true') }}
+  average: {{ show_average|default('true') }}
+font_size_header: {{ font_size_header|default('9') }}
+line_color: "{{ line_color|default('red') }}"
+name: {{ name }}
+icon: {{ icon }}

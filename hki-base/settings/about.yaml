@@ -273,15 +273,14 @@ cards:
           - type: markdown
             style: |
               ha-card {
-                background: rgba(0, 0, 0, 0.5);
-                border-radius: var(--border-radius);
-                box-shadow: var(--box-shadow);
+                background: rgba(0, 0, 0, 0.0);
+                box-shadow: none;
                 font-size: 13px;
                 font-family: var(--font-family);
                 color: white;
                 margin-left: {{ _global.general_config.margins }};
                 margin-right: {{ _global.general_config.margins }};
               }                    
-            content: HKI Framework April/May 2021 created by Jimz011
+            content: HKI Framework 2021 created by Jimz011
           - !include '../includes/empty-button.yaml'
       - !include '../includes/gap-height.yaml'

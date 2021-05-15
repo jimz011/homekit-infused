@@ -1,0 +1,23 @@
+# lovelace_gen
+type: custom:button-card
+layout: name_state
+show_icon: true
+icon: {{ icon }}
+show_state: false
+show_name: false
+entity: input_select.find_my
+tap_action:
+  action: call-service
+  service: input_select.select_option
+  service_data:
+    entity_id: input_select.find_my
+    option: {{ option }}
+  haptic: light
+styles:
+  card:
+    - height: 33px
+    - border-radius: var(--border-radius)
+    - --ha-card-background: var(--button-on-color)
+    - opacity: '{{ opacity|default('1.0') }}'
+  icon:
+    - color: '{{ color|default('var(--button-on-name-color)') }}'

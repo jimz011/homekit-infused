@@ -149,7 +149,7 @@ Space Gray:
         {% endif %}
       }
       #view {
-        margin-top: -57px !important;
+        margin-top: -56px !important;
       }
       ha-icon {
 

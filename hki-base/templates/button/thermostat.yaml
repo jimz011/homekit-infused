@@ -7,7 +7,7 @@ template:
 name: {{ name }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
-label: "[[[ return `${states['{{entity}}'].attributes.temperature}°` ]]]"
+label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
 lock:
   enabled: {{ lock|default('false') }}
   unlock: tap
@@ -54,6 +54,12 @@ hold_action:
         type: custom:thermostat-popup-card
         entity: {{ entity }}
         fullscreen: false
+        settings: true
+        settingsPosition: bottom
+        settingsCard:
+          type: custom:more-info-card
+          cardOptions:
+            entity: {{ entity }}
   haptic: heavy
 double_tap_action: 
   action: fire-dom-event
@@ -91,6 +97,12 @@ double_tap_action:
         type: custom:thermostat-popup-card
         entity: {{ entity }}
         fullscreen: false
+        settings: true
+        settingsPosition: bottom
+        settingsCard:
+          type: custom:more-info-card
+          cardOptions:
+            entity: {{ entity }}
   haptic: heavy
 styles:
   grid:
@@ -112,7 +124,7 @@ styles:
       - font-size: 10px
       - line-height: 34px
 custom_fields: 
-  notification: "[[[ return `${states['{{entity}}'].attributes.current_temperature}°` ]]]"
+  notification: "{{ notification }}"
 state:
   - value: "heat"
     spin: false
