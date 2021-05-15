@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 4.0.0d
+        value_template: 4.0.0e
 
 # Time Date
   - platform: time_date
@@ -116,25 +116,19 @@ sensor:
     name: version_current
 
 # Latest HKI Version
-  - platform: scrape
+  - platform: command_line
     name: HKI Latest Version
-    resource: https://jimz011.github.io/homekit-infused/version
-    select: ".beta-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+    command: "curl -s https://jimz011.github.io/homekit-infused/version | grep -E -o '<h1>.*</h1>' | sed 's/<h1>Current Version: //' | sed 's/<.h1>//' | cut -d$'\n' -f2"
 
 # Latest Compatible HA Version
-  - platform: scrape
+  - platform: command_line
     name: Latest Compatible HA Version
-    resource: https://jimz011.github.io/homekit-infused/version_compatible
-    select: ".current-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+    command: "curl -s https://jimz011.github.io/homekit-infused/version_compatible | grep -E -o '<h1>.*</h1>' | sed 's/<h1>Latest Compatible Version: //' | sed 's/<.h1>//'"
 
 # Latest Home Assistant Version
-  - platform: scrape
+  - platform: command_line
     name: Home Assistant Latest Version
-    resource: https://home-assistant.io
-    select: ".current-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+    command: "curl -s https://www.home-assistant.io | grep  'Current Version' | sed 's/Current Version: //'"
 
 # Latest Home Assistant Beta Version
   - platform: version
