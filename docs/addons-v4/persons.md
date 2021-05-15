@@ -40,13 +40,13 @@ You can use any of the following options to modify your addon.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | person.john | Set your person entity here, this is required! |
-| alignment | no | left | 
-| text_color | no | black |  
+| alignment | no | left | Set the alignment of the text |
+| text_color | no | black | Set the color of the text |
 | image_path | yes | /local/images/YOUR_IMAGE.png | Set the location of your persons photo/image, put this in your `/www/images` folder |
 | phone_battery_sensor | no | undefined | Set your persons phone battery level entity here |
 | travel_time_to_home | no | undefined | Set your persons travel time to home entity here (you must setup travel sensors for this to work) |
 | travel_time_to_work | no | undefined | Set your persons travel time to work entity here (you must setup travel sensors for this to work) |
-| path | no | object_name | Set a different path for when you press the button, by default it will use the object name of the person (e.g. `john:`, this results in a path of `/hki-user/views/john`) |
+| path | no | undefined | Set a different path for when you press the button, by default it will use the object name of the person (e.g. `john:`, this results in a path of `/hki-user/views/john`) |
 
 
 ```yaml
