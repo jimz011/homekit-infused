@@ -41,9 +41,25 @@ general_config:
     max: Turbo
     mop: Gentle
 
-## Optional #############################################################################################################################
-# Sidebar ###############################################################################################################################
-  sidebar:
-    sidebar_title: Homekit Infused
-    show_clock: true
-    show_date: true
+# Popups ################################################################################################################################
+# Note: Removing any of the settings below will make the setup turn back to defaults!
+
+  popups: # The settings below apply to all light/switch slider popups
+    slider_colored_by_light: true
+    height: 410px
+    width: 110px
+    actions_per_row: 3
+    action_size: 30px
+    rgb_popup: # The settings below are specific to the RGB popup, you can add/remove colors if you want, but you MUST add both the rgb and hex value!
+      - rgb_color: [255, 136, 0]
+        hex_color: '#ff8800'
+      - rgb_color: [255, 0, 95]
+        hex_color: '#ff005f'
+      - rgb_color: [40, 255, 0]
+        hex_color: '#28ff00'
+      - rgb_color: [0, 160, 255]
+        hex_color: '#00a0ff'
+      - rgb_color: [131, 0, 255]
+        hex_color: '#8300ff'
+      - rgb_color: [3, 0, 255]
+        hex_color: '#0300ff'
