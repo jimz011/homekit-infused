@@ -39,7 +39,7 @@ You can pass any of the options below to your entity to customize the look and f
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | no | global_name | Set a name for this entity |
-| entity | yes | Set the entity used, these work best with either `person` or `device_tracker` entities |
+| entity | yes | undefined | Set the entity used, these work best with either `person` or `device_tracker` entities |
 | icon | no | global_icon | Specify a custom icon for your entity |
 | entity_picture | no | global_entity_picture | Specify a custom entity_picture for your entity |
 | battery_entity | no | undefined | If this entity has a separate battery entity you can enter it here, else no battery is shown |
