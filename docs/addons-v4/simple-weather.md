@@ -32,6 +32,7 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | entity | yes | undefined | Set your weather entity, this must be in the weather domain! |
 | city_name | yes | undefined | Set your city name |
 | backdrop | no | false | Sets a backdrop image for the simple weather card |
@@ -41,15 +42,16 @@ You can use any of the following options to modify your addon.
 # Example
   my_view:
     simple_weather:
-      - entity: weather.eindhoven
+      - title: Simple Weather
+        entity: weather.eindhoven
         city_name: Eindhoven
 ```
 ```yaml
-# Example
+# Example no title, backdrop and custom path
   my_view:
     simple_weather:
       - entity: weather.eindhoven
         city_name: Eindhoven
         backdrop: true
-        path: climate
+        path: klimaat
 ```
