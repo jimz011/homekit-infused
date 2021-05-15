@@ -151,3 +151,4 @@ living_room:
         - sensor.slaapkamer_3
         - sensor.badkamer_3
 ```
+
