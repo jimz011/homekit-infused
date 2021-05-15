@@ -40,7 +40,7 @@ You must define it as an object instead to make use of the options below. See ex
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| entity | yes | Set the entity used |
+| entity | yes | undefined | Set the entity used |
 | aspect_ratio | no | 16x10 | Set a custom aspect_ratio for this camera |
 | show_state | no | false | Choose to show the state of this camera |
 | camera_view | no | false | Choose between `auto` or `live`. Live will make the card show a live view, note that this might be heavy on your resources, it is recommended to keep this set to `auto` unless you really want this |
