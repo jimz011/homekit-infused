@@ -13,8 +13,7 @@
 
 ## Addons > Find My
 
-The screenshot is too large to show reliably, please click the link below for a screenshot
-[view screenshot](../images/find-my-addon.png)
+![view screenshot](../images/find-my-addon.png)
 
 This addon is a complete and beautiful Find My addon inspired by Apple's own Find My application (and a little bit from @LRvdLinden)
 
