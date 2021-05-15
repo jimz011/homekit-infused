@@ -19,6 +19,8 @@ This addon gives your view a vacuum control card.
 To use this addon you must prepare with the following steps.
 
 Create a sensor in your `configuration.yaml` file (replace YOUR_VACUUM_ENTITY with your own entity, include the `vacuum.` part of the entity)
+If your vacuum lacks fan speed control, you can skip to the config options.
+
 ```
 sensor:
   - platform: template
@@ -56,29 +58,44 @@ You can use any of the following options to modify your addon.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | Controls | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
 | entity | yes | vacuum.roborock_vacuum_s5 | Enter your vacuum entity here |
 | sensor | yes | sensor.vacuum_fan_speed | Enter the sensor entity we created in the first step here |
+| show_fan_speed | no | undefined | Set this to false if you don't have a vacuum with fan speed controls |
 | show_mop | no | true | Show or hide the mop feature |
 
 ```yaml
 # Example
   my_view:
     vacuum:
-      entity: vacuum.roborock_vacuum_s5
-      sensor: sensor.vacuum_fan_speed
+      - title: Controls
+        entity: vacuum.roborock_vacuum_s5
+        sensor: sensor.vacuum_fan_speed
+```
+```yaml
+# Example multiple vacuums
+  my_view:
+    vacuum:
+      - title: Xiaomi Vacuum Downstairs
+        entity: vacuum.roborock_vacuum_s5
+        sensor: sensor.vacuum_fan_speed
+      - title: Xiaomi Vacuum Upstairs
+        entity: vacuum.roborock_vacuum_s5_2
+        sensor: sensor.vacuum_fan_speed_2
 ```
 
-At this moment there is no interactive map possible, this will be added in the future, however if your vacuum gives a camera entity (like Valetudo and Valetudo RE can) than you can use that as your live map. Note that you must have flashed your vacuum with either Valetudo or Valetudo RE AND setup their respective docker containers (I can't believe it's Valetudo or Valetudo-Mapper depending on which one you have flashed)
+At this moment there is no interactive map possible, this will be added in the future, however if your vacuum gives a camera entity (like Valetudo and Valetudo RE can) than you can use that as your live map via the cameras addon. Note that you must have flashed your vacuum with either Valetudo or Valetudo RE AND setup their respective docker containers (I can't believe it's Valetudo or Valetudo-Mapper depending on which one you have flashed)
 
 You can have it look like the image below when using the following config:
+
 ```yaml
   vacuum:
     vacuum:
-      entity: vacuum.roborock_vacuum_s5
-      sensor: sensor.vacuum_fan_speed
-    devices:
-      map: 
-        - camera.rockrobo_map
+      - title: Controls
+        entity: vacuum.roborock_vacuum_s5
+        sensor: sensor.vacuum_fan_speed
+    cameras:
+      - title: Live Map
+        entities:
+          - camera.rockrobo_map
 ```
 ![Homekit Infused](../images/vacuum_2.png)

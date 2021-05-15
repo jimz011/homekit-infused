@@ -30,14 +30,22 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | iFrame | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | url | yes | undefined | Set your iFrame address here, note that if you use `https` to access your Home Assistant, your iFrame address must be `https` as well! |
 
 ```yaml
 # Example
   my_view:
     iframe: 
-      title: Windy
-      url: https://windy.com
+      - title: Windy
+        url: https://embed.windy.com/
+```
+```yaml
+# Example multiple iframes
+  my_view:
+    iframe: 
+      - title: Windy
+        url: https://embed.windy.com/
+      - title: Buienradar
+        url: https://embed.buienradar.nl/
 ```

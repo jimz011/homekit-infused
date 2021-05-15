@@ -30,15 +30,26 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Entities | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | xbox_entity | yes | media_player.xboxone | Set your Xbox entity here, this must be in the media_player domain |
 | remote_entity | yes | remote.xboxone_remote | Set your Xbox remote entity here, this must be in the remote domain |
 
 ```yaml
-# Example Android TV
+# Example
   my_view:
     xbox_controller:
-      xbox_entity: media_player.xboxone
-      remote_entity: remote.xboxone_remote
+      - title: Xbox One
+        xbox_entity: media_player.xboxone
+        remote_entity: remote.xboxone_remote
 ```               
+```yaml
+# Example multiple controllers
+  my_view:
+    xbox_controller:
+      - title: Xbox One
+        xbox_entity: media_player.xboxone
+        remote_entity: remote.xboxone_remote
+      - title: Xbox One X
+        xbox_entity: media_player.xboxone_x
+        remote_entity: remote.xboxone_x_remote
+```   

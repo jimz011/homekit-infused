@@ -30,6 +30,15 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| columns | no | 2 | Define the number of columns this stack will use |
+| square | no | true | Set if the buttons should be square or not, this is useful when having different aspect_ratios |
+| entities | yes | list of entities | List all your entities you want to show up here |
+
+#### Persons Extra Options
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | person.john | Set your person entity here, this is required! |
 | alignment | no | left | 
 | text_color | no | black |  
@@ -43,53 +52,92 @@ You can use any of the following options to modify your addon.
 ```yaml
 # Example
     persons:
-      stephanie:
-        entity: person.stephanie
-        text_color: white
-        image_path: /local/images/stephanie_small.png
-        phone_battery_sensor: sensor.sm_n986b_batterijniveau
-        travel_time_to_home: sensor.reistijd_stephanie
-        travel_time_to_work: sensor.reistijd_stephanie_work
-        path: stephanie_location
-```
-
-But wait there is more! If you have an uneven numbered household you will notice that it doesn't look all that great.
-There is an alternative addon which has it's own config and will help you create better looking views when using 3/5/7 etc households.
-Place the last person in your house in the `persons_alt:` addon instead and you can configure that entire stack with the same options.
-
-To add this addon to your view add `persons_alt:` in your view_config.
-To add persons_alt to your view add the following line:
-
-```yaml
-# Example
-  my_view:
-    persons_alt:
-```
+      - columns: 2
+        square: true
+        entities:
+          - entity: person.stephanie
+            text_color: white
+            image_path: /local/images/stephanie_small.png
+            phone_battery_sensor: sensor.sm_n986b_batterijniveau
+            travel_time_to_home: sensor.reistijd_stephanie
+            travel_time_to_work: sensor.reistijd_stephanie_work
+            path: stephanie_location
+          - entity: person.jimmy
+            alignment: right
+            text_color: white
+            image_path: /local/images/jimmy_small.png
+            phone_battery_sensor: sensor.sm_n976b_battery_level
+            travel_time_to_home: sensor.reistijd_jimmy
+            travel_time_to_work: sensor.reistijd_jimmy_work
+            path: jimmy_location
+```      
 ```yaml
 # Example 3 persons
-  my_view:
     persons:
-      stephanie:
-        entity: person.stephanie
-        text_color: white
-        image_path: /local/images/stephanie_small.png
-        phone_battery_sensor: sensor.sm_n986b_batterijniveau
-        travel_time_to_home: sensor.reistijd_stephanie
-        travel_time_to_work: sensor.reistijd_stephanie_work
-        path: stephanie_location
-      jimmy:
-        entity: person.jimmy
-        alignment: right
-        text_color: white
-        image_path: /local/images/jimmy_small.png
-        phone_battery_sensor: sensor.sm_n976b_battery_level
-        travel_time_to_home: sensor.reistijd_jimmy
-        travel_time_to_work: sensor.reistijd_jimmy_work
-        path: jimmy_location
-    persons_alt:
-      tala:
-        name: Tala
-        entity: person.tala
-        text_color: white
-        image_path: /local/images/tala2.png
-```                
+      - columns: 2
+        square: true
+        entities:
+          - entity: person.stephanie
+            text_color: white
+            image_path: /local/images/stephanie_small.png
+            phone_battery_sensor: sensor.sm_n986b_batterijniveau
+            travel_time_to_home: sensor.reistijd_stephanie
+            travel_time_to_work: sensor.reistijd_stephanie_work
+            path: stephanie_location
+          - entity: person.jimmy
+            alignment: right
+            text_color: white
+            image_path: /local/images/jimmy_small.png
+            phone_battery_sensor: sensor.sm_n976b_battery_level
+            travel_time_to_home: sensor.reistijd_jimmy
+            travel_time_to_work: sensor.reistijd_jimmy_work
+            path: jimmy_location
+      - columns: 1
+        square: false
+        entities:
+          - entity: person.tala
+            text_color: white
+            image_path: /local/images/tala2.png
+            path: tala
+```   
+```yaml
+# Example 3 multiple stacks with different column sizes
+    persons:
+      - columns: 3
+        square: true
+        entities:
+          - entity: person.stephanie
+            text_color: white
+            image_path: /local/images/stephanie_small.png
+            phone_battery_sensor: sensor.sm_n986b_batterijniveau
+            travel_time_to_home: sensor.reistijd_stephanie
+            travel_time_to_work: sensor.reistijd_stephanie_work
+            path: stephanie_location
+          - entity: person.jimmy
+            alignment: right
+            text_color: white
+            image_path: /local/images/jimmy_small.png
+            phone_battery_sensor: sensor.sm_n976b_battery_level
+            travel_time_to_home: sensor.reistijd_jimmy
+            travel_time_to_work: sensor.reistijd_jimmy_work
+            path: johnny_location
+          - entity: person.johnny
+            alignment: right
+            text_color: white
+            image_path: /local/images/johnny_small.png
+            phone_battery_sensor: sensor.sm_n976b_battery_level
+            travel_time_to_home: sensor.reistijd_johnny
+            travel_time_to_work: sensor.reistijd_johnny_work
+            path: johnny_location
+      - columns: 2
+        square: false
+        entities:
+          - entity: person.tala
+            text_color: white
+            image_path: /local/images/tala2.png
+            path: tala
+          - entity: person.rachel
+            text_color: white
+            image_path: /local/images/rachel2.png
+            path: rachel
+```   

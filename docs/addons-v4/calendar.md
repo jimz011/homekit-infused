@@ -31,15 +31,30 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Entities | Set the title of the stack |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | show_title | no | true | Show or hide the stack title |
 | initial_view | no | dayGridMonth | Choose between `dayGridMonth`, `dayGridDay`, and `listWeek` |
-| entity | yes | calendar.contacts | Set your calendar entity here, you can only define one single entity and must be in the calendar domain! |
+| entities | yes | list of entities | Set your calendar entity/entities here, you can define more than one entity per stack  |
 
 ```yaml
 # Example
   my_view:
     calendar:
-      initial_view: listWeek
-      entity: calendar.jimmy
-```              
+      - title: Birthdays
+        initial_view: dayGridMonth
+        entities: 
+          - calendar.contacts
+```   
+```yaml
+# Example
+  my_view:
+    calendar:
+      - title: Birthdays
+        initial_view: dayGridMonth
+        entities: 
+          - calendar.contacts
+      - title: Reminders
+        initial_view: dayGridMonth
+        entities: 
+          - calendar.reminders
+```               

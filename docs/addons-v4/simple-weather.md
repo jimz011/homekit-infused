@@ -35,14 +35,21 @@ You can use any of the following options to modify your addon.
 | entity | yes | undefined | Set your weather entity, this must be in the weather domain! |
 | city_name | yes | undefined | Set your city name |
 | backdrop | no | false | Sets a backdrop image for the simple weather card |
-| path | no | weather | Change the path the card takes to you when clicked |
+| path | no | weather | Change the path the card takes to you when clicked, remember that you must have created this view |
 
 ```yaml
 # Example
   my_view:
-    simple_weather: 
-      entity: weather.dark_sky
-      city_name: Eindhoven
-      backdrop: true
-      path: climate
+    simple_weather:
+      - entity: weather.eindhoven
+        city_name: Eindhoven
+```
+```yaml
+# Example
+  my_view:
+    simple_weather:
+      - entity: weather.eindhoven
+        city_name: Eindhoven
+        backdrop: true
+        path: climate
 ```

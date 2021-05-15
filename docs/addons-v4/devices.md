@@ -21,107 +21,134 @@ To add devices to your view add the following line:
 
 ```yaml
 # Example
-  kitchen:
+  my_view:
     devices:
 ```
 
-To add your devices give your stack a category title (this can be anything) and list your entities within that config
+You can use any of the following options to modify your addon.
 
-```yaml
-# Example 
-  kitchen:
-    devices:
-      switches:
-        - switch.afzuigkap
-        - switch.oven
-        - switch.airfryer
-        - switch.nespresso_apparaat
-        - switch.cappumaker
-        - switch.waterkoker
-        - switch.vaatwasser
-        - switch.koelkast_2
-      lights:
-        - light.keuken
-        - light.keuken_leds
-        - light.keuken_leds_onder
-```  
-The example above will create a view for you named Kitchen and automatically does the following:
-- sets the title of the view (in this case Kitchen)
-- sets the path of the view for your browser to use (in this case https://hassio.local/homekit-infused/kitchen)
-- sets an icon for the navigation_bar, subtitle and menu/favorites button
-- creates an entry in the rooms section of the menu/frontpage (because of `type: room`)
-- shows a badge in the shortcut button with the state of the entity entered
-- fills the view with 2 stacks, one named switches and one named lights
-- adds the entered entities to those two stacks and try to figure out what kind of entity it is and create a button for them and assign the correct popup.
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| columns | no | 3 | Define the number of columns this stack will use |
+| square | no | true | Set if the buttons should be square or not, this is only useful when you set individual aspect_ratios in the config below |
+| lock | no | false | this locks the entire stack and will now need two taps to turn on/off, the first tap unlocks, the second toggles |
+| entities | yes | list of entities | List all your entities you want to show up here |
 
-*Note: under devices you can name the 'category' ANYTHING you want as long as it is again lowercase and has no spaces but underscores.
+### Devices Extra Options
+The recommended method to change icons and/or friendly names is by the use of customize.yaml, however this is not always adequate enough for the customizations that we might want, you can pass any of the options below to your entity to customize the look and feel.
 
-```yaml
-# Example 
-  bedroom:
-    subtitle: My Bedroom
-    devices:
-      my_crazy_lights:
-        - light.lamp
-        - light.wand
-      my_other_wicked_lights:
-        - lights.ceiling
-```
+By default you must enter an array of entities like in the examples below, this does not need extra options and will just get the global name/icon.
+You must define it as an object instead to make use of the options below. See examples.
 
-### Extra Options
-You can pass some extra data to the entities so that HKI knows what kind of popup and/or color it should give to the buttons or even add a lock to a button. To set some extra keys add a dot at the end of the entity and then the extra key.
-E.g. `light.living_room.rgb` or `switch.kitchen_hood.fan`. You can have multiple tags. E.g. `switch.kitchen_hood.fan.lock`, the order of the keys do not matter, `switch.kitchen_hood.lock.fan` will also work!
-
-*Notes: 
-- You can use .lock in conjunction with another tag e.g. `switch.lamp.lock.rgb`. Do not try to combine e.g. `rgb` with `color-temp`.
-- You can ONLY use .lock on entities that switch something on or off
- 
-*Tip: You can also set an entire category to be forced with these properties, see examples below.
-
-| Tag | Description |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lock | this locks an entity and will now need two taps to turn on/off, the first tap unlocks, the second toggles |
-| hide | this hides a category title from the stack |
-| rgb | Use this tag to specify the entity type as an rgb-light, this lets HKI know that your light needs a different popup than other lights |
-| color-temp | Use this tag to specify the entity type as a color-temperature-light, this lets HKI know that your light needs a different popup than other lights |
-| fan | Fans are automatically assigned a different looking button (e.g. blue color when turned on and a spinning icon), if your entity isn't in the fan domain (e.g. switch.kitchen_ventilo) you can add the `fan` tag to force it |
-| graph | Force an entity to show a graph instead, to color the line_color add a color like this `sensor.my_power_usage.graph.red`, choose between the following colors: `red`, `green`, `blue`, `cyan`, `orange`, `black`, `white`, `purple`, `pink`, `yellow` |
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| entity | yes | Set the entity used |
+| type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `sensor` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
+| name | no | global_name | Set a name for this button, this accepts button-card JS templates |
+| label | no | none | Set a label for this button, this accepts button-card JS templates |
+| icon | no | global_icon | Set an icon for this button, this accepts button-card JS templates |
+| entity_picture | no | global_entity_picture | Set an entity picture for this button, note that when an entity_picture is set in either customize.yaml or here, that it will take priority over an icon |
+| lock | no | false | this locks this button and will now need two taps to turn on/off, the first tap unlocks, the second toggles |
+| aspect_ratio | no | 1/1 | Set a custom aspect_ratio for this button, note that you will want to set `square: false` in the stacks configuration when setting anything other than 1/1 |
+| size | no | 25% | Set the icon size, note that this setting is not always working as expected due to the grid used, play around with it |
+| show_name | no | true | Choose to show/hide the name, set to `false` to hide it |
+| show_label | no | true | Choose to show/hide the label, set to `false` to hide it |
+| show_icon | no | true | Choose to show/hide the icon, set to `false` to hide it |
+| show_state | no | true | Choose to show/hide the state, set to `false` to hide it |
+| show_last_changed | no | false | Choose to show/hide the last_changed state, set to `true` to show it, note that this will replace the label! |
 
 Examples:
 
 ```yaml
-lights:
+# Example Basic
+living_room:
   devices:
-    living_room:
-      - light.ceiling
-      - light.wall.rgb # This entity is forced as an RGB entity
-      - light.table_lamp.lock # This entity has a lock
-  
-    bedroom.lock: # This entire room/categorie has a lock
-      - light.ceiling.color-temp # This entity is forced as a COLOR TEMP entity 
-      - light.wall
-      - light.table_lamp
+    - title: Living Room
+      columns: 4
+      entities:
+        - switch.receiver
+        - switch.samsung_tv
+        - switch.xbox_one
 ```
 ```yaml
-kitchen:
+# Example Multiple Stacks
+living_room:
   devices:
-    lights:
-      - light.ceiling.color-temp # This entity is forced as a COLOR TEMP entity
-      - light.wall
-      - light.table_lamp.lock # This entity has a lock
-    switches.hide: # This title is hidden in the view 
-      - switch.kitchen_hood.fan # This entity is forced as a fan entity
-      - switch.freezer
-      - switch.refrigerator.lock # This entity has a lock
-    fans.fan: # This entire room is forced as a fan entity
-      - switch.kitchen_hood
-      - switch.airco_exhaust
-      - switch.toilet_exhaust
+    - title: Living Room
+      square: false
+      entities:
+        - switch.receiver
+        - switch.samsung_tv
+        - switch.xbox_one
+    - title: Bedroom
+      columns: 3
+      entities:
+        - switch.receiver
+        - switch.samsung_tv
+        - switch.xbox_one
+```
+```yaml
+# Example Custom
+living_room:
+  devices:
+    - title: Woonkamer
+      entities:
+        - entity: switch.receiver
+          icon: mdi:speakers
+          label: My Speaker
+        - entity: switch.samsung_tv
+          name: TV
+        - entity: switch.xbox_one
+          lock: true
+```
+```yaml
+# Example Mixed Basic with Custom
+living_room:
+  devices:
+    - title: Living Room
+      entities:
+        - switch.receiver
+        - entity: switch.samsung_tv
+          name: TV
+        - entity: switch.xbox_one
+          lock: true
+        - light.lamp
+        - light.ceiling
+        - entity: light.tv_lamp
+          name: TV
+          icon: mdi:lamp
+```
+
+#### Tips
+By default the label is either the brightness of a light or empty, however with button-card JS templates you can have a cool label like this
+
+![Homekit Infused](../images/auto-fill-devices-card.png)
+
+```yaml
+# Example Custom Label
+my_view:
+  devices:
+    - title: Laundry Room
+      entities:
+        - entity: switch.washing_machine
+          lock: true
+          label: "[[[ return `${states['sensor.washing_machine_power'].state} W`; ]]]"
+```
+
+The same is true for icons and you can template an icon to be different for each state:
+
+```yaml
+# Example Custom Icon
+my_view:
+  devices:
+    - title: Laundry Room
+      entities:
+        - entity: switch.washing_machine
+          icon: "[[[ if (entity.state == 'on') return `mdi:lamp`; else return `mdi:floor-lamp` ]]]"
 ```
 
 More images:
 
 ![Homekit Infused](../images/auto-fill-devices-card.png)
-![Homekit Infused](../images/auto-fill-thermostats-card.png)
-![Homekit Infused](../images/auto-fill-media-players-card.png)
 ![Homekit Infused](../images/auto-fill-sensors-card.png)

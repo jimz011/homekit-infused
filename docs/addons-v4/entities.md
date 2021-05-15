@@ -31,16 +31,47 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Entities | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
-| entities | yes | array | Add the entities you want in your stack, entities must be listed as an array |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| entities | yes | list of entities | Set your calendar entity/entities here, you can define more than one entity per stack |
 
 ```yaml
 # Example
   my_view:
     entities_card:
-      entities:
-        - switch.light_1
-        - switch.light_2
-        - switch.light_3
-```              
+      - title: Waste Collection
+        entities:
+          - sensor.mijnafvalwijzer_gft
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval
+``` 
+
+#### Entities Card Extra Options
+
+Unfortunately the original entities card is so feature rich that it is virtually impossible to template this. So this card is meant to be basic and simple. You can only enter your entities and have a divider.
+You can have as many entities_card as you want on a single view. When using a divider, make sure you quote the line or HKI will crash!
+
+```yaml
+# Example with divider
+  my_view:
+    entities_card:
+      - title: Waste Collection
+        entities:
+          - sensor.mijnafvalwijzer_gft
+          - 'type: divider'
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval
+``` 
+```yaml
+# Example with multiple entities_cards
+  my_view:
+    entities_card:
+      - title: Waste Collection
+        entities:
+          - sensor.mijnafvalwijzer_gft
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval
+      - title: Sun
+        entities:
+          - sensor.sunrise
+          - sensor.dark_mode
+``` 

@@ -30,8 +30,7 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Entities | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | media_player | yes | undefined | Set your media_player entity here, usually this is something like `media_player.shield_tv` or `media_player.kitchen_apple_tv` |
 | sound_player | yes | undefined | If you have a separate sound player you can enter the entity here, else use the same entity as the media_player |
 | remote_entity | yes | undefined | Set your entity that is used as the remote control (for Android TV you must use the same entity as the media_player) |
@@ -42,16 +41,32 @@ You can use any of the following options to modify your addon.
 # Example Android TV
   my_view:
     remote_control:
-      media_player: media_player.slaapkamer
-      sound_player: media_player.slaapkamer
-      remote_entity: remote.slaapkamer
+      - title: Livingroom
+        media_player: media_player.nvidia_shield
+        sound_player: media_player.nvidia_shield
+        remote_entity: media_player.nvidia_shield
 ```   
 ```yaml
 # Example Apple TV
   my_view:
     remote_control:
-      media_player: media_player.slaapkamer
-      sound_player: media_player.slaapkamer
-      remote_entity: remote.slaapkamer
-      type: atv
-```                
+      - title: Bedroom
+        media_player: media_player.apple_tv
+        sound_player: media_player.apple_tv
+        remote_entity: remote.apple_tv
+        type: atv
+```  
+```yaml
+# Example Android and ATV remote on the same view
+  my_view:
+    remote_control:
+      - title: Livingroom
+        media_player: media_player.nvidia_shield
+        sound_player: media_player.nvidia_shield
+        remote_entity: media_player.nvidia_shield
+      - title: Bedroom
+        media_player: media_player.apple_tv
+        sound_player: media_player.apple_tv
+        remote_entity: remote.apple_tv
+        type: atv
+```  

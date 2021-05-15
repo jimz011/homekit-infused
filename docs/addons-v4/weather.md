@@ -30,21 +30,30 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Weather Forecast | Set the title of the stack |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | entity | yes | undefined | Set your weather entity, this must be in the weather domain! |
 | city_name | yes | undefined | Set your city name |
 | show_forecast | no | true | Change this to `false` if you want a small card instead (which can be used on the frontpage) |
 | path | no | weather | Change the path the card takes to you when clicked |
-| show_title | no | true | Show or hide the stack title |
 
 ```yaml
 # Example
   my_view:
     weather: 
-      entity: weather.dark_sky
-      city_name: Eindhoven
-      show_forecast: false
-      path: climate
+      - title: Weather
+        entity: weather.eindhoven
+        city_name: Eindhoven
+```
+```yaml
+# Example multiple weather cards
+  my_view:
+    weather: 
+      - title: Eindhoven
+        entity: weather.eindhoven
+        city_name: Eindhoven
+      - title: London
+        entity: weather.london
+        city_name: Eindhoven
 ```
 
 More images:

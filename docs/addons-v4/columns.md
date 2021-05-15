@@ -13,7 +13,10 @@
 
 ## Columns
 
-Set the amount of columns for your views
+You can use this addon to set a few columns globally on your views, usually you would need to redefine the columns for each stack. This addon ensures you only need to set it once for an entire view.
+Note that a stacks individual settings will always take priority over the global setting. This is done so that you can customize single stacks even with the global settings enabled.
+If you are looking to change the view layout (which used to be here), then you should check out the `layout` addon.
+
 To add this addon to your view add `columns:` in your view_config.
 
 ```yaml
@@ -21,11 +24,6 @@ To add this addon to your view add `columns:` in your view_config.
   my_view:
     columns:
 ```
-
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| min_columns | no | 1 | Set the minimal columns for this view, this has no effect when custom_cards is set to `advanced` |
-| max_columns | no | 3 | Set the maximum columns for this view, this has no effect when custom_cards is set to `advanced` |
 
 Below are the settings you can use for your addons
 
@@ -37,14 +35,11 @@ Below are the settings you can use for your addons
 | graphs | no | 3 | Set how many graph cards are shown horizontally |
 | media_players | no | 1 | Set how many media players are shown horizontally |
 | persons | no | 2 | Set how many person cards are shown horizontally |
-| persons_alt | no | 2 | Set how many person alt cards are shown horizontally |
-| view_selector | no | 3 | Set how many buttons are shown horizontally |
 
 ```yaml
 # Example
   my_view:
     columns:
-      min_columns: 2
       buttons: 2
       cameras: 2
 ```

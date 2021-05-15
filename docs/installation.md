@@ -36,7 +36,7 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [State Switch](https://github.com/thomasloven/lovelace-state-switch) | Frontend | This is used to make cards appear based on certain conditions, like a conditional-card but better |
 | [Light Popup Card](https://github.com/DBuit/light-popup-card) | Frontend | This is a popup that opens when holding/double tapping buttons |
 | [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Frontend | This is a popup that opens when holding/double climate buttons |
-| [Light Entity Card](https://github.com/ljmerza/light-entity-card) | Frontend | This is the card that shows a beautifully styled color wheel in conjunction with the light popup card |
+| [More Info Card](https://github.com/thomasloven/more-info-card) | Frontend | This is the card that shows a standard HA styled color wheel in conjunction with the light popup card |
 | [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Frontend | Mini Graph Card gives the possibility to create more advanced graphs! |
 | [Mini Media Player](https://github.com/kalkih/mini-media-player) | Frontend | This is a minimalistic media player |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Frontend | This is needed for various custom cards to run |
@@ -48,9 +48,6 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | This card is needed for the layout, IMPORTANT: Read the note below |
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Integration | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more! |
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Integration | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
-
-
-*Note: After installing all the addons, open the following folder `/www/community/lovelace-layout-card/` and remove all of its contents, do NOT remove the folder! The file will be added back when copying HKI.
 
 ### Adding Resources
 Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`.
@@ -89,6 +86,26 @@ switch.washingmachine:
   icon: mdi:washing-machine
 ```
 
-NOTE: The customize.yaml file is the only way that you can change the names/icons for buttons that use HKI autofill addons. If you do not intend to use any of the HKI addons and just the framework you can skip doing this, however you will not be able to use any of the features besides the HKI framework itself.
+NOTE: The customize.yaml file is used for quick and easy manipulation of icons and friendly names without the need to redefine them again on each view. You can however just resort to using the devices addon to change the name/icon and such.
 
 ## That's it! You have succesfully installed the Homekit Infused! Now go on with configuring it :P
+
+### Extra Information
+#### Dwains Dashboard!
+
+If you happen to have [Dwains Dashboard](https://github.com/dwainscheeren/dwains-lovelace-dashboard) installed I have some awesome news. The two dashboards can finally work together, however you do need a slight adjustment of the configuration.
+First and foremost, you MUST have the latest Dwains Dashboard AND the latest HKI for this to work properly!
+
+You must proceed with the following change, this must be repeated EVERY time HKI gets updated! You must comment (or remove) the following line.
+```yaml
+# in /packages/homekit_infused/hki_configuration.yaml
+lovelace_gen: !include_dir_merge_named ../../hki-user/config/
+```
+
+This is line 1 and should look like this after the change
+
+```yaml
+# lovelace_gen: !include_dir_merge_named ../../hki-user/config/
+```
+
+Restart Home Assistant after you have done this change!

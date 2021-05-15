@@ -30,15 +30,39 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title | no | Entities | Set the title of the stack |
-| show_title | no | true | Show or hide the stack title |
+| title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| default_zoom | no | default | Sets the default zoom, around 15 is probably what you will want for your setup |
+| aspect_ratio | no | none | Sets an aspect ratio for your map |
 | entities | yes | array | Add the entities you want in your stack, entities must be listed as an array |
 
 ```yaml
 # Example
   my_view:
     map:
-      entities:
-        - person.jimmy
-        - person.stephanie
+      - title: Location Stephanie
+        default_zoom: 15
+        aspect_ratio: 16x10
+        entities:
+          - person.stephanie
 ```              
+```yaml
+# Example multiple maps
+  my_view:
+    map:
+      - title: Location Stephanie
+        entities:
+          - person.stephanie
+      - title: Location Jimmy
+        entities:
+          - person.jimmy
+```  
+```yaml
+# Example multiple entities on single map
+  my_view:
+    map:
+      - title: Location
+        entities:
+          - person.stephanie
+          - person.jimmy
+          - person.tala
+```  

@@ -28,7 +28,8 @@ By default it contains the following things:
 # Disclaimer
 Warning:
 - I am not responsible for any data loss or defects that are caused by user error.
-- Any custom addon used in this project is not made by me.
+- Any custom card/component used in this project is not made by me and all credits should go to the original creator.
+- Every custom card/component used in this project has a link to it's original repo and creator.
 
 # Hardware I use personally for this setup
 #### Computer

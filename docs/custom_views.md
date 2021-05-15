@@ -12,23 +12,31 @@
 - [Thanks](thanks.md)
 
 ### Custom Views
-Users of Homekit Infused v3 are already known to this concept, but Homekit Infused allows you to add your own cards to any of the views instead of using the HKI auto-filling features. You can combine them, though it sometimes doesn't look great when used at the same time. For you this will be trial and error. If it doesn't get you the result you want you should either just use auto-filling or just use custom_cards.
+Users of Homekit Infused v3 are already known to this concept, but Homekit Infused allows you to add your own cards to any of the views instead of using the HKI addon features. You can combine them, though it sometimes doesn't look great when used at the same time. For you this will be trial and error. If it doesn't get you the result you want you should either just use addons or just use custom_cards. They can however work fantastically together when you use them together with the view_selector addon.
 
 To add your own cards to the view you must:
-- create a folder in `/hki-user/views` with the same name as the keyname of your view (in the example below this is `/hki-user/views/living_room`)
-- add the following line to your view config:
+- Create a folder in `/hki-user/views` with the same name as the objectname of your view (in the example below this is `/hki-user/views/living_room`)
+- If you added a custom path for your custom_cards then create a folder with that name instead!
+- Add the following line to your view config:
 
 ```yaml
 living_room:
-  custom_cards: true
+  custom_cards:
 ```
-or
+Below you can find all the extra options you can use with custom_cards
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| position | no | bottom | This decides if custom_cards should be rendered before or after HKI addons, choices are `top` or `bottom`, by default custom_cards are always rendered after HKI addons |
+| type | no | default | Sets the type of the stack the cards are placed in, by default they are placed in a layout-card. But you can have the default HA behaviour by setting this to advanced. Note that all HKI views are in panel mode! Choices are `default` or `advanced`, whereas advanced is the normal HA behaviour. It is called advanced because it is much harder to get your desired layout this way. Users of Dwains Dashboard that want to convert their cards using the dwains-flexbox-card will want to set this option to `advanced` |
 
 ```yaml
 living_room:
-  custom_cards: advanced
+  custom_cards: 
+    position: bottom
+    type: default
 ```
-*Note: The views have a baked in layout-card by default with a column number of 3, you can change the column number inside of the views settings, however if for whatever reason you really want to control the layout all by yourself you must set `custom_cards: advanced` and you will have a default view. Note that ALL views are in `panel` mode thus stretching the cards horizontally unless you add code to mitigate this yourself. ONLY set this to advanced if you really know what you are doing!
+Tip: You can control the default layout with the `layout` addon.
 
 ### Custom Cards
 To use your custom cards on a view you must open the folder that we have just created and then create a new file. You can name the file anyway you want since the name of the file is not relevant for now.
