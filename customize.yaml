@@ -162,11 +162,11 @@ climate.tado_smart_radiator_thermostat_va2711623168:
 
 # Device Trackers
 device_tracker.tile_a6d1d863adaa4d5e:
-  entity_picture: /local/images/keys-steph.jpg
+  entity_picture: /local/images/tile-black.png
   friendly_name: Sleutels Stephanie
 
 device_tracker.tile_8a746078c8c64271:
-  entity_picture: /local/images/keys-jim.jpg
+  entity_picture: /local/images/tile-black.png
   friendly_name: Sleutels Jimmy
 
 # Devices
@@ -957,3 +957,29 @@ sensor.koelkast_voltage:
 sensor.vaatwasser_voltage:
   friendly_name: Vaatwasser
   icon: mdi:dishwasher
+
+
+# Device Trackers
+device_tracker.dog:
+  friendly_name: Tile Pro (White)
+  entity_picture: /local/images/tile-black.jpg
+
+device_tracker.sm_n976b:
+  friendly_name: Samsung Galaxy Note 10+ 5G
+  entity_picture: /local/images/note10plus_edited.png
+
+device_tracker.sm_n986b:
+  friendly_name: Samsung Galaxy Note 20 Ultra
+  entity_picture: /local/images/note20ultra_edited.png
+
+device_tracker.jimmys_iphone_2:
+  friendly_name: Apple iPhone 5S
+  entity_picture: /local/images/iphone_5s_edited.png
+
+device_tracker.fossil_gen_5_carlyle:
+  friendly_name: Fossil Gen 5
+  entity_picture: /local/images/fossil.png
+  
+device_tracker.samsung_galaxy_watch_3:
+  friendly_name: Samsung Galaxy Watch 3
+  entity_picture: /local/images/galaxywatch3.png
