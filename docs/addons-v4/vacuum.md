@@ -21,7 +21,7 @@ To use this addon you must prepare with the following steps.
 Create a sensor in your `configuration.yaml` file (replace YOUR_VACUUM_ENTITY with your own entity, include the `vacuum.` part of the entity)
 If your vacuum lacks fan speed control, you can skip to the config options.
 
-```
+```yaml
 sensor:
   - platform: template
     sensors:
@@ -98,4 +98,5 @@ You can have it look like the image below when using the following config:
         entities:
           - camera.rockrobo_map
 ```
+
 ![Homekit Infused](../images/vacuum_2.png)
