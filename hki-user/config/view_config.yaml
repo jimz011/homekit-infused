@@ -1,5 +1,5 @@
 view_config:
-######### FRONTPAGE ########################################################################################################
+######## FRONTPAGE ########################################################################################################
   home:
     title: greeting
     show_in_navbar: true
@@ -7,43 +7,44 @@ view_config:
     columns: 
       buttons: 4
     persons:
-      stephanie:
-        entity: person.stephanie
-        text_color: white
-        image_path: /local/images/stephanie_small.png
-        phone_battery_sensor: sensor.sm_n986b_batterijniveau
-        travel_time_to_home: sensor.reistijd_stephanie
-        travel_time_to_work: sensor.reistijd_stephanie_work
-        path: stephanie_location
-      jimmy:
-        entity: person.jimmy
-        alignment: right
-        text_color: white
-        image_path: /local/images/jimmy_small.png
-        phone_battery_sensor: sensor.sm_n976b_battery_level
-        travel_time_to_home: sensor.reistijd_jimmy
-        travel_time_to_work: sensor.reistijd_jimmy_work
-        path: jimmy_location
-    persons_alt:
-      tala:
-        name: Tala
-        entity: person.tala
-        text_color: white
-        image_path: /local/images/tala2.png
+      - columns: 2
+        square: true
+        entities:
+          - entity: person.stephanie
+            text_color: white
+            image_path: /local/images/stephanie_small.png
+            phone_battery_sensor: sensor.sm_n986b_batterijniveau
+            travel_time_to_home: sensor.reistijd_stephanie
+            travel_time_to_work: sensor.reistijd_stephanie_work
+            path: stephanie_location
+          - entity: person.jimmy
+            alignment: right
+            text_color: white
+            image_path: /local/images/jimmy_small.png
+            phone_battery_sensor: sensor.sm_n976b_battery_level
+            travel_time_to_home: sensor.reistijd_jimmy
+            travel_time_to_work: sensor.reistijd_jimmy_work
+            path: jimmy_location
+      - columns: 1
+        square: false
+        entities:
+          - entity: person.tala
+            text_color: white
+            image_path: /local/images/tala2.png
+            path: tala
     simple_weather:
-      entity: weather.eindhoven
-      city_name: Eindhoven
+      - entity: weather.eindhoven
+        city_name: Eindhoven
     favorites:
       show_title: false
-
-######### MENU #############################################################################################################
-
+      
+######## MENU #############################################################################################################
   menu:
     show_in_navbar: true
     show_in_menu: false
     icon: mdi:apps
     subtitle: "[[[ return `Homekit Infused Version: ${states['sensor.hki_current_version'].state}`; ]]]"
-    search_card:
+    search:
     favorites: 
     menu: 
     columns: 
@@ -56,38 +57,55 @@ view_config:
   climate:
     subtitle: "[[[ return `The current average temperature is ${states['sensor.average_house_temperature'].state}` ]]]"
     columns: 
-      buttons: 4
+      thermostats: 4
+      graphs: 4
     icon: mdi:thermometer
     show_in_favorites: true
     button_badge: sensor.average_house_temperature
     button_label: "[[[ if (states['sensor.current_climate_entities_on'].state == 0) return `Thermostats Off`; else return `${states['sensor.current_climate_entities_on'].state} Thermostats On`; ]]]"
     climate:
-    devices:
+      controls:
+        title: Controls
       thermostats:
-        - climate.tado_smart_radiator_thermostat_va1671957504
-        - climate.tado_smart_radiator_thermostat_va2898201344
-        - climate.tado_smart_radiator_thermostat_va0882906624
-        - climate.tado_smart_radiator_thermostat_va2711623168
-      fans:
-        - switch.fan
-      temperature.purple:
-        - sensor.woonkamer
-        - sensor.slaapkamer
-        - sensor.kleine_kamer_temperatuur
-        - sensor.keuken_temperatuur
-        - sensor.badkamer
-        - sensor.motion_bijkeuken_temperature
-        - sensor.voordeur_temperature
-        - sensor.motion_toilet_temperature
-      humidity.orange:
-        - sensor.woonkamer_2
-        - sensor.slaapkamer_2
-        - sensor.kleine_kamer_luchtvochtigheid
-        - sensor.keuken_luchtvochtigheid
-        - sensor.badkamer
-      pressure.cyan:
-        - sensor.slaapkamer_3
-        - sensor.badkamer_3
+        - title: Thermostats
+          entities:
+            - climate.tado_smart_radiator_thermostat_va1671957504
+            - climate.tado_smart_radiator_thermostat_va2898201344
+            - climate.tado_smart_radiator_thermostat_va0882906624
+            - climate.tado_smart_radiator_thermostat_va2711623168
+    devices:
+      - title: Fans
+        entities:
+          - entity: switch.fan
+            type: fan
+    graphs:
+      - title: Temperature
+        type: button
+        line_color: cyan
+        entities:
+          - sensor.woonkamer
+          - sensor.slaapkamer
+          - sensor.kleine_kamer_temperatuur
+          - sensor.keuken_temperatuur
+          - sensor.badkamer
+          - sensor.motion_bijkeuken_temperature
+          - sensor.voordeur_temperature
+          - sensor.motion_toilet_temperature
+      - title: Humidity
+        type: button
+        line_color: purple
+        entities:
+          - sensor.woonkamer_2
+          - sensor.slaapkamer_2
+          - sensor.kleine_kamer_luchtvochtigheid
+          - sensor.keuken_luchtvochtigheid
+          - sensor.badkamer
+      - title: Pressure
+        type: button
+        line_color: orange
+        entities:
+          - sensor.slaapkamer_3
+          - sensor.badkamer_3
 
 # Devices
   devices:
@@ -99,85 +117,129 @@ view_config:
     button_badge: sensor.current_devices_on
     button_label: "[[[ if (states['sensor.current_devices_on'].state == 0) return `Devices Off`; else return `${states['sensor.current_devices_on'].state} Devices On`; ]]]"
     devices:
-      woonkamer:
-        - switch.receiver
-        - switch.samsung_tv
-        - switch.xbox_one
-      slaapkamer.lock:
-        - switch.receiver_slaapkamer_2
-        - switch.tv_slaapkamer
-      kleine_kamer:
-        - switch.pc_van_jimmy.lock
-        - switch.pc_van_stephanie.lock
-        - switch.piano
-        - switch.printer
-      keuken:
-        - switch.afzuigkap.fan
-        - switch.oven
-        - switch.airfryer
-        - switch.nespresso_apparaat
-        - switch.cappumaker
-        - switch.waterkoker
-        - switch.vaatwasser
-        - switch.koelkast_2.lock
-      bijkeuken:
-        - switch.vriezer.lock
-        - switch.wasmachine
-        - switch.droger
+      - title: Woonkamer
+        entities:
+          - switch.receiver
+          - switch.samsung_tv
+          - switch.xbox_one
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - switch.receiver_slaapkamer_2
+          - switch.tv_slaapkamer
+      - title: Kleine Kamer
+        entities:
+          - entity: switch.pc_van_jimmy
+            lock: true
+            label: "[[[ return `${states['sensor.power_57'].state} W`; ]]]"
+          - entity: switch.pc_van_stephanie
+            lock: true
+            label: "[[[ return `${states['sensor.power_60'].state} W`; ]]]"
+          - switch.piano
+          - switch.printer
+      - title: Keuken
+        entities:
+          - entity: switch.afzuigkap
+            type: fan
+          - entity: switch.oven
+            label: "[[[ return `${states['sensor.power_52'].state} W`; ]]]"
+          - switch.airfryer
+          - switch.nespresso_apparaat
+          - switch.cappumaker
+          - switch.waterkoker
+          - entity: switch.vaatwasser
+            lock: true
+            label: "[[[ return `${states['sensor.vaatwasser_power'].state} W`; ]]]"
+          - entity: switch.koelkast_2
+            lock: true
+            label: "[[[ return `${states['sensor.koelkast_power'].state} W`; ]]]"
+      - title: Bijkeuken
+        lock: true
+        entities:
+          - entity: switch.vriezer
+            label: "[[[ return `${states['sensor.ts0121_2'].state} W`; ]]]"
+          - entity: switch.wasmachine
+            label: "[[[ return `${states['sensor.wasmachine_power'].state} W`; ]]]"
+          - entity: switch.droger
+            label: "[[[ return `${states['sensor.droger_power'].state} W`; ]]]"
 
 # Lights
   lights:
     subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 2
     icon: mdi:floor-lamp
     show_in_favorites: true
     button_badge: sensor.current_lights_on
     button_label: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Lights Off`; else return `${states['sensor.current_lights_on'].state} Lights On`; ]]]"
     show_in_menu: true
     view_selector:
-      lights_basement:
-        name: Berging
-        icon: mdi:lightbulb
-      lights.this_view:
-        name: Begane Grond
-        icon: mdi:floor-lamp
+      columns: 2
+      aspect_ratio: 4/1
+      elements:
+        - name: Berging
+          icon: mdi:lightbulb
+          path: lights_basement
+        - name: Begane Grond
+          icon: mdi:floor-lamp
+          path: lights
+          this_view: true
     devices:
-      woonkamer:
-        - light.plafond
-        - light.eettafel
-        - light.woonkamer_led_lampen.rgb
-        - light.tafellamp.color-temp
-        - light.vloerlamp.color-temp
-        - light.gateway_light_7811dcdef324.rgb
-      slaapkamer.lock:
-        - light.nachtkastje_stephanie.color-temp
-        - light.nachtkastje_jimmy.color-temp
-        - light.nachtkastjes.color-temp
-        - light.slaapkamer_led_lampen.rgb
-        - light.bed_lamp
-        - light.kast_lamp
-      kleine_kamer:
-        - light.office_led_lampen.rgb
-        - light.kleine_kamer.color-temp
-      keuken:
-        - light.keuken.color-temp
-        - light.keuken_leds.rgb
-        - light.keuken_leds_onder.rgb
-      bijkeuken:
-        - light.bijkeuken
-      gang:
-        - light.entree_lamp
-        - light.gang_lamp
-      balkon:
-        - light.balkon
-      badkamer:
-        - light.koogeek_sw_056ce9
-      toilet:
-        - light.toilet
-      berging:
-        - light.berging.color-temp
+      - title: Woonkamer
+        entities:
+          - light.plafond
+          - light.eettafel
+          - entity: light.woonkamer_led_lampen
+            type: rgb
+          - entity: light.tafellamp
+            type: color-temp
+          - entity: light.vloerlamp
+            type: color-temp
+          - entity: light.gateway_light_7811dcdef324
+            type: rgb
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - entity: light.nachtkastje_stephanie
+            type: color-temp
+          - entity: light.nachtkastje_jimmy
+            type: color-temp
+          - entity: light.nachtkastjes
+            type: color-temp
+          - entity: light.slaapkamer_led_lampen
+            type: rgb
+          - light.bed_lamp
+          - light.kast_lamp
+      - title: Kleine Kamer
+        entities:
+          - entity: light.office_led_lampen
+            type: rgb
+          - entity: light.kleine_kamer
+            type: color-temp
+      - title: Keuken
+        entities:
+          - entity: light.keuken
+            type: color-temp
+          - entity: light.keuken_leds
+            type: rgb
+          - entity: light.keuken_leds_onder
+            type: rgb
+      - title: Bijkeuken
+        entities:
+          - light.bijkeuken
+      - title: Gang
+        entities:
+          - light.entree_lamp
+          - light.gang_lamp
+      - title: Balkon
+        entities:
+          - light.balkon
+      - title: Badkamer
+        entities:
+          - light.koogeek_sw_056ce9
+      - title: Toilet
+        entities:
+          - light.toilet
 
 # Lights Basement
   lights_basement:
@@ -185,93 +247,128 @@ view_config:
     subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 2
     icon: mdi:floor-lamp
     view_selector:
-      lights_basement.this_view:
-        name: Berging
-        icon: mdi:lightbulb
-      lights:
-        name: Begane Grond
-        icon: mdi:floor-lamp
+      columns: 2
+      aspect_ratio: 4/1
+      elements:
+        - name: Berging
+          icon: mdi:lightbulb
+          path: lights_basement
+          this_view: true
+        - name: Begane Grond
+          icon: mdi:floor-lamp
+          path: lights
     devices:
-      berging:
-        - light.berging.color-temp
+      - title: Berging
+        entities:
+          - entity: light.berging
+            type: color-temp
 
 # Security
   security:
-    subtitle: Panel
+    subtitle: "[[[ return `Alarm ${states['alarm_control_panel.home_alarm'].state}`; ]]]"
     columns: 
+      cameras: 1
       buttons: 4
     icon: mdi:cctv
     show_in_favorites: true
     button_badge: sensor.current_binary_sensors_on
     button_label: "[[[ return `Alarm ${states['alarm_control_panel.home_alarm'].state}`; ]]]"
+    cameras:
+      - title: Unifi Camera's
+        entities:
+          - camera.gallerij_camera
+          - camera.kennedylaan_links
+      - title: Other Camera's
+        entities:
+          - camera.woonkamer_camera
+          - camera.kennedylaan_camera
     devices:
-      unifi_cameras:
-        - camera.gallerij_camera
-        - camera.kennedylaan_links
-      other_cameras:
-        - camera.woonkamer_camera
-        - camera.kennedylaan_camera
-      motion_inside:
-        - binary_sensor.motion_gang
-        - binary_sensor.motion_office
-        - binary_sensor.motion_woonkamer_camera
-        - binary_sensor.motion_bijkeuken
-        - binary_sensor.motion_toilet
-        - binary_sensor.motion_gallerij_camera_2
-        - binary_sensor.motion_kennedylaan_links
-        - binary_sensor.motion_gallerij_camera
-      doors:
-        - binary_sensor.voordeur
-        - binary_sensor.woonkamer_deur
-        - binary_sensor.slaapkamer_deur
-      windows:
-        - binary_sensor.kleine_kamerraam
-        - binary_sensor.keukenraam
-        - binary_sensor.bijkeukenraam
-      smoke:
-        - binary_sensor.smoke_sensor
+      - title: Motion
+        entities:
+          - binary_sensor.motion_gang
+          - binary_sensor.motion_office
+          - binary_sensor.motion_woonkamer_camera
+          - binary_sensor.motion_bijkeuken
+          - binary_sensor.motion_toilet
+          - binary_sensor.motion_gallerij_camera_2
+          - binary_sensor.motion_kennedylaan_links
+          - binary_sensor.motion_gallerij_camera
+      - title: Doors
+        entities:
+          - binary_sensor.voordeur
+          - binary_sensor.woonkamer_deur
+          - binary_sensor.slaapkamer_deur
+      - title: Windows
+        entities:
+          - binary_sensor.kleine_kamerraam
+          - binary_sensor.keukenraam
+          - binary_sensor.bijkeukenraam
+      - title: Smoke
+        entities:
+          - binary_sensor.smoke_sensor
 
 # Energy
   energy:
     subtitle: "[[[ return `The current energy usage is ${states['sensor.current_power_usage'].state}`; ]]]"
+    layout:
+      max_cols: 3
     columns: 
       buttons: 4
       graphs: 2
     icon: mdi:chart-line
     show_in_favorites: true
     button_badge: sensor.current_power_usage
-    devices:
-      current_meter_readings.graph:
-        - sensor.dsmr_consumption_gas_delivered.purple
-        - sensor.dsmr_total_power_delivered.cyan
-      total_today.graph:
-        - sensor.dsmr_day_consumption_gas.red
-        - sensor.dsmr_day_consumption_electricity_merged
-      total_cost_today.graph:
-        - sensor.dsmr_day_consumption_gas_cost.pink
-        - sensor.dsmr_day_consumption_electricity_cost_merged.orange
-      wattage.graph.blue:
-        - sensor.wasmachine_power
-        - sensor.droger_power
-        - sensor.koelkast_power
-        - sensor.vaatwasser_power
-        - sensor.power_52
-        - sensor.ts0121_2
-        - sensor.power_60
-        - sensor.power_57
-      voltage.graph.orange:
-        - sensor.wasmachine_voltage
-        - sensor.droger_voltage
-        - sensor.koelkast_voltage
-        - sensor.vaatwasser_voltage
-      current.graph:
-        - sensor.wasmachine_current
-        - sensor.droger_current
-        - sensor.koelkast_current
-        - sensor.vaatwasser_current
+    graphs:
+      - title: Current Meter Readings
+        line_color: green
+        line_width: 3
+        entities:
+          - entity: sensor.dsmr_consumption_gas_delivered
+            hours_to_show: 72
+          - entity: sensor.dsmr_total_power_delivered
+            hours_to_show: 72
+      - title: Total Today
+        line_color: orange
+        line_width: 3
+        entities:
+          - sensor.dsmr_day_consumption_gas
+          - sensor.dsmr_day_consumption_electricity_merged
+      - title: Total Cost Today
+        line_color: red
+        line_width: 3
+        entities:
+          - sensor.dsmr_day_consumption_gas_cost
+          - sensor.dsmr_day_consumption_electricity_cost_merged
+      - title: Wattage
+        line_color: purple
+        line_width: 3
+        entities:
+          - sensor.wasmachine_power
+          - sensor.droger_power
+          - sensor.koelkast_power
+          - sensor.vaatwasser_power
+          - sensor.power_52
+          - sensor.ts0121_2
+          - sensor.power_60
+          - sensor.power_57
+      - title: Voltage
+        line_color: cyan
+        line_width: 3
+        entities:
+          - sensor.wasmachine_voltage
+          - sensor.droger_voltage
+          - sensor.koelkast_voltage
+          - sensor.vaatwasser_voltage
+      - title: Current
+        line_color: dodgerblue
+        line_width: 3
+        entities:
+          - sensor.wasmachine_current
+          - sensor.droger_current
+          - sensor.koelkast_current
+          - sensor.vaatwasser_current
 
 # Scenes
   scenes:
@@ -282,20 +379,22 @@ view_config:
     show_in_favorites: true
     button_badge: sensor.current_scenes_on
     devices:
-      lights:
-        - input_boolean.scene_dagverlichting
-        - input_boolean.scene_avondverlichting
-        - input_boolean.scene_nachtverlichting
-        - input_boolean.dummy1
-        - group.scene_schoonmaken_on
-        - input_boolean.scene_lichtuit
-      other_scenes:
-        - group.scene_koken_on
-        - group.scene_wassen_on
-        - group.scene_naarbed
-        - input_boolean.scene_klaar_met_koken
-        - input_boolean.scene_klaar_met_wassen
-        - input_boolean.scene_welterusten
+      - title: Lights
+        entities:
+          - input_boolean.scene_dagverlichting
+          - input_boolean.scene_avondverlichting
+          - input_boolean.scene_nachtverlichting
+          - input_boolean.dummy1
+          - group.scene_schoonmaken_on
+          - input_boolean.scene_lichtuit
+      - title: Other
+        entities:
+          - group.scene_koken_on
+          - group.scene_wassen_on
+          - group.scene_naarbed
+          - input_boolean.scene_klaar_met_koken
+          - input_boolean.scene_klaar_met_wassen
+          - input_boolean.scene_welterusten
 
 
 # Media Players
@@ -304,38 +403,44 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players.this_view:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller:
-        name: Xbox
-        icon: mdi:microsoft-xbox
-    devices:
-      spotify:
-        - media_player.spotify_stephanie_schings
-        - media_player.spotify_jimmy_schings
-      nest_hubs:
-        - media_player.slaapkamer_display
-        - media_player.keuken_display
-      media_players:
-        - media_player.nvidia_s_h_i_e_l_d_tv_pro
-        - media_player.xboxone
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+          this_view: true
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
+    media_players:
+      - title: Spotify
+        entities:
+          - media_player.spotify_stephanie_schings
+          - media_player.spotify_jimmy_schings
+      - title: Nest Hubs
+        entities:
+          - media_player.slaapkamer_display
+          - media_player.keuken_display
+      - title: TV's and Consoles
+        entities:
+          - media_player.nvidia_s_h_i_e_l_d_tv_pro
+          - media_player.xboxone
 
 # Google Home
   media_google_home:
@@ -343,28 +448,31 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home.this_view:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller:
-        name: Xbox
-        icon: mdi:microsoft-xbox
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+          this_view: true
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
     google_home:
       all_speakers: media_player.all_speakers
       entities:
@@ -382,37 +490,40 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media.this_view:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller:
-        name: Xbox
-        icon: mdi:microsoft-xbox
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+          this_view: true
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
     upcoming_media:
-      recently_added_tv:
-        - sensor.recently_added_tv
-      recently_added_movies:
-        - sensor.recently_added_movies
-      upcoming_tv:
-        - sensor.sonarr_upcoming_media
-      upcoming_movies:
-        - sensor.radarr_upcoming_media
+      - title: Recently Added TV
+        entity: sensor.recently_added_tv
+      - title: Recently Added Movies
+        entity: sensor.recently_added_movies
+      - title: Upcoming TV
+        entity: sensor.sonarr_upcoming_media
+      - title: Upcoming Movies
+        entity: sensor.radarr_upcoming_media
 
 # Android Remote
   media_android_remote:
@@ -420,34 +531,38 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     show_in_favorites: true 
     show_in_menu: true
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote.this_view:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller:
-        name: Xbox
-        icon: mdi:microsoft-xbox
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+          this_view: true
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
     remote_control:
-      media_player: media_player.nvidia_s_h_i_e_l_d_tv_pro
-      sound_player: media_player.samsung_ue65ku6000
-      remote_entity: media_player.nvidia_s_h_i_e_l_d_tv_pro
+      - title: Woonkamer
+        media_player: media_player.nvidia_s_h_i_e_l_d_tv_pro
+        sound_player: media_player.samsung_ue65ku6000
+        remote_entity: media_player.nvidia_s_h_i_e_l_d_tv_pro
 
 # Apple TV Remote
   media_atv_remote:
@@ -455,33 +570,37 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote.this_view:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller:
-        name: Xbox
-        icon: mdi:microsoft-xbox
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+          this_view: true
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
     remote_control:
-      media_player: media_player.slaapkamer
-      sound_player: media_player.slaapkamer
-      remote_entity: remote.slaapkamer
-      type: atv
+      - title: Slaapkamer
+        media_player: media_player.slaapkamer
+        sound_player: media_player.slaapkamer
+        remote_entity: remote.slaapkamer
+        type: atv
 
 # Xbox Controller
   media_xbox_controller:
@@ -489,47 +608,54 @@ view_config:
     subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:plex
     button_badge: sensor.media_players_playing
     view_selector:
-      media_media_players:
-        name: Players
-        icon: mdi:animation-play
-      media_google_home:
-        name: Google
-        icon: mdi:google-home
-      media_upcoming_media:
-        name: Upcoming
-        icon: mdi:plex
-      media_android_remote:
-        name: Shield TV
-        icon: mdi:android
-      media_atv_remote:
-        name: Apple TV
-        icon: mdi:apple
-      media_xbox_controller.this_view:
-        name: Xbox
-        icon: mdi:microsoft-xbox
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Players
+          icon: mdi:animation-play
+          path: media_media_players
+        - name: Google
+          icon: mdi:google-home
+          path: media_google_home
+        - name: Upcoming
+          icon: mdi:plex
+          path: media_upcoming_media
+        - name: Shield TV
+          icon: mdi:android
+          path: media_android_remote
+        - name: Apple TV
+          icon: mdi:apple
+          path: media_atv_remote
+        - name: Xbox
+          icon: mdi:microsoft-xbox
+          path: media_xbox_controller
+          this_view: true
     xbox_controller:
-      xbox_entity: media_player.xboxone
-      remote_entity: remote.xboxone_remote
+      - title: Xbox One
+        xbox_entity: media_player.xboxone
+        remote_entity: remote.xboxone_remote
 
 # Vacuum
   vacuum:
     subtitle: "[[[ return `The current status is ${states['vacuum.roborock_vacuum_s5'].state}`; ]]]"
     columns: 
       buttons: 4
+      cameras: 1
     icon: mdi:robot-vacuum
     show_in_favorites: true
     button_badge: vacuum.roborock_vacuum_s5
-    custom_cards: true
+    custom_cards:
     vacuum:
-      entity: vacuum.roborock_vacuum_s5
-      sensor: sensor.vacuum_fan_speed
-    devices:
-      map: 
-        - camera.rockrobo_map
+      - title: Controls
+        entity: vacuum.roborock_vacuum_s5
+        sensor: sensor.vacuum_fan_speed
+    cameras:
+      - title: Live Map
+        entities:
+          - camera.rockrobo_map
 
 # Battery
   battery:
@@ -547,8 +673,10 @@ view_config:
       buttons: 4
     icon: mdi:calendar-account
     calendar:
-      initial_view: dayGridMonth
-      entity: calendar.contacts
+      - title: Birthdays
+        initial_view: dayGridMonth
+        entities: 
+          - calendar.contacts
 
 # Certificates
   certificates:
@@ -562,7 +690,7 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:washing-machine
-    custom_cards: true 
+    custom_cards: 
 
 # Computers
   computers:
@@ -570,7 +698,7 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:desktop-tower-monitor
-    custom_cards: true 
+    custom_cards: 
 
 # Floorplan
   floorplan:
@@ -578,20 +706,43 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:floor-plan
-    custom_cards: true 
+    custom_cards: 
 
-# Location
-  location:
-    subtitle: "[[[ if (states['group.device_status'].state == 'home') return `Someone is home`; else return `Everyone is away!`; ]]]"
+# Find My
+  find_my:
+    subtitle: Persons and Devices
     button_badge: group.device_status
-    columns: 
-      buttons: 4
-    icon: mdi:map-marker
-    map:
-      entities:
-        - person.jimmy
-        - person.stephanie
-        - person.tala
+    icon: mdi:map-search
+    find_my:
+      persons:
+        - name: Jimmy
+          entity: person.jimmy
+          battery_entity: sensor.sm_n976b_battery_level
+          geocoded_location_entity: sensor.sm_n976b_geocoded_location
+        - name: Stephanie
+          entity: person.stephanie
+          battery_entity: sensor.sm_n986b_batterijniveau
+          geocoded_location_entity: sensor.sm_n986b_gegeocodeerde_locatie
+        - name: Tala
+          entity: person.tala
+      devices:
+        - name: Tile Pro
+          entity: device_tracker.dog
+        - name: Note 10+ 5G
+          entity: device_tracker.sm_n976b
+          geocoded_location_entity: sensor.sm_n976b_geocoded_location
+          battery_entity: sensor.sm_n976b_battery_level
+        - name: Note 20 Ultra
+          entity: device_tracker.sm_n986b
+          battery_entity: sensor.sm_n986b_batterijniveau
+          geocoded_location_entity: sensor.sm_n986b_gegeocodeerde_locatie
+        - name: iPhone 5S
+          entity: device_tracker.jimmys_iphone_2
+          battery_entity: sensor.jimmys_iphone_battery_level
+        - name: Fossil Gen5
+          entity: device_tracker.fossil_gen_5_carlyle
+        - name: Galaxy Watch3
+          entity: device_tracker.samsung_galaxy_watch_3
 
 # P2000
   p2000:
@@ -599,7 +750,7 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:car-emergency
-    custom_cards: true 
+    custom_cards: 
 
 # System
   system:
@@ -607,26 +758,19 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:home-assistant
-    custom_cards: true 
+    custom_cards: 
 
 # Traffic
   traffic:
+    layout:
+      column_widths: 7fr;
+      max_width: 100%
     subtitle: "[[[ return `${states['sensor.reistijd_jimsteph'].state} reistijd naar partner`; ]]]"
     button_badge: sensor.reistijd_jimsteph
-    columns: 
-      buttons: 4
     icon: mdi:waze
-    waze: true
-
-# Test
-  development:
-    subtitle: Test environment
-    columns: 
-      buttons: 4
-    icon: mdi:flash
-    custom_cards: true
+    iframe:
+      - url: https://embed.waze.com/iframe?zoom=13&lat=51.473097&lon=5.515480&ct=livemap
         
-
 # Waste
   waste:
     subtitle: Collection
@@ -634,11 +778,13 @@ view_config:
       buttons: 4
     icon: mdi:trash-can
     entities_card:
-      title: Waste Collection
-      entities:
-        - sensor.mijnafvalwijzer_gft
-        - sensor.mijnafvalwijzer_papier
-        - sensor.mijnafvalwijzer_restafval
+      - title: Waste Collection
+        entities:
+          - 'type: divider'
+          - sensor.mijnafvalwijzer_gft
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval
+          - 'type: divider'
 
 # Weather
   weather:
@@ -648,11 +794,12 @@ view_config:
       buttons: 4
     icon: mdi:weather-partly-cloudy
     weather:
-      entity: weather.eindhoven
-      city_name: Eindhoven
+      - title: Weather
+        entity: weather.eindhoven
+        city_name: Eindhoven
     iframe:
-      title: Windy
-      url: https://embed.windy.com/embed2.html?lat=51.402&lon=5.467&detailLat=51.477&detailLon=5.496&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1%22%20frameborder=%220%22
+      - title: Windy
+        url: https://embed.windy.com/embed2.html?lat=51.402&lon=5.467&detailLat=51.477&detailLon=5.496&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1%22%20frameborder=%220%22
 
 # Stephanie Calendar
   stephanie_calendar:
@@ -661,45 +808,58 @@ view_config:
     button_badge: person.stephanie
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-female
     show_in_menu: true
     view_selector:
-      stephanie_calendar.this_view:
-        name: Agenda
-        icon: mdi:calendar-edit
-      stephanie_location:
-        name: Location
-        icon: mdi:map-marker
-      stephanie_car:
-        name: Car
-        icon: mdi:car-cog
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: stephanie_calendar
+          this_view: true
+        - name: Location
+          icon: mdi:map-marker
+          path: stephanie_location
+        - name: Car
+          icon: mdi:car-cog
+          path: stephanie_car
     calendar:
-      initial_view: dayGridDay
-      entity: calendar.stephanie
+      - title: Calendar
+        initial_view: dayGridDay
+        entities:
+          - calendar.stephanie
 
 # Stephanie Location
   stephanie_location:
     title: Stephanie
     subtitle: "[[[ return `${states['sensor.sm_n986b_gegeocodeerde_locatie'].state}`; ]]]"
     button_badge: person.stephanie
+    layout:
+      column_widths: 7fr;
+      max_width: 100%
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-female
     view_selector:
-      stephanie_calendar:
-        name: Agenda
-        icon: mdi:calendar-edit
-      stephanie_location.this_view:
-        name: Location
-        icon: mdi:map-marker
-      stephanie_car:
-        name: Car
-        icon: mdi:car-cog
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: stephanie_calendar
+        - name: Location
+          icon: mdi:map-marker
+          path: stephanie_location
+          this_view: true
+        - name: Car
+          icon: mdi:car-cog
+          path: stephanie_car
     map:
-      entities:
-        - person.stephanie
+      - default_zoom: 15
+        aspect_ratio: 16x10
+        entities:
+          - person.stephanie
 
 # Stephanie Car
   stephanie_car:
@@ -708,19 +868,23 @@ view_config:
     button_badge: person.stephanie
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-female
     view_selector:
-      stephanie_calendar:
-        name: Agenda
-        icon: mdi:calendar-edit
-      stephanie_location:
-        name: Location
-        icon: mdi:map-marker
-      stephanie_car.this_view:
-        name: Car
-        icon: mdi:car-cog
-    custom_cards: true
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: stephanie_calendar
+        - name: Location
+          icon: mdi:map-marker
+          path: stephanie_location
+        - name: Car
+          icon: mdi:car-cog
+          path: stephanie_car
+          this_view: true
+    custom_cards:
+      type: advanced
 
 # Jimmy Calendar
   jimmy_calendar:
@@ -729,66 +893,83 @@ view_config:
     button_badge: person.jimmy
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-male
     show_in_menu: true
     view_selector:
-      jimmy_calendar.this_view:
-        name: Agenda
-        icon: mdi:calendar-edit
-      jimmy_location:
-        name: Location
-        icon: mdi:map-marker
-      jimmy_car:
-        name: Car
-        icon: mdi:car-cog
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: jimmy_calendar
+          this_view: true
+        - name: Location
+          icon: mdi:map-marker
+          path: jimmy_location
+        - name: Car
+          icon: mdi:car-cog
+          path: jimmy_car
     calendar:
-      initial_view: dayGridDay
-      entity: calendar.jimmy
+      - title: Calendar
+        initial_view: dayGridDay
+        entities:
+          - calendar.jimmy
 
 # Jimmy Location
   jimmy_location:
     title: Jimmy
     subtitle: "[[[ return `${states['sensor.sm_n976b_geocoded_location'].state}`; ]]]"
     button_badge: person.jimmy
+    layout:
+      column_widths: 7fr;
+      max_width: 100%
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-male
     view_selector:
-      jimmy_calendar:
-        name: Agenda
-        icon: mdi:calendar-edit
-      jimmy_location.this_view:
-        name: Location
-        icon: mdi:map-marker
-      jimmy_car:
-        name: Car
-        icon: mdi:car-cog
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: jimmy_calendar
+        - name: Location
+          icon: mdi:map-marker
+          path: jimmy_location
+          this_view: true
+        - name: Car
+          icon: mdi:car-cog
+          path: jimmy_car
     map:
-      entities:
-        - person.jimmy
+      - default_zoom: 15
+        aspect_ratio: 16x10
+        entities:
+          - person.jimmy
 
-# Jimmy Location
+# Jimmy Car
   jimmy_car:
     title: Jimmy
     subtitle: "[[[ return `${states['sensor.sm_n976b_geocoded_location'].state}`; ]]]"
     button_badge: person.jimmy
     columns: 
       buttons: 4
-      view_selector: 3
     icon: mdi:human-male
     view_selector:
-      jimmy_calendar:
-        name: Agenda
-        icon: mdi:calendar-edit
-      jimmy_location:
-        name: Location
-        icon: mdi:map-marker
-      jimmy_car.this_view:
-        name: Car
-        icon: mdi:car-cog
-    custom_cards: true
+      columns: 3
+      aspect_ratio: 3/1
+      elements:
+        - name: Agenda
+          icon: mdi:calendar-edit
+          path: jimmy_calendar
+        - name: Location
+          icon: mdi:map-marker
+          path: jimmy_location
+        - name: Car
+          icon: mdi:car-cog
+          path: jimmy_car
+          this_view: true
+    custom_cards:
+      type: advanced
 
 # Tala
   tala:
@@ -797,220 +978,7 @@ view_config:
     columns: 
       buttons: 4
     icon: mdi:dog-side
-    custom_cards: true 
-
-# # Woonkamer
-#   woonkamer:
-#     subtitle: "[[[ return `${states['sensor.living_temp'].state}`; ]]]"
-#     button_badge: sensor.living_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:sofa
-#     type: room
-#     devices:
-#       switches:
-#         - switch.receiver
-#         - switch.samsung_tv
-#         - switch.xbox_one
-#       lights:
-#         - light.plafond
-#         - light.eettafel
-#         - light.woonkamer_led_lampen.rgb
-#         - light.tafellamp.color-temp
-#         - light.vloerlamp.color-temp
-#         - light.gateway_light_7811dcdef324.rgb
-#       climate:
-#         - climate.tado_smart_radiator_thermostat_va2898201344
-#         - sensor.woonkamer
-#         - sensor.woonkamer_2
-#       sensors:
-#         - binary_sensor.motion_woonkamer_camera
-#         - binary_sensor.woonkamer_deur
-#       media_players:
-#         - media_player.shield_tv
-#         - media_player.woonkamer_speaker
-# 
-# ######### ROOMS ############################################################################################################
-# 
-# # Slaapkamer
-#   slaapkamer:
-#     subtitle: "[[[ return `${states['sensor.bedroom_temp'].state}`; ]]]"
-#     button_badge: sensor.bedroom_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:bed-king
-#     type: room
-#     devices:
-#       switches:
-#         - switch.receiver_slaapkamer_2
-#         - switch.tv_slaapkamer
-#       lights:
-#         - light.nachtkastje_stephanie.color-temp
-#         - light.nachtkastje_jimmy.color-temp
-#         - light.nachtkastjes.color-temp
-#         - light.slaapkamer_led_lampen.rgb
-#         - light.kast_lamp
-#         - light.bed_lamp
-#       climate:
-#         - climate.tado_smart_radiator_thermostat_va0882906624
-#         - sensor.slaapkamer
-#         - sensor.slaapkamer_2
-#         - sensor.slaapkamer_3
-#       sensors:
-#         - binary_sensor.slaapkamer_deur
-#       media_players:
-#         - media_player.slaapkamer
-#         - media_player.slaapkamer_display
-# 
-# # Kleine Kamer
-#   kleine_kamer:
-#     subtitle: "[[[ return `${states['sensor.office_temp'].state}`; ]]]"
-#     button_badge: sensor.office_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:desktop-tower-monitor
-#     type: room
-#     devices:
-#       switches:
-#         - switch.pc_van_stephanie.lock
-#         - switch.pc_van_jimmy.lock
-#         - switch.printer
-#         - switch.piano
-#       lights:
-#         - light.kleine_kamer.color-temp
-#         - light.office_led_lampen.rgb
-#       climate:
-#         - climate.tado_smart_radiator_thermostat_va1671957504
-#         - sensor.kleine_kamer_temperatuur
-#         - sensor.kleine_kamer_luchtvochtigheid
-#       sensors:
-#         - binary_sensor.motion_office
-#         - binary_sensor.kleine_kamerraam
-#       media_players:
-#         - media_player.kleine_kamer_speaker
-#         
-# # Keuken
-#   keuken:
-#     subtitle: "[[[ return `${states['sensor.kitchen_temp'].state}`; ]]]"
-#     button_badge: sensor.kitchen_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:fridge
-#     type: room
-#     devices:
-#       switches:
-#         - switch.afzuigkap
-#         - switch.oven
-#         - switch.airfryer
-#         - switch.nespresso_apparaat
-#         - switch.cappumaker
-#         - switch.waterkoker
-#         - switch.vaatwasser
-#         - switch.koelkast_2
-#       lights:
-#         - light.keuken.color-temp
-#         - light.keuken_leds.rgb
-#         - light.keuken_leds_onder.rgb
-#       climate:
-#         - climate.tado_smart_radiator_thermostat_va2711623168
-#         - sensor.keuken_temperatuur
-#         - sensor.keuken_luchtvochtigheid
-#       sensors:
-#         - binary_sensor.keukenraam
-#         - binary_sensor.smoke_sensor
-#       media_players:
-#         - media_player.keuken_display
-# 
-# # Bijkeuken
-#   bijkeuken:
-#     subtitle: "[[[ return `${states['sensor.laundry_room_temp'].state}`; ]]]"
-#     button_badge: sensor.laundry_room_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:washing-machine
-#     type: room
-#     devices:
-#       switches:
-#         - switch.vriezer
-#         - switch.wasmachine
-#         - switch.droger
-#       lights:
-#         - light.bijkeuken
-#       climate:
-#         - sensor.motion_bijkeuken_temperature
-#       sensors:
-#         - binary_sensor.motion_bijkeuken
-#         - binary_sensor.bijkeukenraam
-#       media_players:
-#         - media_player.bijkeuken_speaker
-# 
-# # Gang
-#   gang:
-#     subtitle: "[[[ return `${states['sensor.hallway_temp'].state}`; ]]]"
-#     button_badge: sensor.hallway_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:door
-#     type: room
-#     devices:
-#       lights:
-#         - light.gang_lamp
-#         - light.entree_lamp
-#       climate:
-#         - sensor.voordeur_temperature
-#       sensors:
-#         - binary_sensor.motion_gang
-#         - binary_sensor.voordeur
-# 
-# # Balkon
-#   balkon:
-#     subtitle: "[[[ return `${states['sensor.outside_temp'].state}`; ]]]"
-#     button_badge: sensor.outside_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:tree
-#     type: room
-#     devices:
-#       lights:
-#         - light.balkon
-#       climate:
-#         - sensor.buiten_temperatuur
-#         - sensor.buiten_luchtvochtigheid
-#         - sensor.buiten_luchtdruk
-#       sensors:
-#         - binary_sensor.motion_kennedylaan_links
-#         - binary_sensor.motion_gallerij_camera
-#         - binary_sensor.woonkamer_deur
-#         - binary_sensor.slaapkamer_deur
-# 
-# # Badkamer
-#   badkamer:
-#     subtitle: "[[[ return `${states['sensor.bathroom_temp'].state}`; ]]]"
-#     button_badge: sensor.bathroom_temp
-#
-#     columns: 
-# buttons: 4
-#     icon: mdi:shower-head
-#     type: room
-#     devices:
-#       lights:
-#         - light.badkamer
-#         - light.toilet
-#       climate:
-#         - sensor.badkamer
-#         - sensor.badkamer_2
-#         - sensor.badkamer_3
-#       sensors:
-#         - binary_sensor.motion_toilet
-#       media_players:
-#         - media_player.badkamer_speaker
+    custom_cards: 
 
 
 
