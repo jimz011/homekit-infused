@@ -16,12 +16,13 @@ view_config: # For examples check out https://github.com/jimz011/homekit-infused
     show_in_menu: false
     icon: mdi:apps
     subtitle: "[[[ return `Homekit Infused Version: ${states['sensor.hki_current_version'].state}`; ]]]"
-    search_card:
+    search:
     favorites: 
     menu: 
     hki_menu:
 
 # You can remove this line and the example views below or continue to build on them.
+# NOTE: If you have no views it might throw an error, you can safely ignore this since the error will go away once you setup some views!
 
 # Example
   lights:
@@ -29,8 +30,9 @@ view_config: # For examples check out https://github.com/jimz011/homekit-infused
     show_in_favorites: true
     subtitle: Overview
     devices:
-      my_lights:
-        - light.my_lamp
+      - title: My Example
+        entities:
+          - sensor.time_date
  
 
 
