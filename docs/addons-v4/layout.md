@@ -31,7 +31,7 @@ Below are the settings you can use for your addons
 | width | no | 300 | Size in pixels of each column |
 | max_width | no | 500 | Maximum width of a card (1.5 \* `width` if specified, otherwise 500) |
 | max_cols | no | 4 if sidebar is hidden, 3 if shown | Maximum number of columns to show |
-| rtl | no | false | Place columns in right-to-left order, set to `true` if you want this |                                                                                         
+| rtl | no | false | Place columns in right-to-left order, set to `true` if you want this |                                                                                     
 | column_widths | no | undefined | A [`grid-template-columns`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) specification of column widths |
 
 ```yaml
