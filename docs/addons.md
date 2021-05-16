@@ -37,7 +37,6 @@ my_second_view:
 | [battery](addons-v4/battery.md) | An addon to give your view a battery levels overview |
 | [calendar](addons-v4/calendar.md) | The default Calendar card |
 | [cameras](addons-v4/cameras.md) | An addon to add your camera's to a view |
-| [certificates](addons-v4/certificates.md) | A list of web certificates and their expiration dates |
 | [columns](addons-v4/columns.md) | This addon helps you set columns for addons globally |
 | [climate](addons-v4/climate.md) | Preset buttons for your climate view |
 | [devices](addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
