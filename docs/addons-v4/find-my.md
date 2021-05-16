@@ -86,10 +86,11 @@ Examples:
 
 #### Entity Picture Tips
 You can use entity pictures so that your view will look like the ones from the screenshots. It is recommended that you create the entity pictures yourself and not just enter pictures you find on the internet.
+
 The best settings will be to open paint/photoshop. Create a square of 130x130 pixels and put your entity picture in the middle of it (resize the photo at will).
 
 This specific addon has a white background so you don't need to make the background transparant, but if you would like to use these images elsewhere I will recommend you to remove transparency by either using an online tool or Adobe Photoshop.
 
-#### Bonus Entity Picture Tip
-If you have iCloud you can get beautiful ready to go images from the icloud website by logging in view icloud and then saving the images to your desktop.
-If you use the Unifi Controller you can get some nice images as well by clicking any device and then click on report wrong icon (this will open up a search menu in which you can right-click to save, note that Apple users will want to try Chrome or Firefox since Safari doesn't support this).
+#### Bonus Entity Picture Tips
+- If you have iCloud you can get beautiful ready to go images from the icloud website by logging in view icloud and then saving the images to your desktop.
+- If you use the Unifi Controller you can get some nice images as well by clicking any device and then click on report wrong icon (this will open up a search menu in which you can right-click to save, note that Apple users will want to try Chrome or Firefox since Safari doesn't support this).
