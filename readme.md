@@ -2,13 +2,14 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/paypal-donate-button.png" ></a>
 <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-<a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/discord/688401603811999885" /></a>
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
 [![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.5.4%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-4.0.0e%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
+
+<a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/discord/688401603811999885" /></a>
 
 ## Homekit Infused (Lovelace) by Jimz011
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
