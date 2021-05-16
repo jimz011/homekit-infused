@@ -20,11 +20,10 @@ In Homekit Infused v4.x.x it is super easy to setup views and configure them for
 Before continuing we should first open `/hki-user/device_counters.yaml`. Add all your known entities to their corresponding groups. This will help HKI count the amount of devices that are actually turned on.
 We can also re-use these entities again in buttons or in custom-cards.
 
-### Setting up the header
-The header is by default ready to go and you can skip this part.
-You can however change the settings of most of the visible items on the header.
-To setup the header open the following file `/hki-user/config/general_config.yaml`. 
-You can turn off specific sensors and/or change their icons.
+### Setting up general config
+Some of the variables can be found in the general config. The things you can find here are screen margins, header icon settings, rgb popup settings and vacuum settings.
+To setup any of these open the following file `/hki-user/config/general_config.yaml`. 
+By default it should be setup for you and this file should only be touched when you want to change something that is related to the settings above. I suggest skipping this file for now and continue with setting up the views instead.
 
 ### Setting up views
 Views are completely conditional, this means that Homekit Infused doesn't have predefined views (unlike older versions of the project). You can create views pretty fast and easy by only entering a name!
@@ -60,7 +59,7 @@ This is the bare minimum that will give you a brand new view, however without an
 | button_label | no | no label | Set the button label text, this accepts button-card JS templates |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar |
-| custom_cards | no | false | You should use this is you want your own lovelace cards to be shown in the framework, please refer to the [Custom Views](custom_views.md) documentation |
+| custom_cards | no | undefined | You should use this is you want your own lovelace cards to be shown in the framework, please refer to the [Custom Views](custom_views.md) documentation |
 | 'addon_name' | no | undefined | Add an addon to your view, refer to the addons section for documentation |
 
 ```yaml
@@ -75,7 +74,7 @@ This is the bare minimum that will give you a brand new view, however without an
     custom_cards:
 ```
 
-*Note: when `custom_cards: true` or `custom_cards: advanced` is set you MUST create a folder with the same name as the path in `/hki-user/views/`. From the example above this would be `/hki-user/views/living_room/`.
+*Note: when `custom_cards:` is defined you MUST create a folder with the same name as the object in `/hki-user/views/`. From the example above this would be `/hki-user/views/kitchen/`.
 Please read [this](custom_views.md) for more information on how to use this.
 
 ### Setting up Notifications
