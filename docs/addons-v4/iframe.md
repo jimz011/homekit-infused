@@ -32,6 +32,7 @@ You can use any of the following options to modify your addon.
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
 | url | yes | undefined | Set your iFrame address here, note that if you use `https` to access your Home Assistant, your iFrame address must be `https` as well! |
+| aspect_ratio | no | undefined | Set a custom aspect_ratio for this iFrame |
 
 ```yaml
 # Example
