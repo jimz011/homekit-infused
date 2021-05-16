@@ -60,7 +60,7 @@ This is the bare minimum that will give you a brand new view, however without an
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar |
 | custom_cards | no | undefined | You should use this is you want your own lovelace cards to be shown in the framework, please refer to the [Custom Views](custom_views.md) documentation |
-| 'addon_name' | no | undefined | Add an addon to your view, refer to the addons section for documentation |
+| 'addon_name' | no | undefined | Add an addon to your view, refer to the [Addons](addons.md) section for documentation |
 
 ```yaml
 # Another Example 
