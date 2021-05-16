@@ -55,10 +55,10 @@ Below are the settings you can use for your addons
       max_width: 100%
 ```
 
-#### Layout Explanation
+### Layout Explanation
 Layout Card in itself is much more powerful than I could template (and why would I?). You can perfectly use your own custom configured layout-card when setting the custom_card type to `advanced`. This way you can leverage ALL of the features layout-card has to offer which you can find [here](https://github.com/thomasloven/lovelace-layout-card/blob/master/README.md). But some of its features can be easily accessed through HKI's own configuration.
 
-##### Masonry layout
+### Masonry layout
 
 The masonry layout immitates the default layout of lovelace.
 
@@ -68,7 +68,7 @@ The masonry layout immitates the default layout of lovelace.
 
 ![Masonry Layout](https://user-images.githubusercontent.com/1299821/111067510-f2639100-84c4-11eb-9ce1-b40cf1f13772.png)
 
-##### Horizontal layout
+### Horizontal layout
 
 The horizontal layout will add each card to the next column, looping back to the first one when necessary:
 
@@ -76,7 +76,7 @@ The horizontal layout will add each card to the next column, looping back to the
 
 This is the default HKI layout!
 
-##### Vertical layout
+### Vertical layout
 
 The vertical layout will add each card to the same column as the previous one.
 
