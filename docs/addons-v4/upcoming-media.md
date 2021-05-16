@@ -32,20 +32,19 @@ You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 'object' | no | undefined | Set the title of the stack, the title is the name of your object |
-| hide | no | undefined | If you want to hide the title of the stack add `.hide` to the object |
+| title | no | undefined | Set the title of the stack, omitting this line will hide the title entirely |
 | entities | yes | array | Add the entities you want in your stack, entities must be listed as an array, you must define them directly after defining the category object |
 
 ```yaml
 # Example
   my_view:
     upcoming_media:
-      recently_added_tv:
-        - sensor.recently_added_tv
-      recently_added_movies:
-        - sensor.recently_added_movies
-      upcoming_tv:
-        - sensor.sonarr_upcoming_media
-      upcoming_movies.hide: # The title of this stack is hidden
-        - sensor.radarr_upcoming_media
+      - title: Recently Added TV
+        entity: sensor.recently_added_tv
+      - title: Recently Added Movies
+        entity: sensor.recently_added_movies
+      - title: Upcoming TV
+        entity: sensor.sonarr_upcoming_media
+      - title: Upcoming Movies
+        entity: sensor.radarr_upcoming_media
 ```
