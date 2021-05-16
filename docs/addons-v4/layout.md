@@ -70,11 +70,9 @@ The masonry layout immitates the default layout of lovelace.
 
 ### Horizontal layout
 
-The horizontal layout will add each card to the next column, looping back to the first one when necessary:
+The horizontal layout will add each card to the next column, looping back to the first one when necessary, this is the default HKI layout!:
 
 ![Horizontal Layout](https://user-images.githubusercontent.com/1299821/111067632-7453ba00-84c5-11eb-942c-88dab6d1f19b.png)
-
-This is the default HKI layout!
 
 ### Vertical layout
 
