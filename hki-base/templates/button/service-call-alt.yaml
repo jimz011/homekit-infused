@@ -5,7 +5,7 @@ type: custom:button-card
 name: "{{ name }}"
 icon: "{{ icon }}"
 size: 25%
-aspect_ratio: 1/1
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
 entity: {{ entity }}
 label: "{{ label|default('&nbsp;') }}"
 show_name: {{ show_name|default('true') }}
