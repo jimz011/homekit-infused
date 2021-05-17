@@ -97,11 +97,13 @@
           {% else %}
           layout_type: custom:horizontal-layout
           {% endif %}
+          {% if data.layout is defined %}
           layout:
+            {% if ((data.layout is defined) and (data.layout.max_width is defined)) %}
+            max_width: {{ data.layout.max_width }}
+            {% endif %}
             {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
             max_cols: {{ data.layout.max_cols }}
-            {% else %}          
-            max_cols: 3
             {% endif %}
             {% if ((data.layout is defined) and (data.layout.width is defined)) %}
             width: {{ data.layout.width }}
@@ -112,9 +114,10 @@
             {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
             rtl: {{ data.layout.rtl }}
             {% endif %}
+          {% endif %}
           cards:
             !include_dir_merge_list ../hki-user/views/{{ name }}
-        {% elif ((data.custom_cards.type is defined) and (data.custom_cards.type == "advanced")) %}
+        {% elif ((data.custom_cards.type is defined) and (data.custom_cards.position == 'top') and (data.custom_cards.type == "advanced")) %}
         - type: vertical-stack
           cards:
             !include_dir_merge_list ../hki-user/views/{{ name }}
@@ -124,8 +127,8 @@
         - type: custom:layout-card
           layout_type: custom:horizontal-layout
           layout:
-            column_widths: auto 6fr;
-            max_width: 100%
+            column_widths: auto 6fr
+            column_max_width: 100%
           cards:
             - type: custom:mod-card
               style: |
@@ -133,7 +136,7 @@
                   margin-left: {{ _global.general_config.margins }};
                   margin-right: {{ _global.general_config.margins }};
                   box-shadow: none;
-                  min-width: 275px;
+                  min-width: 320px;
                   max-width: 450px;
                 }
               card:
@@ -414,6 +417,7 @@
             {% else %}
             layout_type: custom:horizontal-layout
             {% endif %}
+            {% if data.layout is defined %}
             layout:
               {% if ((data.layout is defined) and (data.layout.max_width is defined)) %}
               max_width: {{ data.layout.max_width }}
@@ -430,6 +434,7 @@
               {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
               rtl: {{ data.layout.rtl }}
               {% endif %}
+            {% endif %}
             cards:
               {% if (data.weather is defined) or (data.persons is defined) or (data.simple_weather is defined) %}
               - type: custom:mod-card
@@ -689,7 +694,7 @@
               {% for content in data.iframe %}
               - type: custom:mod-card
                 style: |
-                  ha-card {s
+                  ha-card {
                     margin-left: {{ _global.general_config.margins }};
                     margin-right: {{ _global.general_config.margins }};
                   }
@@ -1040,6 +1045,12 @@
                             {% endif %}
                             {% if device.show_last_changed is defined %}
                             show_last_changed: {{ device.show_last_changed }}
+                            {% endif %}
+                            {% if device.opacity is defined %}
+                            opacity_off: {{ device.opacity }}
+                            {% endif %}
+                            {% if device.spin is defined %}
+                            spin_on: {{ device.spin }}
                             {% endif %}
                             {% if ((device.type == 'sensor') or (device.type is undefined) and ('sensor.' in device) or (device.type is defined) and ('sensor.' in device.entity)) %}
                             grid: default-hki-grid
@@ -1501,26 +1512,10 @@
                           box-shadow: var(--box-shadow);
                         }
                       entity: {{ content.entity }} 
-              {% endfor %}      
-              {% endif %}
-              {% if data.certificates is defined %}
-              - type: custom:mod-card
-                style: |
-                  ha-card {
-                    margin-left: {{ _global.general_config.margins }};
-                    margin-right: {{ _global.general_config.margins }};
-                  }
-                card:
-                  type: vertical-stack
-                  cards:
-                    {% if (data.certificates.show_title is undefined) or (data.certificates.show_title == true) %}
-                    - !include
-                      - templates/other/title-text.yaml
-                      - name: "&nbsp; {{ data.certificates.title|default('Certificates') }}"
-                    {% endif %}
-                    - !include templates/addons/certificates-addon.yaml
+              {% endfor %}
               {% endif %}
               {% if data.battery is defined %}
+              {% for content in data.battery %}
               - type: custom:mod-card
                 style: |
                   ha-card {
@@ -1530,18 +1525,40 @@
                 card:
                   type: vertical-stack
                   cards:
-                    {% if (data.battery.show_title is undefined) or (data.battery.show_title == true) %}
+                    {% if content.title is defined %}
                     - !include
                       - templates/other/title-text.yaml
-                      - name: "&nbsp; {{ data.battery.title|default('Battery Levels') }}"
+                      - name: "&nbsp; {{ content.title }}"
                     {% endif %}
-                    - !include
-                      - templates/addons/battery-addon.yaml
-                      {% if ((data.columns is defined) and (data.columns.battery is defined)) %}
-                      - columns: {{ data.columns.battery }}
+                    - type: grid
+                      {% if content.columns is defined %}
+                      columns: {{ content.columns }}
+                      {% elif ((data.columns is defined) and (data.columns.batteries is defined)) %}
+                      columns: {{ data.columns.batteries }}
                       {% else %}
-                      - columns: 3
+                      columns: 3
                       {% endif %}
+                      cards:
+                        {% if content.entities is defined %}
+                        {% for device in content.entities %}
+                        - type: custom:button-card
+                          template:
+                            - style-default
+                            - default-hki-grid
+                            - battery-state
+                          {% if device.name is defined %}
+                          name: {{ device.name }}
+                          {% endif %}
+                          entity: {{ device.entity }}
+                          {% if device.entity is defined %}
+                          entity: {{ device.entity }}
+                          {% else %}
+                          entity: {{ device }}
+                          {% endif %}
+                          icon: "[[[ if (entity.state < 10) return `mdi:battery-10`; if (entity.state < 20) return `mdi:battery-20`; if (entity.state < 30) return `mdi:battery-30`; if (entity.state < 40) return `mdi:battery-40`; if (entity.state < 50) return `mdi:battery-50`; if (entity.state < 60) return `mdi:battery-60`; if (entity.state < 70) return `mdi:battery-70`; if (entity.state < 80) return `mdi:battery-80`; if (entity.state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"
+                        {% endfor %}
+                        {% endif %}
+              {% endfor %}
               {% endif %}
         {% if ((data.custom_cards is defined) and (data.custom_cards.position is undefined) or (data.custom_cards is defined) and (data.custom_cards.position is defined) and (data.custom_cards.position == 'bottom')) %}
         {% if ((data.custom_cards.type is defined) and (data.custom_cards.type == 'default') or (data.custom_cards.type is undefined)) %}
@@ -1551,11 +1568,13 @@
           {% else %}
           layout_type: custom:horizontal-layout
           {% endif %}
+          {% if data.layout is defined %}
           layout:
+            {% if ((data.layout is defined) and (data.layout.max_width is defined)) %}
+            max_width: {{ data.layout.max_width }}
+            {% endif %}
             {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
             max_cols: {{ data.layout.max_cols }}
-            {% else %}          
-            max_cols: 3
             {% endif %}
             {% if ((data.layout is defined) and (data.layout.width is defined)) %}
             width: {{ data.layout.width }}
@@ -1566,6 +1585,7 @@
             {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
             rtl: {{ data.layout.rtl }}
             {% endif %}
+          {% endif %}
           cards:
             !include_dir_merge_list ../hki-user/views/{{ name }}
         {% elif ((data.custom_cards.type is defined) and (data.custom_cards.type == "advanced")) %}
