@@ -72,11 +72,13 @@ You can use any of the following options to modify your addon.
         icon_power: mdi:thermostat
 ```
 
-#### Thermostats Extra Options
+#### Thermostats Options
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| columns | no | 3 | Sets the number of columns for this stack |
+| lock | no | undefined | Puts a lock on the entire stack |
 | entities | yes | list of entities | List your thermostat entities |
 
 ```yaml
@@ -111,6 +113,31 @@ You can use any of the following options to modify your addon.
             - climate.thermostat_kitchen
             - climate.thermostat_office
             - climate.thermostat_guest_room
+```
+
+#### Thermostats Extra Options
+
+You can pass any of the following keys to your entities.
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| entity | yes | undefined | Sets the entity used |
+| lock | no | undefined | Puts a lock on the button |
+| ambient_temperature | no | undefined | Set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
+
+```yaml
+# Example with extra keys
+  my_view:
+    climate:
+      controls:
+        title: Preset Buttons
+      thermostats:
+        - title: Thermostats
+          entities:
+            - entity: climate.thermostat_livingroom
+              lock: yes
+            - entity: climate.thermostat_kitchen
+              ambient_temperature: sensor.kitchen_temperature
 ```
 
 More images:
