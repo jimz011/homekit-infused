@@ -39,15 +39,9 @@ By default it contains the following things:
 ### Video and screenshots
 #### Screenshots
 
-![Homekit Infused](docs/images/HiShoot_20210516_071529.png)
+![Homekit Infused](docs/images/HiShoot_20210516_071529.png)![Homekit Infused](docs/images/HiShoot_20210516_071539.png)
 
-![Homekit Infused](docs/images/HiShoot_20210516_071539.png)
-
-![Homekit Infused](docs/images/HiShoot_20210516_071657.png)
-
-![Homekit Infused](docs/images/HiShoot_20210516_071045.png)
-
-![Homekit Infused](docs/images/HiShoot_20200422_202622.png)
+![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/HiShoot_20210516_071045.png)
 
 #### Video
 Coming Soon!
