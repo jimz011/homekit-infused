@@ -36,7 +36,7 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [State Switch](https://github.com/thomasloven/lovelace-state-switch) | Frontend | This is used to make cards appear based on certain conditions, like a conditional-card but better |
 | [Light Popup Card](https://github.com/DBuit/light-popup-card) | Frontend | This is a popup that opens when holding/double tapping buttons |
 | [Thermostat Popup Card](https://github.com/DBuit/thermostat-popup-card) | Frontend | This is a popup that opens when holding/double climate buttons |
-| [More Info Card](https://github.com/thomasloven/more-info-card) | Frontend | This is the card that shows a standard HA styled color wheel in conjunction with the light popup card |
+| [More Info Card](https://github.com/thomasloven/lovelace-more-info-card) | Frontend | This is the card that shows a standard HA styled color wheel in conjunction with the light popup card |
 | [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Frontend | Mini Graph Card gives the possibility to create more advanced graphs! |
 | [Mini Media Player](https://github.com/kalkih/mini-media-player) | Frontend | This is a minimalistic media player |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Frontend | This is needed for various custom cards to run |
