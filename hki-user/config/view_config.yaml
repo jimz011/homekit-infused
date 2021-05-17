@@ -660,11 +660,53 @@ view_config:
 # Battery
   battery:
     subtitle: Overview
-    columns: 
-      buttons: 4
     icon: mdi:battery-50
+    columns:
+      batteries: 4
     battery:
-      columns: 4
+      - title: Hue Dimmers
+        entities:
+          - sensor.ab_gang_muur_battery_level
+          - sensor.ab_keuken_muur_battery_level
+          - sensor.ab_kleine_kamer_muur_battery_level
+          - sensor.ab_slaapkamer_muur_battery_level
+          - sensor.ab_toilet_muur_battery_level
+          - sensor.ab_woonkamer_muur_battery_level
+      - title: IKEA Dimmers
+        entities:
+          - sensor.ab_kleine_kamer_battery_level
+          - sensor.ab_slaapkamer_jim_battery_level
+          - sensor.ab_slaapkamer_steph_battery_level
+      - title: Doors
+        entities:
+          - sensor.voordeur_battery_level
+          - sensor.woonkamer_battery_level
+          - sensor.woonkamer_deur_battery_level
+      - title: Windows
+        entities:
+          - sensor.keukenraam_battery_level
+          - sensor.bijkeukenraam_battery_level
+          - sensor.kleine_kamerraam_battery_level
+      - title: Temperature/Humidity Sensors
+        entities:
+          - sensor.woonkamer_battery_level
+          - sensor.slaapkamer_battery_level
+          - sensor.badkamer_battery_level
+      - title: Motion Sensors
+        entities:
+          - sensor.motion_toilet_battery_level
+          - sensor.motion_office_battery_level
+          - sensor.motion_gang_battery_level
+          - sensor.motion_bijkeuken_battery_level
+      - title: Phones
+        entities:
+          - sensor.sm_n986b_batterijniveau
+          - sensor.sm_n976b_battery_level
+          - sensor.jimmys_iphone_battery_level
+      - title: Other
+        entities:
+          - sensor.vacuum_battery
+          - sensor.smoke_sensor_battery_level
 
 # Calendar
   calendar:
@@ -682,7 +724,6 @@ view_config:
   certificates:
     subtitle: Overview
     icon: mdi:file-certificate
-    certificates:
 
 # Cleaning
   cleaning:
@@ -770,7 +811,35 @@ view_config:
     icon: mdi:waze
     iframe:
       - url: https://embed.waze.com/iframe?zoom=13&lat=51.473097&lon=5.515480&ct=livemap
-        
+
+# Test
+  development:
+    subtitle: Test environment
+    layout:
+      type: custom:vertical-layout
+      max_cols: 1
+      column_widths: 7fr;
+      max_width: 100%
+    icon: mdi:flash
+    cameras:
+      - columns: 4
+        entities:
+          - camera.gallerij_camera
+          - camera.kennedylaan_links
+          - camera.woonkamer_camera
+          - camera.kennedylaan_camera
+    devices:
+      - columns: 8
+        entities:
+          - binary_sensor.motion_gang
+          - binary_sensor.motion_office
+          - binary_sensor.motion_woonkamer_camera
+          - binary_sensor.motion_bijkeuken
+          - binary_sensor.motion_toilet
+          - binary_sensor.motion_gallerij_camera_2
+          - binary_sensor.motion_kennedylaan_links
+          - binary_sensor.motion_gallerij_camera
+
 # Waste
   waste:
     subtitle: Collection
@@ -799,7 +868,7 @@ view_config:
         city_name: Eindhoven
     iframe:
       - title: Windy
-        url: https://embed.windy.com/embed2.html?lat=51.402&lon=5.467&detailLat=51.477&detailLon=5.496&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1%22%20frameborder=%220%22
+        url: https://embed.windy.com/
 
 # Stephanie Calendar
   stephanie_calendar:
