@@ -57,6 +57,8 @@ You must define it as an object instead to make use of the options below. See ex
 | show_icon | no | true | Choose to show/hide the icon, set to `false` to hide it |
 | show_state | no | true | Choose to show/hide the state, set to `false` to hide it |
 | show_last_changed | no | false | Choose to show/hide the last_changed state, set to `true` to show it, note that this will replace the label! |
+| opacity | no | 0.5 | Set this to change the opacity when a button is `off`, this is by default 0.5, this will ONLY change the opacity for when a state is `off`! |
+| spin | no | false | Set this to `true` if you want the icon to spin when the state is `on` |
 
 Examples:
 
