@@ -43,6 +43,7 @@ By default it contains the following things:
 
 ![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/HiShoot_20210516_071045.png)
 
+![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/find-my-addon.png)
 #### Video
 Coming Soon!
 
