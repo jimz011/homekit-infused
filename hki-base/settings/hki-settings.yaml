@@ -14,7 +14,9 @@ cards:
           icon: mdi:palette
           header-bottom: header-bottom.yaml
       - type: custom:layout-card
-        max_columns: 3
+        layout_type: custom:horizontal-layout
+        layout:
+          max_cols: 3
         cards:
           - type: custom:mod-card
             style: |
