@@ -16,10 +16,6 @@ In Homekit Infused v4.x.x it is super easy to setup views and configure them for
 
 *NOTE: For ANY change in the config below to take effect you MUST restart Home Assistant!!
 
-### Setting up device counters
-Before continuing we should first open `/hki-user/device_counters.yaml`. Add all your known entities to their corresponding groups. This will help HKI count the amount of devices that are actually turned on.
-We can also re-use these entities again in buttons or in custom-cards.
-
 ### Setting up general config
 Some of the variables can be found in the general config. The things you can find here are screen margins, header icon settings, rgb popup settings and vacuum settings.
 To setup any of these open the following file `/hki-user/config/general_config.yaml`. 
@@ -77,8 +73,11 @@ This is the bare minimum that will give you a brand new view, however without an
 *Note: when `custom_cards:` is defined you MUST create a folder with the same name as the object in `/hki-user/views/`. From the example above this would be `/hki-user/views/kitchen/`.
 Please read [this](custom_views.md) for more information on how to use this.
 
+### Setting up device counters
+For the header sensors to work properly we need to setup some groups from which HKI can count devices from. Open `/hki-user/device_counters.yaml` and add all your known entities to their corresponding groups. We can re-use these entities again in buttons or in custom-cards, for more information [click here](addons-v4/device-counters.md)).
+
 ### Setting up Notifications
-You can setup notifications to show in the subtitle of the header. You must set this up yourself by opening `/hki-user/notifications.yaml`. For more documentation and examples [click here](https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/addons/notifications.md)!
+You can setup notifications to show in the subtitle of the header. You must set this up yourself by opening `/hki-user/notifications.yaml`. For more documentation and examples [click here](/addons-v4/notifications.md)!
 
 ### More examples
 I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
