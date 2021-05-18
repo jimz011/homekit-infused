@@ -12,22 +12,15 @@
 - [Thanks](../thanks.md)
 
 ## Notifications
-
 ![Homekit Infused](../images/notifications.png)
 
-You can setup your notifications by opening `/hki-user/notifications.yaml` the file already has an example for you to work with.
+This card will show you live notifications in the subtitle part of the header (this only works on the frontpage). If you have multiple notifications, they will automatically slide and show you each notification for a few seconds. You could also swipe through them.
 
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| icon | yes | none | Sets an icon to show with the notification |
-| name | yes | none | Sets the notification, note that on small screens you'll want to use short notifications, otherwise they'll be cut off! |
-| spin | no | false | Sets if the icon should spin when showing the notification |
-
-To create a new notification all you have to do is create a new line in your notifications.yaml file and add the code you want.
-You can create a message that shows you that you have no notifications, to do this your conditions need to be the exact opposite of the standard notifications (see example below)
+- To create a notification you will have to open the following file `/homekit-infused/user/notifications.yaml`
+- You will first need to create a conditional card and then put the notification card inside of it. The state of the defined condition will decide to show the notification or not. See examples below.
 
 ```yaml
-# Example single notification
+# Example
 - type: conditional
   conditions:
     - entity: binary_sensor.smoke_sensor
@@ -39,8 +32,17 @@ You can create a message that shows you that you have no notifications, to do th
       name: There is smoke detected in the Kitchen!!
       spin: true
 ```
+
+### Notification Extra Options
+
+| Properties | Required | Default | Description |
+|----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| icon | yes | none | Sets an icon to show with the notification |
+| name | yes | none | Sets the notification, note that on small screens you'll want to use short notifications, otherwise they'll be cut off! |
+| spin | no | false | Sets if the icon should spin when showing the notification |
+
 ```yaml
-# Example multiple notifications
+# example multiple notifications
 
 # Smoke Detector
 - type: conditional
@@ -65,8 +67,9 @@ You can create a message that shows you that you have no notifications, to do th
     - icon: mdi:door
       name: The frontdoor is open!!
 ```
+
 ```yaml
-# Example multiple notifications with an all clear notification
+# example multiple notifications with an all clear notification
 
 # All Clear
 - type: conditional
@@ -104,3 +107,6 @@ You can create a message that shows you that you have no notifications, to do th
     - icon: mdi:door
       name: The frontdoor is open!!
 ```
+
+### Extra Information
+For more examples you can check out my personal notifications.yaml file [here](https://github.com/jimz011/homekit-infused/blob/4.x.x-personal/hki-user/notifications.yaml)
