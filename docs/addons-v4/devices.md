@@ -125,7 +125,7 @@ living_room:
 #### Tips
 By default the label is either the brightness of a light or empty, however with button-card JS templates you can have a cool label like this
 
-![Homekit Infused](../images/auto-fill-devices-card.png)
+![Homekit Infused](../images/button-label.png)
 
 ```yaml
 # Example Custom Label
