@@ -51,6 +51,7 @@ You can use any of the following options to modify your addon.
 
 ```yaml
 # Example
+  my_view:
     persons:
       - columns: 2
         square: true
@@ -73,6 +74,7 @@ You can use any of the following options to modify your addon.
 ```      
 ```yaml
 # Example 3 persons
+  my_view:
     persons:
       - columns: 2
         square: true
@@ -102,6 +104,7 @@ You can use any of the following options to modify your addon.
 ```   
 ```yaml
 # Example 3 multiple stacks with different column sizes and title
+  my_view:
     persons:
       - title: Adults
         columns: 3
