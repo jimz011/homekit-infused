@@ -135,7 +135,7 @@ You can pass any of the following keys to your entities.
         - title: Thermostats
           entities:
             - entity: climate.thermostat_livingroom
-              lock: yes
+              lock: true
             - entity: climate.thermostat_kitchen
               ambient_temperature: sensor.kitchen_temperature
 ```
