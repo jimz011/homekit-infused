@@ -33,8 +33,7 @@ Add the following line to your lovelace resources
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | none | Sets the climate entity, note that you MUST add this entity as the ambient_entity if you don't use an external sensor |
 | lock | no | false | Sets a lock on the button to avoid accidental presses (unlocking is done by a single tap) |
-| ambient_entity | yes | none | Sets the ambient temperature sensor, this can be handy when using e.g. Tado which doesn't always reflect the correct room temperature. This settings lets you set a different entity as the ambient sensor. If you don't have a separate entity sensor enter your climate entity here instead! (the same as used as the main entity for this card) |
-| attributes | yes | attributes.current_temperature / state | This can be used to change the attribute name or to use the state instead. You need to use this if your entity uses a different attribute or a different state. When you only need a state use `state` if you need to use an attribute always start with `attribute.` e.g. `attribute.temperature` |
+| notification | yes | "[[[ return `${states['YOUR_ENTITY'].attributes.current_temperature}°` ]]]" | You must add this and replace YOUR_ENTITY with your own entity |
 
 ### Install
 - Create a new file inside the folder of the view you want (e.g. /homekit-infused/user/views/climate/), you can name the file however you want (e.g. thermostat-card.yaml)
