@@ -74,7 +74,7 @@ This is the bare minimum that will give you a brand new view, however without an
 Please read [this](custom_views.md) for more information on how to use this.
 
 ### Setting up device counters
-For the header sensors to work properly we need to setup some groups from which HKI can count devices from. Open `/hki-user/device_counters.yaml` and add all your known entities to their corresponding groups. We can re-use these entities again in buttons or in custom-cards, for more information [click here](addons-v4/device-counters.md)).
+For the header sensors to work properly we need to setup some groups from which HKI can count devices from. Open `/hki-user/device_counters.yaml` and add all your known entities to their corresponding groups. We can re-use these entities again in buttons or in custom-cards, for more information [click here](addons-v4/device-counters.md).
 
 ### Setting up Notifications
 You can setup notifications to show in the subtitle of the header. You must set this up yourself by opening `/hki-user/notifications.yaml`. For more documentation and examples [click here](/addons-v4/notifications.md)!
