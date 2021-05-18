@@ -139,7 +139,7 @@ You can pass any of the following keys to your entities.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | undefined | Sets the entity used |
-| lock | no | undefined | Puts a lock on the button |
+| lock | no | false | Puts a lock on the button, choose between `true` or `false` |
 | ambient_temperature | no | undefined | Set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
 
 ```yaml
