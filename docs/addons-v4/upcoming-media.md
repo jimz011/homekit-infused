@@ -33,7 +33,7 @@ You can use any of the following options to modify your addon.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, omitting this line will hide the title entirely |
-| entities | yes | array | Add the entities you want in your stack, entities must be listed as an array, you must define them directly after defining the category object |
+| entity | yes | undefined | Add the entity that should be used for this stack |
 
 ```yaml
 # Example
