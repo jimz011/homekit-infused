@@ -15,7 +15,7 @@
 
 ![Homekit Infused](../images/auto-fill-cameras-card.png)
 
-This addon lets you auto-fill your views with camera entities
+This addon lets you add cards to your view with camera entities
 
 To add devices to your view add the following line:
 
