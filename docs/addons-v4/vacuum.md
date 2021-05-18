@@ -29,8 +29,12 @@ sensor:
         value_template: >-
           {{ states.YOUR_VACUUM_ENTITY.attributes.fan_speed }}
 ```
-Next, look at your vacuum entities attributes and look at the fan_speed_list. Now open `/hki-user/config/general_config.yaml` and adjust the fan speed names to the ones in your fan speed list. This will probably not need to be changed if you use the miio integration in HA.
+Next, look at your vacuum entities attributes and look at the fan_speed_list. 
+
+Now open `/hki-user/config/general_config.yaml` and adjust the fan speed names to the ones in your fan speed list. This will probably not need to be changed if you use the miio integration in HA.
+
 Do NOT change the names on the left side! Only change the names on the right side of the `:`.
+
 You can find more information on the general config [here](general-config.md)
 
 ```yaml
