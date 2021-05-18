@@ -114,6 +114,23 @@ You can use any of the following options to modify your addon.
             - climate.thermostat_office
             - climate.thermostat_guest_room
 ```
+```yaml
+# Example with extra options
+  my_view:
+    climate:
+      controls:
+        title: Preset Buttons
+        show_cool: false
+      thermostats:
+        - title: Thermostats
+          columns: 2
+          lock: true
+          entities:
+            - climate.thermostat_livingroom
+            - climate.thermostat_kitchen
+            - climate.thermostat_office
+            - climate.thermostat_guest_room
+```
 
 #### Thermostats Extra Options
 
