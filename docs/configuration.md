@@ -19,7 +19,10 @@ In Homekit Infused v4.x.x it is super easy to setup views and configure them for
 ### Setting up general config
 Some of the variables can be found in the general config. The things you can find here are screen margins, header icon settings, rgb popup settings and vacuum settings.
 To setup any of these open the following file `/hki-user/config/general_config.yaml`. 
-By default it should be ready for you and this file should only be touched when you want to change something that is related to the settings above. I suggest skipping this file for now and continue with setting up the views instead. [Click here](addons-v4/general-config.md) for documentation.
+
+By default it should be ready for you and this file should only be touched when you want to change something that is related to the settings above. I suggest skipping this file for now and continue with setting up the views instead. 
+
+[Click here](addons-v4/general-config.md) for documentation.
 
 ### Setting up views
 Views are completely conditional, this means that Homekit Infused doesn't have predefined views (unlike older versions of the project). You can create views pretty fast and easy by only entering a name!
