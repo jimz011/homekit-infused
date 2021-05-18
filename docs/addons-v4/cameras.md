@@ -95,9 +95,35 @@ my_view:
 my_view:
   cameras:
     - title: Unifi Camera's
-      columns: 4
       aspect_ratio: 16x9
       entities:
         - camera.living_room
         - camera.bedroom
+```
+
+#### Camera Tip
+Since camera's are rendered before most other addons we can make really cool views. Having multiple camera's in a row on the desktop.
+The example below will show all 4 camera's horizontally and below that a stack of buttons showing motion.
+```yaml
+# Example stack options
+my_view:
+  layout:
+    max_cols: 4
+  cameras:
+    - entities:
+        - camera.living_room
+    - entities:
+        - camera.bedroom
+    - entities:
+        - camera.frontdoor
+    - entities:
+        - camera.backyard
+  devices:
+    - title: Motion Sensors
+      columns: 4
+      entities:
+        - binary_sensor.living_room
+        - binary_sensor.bedroom
+        - binary_sensor.frontdoor
+        - binary_sensor.backyard
 ```
