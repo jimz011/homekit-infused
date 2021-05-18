@@ -12,7 +12,7 @@
 - [Thanks](thanks.md)
 
 ## Configuration
-In Homekit Infused v4.x.x it is super easy to setup views and configure them for either auto-filling or custom cards.
+In Homekit Infused v4.x.x it is super easy to setup views and configure them for either the built-in addons or custom cards.
 
 *NOTE: For ANY change in the config below to take effect you MUST restart Home Assistant!!
 
