@@ -95,7 +95,9 @@ You can use any of the following options to modify your addon.
         entity: vacuum.roborock_vacuum_s5
         show_fan_speed: false
 ```
-At this moment there is no interactive map possible, this will be added in the future, however if your vacuum gives a camera entity (like Valetudo and Valetudo RE can) than you can use that as your live map via the cameras addon. Note that you must have flashed your vacuum with either Valetudo or Valetudo RE AND setup their respective docker containers (I can't believe it's Valetudo or Valetudo-Mapper depending on which one you have flashed)
+At this moment there is no interactive map possible, this will be added in the future, however if your vacuum gives a camera entity (like Valetudo and Valetudo RE can) than you can use that as your live map via the cameras addon. 
+
+Note that you must have flashed your vacuum with either Valetudo or Valetudo RE AND setup their respective docker containers (I can't believe it's Valetudo or Valetudo-Mapper depending on which one you have flashed)
 
 You can have it look like the image below when using the following config:
 
