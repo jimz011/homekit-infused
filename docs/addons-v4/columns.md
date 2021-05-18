@@ -29,7 +29,7 @@ Below are the settings you can use for your addons
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| battery | no | 3 | Set how many battery entities are shown horizontally |
+| batteries | no | 3 | Set how many battery entities are shown horizontally |
 | buttons | no | 3 | Set how many buttons are shown horizontally |
 | cameras | no | 1 | Set how many camera cards are shown horizontally |
 | graphs | no | 3 | Set how many graph cards are shown horizontally |
