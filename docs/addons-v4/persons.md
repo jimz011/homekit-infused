@@ -101,9 +101,10 @@ You can use any of the following options to modify your addon.
             path: tala
 ```   
 ```yaml
-# Example 3 multiple stacks with different column sizes
+# Example 3 multiple stacks with different column sizes and title
     persons:
-      - columns: 3
+      - title: Adults
+        columns: 3
         square: true
         entities:
           - entity: person.stephanie
@@ -129,10 +130,11 @@ You can use any of the following options to modify your addon.
             travel_time_to_home: sensor.reistijd_johnny
             travel_time_to_work: sensor.reistijd_johnny_work
             path: johnny_location
-      - columns: 2
+      - title: Kids
+        columns: 2
         square: false
         entities:
-          - entity: person.tala
+          - entity: person.james
             text_color: white
             image_path: /local/images/tala2.png
             path: tala
