@@ -78,7 +78,7 @@ This is the bare minimum that will give you a brand new view, however without an
 Please read [this](custom_views.md) for more information on how to use this.
 
 ### Setting up Notifications
-You can setup notifications to show in the subtitle of the header. You must set this up yourself by opening `/hki-user/notifications.yaml`. For more information and examples [click here](https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/addons/notifications.md)!
+You can setup notifications to show in the subtitle of the header. You must set this up yourself by opening `/hki-user/notifications.yaml`. For more documentation and examples [click here](https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/addons/notifications.md)!
 
 ### More examples
 I could go on with examples forever, but it is way better to just check out the example config that I have over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
