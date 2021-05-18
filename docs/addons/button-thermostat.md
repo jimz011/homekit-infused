@@ -45,8 +45,7 @@ Add the following line to your lovelace resources
   - '../../../hki-base/templates/button/thermostat.yaml'
   - entity: climate.living_room
     lock: false
-    ambient_entity: climate.living_room
-    attributes: attributes.current_temperature
+    notification: "[[[ return `${states['climate.kitchen'].attributes.current_temperature}°` ]]]"
 ```
 ```
 # example of a basic climate entity with external temperature sensor
@@ -54,6 +53,5 @@ Add the following line to your lovelace resources
   - '../../../hki-base/templates/button/thermostat.yaml'
   - entity: climate.living_room
     lock: false
-    ambient_entity: sensor.living_room_temperature
-    attributes: state
+    notification: "[[[ return `${states['sensor.kitchen_temperature'].state}°` ]]]"
 ```
