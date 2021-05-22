@@ -27,7 +27,7 @@ To add view_selector to your view add the following line:
 ```
 
 The view selector works by leveraging multiple views as pages. You must add the view_selector to every view that you want the view_selector to show on.
-Also note that when adding view_selector to your view it will be removed from the main menu! You can re-add them to your view by adding `show_in_menu: true`.
+##### Note: When adding view_selector to your view, that view will be removed from the main menu! You can re-add views to your menu by adding `show_in_menu: true`. It is advised to only use one of the views that belong to a view_selector group in the main menu (but this is completely up to you).
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
