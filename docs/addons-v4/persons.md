@@ -46,7 +46,7 @@ You can use any of the following options to modify your addon.
 | phone_battery_sensor | no | undefined | Set your persons phone battery level entity here |
 | travel_time_to_home | no | undefined | Set your persons travel time to home entity here (you must setup travel sensors for this to work) |
 | travel_time_to_work | no | undefined | Set your persons travel time to work entity here (you must setup travel sensors for this to work) |
-| path | no | undefined | Set a different path for when you press the button, by default it will use the object name of the person (e.g. `john:`, this results in a path of `/hki-user/views/john`) |
+| path | no | undefined | Set a path for when you press the button, the name of the path is all that is needed (e.g. `location`, will take you to the `/homekit-infused/location` view |
 
 
 ```yaml
