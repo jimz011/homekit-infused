@@ -28,6 +28,7 @@ To add view_selector to your view add the following line:
 
 The view selector works by leveraging multiple views as pages. You must add the view_selector to every view that you want the view_selector to show on.
 #### Note: When adding view_selector to your view, that view will be removed from the main menu! You can re-add views to your menu by adding `show_in_menu: true`. It is advised to only use one of the views that belong to a view_selector group in the main menu (but this is completely up to you).
+#### Tip: It is suggested that you set a title with the same name for each view (since by default the view title is the object name unless you specify one manually). See example below.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,6 +48,7 @@ The view selector works by leveraging multiple views as pages. You must add the 
 ```yaml
 # Example with 2 views with a view_selector
   stephanie_location:
+    title: Stephanie
     view_selector:
       columns: 3
       aspect_ratio: 3/1
@@ -60,6 +62,7 @@ The view selector works by leveraging multiple views as pages. You must add the 
           path: stephanie_location
 
   stephanie_calendar:
+    title: Stephanie
     view_selector:
       columns: 3
       aspect_ratio: 3/1
@@ -75,6 +78,7 @@ The view selector works by leveraging multiple views as pages. You must add the 
 ```yaml
 # Example with 2 views with a view_selector with one view shown in the main menu
   stephanie_location:
+    title: Stephanie
     show_in_menu: true
     view_selector:
       columns: 3
@@ -89,6 +93,7 @@ The view selector works by leveraging multiple views as pages. You must add the 
           path: stephanie_location
 
   stephanie_calendar:
+    title: Stephanie
     view_selector:
       columns: 3
       aspect_ratio: 3/1
