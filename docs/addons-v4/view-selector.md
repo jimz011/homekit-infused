@@ -44,6 +44,7 @@ The view selector works by leveraging multiple views as pages. You must add the 
 | icon | yes | undefined | Sets the icon of this button |
 | path | yes | undefined | Sets the path this button should take you to |
 | this_view | no | undefined | You can add this to your selector to make HKI aware that you are currently on this page, this will give the button a nice `ON` appearance. The view selector works fine without it though |
+| button_badge | no | undefined | You can set a button badge just like in the menu. A useful case would be for example a lights view with multiple floors where the badge shows you the number of lights `on` on that specific floor |
 
 ```yaml
 # Example with 2 views with a view_selector
