@@ -66,16 +66,17 @@ Warning:
 - 2x Samsung smart TV
 - 2x Google Nest mini's
 - 1x Google Home mini
-- 1x Google Home standard
+- 1x Google Home
 - 2x Google Nest Hub
 - 2x Aqara motion sensor by Xiaomi (deCONZ controlled)
 - 3x IKEA Tradfri Motion sensors (deCONZ controlled)
 - 1x Xiaofang Camera (rooted and flashed with Dafang Hacks)
-- 1x Simple webcam (in motioneye)
+- 1x Simple webcam (via motioneye)
 - 1x deCONZ stick by Dresden Elektronic
 - 1x Xiaomi Mija Gateway (Lumigateway version 3) (I only ever use this as speaker/light, no other devices are attached to this and it is cut off from the internet)
-- 1x Xiaomi Aqara Airconditioning Companion (version 3) (I don't have a compatible airco yet, though it does work as a switch and energy reader, not yet in my HA)
+- 1x Xiaomi Aqara Airconditioning Companion (version 3) (I don't have a compatible airconditioner yet, though it does work as a switch and energy reader, not yet in my HA)
 - 1x Unifi Dream Machine Pro
+- 2x Unifi AP AC-Lite
 - 2x Unifi Flex G3 Camera
 
 There is probably more, but I can't think of it right now XD  
