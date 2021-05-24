@@ -63,17 +63,19 @@ Before adding back the user folders create a view for them first as documented i
 living_room:
   subtitle: My livingroom
   icon: mdi:sofa
-  custom_cards: true
+  custom_cards:
 ```
 Next make sure that the foldername matches the key (in this case `living_room:`). So in your user folder you should have `/hki-user/views/living_room/`.
 
-*NOTE: The paths for existing legacy addons have also been changed and you should change them accordingly. This can be difficult so I will suggest adding back your folders one by one. Add a single view with `custom_cards: true` add the folder (and/or rename it to the corresponding key) and check if it works. You can do a quick full folder search/replace and replace the following two words:
+*NOTE: The paths for existing legacy addons have also been changed and you should change them accordingly. This can be difficult so I will suggest adding back your folders one by one. Add a single view with `custom_cards:` add the folder (and/or rename it to the corresponding key) and check if it works. You can do a quick full folder search/replace and replace the following two words:
 - `base/` to `hki-base/`
 - `user/` to `hki-user/`
 
+*WARNING: IF you have any custom file with `# lovelace_gen` at the top and the file does NOT contain any jinja templates then HKI will crash! You must remove this line from all the files that don't have any jinja in them.
+
 I will once again stress out that you should do this slowly and with care or troubleshooting will be a nightmare!
 
-You can remove ALL the folders you do not intend to use anymore. You can also delete the folders where `custom_cards:` is not defined and want to use auto-filling instead. This will make your folder look a whole lot cleaner.
+You can remove ALL the folders you do not intend to use anymore. You can also delete the folders where `custom_cards:` is not defined and want to use auto-filling instead. This will make your views folder look a whole lot cleaner.
 
 You can see examples over [here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal)
 
