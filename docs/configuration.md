@@ -36,6 +36,13 @@ To setup a new view you can enter ANY name you want, just make SURE your name is
     subtitle: Overview
     icon: mdi:floor-lamp
 ```
+```yaml
+# Example Minimal with a subtitle
+  living_room:
+    subtitle: Overview
+    icon: mdi:floor-lamp
+```
+
 The example above will create a view for you named Living Room and automatically does the following:
 - sets the title of the view (in this case Living Room)
 - sets the path of the view for your browser to use (in this case https://hassio.local/homekit-infused/living_room)
@@ -47,17 +54,17 @@ This is the bare minimum that will give you a brand new view, however without an
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 'object' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view |
-| show_subtitle | no | subtitle | Set to show the header subtitle to true or false |
-| show_header | no | true | Show or hide the entire HKI header (this includes the subtitle) |
 | title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead |
 | subtitle | no | undefined | Set the subtitle text, this accepts button-card JS templates, if you don't set a subtitle it will show the default notifications instead |
 | icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this also accepts FA icons, you can use button-card JS templates as long as you don't set this icon to show in the nav_bar |
 | type | no | undefined | Set the type to `room` if you want this view to show up as a room, this only has effect when using the `rooms` addon |
-| show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites of the menu and the frontpage |
-| show_in_menu | no | undefined | This forces a view to be shown in the menu addon, this is only useful when using the `menu:` or `view_selector:` addon |
+| show_header | no | true | Show or hide the entire HKI header (this includes the subtitle) |
+| show_subtitle | no | subtitle | Set to show the header subtitle to true or false |
+| show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites addon |
+| show_in_menu | no | undefined | This forces a view to be shown in the menu addon, this is useful when using the `menu:` or `view_selector:` addon |
 | button_label | no | no label | Set the button label text, this accepts button-card JS templates |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
-| show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar |
+| show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar, this is not the same as the menu! |
 | custom_cards | no | undefined | You should use this is you want your own lovelace cards to be shown in the framework, please refer to the [Custom Views](custom_views.md) documentation |
 | 'addon_name' | no | undefined | Add an addon to your view, refer to the [Addons](addons.md) section for documentation |
 
