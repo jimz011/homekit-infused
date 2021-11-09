@@ -5,7 +5,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
-[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.11.1%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.11.2%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-4.0.0rc%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 [![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
 
