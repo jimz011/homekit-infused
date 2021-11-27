@@ -5,9 +5,15 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
-[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.11.5%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-4.0.0rc%20-purple)](https://github.com/jimz011/homekit-infused/releases)
-[![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/stargazers)
+[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2021.10.5%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-2021.11.1%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+
+![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused?style=social)
+![GitHub forks](https://img.shields.io/github/forks/jimz011/homekit-infused?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/jimz011/homekit-infused?style=social)
+![GitHub followers](https://img.shields.io/github/followers/dwainscheeren?style=social)
+
+<a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white" height=25></a>
 
 <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/discord/688401603811999885" /></a>
 
@@ -46,6 +52,3 @@ By default it contains the following things:
 ![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/find-my-addon.png)
 #### Video
 Coming Soon!
-
-### Featured Theme
-Dwains Dashboard is a beautiful dashboard created by @Dwains which can be found [here](https://github.com/dwainscheeren/dwains-lovelace-dashboard). I will recommend this theme as an alternative to HKI when you are using lighter hardware.
