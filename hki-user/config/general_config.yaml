@@ -12,9 +12,12 @@ general_config:
   header:
     show_sensors: true 
     sensors: # You can remove the sensors you don't want to show, you can have as many as you want. Note: Leaving group_entity empty will disable it's popup but still show the number.
-      - icon: mdi:storefront-outline
-        entity: sensor.current_covers_open
-        group_entity: group.all_cover_entities
+#      - icon: mdi:storefront-outline
+#        entity: sensor.current_covers_open
+#        group_entity: group.all_cover_entities
+#      - icon: mdi:thermostat
+#        entity: sensor.current_climate_entities_on
+#        group_entity: group.all_climate_entities
       - icon: mdi:door
         entity: sensor.current_doors_open
         group_entity: group.all_door_sensor_entities
