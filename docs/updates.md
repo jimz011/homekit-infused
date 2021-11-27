@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -19,10 +19,10 @@ To update Homekit Infused to a newer version all you need to do is download the 
 
 Be sure to read any breaking changes.
 
-### Procedure from v3.x.x to v4.0.0
+### Procedure from v3.x.x to v4.0.0 (now renamed to v2021.11.1)
 *Warning: the entire HKI structure has changed and thus will require some user input. Note that anything that was configured in the `/homekit-infused/user/config/` folder MUST be configured again in v4 since many of these options have been merged and/or no longer needed.
 
-To update Homekit Infused to version 4.0.0 you must do the following.
+To update Homekit Infused to version 2021.11.1 you must do the following.
 Make a copy of the following folder and put it somewhere safe:
 - /homekit-infused/user/
 

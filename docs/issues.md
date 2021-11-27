@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -20,6 +20,7 @@ The docs might be incomplete or not completely comprehensible for all. Remember 
 #### Known Issues
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
   - Some themes require extra tweaking, if you feel like you can help you can always do a PR
+  - The navigation bars extra options to show user/date or time is currently not working. The status of this is unknown.
 
 #### QUESTIONS?
 For questions please visit any of the support links on the [main page](https://github.com/jimz011/homekit-infused) of this repo.

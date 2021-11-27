@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](../index.md)
@@ -32,6 +32,7 @@ Below are the settings you can use for your addons
 | batteries | no | 3 | Set how many battery entities are shown horizontally |
 | buttons | no | 3 | Set how many buttons are shown horizontally |
 | cameras | no | 1 | Set how many camera cards are shown horizontally |
+| gauges | no | 1 | Set how many gauges are shown horizontally |
 | graphs | no | 3 | Set how many graph cards are shown horizontally |
 | media_players | no | 1 | Set how many media players are shown horizontally |
 | persons | no | 2 | Set how many person cards are shown horizontally |
@@ -42,4 +43,5 @@ Below are the settings you can use for your addons
     columns:
       buttons: 2
       cameras: 2
+      gauges: 3
 ```

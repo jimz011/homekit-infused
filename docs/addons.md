@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -40,21 +40,28 @@ my_second_view:
 | [columns](addons-v4/columns.md) | This addon helps you set columns for addons globally |
 | [climate](addons-v4/climate.md) | Preset buttons for your climate view |
 | [devices](addons-v4/devices.md) | All the auto-filling you probably need and want, this will create all the buttons for you |
+| [energy](addons-v4/energy-cards.md) | Recreate the HA energy dashboard in lovelace |
 | [entities_card](addons-v4/entities.md) | An easy to use entities card |
 | [favorites](addons-v4/favorites.md) | Show a stack with shortcuts to your favorited views |
 | [find_my](addons-v4/find-my.md) | An Apple inspired find_my addon |
+| [gauge](addons-v4/gauge-card.md) | Show simple gauges for your entities |
+| [glance_card](addons-v4/glance-card.md) | An easy to use glance card |
 | [google_home](addons-v4/google-home.md) | A Google Home TTS card |
 | [graphs](addons-v4/graphs.md) | The addon you need to show your graphs |
 | [iframe](addons-v4/iframe.md) | A handy iFrame card that you can use on your views |
+| [history](addons-v4/history-graph.md) | This is the core HA graph card which you can use as an alternative to the graphs addon in HKI |
 | [layout](addons-v4/layout.md) | Change the views layout |
+| [logbook](addons-v4/logbook-card.md) | Keep track of your entities with a logbook |
 | [map](addons-v4/map.md) | A map to track your entities |
 | [media_players](addons-v4/media-players.md) | A Media Player addon |
 | [menu](addons-v4/menu.md) | Show the menu on other views than.... menu! |
 | [persons](addons-v4/persons.md) | Person photo's and links to use on your view |
+| [plant_status](addons-v4/plant-status.md) | Monitor your plants |
 | [remote_control](addons-v4/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
 | [rooms](addons-v4/rooms.md) | Show a stack with shortcuts to your room views |
 | [search](addons-v4/search-card.md) | A handy search card for your view to find entities quickly |
 | [simple_weather](addons-v4/simple-weather.md) | A simple weather card |
+| [statistics](addons-v4/statistics-graph.md) | Create beautiful statistics graphs |
 | [upcoming_media](addons-v4/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
 | [vacuum](addons-v4/vacuum.md) | Vacuum controls and fan speed |
 | [view_selector](addons-v4/view-selector.md) | Create your own in view navigation bar |

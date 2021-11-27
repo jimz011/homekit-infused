@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](../index.md)
@@ -32,7 +32,7 @@ You can use any of the following options to modify your addon.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
-| entities | yes | list of entities | Set your calendar entity/entities here, you can define more than one entity per stack |
+| entities | yes | list of entities | Set your entity/entities here, you can define more than one entity per card |
 
 ```yaml
 # Example

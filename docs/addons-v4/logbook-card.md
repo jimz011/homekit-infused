@@ -11,19 +11,19 @@
 - [About Me](../about.md)
 - [Thanks](../thanks.md)
 
-## Addons > iFrame
+## Addons > Logbook Card
 
-![Homekit Infused](../images/iframe-card.png)
+![Homekit Infused](../images/logbook.png)
 
-This addon gives your view an iFrame card .
-To add this addon to your view add `iframe:` in your view_config.
+This addon gives your view a core logbook card that shows the history of a given entity (or multiple entities), this can be useful for example when you want to track all the events of a given entity.
+To add this addon to your view add `logbook:` in your view_config.
 
-To add iframe to your view add the following line:
+To add logbook card to your view add the following line:
 
 ```yaml
 # Example
   my_view:
-    iframe:
+    logbook:
 ```
 
 You can use any of the following options to modify your addon.
@@ -31,22 +31,16 @@ You can use any of the following options to modify your addon.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
-| url | yes | undefined | Set your iFrame address here, note that if you use `https` to access your Home Assistant, your iFrame address must be `https` as well! |
-| aspect_ratio | no | undefined | Set a custom aspect_ratio for this iFrame |
+| entities | yes | list of entities | Set your entity/entities here, you can define more than one entity per card |
+| hours_to_show | no | 24 | Set how many hours you want the logbook card to show |
 
 ```yaml
 # Example
   my_view:
-    iframe: 
-      - title: Windy
-        url: https://embed.windy.com/
-```
-```yaml
-# Example multiple iframes
-  my_view:
-    iframe: 
-      - title: Windy
-        url: https://embed.windy.com/
-      - title: Buienradar
-        url: https://embed.buienradar.nl/
-```
+    logbook:
+      - title: Logbook
+        hours_to_show: 12
+        entities:
+          - light.livingroom
+          - switch.oven
+``` 

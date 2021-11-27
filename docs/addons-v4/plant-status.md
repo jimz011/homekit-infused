@@ -11,42 +11,34 @@
 - [About Me](../about.md)
 - [Thanks](../thanks.md)
 
-## Addons > iFrame
+## Addons > Plant Status Card
 
-![Homekit Infused](../images/iframe-card.png)
+![Homekit Infused](../images/plant-status.png)
 
-This addon gives your view an iFrame card .
-To add this addon to your view add `iframe:` in your view_config.
+This addon gives your view a core plant status card that shows the different entities associated with your plant.
+To add this addon to your view add `plant_status:` in your view_config.
 
-To add iframe to your view add the following line:
+To add plant_status card to your view add the following line:
 
 ```yaml
 # Example
   my_view:
-    iframe:
+    plant_status:
 ```
+
+*NOTE: This addon is untested since I do not have plant sensors!
 
 You can use any of the following options to modify your addon.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
-| url | yes | undefined | Set your iFrame address here, note that if you use `https` to access your Home Assistant, your iFrame address must be `https` as well! |
-| aspect_ratio | no | undefined | Set a custom aspect_ratio for this iFrame |
+| entity | yes | undefined | Set your entity here, you can only define one entity per card |
 
 ```yaml
 # Example
   my_view:
-    iframe: 
-      - title: Windy
-        url: https://embed.windy.com/
-```
-```yaml
-# Example multiple iframes
-  my_view:
-    iframe: 
-      - title: Windy
-        url: https://embed.windy.com/
-      - title: Buienradar
-        url: https://embed.buienradar.nl/
-```
+    plant_status:
+      - title: Bonsai
+        entity: plant.bonsai
+``` 

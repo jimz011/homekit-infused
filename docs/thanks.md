@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -44,6 +44,8 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @stephan
   - @hassan
   - @burningstone
+  - @evr
+  - @zbuh
   - @HomeAssistantAddicts Discord Group
   - @HomeAssistantNL/BE Slack group
   - @everyone I forgot to mention
@@ -87,5 +89,7 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @jaxc
   - @ali.sh
   - @NiMa008
+  - @Daniel B Turgel
+  - @topbrunbu
 
 I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot. Translations are no longer used, however I still want to thank them for their great input!

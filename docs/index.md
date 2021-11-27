@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -34,14 +34,14 @@ Warning:
 # Hardware I use personally for this setup
 #### Computer
 
-- Intel i5 4690 3,6GHz
+- Intel i7 4790K
 - 32GB DDR3 1600MHz RAM
-- 4x HDD (2x 3TB, 2x 2TB)
+- 9x HDD (6x 3TB, 2x 2TB, 1x 1TB)
 - 2x SSD (1x 120GB, 1x 480GB)
 - Hypervisor used: Unraid
 - Docker: Yes
 - VM's: None
-- Docker Containers: 60
+- Docker Containers: 70+
 - Home Assistant: Home Assistant Core running on docker in Unraid
 
 #### Smart Devices
@@ -49,7 +49,7 @@ Warning:
 - 3x IKEA Tradfri remotes (deCONZ controlled)
 - 1x Koogeek kh01cn hardware switch (connected through HA with Homekit Controller)
 - 11x LED strips (around 70 meters in total) with MagicHome controllers (Flashed with ESPHome, varying from RGB to RGBWC)
-- 12x Ikea Tradfri smart switches  (deCONZ controlled)
+- 13x Ikea Tradfri smart switches  (deCONZ controlled)
 - 2x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
 - 13x Philips Hue lights (ranging from filament to color temperature ones)  (deCONZ controlled)
 - 3x Sonoff POW R2 (to monitor the washingmachine, dryer and dishwasher)
@@ -67,7 +67,7 @@ Warning:
 - 2x Google Nest mini's
 - 1x Google Home mini
 - 1x Google Home
-- 2x Google Nest Hub
+- 4x Google Nest Hub
 - 2x Aqara motion sensor by Xiaomi (deCONZ controlled)
 - 3x IKEA Tradfri Motion sensors (deCONZ controlled)
 - 1x Xiaofang Camera (rooted and flashed with Dafang Hacks)
@@ -75,8 +75,12 @@ Warning:
 - 1x deCONZ stick by Dresden Elektronic
 - 1x Xiaomi Mija Gateway (Lumigateway version 3) (I only ever use this as speaker/light, no other devices are attached to this and it is cut off from the internet)
 - 1x Xiaomi Aqara Airconditioning Companion (version 3) (I don't have a compatible airconditioner yet, though it does work as a switch and energy reader, not yet in my HA)
+- 1x Xiaomi Aqara Cube (this device is actually better than I thought it would be, but because of the way our house is programmed it is just a fun object)
 - 1x Unifi Dream Machine Pro
-- 2x Unifi AP AC-Lite
+- 2x Unifi AP AC-Lite WiFI Access Points
 - 2x Unifi Flex G3 Camera
+- 2x Unifi Flex-Mini Switches
+- 1x TP-Link Switch
+- A bunch of NFC stickers around the house
 
 There is probably more, but I can't think of it right now XD  

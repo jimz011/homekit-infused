@@ -1,4 +1,4 @@
-# Homekit Infused 4.x.x
+# Homekit Infused 2021.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -24,7 +24,9 @@
 - Install all of the cards/components below, even if you don't plan to use them, HKI is dependent on them.
 
 ### HACS
-Below is a list of all the addons required to run the Homekit Infused, you can install all of them through HACS, 
+Below is a list of all the addons required to run the Homekit Infused, you can install all of them through HACS
+
+*NOTE: Some of these addons are required to run HKI and some are not. Since it is easier for me to just make you install all cards I will not go into detail on how to strip these cards from your setup. If a card is not defined it will not be used and will not take up your resources. Having all cards ready and available will make your HKI experience when using the addons a lot more pleasant.
 
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +45,8 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [Search Card](https://github.com/postlund/search-card) | Frontend | An easy to use search card |
 | [Simple Weather Card](https://github.com/kalkih/simple-weather-card) | Frontend | This is a small weather card, see screenshot for details |
 | [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is needed for the scrolling notifications, but also for most popups |
-| [Lovelace GUI Sandbox](https://github.com/thomasloven/lovelace-gui-sandbox) | Frontend | This card will help you create buttons visually |
+| [Upcoming Media Card](https://github.com/custom-cards/upcoming-media-card) | Frontend | This card is used for the upcoming media addon |
+| [Vacuum Card](https://github.com/denysdovhan/vacuum-card) | Frontend | An awesome looking vacuum card for use with robot vacuums |
 | [Layout Card](https://github.com/thomasloven/lovelace-layout-card) | Frontend | This card is needed for the layout, IMPORTANT: Read the note below |
 | [Browser Mod](https://github.com/thomasloven/hass-browser_mod) | Integration | Browser-mod makes the browser more useful and gives us the opportunity to show/create custom popups and many more! |
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Integration | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
