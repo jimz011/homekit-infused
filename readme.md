@@ -13,9 +13,9 @@ If you find any information on this page useful, feel free to buy me a coffee:
 ![GitHub watchers](https://img.shields.io/github/watchers/jimz011/homekit-infused?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/jimz011?style=social)
 
-<a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white" height=25></a>
+<a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white" height=35></a>
 
-<a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/discord/688401603811999885" /></a>
+<a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2" height=35></a>
 
 ## Homekit Infused (Lovelace) by Jimz011
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
