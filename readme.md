@@ -13,7 +13,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 ![GitHub watchers](https://img.shields.io/github/watchers/jimz011/homekit-infused?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/jimz011?style=social)
 
-<a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white" height=35></a>
+<a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
 
 <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2" height=35></a>
 
