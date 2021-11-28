@@ -101,5 +101,5 @@ You can use any of the following options to modify your addon.
       - type: energy-devices-graph
 ```
 
-![Homekit Infused](../images/energy_cards2.png)
-![Homekit Infused](../images/energy_cards3.png)
+![Homekit Infused](../images/energy-cards2.png)
+![Homekit Infused](../images/energy-cards3.png)
