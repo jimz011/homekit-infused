@@ -385,3 +385,5 @@ Space Gray:
   paper-toast-background-color: '#821414'
   notification-badge-color: 'Black'
   notification-popup-action-color: 'AliceBlue'
+
+  app-header-background-color: 'var(--primary-color)'

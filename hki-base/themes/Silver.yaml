@@ -254,9 +254,6 @@ Silver:
   disabled-text-color: 'var(--mdc-grey-darken-2)'
   label-badge-border-color: 'var(--md-purple-900)'
   
-  # Sidebar
-  sidebar-icon-color: 'var(--mdc-grey-darken-2)'
-  
   # Background colors
   secondary-background-color: 'var(--mdc-grey-lighten-5)'
   divider-color: 'rgba(0, 0, 0, .12)'
@@ -384,3 +381,10 @@ Silver:
   # Notification Badge
   notification-badge-color: 'white'
   notification-popup-action-color: 'black'
+
+  app-header-background-color: 'var(--primary-color)'
+
+  #left sidebar
+  sidebar-icon-color: '#d0d0d0'
+  sidebar-selected-icon-color: 'crimson'
+  sidebar-selected-text-color: 'crimson'

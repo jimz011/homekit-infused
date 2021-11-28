@@ -256,8 +256,6 @@ Orange Darkness:
   secondary-text-color: '#b58e31'
   disabled-text-color: '#777777'
   label-badge-border-color: 'green'
-  # Sidebar
-  sidebar-icon-color: '#777777'
   # Background colors
   secondary-background-color: '#222222'
   divider-color: 'rgba(0, 0, 0, .12)'
@@ -334,3 +332,10 @@ Orange Darkness:
   paper-slider-secondary-color: "var(--light-primary-color)"
   paper-slider-container-color: "var(--sidebar-text_-_background)"
   paper-progress-secondary-color: "var(--sidebar-text_-_background)"
+  app-header-background-color: 'var(--primary-color)'
+
+  #left sidebar
+  sidebar-icon-color: 'white'
+  sidebar-text-color: 'white'
+  sidebar-selected-icon-color: 'var(--primary-color)'
+  sidebar-selected-text-color: 'var(--primary-color)'

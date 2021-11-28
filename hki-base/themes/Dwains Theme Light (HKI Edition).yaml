@@ -241,12 +241,15 @@ Dwains Theme Light (HKI Edition):
 
   # Toast / Badge
   paper-toast-background-color: '#821414'
+  paper-listbox-background-color: 'white'
+  app-header-background-color: 'var(--primary-color)'
 
-  ha-card-background: 'var(--button-color)'
+  ha-card-background: '#FFFFFF'
   paper-card-background-color: 'var(--ha-card-background)'
   paper-item-icon-color: '#262628'
   paper-item-icon-active-color: '#b58e31'
   paper-item-icon_-_color: 'var(--primary-text-color)'
+  primary-text-color: 'var(--primary-color)'
 
   #color for top small bar notch on ios
   primary-color: '#262628'
@@ -256,6 +259,7 @@ Dwains Theme Light (HKI Edition):
   ch-tab-indicator-color: '#2fbae5'
 
   #left sidebar
+  sidebar-background-color: 'white'
   sidebar-icon-color: '#d0d0d0'
-  sidebar-selected-icon-color: '#2fbae5'
-  sidebar-selected-text-color: 'black'
+  sidebar-selected-icon-color: 'var(--primary-color)'
+  sidebar-selected-text-color: 'var(--primary-color)'

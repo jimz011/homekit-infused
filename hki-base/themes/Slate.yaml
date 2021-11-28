@@ -336,3 +336,5 @@ Slate:
   material-background-color: "var(--paper-listbox-background-color)"
   material-secondary-background-color: '#222222'
   material-body-text-color: '#FFFFFF'
+
+  app-header-background-color: 'var(--primary-color)'

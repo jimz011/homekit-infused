@@ -385,3 +385,5 @@ Valentine:
   notification-badge-color: 'black'
   notification-popup-action-color: 'white'
   paper-toast-background-color: '#821414' 
+
+  app-header-background-color: 'var(--primary-color)'

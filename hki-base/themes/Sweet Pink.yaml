@@ -253,9 +253,6 @@ Sweet Pink:
   disabled-text-color: 'var(--mdc-grey-darken-2)'
   label-badge-border-color: 'var(--md-purple-900)'
   
-  # Sidebar
-  sidebar-icon-color: 'var(--mdc-grey-darken-2)'
-  
   # Background colors
   secondary-background-color: 'var(--mdc-grey-lighten-5)'
   divider-color: 'rgba(0, 0, 0, .12)'
@@ -381,3 +378,12 @@ Sweet Pink:
   notification-badge-color: 'white'
   notification-popup-action-color: 'black'
   paper-toast-background-color: '#821414'
+
+  app-header-background-color: 'var(--primary-color)'
+
+  #left sidebar
+  sidebar-background-color: 'white'
+  sidebar-icon-color: 'black'
+  sidebar-text-color: 'black'
+  sidebar-selected-icon-color: 'var(--primary-color)'
+  sidebar-selected-text-color: 'var(--primary-color)'

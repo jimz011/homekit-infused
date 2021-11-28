@@ -58,6 +58,8 @@ cards:
                   - font-size: 14px
                 state:
                   - font-size: 12px
+                icon:
+                  - color: var(--paper-item-icon-color)
                 label:
                   - font-size: 12px
                   - color: >
@@ -278,7 +280,7 @@ cards:
                 box-shadow: none;
                 font-size: 13px;
                 font-family: var(--font-family);
-                color: white;
+                color: var(--title-text-color);
                 margin-left: {{ _global.general_config.margins }};
                 margin-right: {{ _global.general_config.margins }};
               }                    

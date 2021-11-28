@@ -253,9 +253,6 @@ Orange Delight:
   disabled-text-color: 'var(--mdc-grey-darken-2)'
   label-badge-border-color: 'var(--md-purple-900)'
   
-  # Sidebar
-  sidebar-icon-color: 'var(--mdc-grey-darken-2)'
-  
   # Background colors
   secondary-background-color: 'var(--mdc-grey-lighten-5)'
   divider-color: 'rgba(0, 0, 0, .12)'
@@ -385,3 +382,9 @@ Orange Delight:
 
   # Lovelace Header Text
   paper-toast-background-color: '#821414'
+  app-header-background-color: 'var(--primary-color)'
+
+  #left sidebar
+  sidebar-background-color: 'white'
+  sidebar-icon-color: '#d0d0d0'
+  sidebar-selected-icon-color: 'var(--primary-color)'

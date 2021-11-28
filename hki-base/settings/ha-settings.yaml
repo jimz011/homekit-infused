@@ -79,19 +79,6 @@ cards:
                         line-height: 32px
                         padding: 40px 10px 
                     - type: state-label
-                      entity: sensor.latest_version
-                      prefix: 'Latest Beta '
-                      style:
-                        top: 0
-                        left: 0
-                        pointer-events: none
-                        transform: initial
-                        font-size: 12px
-                        font-family: var(--font-family)
-                        color: rgba(255,255,255,0.8)
-                        line-height: 32px
-                        padding: 60px 10px
-                    - type: state-label
                       entity: sensor.hki_current_version
                       prefix: 'Current HKI '
                       style:
@@ -433,7 +420,7 @@ cards:
                       - name: Check
                         entity: input_boolean.dummy1
                         label: HA Config
-                        icon: mdi:check-box-outline
+                        icon: mdi:checkbox-multiple-outline
                         service: homeassistant.check_config
                         opacity_off: 0.8
                         confirmation: "[[[ return `This will check the HA config, it will show a notification in the sidebar if there is an error. If no error is shown the config is OK!` ]]]"
@@ -456,9 +443,7 @@ cards:
               !include
               - '../templates/other/title-text.yaml'
               - name: "[[[ if (states['sensor.home_assistant_latest_version'].state == states['sensor.version_current'].state) return `You have the latest version of Home Assistant`; if (states['sensor.home_assistant_latest_version'].state > states['sensor.version_current'].state) return `There is an update for Home Assistant, version ${states['sensor.home_assistant_latest_version'].state}`; else return 'You are running a beta/dev version of Home Assistant!'; ]]]"
-                background_color: var(--ha-card-background)
                 font_weight: bold
-                font_color: var(--primary-text-color)
                 justify_self: center
           - !include '../includes/empty-button.yaml'
       - !include '../includes/gap-height.yaml'

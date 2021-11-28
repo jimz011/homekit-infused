@@ -246,19 +246,13 @@ Home Assistant:
   paper-card-background-color: 'var(--ha-card-background)'
   paper-toast-background-color: '#821414'
 
-  # Weather
-#  weather-icon-clear-night: url("/www/images/weather-icons/clear-night.svg")
-#  weather-icon-cloudy: url("/www/images/weather-icons/cloudy.svg")
-#  weather-icon-fog: url("/www/images/weather-icons/fog.svg")
-#  weather-icon-lightning: url("/www/images/weather-icons/lightning.svg")
-#  weather-icon-lightning-rainy: url("/www/images/weather-icons/lightning.svg")
-#  weather-icon-partlycloudy: url("/www/images/weather-icons/partlycloudy.svg")
-#  weather-icon-pouring: url("/www/images/weather-icons/pouring.svg")
-#  weather-icon-rainy: url("/www/images/weather-icons/rainy.svg")
-#  weather-icon-hail: url("/www/images/weather-icons/hail.svg")
-#  weather-icon-snowy: url("/www/images/weather-icons/snowy.svg")
-#  weather-icon-snowy-rainy: url("/www/images/weather-icons/hail.svg")
-#  weather-icon-sunny: url("/www/images/weather-icons/sunny.svg")
-#  weather-icon-windy: url("/www/images/weather-icons/cloudy.svg")
-#  weather-icon-windy-variant: url("/www/images/weather-icons/partlycloudy.svg")
-#  weather-icon-exceptional: url("/www/images/weather-icons/exceptional.svg")
+  #left sidebar
+  sidebar-background-color: 'white'
+  sidebar-icon-color: '#d0d0d0'
+  sidebar-selected-icon-color: 'var(--primary-color)'
+
+  # Toast / Badge
+  paper-listbox-background-color: 'white'
+  app-header-background-color: 'var(--primary-color)'
+
+  primary-text-color: 'black'

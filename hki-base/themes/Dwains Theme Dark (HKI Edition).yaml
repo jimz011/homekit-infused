@@ -260,7 +260,7 @@ Dwains Theme Dark (HKI Edition):
 
   #Paper cards
   paper-card-header-color: 'var(--primary-text-color)'
-  ha-card-background: 'var(--button-color)'
+  ha-card-background: '#262628'
   paper-card-background-color: 'var(--ha-card-background)' # 'rgba(52, 73, 94, 0.8)'
   paper-dialog-background-color: '#262628'
   paper-item-icon-color: 'var(--primary-text-color)'
@@ -331,3 +331,5 @@ Dwains Theme Dark (HKI Edition):
   lumo-shade-10pct: 'rgba(34, 34, 34, .1)'
   lumo-shade-5pct: 'rgba(34, 34, 34, .05)'
   lumo-tint-5pct: 'grey'
+
+  app-header-background-color: 'var(--primary-color)'

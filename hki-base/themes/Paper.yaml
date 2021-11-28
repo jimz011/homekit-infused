@@ -292,3 +292,5 @@ Paper:
   table-row-alternative-background-color: "#eee8d5"
   table-row-background-color: "#fdf6e3"
   text-primary-color: "var(--primary-background-color)"
+
+  app-header-background-color: 'var(--primary-color)'
