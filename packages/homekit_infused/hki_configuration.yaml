@@ -21,7 +21,7 @@ alarm_control_panel:
     name: Home Alarm
     code: !secret alarm_code
     delay_time: 0
-    trigger_time: 100
+    trigger_time: 30
     disarmed:
       trigger_time: 0
     armed_home:
