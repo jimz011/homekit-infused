@@ -119,12 +119,12 @@ sensor:
 # Latest HKI Version
   - platform: command_line
     name: HKI Latest Version
-    command: "curl -s https://jimz011.github.io/homekit-infused/version | grep -E -o '<h1>.*</h1>' | sed 's/<h1>Current Version: //' | sed 's/<.h1>//' | cut -d$'\n' -f2"
+    command: "curl -s https://jimz011.github.io/homekit-infused/version | grep  'Current Version' | sed 's/Current Version: //'"
 
 # Latest Compatible HA Version
   - platform: command_line
     name: Latest Compatible HA Version
-    command: "curl -s https://jimz011.github.io/homekit-infused/version_compatible | grep -E -o '<h1>.*</h1>' | sed 's/<h1>Latest Compatible Version: //' | sed 's/<.h1>//'"
+    command: "curl -s https://jimz011.github.io/homekit-infused/version_compatible | grep  'Latest Compatible Version' | sed 's/Latest Compatible Version: //'"
 
 # Latest Home Assistant Version
   - platform: command_line
