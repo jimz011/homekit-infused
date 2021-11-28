@@ -11,7 +11,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 ![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/jimz011/homekit-infused?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/jimz011/homekit-infused?style=social)
-![GitHub followers](https://img.shields.io/github/followers/dwainscheeren?style=social)
+![GitHub followers](https://img.shields.io/github/followers/jimz011?style=social)
 
 <a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white" height=25></a>
 
