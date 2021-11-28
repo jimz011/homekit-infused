@@ -6,7 +6,7 @@ styles:
   card:
     - --ha-card-background: none
     - box-shadow: none 
-    - max-width: 400px
+    - max-width: 600px
     - min-height: 85px
   name:
     - justify-self: start

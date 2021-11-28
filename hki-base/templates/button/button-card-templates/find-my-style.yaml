@@ -7,7 +7,7 @@ styles:
   card:
     - border-radius: var(--border-radius)
     - box-shadow: var(--box-shadow)
-    - max-width: 400px
+    - max-width: 600px
     - min-height: 75px
     - --ha-card-background: var(--button-on-color)
   custom_fields:

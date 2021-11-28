@@ -1,0 +1,133 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - style-default
+triggers_update: all
+name: "{{ name }}"
+icon: "{{ icon }}"
+color: {{ icon_color_on|default('auto') }}
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+size: 15%
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('2/1') }}
+entity: {{ entity|default('input_boolean.dummy1') }}
+label: "{{ label|default('&nbsp;') }}"
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('false') }}
+show_state: {{ show_state|default('false') }}
+show_label: {{ show_label|default('true') }}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  action: navigate
+  navigation_path: "{{ navigation_path|default('/hki/about') }}"
+hold_action:
+  action: "{{ hold_action|default('none') }}"
+  haptic: heavy
+double_tap_action:
+  action: "{{ hold_action|default('none') }}"
+  haptic: heavy
+styles:
+  custom_fields:
+    lights:
+      - overflow: visible
+      - position: absolute
+      - right: 7px
+      - top: 7px
+    motion:
+      - overflow: visible
+      - position: absolute
+      - right: 30px
+      - top: 7px
+    door:
+      - overflow: visible
+      - position: absolute
+      - right: 55px
+      - top: 7px
+    graph:
+      - filter: opacity(75%)
+      - overflow: hidden
+      - position: absolute
+      - z-index: 100
+    tester:
+      - z-index: 999
+      - justify-self: start
+  card:
+    - overflow: visible
+  name:
+    - z-index: 999
+    - position: absolute
+    - left: 5px
+    - bottom: 20px
+  label:
+    - z-index: 999
+    - position: absolute
+    - left: 5px
+    - bottom: 7px
+custom_fields: 
+  graph:
+    card:
+      type: 'custom:mini-graph-card'
+      style: |
+        ha-card {
+          box-shadow: none;
+          --ha-card-background: transparant !important;
+          margin-left: -5px;
+          margin-right: -5px;
+        }
+      entities: 
+        - entity: {{ graph }}
+      hours_to_show: {{ hours_to_show|default('12') }}
+      points_per_hour: {{ points_per_hour|default('1') }}
+      line_width: {{ line_width|default('5') }}
+      hour24: {{ hour24|default('true') }}
+      animate: {{ animate|default('true') }}
+      decimals: {{ decimals|default('1') }}
+      font_size: 53
+      show:
+        graph: {{ graph_type|default('line')}}
+        icon: false
+        fill: false
+        extrema: false
+        average: false
+        name: false
+        labels: false
+        state: false
+      font_size_header: 9
+      line_color: "{{ line_color|default('red') }}"   
+  tester: >
+    [[[
+      return `<ha-icon
+        icon="mdi:sofa"
+        style="width: 25%; height: 25%; color: var(--primary-text-color); position: absolute; left: 0px; top: 7px;">
+        </ha-icon>`
+    ]]]
+  lights: >
+    [[[
+      if (states['{{ light }}'].state == 'on')
+      return `<ha-icon
+        icon="mdi:lightbulb"
+        style="width: 20px; height: 20px; color: var(--primary-text-color);">
+        </ha-icon>`
+    ]]]
+  motion: >
+    [[[
+      if (states['binary_sensor.motion_office'].state == 'on')
+      return `<ha-icon
+        icon="mdi:smoke-detector"
+        style="width: 20px; height: 20px; color: var(--primary-text-color);">
+        </ha-icon>`
+    ]]]
+  door: >
+    [[[
+      if (states['{{ light }}'].state == 'on')
+      return `<ha-icon
+        icon="mdi:door-open"
+        style="width: 20px; height: 20px; color: var(--primary-text-color); animation: blink 2s ease infinite;">
+        </ha-icon>`
+    ]]]

@@ -29,4 +29,7 @@ hold_action:
 styles:
   card:
     - ha-card-background: var(--ha-card-background)
+    - opacity: 0.8
+  icon:
+    - color: var(--paper-item-icon-color)
      

@@ -14,6 +14,7 @@ cards:
           icon: {{ icon_play|default('mdi:play-circle-outline') }}
           service: vacuum.start
           service_entity: "{{ entity|default('vacuum.roborock_vacuum_s5') }}"
+          icon_color_off: var(--primary-text-color)
           margin_right: 40px
       cleaning:
         !include
@@ -43,6 +44,7 @@ cards:
           service: vacuum.pause
           service_entity: "{{ entity|default('vacuum.roborock_vacuum_s5') }}"
           margin_right: 40px
+          icon_color_off: var(--primary-text-color)
       paused:
         !include
         - '../../templates/button/service-call.yaml'
@@ -71,6 +73,7 @@ cards:
           service: vacuum.return_to_base
           service_entity: "{{ entity|default('vacuum.roborock_vacuum_s5') }}"
           margin_right: 40px
+          icon_color_off: var(--primary-text-color)
       returning:
         !include
         - '../../templates/button/service-call.yaml'

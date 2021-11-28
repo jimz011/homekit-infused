@@ -25,7 +25,8 @@ styles:
   card:
     - --ha-card-background: rgba(0,0,0,0.0)
     - box-shadow: none
-    - height: 45px
+    - height: 43px
+    - max-height: 43px
     - width: {{ width|default('350px') }}
   name:
     - font-size: var(--subtitle-font-size)

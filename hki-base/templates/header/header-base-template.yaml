@@ -64,3 +64,35 @@ entities:
           icon: "{{ icon|default('mdi:home') }}"
           entity: {{ entity|default('input_boolean.dummy1') }}
           spin: {{ spin|default('false') }}
+      - type: conditional
+        conditions:
+          - state: 'triggered'
+            entity: alarm_control_panel.home_alarm
+        card:
+          type: markdown
+          style: |
+            ha-card {
+              height: 30px !important;
+              line-height: 10%;
+              font-weight: bold;
+              background: DarkRed;
+              color: white;
+              text-align: center;
+            }
+          content: The Alarm has been Triggered!!!! Take Action Now!
+      - type: conditional
+        conditions:
+          - state: 'on'
+            entity: input_boolean.vacation_mode
+        card:
+          type: markdown
+          style: |
+            ha-card {
+              height: 30px !important;
+              line-height: 10%;
+              font-weight: bold;
+              background: DarkSlateBlue;
+              color: white;
+              text-align: center;
+            }
+          content: Vacation Mode is Active!

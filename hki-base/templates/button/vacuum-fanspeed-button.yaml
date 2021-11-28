@@ -34,3 +34,5 @@ styles:
     - font-weight: var(--name-font-weight)
     - font-family: var(--font-family) 
     - font-size: 10px
+  icon:
+    - color: var(--paper-item-icon-color)

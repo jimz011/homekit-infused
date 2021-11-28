@@ -8,7 +8,7 @@ triggers_update: all
 entity: input_boolean.dummy1
 name: "{{ name }}"
 icon: "{{ icon }}"
-size: 10%
+size: {{ size|default('10%') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 show_name: {{ show_name|default('true') }}
 show_icon: {{ show_icon|default('true') }}

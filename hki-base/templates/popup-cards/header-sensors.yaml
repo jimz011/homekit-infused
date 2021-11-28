@@ -32,3 +32,18 @@ entities:
           options:
             tap_action:
               action: toggle
+        - group: {{ entity }}
+          state: 'cool'
+          options:
+            tap_action:
+              action: toggle
+        - group: {{ entity }}
+          state: 'heat_cool'
+          options:
+            tap_action:
+              action: toggle
+        - group: {{ entity }}
+          state: 'open'
+          options:
+            tap_action:
+              action: toggle
