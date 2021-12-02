@@ -91,5 +91,6 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @NiMa008
   - @Daniel B Turgel
   - @topbrunbu
+  - @henrikrox
 
 I am really sorry, I have tried to get you all. But also a very big thank you to all of the ones not mentioned here. And ofcourse the Home Assistant community which helped me out a lot. Translations are no longer used, however I still want to thank them for their great input!
