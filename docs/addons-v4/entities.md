@@ -109,3 +109,4 @@ Almost every option is possible
               service_data:
                 entity_id: light.bed_light
                 transition: 10
+```
