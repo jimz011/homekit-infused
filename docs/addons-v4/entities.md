@@ -5,7 +5,7 @@
 - [Installation](../installation.md)
 - [Configuration](../configuration.md)
 - [Addons](../addons.md)
-- [Custom Views](../custom_views.md)
+- [Splitting the Configuration](../splitting-the-config.md)
 - [Updates](../updates.md)
 - [Issues & Questions](../issues.md)
 - [About Me](../about.md)
@@ -47,8 +47,25 @@ You can use any of the following options to modify your addon.
 
 #### Entities Card Extra Options
 
-Unfortunately the original entities card is so feature rich that it is virtually impossible to template this. So this card is meant to be basic and simple. You can only enter your entities and have a divider.
-You can have as many entities_card as you want on a single view. When using a divider, make sure you quote the line or HKI will crash!
+You can set any of the official entities card options if you define your entity as an object
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type | no | undefined | Sets a custom card type: custom:my-custom-card or a divider |
+| entity | no | undefined | Set the entity you want to use |
+| name | no | undefined | Overwrites friendly name. |
+| icon | no | undefined | Overwrites icon or entity picture. |
+| image | no | undefined | Overwrites entity picture. |
+| secondary_info | no | undefined | Show additional info. Values: entity-id, last-changed, last-updated, last-triggered (only for automations and scripts), position or tilt-position (only for supported covers), brightness (only for lights). |
+| format | no | undefined | How the state should be formatted. Currently only used for timestamp sensors. Valid values are: relative, total, date, time and datetime. |
+| action_name | no | undefined | Button label (only applies to script and scene rows). |
+| state_color | no | undefined | Set to true to have icons colored when entity is active. |
+| tap_action | no | undefined | Action taken on row tap. See action documentation. |
+| hold_action | no | undefined | Action taken on row tap and hold. See action documentation. |
+| double_tap_action | no | undefined | Action taken on row double tap. See action documentation. |
+
+There are a ton of more options, but it would be useless to list them all here when you can find perfect examples here https://www.home-assistant.io/lovelace/entities/.
+Almost every option is possible
 
 ```yaml
 # Example with divider
@@ -57,7 +74,7 @@ You can have as many entities_card as you want on a single view. When using a di
       - title: Waste Collection
         entities:
           - sensor.mijnafvalwijzer_gft
-          - 'type: divider'
+          - type: divider
           - sensor.mijnafvalwijzer_papier
           - sensor.mijnafvalwijzer_restafval
 ``` 
@@ -75,3 +92,20 @@ You can have as many entities_card as you want on a single view. When using a di
           - sensor.sunrise
           - sensor.dark_mode
 ``` 
+```yaml
+# Example with custom entity cards
+  my_view:
+    entities_card:
+      - title: My buttons
+        entities:
+          - sensor.sunrise
+          - type: button
+            icon: mdi:power
+            name: Bed light transition
+            action_name: Toggle light
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.bed_light
+                transition: 10

@@ -5,7 +5,7 @@
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Addons](addons.md)
-- [Custom Views](custom_views.md)
+- [Splitting the Configuration](splitting-the-config.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
@@ -13,8 +13,6 @@
 
 ## Addons
 Addons are baked-in preconfigured cards that you can turn on/off on any view. You can add an addon by adding the key to your view configuration (which is done in /hki-user/config/view_config.yaml). Unfortunately you can't select the location of the rendered card but in most cases it should look pretty fine. Below you will find a quick example of how to add an addon to your view.
-
-*Note: Addons can be used together with custom_cards, however it might look a bit awkward on desktop browsers and tablets. It will work fine for phones. If you don't like this behaviour you must choose between either using addons or using custom_cards. There is no way for me to change this. Combining does however work fantastically when you use the view_selector addon. You can also set if custom_cards should be rendered before or after HKI addons.
 
 ```yaml
 # Example
@@ -67,6 +65,12 @@ my_second_view:
 | [view_selector](addons-v4/view-selector.md) | Create your own in view navigation bar |
 | [weather](addons-v4/weather.md) | The core HA weather card |
 | [xbox_controller](addons-v4/xbox-controller.md) | An Xbox controller card |
+
+# Custom Addon
+
+| Name | Description |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [custom](addons-v4/custom.md) | The ultimate addon that allows any card or multitude of cards! |
 
 This list will grow with new addons in the future.
 

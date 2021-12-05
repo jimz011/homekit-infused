@@ -5,14 +5,14 @@
 - [Installation](installation.md)
 - [Configuration](configuration.md)
 - [Addons](addons.md)
-- [Custom Views](custom_views.md)
+- [Splitting the Configuration](splitting-the-config.md)
 - [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
 
 ## Configuration
-In Homekit Infused v4.x.x it is super easy to setup views and configure them for either the built-in addons or custom cards.
+In Homekit Infused it is super easy to setup views and configure them for either the built-in addons or custom cards.
 
 *NOTE: For ANY change in the config below to take effect you MUST restart Home Assistant!!
 
@@ -65,7 +65,7 @@ This is the bare minimum that will give you a brand new view, however without an
 | button_label | no | no label | Set the button label text, this accepts button-card JS templates |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar, this is not the same as the menu! |
-| custom_cards | no | undefined | You should use this is you want your own lovelace cards to be shown in the framework, please refer to the [Custom Views](custom_views.md) documentation |
+| custom_position | no | after | Change the location of rendering custom cards, you can choose between `before` and `after`, what it means is that it will render custom cards either before any of the HKI addons, or after any of the HKI addons |
 | 'addon_name' | no | undefined | Add an addon to your view, refer to the [Addons](addons.md) section for documentation |
 
 ```yaml
@@ -77,11 +77,9 @@ This is the bare minimum that will give you a brand new view, however without an
     type: room
     show_in_navbar: true
     show_in_favorites: true
-    custom_cards:
 ```
 
-*Note: when `custom_cards:` is defined you MUST create a folder with the same name as the object in `/hki-user/views/`. From the example above this would be `/hki-user/views/kitchen/`.
-Please read [this](custom_views.md) for more information on how to use this.
+*Note: HKI can take any card available to Home Assistant, even if it is not included in the HKI addons. You must use the `custom:` addon to do this. You can find more information on this [here](addons-v4/custom.md), you can also find this information when visiting the addons list.
 
 ### Setting up device counters
 For the header sensors to work properly we need to setup some groups from which HKI can count devices from. Open `/hki-user/device_counters.yaml` and add all your known entities to their corresponding groups. We can re-use these entities again in buttons or in custom-cards, for more information [click here](addons-v4/device-counters.md).
