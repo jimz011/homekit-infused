@@ -284,6 +284,6 @@ cards:
                 margin-left: {{ _global.general_config.margins }};
                 margin-right: {{ _global.general_config.margins }};
               }                    
-            content: HKI Framework 2021 created by Jimz011
+            content: HKI Framework 2021/2022 created by Jimz011
           - !include '../includes/empty-button.yaml'
       - !include '../includes/gap-height.yaml'

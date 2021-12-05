@@ -426,6 +426,7 @@
         {% endif %}
 
 # Layout Addon // *Do NOT remove
+        {% if ((data.layout is defined) and (data.layout.layout_type != 'advanced') or (data.layout is undefined)) %}  
         - type: custom:layout-card
           {% if ((data.layout is defined) and (data.layout.layout_type is defined)) %}  
           layout_type: {{ data.layout.layout_type }}
@@ -434,23 +435,32 @@
           {% endif %}
           {% if data.layout is defined %}
           layout:
-            {% if ((data.layout is defined) and (data.layout.max_width is defined)) %}
-            max_width: {{ data.layout.max_width }}
-            {% endif %}
-            {% if ((data.layout is defined) and (data.layout.max_cols is defined)) %}          
-            max_cols: {{ data.layout.max_cols }}
-            {% endif %}
-            {% if ((data.layout is defined) and (data.layout.width is defined)) %}
-            width: {{ data.layout.width }}
-            {% endif %}
-            {% if ((data.layout is defined) and (data.layout.column_widths is defined)) %}
-            column_widths: {{ data.layout.column_widths }}
-            {% endif %}
-            {% if ((data.layout is defined) and (data.layout.rtl is defined)) %}
-            rtl: {{ data.layout.rtl }}
-            {% endif %}
+            {% for config in data.layout.options %}
+            {{ config|tojson }}
+            {% endfor %}
           {% endif %}
           cards:
+        {% else %}
+        - type: vertical-stack
+          cards:
+        {% endif %}
+
+
+# Custom Card Addon (Top Position)
+            {% if ((data.custom is defined) and (data.custom_position is defined) and (data.custom_position == 'before')) %}
+            {% for content in data.custom %}
+            - type: vertical-stack
+              cards:
+                {% if content.title is defined %}
+                - !include
+                  - templates/other/title-text.yaml
+                  - name: "&nbsp; {{ content.title }}"
+                {% endif %}
+                {% for card in content.cards %}
+                - {{ card|tojson }}
+                {% endfor %}
+            {% endfor %}
+            {% endif %}
 
 # Simple Weather Addon
             {% if data.simple_weather is defined %}
@@ -1357,7 +1367,31 @@
             {% endfor %}
             {% endif %}
 
-# Graphs Addon
+# Energy Cards Addon
+            {% if data.energy is defined %}
+            {% for content in data.energy %}
+            - type: vertical-stack
+              cards:
+                {% if content.title is defined %}
+                - !include
+                  - templates/other/title-text.yaml
+                  - name: "&nbsp; {{ content.title }}"
+                {% endif %}
+                {% if content.type is defined %}
+                - type: {{ content.type }}
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                    }
+                {% endif %}
+                  {% if ((content.type is defined) and (content.type == 'energy-distribution') and (content.link_dashboard is true)) %}
+                  link_dashboard: true
+                  {% endif %}
+            {% endfor %}
+            {% endif %}
+
+# Mini Graph Addon
             {% if data.graphs is defined %}
             {% for content in data.graphs %}
             - type: vertical-stack
@@ -1573,57 +1607,57 @@
             {% for content in data.gauge %}
             - type: vertical-stack
               cards:
-              {% if content.title is defined %}
-              - !include
-                - templates/other/title-text.yaml
-                - name: "&nbsp; {{ content.title }}"
-              {% endif %}
-              - type: grid
-                {% if content.columns is defined %}
-                columns: {{ content.columns }}
-                {% elif ((data.columns is defined) and (data.columns.gauges is defined)) %}
-                columns: {{ data.columns.gauges }}
-                {% else %}
-                columns: 1
+                {% if content.title is defined %}
+                - !include
+                  - templates/other/title-text.yaml
+                  - name: "&nbsp; {{ content.title }}"
                 {% endif %}
-                {% if content.square is defined %}
-                square: {{ content.square }}
-                {% else %}
-                square: false
-                {% endif %}
-                cards:
-                  {% for entity in content.entities %}
-                  - type: gauge
-                    style: |
-                      ha-card {
-                        border-radius: var(--border-radius);
-                        box-shadow: var(--box-shadow);
-                        opacity: 0.8;
-                      }
-                    {% if entity.entity is defined %}
-                    entity: {{ entity.entity }}
-                    {% else %}
-                    entity: {{ entity }}
-                    {% endif %}
-                    {% if entity.name is defined %}
-                    name: {{ entity.name }}
-                    {% endif %}
-                    {% if entity.unit is defined %}
-                    unit: {{ entity.unit }}
-                    {% endif %}
-                    {% if entity.min is defined %}
-                    min: {{ entity.min }}
-                    {% endif %}
-                    {% if entity.max is defined %}
-                    max: {{ entity.max }}
-                    {% endif %}
-                    {% if entity.severity is defined %}
-                    severity:
-                      green: {{ entity.severity.green }}
-                      yellow: {{ entity.severity.yellow }}
-                      red: {{ entity.severity.red }}
-                    {% endif %}
-                  {% endfor %}
+                - type: grid
+                  {% if content.columns is defined %}
+                  columns: {{ content.columns }}
+                  {% elif ((data.columns is defined) and (data.columns.gauges is defined)) %}
+                  columns: {{ data.columns.gauges }}
+                  {% else %}
+                  columns: 1
+                  {% endif %}
+                  {% if content.square is defined %}
+                  square: {{ content.square }}
+                  {% else %}
+                  square: false
+                  {% endif %}
+                  cards:
+                    {% for entity in content.entities %}
+                    - type: gauge
+                      style: |
+                        ha-card {
+                          border-radius: var(--border-radius);
+                          box-shadow: var(--box-shadow);
+                          opacity: 0.8;
+                        }
+                      {% if entity.entity is defined %}
+                      entity: {{ entity.entity }}
+                      {% else %}
+                      entity: {{ entity }}
+                      {% endif %}
+                      {% if entity.name is defined %}
+                      name: {{ entity.name }}
+                      {% endif %}
+                      {% if entity.unit is defined %}
+                      unit: {{ entity.unit }}
+                      {% endif %}
+                      {% if entity.min is defined %}
+                      min: {{ entity.min }}
+                      {% endif %}
+                      {% if entity.max is defined %}
+                      max: {{ entity.max }}
+                      {% endif %}
+                      {% if entity.severity is defined %}
+                      severity:
+                        green: {{ entity.severity.green }}
+                        yellow: {{ entity.severity.yellow }}
+                        red: {{ entity.severity.red }}
+                      {% endif %}
+                    {% endfor %}
             {% endfor %}
             {% endif %}
 
@@ -1632,39 +1666,39 @@
             {% for content in data.glance_card %}
             - type: vertical-stack
               cards:
-              {% if content.title is defined %}
-              - !include
-                - templates/other/title-text.yaml
-                - name: "&nbsp; {{ content.title }}"
-              {% endif %}
-              - type: glance
-                style: |
-                  ha-card {
-                    border-radius: var(--border-radius);
-                    box-shadow: var(--box-shadow);
-                    opacity: 0.8;
-                  }
-                entities:
-                  {% if content.entities is defined %}
-                  {% for entity in content.entities %}
-                  - {{ entity }}
-                  {% endfor %}
-                  {% endif %}
-                  {% if content.show_name is defined %}
-                  show_name: {{ content.show_name }}
-                  {% endif %}
-                  {% if content.show_icon is defined %}
-                  show_icon: {{ content.show_icon }}
-                  {% endif %}
-                  {% if content.show_state is defined %}
-                  show_state: {{ content.show_state }}
-                  {% endif %}
-                  {% if content.columns is defined %}
-                  columns: {{ content.columns }}
-                  {% endif %}
-                  {% if content.state_color is defined %}
-                  state_color: {{ content.state_color }}
-                  {% endif %}
+                {% if content.title is defined %}
+                - !include
+                  - templates/other/title-text.yaml
+                  - name: "&nbsp; {{ content.title }}"
+                {% endif %}
+                - type: glance
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      opacity: 0.8;
+                    }
+                  entities:
+                    {% if content.entities is defined %}
+                    {% for entity in content.entities %}
+                    - {{ entity }}
+                    {% endfor %}
+                    {% endif %}
+                    {% if content.show_name is defined %}
+                    show_name: {{ content.show_name }}
+                    {% endif %}
+                    {% if content.show_icon is defined %}
+                    show_icon: {{ content.show_icon }}
+                    {% endif %}
+                    {% if content.show_state is defined %}
+                    show_state: {{ content.show_state }}
+                    {% endif %}
+                    {% if content.columns is defined %}
+                    columns: {{ content.columns }}
+                    {% endif %}
+                    {% if content.state_color is defined %}
+                    state_color: {{ content.state_color }}
+                    {% endif %}
             {% endfor %}
             {% endif %}
 
@@ -1673,25 +1707,25 @@
             {% for content in data.entities_card %}
             - type: vertical-stack
               cards:
-              {% if content.title is defined %}
-              - !include
-                - templates/other/title-text.yaml
-                - name: "&nbsp; {{ content.title }}"
-              {% endif %}
-              - type: entities
-                style: |
-                  ha-card {
-                    border-radius: var(--border-radius);
-                    box-shadow: var(--box-shadow);
-                    opacity: 0.8;
-                  }
-                show_header_toggle: false
-                entities:
-                  {% if content.entities is defined %}
-                  {% for entity in content.entities %}
-                  - {{ entity }}
-                  {% endfor %}
-                  {% endif %}
+                {% if content.title is defined %}
+                - !include
+                  - templates/other/title-text.yaml
+                  - name: "&nbsp; {{ content.title }}"
+                {% endif %}
+                - type: entities
+                  style: |
+                    ha-card {
+                      border-radius: var(--border-radius);
+                      box-shadow: var(--box-shadow);
+                      opacity: 0.8;
+                    }
+                  show_header_toggle: false
+                  entities:
+                    {% if content.entities is defined %}
+                    {% for entity in content.entities %}
+                    - {{ entity|tojson }}
+                    {% endfor %}
+                    {% endif %}
             {% endfor %}
             {% endif %}
 
@@ -1849,9 +1883,9 @@
             {% endfor %}
             {% endif %}
 
-# Energy Cards Addon
-            {% if data.energy is defined %}
-            {% for content in data.energy %}
+# Custom Card Addon (Bottom Position)
+            {% if ((data.custom is defined) and (data.custom_position is undefined) or (data.custom is defined) and (data.custom_position is defined) and (data.custom_position == 'after')) %}
+            {% for content in data.custom %}
             - type: vertical-stack
               cards:
                 {% if content.title is defined %}
@@ -1859,17 +1893,9 @@
                   - templates/other/title-text.yaml
                   - name: "&nbsp; {{ content.title }}"
                 {% endif %}
-                {% if content.type is defined %}
-                - type: {{ content.type }}
-                  style: |
-                    ha-card {
-                      border-radius: var(--border-radius);
-                      box-shadow: var(--box-shadow);
-                    }
-                {% endif %}
-                  {% if ((content.type is defined) and (content.type == 'energy-distribution') and (content.link_dashboard is true)) %}
-                  link_dashboard: true
-                  {% endif %}
+                {% for card in content.cards %}
+                - {{ card|tojson }}
+                {% endfor %}
             {% endfor %}
             {% endif %}
 
@@ -1908,6 +1934,8 @@
             !include_dir_merge_list ../hki-user/views/{{ name }}
         {% endif %}
         {% endif %}
+
+# New Users Welcome Message
         {% if data.welcome_message is true %}
         - !include settings/welcome-message.yaml
         {% endif %}
