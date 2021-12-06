@@ -65,7 +65,6 @@ This is the bare minimum that will give you a brand new view, however without an
 | button_label | no | no label | Set the button label text, this accepts button-card JS templates |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar, this is not the same as the menu! |
-| custom_position | no | after | Change the location of rendering custom cards, you can choose between `before` and `after`, what it means is that it will render custom cards either before any of the HKI addons, or after any of the HKI addons |
 | 'addon_name' | no | undefined | Add an addon to your view, refer to the [Addons](addons.md) section for documentation |
 
 ```yaml
