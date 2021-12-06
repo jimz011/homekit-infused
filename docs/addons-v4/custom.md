@@ -45,6 +45,7 @@ Below are the settings you can use for your addons, Note that this addon is alre
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will remove the title entirely |
+| position | no | after | Change the location of rendering this stack, you can choose between `before` and `after`, what it means is that it will render custom cards either before any of the HKI addons, or after any of the HKI addons, this can be configured separately for each stack. |
 | cards | yes | list | Define all the cards you want. This accepts all cards with a valid configuration, for each cards configuration please refer to the original documentation of that specific card. |
 
 **Tip:** If you want a title above each individual card, create a new stack for each of them, see the examples below.
