@@ -28,18 +28,6 @@ To add this addon to your view add `custom:` in your view_config.
     custom:
 ```
 
-You can position the custom addon by adding `custom_position` to your view, this should be in the views general config and NOT within the custom addon! If you do not define this line, custom cards will ALWAYS be rendered AFTER HKI addons.
-
-| Name | Required | Default | Description |
-|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| custom_position | no | after | Change the location of rendering custom cards, you can choose between `before` and `after`, what it means is that it will render custom cards either before any of the HKI addons, or after any of the HKI addons |
-
-```yaml
-# Example
-  my_view:
-    custom_position: before
-    custom:
-```
 Below are the settings you can use for your addons, Note that this addon is already a preprogrammed vertical-stack and thus each card will be rendered under the previous card. You can nest cards with other stack types like `horizontal-stack` or `grid` for example.
 
 | Name | Required | Default | Description |
@@ -57,6 +45,7 @@ Below are the settings you can use for your addons, Note that this addon is alre
   my_view:
     custom: 
       - title: Title of this stack
+        position: before
         cards:
           - type: markdown
             content: "This new addon is amazing!"
