@@ -5,7 +5,7 @@ Valentine:
 
   ### Background image (can be an image or a color)
   background-image: 'center / cover no-repeat url("/local/images/wallpapers/valentine-test1.jpg") fixed'
-  primary-background-color: 'var(--background-image)'
+  primary-background-color: '#333333'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'

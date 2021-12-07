@@ -137,10 +137,10 @@ Dwains Theme Dark (HKI Edition):
         {% endif %}
       }
       ha-tabs {
-        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+        --paper-tabs-selection-bar-color: '#262628' !important;
       }
       [main-title] {
-        color: var(--primary-color) !important;
+        color: '#262628' !important;
       }
       paper-tab {
         {% if is_state('input_select.navigation_bar_direction', 'Right') %}
@@ -223,10 +223,10 @@ Dwains Theme Dark (HKI Edition):
         {% endif %}
       }
       ha-tabs {
-        --paper-tabs-selection-bar-color: var(--primary-color) !important;
+        --paper-tabs-selection-bar-color: '#262628' !important;
       }
       [main-title] {
-        color: var(--primary-color) !important;
+        color: '#262628' !important;
       }
       paper-tab {
         {% if is_state('input_select.navigation_bar_direction', 'Right') %}
@@ -245,7 +245,7 @@ Dwains Theme Dark (HKI Edition):
   paper-toast-background-color: '#821414'
 
   #color for top small bar notch on ios
-  primary-color: '#262628'
+  primary-color: 'white'
   primary-text-color: '#f2f2f7'
   text-primary-color: 'var(--primary-text-color)'
   secondary-text-color: 'var(--primary-text-color)'
@@ -271,18 +271,19 @@ Dwains Theme Dark (HKI Edition):
   secondary-background-color: '#262628'
 
   mdc-theme-primary: '#6c6c75'
+  mdc-theme-on-secondary: '#262628'
 
   #Tables
   card-background-color: '#262628'
-  table-row-background-color: '#6e6e6e'
-  table-row-alternative-background-color: 'darkgrey'
+  table-row-background-color: '#808080'
+  table-row-alternative-background-color: '#525252'
 
   #Custom header
   ch-active-tab-color: '#2fbae5'
   ch-tab-indicator-color: '#2fbae5'
 
   # Labels
-  label-badge-red: 'var(--primary-color)'
+  label-badge-red: '#262628'
   label-badge-text-color: 'var(--primary-text-color)'
   label-badge-background-color: 'var(--mdc-grey-darken-4)'
   
@@ -332,4 +333,4 @@ Dwains Theme Dark (HKI Edition):
   lumo-shade-5pct: 'rgba(34, 34, 34, .05)'
   lumo-tint-5pct: 'grey'
 
-  app-header-background-color: 'var(--primary-color)'
+  app-header-background-color: '#262628'

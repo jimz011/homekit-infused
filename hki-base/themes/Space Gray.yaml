@@ -5,7 +5,7 @@ Space Gray:
 
   ### Background image (can be an image or a color)
   background-image: 'linear-gradient(290deg, #a30088 -30%, #111111 65%)'
-  primary-background-color: 'var(--background-image)'
+  primary-background-color: '#222222'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'White'
@@ -242,7 +242,7 @@ Space Gray:
     
 
   # Base colors
-  primary-color: '#333333'
+  primary-color: 'AliceBlue'
   accent-color: 'var(--md-teal-A400)'
   dark-primary-color: 'var(--md-teal-600)'
   light-primary-color: 'var(--md-teal-100)'
@@ -261,7 +261,7 @@ Space Gray:
   sidebar-selected-icon-color: 'AliceBlue'
   
   # Background colors
-  secondary-background-color: '#222222'
+  secondary-background-color: 'black'
   divider-color: 'rgba(0, 0, 0, .12)'
   table-row-background-color: '#6e6e6e'
   table-row-alternative-background-color: '#949494'
@@ -378,6 +378,7 @@ Space Gray:
   mdc-grey-darken-3_5: '#303030'
   mdc-grey-darken-4: '#212121'
   mdc-grey-darken-4_5: '#111111'
+  mdc-theme-on-secondary: 'black'
   
   md-black: '#000000'
   md-white: '#FFFFFF'
@@ -386,4 +387,4 @@ Space Gray:
   notification-badge-color: 'Black'
   notification-popup-action-color: 'AliceBlue'
 
-  app-header-background-color: 'var(--primary-color)'
+  app-header-background-color: '#333333'

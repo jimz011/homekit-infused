@@ -5,7 +5,7 @@ Sweet Pink:
 
   ### Background image (can be an image or a color)
   background-image: 'center / cover no-repeat url("/local/images/wallpapers/pink-flowers.jpg") fixed'
-  primary-background-color: 'var(--background-image)'
+  primary-background-color: 'Thistle'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: 'Purple'
@@ -241,7 +241,7 @@ Sweet Pink:
       {% endif %}
 
   # Base colors
-  primary-color: '#FFC0CB'
+  primary-color: 'Purple'
   accent-color: 'var(--md-teal-A700)'
   dark-primary-color: 'var(--md-teal-900)'
   light-primary-color: 'var(--md-teal-400)'
@@ -379,7 +379,7 @@ Sweet Pink:
   notification-popup-action-color: 'black'
   paper-toast-background-color: '#821414'
 
-  app-header-background-color: 'var(--primary-color)'
+  app-header-background-color: '#FFC0CB'
 
   #left sidebar
   sidebar-background-color: 'white'
@@ -387,3 +387,5 @@ Sweet Pink:
   sidebar-text-color: 'black'
   sidebar-selected-icon-color: 'var(--primary-color)'
   sidebar-selected-text-color: 'var(--primary-color)'
+
+  mdc-theme-on-secondary: 'white'

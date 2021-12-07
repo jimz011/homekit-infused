@@ -5,7 +5,7 @@ Orange Darkness:
 
   ### Background image (can be an image or a color)
   background-image: "linear-gradient(290deg, #fc9003 -30%, #37464f 65%)"
-  primary-background-color: 'var(--background-image)'
+  primary-background-color: '#252525'
 
   ### Header Title and Subtitle/Notifications
   header-text-color: '#292929'
@@ -58,6 +58,7 @@ Orange Darkness:
   badge-font-size: 10px
   badge-font-weight: normal
   badge-text-transform: capitalize
+  mdc-theme-on-secondary: 'black'
   
   #######################################################################################################################################################
   ## Main Home Assistant Colors (ANYTHING YOU CHANGE PAST THIS LINE, IS AT YOUR OWN RISK!)
@@ -339,3 +340,5 @@ Orange Darkness:
   sidebar-text-color: 'white'
   sidebar-selected-icon-color: 'var(--primary-color)'
   sidebar-selected-text-color: 'var(--primary-color)'
+
+  app-header-background-color: '#ff7b00'
