@@ -6,5 +6,8 @@ style: |
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
   }
+  .player {
+    background: var(--ha-card-background) !important;
+  }
 entity: {{ entity }}
 name: {{ name }}
