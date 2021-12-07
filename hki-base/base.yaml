@@ -611,8 +611,6 @@
                 - type: grid
                   {% if ((data.columns is defined) and (data.columns.buttons is defined)) %}
                   columns: {{ data.columns.buttons }}
-                  {% else %}
-                  columns: 3
                   {% endif %}
                   cards:
                     {% for name, data in _global.view_config.items() %}
