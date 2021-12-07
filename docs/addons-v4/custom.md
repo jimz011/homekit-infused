@@ -198,6 +198,8 @@ If you had previously set the custom_cards type to `advanced`, you must add a la
 
 *Note: Setting type to `advanced` will turn off all the features that the layout addon has to offer and will revert to the default Home Assistant layout. This means any other option you add to the `layout:` addon will be rendered useless. This will also render the title option unavailable, if you want a title on your stack you will have to create it yourself. Use at your own risk!
 
+**WARNING:** If you have used templates before or legacy addons, make sure you change the paths to the correct one, `../` means one directory up. So if you are using includes, make sure you set the right amount of directories to go back (if any). You might need to play with this, I will suggest trying with a single card first, since IF you manage to get it right, it will be the same for every other card that will be imported in the same way.
+
 If you are migrating from the old `custom_cards:` addon, you will find that you no longer need to set a screen margin and no longer need to add a title. For your own convenience, I highly recommend migrating to the new style, you can still split the configuration up, you can see how to do that [here](../splitting-the-config.md).
 
 The old `custom_cards:` addon will be deprecated soon with a planned obsolence for HKI 2022.1.1 however because of its experimental status it might be postponed to HKI 2022.2.1. You can however still read the old documentation [here](../custom_views.md).
