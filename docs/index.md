@@ -93,6 +93,7 @@ Warning:
 - 2x Unifi Flex G3 Camera
 - 2x Unifi Flex-Mini Switches
 - 1x TP-Link Switch
+- 1x Raspberry Pi B (running a failover AdGuard Server)
 - A bunch of NFC stickers around the house
 
 There is probably more, but I can't think of it right now XD  
