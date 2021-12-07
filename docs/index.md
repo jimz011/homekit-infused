@@ -44,12 +44,24 @@ Warning:
 - Docker Containers: 70+
 - Home Assistant: Home Assistant Core running on docker in Unraid
 
+#### Phones and Wearables
+- Note 10+ 5G
+- Note 20 Ultra
+- Z Fold 3 5G
+- iPhone 5S
+- Galaxy Watch 3
+- Galaxy Watch 4 Classic
+
+#### Other
+- Xbox One (2013)
+- Playstation 2
+
 #### Smart Devices
 - 6x Philips Hue dimmers (deCONZ controlled)
 - 3x IKEA Tradfri remotes (deCONZ controlled)
 - 1x Koogeek kh01cn hardware switch (connected through HA with Homekit Controller)
 - 11x LED strips (around 70 meters in total) with MagicHome controllers (Flashed with ESPHome, varying from RGB to RGBWC)
-- 13x Ikea Tradfri smart switches  (deCONZ controlled)
+- 14x Ikea Tradfri smart switches  (deCONZ controlled)
 - 2x Ikea Tradfri bulbs (ranging from normals to color temperature ones)  (deCONZ controlled)
 - 13x Philips Hue lights (ranging from filament to color temperature ones)  (deCONZ controlled)
 - 3x Sonoff POW R2 (to monitor the washingmachine, dryer and dishwasher)
