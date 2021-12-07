@@ -8,7 +8,7 @@ style: |
     -webkit-box-shadow: var(--header-shadow);
     -moz-box-shadow: var(--header-shadow);
     box-shadow: var(--header-shadow);
-    background: var(--primary-color);
+    background: var(--app-header-background-color) !important;
     border-radius: 0px !important;
   }
   .card-content {
@@ -30,6 +30,7 @@ entities:
           - type: markdown
             style: |
               ha-card {
+                background: var(--app-header-background-color) !important;
                 font-family: var(--font-family);
                 font-size: var(--header-font-size);
                 font-weight: var(--header-font-weight);
