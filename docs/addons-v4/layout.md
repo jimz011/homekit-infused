@@ -71,28 +71,28 @@ Below are some of the options that are available
 # Example with grid-template-columns
   my_view:
     layout:
-    type: custom:grid-layout
-    options:
-      - grid-template-columns: auto 30px 25%
-        grid-template-rows: auto
-        grid-template-areas: |
-          "header header header"
-          "main . sidebar"
-          "footer footer footer"
-        mediaquery:
-          "(max-width: 600px)":
-            grid-template-columns: 100%
-            grid-template-areas: |
-              "header"
-              "sidebar"
-              "main"
-              "footer"
-          "(max-width: 800px)":
-            grid-template-columns: 50% 50%
-            grid-template-areas: |
-              "header sidebar"
-              "main main"
-              "footer footer"
+      type: custom:grid-layout
+      options:
+        - grid-template-columns: auto 30px 25%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "header header header"
+            "main . sidebar"
+            "footer footer footer"
+          mediaquery:
+            "(max-width: 600px)":
+              grid-template-columns: 100%
+              grid-template-areas: |
+                "header"
+                "sidebar"
+                "main"
+                "footer"
+            "(max-width: 800px)":
+              grid-template-columns: 50% 50%
+              grid-template-areas: |
+                "header sidebar"
+                "main main"
+                "footer footer"
 ```
 
 **NOTE:** The leading hyphen is specific to HKI and although the official documentation is slightly different, for this to work properly with HKI you MUST use the leading hyphen.
