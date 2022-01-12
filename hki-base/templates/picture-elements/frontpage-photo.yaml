@@ -22,6 +22,9 @@ elements:
       top: 50%
       width: 100%
       heigth: 100%
+    state_filter:
+      "not_home": greyscale(100%)
+      "away": greyscale(100%)
   - type: state-label
     entity: {{ person }}
     style:
