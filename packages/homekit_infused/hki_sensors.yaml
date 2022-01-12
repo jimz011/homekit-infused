@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 2021.12.3
+        value_template: 2022.01.0
 
 # Time Date
   - platform: time_date
@@ -19,6 +19,8 @@ sensor:
 # Template Sensors (device counting)
   - platform: template
     sensors:
+      empty_sensor:
+        value_template: " "
       current_lights_on:
         friendly_name: All Lights Currently On
         value_template: >-
@@ -143,6 +145,13 @@ sensor:
       ha_updater:
         value_template: >
           {% if states.sensor.version_current.state > states.sensor.home_assistant_latest_version.state %}
+            Up to date
+          {% else %}
+            Update available
+          {% endif %}
+      ha_beta_updater:
+        value_template: >
+          {% if states.sensor.version_current.state > states.sensor.latest_version.state %}
             Up to date
           {% else %}
             Update available

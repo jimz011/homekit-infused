@@ -30,6 +30,7 @@ input_select:
   theme_selector:
     name: Theme Selector 
     options:
+      - Test
       - Home Assistant
       - Orange Delight
       - Orange Darkness
@@ -45,6 +46,7 @@ input_select:
   theme_selector_day:
     name: Theme Selector Day
     options:
+      - Test
       - Home Assistant
       - Orange Delight
       - Orange Darkness
@@ -60,6 +62,7 @@ input_select:
   theme_selector_night:
     name: Theme Selector Night
     options:
+      - Test
       - Home Assistant
       - Orange Delight
       - Orange Darkness

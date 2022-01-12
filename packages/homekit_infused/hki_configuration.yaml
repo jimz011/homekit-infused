@@ -15,6 +15,13 @@ lovelace:
       icon: mdi:home-assistant
       show_in_sidebar: true
       filename: "hki-base/homekit-infused.yaml"
+    hki-development:
+      mode: yaml
+      title: HKI Development
+      icon: mdi:draw
+      show_in_sidebar: true
+      filename: "hki-base/development.yaml"
+      require_admin: true
 
 alarm_control_panel:
   - platform: manual
