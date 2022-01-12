@@ -55,7 +55,7 @@ cards:
         state:
           - value: "off"
             spin: {{ spin|default('false') }}
-  {% if (_global.general_config.alarm.show == 'true') %}
+  {% if _global.general_config.alarm.show is true %}
   - type: custom:button-card
     icon: "[[[ if (states['{{ _global.general_config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'mdi:lock-open'; else return 'mdi:lock-alert'; ]]]"
     size: 75%
