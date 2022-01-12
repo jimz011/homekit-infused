@@ -12,7 +12,7 @@
 - [Thanks](thanks.md)
 
 ### Custom Cards
-*Warning: Legacy Addon, might break in the future!
+*Warning: Legacy Addon, might break in the future!*
 
 Users of Homekit Infused v3 are already known to this concept, but Homekit Infused allows you to add your own cards to any of the views instead of using the HKI addon features. You can combine them, though it sometimes doesn't look great when used at the same time. For you this will be trial and error. If it doesn't get you the result you want you should either just use addons or just use custom_cards. They can however work fantastically together when you use them together with the view_selector addon.
 
