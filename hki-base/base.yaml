@@ -447,8 +447,9 @@
 
 
 # Custom Card Addon (Top Position)
-            {% if ((data.custom is defined) and (data.custom.position is defined) and (data.custom.position == 'before')) %}
+            {% if data.custom is defined %}
             {% for content in data.custom %}
+            {% if content.position is defined and content.position == 'before' %}
             - type: vertical-stack
               cards:
                 {% if content.title is defined %}
@@ -459,6 +460,7 @@
                 {% for card in content.cards %}
                 - {{ card|tojson }}
                 {% endfor %}
+            {% endif %}
             {% endfor %}
             {% endif %}
 
@@ -1882,8 +1884,9 @@
             {% endif %}
 
 # Custom Card Addon (Bottom Position)
-            {% if ((data.custom is defined) and (data.custom.position is undefined) or (data.custom is defined) and (data.custom.position is defined) and (data.custom.position == 'after')) %}
+            {% if data.custom is defined %}
             {% for content in data.custom %}
+            {% if content.position is undefined or (content.position is defined and content.position == 'after') %}
             - type: vertical-stack
               cards:
                 {% if content.title is defined %}
@@ -1894,6 +1897,7 @@
                 {% for card in content.cards %}
                 - {{ card|tojson }}
                 {% endfor %}
+            {% endif %}
             {% endfor %}
             {% endif %}
 
