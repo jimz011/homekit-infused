@@ -71,7 +71,7 @@ my_second_view:
 | Name | Description |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [custom](addons-v4/custom.md) | The ultimate addon that allows any card or multitude of cards! |
-| [custom_cards](custom_cards.md) | The legacy custom cards addon, this will be removed some day, but for now you can still use them! |
+| [custom_cards](custom_views.md) | The legacy custom cards addon, this will be removed some day, but for now you can still use them! |
 
 This list will grow with new addons in the future.
 
