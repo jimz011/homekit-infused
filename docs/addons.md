@@ -71,7 +71,7 @@ my_second_view:
 | Name | Description |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [custom](addons-v4/custom.md) | The ultimate addon that allows any card or multitude of cards! |
-
+| [custom_cards](addons-v4/custom_cards.md) | The legacy custom cards addon, this will be removed some day, but for now you can still use them! |
 This list will grow with new addons in the future.
 
 Looking for legacy v3 style addons? You can find them [here](addon_list.md), note that all the original auto-fill addons will no longer work!
