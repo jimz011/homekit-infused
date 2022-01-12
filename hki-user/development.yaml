@@ -1,0 +1,26 @@
+# Homekit Infused User Development
+
+# Create your own cards quicker by using the development dashboard.
+# Using this will save a lot of time creating new cards since you wont have to wait for restarts!
+# Once happy with the result you can use the code inside of the custom: addon.
+
+# How to use? Set up any card inside the code below, once done you can click the reload lovelace button.
+# You can use multiple cards on the same page and/or stack cards. Make sure you start a new card with a hyphen.
+# Example:
+#
+# - type: button
+
+# Enter your cards below:
+
+- type: markdown
+  content: this is
+
+- type: markdown
+  content: a
+
+- type: horizontal-stack
+  cards:
+    - type: markdown
+      content: test
+    - type: markdown
+      content: setup
