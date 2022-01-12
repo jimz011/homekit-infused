@@ -1,0 +1,56 @@
+# Main Lovelace Config
+
+## Button Card Templates
+button_card_templates: !include_dir_named templates/button/button-card-templates/
+
+## Base Configuration
+title: Development
+background: var(--background-image)
+popup_cards: !include templates/popup-cards/popup-cards.yaml
+views: 
+  - path: dev_default
+    icon: mdi:home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            aspect_ratio: 6/1
+            style: |
+              ha-card {
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+              }
+            name: Reload Lovelace
+            layout: icon_name
+            icon: mdi:cards-heart
+            tap_action:
+              action: call-service
+              service: browser_mod.lovelace_reload
+          - type: vertical-stack
+            cards:
+              !include ../hki-user/development.yaml
+  - path: dev_panel_mode
+    icon: mdi:rectangle-outline
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            max_cols: 3
+            cards:
+              - type: custom:button-card
+                aspect_ratio: 6/1
+                style: |
+                  ha-card {
+                    box-shadow: var(--box-shadow);
+                    border-radius: var(--border-radius);
+                  }
+                name: Reload Lovelace
+                layout: icon_name
+                icon: mdi:cards-heart
+                tap_action:
+                  action: call-service
+                  service: browser_mod.lovelace_reload
+          - type: vertical-stack
+            cards:
+              !include ../hki-user/development.yaml
