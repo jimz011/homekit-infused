@@ -1,4 +1,4 @@
-# Homekit Infused 2021.x.x
+# Homekit Infused 2022.x.x
 
 ## Content
 - [Introduction](index.md)
