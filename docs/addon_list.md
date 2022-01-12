@@ -1,4 +1,4 @@
-# Homekit Infused 2021.x.x
+# Homekit Infused 2022.x.x
 
 ## Content
 - [Introduction](index.md)
@@ -6,7 +6,7 @@
 - [Configuration](configuration.md)
 - [Addons](addons.md)
 - [Splitting the Configuration](splitting-the-config.md)
-
+- [Updates](updates.md)
 - [Issues & Questions](issues.md)
 - [About Me](about.md)
 - [Thanks](thanks.md)
