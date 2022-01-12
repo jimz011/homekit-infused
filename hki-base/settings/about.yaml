@@ -88,11 +88,11 @@ cards:
               icon: mdi:youtube
               tap_action:
                 action: url
-                url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                url_path: https://www.youtube.com/jimz011
                 haptic: light
               hold_action:
                 action: url
-                url_path: https://www.youtube.com/channel/UCYfcLj3IuQ-1mrnqgCk8f0w
+                url_path: https://www.youtube.com/jimz011
                 haptic: heavy
               styles:
                 card:
@@ -154,11 +154,11 @@ cards:
               icon: mdi:home-assistant
               tap_action:
                 action: url
-                url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                url_path: https://community.home-assistant.io/t/homekit-infused-hki-framework-v2021-12-3-december/117086
                 haptic: light
               hold_action:
                 action: url
-                url_path: https://community.home-assistant.io/t/hki-hki-v1-0-beta-updated-28-01-2020/117086
+                url_path: https://community.home-assistant.io/t/homekit-infused-hki-framework-v2021-12-3-december/117086
                 haptic: heavy
               styles:
                 card:
@@ -284,6 +284,6 @@ cards:
                 margin-left: {{ _global.general_config.margins }};
                 margin-right: {{ _global.general_config.margins }};
               }                    
-            content: HKI Framework 2021/2022 created by Jimz011
+            content: HKI Framework 2022 created by Jimz011
           - !include '../includes/empty-button.yaml'
       - !include '../includes/gap-height.yaml'
