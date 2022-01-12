@@ -55,10 +55,3 @@
 
 ### User submitted addons
   - [Addons by Noodlemctwoodle](https://noodlemctwoodle.github.io/homeassistant/)
-
-### Other Documentation
-#### Extra Information
-  - [Device Counters](addons/device_counters.md)
-  - [Notifications](addons/notifications.md)
-  - [Stacks and Layout-Card](addons/stacks.md) (horizontal/vertical)
-  - [Theming](addons/theming.md)
