@@ -67,7 +67,7 @@ Valentine:
   card-mod-theme: Valentine
   card-mod-root-yaml: |
     .: |
-      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      {% if not is_state('input_select.navigation_bar', 'Off') %}
       ha-menu-button {
         display: none !important;
       }
@@ -79,164 +79,74 @@ Valentine:
           display: none;
         }
       }
-      mwc-icon-button[slot="trigger"] > ha-svg-icon {
-        display: none;
-      }
-      mwc-icon-button[slot="trigger"]::after {
-        font-size: 18px;
-        height: 20px; 
-        width: 150px;
+      ha-button-menu ha-icon-button $ mwc-icon-button: |
+        ha-svg-icon {
+          display: none;
+        }
+        ha-button-menu::before {
+          font-size: 18px;
+          height: 20px; 
+          width: 150px;
+          position: absolute;
+          color: var(--header-text-color) !important;
 
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
-        text-align: left;
-        position: absolute;
-        top: 14px;
-        right: 12px;
-        transform: rotateY(180deg) !important;
-        color: var(--header-text-color) !important;
+          {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+          text-align: left;
+          top: 14px;
+          right: 5px;
+          transform: rotateY(180deg) !important;
+          {% else %}
+          text-align: right;
+          top: 14px;
+          right: 12px;
+          {% endif %}
+  
+          {% if is_state('input_select.navigation_bar_options', 'User') %}
+          content: "{{ user }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+          content: "{{ states('sensor.date') }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+          content: "{{ states('sensor.time') }}";
+          {% else %}
+          display: none !important;
+          {% endif %}
+        }
 
-        {% else %}
-        text-align: right;
-        position: absolute;
-        top: 14px;
-        right: 12px;
-        transform: none
-        color: var(--header-text-color) !important;
-
-        {% endif %}
-
-        color: var(--header-text-color) !important;
-
-        {% if is_state('input_select.navigation_bar_options', 'User') %}
-        content: "{{ user }}";
-
-        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
-        content: "{{ states('sensor.date') }}";
-
-        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
-        content: "{{ states('sensor.time') }}";
-
-        {% else %}
-        display: none !important;
-
-        {% endif %}
-
-      }
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
       app-header {
         top: auto !important;
         bottom: 0 !important;
         transform: unset !important;
         box-shadow: 0px -10px 21px -15px rgba(0,0,0,0.75);
       }
-      app-toolbar {
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
-        transform: rotateY(180deg) !important;
-        {% else %}
-        transform: none
-        {% endif %}
-      }
-      ha-tabs {
-        --paper-tabs-selection-bar-color: var(--primary-color) !important;
-      }
-      [main-title] {
-        color: var(--primary-color) !important;
-      }
-      paper-tab {
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
-        transform: rotateY(180deg) !important;
-        {% else %}
-        transform: none;
-        {% endif %}
-      }
       #view {
         margin-top: -56px !important;
       }
-      ha-icon {
+      {% endif %}
 
-        color: var(--header-text-color) !important;
-      }
-
-      {% elif is_state('input_select.navigation_bar', 'Top') %}
-      ha-menu-button {
-        display: none !important;
-      }
-      @media (orientation: portrait) {
-        paper-icon-button[icon="paper-tabs:chevron-right"] {
-          display: none;
-        }
-        paper-icon-button[icon="paper-tabs:chevron-left"] {
-          display: none;
-        }
-      }
-      mwc-icon-button[slot="trigger"] > ha-svg-icon {
-        display: none;
-      }
-      mwc-icon-button[slot="trigger"]::after {
-        font-size: 18px;
-        height: 20px; 
-        width: 150px;
-
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
-        text-align: left;
-        position: absolute;
-        top: 14px;
-        right: 12px;
-        transform: rotateY(180deg) !important;
-        color: var(--header-text-color) !important;
-
-        {% else %}
-        text-align: right;
-        position: absolute;
-        top: 14px;
-        right: 12px;
-        transform: none
-        color: var(--header-text-color) !important;
-
-        {% endif %}
-
-        color: var(--header-text-color) !important;
-
-        {% if is_state('input_select.navigation_bar_options', 'User') %}
-        content: "{{ user }}";
-
-        {% elif is_state('input_select.navigation_bar_options', 'Date') %}
-        content: "{{ states('sensor.date') }}";
-
-        {% elif is_state('input_select.navigation_bar_options', 'Time') %}
-        content: "{{ states('sensor.time') }}";
-
-        {% else %}
-        display: none !important;
-
-        {% endif %}
-
-      }
-      app-header {
-        box-shadow: none !important;
-      }
+      {% if is_state('input_select.navigation_bar_direction', 'Right') %}
       app-toolbar {
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
-        {% else %}
-        transform: none
-        {% endif %}
       }
+      {% endif %}
+
       ha-tabs {
         --paper-tabs-selection-bar-color: var(--primary-color) !important;
       }
       [main-title] {
         color: var(--primary-color) !important;
       }
+      {% if is_state('input_select.navigation_bar_direction', 'Right') %}
       paper-tab {
-        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
-        {% else %}
-        transform: none;
-        {% endif %}
       }
-      ha-icon {
+      {% endif %}
 
+      ha-icon {
         color: var(--header-text-color) !important;
+      }
+      ha-button-menu {
+        color: transparent !important;
       }
       {% endif %}
 
