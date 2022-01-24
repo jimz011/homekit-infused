@@ -27,7 +27,7 @@ Below are a few of the settings you can use for this addon. For the full documen
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type | no | custom:horizontal-layout | Set the type of layout, choose between `advanced`, `custom:masonry-layout`, `custom:horizontal-layout`, `custom:vertical-layout` or `custom:grid-layout` |
+| layout_type | no | custom:horizontal-layout | Set the type of layout, choose between `advanced`, `custom:masonry-layout`, `custom:horizontal-layout`, `custom:vertical-layout` or `custom:grid-layout` |
 | options | no | undefined | Set which options you want to give this layout |
 
 *Note: Setting type to `advanced` will turn off all the features that the layout addon has to offer and will revert to the default Home Assistant layout. Since the view is in panel mode (this is just how HKI is programmed), this means a vertical stack where only the first card will be rendered. It is called advanced because you will have to know how to make use of a panel mode view! Use this feature at your own risk!
@@ -54,7 +54,7 @@ Below are some of the options that are available
 # Example
   my_view:
     layout:
-      type: custom:vertical-layout
+      layout_type: custom:vertical-layout
       options:
         - max_cols: 3
           max_width: 100
@@ -71,7 +71,7 @@ Below are some of the options that are available
 # Example with grid-template-columns
   my_view:
     layout:
-      type: custom:grid-layout
+      layout_type: custom:grid-layout
       options:
         - grid-template-columns: auto 30px 25%
           grid-template-rows: auto
@@ -111,7 +111,7 @@ layout:
 # HKI Example with the same card above
   my_view:
     layout:
-      type: custom:grid-layout
+      layout_type: custom:grid-layout
       options:
         - grid-template-columns: 70% 30%
           grid-template-rows: auto
@@ -121,7 +121,7 @@ layout:
 # HKI Example with hyphens for each option
   my_view:
     layout:
-      type: custom:grid-layout
+      layout_type: custom:grid-layout
       options:
         - grid-template-columns: 70% 30%
         - grid-template-rows: auto
