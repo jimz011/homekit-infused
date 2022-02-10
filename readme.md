@@ -18,6 +18,9 @@ If you find any information on this page useful, feel free to buy me a coffee:
 <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
 
 ## Homekit Infused (Lovelace) by Jimz011
+
+**WARNING:** HKI 5 will be released within 2 months, there will be NO direct upgrade path from v4 to v5, you will however get over 200 new features that were never possible before! Stay tuned!
+
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
 Homekit Infused is in a nutshell a customizable 'framework' that you can use to build your own dashboard on, it is preconfigured to have an Apple style to it.
 By default it contains the following things:
