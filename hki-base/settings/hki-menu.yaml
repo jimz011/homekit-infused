@@ -17,8 +17,8 @@ cards:
               label: HKI
               icon: mdi:help-circle
               navigation_path: /homekit-infused/about
-              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
-              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"    
+              notification: "[[[ return '&nbsp'; ]]]"
+              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
           - !include
             - '../templates/button/button-badge.yaml'
             - name: HKI
@@ -33,8 +33,8 @@ cards:
               label: Settings
               icon: mdi:cogs
               navigation_path: /homekit-infused/ha_settings
-              notification: "[[[ if (states['sensor.version_current'].state != 0) return `${states['sensor.version_current'].state}`; else return '&nbsp'; ]]]"
-              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"
+              notification: "[[[ return '&nbsp'; ]]]"
+              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
       user:
         type: grid
         columns: 3
@@ -45,8 +45,8 @@ cards:
               label: HKI
               icon: mdi:help-circle
               navigation_path: /homekit-infused/about
-              notification: "[[[ if (states['sensor.hki_current_version'].state == `${states['sensor.hki_latest_version'].state}`) return `Up to Date`; if (states['sensor.hki_current_version'].state > `${states['sensor.hki_latest_version'].state}`) return `Beta!`; else return `Update`; ]]]"
-              background_color: "[[[ return 'var(--paper-item-icon-color)'; ]]]"  
+              notification: "[[[ return '&nbsp'; ]]]"
+              background_color: "[[[ return 'rgba(0,0,0,0.0)'; ]]]" 
           - !include
             - '../templates/button/button-badge.yaml'
             - name: Go to
