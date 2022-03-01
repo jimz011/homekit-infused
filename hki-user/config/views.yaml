@@ -27,3 +27,15 @@ views: # NEVER REMOVE THIS LINE
         - title: Menu
 
 # Add your own views below this line!
+
+# Lights (example)
+  lights:
+    title: Lights
+    show_in_favorites: true
+    icon: mdi:lightbulb
+#    addons:
+#      button:
+#        - title: Living Room
+#          entities:
+#            - entity: light.ceiling
+#            - entity: light.table
