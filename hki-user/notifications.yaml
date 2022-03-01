@@ -51,5 +51,5 @@
     !include
     - '../hki-base/templates/header/subtitle-notification-template.yaml'
     - icon: mdi:alert
-      name: Insert Notification, please open /hki-user/notifications.yaml
+      name: No notifications yet, please open /hki-user/notifications.yaml
 
