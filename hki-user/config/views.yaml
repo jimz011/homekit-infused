@@ -9,6 +9,8 @@ views: # NEVER REMOVE THIS LINE
     show_in_menu: false
     icon: mdi:home
     addons:
+      welcome_message:
+        - title: hide
       favorites:
         - title: hide
           columns: 3
