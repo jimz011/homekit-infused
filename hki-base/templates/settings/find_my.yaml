@@ -258,6 +258,7 @@ cards:
                       ]]]
                 {% endif %}
 
+            {% if _global.config.find_my is defined %}
             - type: custom:state-switch
               entity: input_select.find_my
               view_layout:
@@ -302,6 +303,7 @@ cards:
                   type: markdown
                   content: Unavailable
                   {% endif %}
+            {% endif %}
             - type: custom:button-card
               color_type: blank-card
               styles:
