@@ -1,0 +1,195 @@
+HKI Custom Light:
+#  modes:
+#    dark:
+#      color: var(--primary-text-color)
+
+  paper-toggle-button-checked-button-color: var(--ha-icon-color)
+  paper-toggle-button-checked-bar-color: var(--ha-icon-color)
+  paper-toggle-button-checked-ink-color: var(--ha-icon-color)
+  paper-slider-knob-color: var(--secondary-text-color)
+  paper-slider-knob-start-color: var(--ha-icon-color)
+  paper-slider-pin-color: var(--ha-icon-color)
+  paper-slider-active-color: var(--secondary-text-color)
+  switch-checked-color: var(--secondary-text-color)
+
+  paper-item-icon-color: var(--ha-icon-color)
+  header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
+  app-header-background-color: Black
+  paper-item-icon-active-color: var(--ha-icon-active-color)
+  border-radius: var(--ha-card-border-radius)
+  box-shadow: var(--ha-card-box-shadow)
+  card-mod-theme: HKI Custom Light
+  card-mod-card: |
+    .hki {
+      border-style: {{ states('input_text.card_border_style') }};
+      border-width: {{ states('input_text.card_border_width') }};
+      border-color: {{ states('input_text.card_border_color') }};
+      border-radius: {{ states('input_text.card_border_radius') }};
+      box-shadow: {{ states('input_text.card_box_shadow') }};
+      --primary-text-color: var(--hki-primary-text-color);
+      --secondary-text-color: var(--hki-secondary-text-color);
+      font-family: {{ states('input_text.font_family') }};
+    }
+    .header-title {
+      margin-top: -5px;
+      margin-left: -10px;
+      margin-bottom: -17px;
+      background: transparent !important;
+      font-family: var(--font-family) !important;
+      font-size: var(--header-font-size) !important;
+      font-weight: var(--header-font-weight) !important;
+      color: var(--header-text-color) !important;
+      box-shadow: none !important;
+      overflow: visible;
+    }
+  card-mod-root-yaml: |
+    .: |
+      :host {
+        --header-box-shadow: {{ states('input_text.header_box_shadow') }};
+        --header-border-radius: {{ states('input_text.header_border_radius') }};
+        --header-color: {{ states('input_text.header_color') }};
+        --ha-card-background: {{ states('input_text.card_color') }};
+        --ha-card-background-active: {{ states('input_text.button_color_active') }};
+        --ha-card-box-shadow-active: {{ states('input_text.button_box_shadow_active') }};
+        --ha-card-box-shadow: {{ states('input_text.card_box_shadow') }};
+        --ha-card-border-radius: {{ states('input_text.card_border_radius') }};
+        --ha-card-border-style: {{ states('input_text.card_border_style') }};
+        --ha-card-border-width: {{ states('input_text.card_border_width') }};
+        --ha-card-border-color: {{ states('input_text.card_border_color') }};
+        --hki-primary-text-color: {{ states('input_text.text_color') }};
+        --hki-secondary-text-color: {{ states('input_text.secondary_text_color') }};
+        --lock-color-active: {{ states('input_text.lock_color_active') }};
+        --lock-color-inactive: {{ states('input_text.lock_color_inactive') }};
+        --header-text-color: {{ states('input_text.header_text_color') }};
+        --background-image: {{ states('input_text.background_image') }};
+        --ha-icon-color: {{ states('input_text.icon_color_default') }};
+        --ha-icon-active-color: {{ states('input_text.icon_color_active') }};
+        --font-family: {{ states('input_text.font_family') }};
+        --header-font-size: {{ states('input_text.header_font_size') }};
+        --header-font-weight: {{ states('input_text.header_font_weight') }};
+        --header-badge-color: {{ states('input_text.header_badge_color') }};
+        --header-badge-text-color: {{ states('input_text.header_badge_text_color') }};
+        --header-badge-background: {{ states('input_text.header_badge_background') }};
+        --header-badge-icon-color: {{ states('input_text.header_badge_icon_color') }};
+        --subtitle-font-size: {{ states('input_text.subtitle_font_size') }};
+        --subtitle-font-weight: {{ states('input_text.subtitle_font_weight') }};
+        --subtitle-text-color: {{ states('input_text.subtitle_text_color') }};
+        --title-text-color: {{ states('input_text.title_text_color') }};
+        --title-text-font-size: {{ states('input_text.title_text_font_size') }};
+        --title-text-font-weight: {{ states('input_text.title_text_font_weight') }};
+        --title-text-background-color: {{ states('input_text.title_text_background_color') }};
+        --title-text-justify-self: {{ states('input_text.title_text_justify_self') }};
+        --title-text-padding: {{ states('input_text.title_text_padding') }};
+        --title-text-box-shadow: {{ states('input_text.title_text_box_shadow') }};
+        --title-text-border-radius: {{ states('input_text.title_text_border_radius') }};
+        --title-text-border-style: {{ states('input_text.title_text_border_style') }};
+        --title-text-border-width: {{ states('input_text.title_text_border_width') }};
+        --title-text-border-color: {{ states('input_text.title_text_border_color') }};
+        --name-font-size: {{ states('input_text.button_name_font_size') }};
+        --name-font-weight: {{ states('input_text.button_name_font_weight') }};
+        --name-color: {{ states('input_text.button_name_color') }};
+        --name-color-active: {{ states('input_text.button_name_color_active') }};
+        --label-font-size: {{ states('input_text.button_label_font_size') }};
+        --label-font-weight: {{ states('input_text.button_label_font_weight') }};
+        --label-color: {{ states('input_text.button_label_color') }};
+        --label-color-active: {{ states('input_text.button_label_color_active') }};
+        --state-font-size: {{ states('input_text.button_state_font_size') }};
+        --state-font-weight: {{ states('input_text.button_state_font_weight') }};
+        --state-color: {{ states('input_text.button_state_color') }};
+        --state-color-active: {{ states('input_text.button_state_color_active') }};
+        --badge-background-color: {{ states('input_text.badge_background_color') }};
+        --badge-text-color: {{ states('input_text.badge_text_color') }};
+        --badge-font-size: {{ states('input_text.badge_font_size') }};
+        --badge-font-weight: {{ states('input_text.badge_font_weight') }};
+        --badge-text-transform: {{ states('input_text.badge_text_transform') }};
+        --opacity-on: {{ states('input_text.opacity_on') }};
+        --opacity-off: {{ states('input_text.opacity_off') }};
+        --opacity-unavailable: {{ states('input_text.opacity_unavailable') }};
+        --color-unavailable: {{ states('input_text.color_unavailable') }};
+        --navbar-text-color: {{ states('input_text.nav_bar_text_color') }};
+      }
+      {% if not is_state('input_select.navigation_bar', 'Off') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      ha-button-menu ha-icon-button $ mwc-icon-button: |
+        ha-svg-icon {
+          display: none;
+        }
+        ha-button-menu::after {
+          font-size: 18px;
+          height: 20px; 
+          width: 150px;
+          position: absolute;
+          -webkit-text-fill-color: var(--navbar-text-color) !important;
+          color: var(--navbar-text-color) !important;
+
+          {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+          text-align: left;
+          top: 14px;
+          right: 5px;
+          transform: rotateY(180deg) !important;
+          {% else %}
+          text-align: right;
+          top: 14px;
+          right: 12px;
+          {% endif %}
+  
+          {% if is_state('input_select.navigation_bar_options', 'User') %}
+          content: "{{ user }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+          content: "{{ states('sensor.date') }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+          content: "{{ states('sensor.time') }}";
+          {% else %}
+          display: none !important;
+          {% endif %}
+        }
+
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      app-header {
+        top: auto !important;
+        bottom: 0 !important;
+        transform: unset !important;
+        box-shadow: {{ states('input_text.footer_box_shadow') }};
+      }
+      #view {
+        margin-top: -56px !important;
+      }
+      {% endif %}
+
+      app-toolbar {
+        background-color: {{ states('input_text.nav_bar_color') }} !important;
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% endif %}
+      }
+
+      ha-tabs {
+        --paper-tabs-selection-bar-color: transparent !important;
+      }
+      [main-title] {
+        color: transparent !important;
+      }
+      {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+      paper-tab {
+        transform: rotateY(180deg) !important;
+      }
+      {% endif %}
+
+      ha-icon {
+        -webkit-text-fill-color: var(--navbar-text-color) !important;
+        color: var(--navbar-text-color) !important;
+      }
+      ha-button-menu {
+        color: transparent !important;
+      }
+      {% endif %}

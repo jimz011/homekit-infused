@@ -1,0 +1,328 @@
+script:
+  hki_dark_default:
+    sequence:
+      - service: input_text.set_value
+        data:
+          value: 'linear-gradient(#333333, #222222)'
+        target:
+          entity_id: input_text.dark_background_image
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_badge_background_color
+      - service: input_text.set_value
+        data:
+          value: 11px
+        target:
+          entity_id: input_text.dark_badge_font_size
+      - service: input_text.set_value
+        data:
+          value: bold
+        target:
+          entity_id: input_text.dark_badge_font_weight
+      - service: input_text.set_value
+        data:
+          value: Black
+        target:
+          entity_id: input_text.dark_badge_text_color
+      - service: input_text.set_value
+        data:
+          value: capitalize
+        target:
+          entity_id: input_text.dark_badge_text_transform
+      - service: input_text.set_value
+        data:
+          value: none
+        target:
+          entity_id: input_text.dark_button_box_shadow_active
+      - service: input_text.set_value
+        data:
+          value: White
+        target:
+          entity_id: input_text.dark_button_color_active
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_button_label_color
+      - service: input_text.set_value
+        data:
+          value: Black
+        target:
+          entity_id: input_text.dark_button_label_color_active
+      - service: input_text.set_value
+        data:
+          value: 10px
+        target:
+          entity_id: input_text.dark_button_label_font_size
+      - service: input_text.set_value
+        data:
+          value: normal
+        target:
+          entity_id: input_text.dark_button_label_font_weight
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_button_name_color
+      - service: input_text.set_value
+        data:
+          value: Black
+        target:
+          entity_id: input_text.dark_button_name_color_active
+      - service: input_text.set_value
+        data:
+          value: 12px
+        target:
+          entity_id: input_text.dark_button_name_font_size
+      - service: input_text.set_value
+        data:
+          value: bold
+        target:
+          entity_id: input_text.dark_button_name_font_weight
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_button_state_color
+      - service: input_text.set_value
+        data:
+          value: Black
+        target:
+          entity_id: input_text.dark_button_state_color_active
+      - service: input_text.set_value
+        data:
+          value: 12px
+        target:
+          entity_id: input_text.dark_button_state_font_size
+      - service: input_text.set_value
+        data:
+          value: bold
+        target:
+          entity_id: input_text.dark_button_state_font_weight
+      - service: input_text.set_value
+        data:
+          value: none
+        target:
+          entity_id: input_text.dark_card_border_color
+      - service: input_text.set_value
+        data:
+          value: 12px
+        target:
+          entity_id: input_text.dark_card_border_radius
+      - service: input_text.set_value
+        data:
+          value: none
+        target:
+          entity_id: input_text.dark_card_border_style
+      - service: input_text.set_value
+        data:
+          value: none
+        target:
+          entity_id: input_text.dark_card_border_width
+      - service: input_text.set_value
+        data:
+          value: none
+        target:
+          entity_id: input_text.dark_card_box_shadow
+      - service: input_text.set_value
+        data:
+          value: 0px 0px 10px 2px var(--button-card-light-color)
+        target:
+          entity_id: input_text.card_box_shadow_light_color
+      - service: input_text.set_value
+        data:
+          value: '#111111'
+        target:
+          entity_id: input_text.dark_card_color
+      - service: input_text.set_value
+        data:
+          value: Red
+        target:
+          entity_id: input_text.dark_color_unavailable
+      - service: input_text.set_value
+        data:
+          value: Roboto
+        target:
+          entity_id: input_text.dark_font_family
+      - service: input_text.set_value
+        data:
+          value: 0px -14px 21px -15px rgba(0,0,0,0.75)
+        target:
+          entity_id: input_text.dark_footer_box_shadow
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_header_badge_background
+      - service: input_text.set_value
+        data:
+          value: Red
+        target:
+          entity_id: input_text.dark_header_badge_color
+      - service: input_text.set_value
+        data:
+          value: Black
+        target:
+          entity_id: input_text.dark_header_badge_icon_color
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_header_badge_text_color
+      - service: input_text.set_value
+        data:
+          value: 0px
+        target:
+          entity_id: input_text.dark_header_border_radius
+      - service: input_text.set_value
+        data:
+          value: 0px 14px 21px -15px rgba(0,0,0,0.75)
+        target:
+          entity_id: input_text.dark_header_box_shadow
+      - service: input_text.set_value
+        data:
+          value: '#111111'
+        target:
+          entity_id: input_text.dark_header_color
+      - service: input_text.set_value
+        data:
+          value: 22px
+        target:
+          entity_id: input_text.dark_header_font_size
+      - service: input_text.set_value
+        data:
+          value: bolder
+        target:
+          entity_id: input_text.dark_header_font_weight
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_header_text_color
+      - service: input_text.set_value
+        data:
+          value: '#B58E31'
+        target:
+          entity_id: input_text.dark_icon_color_active
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_icon_color_default
+      - service: input_text.set_value
+        data:
+          value: DarkRed
+        target:
+          entity_id: input_text.dark_lock_color_active
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_lock_color_inactive
+      - service: input_text.set_value
+        data:
+          value: '#111111'
+        target:
+          entity_id: input_text.dark_nav_bar_color
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_nav_bar_text_color
+      - service: input_text.set_value
+        data:
+          value: 0.6
+        target:
+          entity_id: input_text.opacity_off
+      - service: input_text.set_value
+        data:
+          value: 1.0
+        target:
+          entity_id: input_text.opacity_on
+      - service: input_text.set_value
+        data:
+          value: 0.4
+        target:
+          entity_id: input_text.opacity_unavailable
+      - service: input_text.set_value
+        data:
+          value: Red
+        target:
+          entity_id: input_text.dark_secondary_text_color
+      - service: input_text.set_value
+        data:
+          value: 12px
+        target:
+          entity_id: input_text.dark_subtitle_font_size
+      - service: input_text.set_value
+        data:
+          value: bold
+        target:
+          entity_id: input_text.dark_subtitle_font_weight
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_subtitle_text_color
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_text_color
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-background)
+        target:
+          entity_id: input_text.dark_title_text_background_color
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-border-color)
+        target:
+          entity_id: input_text.dark_title_text_border_color
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-border-radius)
+        target:
+          entity_id: input_text.dark_title_text_border_radius
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-border-style)
+        target:
+          entity_id: input_text.dark_title_text_border_style
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-border-width)
+        target:
+          entity_id: input_text.dark_title_text_border_width
+      - service: input_text.set_value
+        data:
+          value: var(--ha-card-box-shadow)
+        target:
+          entity_id: input_text.dark_title_text_box_shadow
+      - service: input_text.set_value
+        data:
+          value: AliceBlue
+        target:
+          entity_id: input_text.dark_title_text_color
+      - service: input_text.set_value
+        data:
+          value: 12px
+        target:
+          entity_id: input_text.dark_title_text_font_size
+      - service: input_text.set_value
+        data:
+          value: bolder
+        target:
+          entity_id: input_text.dark_title_text_font_weight
+      - service: input_text.set_value
+        data:
+          value: center
+        target:
+          entity_id: input_text.dark_title_text_justify_self
+      - service: input_text.set_value
+        data:
+          value: 0px
+        target:
+          entity_id: input_text.dark_title_text_padding

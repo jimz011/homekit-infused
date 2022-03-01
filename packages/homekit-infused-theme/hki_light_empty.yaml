@@ -1,0 +1,328 @@
+script:
+  hki_light_empty:
+    sequence:
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.background_image
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.badge_background_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.badge_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.badge_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.badge_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.badge_text_transform
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_box_shadow_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_label_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_label_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_label_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_label_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_name_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_name_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_name_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_name_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_state_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_state_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_state_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.button_state_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_border_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_border_radius
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_border_style
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_border_width
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_box_shadow
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_box_shadow_light_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.card_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.color_unavailable
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.font_family
+      - service: input_text.set_value
+        data:
+          value: 0px 0px 0px 0px
+        target:
+          entity_id: input_text.footer_box_shadow
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_badge_background
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_badge_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_badge_icon_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_badge_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_border_radius
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_box_shadow
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.header_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.icon_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.icon_color_default
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.lock_color_active
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.lock_color_inactive
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.nav_bar_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.nav_bar_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.opacity_off
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.opacity_on
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.opacity_unavailable
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.secondary_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.subtitle_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.subtitle_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.subtitle_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_background_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_border_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_border_radius
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_border_style
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_border_width
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_box_shadow
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_color
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_font_size
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_font_weight
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_justify_self
+      - service: input_text.set_value
+        data:
+          value: undefined
+        target:
+          entity_id: input_text.title_text_padding

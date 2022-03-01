@@ -1,0 +1,29 @@
+views: # NEVER REMOVE THIS LINE
+
+# Default views (you can edit them!)
+
+# Home
+  home:
+    title: greeting
+    show_in_navbar: true
+    show_in_menu: false
+    icon: mdi:home
+    addons:
+      favorites:
+        - title: hide
+          columns: 3
+
+# Menu
+  menu:
+    title: Menu
+    show_in_navbar: true
+    show_in_menu: false
+    subtitle: "[[[ return `HKI 5 v.${states['sensor.hki_current_version'].state}`; ]]]"
+    icon: mdi:apps
+    addons:
+      favorites:
+        - title: Favorites
+      menu:
+        - title: Menu
+
+# Add your own views below this line!

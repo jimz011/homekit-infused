@@ -1,0 +1,68 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - {{ template }}
+entity: input_boolean.dummy1
+name: "{{ name }}"
+icon: "{{ icon }}"
+size: {{ size|default('10%') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: false
+show_label: false
+{% if tap_action is defined %}
+tap_action: 
+  {{ tap_action|tojson }}
+{% else %}
+tap_action:
+  action: navigate
+  navigation_path: {{ navigation_path }}
+{% endif %}
+{% if hold_action is defined %}
+hold_action:
+  {{ hold_action|tojson }}
+{% else %}
+hold_action:
+  action: none
+{% endif %}
+{% if double_tap_action is defined %}
+double_tap_action:
+  {{ double_tap_action|tojson }}
+{% else %}
+double_tap_action:
+  action: none
+{% endif %}
+styles:
+  card:
+    - border-radius: var(--ha-card-border-radius)
+    - box-shadow: var(--ha-card-box-shadow)
+    - border-style: var(--ha-card-border-style)
+    - border-width: var(--ha-card-border-width)
+    - border-color: var(--ha-card-border-color)
+  name:
+    - font-weight: var(--name-font-weight)
+    - font-family: var(--font-family) 
+    - font-size: var(--name-font-size)
+{% if ((notification is defined) and (background_color is defined)) %}
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--ha-card-background)
+      - border-radius: 12px
+      - overflow: visible
+      - position: absolute
+      - right: 7px
+      - top: 7px
+      - padding: 0px 5px
+      - height: 22px
+      - min-width: 12px
+      - font-size: var(--badge-font-size)
+      - line-height: 22px
+      - font-weight: var(--badge-font-weight)
+      - text-transform: var(--badge-text-transform)
+custom_fields: 
+  notification: "{{ notification }}"
+{% endif %}

@@ -1,0 +1,244 @@
+# lovelace_gen
+
+type: custom:button-card
+template: 
+  - "{{ template|default('hki-default') }}"
+name: "{{ name }}"
+icon: "{{ icon }}"
+color: auto
+show_entity_picture: {{ show_entity_picture|default('true') }}
+entity_picture: "{{ entity_picture }}"
+size: {{ size|default('25%') }}
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: {{ lock_unlock|default('tap') }}
+  duration: {{ lock_duration|default('5') }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+{% if (confirmation is defined) %}
+confirmation: 
+  {{ confirmation|tojson }}
+{% endif %}
+{% if (extra_styles is defined) %}
+extra_styles: 
+  {{ extra_styles|tojson }}
+{% endif %}
+{% if (state is defined) %}
+state:
+  {% for device in state %}
+  - {{ device|tojson }}
+  {% endfor %}
+{% endif %}
+{% if state_display is defined %}
+state_display: "{{ state_display }}"
+{% endif %}
+{% if active_icon_color is defined %}
+icon_color_on: "{{ active_icon_color }}"
+{% endif %}
+{% if triggers_updates is defined %}
+triggers_updates:
+  {% for trigger in triggers_updates %}
+  - {{ trigger }}
+  {% endfor %}
+{% endif %}
+{% if group_expand is defined %}
+group_expand: {{ group_expand }}
+{% endif %}
+{% if units is defined %}
+units: {{ units }}
+{% endif %}
+{% if entity is defined %}
+entity: {{ entity }}
+{% endif %}
+{% if ('light.' in entity) %}
+label: "[[[ if (typeof(entity) === 'undefined') return; if ('brightness' in entity.attributes) { if (entity.attributes && (entity.attributes.brightness <= 255)) { var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; } } ]]]"
+{% else %}
+label: "{{ label|default('&nbsp;') }}"
+{% endif %}
+show_name: {{ show_name|default('true') }}
+show_icon: {{ show_icon|default('true') }}
+show_state: {{ show_state|default('true') }}
+show_units: {{ show_units|default('false') }}
+
+{% if ('binary_sensor.' in entity) %}
+show_label: false
+{% else %}
+show_label: {{ show_label|default('true') }}
+{% endif %}
+show_last_changed: {{ show_last_changed|default('false') }}
+tap_action: 
+  {% if tap_action is defined %}
+  {{ tap_action|tojson }}
+  {% else %}
+  action: toggle
+  haptic: light
+  {% endif %}
+hold_action:
+  {% if hold_action is defined %}
+  {{ hold_action|tojson }}
+  {% else %}
+  action: none
+  {% endif %}
+double_tap_action:
+  {% if double_tap_action is defined %}
+  {{ double_tap_action|tojson }}
+  {% elif hold_action is defined %}
+  {{ hold_action|tojson }}
+  {% else %}
+  action: none
+  {% endif %}
+{% if ((styles is defined) and (styles != 'none')) %}
+styles:
+  {{ styles|tojson }}
+{% else %}
+styles:
+  {% if (background_image is defined) %}
+  card:
+    - background-image: url("{{ background_image }}")
+    - background-repeat: no-repeat
+    - background-position: center 
+    - background-size: cover
+  {% endif %}
+  icon:
+    - color: {{ icon_color_off|default('var(--ha-icon-color)') }}
+  name:
+    - color: var(--name-color)
+  state:
+    - color: var(--state-color)
+  label:
+    - color: var(--label-color)
+  lock:
+    - color: var(--lock-color) 
+  grid:
+    {% if ('light.' in entity) or ('switch.' in entity) %}
+    - grid-template-areas: '"i i" "area area" "n n" "s l"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr 1fr min-content min-content
+    {% elif (button_type == 'graph') %} 
+    - grid-template-areas: '"graph" "n" "area" "l"'
+    - grid-template-columns: 1fr 
+    - grid-template-rows: 80% 3% 10% 3%
+    {% else %}
+    - grid-template-areas: '"i i" "area area" "n n" "s s" "l l"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr 1fr min-content min-content min-content
+    {% endif %} 
+{% if ((notification is defined) and (background_color is defined)) %}
+  custom_fields:
+    notification:
+      - background-color: "{{ background_color }}"
+      - color: var(--badge-text-color)
+      - border-radius: 12px
+      - overflow: visible
+      - position: absolute
+      - right: 7%
+      - top: 9%
+      - padding: 0px 5px
+      - height: 22px
+      - min-width: 12px
+      - font-size: var(--badge-font-size)
+      - line-height: 22px
+      - font-weight: var(--badge-font-weight)
+      - text-transform: var(--badge-text-transform)
+{% endif %}
+{% if (button_type == 'graph') %} 
+  custom_fields:
+    graph:
+      - filter: opacity(75%)
+      - overflow: unset
+{% endif %}
+{% endif %}
+
+{% if (custom_fields is defined) %}
+custom_fields: 
+  {{ custom_fields|tojson }}
+{% elif (button_type == 'graph') %}
+custom_fields:
+  graph:
+    card:
+      type: 'custom:mini-graph-card'
+      card_mod:
+        style:
+          .: |
+            :host {
+              --ha-card-background: transparent !important;
+            }
+            ha-card {
+              background: transparent !important;
+              box-shadow: none !important;
+              margin-left: -7px !important;
+              margin-right: -7px !important;
+            }
+      entities: 
+        - entity: {{ entity }}
+      hours_to_show: 12
+      points_per_hour: 3
+      line_width: 9
+      hour24: true
+      animate: true
+      decimals: 1
+      font_size: 53
+      show:
+        graph_type: {{ graph_type|default('line') }}
+        icon: false
+        fill: false
+        extrema: false
+        average: false
+        name: false
+        labels: false
+      font_size_header: 9
+      line_color: {{ line_color|default('red') }}
+{% elif (notification is defined) %}
+custom_fields: 
+  notification: "{{ notification }}"
+{% endif %}
+
+{% if ((state is defined) and (state != 'none')) %}
+state:
+  {% for list in state %}
+  - {{ list|tojson }}
+  {% endfor %}
+{% else %}
+state:
+  - value: "on"
+    spin: {{ spin|default('false') }}
+    styles:
+      {% if ('light.' in entity) %}
+      card:
+        - box-shadow: "[[[ return `${states['input_text.card_box_shadow_light_color'].state}` ]]]"
+        - -webkit-box-shadow: "[[[ return `${states['input_text.card_box_shadow_light_color'].state}` ]]]"
+        - --ha-card-background: var(--ha-card-background-active) 
+        - opacity: var(--opacity-on)
+      icon:
+        - color: {{ color|default('var(--button-card-light-color)') }}
+      {% else %}
+      card:
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        - --ha-card-background: var(--ha-card-background-active)
+        - opacity: var(--opacity-on)
+      icon:
+        - color: {{ icon_color_on|default('var(--ha-icon-active-color)') }}
+      {% endif %}
+      name:
+        - color: var(--name-color-active)
+      state:
+        - color: var(--state-color-active)
+      label:
+        - color: var(--label-color-active)
+      lock:
+        - color: var(--lock-color-active)
+  - value: "off"
+    styles:
+      icon:
+        - color: {{ icon_color_off|default('var(--ha-icon-color') }}
+      entity_picture:
+        - filter: grayscale(100%)
+      card:
+        - opacity: var(--opacity-off)
+  - value: "unavailable"
+    styles:
+      card:
+        - opacity: var(--opacity-unavailable)
+      state:
+        - color: var(--color-unavailable)
+{% endif %}

@@ -1,0 +1,1180 @@
+path: hki_settings
+visible: false
+panel: true
+title: HKI Settings
+cards:
+  - type: vertical-stack
+    cards:
+      - !include
+        - '../header/header-base.yaml'
+        - title: HKI Settings
+          name: "[[[ return `HKI 5 v.${states['sensor.hki_current_version'].state}` ]]]"
+          icon: mdi:palette
+      - type: custom:layout-card
+        layout_type: custom:horizontal-layout
+        layout:
+          max_cols: 3
+        cards:
+          - type: vertical-stack
+            cards:
+              - !include
+                - '../titles/default.yaml'
+                - name: 'Global Settings'
+              - type: entities    
+                card_mod:
+                  class: hki
+                entities: 
+                  # Theme Selector
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:palette
+                      name: Select Theme
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - entity: input_select.theme_selector_light
+                        name: Select Light Theme
+                      - entity: input_select.theme_selector_dark
+                        name: Select Dark Theme
+                  - type: custom:hui-vertical-stack-card
+                    cards:
+                      - type: markdown
+                        card_mod:
+                          class: hki   
+                        content: >
+                          **NOTE:** iOS will automatically use the HKI Advanced Themes, if you want to force a theme or use the `Default HKI` theme you **MUST** set it in your [profile](../profile)!
+              - type: entities 
+                card_mod:
+                  class: hki
+                entities: 
+                  # Navigation Bar
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:page-layout-header
+                      name: Navigation Bar
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - entity: input_select.navigation_bar
+                        name: Type
+                      - type: conditional
+                        conditions:
+                          - entity: input_select.navigation_bar
+                            state_not: "Off"
+                        row:
+                          entity: input_select.navigation_bar_direction
+                          name: Icons
+                      - type: conditional
+                        conditions:
+                          - entity: input_select.navigation_bar
+                            state_not: "Off"
+                        row:
+                          entity: input_select.navigation_bar_options
+                          name: Text
+                      - type: conditional
+                        conditions:
+                          - entity: input_select.navigation_bar
+                            state: "Off"
+                        row:
+                          type: custom:hui-vertical-stack-card
+                          cards:
+                            - type: markdown
+                              card_mod:
+                                class: hki
+                              style: |
+                                ha-card {
+                                  box-shadow: none !important;
+                                  border-radius: none !important;
+                                }
+                                :host {
+                                  font-family: var(--font-family) !important;
+                                }              
+                              content: >
+                                **NOTE:** 
+                                
+                                Enabling options for the navigation bar will enable them on ALL dashboards! This can be useful if you want to have a clock/date and such on your other dashboards to be present.
+            
+            
+                                Turn this feature off if you don't like to use this or if it is conflicting with your other dashboards.
+            
+            
+                                **This note will no longer show when you enable this feature!**
+              - type: entities
+                card_mod:
+                  class: hki   
+                entities: 
+                  - type: custom:hui-vertical-stack-card
+                    cards:
+                      - type: markdown
+                        card_mod:
+                          class: hki
+                        style: |
+                          ha-card {
+                            box-shadow: none !important;
+                            border-radius: none !important;
+                          }
+                          :host {
+                            font-family: var(--font-family) !important;
+                          }              
+                        content: >
+                          **NOTE:** The HKI Advanced themes must be active for these settings below to work, with the exception of the `frontend greeting`!
+                  - entity: input_select.settings_light_dark
+                    name: Select theme to edit
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:page-layout-header
+                      name: Reset Options
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: grid
+                            columns: 4
+                            cards:
+                              - type: custom:button-card
+                                name: Reset
+                                label: Light Theme
+                                icon: mdi:weather-sunny
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to revert the light theme to defaults? This can not be undone!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_light_default
+                                styles:
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Reset
+                                label: Dark Theme
+                                icon: mdi:weather-night
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to revert the dark theme to defaults? This can not be undone!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_dark_default
+                                styles:
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Clear
+                                label: Light Theme
+                                icon: mdi:file-restore
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to clear the light theme? This can not be undone!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_light_empty
+                                styles:
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Clear
+                                label: Dark Theme
+                                icon: mdi:file-restore
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to clear the dark theme? This can not be undone!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_dark_empty
+                                styles:
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+
+          - type: vertical-stack
+            cards:
+              - !include
+                - '../titles/default.yaml'
+                - name: 'Theme Settings'
+              - type: custom:state-switch
+                entity: input_select.settings_light_dark
+                transition: flip
+                states:
+                  Light:
+                    type: vertical-stack
+                    cards:
+                      - type: entities 
+                        card_mod:
+                          class: hki
+                        entities: 
+                          # Cards
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:card-multiple
+                              name: Cards (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Color
+                                entity: input_text.card_color
+                              - type: custom:text-input-row
+                                name: Border Radius
+                                entity: input_text.card_border_radius
+                              - type: custom:text-input-row
+                                name: Box Shadow
+                                entity: input_text.card_box_shadow
+                              - type: custom:text-input-row
+                                name: Border Style
+                                entity: input_text.card_border_style
+                              - type: custom:text-input-row
+                                name: Border Width
+                                entity: input_text.card_border_width
+                              - type: custom:text-input-row
+                                name: Border Color
+                                entity: input_text.card_border_color
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **NOTE:**
+
+                                      Box-shadow generator [here](https://html-css-js.com/css/generator/box-shadow/)
+                                      
+                                      Border-radius generator [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Border-radius_generator)
+
+
+                                      **WARNING!** 
+                                      
+                                      Setting a gradient on the cards may heat up your device! It is recommended to use solid colors only! This is only the case for this specific category, you can use gradients safely anywhere else!
+                          # Icons
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:alpha-i-circle
+                              name: Icons (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row 
+                                name: Color Default
+                                entity: input_text.icon_color_default
+                              - type: custom:text-input-row 
+                                name: Color Active
+                                entity: input_text.icon_color_active
+                          # Fonts
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:format-font
+                              name: Text and Font (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Primary Text Color
+                                entity: input_text.text_color
+                              - type: custom:text-input-row
+                                name: Secondary Text Color
+                                entity: input_text.secondary_text_color
+                              - type: custom:text-input-row
+                                name: Font Family
+                                entity: input_text.font_family
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **NOTE:**
+                                      
+                                      You can find a list of possible Font Families [here](https://www.tutorialbrain.com/css_tutorial/css_font_family_list/)
+
+                                      You can find more advanced examples [here](https://www.w3.org/Style/Examples/007/fonts.en.html)
+                          # Buttons
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:gesture-tap-button
+                              name: Buttons
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:cards
+                                  name: Card
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color Active
+                                    entity: input_text.button_color_active
+                                  - type: custom:text-input-row
+                                    name: Box Shadow Active
+                                    entity: input_text.button_box_shadow_active
+                                  - type: custom:text-input-row
+                                    name: Box Shadow Active (Lights Only)
+                                    entity: input_text.card_box_shadow_light_color
+                                  - type: custom:hui-vertical-stack-card
+                                    cards:
+                                      - type: markdown
+                                        card_mod:
+                                          class: hki           
+                                        content: >
+                                          **Example:** 0px 0px 10px 2px rgba(0,0,0,0.6)
+
+
+                                          **Example for Box Shadow (Lights Only)** 0px 0px 10px 2px var(--button-card-light-color)
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:form-textbox
+                                  name: Name
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Name Color
+                                    entity: input_text.button_name_color
+                                  - type: custom:text-input-row
+                                    name: Name Color Active
+                                    entity: input_text.button_name_color_active
+                                  - type: custom:text-input-row
+                                    name: Name Font Size
+                                    entity: input_text.button_name_font_size
+                                  - type: custom:text-input-row
+                                    name: Name Font Weight
+                                    entity: input_text.button_name_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:label
+                                  name: Label
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Label Color
+                                    entity: input_text.button_label_color
+                                  - type: custom:text-input-row
+                                    name: Label Color Active
+                                    entity: input_text.button_label_color_active
+                                  - type: custom:text-input-row
+                                    name: Label Font Size
+                                    entity: input_text.button_label_font_size
+                                  - type: custom:text-input-row
+                                    name: Label Font Weight
+                                    entity: input_text.button_label_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:toggle-switch-off
+                                  name: State
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: State Color
+                                    entity: input_text.button_state_color
+                                  - type: custom:text-input-row
+                                    name: State Color Active
+                                    entity: input_text.button_state_color_active
+                                  - type: custom:text-input-row
+                                    name: State Font Size
+                                    entity: input_text.button_state_font_size
+                                  - type: custom:text-input-row
+                                    name: State Font Weight
+                                    entity: input_text.button_state_font_weight
+                                  - type: custom:text-input-row
+                                    name: State Unavailable Color
+                                    entity: input_text.color_unavailable
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:checkbox-blank-badge
+                                  name: Badges
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Badge Background Color
+                                    entity: input_text.badge_background_color
+                                  - type: custom:text-input-row
+                                    name: Badge Text Color
+                                    entity: input_text.badge_text_color
+                                  - type: custom:text-input-row
+                                    name: Badge Font Size
+                                    entity: input_text.badge_font_size
+                                  - type: custom:text-input-row
+                                    name: Badge Font Weight
+                                    entity: input_text.badge_font_weight
+                                  - type: custom:text-input-row
+                                    name: Badge Text Transform
+                                    entity: input_text.badge_text_transform
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:lock
+                                  name: Locks
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color Active
+                                    entity: input_text.lock_color_active
+                                  - type: custom:text-input-row
+                                    name: Color Inactive
+                                    entity: input_text.lock_color_inactive
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:square-opacity
+                                  name: Opacity
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Opacity Active
+                                    entity: input_text.opacity_on
+                                  - type: custom:text-input-row
+                                    name: Opacity Inactive
+                                    entity: input_text.opacity_off
+                                  - type: custom:text-input-row
+                                    name: Opacity Unavailable
+                                    entity: input_text.opacity_unavailable
+                          # Header
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:page-layout-header-footer
+                              name: Header/Footer
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:page-layout-header
+                                  name: Header
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color
+                                    entity: input_text.header_color
+                                  - type: custom:text-input-row
+                                    name: Border Radius
+                                    entity: input_text.header_border_radius
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.header_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.header_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.header_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.header_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:subtitles
+                                  name: Subtitle/Notifications
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.subtitle_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.subtitle_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.subtitle_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:page-layout-footer
+                                  name: Navigation/Footer Bar
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color
+                                    entity: input_text.nav_bar_color
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.footer_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Text & Icon Color
+                                    entity: input_text.nav_bar_text_color
+                                  - type: custom:hui-vertical-stack-card
+                                    cards:
+                                      - type: markdown
+                                        card_mod:
+                                          class: hki   
+                                        content: >
+                                          **NOTE:** You can **NOT** use gradients on the navigation/footer bar!
+
+
+                                          **NOTE:** iOS users **MUST** set a box-shadow, this can **NOT** be `none`. If you don't want a box-shadow use `0px 0px 0px 0px` instead or the navbar might not show you icons!
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:checkbox-blank-badge
+                                  name: Badges
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Card Background Color
+                                    entity: input_text.header_badge_background
+                                  - type: custom:text-input-row
+                                    name: Icon Color
+                                    entity: input_text.header_badge_icon_color
+                                  - type: custom:text-input-row
+                                    name: Badge Color
+                                    entity: input_text.header_badge_color
+                                  - type: custom:text-input-row
+                                    name: Badge Text Color
+                                    entity: input_text.header_badge_text_color
+                          # Header Greeting
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:comment-text-multiple
+                              name: Header Greeting
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Good Morning
+                                entity: input_text.good_morning
+                              - type: custom:text-input-row
+                                name: Good Afternoon
+                                entity: input_text.good_afternoon
+                              - type: custom:text-input-row
+                                name: Good Evening
+                                entity: input_text.good_evening
+                              - type: custom:text-input-row
+                                name: Good Night
+                                entity: input_text.good_night
+                          # Titles
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:format-header-1
+                              name: Titles
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:format-font
+                                  name: Fonts
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.title_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.title_text_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.title_text_font_weight
+                                  - type: custom:text-input-row
+                                    name: Justify Self
+                                    entity: input_text.title_text_justify_self
+                                  - type: custom:text-input-row
+                                    name: Padding Left and Right
+                                    entity: input_text.title_text_padding
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:cards
+                                  name: Card
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Background Color
+                                    entity: input_text.title_text_background_color
+                                  - type: custom:text-input-row
+                                    name: Border Radius
+                                    entity: input_text.title_text_border_radius
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.title_text_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Border Style
+                                    entity: input_text.title_text_border_style
+                                  - type: custom:text-input-row
+                                    name: Border Width
+                                    entity: input_text.title_text_border_width
+                                  - type: custom:text-input-row
+                                    name: Border Color
+                                    entity: input_text.title_text_border_color
+                          # Wallpaper
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:wallpaper
+                              name: Wallpaper
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Color or Image
+                                entity: input_text.background_image
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **Example:** linear-gradient(Black, White)
+
+
+                                      **Example:** 'center / cover no-repeat url("/local/images/my_wallpaper.png") fixed'
+                  Dark:
+                    type: vertical-stack
+                    cards:
+                      - type: entities 
+                        card_mod:
+                          class: hki
+                        entities: 
+                          # Cards
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:card-multiple
+                              name: Cards (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Color
+                                entity: input_text.dark_card_color
+                              - type: custom:text-input-row
+                                name: Border Radius
+                                entity: input_text.dark_card_border_radius
+                              - type: custom:text-input-row
+                                name: Box Shadow
+                                entity: input_text.dark_card_box_shadow
+                              - type: custom:text-input-row
+                                name: Border Style
+                                entity: input_text.dark_card_border_style
+                              - type: custom:text-input-row
+                                name: Border Width
+                                entity: input_text.dark_card_border_width
+                              - type: custom:text-input-row
+                                name: Border Color
+                                entity: input_text.dark_card_border_color
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **NOTE:**
+
+                                      Box-shadow generator [here](https://html-css-js.com/css/generator/box-shadow/)
+                                      
+                                      Border-radius generator [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Border-radius_generator)
+
+
+                                      **WARNING!** 
+                                      
+                                      Setting a gradient on the cards may heat up your device! It is recommended to use solid colors only! This is only the case for this specific category, you can use gradients safely anywhere else!
+                          # Icons
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:alpha-i-circle
+                              name: Icons (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row 
+                                name: Color Default
+                                entity: input_text.dark_icon_color_default
+                              - type: custom:text-input-row 
+                                name: Color Active
+                                entity: input_text.dark_icon_color_active
+                          # Fonts
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:format-font
+                              name: Text and Font (Global)
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Primary Text Color
+                                entity: input_text.dark_text_color
+                              - type: custom:text-input-row
+                                name: Secondary Text Color
+                                entity: input_text.dark_secondary_text_color
+                              - type: custom:text-input-row
+                                name: Font Family
+                                entity: input_text.dark_font_family
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **NOTE:**
+                                      
+                                      You can find a list of possible Font Families [here](https://www.tutorialbrain.com/css_tutorial/css_font_family_list/)
+
+                                      You can find more advanced examples [here](https://www.w3.org/Style/Examples/007/fonts.en.html)
+                          # Buttons
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:gesture-tap-button
+                              name: Buttons
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:cards
+                                  name: Card
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color Active
+                                    entity: input_text.dark_button_color_active
+                                  - type: custom:text-input-row
+                                    name: Box Shadow Active
+                                    entity: input_text.dark_button_box_shadow_active
+                                  - type: custom:text-input-row
+                                    name: Box Shadow Active (Lights Only)
+                                    entity: input_text.card_box_shadow_light_color
+                                  - type: custom:hui-vertical-stack-card
+                                    cards:
+                                      - type: markdown
+                                        card_mod:
+                                          class: hki           
+                                        content: >
+                                          **Example:** 0px 0px 10px 2px rgba(0,0,0,0.6)
+
+
+                                          **Example for Box Shadow (Lights Only)** 0px 0px 10px 2px var(--button-card-light-color)
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:form-textbox
+                                  name: Name
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Name Color
+                                    entity: input_text.dark_button_name_color
+                                  - type: custom:text-input-row
+                                    name: Name Color Active
+                                    entity: input_text.dark_button_name_color_active
+                                  - type: custom:text-input-row
+                                    name: Name Font Size
+                                    entity: input_text.dark_button_name_font_size
+                                  - type: custom:text-input-row
+                                    name: Name Font Weight
+                                    entity: input_text.dark_button_name_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:label
+                                  name: Label
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Label Color
+                                    entity: input_text.dark_button_label_color
+                                  - type: custom:text-input-row
+                                    name: Label Color Active
+                                    entity: input_text.dark_button_label_color_active
+                                  - type: custom:text-input-row
+                                    name: Label Font Size
+                                    entity: input_text.dark_button_label_font_size
+                                  - type: custom:text-input-row
+                                    name: Label Font Weight
+                                    entity: input_text.dark_button_label_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:toggle-switch-off
+                                  name: State
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: State Color
+                                    entity: input_text.dark_button_state_color
+                                  - type: custom:text-input-row
+                                    name: State Color Active
+                                    entity: input_text.dark_button_state_color_active
+                                  - type: custom:text-input-row
+                                    name: State Font Size
+                                    entity: input_text.dark_button_state_font_size
+                                  - type: custom:text-input-row
+                                    name: State Font Weight
+                                    entity: input_text.dark_button_state_font_weight
+                                  - type: custom:text-input-row
+                                    name: State Unavailable Color
+                                    entity: input_text.dark_color_unavailable
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:checkbox-blank-badge
+                                  name: Badges
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Badge Background Color
+                                    entity: input_text.dark_badge_background_color
+                                  - type: custom:text-input-row
+                                    name: Badge Text Color
+                                    entity: input_text.dark_badge_text_color
+                                  - type: custom:text-input-row
+                                    name: Badge Font Size
+                                    entity: input_text.dark_badge_font_size
+                                  - type: custom:text-input-row
+                                    name: Badge Font Weight
+                                    entity: input_text.dark_badge_font_weight
+                                  - type: custom:text-input-row
+                                    name: Badge Text Transform
+                                    entity: input_text.dark_badge_text_transform
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:lock
+                                  name: Locks
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color Active
+                                    entity: input_text.dark_lock_color_active
+                                  - type: custom:text-input-row
+                                    name: Color Inactive
+                                    entity: input_text.dark_lock_color_inactive
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:square-opacity
+                                  name: Opacity
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Opacity Active
+                                    entity: input_text.opacity_on
+                                  - type: custom:text-input-row
+                                    name: Opacity Inactive
+                                    entity: input_text.opacity_off
+                                  - type: custom:text-input-row
+                                    name: Opacity Unavailable
+                                    entity: input_text.opacity_unavailable
+                          # Header
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:page-layout-header-footer
+                              name: Header/Footer
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:page-layout-header
+                                  name: Header
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color
+                                    entity: input_text.dark_header_color
+                                  - type: custom:text-input-row
+                                    name: Border Radius
+                                    entity: input_text.dark_header_border_radius
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.dark_header_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.dark_header_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.dark_header_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.dark_header_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:subtitles
+                                  name: Subtitle/Notifications
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.dark_subtitle_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.dark_subtitle_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.dark_subtitle_font_weight
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:page-layout-footer
+                                  name: Navigation/Footer Bar
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Color
+                                    entity: input_text.dark_nav_bar_color
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.dark_footer_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Text & Icon Color
+                                    entity: input_text.dark_nav_bar_text_color
+                                  - type: custom:hui-vertical-stack-card
+                                    cards:
+                                      - type: markdown
+                                        card_mod:
+                                          class: hki   
+                                        content: >
+                                          **NOTE:** You can **NOT** use gradients on the navigation/footer bar!
+
+
+                                          **NOTE:** iOS users **MUST** set a box-shadow, this can **NOT** be `none`. If you don't want a box-shadow use `0px 0px 0px 0px` instead or the navbar might not show you icons!
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:checkbox-blank-badge
+                                  name: Badges
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Card Background Color
+                                    entity: input_text.dark_header_badge_background
+                                  - type: custom:text-input-row
+                                    name: Icon Color
+                                    entity: input_text.dark_header_badge_icon_color
+                                  - type: custom:text-input-row
+                                    name: Badge Color
+                                    entity: input_text.dark_header_badge_color
+                                  - type: custom:text-input-row
+                                    name: Badge Text Color
+                                    entity: input_text.dark_header_badge_text_color
+                          # Header Greeting
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:comment-text-multiple
+                              name: Header Greeting
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Good Morning
+                                entity: input_text.good_morning
+                              - type: custom:text-input-row
+                                name: Good Afternoon
+                                entity: input_text.good_afternoon
+                              - type: custom:text-input-row
+                                name: Good Evening
+                                entity: input_text.good_evening
+                              - type: custom:text-input-row
+                                name: Good Night
+                                entity: input_text.good_night
+                          # Titles
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:format-header-1
+                              name: Titles
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:format-font
+                                  name: Fonts
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Text Color
+                                    entity: input_text.dark_title_text_color
+                                  - type: custom:text-input-row
+                                    name: Font Size
+                                    entity: input_text.dark_title_text_font_size
+                                  - type: custom:text-input-row
+                                    name: Font Weight
+                                    entity: input_text.dark_title_text_font_weight
+                                  - type: custom:text-input-row
+                                    name: Justify Self
+                                    entity: input_text.dark_title_text_justify_self
+                                  - type: custom:text-input-row
+                                    name: Padding Left and Right
+                                    entity: input_text.dark_title_text_padding
+                              - type: custom:fold-entity-row
+                                head:
+                                  entity: sensor.empty_sensor
+                                  icon: mdi:cards
+                                  name: Card
+                                  tap_action:
+                                    action: fire-dom-event
+                                    fold_row: true
+                                entities:
+                                  - type: custom:text-input-row
+                                    name: Background Color
+                                    entity: input_text.dark_title_text_background_color
+                                  - type: custom:text-input-row
+                                    name: Border Radius
+                                    entity: input_text.dark_title_text_border_radius
+                                  - type: custom:text-input-row
+                                    name: Box Shadow
+                                    entity: input_text.dark_title_text_box_shadow
+                                  - type: custom:text-input-row
+                                    name: Border Style
+                                    entity: input_text.dark_title_text_border_style
+                                  - type: custom:text-input-row
+                                    name: Border Width
+                                    entity: input_text.dark_title_text_border_width
+                                  - type: custom:text-input-row
+                                    name: Border Color
+                                    entity: input_text.dark_title_text_border_color
+                          # Wallpaper
+                          - type: custom:fold-entity-row
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: mdi:wallpaper
+                              name: Wallpaper
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              - type: custom:text-input-row
+                                name: Color or Image
+                                entity: input_text.dark_background_image
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      class: hki           
+                                    content: >
+                                      **Example:** linear-gradient(Black, White)
+
+
+                                      **Example:** 'center / cover no-repeat url("/local/images/my_wallpaper.png") fixed'
+              - type: entities
+                card_mod:
+                  class: hki   
+                entities: 
+                  - type: custom:hui-vertical-stack-card
+                    cards:
+                      - type: markdown
+                        card_mod:
+                          class: hki
+                        style: |
+                          ha-card {
+                            box-shadow: none !important;
+                            border-radius: none !important;
+                          }
+                          :host {
+                            font-family: var(--font-family) !important;
+                          }              
+                        content: >
+                          **Want to share your theme?** 
+                          
+                          If you want to share your themes this is possible, it requires a few minutes of your time, please check out the [documentation](https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/themes.md#sharing-themes) for more info!
+              - !include '../../includes/gap-height.yaml'

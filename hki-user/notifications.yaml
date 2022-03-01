@@ -1,0 +1,55 @@
+# This is the notifications page, you can edit notifications that are
+# shown on the frontend in this file. This works with conditional cards.
+# What this means is that the conditions need to be be met before these
+# cards are shown. When there are more entities/states in a conditional
+# card it will always be an 'AND' condition, it will never be an 'OR'
+# condition. Edit the conditions, entities and notification content to
+# your own likings.
+
+# MAKE SURE YOU HAVE AT LEAST ONE NOTIFICATION OR YOU WILL GET AN ERROR.
+# IF YOU DON'T WANT TO USE NOTIFICATIONS TURN IT OFF IN THE SETTINGS!
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #
+
+# Card Config
+
+# Example Config (You can uncomment this and edit it to your likings, if you want multiple notifications you can simply continue writing a new card below)
+
+#- type: conditional
+#  conditions:
+#    - entity: binary_sensor.smoke_sensor
+#      state: "off"
+#    - entity: binary_sensor.front_door
+#      state: "off"
+#    - entity: vacuum.xiaomi_vacuum_cleaner
+#      state: "docked"
+#    - entity: binary_sensor.bedroom_door
+#      state: "off"
+#    - entity: sensor.dishwasher_status
+#      state_not: "Clean"
+#  card:
+#    !include
+#    - '../hki-base/templates/header/subtitle-notification-template.yaml'
+#    - icon: mdi:check-box-outline
+#      name: All clear, there are no notifications.
+
+#- type: conditional
+#  conditions:
+#    - entity: binary_sensor.smoke_sensor
+#      state: "on"
+#  card:
+#    !include
+#    - '../hki-base/templates/header/subtitle-notification-template.yaml'
+#    - icon: mdi:check-box-outline
+#      name: Smoke detected in the Kitchen!
+
+- type: conditional
+  conditions:
+    - entity: input_boolean.dummy1
+      state_not: "dummy"
+  card:
+    !include
+    - '../hki-base/templates/header/subtitle-notification-template.yaml'
+    - icon: mdi:alert
+      name: Insert Notification, please open /hki-user/notifications.yaml
+

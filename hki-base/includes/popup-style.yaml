@@ -1,0 +1,27 @@
+.: |
+  :host {
+    --mdc-theme-surface: rgba(0,0,0,85);
+    --secondary-background-color: rgba(0,0,0,0);
+    --ha-card-background: transparent !important;
+    --mdc-dialog-scrim-color: rgba(0,0,0,0.85);
+    --mdc-dialog-min-height: 100%;
+    --mdc-dialog-min-width: 100%;
+    --mdc-dialog-max-width: 100%;
+    --paper-listbox-color: var(--primary-text-color) !important;
+    --paper-listbox-background-color: var(--ha-card-background) !important;
+    --paper-slider-knob-color: AliceBlue !important;
+    --paper-slider-active-color: #dedede !important;
+    --switch-checked-button-color: AliceBlue !important;
+    --switch-unchecked-button-color: AliceBlue !important;
+    --switch-checked-track-color: green !important;
+    --switch-unchecked-track-color: red !important;
+    --primary-text-color: AliceBlue !important;
+    --paper-item-icon-color: AliceBlue !important;
+    background: transparent !important;
+  }
+  app-header, app-toolbar {
+    background-color: transparent !important;
+  }
+  mwc-icon-button {
+    color: AliceBlue !important;
+  }

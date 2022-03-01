@@ -1,0 +1,46 @@
+# lovelace_gen
+
+type: custom:button-card
+name: "{{ name }}"
+icon: "{{ icon|default('mdi:home') }}"
+entity: input_boolean.dummy1
+tap_action:
+  action: more-info
+  haptic: light
+hold_action:
+  action: none
+styles:
+  card:
+    - height: 30px
+    - width: 300px
+    - --ha-card-background: transparent
+    - box-shadow: none
+    - overflow: visible
+  name:
+    - justify-self: start
+    - font-family: var(--font-family)
+    - color: var(--subtitle-text-color)
+    - font-size: var(--subtitle-font-size)
+    - font-weight: var(--subtitle-font-weight)
+    - padding-left: 10px
+    - margin-top: -12px
+    - overflow: visible
+  img_cell:
+    - height: 45px
+    - width: 45px
+    - position: absolute
+    - top: -6px
+    - left: 0px
+    - overflow: visible
+  icon:
+    - overflow: visible
+    - color: var(--subtitle-text-color)
+  grid: 
+    - grid-template-areas: '"i n"'
+    - grid-template-columns: 8% 1fr
+    - grid-template-rows: 1fr
+state:
+  - operator: "0"
+    spin: {{ spin|default('false') }}
+  - value: "off"
+    spin: {{ spin|default('false') }}

@@ -1,0 +1,5 @@
+styles:
+  grid:
+    - grid-template-areas: "i"
+  img_cell:
+    - margin-top: 10px

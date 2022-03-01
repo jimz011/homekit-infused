@@ -1,0 +1,32 @@
+# lovelace_gen
+
+type: custom:button-card
+layout: name_state
+show_icon: true
+icon: {{ icon }}
+show_state: false
+size: 20%
+show_name: false
+entity: input_select.find_my
+tap_action:
+  action: call-service
+  service: input_select.select_option
+  service_data:
+    entity_id: input_select.find_my
+    option: {{ option }}
+  haptic: light
+styles:
+  card:
+    - height: 33px
+    - border-radius: var(--ha-card-border-radius)
+    - --ha-card-background: var(--ha-card-background)
+    - box-shadow: var(--ha-card-box-shadow)
+    - border-style: var(--ha-card-border-style)
+    - border-width: var(--ha-card-border-width)
+    - border-color: var(--ha-card-border-color)
+  icon:
+    - color: var(--ha-icon-color)
+state:
+  {% for list in state %}
+  - {{ list|tojson }}
+  {% endfor %}

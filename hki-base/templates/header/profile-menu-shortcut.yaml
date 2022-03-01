@@ -1,0 +1,36 @@
+# lovelace_gen
+
+type: custom:button-card
+icon: {{ icon|default('mdi:home') }}
+name: "{{ name|default('undefined') }}" 
+label: "{{ label|default('undefined') }}"
+{% if confirmation is defined %}
+confirmation:
+  text: {{ confirmation|default('undefined') }}
+{% endif %}
+show_label: true
+{% if tap_action is defined %}
+tap_action:
+  {{ tap_action|tojson }}
+{% else %}
+tap_action:
+  action: call-service
+  service: browser_mod.commands
+  service_data:
+    commands:
+      {{ commands|tojson }}
+{% endif %}
+styles:
+  card:
+    - box-shadow: none
+    - --ha-card-background: transparent
+  name:
+    - color: AliceBlue
+    - font-size: 11px
+  label:
+    - color: AliceBlue
+    - font-size: 11px
+  icon:
+    - color: AliceBlue
+    - height: 25px
+    - width: 25px

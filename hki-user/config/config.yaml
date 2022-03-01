@@ -1,0 +1,155 @@
+config:
+
+# HOME ALARM *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/alarm.md
+  alarm:
+    entity: alarm_control_panel.home_alarm
+    show_badge: true
+      
+# HEADER *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/header.md
+  header:
+    badges:
+      - name: Thermostats
+        icon: mdi:thermometer
+        entity: sensor.current_climate_entities_on
+        group_entity: group.all_climate_entities
+        grid_area: six
+      - name: Doors
+        icon: mdi:door
+        entity: sensor.current_doors_open
+        group_entity: group.all_door_sensor_entities
+        grid_area: five
+      - name: Windows
+        icon: mdi:window-closed
+        entity: sensor.current_windows_open
+        group_entity: group.all_window_sensor_entities
+        grid_area: four
+      - name: Motion
+        icon: mdi:motion-sensor
+        entity: sensor.current_binary_sensors_on
+        group_entity: group.all_binary_sensor_entities
+        grid_area: three
+      - name: Devices
+        icon: mdi:power-plug
+        entity: sensor.current_devices_on
+        group_entity: group.all_device_switch_entities
+        grid_area: two
+      - name: Lights
+        icon: mdi:lightbulb
+        entity: sensor.current_lights_on
+        group_entity: group.all_light_entities
+        grid_area: one
+
+# POPUPS *Change the orientation of the close button to either the left or right side of the screen.
+  popups:
+    close_button_orientation: right
+
+  rgb_popups: # The settings below apply to all light/switch slider popups
+    slider_colored_by_light: true
+    height: 410px
+    width: 110px
+    actions_per_row: 3
+    action_size: 30px
+    rgb_popup: # The settings below are specific to the RGB popup, you can add/remove colors if you want, but you MUST add both the rgb and hex value!
+      - rgb_color: [255, 136, 0]
+        hex_color: '#ff8800'
+      - rgb_color: [255, 0, 95]
+        hex_color: '#ff005f'
+      - rgb_color: [40, 255, 0]
+        hex_color: '#28ff00'
+      - rgb_color: [0, 160, 255]
+        hex_color: '#00a0ff'
+      - rgb_color: [131, 0, 255]
+        hex_color: '#8300ff'
+      - rgb_color: [3, 0, 255]
+        hex_color: '#0300ff'
+
+# FIND MY *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/find-my.md
+#  find_my:
+#    persons:
+#      - name: Jimmy
+#        entity: person.jimmy
+#        battery_entity: sensor.z_fold_3_jimmy_battery_level
+#        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
+#      - name: Stephanie
+#        entity: person.stephanie
+#        battery_entity: sensor.sm_n986b_battery_level
+#        geocoded_location_entity: sensor.sm_n986b_geocoded_location
+#      - name: Tala
+#        entity: person.tala
+#    devices:
+#      - name: Riem Tala
+#        entity: person.tala
+#        entity_picture: /local/images/tile-black.jpg
+#      - name: Keys Jimmy
+#        entity: device_tracker.keys
+#      - name: Keys Stephanie
+#        entity: device_tracker.keys_stephanie
+#      - name: Z Fold 3
+#        entity: device_tracker.z_fold_3_jimmy
+#        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
+#        battery_entity: sensor.z_fold_3_jimmy_battery_level
+#      - name: Note 20 Ultra
+#        entity: device_tracker.sm_n986b
+#        battery_entity: sensor.sm_n986b_battery_level
+#        geocoded_location_entity: sensor.sm_n986b_geocoded_location
+#      - name: Watch4 Jimmy
+#        entity: device_tracker.unifi_fe_a7_45_e9_01_53_default
+#        battery_entity: sensor.galaxy_watch4_classic_ecsm_battery_level
+#      - name: Watch4 Stephanie
+#        entity: device_tracker.sm_r880
+#        battery_entity: sensor.galaxy_watch4_classic_w4wd_battery_level
+
+# PROFILE MENU *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/profile.md
+  profile:
+    markdown: >
+      **{{ states('sensor.greeting') }} {{ user|capitalize }}**
+    
+      {{ state_attr('sensor.pretty_date', 'week_day') }}, {{ states('sensor.pretty_date') }}
+    
+#    media_player:
+#      type: custom:state-switch
+#      entity: user
+#      states:
+#        Jimmy:
+#          type: custom:mini-media-player
+#          card_mod:
+#            style: |
+#              :host {
+#                --ha-card-background: black !important;
+#              }
+#          entity: media_player.spotify_jimmy
+#          artwork: cover
+#          hide:
+#            source: true
+#            power_state: true
+#        Stephanie:
+#          type: custom:mini-media-player
+#          card_mod:
+#            style: |
+#              :host {
+#                --ha-card-background: black !important;
+#              }
+#          entity: media_player.spotify_jimmy
+#          artwork: cover
+#          hide:
+#            source: true
+#            power_state: true
+#    cards:
+#      - title: Location
+#        icon: mdi:map
+#        padding: -5
+#        entities:
+#          - type: custom:hui-vertical-stack-card
+#            cards:
+#              - type: map
+#                dark_mode: true
+#                card_mod:
+#                  style: |
+#                    ha-card {
+#                      box-shadow: none;
+#                    }
+#                aspect_ratio: 2x1
+#                entities:
+#                  - person.jimmy
+#                  - person.stephanie
+#                  - person.tala

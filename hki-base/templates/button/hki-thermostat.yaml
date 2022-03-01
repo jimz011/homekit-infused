@@ -1,0 +1,230 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template: 
+  - hki-default
+name: {{ name }}
+aspect_ratio: {{ aspect_ratio|default('1/1') }}
+size: {{ size|default('25%') }}
+entity: {{ entity }}
+icon: {{ icon|default('mdi:thermostat') }}
+label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
+lock:
+  enabled: {{ lock|default('false') }}
+  unlock: tap
+show_icon: true
+show_name: true
+show_label: true
+show_state: true
+tap_action:
+  action: toggle
+  haptic: light
+hold_action: 
+  action: fire-dom-event
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: ' '
+      hide_header: true
+      deviceID:
+        - this
+      style:
+        !include ../../includes/popup-style.yaml
+      card:
+        type: vertical-stack
+        cards:
+          - !include ../popups/close-popup.yaml
+          - type: custom:thermostat-popup-card
+            entity: {{ entity }}
+            fullscreen: false
+            settings: true
+            settingsPosition: bottom
+            settingsCard:
+              type: custom:more-info-card
+              cardOptions:
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: none;
+                      box-shadow: none;
+                      background: transparent;
+                      --primary-text-color: AliceBlue !important;
+                      color: AliceBlue !important !important;
+                      --text-primary-color: AliceBlue !important;
+                      --secondary-text-color: AliceBlue !important;
+                      --disabled-text-color: AliceBlue !important;
+                    }
+                entity: {{ entity }}
+  haptic: light
+double_tap_action: 
+  action: fire-dom-event
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: ' '
+      deviceID:
+        - this
+      hide_header: true
+      style:
+        !include ../../includes/popup-style.yaml
+      card:
+        type: vertical-stack
+        cards:
+          - !include ../popups/close-popup.yaml
+          - type: custom:thermostat-popup-card
+            entity: {{ entity }}
+            fullscreen: false
+            settings: true
+            settingsPosition: bottom
+            settingsCard:
+              type: custom:more-info-card
+              cardOptions:
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: none;
+                      box-shadow: none;
+                      background: transparent;
+                      --primary-text-color: AliceBlue !important;
+                      color: AliceBlue !important !important;
+                      --text-primary-color: AliceBlue !important;
+                      --secondary-text-color: AliceBlue !important;
+                      --disabled-text-color: AliceBlue !important;
+                    }
+                entity: {{ entity }}
+  haptic: light
+styles:
+  grid:
+    - grid-template-areas: '"i i" "area area" "n n" "s l"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr 1fr min-content min-content
+  custom_fields:
+    notification:
+      - background-color: var(--ha-icon-color)
+      - color: var(--ha-card-background)
+      - font-weight: var(--badge-font-weight)
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - top: 10%
+      - right: 7%
+      - width: 33px
+      - height: 33px
+      - font-size: var(--badge-font-size)
+      - line-height: 36px
+custom_fields: 
+  notification: "{{ notification }}"
+state:
+  - value: "heat"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `#1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66`; else return `#EE7600`; ]]]"
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "cool"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#1E90FF'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "heat_cool"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "idle"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "off"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-off)
+      lock:
+        - color: var(--lock-color-inactive)
+      custom_fields:
+        notification:
+          - background-color: var(--badge-background-color)
+          - color: var(--badge-text-color)
+  - operator: 'default'
+    spin: false
+    styles:
+      card:
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: var(--badge-background-color)
+          - color: var(--badge-text-color)
+      lock:
+        - color: var(--lock-color-active)

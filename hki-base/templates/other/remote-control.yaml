@@ -1,0 +1,204 @@
+# lovelace_gen
+
+# Card
+type: grid
+columns: 4
+cards:
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Youtube
+      icon: mdi:youtube
+      icon_color: red
+      tap_action:
+        action: call-service
+        service: media_player.select_source
+        service_data:
+          entity_id: {{ entity_media_player }}
+          source: 'YouTube'
+        haptic: light
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Volume
+      label: Down
+      icon: mdi:volume-minus
+      tap_action:
+        action: call-service
+        service: media_player.volume_down
+        service_data:
+          entity_id: "{{ entity_media_player_sound }}"
+        haptic: heavy
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Volume
+      label: Up
+      icon: mdi:volume-plus
+      tap_action:
+        action: call-service
+        service: media_player.volume_up
+        service_data:
+          entity_id: "{{ entity_media_player_sound }}"
+        haptic: heavy
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Volume
+      label: Mute
+      icon: mdi:volume-mute
+      tap_action:
+        action: call-service
+        service: media_player.volume_mute
+        service_data:
+          entity_id: "{{ entity_media_player_sound }}"
+        haptic: heavy
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Plex
+      icon: mdi:plex
+      icon_color: gold
+      tap_action:
+        action: call-service
+        service: media_player.select_source
+        service_data:
+          entity_id: {{ entity_media_player }}
+          source: 'Plex'
+        haptic: light
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:power
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("POWER") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:arrow-up-drop-circle-outline
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("UP") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:menu
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("MENU") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Netflix
+      icon: mdi:netflix
+      icon_color: red
+      tap_action:
+        action: call-service
+        service: media_player.select_source
+        service_data:
+          entity_id: {{ entity_media_player }}
+          source: 'Netflix'
+        haptic: light
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:arrow-left-drop-circle-outline
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("LEFT") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:crop-square
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("CENTER") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:arrow-right-drop-circle-outline
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("RIGHT") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - name: Spotify
+      icon: mdi:spotify
+      icon_color: LimeGreen
+      tap_action:
+        action: call-service
+        service: media_player.select_source
+        service_data:
+          entity_id: {{ entity_media_player }}
+          source: 'Spotify'
+        haptic: light
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:keyboard-backspace
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("BACK") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:arrow-down-drop-circle-outline
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("DOWN") }}"
+  - !include
+    - '../button/hki-button.yaml'
+    - template: hki-remote
+      icon: mdi:home
+      show_name: false
+      show_label: false
+      show_state: false
+      tap_action: 
+        action: call-service
+        service: {{ service|default('androidtv.adb_command') }}
+        service_data:
+          entity_id: {{ entity_media_player_remote }}
+          command: "{{ command_left|default("HOME") }}"

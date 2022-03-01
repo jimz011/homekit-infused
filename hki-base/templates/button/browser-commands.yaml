@@ -1,0 +1,18 @@
+# lovelace_gen
+
+# card
+type: custom:button-card
+template:
+  - top-menu
+icon: {{ icon|default('mdi:home') }}
+entity: {{ entity|default('input_select.top_menu') }}
+{% if confirmation is defined %}
+confirmation:
+  text: '{{ confirmation }}'
+{% endif %}
+tap_action:
+  action: call-service
+  service: browser_mod.commands
+  service_data:
+    commands:
+      {{ commands|tojson }}

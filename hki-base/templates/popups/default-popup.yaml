@@ -1,0 +1,57 @@
+# lovelace_gen
+type: vertical-stack
+cards:
+  - type: custom:more-info-card
+    card_mod:
+      style:
+        .: |
+          :host {
+            --ha-card-background: transparent !important;
+            --primary-text-color: AliceBlue !important;
+          }
+          ha-card {
+            background: transparent !important;
+            color: AliceBlue !important;
+            --paper-item-icon-color: auto !important;
+            --paper-item-icon-active-color: #b58e31 !important;
+            --primary-text-color: AliceBlue !important;
+            --mdc-theme-primary: AliceBlue !important;
+          }
+    entity: {{ entity }}
+  - type: history-graph
+    card_mod:
+      style:
+        .: |
+          :host {
+            --ha-card-background: transparent !important;
+            --primary-text-color: AliceBlue !important;
+          }
+          ha-card {
+            background: transparent !important;
+            color: AliceBlue !important;
+            --paper-item-icon-color: auto !important;
+            --paper-item-icon-active-color: #b58e31 !important;
+            --primary-text-color: AliceBlue !important;
+            --mdc-theme-primary: AliceBlue !important;
+          }
+    hours_to_show: 6
+    entities: 
+      - {{ entity }}
+  - type: logbook
+    card_mod:
+      style:
+        .: |
+          :host {
+            --ha-card-background: transparent !important;
+            --primary-text-color: AliceBlue !important;
+          }
+          ha-card {
+            background: transparent !important;
+            color: AliceBlue !important;
+            --paper-item-icon-color: auto !important;
+            --paper-item-icon-active-color: #b58e31 !important;
+            --primary-text-color: AliceBlue !important;
+            --mdc-theme-primary: AliceBlue !important;
+          }
+    entities: 
+      - {{ entity }}

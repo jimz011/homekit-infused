@@ -1,0 +1,44 @@
+styles:
+  card:
+    - border-radius: var(--ha-card-border-radius)
+    - box-shadow: var(--ha-card-box-shadow)
+    - border-style: var(--ha-card-border-style)
+    - border-width: var(--ha-card-border-width)
+    - border-color: var(--ha-card-border-color)
+    - opacity: 1.0
+  label:
+    - font-weight: var(--label-font-weight)
+    - font-size: var(--label-font-size)
+    - font-family: var(--font-family)
+    - padding: 0px 10px
+    - justify-self: start
+    - color: var(--label-color)
+  state:
+    - font-size: var(--state-font-size)
+    - font-family: var(--font-family)
+    - padding: 0px 10px
+    - justify-self: start
+    - text-transform: capitalize
+    - font-weight: var(--state-font-weight)
+    - color: var(--state-color)
+  img_cell:
+    - align-self: start
+    - text-align: start
+    - align-items: flex-start
+    - justify-content: flex-start
+  name:
+    - justify-self: start
+    - padding: 0px 10px
+    - font-weight: var(--name-font-weight)
+    - font-family: var(--font-family) 
+    - font-size: var(--name-font-size)
+    - color: var(--name-color)
+  icon:
+    - position: absolute
+    - top: 0
+    - left: 7%
+  entity_picture:
+    - padding: 7px 10px
+    - border-radius: 50%
+  lock:
+    - color: var(--lock-color-inactive)

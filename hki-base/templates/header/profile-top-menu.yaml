@@ -1,0 +1,270 @@
+type: entities
+card_mod:
+  style: |
+    ha-card {
+      border-radius: none !important;
+      -webkit-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
+      -moz-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
+      box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important
+    }
+    :host {
+      z-index: 999 !important;
+      position: sticky !important;
+      position: -webkit-sticky !important;
+      top: -20px !important;
+      --ha-card-background: Black !important;
+    }
+entities:
+  - type: custom:swipe-card
+    cards:
+      - type: grid
+        square: false
+        columns: 5
+        cards:
+          - !include
+            - profile-menu-shortcut.yaml
+            - name: Go To
+              label: Profile
+              icon: mdi:account-edit-outline
+              commands:
+                - command: call-service
+                  service: browser_mod.navigate
+                  service_data:
+                    navigation_path: ../profile
+                    deviceID: this
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+          - !include
+            - profile-menu-shortcut.yaml
+            - name: Find
+              label: My
+              icon: mdi:map-search-outline
+              commands:
+                - command: call-service
+                  service: browser_mod.navigate
+                  service_data:
+                    navigation_path: find_my
+                    deviceID: this
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+          - !include
+            - profile-menu-shortcut.yaml
+            - name: About
+              label: HKI
+              icon: mdi:information-outline
+              tap_action:
+                action: fire-dom-event
+                browser_mod:
+                  command: call-service
+                  service: browser_mod.popup
+                  service_data:
+                    title: " "
+                    hide_header: true
+                    style:
+                      !include ../../includes/popup-style.yaml
+                    deviceID:
+                      - this
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - !include ../popups/close-popup.yaml
+                        - type: markdown
+                          content: >
+                            **Homekit Infused 5 v.{{ states('sensor.hki_current_version') }}**
+
+                            *Created by jimz011©* 
+                            </br>
+                            </br>
+                            <a href="https://paypal.me/JimmySchings" target="_blank"><img src="https://github.com/jimz011/homekit-infused/raw/4.x.x-docs/docs/paypal-donate-button.png" ></a>
+                            <a href="https://www.buymeacoffee.com/w8Jnf6Hit" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+                            </br>
+
+                            ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=plasticr)
+                            [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
+                            [![HA Version Current](https://img.shields.io/badge/Current%20Home%20Assistant-{{ states('sensor.current_version') }}%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+                            [![HA Version Latest](https://img.shields.io/badge/Latest%20Home%20Assistant-{{ states('sensor.home_assistant_latest_version') }}%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+                            [![HA Version Compatible](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-{{ states('sensor.latest_compatible_ha_version') }}%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+                            [![HKI Version Current](https://img.shields.io/badge/Current%20Homekit%20Infused-{{ states('sensor.hki_current_version') }}%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+                            [![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-{{ states('sensor.hki_latest_version') }}%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+                            </br>
+
+                            ![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused?style=social)</br>
+                            ![GitHub forks](https://img.shields.io/github/forks/jimz011/homekit-infused?style=social)</br>
+                            ![GitHub watchers](https://img.shields.io/github/watchers/jimz011/homekit-infused?style=social)</br>
+                            ![GitHub followers](https://img.shields.io/github/followers/jimz011?style=social)</br>
+                            </br>
+                            <a href="https://www.youtube.com/jimz011"><img src="https://img.shields.io/badge/-YouTube-FF0000?&style=for-the-badge&logo=youtube&logoColor=white" height=35></a>
+                            </br>
+
+                            <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
+
+          - !include
+            - profile-menu-shortcut.yaml
+            - name: Refresh
+              label: Window
+              icon: mdi:autorenew
+              confirmation: Are you sure you want to refresh the window? This will NOT reload lovelace!
+              commands:
+                - command: call-service
+                  service: browser_mod.window_reload
+                  service_data:
+                    deviceID: this
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+          - !include
+            - profile-menu-shortcut.yaml
+            - name: Exit
+              label: Menu
+              icon: mdi:close-circle-outline
+              commands:
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+      - type: custom:state-switch
+        entity: group
+        states:
+          admin:
+            type: grid
+            square: false
+            columns: 5
+            cards:
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Devices
+                  label: '& Services'
+                  icon: mdi:devices
+                  commands:
+                    - command: call-service
+                      service: browser_mod.navigate
+                      service_data:
+                        navigation_path: ../config/integrations
+                        deviceID: this
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Automations
+                  label: '& Scenes'
+                  icon: mdi:robot-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.navigate
+                      service_data:
+                        navigation_path: ../config/automation/dashboard
+                        deviceID: this
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: HACS
+                  label: Addons
+                  icon: mdi:store-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.navigate
+                      service_data:
+                        navigation_path: ../hacs/entry
+                        deviceID: this
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Reload
+                  label: Lovelace
+                  icon: mdi:cards-heart-outline
+                  confirmation: Are you sure you want to reload lovelace? This can take up to 60 seconds depending on your hardware/setup!
+                  commands:
+                    - command: lovelace_reload
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Exit
+                  label: Menu
+                  icon: mdi:close-circle-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+      - type: custom:state-switch
+        entity: group
+        states:
+          admin:
+            type: grid
+            square: false
+            columns: 5
+            cards:
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: HKI
+                  label: Settings
+                  icon: mdi:palette-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.navigate
+                      service_data:
+                        navigation_path: hki_settings
+                        deviceID: this
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: HA
+                  label: Settings
+                  icon: mdi:cog-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.navigate
+                      service_data:
+                        navigation_path: ../config/dashboard
+                        deviceID: this
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Reload
+                  label: Themes
+                  icon: mdi:format-paint
+                  confirmation: Are you sure you want to reload themes?
+                  tap_action:
+                    action: call-service
+                    service: frontend.reload_themes
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Restart
+                  label: Home Assistant
+                  icon: mdi:restart-alert
+                  confirmation: Are you sure you want to RESTART Home Assistant?
+                  tap_action:
+                    action: call-service
+                    service: homeassistant.restart
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Exit
+                  label: Menu
+                  icon: mdi:close-circle-outline
+                  commands:
+                    - command: call-service
+                      service: browser_mod.close_popup
+                      service_data:
+                        deviceID: this

@@ -1,0 +1,124 @@
+# lovelace_gen
+
+# card
+type: custom:light-popup-card
+entity: {{ entity }}
+{% if _global.config.rgb_popups.width is defined %}
+brightnessWidth: 110px
+switchWidth: 110px
+{% else %}
+brightnessWidth: 110px
+switchWidth: 110px
+{% endif %}
+{% if _global.config.rgb_popups.height is defined %}
+brightnessHeight: {{ _global.config.rgb_popups.height }}
+switchHeight: {{ _global.config.rgb_popups.height }}
+{% else %}
+brightnessHeight: 410px
+switchHeight: 410px
+{% endif %}
+{% if display_type is defined %}
+displayType: {{ display_type }}
+{% elif ((type is defined) and (type == 'rgb') or (type == 'color-temp')) %}
+displayType: slider
+{% elif ((type is defined) and (type == 'switch')) %}
+displayType: switch
+{% endif %}
+fullscreen: false
+settings: true
+settingsPosition: bottom
+settingsCard:
+  type: custom:more-info-card
+  cardOptions:
+    entity: {{ entity }}
+{% if _global.config.rgb_popups.actions_per_row is defined %}
+actionsInARow: {{ _global.config.rgb_popups.actions_per_row }}
+{% else %}
+actionsInARow: 3
+{% endif %}
+{% if _global.config.rgb_popups.action_size is defined %}
+actionSize: {{ _global.config.rgb_popups.action_size }}
+{% else %}
+actionSize: 30px
+{% endif %}
+
+{% if ((type is defined) and (type == 'rgb')) %}
+{% if _global.config.rgb_popups.slider_colored_by_light is defined %}
+sliderColoredByLight: {{ _global.config.rgb_popups.slider_colored_by_light }}
+{% else %}
+sliderColoredByLight: true
+{% endif %}
+actions:
+  {% if _global.config.rgb_popups.rgb_popup is defined %}
+  {% for content in _global.config.rgb_popups.rgb_popup %}
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: {{ content.rgb_color }}
+    color: '{{ content.hex_color }}'
+  {% endfor %}
+  {% else %}
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [255, 136, 0]
+    color: '#ff8800'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [255, 0, 95]
+    color: '#ff005f'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [40, 255, 0]
+    color: '#28ff00'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [0, 160, 255]
+    color: '#00a0ff'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [131, 0, 255]
+    color: '#8300ff'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      rgb_color: [3, 0, 255]
+    color: '#0300ff'
+  {% endif %}
+{% elif ((type is defined) and (type == 'color-temp')) %}
+actions:
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 153
+    color: '#a6d1ff'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 180
+    color: '#bfdeff'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 240
+    color: '#e0efff'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 330
+    color: '#ffca70'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 390
+    color: '#ffbc4a'
+  - service: light.turn_on
+    service_data:
+      entity_id: {{ entity }}
+      color_temp: 450
+    color: '#ffa000'
+{% endif %}

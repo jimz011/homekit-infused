@@ -1,0 +1,17 @@
+state:
+  - value: "off" 
+    styles:
+      card:
+        - --ha-card-background: var(--ha-card-background-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        - box-shadow: var(--ha-card-box-shadow-active)
+      name:
+        - color: var(--primary-text-color-active)
+      state:
+        - color: var(--primary-text-color-active)
+      lock:
+        - color: var(--lock-color-active) 
+      label:
+        - color: var(--primary-text-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)

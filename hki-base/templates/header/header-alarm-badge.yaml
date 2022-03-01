@@ -1,0 +1,68 @@
+# lovelace_gen
+
+type: custom:button-card
+icon: "[[[ if (states['{{ entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'mdi:lock-open'; if (states['{{ entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'mdi:lock-open-alert'; else return 'mdi:lock-alert'; ]]]"
+size: 50%
+color: auto
+show_name: false
+show_state: false
+show_label: false
+hold_action:
+  action: none
+tap_action:
+  action: fire-dom-event
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: " "
+      hide_header: true
+      style:
+        !include ../../includes/popup-style.yaml
+      deviceID:
+        - this
+      card:
+        type: vertical-stack
+        cards:
+          - !include ../popups/close-popup.yaml
+          {% if _global.config.alarm.popup is defined %}
+          {% for cards in _global.config.alarm.popup %}
+          - {{ cards|tojson }}
+          {% endfor %}
+          {% else %}
+          - type: alarm-panel
+            card_mod:
+              style:
+                .: |
+                  :host {
+                    --ha-card-background: transparent !important;
+                  }
+                  ha-card {
+                    background: transparent !important;
+                    color: AliceBlue !important;
+                    --mdc-theme-primary: AliceBlue !important;
+                  }
+            entity: alarm_control_panel.home_alarm
+          {% endif %}
+  haptics: light
+styles:
+  card:
+    - --ha-card-background: var(--header-badge-background)
+    - border-radius: 50%
+    - box-shadow: none
+    - width: 35px
+    - height: 35px
+  icon:
+    - color: >
+        [[[
+          if (states['{{ entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'ForestGreen'; 
+          if (states['{{ entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'DarkRed'; 
+          else return 'Orange';
+        ]]]
+    - animation: >
+        [[[ 
+          if (states['{{ entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'none'; 
+          else return 'blink 2.5s ease infinite'; 
+        ]]]
+view_layout:
+  grid-area: alarm

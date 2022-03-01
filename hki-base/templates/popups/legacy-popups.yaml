@@ -1,0 +1,13 @@
+input_boolean.dummy1:
+  title: ' '
+  hide_header: true
+  large: true
+  style:
+    !include ../../includes/popup-style.yaml
+  card:
+    type: vertical-stack
+    cards:
+      - !include close-popup.yaml
+      - type: vertical-stack
+        cards:
+          !include ../../../hki-user/notifications.yaml

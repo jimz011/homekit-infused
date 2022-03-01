@@ -1,0 +1,68 @@
+# Input Booleans
+input_boolean:
+  dummy1:
+    initial: off
+  empty:
+  remote_control:
+
+# Input Numbers
+input_number:
+  empty:
+    initial: 0
+    min: 0
+    max: 1
+
+# Input Selects
+input_select:
+  settings_light_dark:
+    name: Theme Settings
+    options:
+      - Light
+      - Dark
+
+  theme_selector_light:
+    name: Theme Selector Light
+    options:
+      - HKI Default
+      - HKI Custom Light
+      - HKI Custom Dark
+  
+  theme_selector_dark:
+    name: Theme Selector Dark
+    options:
+      - HKI Default
+      - HKI Custom Light
+      - HKI Custom Dark
+
+  navigation_bar_direction:
+    options:
+      - Left
+      - Right
+
+  navigation_bar_options:
+    options:
+      - Date
+      - Time
+      - User
+      - Hide
+
+  navigation_bar:
+    options:
+      - 'Off'
+      - Top
+      - Bottom
+
+  find_my:
+    options:
+      - Persons
+      - Devices
+      - Vehicles
+
+# Input Texts
+input_text:
+  good_morning:
+  good_afternoon:
+  good_evening:
+  good_night:
+
+

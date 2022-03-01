@@ -1,0 +1,61 @@
+# lovelace_gen
+
+type: entities
+card_mod:
+  style: |
+    ha-card {
+      border-radius: none !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+    :host {
+      z-index: 999 !important;
+      position: sticky !important;
+      position: -webkit-sticky !important;
+      top: -20px !important;
+      --ha-card-background: black !important;
+    }
+entities:
+  - type: custom:hui-vertical-stack-card
+    cards:
+      - type: grid
+        square: false
+        columns: 5
+        cards:
+          {% if (_global.config.popups.close_button_orientation == 'left') %}
+          - !include
+            - '../header/profile-menu-shortcut.yaml'
+            - name: Close
+              label: Popup
+              icon: mdi:close-circle-outline
+              commands:
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+          {% else %}
+          - type: 'custom:button-card'
+            color_type: blank-card
+          {% endif %}
+          - type: 'custom:button-card'
+            color_type: blank-card
+          - type: 'custom:button-card'
+            color_type: blank-card
+          - type: 'custom:button-card'
+            color_type: blank-card
+          {% if (_global.config.popups.close_button_orientation == 'right') %}
+          - !include
+            - '../header/profile-menu-shortcut.yaml'
+            - name: Close
+              label: Popup
+              icon: mdi:close-circle-outline
+              commands:
+                - command: call-service
+                  service: browser_mod.close_popup
+                  service_data:
+                    deviceID: this
+          {% else %}
+          - type: 'custom:button-card'
+            color_type: blank-card
+          {% endif %}

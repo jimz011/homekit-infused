@@ -1,0 +1,37 @@
+sensor:
+  - platform: template
+    sensors:
+      pretty_date:
+        friendly_name: Today
+        value_template: >-
+          {% set today = states("sensor.date") %}
+          {% set arr_week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %}
+          {% set arr_months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %}
+          {% set week_day = as_timestamp(today) | timestamp_custom('%w') | int %}
+          {% set day = as_timestamp(today) | timestamp_custom('%d') | round %}
+          {% set month = as_timestamp(today) | timestamp_custom('%m') | int %}
+          {% set year = as_timestamp(today) | timestamp_custom('%Y') | int %}
+          {{ day }} {{ arr_months[month-1] }} {{ year }}
+        attribute_templates:
+          week_day: >-
+            {% set today = states("sensor.date") %}
+            {% set arr_week_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %}
+            {% set week_day = as_timestamp(today) | timestamp_custom('%w') | int %}
+            {{ arr_week_days[week_day] }}    
+          day: >-
+            {% set today = states("sensor.date") %}
+            {% set day = as_timestamp(today) | timestamp_custom('%d') | round %}
+            {{ day }}      
+          month_num: >-
+            {% set today = states("sensor.date") %}
+            {% set month = as_timestamp(today) | timestamp_custom('%m') | round %}
+            {{ month }}  
+          month_name: >-
+            {% set today = states("sensor.date") %}
+            {% set arr_months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %}          
+            {% set month = as_timestamp(today) | timestamp_custom('%m') | int %}
+            {{ arr_months[month-1] }}  
+          year: >-
+            {% set today = states("sensor.date") %}
+            {% set year = as_timestamp(today) | timestamp_custom('%Y') | int %}
+            {{ year }}

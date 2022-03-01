@@ -1,0 +1,53 @@
+# Homekit Infused Device Counters
+
+# Fill this file to have the badges and device counters work in HKI.
+# You can use these sensors in your badges.
+
+
+# All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
+all_climate_entities:
+  entities:
+
+# All Fans (Enter all your fans in here)
+all_fan_entities:
+  entities:
+
+# Window Sensors (This is used in the header badges, without this the header badge won't work)
+all_window_sensor_entities:
+  entities:
+
+# Door Sensors (This is used in the header badges, without this the header badge won't work)
+all_door_sensor_entities:
+  entities:
+
+# Motion Sensors (This is used in the header badges, without this the header badge won't work)
+all_motion_sensor_entities:
+  entities:
+
+# All Detectors (smoke/gas/fire etc)
+all_detector_entities:
+  entities:
+
+# All Binary Sensors (put all your binary sensors here e.g. smoke/gas/fire/door/window/motion etc. You can use this as a counter on the security button)
+all_binary_sensor_entities:
+  entities:
+    
+# All Lights
+all_light_entities:
+  entities:
+
+# All Devices
+all_device_switch_entities:
+  entities:
+    
+# All Covers
+all_cover_entities:
+  entities:
+
+# All Garage Doors
+all_garage_door_entities:
+  entities:
+
+# All Entities # Put ALL of the above entities in here to get the most out of HKI on mobile phones
+all_entities:
+  entities:

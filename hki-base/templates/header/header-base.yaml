@@ -1,0 +1,286 @@
+# lovelace_gen
+
+type: custom:mod-card
+view_layout:
+  grid-area: header
+card_mod:
+  style: |
+    ha-card {
+      {% if ((_global.config.header.show_subtitle is defined) and (_global.config.header.show_subtitle is true) or (_global.config.header.show_subtitle is undefined)) %}
+      {% if ((name is defined) and ('hide' not in name) or (name is undefined)) %}
+      height: 81px !important;
+      {% endif %}
+      {% endif %}
+      -webkit-box-shadow: var(--header-box-shadow) !important;
+      -moz-box-shadow: var(--header-box-shadow) !important;
+      box-shadow: var(--header-box-shadow) !important;
+      overflow: hidden;
+      background: var(--header-color);
+      --ha-card-background: transparent;
+      border-radius: var(--header-border-radius) !important;
+    }
+    :host {
+      z-index: 999 !important;
+      position: sticky !important;
+      position: -webkit-sticky !important;
+      top: 0 !important;
+    }
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: auto repeat(3, 43px)
+        grid-template-rows: min-content
+        {% if ((_global.config.alarm is defined) and (_global.config.alarm.show_badge is defined) and (_global.config.alarm.show_badge is true) or (_global.config.alarm.show_badge is undefined)) %}
+        grid-template-areas: |
+          "base message alarm profile"
+        mediaquery:
+          "(min-width: 650px)":
+            grid-template-columns: auto repeat(8, 43px) 43px 43px
+            grid-template-areas: |
+              "base eight seven six five four three two one alarm profile"
+        {% else %}
+        grid-template-areas: |
+          "base message profile"
+        mediaquery:
+          "(min-width: 650px)":
+            grid-template-columns: auto repeat(8, 43px) 43px
+            grid-template-areas: |
+              "base eight seven six five four three two one profile"
+        {% endif %}
+      cards:
+        - type: markdown
+          card_mod:
+            class: header-title
+          content: >
+            {{ title|default('undefined') }}
+          view_layout:
+            grid-area: base
+        - type: custom:config-template-card
+          view_layout:
+            grid-area: profile
+          entities:
+            - sensor.empty_sensor
+          card:
+            type: custom:button-card
+            entity: "${ 'person.' + user.name.toLowerCase() }" 
+            show_entity_picture: true
+            show_state: false
+            show_name: false
+            show_label: false
+            styles:
+              entity_picture:
+                - width: 35px
+                - height: 35px
+                - border-radius: 50%
+                - overflow: visible
+              img_cell:
+                - overflow: visible
+              card:
+                - --ha-card-background: transparent
+                - border-radius: 50%
+                - box-shadow: none
+                - width: 35px
+                - height: 35px
+              icon:
+                - color: var(--header-badge-icon-color)
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: call-service
+                service: browser_mod.popup
+                service_data:
+                  title: " "
+                  hide_header: true
+                  style:
+                    !include ../../includes/popup-style.yaml
+                  deviceID:
+                    - this
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - !include profile-top-menu.yaml
+                      - type: custom:search-card
+                        style:
+                          .: |
+                            :host {
+                              --ha-card-background: transparent !important;
+                            }
+                            ha-card {
+                              background: transparent !important;
+                              color: AliceBlue !important;
+                              --paper-item-icon-color: AliceBlue !important;
+                              --paper-item-icon-active-color: #b58e31 !important;
+                              box-shadow: none;
+                              --primary-text-color: AliceBlue !important;
+                              --text-primary-color: AliceBlue !important;
+                              --secondary-text-color: AliceBlue !important;
+                              --disabled-text-color: AliceBlue !important;
+                              --ha-icon-color: AliceBlue !important;
+                            }
+                        max_results: 5
+                      - type: custom:layout-card
+                        layout_type: custom:grid
+                        layout:
+                          grid-template-columns: 30% 70%
+                          grid-template-areas: |
+                            "photo welcome"
+                        cards:
+                          - type: custom:button-card
+                            view_layout:
+                              grid-area: photo
+                            show_entity_picture: true 
+                            entity: "${ 'person.' + user.name.toLowerCase() }" 
+                            show_name: false
+                            styles:
+                              entity_picture:
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 50%
+                                - overflow: visible
+                              card:
+                                - --ha-card-background: transparent
+                                - border-radius: 50%
+                                - box-shadow: none
+                                - width: 115px
+                                - height: 115px
+                          - type: markdown
+                            view_layout:
+                              grid-area: welcome
+                            card_mod:
+                              style:
+                                .: |
+                                  :host {
+                                    --ha-card-background: transparent !important;
+                                  }
+                                  ha-card {
+                                    background: transparent !important;
+                                    color: AliceBlue !important;
+                                    --paper-item-icon-color: auto !important;
+                                    --paper-item-icon-active-color: #b58e31 !important;
+                                    text-align: end !important;
+                                  }
+                            content: {{ _global.config.profile.markdown|tojson }}
+                      - type: entities
+                        card_mod:
+                          style:
+                            .: |
+                              :host {
+                                --ha-card-background: transparent !important;
+                                --primary-text-color: AliceBlue !important;
+                              }
+                              ha-card {
+                                background: transparent !important;
+                                color: AliceBlue !important;
+                                --paper-item-icon-color: auto !important;
+                                --paper-item-icon-active-color: #b58e31 !important;
+                                --primary-text-color: AliceBlue !important;
+                              }
+                        entities:
+                          {% if _global.config.profile.cards is defined %}
+                          {% for config in _global.config.profile.cards %}
+                          - type: custom:fold-entity-row
+                            {% if config.open is defined %}
+                            open: {{ config.open }}
+                            {% endif %}
+                            {% if config.padding is defined %}
+                            padding: {{ config.padding }}
+                            {% endif %}
+                            head:
+                              entity: sensor.empty_sensor
+                              icon: {{ config.icon|default('mdi:home') }}
+                              name: {{ config.title|default('undefined') }}
+                              tap_action:
+                                action: fire-dom-event
+                                fold_row: true
+                            entities:
+                              {% if config.entities is defined %}
+                              {% for cards in config.entities %}
+                              - {{ cards|tojson }}
+                              {% endfor %}
+                              {% endif %}
+                          {% endfor %}
+                          {% endif %}
+
+                      - type: custom:button-card
+                        color_type: blank-card
+                        styles:
+                          card:
+                            - height: 650px
+                      {% if (_global.config.profile.media_player is defined) %}
+                      - type: custom:mod-card
+                        card_mod:
+                          style: |
+                            ha-card {
+                              margin-bottom: -20px;
+                              -webkit-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
+                              -moz-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
+                              box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
+                              background: black;
+                              --primary-text-color: AliceBlue;
+                              --paper-item-icon-color: LimeGreen;
+                            }
+                            :host {
+                              position: sticky !important;
+                              bottom: 0 !important;
+                              left: 0 !important;
+                              right: 0 !important;
+                              z-index: 999;
+                            }
+                        card:
+                          {{ _global.config.profile.media_player|tojson }}
+                      {% endif %}
+
+        {% if ((_global.config.header is defined) and (_global.config.header.show_message_badge is defined) and (_global.config.header.show_message_badge is true) or (_global.config.header.show_message_badge is undefined)) %}
+        - !include
+          - header-sensor-badge.yaml
+          - type: message
+            icon: mdi:message-badge
+            background_color: "[[[ if (states['sensor.current_entities_on'].state > 0) return 'var(--header-badge-color)'; else return 'rgba(0,0,0,0.0)' ]]]"
+            badge: "[[[ if (states['sensor.current_entities_on'].state > 0) return states['sensor.current_entities_on'].state; else return '&nbsp;'; ]]]"
+            group_entity: group.all_entities
+            grid_area: message
+            mediaquery: "(max-width: 650px)"
+        {% endif %}
+
+        {% if ((_global.config.header is defined) and (_global.config.header.show_badges is defined) and (_global.config.header.show_badges is true) or (_global.config.header.show_badges is undefined)) %}
+        {% if ((_global.config.header is defined) and (_global.config.header.badges is defined)) %}
+        {% for content in _global.config.header.badges %}
+        - !include
+          - header-sensor-badge.yaml
+          - icon: {{ content.icon }}
+            background_color: "[[[ if (states['{{ content.entity }}'].state > 0) return 'var(--header-badge-color)'; else return 'rgba(0,0,0,0.0)' ]]]"
+            badge: "[[[ if (states['{{ content.entity }}'].state > 0) return states['{{ content.entity }}'].state; else return '&nbsp;'; ]]]"
+            group_entity: {{ content.group_entity }}
+            grid_area: {{ content.grid_area }}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+
+        {% if ((_global.config.alarm is defined) and (_global.config.alarm.show_badge is defined) and (_global.config.alarm.show_badge is true) or (_global.config.alarm.show_badge is undefined)) %}
+        - !include
+          - header-alarm-badge.yaml
+          - entity: {{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}
+        {% endif %}
+    
+    {% if ((_global.config.header.show_subtitle is defined) and (_global.config.header.show_subtitle is true) or (_global.config.header.show_subtitle is undefined)) %}
+    {% if ((name is defined) and (name != 'hide') or (name is undefined)) %}
+    {% if name is defined %}
+    - !include
+      - subtitle-notification-template.yaml
+      - icon: {{ icon|default('mdi:home') }}
+        name: "{{ name|default('unknown') }}"
+    {% else %}
+    - type: custom:swipe-card
+      parameters:
+        allowTouchMove: true
+        grabCursor: true
+        autoplay:
+          disableOnInteraction: false
+      cards:
+        !include ../../../hki-user/notifications.yaml
+    {% endif %}
+    {% endif %}
+    {% endif %}
