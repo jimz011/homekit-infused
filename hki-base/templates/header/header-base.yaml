@@ -70,6 +70,7 @@ card:
             show_state: false
             show_name: false
             show_label: false
+            icon: mdi:cog
             styles:
               entity_picture:
                 - width: 35px
@@ -79,10 +80,11 @@ card:
               img_cell:
                 - overflow: visible
               card:
-                - --ha-card-background: transparent
+                - --ha-card-background: var(--header-badge-background)
                 - border-radius: 50%
                 - box-shadow: none
                 - width: 35px
+                - overflow: visible
                 - height: 35px
               icon:
                 - color: var(--header-badge-icon-color)
