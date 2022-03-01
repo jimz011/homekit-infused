@@ -1,0 +1,112 @@
+  - type: image
+    entity: person.jimmy
+    image: /local/images/jimmy_small.png
+    tap_action:
+      action: navigate
+      navigation_path: jimmy
+    hold_action:
+      action: none
+    style:
+      left: 50%
+      top: 50%
+      width: 100%
+      heigth: 100%
+    filter: grayscale(100%)
+    state_filter:
+      "home": revert
+  - type: state-label
+    entity: person.jimmy
+    style:
+      left: 0
+      bottom: 0
+      pointer-events: none
+      font-size: 13px
+      font-family: var(--font-family)
+      line-height: 15px
+      color: AliceBlue
+      background-color: rgba(0, 0, 0, 0.3)
+      width: 100%
+      transform: initial
+      text-align: right
+  - type: state-label
+    entity: sensor.z_fold_3_jimmy_battery_level
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: initial
+      font-size: 12px
+      font-family: var(--font-family)
+      color: AliceBlue
+      line-height: 32px
+      padding: 0px 28px
+  - type: icon
+    icon: mdi:cellphone
+    style:
+      top: 0
+      right: 0
+      pointer-events: none
+      transform: scale(0.8)
+      color: AliceBlue
+      line-height: 32px
+      padding: 7px 7px
+      font-size: 11px
+      font-family: var(--font-family)
+  - type: conditional
+    conditions:
+      - state: "home"
+        entity: person.jimmy
+    elements:
+      - type: state-label
+        entity: sensor.reistijd_jimmy_work
+        style:
+          top: 0
+          right: 0
+          pointer-events: none
+          transform: initial
+          font-size: 12px
+          font-family: var(--font-family)
+          color: AliceBlue
+          line-height: 32px
+          padding: 28px 28px
+      - type: icon
+        icon: mdi:office-building
+        style:
+          top: 0
+          right: 0
+          pointer-events: none
+          transform: scale(0.8)
+          color: AliceBlue
+          line-height: 32px
+          padding: 35px 7px
+          font-size: 11px  
+          font-family: var(--font-family)
+  - type: conditional
+    conditions:
+      - state_not: "home"
+        entity: person.jimmy
+    elements:
+      - type: state-label
+        entity: sensor.reistijd_jimmy
+        style:
+          top: 0
+          right: 0
+          pointer-events: none
+          transform: initial
+          font-size: 12px
+          font-family: var(--font-family)
+          color: AliceBlue
+          line-height: 32px
+          padding: 28px 28px
+      - type: icon
+        icon: mdi:home
+        style:
+          top: 0
+          right: 0
+          pointer-events: none
+          transform: scale(0.8)
+          color: AliceBlue
+          line-height: 32px
+          padding: 35px 7px
+          font-size: 11px  
+          font-family: var(--font-family)

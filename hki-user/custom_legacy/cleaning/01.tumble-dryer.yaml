@@ -1,0 +1,14 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    !include
+    - '../../../hki-base-old/templates/picture-elements/appliances-card.yaml'
+    - image: /local/images/appliances/dryer.jpg
+      entity_status: sensor.droger_status
+      entity_switch: switch.droger
+      entity_wattage: sensor.droger_power
+      entity_extra: sensor.droger_voltage

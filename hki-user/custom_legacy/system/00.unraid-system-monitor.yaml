@@ -1,0 +1,57 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/titles/default.yaml'
+        - name: '&nbsp; UnRAID'
+      - type: picture-elements
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        image: "/local/images/unraid_logo.png"
+        elements:
+          - type: state-label
+            entity: sensor.unraid_version_stable
+            style:
+              left: 0
+              bottom: 0
+              pointer-events: none
+              font-size: 13px
+              font-family: var(--font-family)
+              line-height: 15px
+              color: white
+              background-color: rgba(0, 0, 0, 0.3)
+              width: 100%
+              transform: initial
+              padding: 0 8px
+          - type: state-label
+            entity: sensor.glances_containers_active
+            style:
+              top: 0
+              right: 0
+              pointer-events: none
+              transform: initial
+              font-size: 12px
+              font-family: var(--font-family)
+              color: rgba(255,255,255,0.8)
+              line-height: 32px
+              padding: 2px 35px
+          - type: icon
+            icon: mdi:docker
+            style:
+              top: 0
+              right: 0
+              pointer-events: none
+              transform: scale(0.8)
+              color: rgba(255,255,255,0.8)
+              line-height: 32px
+              padding: 8px 13px

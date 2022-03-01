@@ -1,0 +1,180 @@
+- type: horizontal-stack
+  cards:
+    - type: custom:button-card
+      card_mod:
+        style: |
+          ha-card {
+            background: center / cover no-repeat url("/local/images/rooms/livingroom.jpg");
+          }
+      template:
+        - hki-default
+      icon: mdi:sofa
+      aspect_ratio: 2/1
+      size: 13%
+      name: Living Room
+      show_label: true
+      label: "[[[ return `${states['sensor.woonkamer'].state}°C`; ]]]"
+      styles:
+        grid:
+          - grid-template-areas: '"i i" "area area" "n n" "s l"'
+          - grid-template-columns: 1fr
+          - grid-template-rows: 1fr 1fr min-content min-content
+        name:
+          - background-color: var(--ha-card-background)
+          - color: var(--name-color)
+          - position: absolute
+          - left: 0
+          - right: 0
+          - bottom: 0
+          - opacity: 0.8
+          - text-align: start
+        label:
+          - background-color: var(--ha-card-background)
+          - color: var(--name-color)
+          - position: absolute
+          - right: 0
+          - bottom: 0
+          - opacity: 0.8
+          - text-align: end
+          - font-size: 12px
+          - font-weight: bold
+        icon:
+          - position: absolute
+          - top: -5%
+          - left: 3%
+        custom_fields:
+          device:
+            - background-color: Black
+            - color: White
+            - border-radius: 12px
+            - overflow: visible
+            - position: absolute
+            - right: 17%
+            - top: 5%
+            - padding: 0px 5px
+            - height: 22px
+            - min-width: 12px
+            - font-size: var(--badge-font-size)
+            - line-height: 22px
+            - font-weight: var(--badge-font-weight)
+            - text-transform: var(--badge-text-transform)
+          light:
+            - background-color: Black
+            - color: White
+            - border-radius: 12px
+            - overflow: visible
+            - position: absolute
+            - right: 17%
+            - top: 25%
+            - padding: 0px 5px
+            - height: 22px
+            - min-width: 12px
+            - font-size: var(--badge-font-size)
+            - line-height: 22px
+            - font-weight: var(--badge-font-weight)
+            - text-transform: var(--badge-text-transform)
+          door:
+            - background-color: Black
+            - color: White
+            - border-radius: 12px
+            - overflow: visible
+            - position: absolute
+            - right: 3%
+            - top: 5%
+            - padding: 0px 5px
+            - height: 22px
+            - min-width: 12px
+            - font-size: var(--badge-font-size)
+            - line-height: 22px
+            - font-weight: var(--badge-font-weight)
+            - text-transform: var(--badge-text-transform)
+          window:
+            - background-color: Black
+            - color: White
+            - border-radius: 12px
+            - overflow: visible
+            - position: absolute
+            - right: 3%
+            - top: 25%
+            - padding: 0px 5px
+            - height: 22px
+            - min-width: 12px
+            - font-size: var(--badge-font-size)
+            - line-height: 22px
+            - font-weight: var(--badge-font-weight)
+            - text-transform: var(--badge-text-transform)
+      custom_fields: 
+        light: >
+          [[[
+            return `<span> 3 </span>
+              <ha-icon
+              icon="mdi:lightbulb"
+              style="width: 12px; height: 12px; margin-top: -3px;">
+              </ha-icon>`
+          ]]]
+        device: >
+          [[[
+            return `<span> 5 </span>
+              <ha-icon
+              icon="mdi:power-plug"
+              style="width: 12px; height: 12px; margin-top: -3px;">
+              </ha-icon>`
+          ]]]
+        door: >
+          [[[
+            return `<span> 1 </span>
+              <ha-icon
+              icon="mdi:door"
+              style="width: 12px; height: 12px; margin-top: -3px;">
+              </ha-icon>`
+          ]]]
+        window: >
+          [[[
+            return `<span> 2 </span>
+              <ha-icon
+              icon="mdi:window-open"
+              style="width: 12px; height: 12px; margin-top: -3px;">
+              </ha-icon>`
+          ]]]
+    - type: custom:button-card
+      card_mod:
+        style: |
+          ha-card {
+            background: center / cover no-repeat url("/local/images/rooms/kitchen.jpg");
+          }
+      template:
+        - hki-default
+      icon: mdi:fridge
+      size: 13%
+      aspect_ratio: 2/1
+      name: Kitchen
+      show_label: true
+      label: "[[[ return `${states['sensor.keuken_temperatuur'].state}°C`; ]]]"
+      styles:
+        name:
+          - background-color: var(--ha-card-background)
+          - color: var(--name-color)
+          - position: absolute
+          - left: 0
+          - right: 0
+          - bottom: 0
+          - opacity: 0.8
+          - text-align: start
+        label:
+          - background-color: var(--ha-card-background)
+          - color: var(--name-color)
+          - position: absolute
+          - right: 0
+          - bottom: 0
+          - opacity: 0.8
+          - text-align: end
+          - font-size: 12px
+          - font-weight: bold
+        grid:
+          - grid-template-areas: '"i i" "area area" "n n" "s l"'
+          - grid-template-columns: 1fr
+          - grid-template-rows: 1fr 1fr min-content min-content
+        icon:
+          - position: absolute
+          - top: 0
+          - left: 3%

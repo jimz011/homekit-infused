@@ -1,0 +1,67 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../hki-base/templates/titles/default.yaml'
+        - name: '&nbsp; USB and Cache Disk'
+      - type: custom:bar-card
+        name: Unassigned Devices & Cache
+        style: |
+          :host {
+            --ha-card-background: var(--paper-card-background-color);
+            --ha-card-border-radius: 10px;
+            --ha-card-box-shadow: 10px;
+            --ha-card-font-weight: bold;
+            --ha-card-opacity: 0.8;
+          }
+          ha-card {
+            font-size: 10px;
+          }
+          bar-card-value {
+            font-size: 10px;
+          }
+        entities:
+          - entity: sensor.glances_etc_resolv_conf_used_percent
+            name: USB Boot Drive
+          - entity: sensor.glances_mnt_cache_used_percent
+            name: SSD Cache (Free)
+        show_icon: true
+        height: 180px
+        stack: horizontal
+        positions:
+          name: inside
+          value: inside
+          icon: inside
+        severity:
+          - color: '#3cff00'
+            from: 0
+            to: 30
+          - color: '#ccff00'
+            from: 31
+            to: 40
+          - color: '#d9d21c'
+            from: 41
+            to: 50
+          - color: '#f7da00'
+            from: 51
+            to: 60
+          - color: '#edac09'
+            from: 61
+            to: 70
+          - color: '#ffa408'
+            from: 71
+            to: 80
+          - color: '#ff5e08'
+            from: 81
+            to: 90
+          - color: '#ed0909'
+            from: 91
+            to: 100
+        direction: up
+        tap_action: none
