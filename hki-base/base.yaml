@@ -186,7 +186,7 @@
                         A user and person is created by default when starting Home Assistant for the first time, just make sure that the person and username are both 1 word, this is important. If your username has underscores, create a new one with only your first name!
 
 
-                        And finally, you can open the profile menu (the button at the top right) and scroll through the list of buttons, find HKI Settings and within the settings go and find `HKI Greeting`. This allows you to change the `unknown` message in the header to something in your own language.
+                        Please read the [documentation](https://github.com/jimz011/homekit-infused/tree/5.x.x-docs) for information on how to configure HKI!
 
 
                         You can remove this message by opening `/hki-user/config/views.yaml` and remove the `welcome_message:` lines.
