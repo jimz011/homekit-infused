@@ -54,6 +54,9 @@ automation:
       - service: script.turn_on
         target:
           entity_id: script.hki_dark_default
+      - service: script.turn_on
+        target:
+          entity_id: script.hki_header_greeting_default
       - service: automation.turn_off
         target:
           entity_id: automation.first_time_startup_defaults

@@ -1,0 +1,23 @@
+script:
+  hki_header_greeting_default:
+    sequence:
+      - service: input_text.set_value
+        data:
+          value: Good Morning
+        target:
+          entity_id: input_text.good_morning
+      - service: input_text.set_value
+        data:
+          value: Good Afternoon
+        target:
+          entity_id: input_text.good_afternoon
+      - service: input_text.set_value
+        data:
+          value: Good Evening
+        target:
+          entity_id: input_text.good_evening
+      - service: input_text.set_value
+        data:
+          value: Good Night
+        target:
+          entity_id: input_text.good_night
