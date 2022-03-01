@@ -64,7 +64,7 @@ In short Homekit Infused 5 is all of the below and much much more!
 
 ![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/HiShoot_20210516_071045.png)
 
-![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/find-my-addon.png)
+![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/hki-find-my.png)
 
 #### Video
 Coming Soon!
