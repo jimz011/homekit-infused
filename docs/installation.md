@@ -41,7 +41,9 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 | [Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | Integration | This is the MOST important piece of the setup, without this HKI will not work! Don't add this to your `configuration.yaml` file as the included package already does so for you, if you already have `lovelace_gen:` in your `configuration.yaml` please remove or comment that line! |
 
 ### Adding Resources
-Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`. If there are no resources listed, make sure you either add them manually or reinstall them through HACS.
+Resources are added automatically when the card gets installed within HACS, but to be sure check them through `Sidebar > Lovelace Dashboards > Resources`. If there are no resources listed, make sure you either add them manually or reinstall them through HACS (you can find the url to add if you click on `redownload`, you do not need to redownload them, but you can use the URL's to add the resources manually if needed).
+
+If you can't see the resources tab, set your profile to `advanced mode` in `Sidebar > Profile`!
 
 ### Installation
 Download the project, you can grab the latest release from [here](https://github.com/jimz011/homekit-infused/releases).
