@@ -170,6 +170,28 @@
                     {% endfor %}
                     {% endif %}
 
+                    # Welcome Message // *Can be removed
+                    {% if 'welcome_message' in addon %}
+                    - type: markdown
+                      content: >
+                        **Homekit Infused v5**
+
+
+                        If you see this message and see no other errors you have successfully installed Homekit Infused 5
+
+
+                        Before you continue you should [create persons](../config/person) and add pictures to them, this is not required, but it will make your top right button look more personalized.
+
+
+                        A user and person is created by default when starting Home Assistant for the first time, just make sure that the person and username are both 1 word, this is important. If your username has underscores, create a new one with only your first name!
+
+
+                        And finally, you can open the profile menu (the button at the top right) and scroll through the list of buttons, find HKI Settings and within the settings go and find `HKI Greeting`. This allows you to change the `unknown` message in the header to something in your own language.
+
+
+                        You can remove this message by opening `/hki-user/config/views.yaml` and remove the `welcome_message:` lines.
+                    {% endif %}
+
                     # Sensor // *Can be removed
                     {% if 'sensor' in addon %}
                     {% for sensor in config.entities %}
