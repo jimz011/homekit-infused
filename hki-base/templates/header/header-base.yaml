@@ -163,6 +163,7 @@ card:
                                     text-align: end !important;
                                   }
                             content: {{ _global.config.profile.markdown|tojson }}
+                      {% if _global.config.profile.cards is defined %}
                       - type: entities
                         card_mod:
                           style:
@@ -179,7 +180,6 @@ card:
                                 --primary-text-color: AliceBlue !important;
                               }
                         entities:
-                          {% if _global.config.profile.cards is defined %}
                           {% for config in _global.config.profile.cards %}
                           - type: custom:fold-entity-row
                             {% if config.open is defined %}
@@ -202,7 +202,7 @@ card:
                               {% endfor %}
                               {% endif %}
                           {% endfor %}
-                          {% endif %}
+                      {% endif %}
 
                       - type: custom:button-card
                         color_type: blank-card
