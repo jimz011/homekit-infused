@@ -14,7 +14,7 @@
 ##### Advice
 - Install Home Assistant or create a backup of your current setup. I will advise you to install this on a clean Home Assistant install, though it is not a requirement.
 - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually.
-- Create person entities in the UI go to configuration>persons and create all the persons in your house. Add the device_trackers you have to the person entities via the dropdown menu. Also add an entity_picture to the entities, you can do this when creating the persons.
+- Create person entities in the UI go to configuration>persons and create all the persons in your house. Add the device_trackers you have to the person entities via the dropdown menu. Also add an entity_picture to the entities, you can do this when creating the persons. You MUST do this before installing HKI!!!!! If you don't you the top right button will NOT appear. You should create a person with the same name as the user, use a first name ONLY!
 
 ##### Requirements
 - Create a secrets.yaml file in the root of your HA installation if you do not have it already. Add the following line on any line within that file `alarm_code: 123456`. You can change the code to whatever number you want. DO NOT SKIP THIS PART or HKI will fail to start.
