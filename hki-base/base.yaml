@@ -805,6 +805,9 @@
                         {% elif thermostat.lock is defined %}
                         lock: {{ thermostat.lock }}
                         {% endif %}
+                        {% if thermostat.icon is defined %}
+                        icon: {{ thermostat.icon }}
+                        {% endif %}
                         {% if thermostat.name is defined %}
                         name: {{ thermostat.name }}
                         {% endif %}
