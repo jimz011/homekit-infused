@@ -85,7 +85,6 @@ HKI Default:
       box-shadow: var(--ha-card-box-shadow, 2px 4px 2px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
       bar-card-border-radius: 12px
       paper-toast-background-color: '#821414'
-      primary-color: 'white'
       primary-text-color: '#f2f2f7'
       text-primary-color: 'var(--primary-text-color)'
       secondary-text-color: 'var(--primary-text-color)'
@@ -103,7 +102,8 @@ HKI Default:
       paper-item-selected_-_background-color: '#262628'
       paper-tabs-selection-bar-color: 'var(--primary-text-color)'
       secondary-background-color: '#262628'
-      mdc-theme-primary: '#6c6c75'
+      mdc-theme-on-primary: '#222222'
+      state-color: '#222222'
       mdc-theme-on-secondary: '#262628'
       table-row-background-color: '#808080'
       table-row-alternative-background-color: '#525252'
