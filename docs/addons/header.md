@@ -28,8 +28,7 @@ The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
 | icon | yes | unknown | Choose an icon to show in the header, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon_color | no | set globally | Set a custom icon color for this badge, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | entity | yes | unknown | Choose the entity that holds the number of devices that are `on`, you must have created this sensor yourself or use the ones from HKI's [device counters](device-counters.md) |
-| badge | 
-| group_entity | no | unknown | Choose the group that this entity belongs to, you must have create this sensor yourself or use the ones from HKI's [device counters](device-counters.md) |
+| group_entity | no | unknown | Choose an entity to show its state in the badge, this can be any entity however you will probably want to use a group that is created here [device counters](device-counters.md), note that entities with a long state might look bad, use this wisely |
 | grid_area | yes | see example below | Choose where the button will be placed horizontally. You can choose a number (written in words) between `one` and `eight` |
 | [tap_action](https://github.com/custom-cards/button-card#Action) | no | predefined | Set a custom tap_action, see [actions](https://github.com/custom-cards/button-card#Action) for more information, if you set a tap_action the default popup will no longer work and be replaced by this action instead |
 | [hold_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom hold_action, see [actions](https://github.com/custom-cards/button-card#Action) |
