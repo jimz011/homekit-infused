@@ -32,7 +32,7 @@ The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
 | grid_area | yes | see example below | Choose where the button will be placed horizontally. You can choose a number (written in words) between `one` and `eight` |
 | [tap_action](https://github.com/custom-cards/button-card#Action) | no | predefined | Set a custom tap_action, see [actions](https://github.com/custom-cards/button-card#Action) for more information, if you set a tap_action the default popup will no longer work and be replaced by this action instead |
 | [hold_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom hold_action, see [actions](https://github.com/custom-cards/button-card#Action) |
-| [double_tap_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom double_tap_action, see [actions](https://github.com/custom-cards/button-card#Action), if undefined it will use the same action as set in hold_action |
+| [double_tap_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom double_tap_action, see [actions](https://github.com/custom-cards/button-card#Action) |
 | popup | no | predefined | Design your own popup when clicking this badge (*Note: Will not work if tap_action is defined!*), this must be a list of cards! See example below |
 
 ```yaml
