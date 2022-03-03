@@ -69,6 +69,7 @@ If you define your entity as an object you can unlock more options.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | undefined | Sets the entity used |
+| name | no | default | Set a custom name for this entity, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon | no | mdi:thermostat | Set a custom icon for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | lock | no | false | Puts a lock on the button, choose between `true` or `false` |
 | ambient_temperature | no | undefined | Set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
