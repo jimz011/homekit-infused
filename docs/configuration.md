@@ -45,13 +45,13 @@ This is the bare minimum that will give you a brand new view, however without an
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 'object' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view, *NOTE: This can NOT contain special characters, use lowercase characters only!* |
-| title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead |
-| subtitle | no | undefined | Set the subtitle text, this accepts button-card JS templates, if you don't set a subtitle it will show the default notifications instead |
-| icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this also accepts FA icons, you can use button-card JS templates as long as you don't set this icon to show in the nav_bar |
+| title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead, you can NOT use templates for the title! |
+| subtitle | no | undefined | Set the subtitle text, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates), if you don't set a subtitle it will show the default notifications instead |
+| icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this also accepts FA icons, you can use [JS templates](https://github.com/custom-cards/button-card#javascript-templates) as long as you don't set this icon to show in the nav_bar |
 | show_subtitle | no | subtitle | Set to show the header subtitle to true or false |
 | show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites addon |
 | show_in_menu | no | undefined | This forces a view to be shown in the menu addon, this is useful when using the `menu:` or `view_selector:` addon |
-| button_label | no | no label | Set the button label text, this accepts button-card JS templates |
+| button_label | no | no label | Set the button label text, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | button_badge | no | undefined | This will set a bagde for the menu and favorites button, it will always show the state of an entered entity, you can use any entity_id (e.g. `sensor.current_temperature`) |
 | show_in_navbar | no | false | Set to `true` if you want this view to be visible in the navigation_bar, this is not the same as the menu! |
 | visible | no | undefined | This will show the nav_bar icon only for certain users, this only reflects if `show_in_navbar` is `true`, this MUST be defined as a list! Check out the [Official Documentation](https://www.home-assistant.io/lovelace/views/#visible) for more information. NOTE: The URL will still be accessible for any user! |
