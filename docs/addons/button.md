@@ -55,7 +55,8 @@ You must define it as an object instead to make use of the options below.
 | size | no | 25% | Set the icon size, note that this setting is not always working as expected due to the grid used, play around with it |
 | units | no | undefined | Override or define the units to display after the state of the entity. If omitted, it's using the entity's units |
 | button_badge | no | undefined | Use the HKI predefined badge in your button, you MUST define an entity to use, you can only use it's state! |
-| icon_color_active | no | undefined | Use this to override the icon color when the entity is active |
+| icon_color_active | no | undefined | Use this to override the icon color when the entity is active, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
+| icon_color_inactive | no | undefined | Use this to override the default icon color, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | show_name | no | true | Choose to show/hide the name, set to `false` to hide it |
 | show_label | no | true | Choose to show/hide the label, set to `false` to hide it |
 | show_icon | no | true | Choose to show/hide the icon, set to `false` to hide it |
