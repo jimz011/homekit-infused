@@ -35,8 +35,8 @@ This card will show you live notifications in the subtitle part of the header. I
 
 | Properties | Required | Default | Description |
 |----------------------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| icon | yes | none | Sets an icon to show with the notification |
-| name | yes | none | Sets the notification, note that on small screens you'll want to use short notifications, otherwise they'll be cut off! |
+| icon | yes | none | Sets an icon to show with the notification, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
+| name | yes | none | Sets the notification, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | spin | no | false | Sets if the icon should spin when showing the notification |
 | tap_action | no | undefined | Set a specific tap_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
 | hold_action | no | undefined | Set a specific hold_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
