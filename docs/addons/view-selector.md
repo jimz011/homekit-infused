@@ -37,6 +37,9 @@ The view selector works by leveraging multiple views as pages. You must add the 
 | path | yes | undefined | Sets the path this button should take you to |
 | this_view | no | undefined | You can add this to your selector to make HKI aware that you are currently on this page, this will give the button a nice `ON` appearance. The view selector works fine without it though |
 | button_badge | no | undefined | You can set a button badge just like in the menu. A useful case would be for example a lights view with multiple floors where the badge shows you the number of lights `on` on that specific floor |
+| [tap_action](https://github.com/custom-cards/button-card#Action) | no | predefined | Set a custom tap_action, see [actions](https://github.com/custom-cards/button-card#Action) for more information, if you set a tap_action the navigate to `path` setting will no longer work and be replaced by this action instead |
+| [hold_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom hold_action, see [actions](https://github.com/custom-cards/button-card#Action) |
+| [double_tap_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom double_tap_action, see [actions](https://github.com/custom-cards/button-card#Action) |
 
 ```yaml
 # views.yaml (example with 2 views with a view_selector)
