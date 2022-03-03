@@ -83,7 +83,11 @@ views: # NEVER REMOVE THIS LINE
     icon: mdi:thermometer
     show_in_favorites: true
     button_badge: sensor.average_house_temperature
-    button_label: "[[[ if (states['sensor.current_climate_entities_on'].state == 0) return `Thermostats Off`; else return `${states['sensor.current_climate_entities_on'].state} Thermostats On`; ]]]"
+    button_label: >
+      [[[ 
+        if (states['sensor.current_climate_entities_on'].state == 0) return `Thermostats Off`;
+        else return `${states['sensor.current_climate_entities_on'].state} Thermostats On`;
+      ]]]
     addons:
       thermostat:
         # Small Screens
@@ -100,7 +104,8 @@ views: # NEVER REMOVE THIS LINE
         # Larger Screens
         - title: Thermostats
           entities:
-            - climate.tado_smart_radiator_thermostat_va1671957504
+            - entity: climate.tado_smart_radiator_thermostat_va1671957504
+              icon: mdi:sofa
             - climate.tado_smart_radiator_thermostat_va2898201344
             - climate.tado_smart_radiator_thermostat_va0882906624
             - climate.tado_smart_radiator_thermostat_va2711623168
