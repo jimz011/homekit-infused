@@ -38,9 +38,9 @@ This card will show you live notifications in the subtitle part of the header. I
 | icon | yes | none | Sets an icon to show with the notification, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | name | yes | none | Sets the notification, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | spin | no | false | Sets if the icon should spin when showing the notification |
-| tap_action | no | undefined | Set a specific tap_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
-| hold_action | no | undefined | Set a specific hold_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
-| double_tap_action | no | undefined | Set a specific double_tap_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
+| [tap_action](https://github.com/custom-cards/button-card#Action) | no | undefined | Set a specific tap_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
+| [hold_action](https://github.com/custom-cards/button-card#Action) | no | undefined | Set a specific hold_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
+| [double_tap_action](https://github.com/custom-cards/button-card#Action) | no | undefined | Set a specific double_tap_action for this notification see [here](https://github.com/custom-cards/button-card#Action) for available options |
 
 ```yaml
 # notifications.yaml (example multiple notifications)
