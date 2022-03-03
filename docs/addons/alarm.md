@@ -20,7 +20,10 @@ You can setup your alarm in here including the header badge and/or popup. The se
 | show_badge | no | true | Choose whether to show or hide the alarm badge in the header |
 | icon | no | predefined | Set your own alarm icon, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon_color | no | predefined | Set your own icon color, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
-| popup | no | keypad | Set what cards to show in the popup when you press the alarm badge, if this line is omitted it will show the default keypad instead |
+| [tap_action](https://github.com/custom-cards/button-card#Action) | no | predefined | Set a custom tap_action, see [actions](https://github.com/custom-cards/button-card#Action) for more information, if you set a tap_action the default popup will no longer work and be replaced by this action instead |
+| [hold_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom hold_action, see [actions](https://github.com/custom-cards/button-card#Action) |
+| [double_tap_action](https://github.com/custom-cards/button-card#Action) | no | none | Set a custom double_tap_action, see [actions](https://github.com/custom-cards/button-card#Action), if undefined it will use the same action as set in hold_action |
+| popup | no | keypad | Design your own popup when clicking this badge (*Note: Will not work if tap_action is defined!*), this must be a list of cards! If ommitted it will show a keypad instead |
 
 ```yaml
 # config.yaml (default settings)
