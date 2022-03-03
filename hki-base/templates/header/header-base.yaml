@@ -252,9 +252,32 @@ card:
         {% for content in _global.config.header.badges %}
         - !include
           - header-sensor-badge.yaml
-          - icon: {{ content.icon }}
+          - icon: {{ content.icon|tojson }}
+            {% if content.icon_color is defined %}
+            icon_color: {{ content.icon_color|tojson }}
+            {% endif %}
             background_color: "[[[ if (states['{{ content.entity }}'].state > 0) return 'var(--header-badge-color)'; else return 'rgba(0,0,0,0.0)' ]]]"
-            badge: "[[[ if (states['{{ content.entity }}'].state > 0) return states['{{ content.entity }}'].state; else return '&nbsp;'; ]]]"
+            {% if content.badge is defined %}
+            badge: {{ content.badge|tojson }}
+            {% else %}
+            badge: >
+              [[[ 
+                if (states['{{ content.entity }}'].state > 0) return states['{{ content.entity }}'].state;
+                return '&nbsp;'; 
+              ]]]
+            {% endif %}
+            {% if content.tap_action is defined %}
+            tap_action:
+              {{ content.tap_action|tojson }}
+            {% endif %}
+            {% if content.hold_action is defined %}
+            hold_action:
+              {{ content.hold_action|tojson }}
+            {% endif %}
+            {% if content.double_tap_action is defined %}
+            double_tap_action:
+              {{ content.double_tap_action|tojson }}
+            {% endif %}
             group_entity: {{ content.group_entity }}
             grid_area: {{ content.grid_area }}
         {% endfor %}
@@ -265,6 +288,38 @@ card:
         - !include
           - header-alarm-badge.yaml
           - entity: {{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}
+            {% if _global.config.alarm.icon is defined %}
+            icon: {{ _global.config.alarm.icon|tojson }}
+            {% else %}
+            icon: >
+              [[[ 
+                if (states['{{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'mdi:lock-open'; 
+                if (states['{{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_home') return 'mdi:lock-open-alert';
+                return 'mdi:lock-alert'; 
+              ]]]
+            {% endif %}
+            {% if _global.config.alarm.state_color is defined %}
+            icon_color: {{ _global.config.alarm.icon_color|tojson }}
+            {% else %}
+            icon_color: >
+              [[[
+                if (states['{{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'disarmed') return 'ForestGreen'; 
+                if (states['{{ _global.config.alarm.entity|default('alarm_control_panel.home_alarm') }}'].state == 'armed_away') return 'DarkRed'; 
+                return 'Orange';
+              ]]]
+            {% endif %}
+            {% if _global.config.alarm.tap_action is defined %}
+            tap_action:
+              {{ _global.config.alarm.tap_action|tojson }}
+            {% endif %}
+            {% if _global.config.alarm.hold_action is defined %}
+            hold_action:
+              {{ _global.config.alarm.hold_action|tojson }}
+            {% endif %}
+            {% if _global.config.alarm.double_tap_action is defined %}
+            double_tap_action:
+              {{ _global.config.alarm.double_tap_action|tojson }}
+            {% endif %}
         {% endif %}
     
     {% if ((_global.config.header.show_subtitle is defined) and (_global.config.header.show_subtitle is true) or (_global.config.header.show_subtitle is undefined)) %}
@@ -272,8 +327,8 @@ card:
     {% if name is defined %}
     - !include
       - subtitle-notification-template.yaml
-      - icon: {{ icon|default('mdi:home') }}
-        name: "{{ name|default('unknown') }}"
+      - icon: {{ icon|tojson|default('mdi:home') }}
+        name: {{ name|tojson|default('unknown') }}
     {% else %}
     - type: custom:swipe-card
       parameters:

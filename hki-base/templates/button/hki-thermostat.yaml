@@ -4,11 +4,17 @@
 type: custom:button-card
 template: 
   - hki-default
-name: {{ name }}
+{% if name is defined %}
+name: {{ name|tojson }}
+{% endif %}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 size: {{ size|default('25%') }}
 entity: {{ entity }}
-icon: {{ icon|default('mdi:thermostat') }}
+{% if icon is defined %}
+icon: {{ icon|tojson }}
+{% else %}
+icon: mdi:thermostat
+{% endif %}
 label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
 lock:
   enabled: {{ lock|default('false') }}

@@ -2,7 +2,7 @@
 
 type: custom:button-card
 layout: name_state
-name: "{{ name }}"
+name: {{ name|tojson }}
 show_icon: false
 show_state: false
 styles:

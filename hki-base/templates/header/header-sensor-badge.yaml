@@ -1,14 +1,15 @@
 # lovelace_gen
 
 type: custom:button-card
-icon: {{ icon|default('mdi:help') }}
+icon: {{ icon|tojson }}
 size: 50%
-color: auto
 show_name: false
 show_state: false
 show_label: false
-hold_action:
-  action: none
+{% if tap_action is defined %}
+tap_action:
+  {{ tap_action|tojson }}
+{% else %}
 tap_action:
   action: fire-dom-event
   browser_mod:
@@ -25,6 +26,11 @@ tap_action:
         type: vertical-stack
         cards:
           - !include ../popups/close-popup.yaml
+          {% if popup is defined %}
+          {% for cards in popup %}
+          - {{ cards|tojson }}
+          {% endfor %}
+          {% else %}
           - type: entities
             card_mod:
               style:
@@ -142,7 +148,20 @@ tap_action:
                         tap_action:
                           action: toggle
               {% endif %}
+          {% endif %}
   haptics: light
+{% endif %}
+{% if hold_action is defined %}
+hold_action:
+  {{ hold_action|tojson }}
+{% else %}
+hold_action:
+  action: none
+{% endif %}
+{% if double_tap_action is defined %}
+double_tap_action:
+  {{ double_tap_action|tojson }}
+{% endif %}
 styles:
   card:
     - --ha-card-background: var(--header-badge-background)
@@ -151,8 +170,13 @@ styles:
     - width: 35px
     - overflow: visible
     - height: 35px
+  {% if icon_color is defined %}
+  icon:
+    - color: {{ icon_color|tojson }}
+  {% else %}
   icon:
     - color: var(--header-badge-icon-color)
+  {% endif %}
   custom_fields:
     badge:
       - background-color: "{{ background_color|default('none') }}"
@@ -166,7 +190,7 @@ styles:
       - font-size: 10px
       - line-height: 15px
 custom_fields: 
-  badge: "{{ badge|default('unknown') }}"
+  badge: {{ badge|tojson|default('unknown') }}
 view_layout:
   grid-area: {{ grid_area|default('eight')}}
   show:

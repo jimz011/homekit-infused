@@ -35,7 +35,7 @@
           {% endif %}
             {% if data.subtitle is defined %}
             icon: {{ data.icon|default('mdi:home') }}
-            name: "{{ data.subtitle }}"
+            name: {{ data.subtitle|tojson }}
             entity: disabled
             {% endif %}
 
@@ -55,12 +55,12 @@
                   - templates/button/view-selector.yaml
                   - navigation_path: {{ config.path }}
                     {% if config.name is defined %}
-                    name: {{ config.name }}
+                    name: {{ config.name|tojson }}
                     {% else %}
                     show_name: false
                     {% endif %}
                     {% if config.icon is defined %}
-                    icon: {{ config.icon }}
+                    icon: {{ config.icon|tojson }}
                     {% else %}
                     show_icon: false
                     {% endif %}
@@ -141,7 +141,7 @@
                 {% if ((config.title is defined) and (config.title != 'hide')) %}
                 - !include
                   - templates/titles/default.yaml
-                  - name: "{{ config.title }}"
+                  - name: {{ config.title|tojson }}
                 {% endif %}
                 {% if ('picture_elements' in addon) or ('button' in addon) or ('camera' in addon) or ('thermostat' in addon) or ('battery' in addon) or ('favorites' in addon) or ('menu' in addon) or ('sensor' in addon) %}
                 - type: grid
@@ -806,10 +806,10 @@
                         lock: {{ thermostat.lock }}
                         {% endif %}
                         {% if thermostat.icon is defined %}
-                        icon: {{ thermostat.icon }}
+                        icon: {{ thermostat.icon|tojson }}
                         {% endif %}
                         {% if thermostat.name is defined %}
-                        name: {{ thermostat.name }}
+                        name: {{ thermostat.name|tojson }}
                         {% endif %}
                         {% if ((thermostat.ambient_temperature is defined) and (thermostat.entity is defined)) %}
                         notification: "[[[ return `${states['{{thermostat.ambient_temperature}}'].state}°` ]]]"
@@ -823,7 +823,7 @@
                     {% endif %}
                     {% endif %}
 
-                    # Buttons // *Can be removed
+                    # Button // *Can be removed
                     {% if 'button' in addon %}
                     {% if config.entities is defined %}
                     {% for device in config.entities %}
@@ -838,7 +838,7 @@
                         background_image: {{ device.background_image }}
                         {% endif %}
                         {% if device.icon is defined %}
-                        icon: "{{ device.icon }}"
+                        icon: {{ device.icon|tojson }}
                         {% endif %}
                         {% if config.type is defined %}
                         button_type: {{ config.type }}
@@ -864,13 +864,13 @@
                         aspect_ratio: {{ device.aspect_ratio }}
                         {% endif %}
                         {% if device.name is defined %}
-                        name: "{{ device.name }}"
+                        name: {{ device.name|tojson }}
                         {% endif %}
                         {% if device.label is defined %}
-                        label: "{{ device.label }}"
+                        label: {{ device.label|tojson }}
                         {% endif %}
                         {% if device.entity_picture is defined %}
-                        entity_picture: "{{ device.entity_picture }}"
+                        entity_picture: {{ device.entity_picture|tojson }}
                         {% endif %}
                         {% if device.layout is defined %}
                         layout: {{ device.layout }}
@@ -912,10 +912,13 @@
                         spin: true
                         {% endif %}
                         {% if device.state_display is defined %}
-                        state_display: "{{ device.state_display }}"
+                        state_display: {{ device.state_display|tojson }}
+                        {% endif %}
+                        {% if device.icon_color_inactive is defined %}
+                        icon_color_off: {{ device.icon_color_inactive|tojson }}
                         {% endif %}
                         {% if device.icon_color_active is defined %}
-                        icon_color_on: "{{ device.icon_color_active }}"
+                        icon_color_on: {{ device.icon_color_active|tojson }}
                         {% elif (('fan.' in device) or ('fan.' in device.entity) or ('switch.fan' in device) or ('switch.fan' in device.entity) or (type is defined) and (type == 'fan')) %}
                         icon_color_on: DodgerBlue
                         {% endif %}
@@ -1042,8 +1045,14 @@
                       {% else %}
                       - name: {{ name|replace("_", " ")|title }}
                       {% endif %}
-                        label: "{{ data.button_label|default('&nbsp;') }}"
-                        icon: {{ data.icon }}
+                        {% if data.button_label is defined %}
+                        label: {{ data.button_label|tojson }}
+                        {% else %}
+                        label: '&nbsp;'
+                        {% endif %}
+                        {% if data.icon is defined %}
+                        icon: {{ data.icon|tojson }}
+                        {% endif %}
                         show_state: false
                         tap_action:
                           action: navigate
@@ -1067,8 +1076,14 @@
                       {% else %}
                       - name: {{ name|replace("_", " ")|title }}
                       {% endif %}
-                        label: "{{ data.button_label|default('&nbsp;') }}"
-                        icon: {{ data.icon }}
+                        {% if data.label is defined %}
+                        label: {{ data.button_label|tojson }}
+                        {% else %}
+                        label: '&nbsp;'
+                        {% endif %}
+                        {% if data.icon is defined %}
+                        icon: {{ data.icon|tojson }}
+                        {% endif %}
                         show_state: false
                         tap_action:
                           action: navigate

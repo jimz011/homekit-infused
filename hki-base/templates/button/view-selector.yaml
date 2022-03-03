@@ -5,8 +5,12 @@ type: custom:button-card
 template: 
   - {{ template }}
 entity: input_boolean.dummy1
-name: "{{ name }}"
-icon: "{{ icon }}"
+{% if name is defined %}
+name: {{ name|tojson }}
+{% endif %}
+{% if icon is defined %}
+icon: {{ icon|tojson }}
+{% endif %}
 size: {{ size|default('10%') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
 show_name: {{ show_name|default('true') }}

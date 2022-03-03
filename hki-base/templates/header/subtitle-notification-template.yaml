@@ -1,8 +1,8 @@
 # lovelace_gen
 
 type: custom:button-card
-name: "{{ name }}"
-icon: "{{ icon|default('mdi:home') }}"
+name: {{ name|tojson }}
+icon: {{ icon|tojson|default('mdi:home') }}
 entity: input_boolean.dummy1
 tap_action:
   action: more-info
