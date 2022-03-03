@@ -31,7 +31,6 @@ The custom addon is like all other addons preconfigured as a vertical-stack with
     addons:
       custom: 
         - title: Title of this stack
-          position: before
           cards:
             - type: markdown
               content: "This new addon is amazing!"
