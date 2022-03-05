@@ -73,6 +73,20 @@ entities:
                       cards:
                         - !include ../popups/close-popup.yaml
                         - type: markdown
+                          card_mod:
+                            style:
+                              .: |
+                                :host {
+                                  --ha-card-background: transparent !important;
+                                  --primary-text-color: AliceBlue !important;
+                                }
+                                ha-card {
+                                  background: transparent !important;
+                                  color: AliceBlue !important;
+                                  --paper-item-icon-color: auto !important;
+                                  --paper-item-icon-active-color: #b58e31 !important;
+                                  --primary-text-color: AliceBlue !important;
+                                }
                           content: >
                             **Homekit Infused 5 v.{{ states('sensor.hki_current_version') }}**
 
