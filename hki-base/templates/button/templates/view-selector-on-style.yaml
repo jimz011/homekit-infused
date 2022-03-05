@@ -5,13 +5,14 @@ state:
         - --ha-card-background: var(--ha-card-background-active)
         - -webkit-box-shadow: var(--ha-card-box-shadow-active)
         - box-shadow: var(--ha-card-box-shadow-active)
-      name:
-        - color: var(--primary-text-color-active)
-      state:
-        - color: var(--primary-text-color-active)
-      lock:
-        - color: var(--lock-color-active) 
-      label:
-        - color: var(--primary-text-color-active)
       icon:
         - color: var(--ha-icon-active-color)
+      name:
+        - font-weight: var(--name-font-weight)
+        - font-family: var(--font-family) 
+        - font-size: var(--name-font-size)
+        - color: var(--name-color-active)
+      custom_fields:
+        notification:
+          - background-color: Black
+          - color: AliceBlue

@@ -54,7 +54,7 @@ styles:
   custom_fields:
     notification:
       - background-color: "{{ background_color }}"
-      - color: var(--ha-card-background)
+      - color: var(--badge-text-color)
       - border-radius: 12px
       - overflow: visible
       - position: absolute

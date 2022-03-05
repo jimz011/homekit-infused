@@ -73,8 +73,8 @@
                     {% else %}
                     template: view-selector-off-style
                     {% endif %}
-                    {% if config.icon_size is defined %}
-                    size: {{ config.icon_size }}
+                    {% if config.size is defined %}
+                    size: {{ config.size }}
                     {% elif data.view_selector.size is defined %}
                     size: {{ data.view_selector.size }}
                     {% endif %}
