@@ -103,7 +103,7 @@ HKI Default:
       paper-tabs-selection-bar-color: 'var(--primary-text-color)'
       secondary-background-color: '#262628'
       mdc-theme-on-primary: '#222222'
-      state-color: '#222222'
+      state-color: 'AliceBlue'
       mdc-theme-on-secondary: '#262628'
       table-row-background-color: '#808080'
       table-row-alternative-background-color: '#525252'
