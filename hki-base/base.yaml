@@ -721,7 +721,7 @@
                     {% endif %}
 
                     # Maps // *Can be removed
-                    {% if 'map_card' in addon %}
+                    {% if 'map' in addon %}
                     - type: map                    
                       card_mod:
                         class: hki
