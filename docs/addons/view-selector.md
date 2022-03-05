@@ -26,14 +26,16 @@ The view selector works by leveraging multiple views as pages. You must add the 
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | columns | no | 4 | Set the amount of columns the view_selector uses on this page |
 | aspect_ratio | no | 1/1 | Set a custom aspect_ratio, this is useful when using less buttons |
+| size | no | 25% | Set the size of icons for all elements at once |
 | elements | yes | a list of elements | Set the elements your view selector should use, see options below |
 
 #### Elements Extra Options
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name | no | undefined | Sets the name of this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) | |
-| icon | no | undefined | Sets the icon of this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) | |
+| name | no | undefined | Sets the name of this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
+| icon | no | undefined | Sets the icon of this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
+| size | no | 25% | Set a custom icon size for this element |
 | path | yes | undefined | Sets the path this button should take you to |
 | this_view | no | undefined | You can add this to your selector to make HKI aware that you are currently on this page, this will give the button a nice `ON` appearance. The view selector works fine without it though |
 | button_badge | no | undefined | You can set a button badge just like in the menu. A useful case would be for example a lights view with multiple floors where the badge shows you the number of lights `on` on that specific floor |
