@@ -32,6 +32,7 @@ To get the best out of the profile menu I will suggest using a [state-switch](ht
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | markdown | no | unknown | Set some text to use in the profile menu, this will be shown right from your profile picture |
 | media_player | no | unknown | Choose a media_player to show at the bottom of the profile menu |
+| translate | no | undefined | Translate some of the static stuff in the HKI Profile menu, for performance reasons ONLY the buttons that are shown to ALL users can be edited. Buttons that are shown for admins can NOT be translated! |
 | cards | no | unknown | Set stacks with cards, see Extra Options below |
 
 ```yaml
@@ -120,6 +121,23 @@ Cards are ALWAYS placed inside an entities card and will always be folded in a f
                   - person.stephanie
                   - person.tala
 ```
+
+#### Translate Extra Options
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| search | no | Type to search... | Translate `Type to search..` |
+| profile_1 | no | Go To | Translate the first line of the profile button, default is `Go To` |
+| profile_2 | no | Profile | Translate the second line of the profile button, default is `Profile` |
+| find_my_1 | no | Find | Translate the first line of the find my button, default is `Find` |
+| find_my_2 | no | My | Translate the second line of the find my button, default is `My` |
+| about_hki_1 | no | About | Translate the first line of the about hki button, default is `About` |
+| about_hki_2 | no | HKI | Translate the second line of the about hki button, default is `HKI` |
+| refresh_window_1 | no | Refresh | Translate the first line of the refresh window button, default is `Refresh` |
+| refresh_window_2 | no | Window | Translate the second line of the refresh window button, default is `Window` |
+| refresh_window_confirmation | no | Predefined | Translate the refresh window confirmation text |
+| close_window_1 | no | Close | Translate the first line of the close window button, default is `Close` |
+| close_window_2 | no | Window | Translate the second line of the close window button, default is `Window` |
 
 ### Images:
 
