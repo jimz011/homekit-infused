@@ -12,300 +12,293 @@ cards:
         - title: Find My
           name: Persons, Vehicles and Devices
           icon: mdi:map-search
-      - type: custom:mod-card
-        card_mod:
-          style: |
-            ha-card {
-              background: transparent;
-            }
-        card:
-          type: custom:layout-card
-          layout_type: custom:grid-layout
-          layout:
-            grid-template-columns: 1fr
-            grid-template-rows: min-content
-            grid-template-areas: |
-              "sidebar"
-              "map"
-            mediaquery:
-              "(min-width: 650px)":
-                grid-template-columns: minmax(325px, 17%) auto auto
-                grid-template-areas: |
-                  "sidebar map map"
-          cards:
-            - type: vertical-stack
-              view_layout:
-                grid-area: sidebar
-              cards:
-                - type: horizontal-stack
-                  cards:
-                    - !include 
-                      - '../button/find-my-button.yaml'
-                      - icon: mdi:human-male-female-child
-                        option: Persons
-                        state:
-                          - value: "Persons"
-                            styles:
-                              card:
-                                - --ha-card-background: var(--ha-card-background-active)
-                              icon:
-                                - color: var(--ha-icon-active-color)
-                    - !include 
-                      - '../button/find-my-button.yaml'
-                      - icon: mdi:devices
-                        option: Devices
-                        state:
-                          - value: "Devices"
-                            styles:
-                              card:
-                                - --ha-card-background: var(--ha-card-background-active)
-                              icon:
-                                - color: var(--ha-icon-active-color)
-                    - !include 
-                      - '../button/find-my-button.yaml'
-                      - icon: mdi:car-multiple
-                        option: Vehicles
-                        state:
-                          - value: "Vehicles"
-                            styles:
-                              card:
-                                - --ha-card-background: var(--ha-card-background-active)
-                              icon:
-                                - color: var(--ha-icon-active-color)
-                {% if _global.config.find_my is defined %}
-                - type: conditional
-                  conditions:
-                    - entity: input_select.find_my
-                      state: "Persons"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      {% if _global.config.find_my.persons is defined %}
-                      {% for person in _global.config.find_my.persons %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        entity: {{ person.entity }}
-                        name: {{ person.name }}
-                        {% if person.icon is defined %}
-                        icon: {{ person.icon }}
-                        {% endif %}
-                        {% if person.entity_picture is defined %}
-                        picture_entity: {{ person.entity_picture }}
-                        {% endif %}
-                        custom_fields:
-                          {% if person.geocoded_location_entity is defined %}
-                          geocode: >
-                            [[[
-                              return `<span>${states['{{ person.geocoded_location_entity }}'].state}</span>`
-                            ]]]
-                          {% else %}
-                          geocode: "[[[ if (states['{{ person.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
-                          {% endif %}
-                          {% if person.battery_entity is defined %}
-                          battery: >
-                            [[[
-                              return `<span>${states['{{ person.battery_entity }}'].state} %</span>
-                                <ha-icon
-                                icon="mdi:battery"
-                                style="width: 12px; height: 12px; margin-top: -3px;">
-                                </ha-icon>`
-                            ]]]
-                          {% endif %}
-                      {% endfor %}
-                      {% else %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        name: Unknown!
-                        tap_action:
-                          action: url
-                          url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
-                        custom_fields:
-                          geocode: >
-                            [[[
-                              return `Persons have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
-                              
-                              Press the button for documentation`
-                            ]]] 
-                      {% endif %}
-                - type: conditional
-                  conditions:
-                    - entity: input_select.find_my
-                      state: "Devices"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      {% if _global.config.find_my.devices is defined %}
-                      {% for device in _global.config.find_my.devices %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        entity: {{ device.entity }}
-                        name: {{ device.name }}
-                        {% if device.icon is defined %}
-                        icon: {{ device.icon }}
-                        {% endif %}
-                        {% if device.entity_picture is defined %}
-                        entity_picture: {{ device.entity_picture }}
-                        {% endif %}
-                        custom_fields:
-                          {% if device.geocoded_location_entity is defined %}
-                          geocode: >
-                            [[[
-                              return `<span>${states['{{ device.geocoded_location_entity }}'].state}</span>`
-                            ]]]
-                          {% else %}
-                          geocode: "[[[ if (states['{{ device.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
-                          {% endif %}
-                          {% if device.battery_entity is defined %}
-                          battery: >
-                            [[[
-                              return `<span>${states['{{ device.battery_entity }}'].state} %</span>
-                                <ha-icon
-                                icon="mdi:battery"
-                                style="width: 12px; height: 12px; margin-top: -3px;">
-                                </ha-icon>`
-                            ]]]
-                          {% endif %}
-                      {% endfor %}
-                      {% else %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        name: Unknown!
-                        tap_action:
-                          action: url
-                          url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
-                        custom_fields:
-                          geocode: >
-                            [[[
-                              return `Devices have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
-                              
-                              Press the button for documentation`
-                            ]]] 
-                      {% endif %}
-                - type: conditional
-                  conditions:
-                    - entity: input_select.find_my
-                      state: "Vehicles"
-                  card:
-                    type: vertical-stack
-                    cards:
-                      {% if _global.config.find_my.vehicles is defined %}
-                      {% for vehicle in _global.config.find_my.vehicles %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        entity: {{ vehicle.entity }}
-                        name: {{ vehicle.name }}
-                        {% if vehicle.icon is defined %}
-                        icon: {{ vehicle.icon }}
-                        {% endif %}
-                        {% if vehicle.entity_picture is defined %}
-                        picture_entity: {{ vehicle.entity_picture }}
-                        {% endif %}
-                        custom_fields:
-                          {% if vehicle.geocoded_location_entity is defined %}
-                          geocode: >
-                            [[[
-                              return `<span>${states['{{ vehicle.geocoded_location_entity }}'].state}</span>`
-                            ]]]
-                          {% else %}
-                          geocode: "[[[ if (states['{{ vehicle.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
-                          {% endif %}
-                          {% if vehicle.battery_entity is defined %}
-                          battery: >
-                            [[[
-                              return `<span>${states['{{ vehicle.battery_entity }}'].state} %</span>
-                                <ha-icon
-                                icon="mdi:battery"
-                                style="width: 12px; height: 12px; margin-top: -3px;">
-                                </ha-icon>`
-                            ]]]
-                          {% endif %}
-                      {% endfor %}
-                      {% else %}
-                      - type: custom:button-card
-                        template:
-                          - find-my
-                        name: Unknown!
-                        tap_action:
-                          action: url
-                          url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
-                        custom_fields:
-                          geocode: >
-                            [[[
-                              return `Vehicles have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
-                              
-                              Press the button for documentation`
-                            ]]] 
-                      {% endif %}
-                {% else %}
-                - type: custom:button-card
-                  template:
-                    - find-my
-                  name: Unknown!
-                  tap_action:
-                    action: url
-                    url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
-                  custom_fields:
-                    geocode: >
-                      [[[
-                        return `Find My has not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
-                        
-                        Press the button for documentation`
-                      ]]]
-                {% endif %}
-
-            {% if _global.config.find_my is defined %}
-            - type: custom:state-switch
-              entity: input_select.find_my
-              view_layout:
-                grid-area: map
-              states:
-                Persons:
-                  {% if _global.config.find_my.persons is defined %}
-                  type: map
-                  view_layout:
-                    grid-area: map
-                  entities:
-                    {% for person in _global.config.find_my.persons %}
-                    - {{ person.entity }}
-                    {% endfor %}
-                  {% else %}
-                  type: markdown
-                  content: Unavailable
-                  {% endif %}
-                Devices:
-                  {% if _global.config.find_my.devices is defined %}
-                  type: map
-                  view_layout:
-                    grid-area: map
-                  entities:
-                    {% for device in _global.config.find_my.devices %}
-                    - {{ device.entity }}
-                    {% endfor %}
-                  {% else %}
-                  type: markdown
-                  content: Unavailable
-                  {% endif %}
-                Vehicles:
-                  {% if _global.config.find_my.vehicles is defined %}
-                  type: map
-                  view_layout:
-                    grid-area: map
-                  entities:
-                    {% for vehicle in _global.config.find_my.vehicles %}
-                    - {{ vehicle.entity }}
-                    {% endfor %}
-                  {% else %}
-                  type: markdown
-                  content: Unavailable
-                  {% endif %}
-            {% endif %}
-            - type: custom:button-card
-              color_type: blank-card
-              styles:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 100%
+          grid-template-rows: min-content
+          grid-template-areas: |
+            "sidebar"
+            "map"
+          mediaquery:
+            "(min-width: 650px)":
+              grid-template-columns: minmax(325px, 17%) auto auto
+              grid-template-areas: |
+                "sidebar map map"
+        cards:
+          - type: vertical-stack
+            view_layout:
+              grid-area: sidebar
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - !include 
+                    - '../button/find-my-button.yaml'
+                    - icon: mdi:human-male-female-child
+                      option: Persons
+                      state:
+                        - value: "Persons"
+                          styles:
+                            card:
+                              - --ha-card-background: var(--ha-card-background-active)
+                            icon:
+                              - color: var(--ha-icon-active-color)
+                  - !include 
+                    - '../button/find-my-button.yaml'
+                    - icon: mdi:devices
+                      option: Devices
+                      state:
+                        - value: "Devices"
+                          styles:
+                            card:
+                              - --ha-card-background: var(--ha-card-background-active)
+                            icon:
+                              - color: var(--ha-icon-active-color)
+                  - !include 
+                    - '../button/find-my-button.yaml'
+                    - icon: mdi:car-multiple
+                      option: Vehicles
+                      state:
+                        - value: "Vehicles"
+                          styles:
+                            card:
+                              - --ha-card-background: var(--ha-card-background-active)
+                            icon:
+                              - color: var(--ha-icon-active-color)
+              {% if _global.config.find_my is defined %}
+              - type: conditional
+                conditions:
+                  - entity: input_select.find_my
+                    state: "Persons"
                 card:
-                  - height: 650px
+                  type: vertical-stack
+                  cards:
+                    {% if _global.config.find_my.persons is defined %}
+                    {% for person in _global.config.find_my.persons %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      entity: {{ person.entity }}
+                      name: {{ person.name }}
+                      {% if person.icon is defined %}
+                      icon: {{ person.icon }}
+                      {% endif %}
+                      {% if person.entity_picture is defined %}
+                      picture_entity: {{ person.entity_picture }}
+                      {% endif %}
+                      custom_fields:
+                        {% if person.geocoded_location_entity is defined %}
+                        geocode: >
+                          [[[
+                            return `<span>${states['{{ person.geocoded_location_entity }}'].state}</span>`
+                          ]]]
+                        {% else %}
+                        geocode: "[[[ if (states['{{ person.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                        {% endif %}
+                        {% if person.battery_entity is defined %}
+                        battery: >
+                          [[[
+                            return `<span>${states['{{ person.battery_entity }}'].state} %</span>
+                              <ha-icon
+                              icon="mdi:battery"
+                              style="width: 12px; height: 12px; margin-top: -3px;">
+                              </ha-icon>`
+                          ]]]
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      name: Unknown!
+                      tap_action:
+                        action: url
+                        url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
+                      custom_fields:
+                        geocode: >
+                          [[[
+                            return `Persons have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
+                            
+                            Press the button for documentation`
+                          ]]] 
+                    {% endif %}
+              - type: conditional
+                conditions:
+                  - entity: input_select.find_my
+                    state: "Devices"
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if _global.config.find_my.devices is defined %}
+                    {% for device in _global.config.find_my.devices %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      entity: {{ device.entity }}
+                      name: {{ device.name }}
+                      {% if device.icon is defined %}
+                      icon: {{ device.icon }}
+                      {% endif %}
+                      {% if device.entity_picture is defined %}
+                      entity_picture: {{ device.entity_picture }}
+                      {% endif %}
+                      custom_fields:
+                        {% if device.geocoded_location_entity is defined %}
+                        geocode: >
+                          [[[
+                            return `<span>${states['{{ device.geocoded_location_entity }}'].state}</span>`
+                          ]]]
+                        {% else %}
+                        geocode: "[[[ if (states['{{ device.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                        {% endif %}
+                        {% if device.battery_entity is defined %}
+                        battery: >
+                          [[[
+                            return `<span>${states['{{ device.battery_entity }}'].state} %</span>
+                              <ha-icon
+                              icon="mdi:battery"
+                              style="width: 12px; height: 12px; margin-top: -3px;">
+                              </ha-icon>`
+                          ]]]
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      name: Unknown!
+                      tap_action:
+                        action: url
+                        url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
+                      custom_fields:
+                        geocode: >
+                          [[[
+                            return `Devices have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
+                            
+                            Press the button for documentation`
+                          ]]] 
+                    {% endif %}
+              - type: conditional
+                conditions:
+                  - entity: input_select.find_my
+                    state: "Vehicles"
+                card:
+                  type: vertical-stack
+                  cards:
+                    {% if _global.config.find_my.vehicles is defined %}
+                    {% for vehicle in _global.config.find_my.vehicles %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      entity: {{ vehicle.entity }}
+                      name: {{ vehicle.name }}
+                      {% if vehicle.icon is defined %}
+                      icon: {{ vehicle.icon }}
+                      {% endif %}
+                      {% if vehicle.entity_picture is defined %}
+                      picture_entity: {{ vehicle.entity_picture }}
+                      {% endif %}
+                      custom_fields:
+                        {% if vehicle.geocoded_location_entity is defined %}
+                        geocode: >
+                          [[[
+                            return `<span>${states['{{ vehicle.geocoded_location_entity }}'].state}</span>`
+                          ]]]
+                        {% else %}
+                        geocode: "[[[ if (states['{{ vehicle.entity }}'].state == 'unknown') return `<span> OFFLINE </br> </br> </br> </span>`; else return `<span> No Geocoded Location Available </br> </br> </span>` ]]]"
+                        {% endif %}
+                        {% if vehicle.battery_entity is defined %}
+                        battery: >
+                          [[[
+                            return `<span>${states['{{ vehicle.battery_entity }}'].state} %</span>
+                              <ha-icon
+                              icon="mdi:battery"
+                              style="width: 12px; height: 12px; margin-top: -3px;">
+                              </ha-icon>`
+                          ]]]
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    - type: custom:button-card
+                      template:
+                        - find-my
+                      name: Unknown!
+                      tap_action:
+                        action: url
+                        url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
+                      custom_fields:
+                        geocode: >
+                          [[[
+                            return `Vehicles have not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
+                            
+                            Press the button for documentation`
+                          ]]] 
+                    {% endif %}
+              {% else %}
+              - type: custom:button-card
+                template:
+                  - find-my
+                name: Unknown!
+                tap_action:
+                  action: url
+                  url_path: 'https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/find-my.md'
+                custom_fields:
+                  geocode: >
+                    [[[
+                      return `Find My has not been setup or configured incorrectly, please configure it in /hki-user/config/config.yaml, 
+                      
+                      Press the button for documentation`
+                    ]]]
+              {% endif %}
+
+          {% if _global.config.find_my is defined %}
+          - type: custom:state-switch
+            entity: input_select.find_my
+            view_layout:
+              grid-area: map
+            states:
+              Persons:
+                {% if _global.config.find_my.persons is defined %}
+                type: map
+                view_layout:
+                  grid-area: map
+                entities:
+                  {% for person in _global.config.find_my.persons %}
+                  - {{ person.entity }}
+                  {% endfor %}
+                {% else %}
+                type: markdown
+                content: Unavailable
+                {% endif %}
+              Devices:
+                {% if _global.config.find_my.devices is defined %}
+                type: map
+                view_layout:
+                  grid-area: map
+                entities:
+                  {% for device in _global.config.find_my.devices %}
+                  - {{ device.entity }}
+                  {% endfor %}
+                {% else %}
+                type: markdown
+                content: Unavailable
+                {% endif %}
+              Vehicles:
+                {% if _global.config.find_my.vehicles is defined %}
+                type: map
+                view_layout:
+                  grid-area: map
+                entities:
+                  {% for vehicle in _global.config.find_my.vehicles %}
+                  - {{ vehicle.entity }}
+                  {% endfor %}
+                {% else %}
+                type: markdown
+                content: Unavailable
+                {% endif %}
+          {% endif %}
+          - type: custom:button-card
+            color_type: blank-card
+            styles:
+              card:
+                - height: 650px

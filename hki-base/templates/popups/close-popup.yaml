@@ -26,8 +26,8 @@ entities:
           {% if (_global.config.popups.close_button_orientation == 'left') %}
           - !include
             - '../header/profile-menu-shortcut.yaml'
-            - name: Close
-              label: Popup
+            - show_name: false
+              show_label: false
               icon: mdi:close-circle-outline
               commands:
                 - command: call-service
@@ -47,8 +47,8 @@ entities:
           {% if (_global.config.popups.close_button_orientation == 'right') %}
           - !include
             - '../header/profile-menu-shortcut.yaml'
-            - name: Close
-              label: Popup
+            - show_name: false
+              show_label: false
               icon: mdi:close-circle-outline
               commands:
                 - command: call-service

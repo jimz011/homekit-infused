@@ -13,6 +13,8 @@ cards:
       - type: custom:layout-card
         layout_type: custom:horizontal-layout
         layout:
+          card_margin: 4px 7px 8px
+          margin: 0px 8px
           max_cols: 3
         cards:
           - type: vertical-stack

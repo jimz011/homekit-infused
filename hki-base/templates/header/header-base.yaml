@@ -122,7 +122,17 @@ card:
                               --disabled-text-color: AliceBlue !important;
                               --ha-icon-color: AliceBlue !important;
                             }
-                        max_results: 5
+                        max_results: 10
+                        {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.search is defined)) %}
+                        search_text: {{ _global.config.profile.translate.search }}
+                        {% endif %}
+                        excluded_domains:
+                          - input_select
+                          - input_text
+                          - automation
+                          - input_boolean
+                          - input_datetime
+                          - input_number
                       - type: custom:layout-card
                         layout_type: custom:grid
                         layout:
@@ -333,7 +343,6 @@ card:
     - type: custom:swipe-card
       parameters:
         allowTouchMove: true
-        grabCursor: true
         autoplay:
           disableOnInteraction: false
       cards:

@@ -4,11 +4,12 @@ type: custom:button-card
 icon: {{ icon|default('mdi:home') }}
 name: "{{ name|default('undefined') }}" 
 label: "{{ label|default('undefined') }}"
+show_name: {{ show_name|default('true') }}
+show_label: {{ show_label|default('true') }}
 {% if confirmation is defined %}
 confirmation:
   text: {{ confirmation|default('undefined') }}
 {% endif %}
-show_label: true
 {% if tap_action is defined %}
 tap_action:
   {{ tap_action|tojson }}

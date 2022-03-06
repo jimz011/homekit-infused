@@ -43,8 +43,9 @@
         {% if data.view_selector is defined %}
         - type: custom:layout-card
           layout_type: custom:horizontal-layout
-          layout:       
+          layout:
             max_cols: 3
+            margin: 0px 8px
           cards:
             - type: grid
               columns: {{ data.view_selector.columns|default('4') }}

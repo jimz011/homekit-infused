@@ -1,3 +1,5 @@
+# lovelace_gen
+
 type: entities
 card_mod:
   style: |
@@ -23,9 +25,17 @@ entities:
         cards:
           - !include
             - profile-menu-shortcut.yaml
-            - name: Go To
+            - icon: mdi:account-edit-outline
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.profile_1 is defined)) %}
+              name: {{ _global.config.profile.translate.profile_1 }}
+              {% else %}
+              name: Go To
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.profile_2 is defined)) %}
+              label: {{ _global.config.profile.translate.profile_2 }}
+              {% else %}
               label: Profile
-              icon: mdi:account-edit-outline
+              {% endif %}
               commands:
                 - command: call-service
                   service: browser_mod.navigate
@@ -38,9 +48,17 @@ entities:
                     deviceID: this
           - !include
             - profile-menu-shortcut.yaml
-            - name: Find
+            - icon: mdi:map-search-outline
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.find_my_1 is defined)) %}
+              name: {{ _global.config.profile.translate.find_my_1 }}
+              {% else %}
+              name: Find
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.find_my_2 is defined)) %}
+              label: {{ _global.config.profile.translate.find_my_2 }}
+              {% else %}
               label: My
-              icon: mdi:map-search-outline
+              {% endif %}
               commands:
                 - command: call-service
                   service: browser_mod.navigate
@@ -53,9 +71,17 @@ entities:
                     deviceID: this
           - !include
             - profile-menu-shortcut.yaml
-            - name: About
+            - icon: mdi:information-outline
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.about_hki_1 is defined)) %}
+              name: {{ _global.config.profile.translate.about_hki_1 }}
+              {% else %}
+              name: About
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.about_hki_2 is defined)) %}
+              label: {{ _global.config.profile.translate.about_hki_2 }}
+              {% else %}
               label: HKI
-              icon: mdi:information-outline
+              {% endif %}
               tap_action:
                 action: fire-dom-event
                 browser_mod:
@@ -72,6 +98,7 @@ entities:
                       type: vertical-stack
                       cards:
                         - !include ../popups/close-popup.yaml
+                        {% raw %}
                         - type: markdown
                           card_mod:
                             style:
@@ -115,13 +142,25 @@ entities:
                             </br>
 
                             <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
-
+                        {% endraw %}
           - !include
             - profile-menu-shortcut.yaml
-            - name: Refresh
+            - icon: mdi:autorenew
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.refresh_window_1 is defined)) %}
+              name: {{ _global.config.profile.translate.refresh_window_1 }}
+              {% else %}
+              name: Refresh
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.refresh_window_2 is defined)) %}
+              label: {{ _global.config.profile.translate.refresh_window_2 }}
+              {% else %}
               label: Window
-              icon: mdi:autorenew
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.refresh_window_confirmation is defined)) %}
+              label: {{ _global.config.profile.translate.refresh_window_confirmation }}
+              {% else %}
               confirmation: Are you sure you want to refresh the window? This will NOT reload lovelace!
+              {% endif %}
               commands:
                 - command: call-service
                   service: browser_mod.window_reload
@@ -133,9 +172,17 @@ entities:
                     deviceID: this
           - !include
             - profile-menu-shortcut.yaml
-            - name: Exit
-              label: Menu
-              icon: mdi:close-circle-outline
+            - icon: mdi:close-circle-outline
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.close_window_1 is defined)) %}
+              name: {{ _global.config.profile.translate.close_window_1 }}
+              {% else %}
+              name: Close
+              {% endif %}
+              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.close_window_2 is defined)) %}
+              label: {{ _global.config.profile.translate.close_window_2 }}
+              {% else %}
+              label: Window
+              {% endif %}
               commands:
                 - command: call-service
                   service: browser_mod.close_popup
