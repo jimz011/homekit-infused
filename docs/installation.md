@@ -11,6 +11,9 @@
 - [Thanks](thanks.md)
 
 ### Installation
+##### NOTE
+There is no direct upgrade path from HKI 4, the way HKI 5 is written is very similar, but deviates too much to make a decent upgrade possible. HKI 4 users should start fresh. If you are a new user, this doesn't apply to you and you can continue on to the next step of the documentation.
+
 ##### Advice
 - Install Home Assistant or create a backup of your current setup. I will advise you to install this on a clean Home Assistant install, though it is not a requirement.
 - Add all your known devices to Home Assistant (if integrations are available the prefered way would be to use that instead of putting it in manually.
