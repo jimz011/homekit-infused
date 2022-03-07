@@ -29,13 +29,13 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Frontend | This mod will help with auto filling entities and such |
-| [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card |
+| [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Frontend | This card is handy to fill certain domains/entities very quickly |
+| [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card and even stacks |
 | [Button Card](https://github.com/custom-cards/button-card) | Frontend | This is the button used throughout the entire setup |
 | [State Switch](https://github.com/thomasloven/lovelace-state-switch) | Frontend | This is used to make cards appear based on certain conditions, like a conditional-card but better |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Frontend | This is needed for various custom cards to run |
 | [Search Card](https://github.com/postlund/search-card) | Frontend | An easy to use search card |
-| [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is needed for the scrolling notifications, but also for most popups |
+| [Swipe Card](https://github.com/bramkragten/swipe-card) | Frontend | This card is mainly used for the scrolling notifications |
 | [Config Template Card](https://github.com/iantrich/config-template-card) | Frontend | Allows for some specific templating, it is required for the profile button |
 | [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row) | Frontend | Allows entities cards to have a row that can be folded/collapsed |
 | [Text Input Row](https://github.com/gadgetchnnel/lovelace-text-input-row/) | Frontend | Allows text input rows to be much wider |
