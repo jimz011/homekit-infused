@@ -87,7 +87,7 @@ To get the best out of the profile menu I will suggest using a [state-switch](ht
 
 #### Cards Information
 
-Cards are ALWAYS placed inside an entities card and will always be folded in a fold-entity-row. This means that you MUST start any card as if it were a card in an [entities card](https://www.home-assistant.io/lovelace/entities/). The options above will change the appearance of the fold-entity-row. 
+Cards are ALWAYS placed inside an entities card and will always be folded in a fold-entity-row. This means that you MUST start any card as if it were a card in an [entities card](https://www.home-assistant.io/lovelace/entities/). The options above will change what the fold-entity-row will display.
 
 ```yaml
 # config.yaml (example cards)
