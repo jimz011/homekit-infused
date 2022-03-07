@@ -139,6 +139,16 @@ Cards are ALWAYS placed inside an entities card and will always be folded in a f
 | close_window_1 | no | Close | Translate the first line of the close window button, default is `Close` |
 | close_window_2 | no | Window | Translate the second line of the close window button, default is `Window` |
 
+```yaml
+# config.yaml (example translations)
+  profile:
+    translate:
+      search: Tik om te zoeken
+      profile_1: Ga Naar
+      profile_2: Profiel
+      refresh_window_confirmation: Are you sure you want to refresh the window?
+```
+
 ### Images:
 
 ![Homekit Infused](../images/hki-profile-1.png)
