@@ -12,6 +12,8 @@
 
 ## Header
 
+**NOTE:** For any of the header badges to show an actual number you MUST setup [device counters](device-counters.md) FIRST!
+
 You can setup some parts of the header in here like which badges to show and whether or not to show the subtitle/notification bar. 
 The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
 
