@@ -16,6 +16,8 @@ Settings for this can be found in `/hki-user/device-counters.yaml` and must be e
 
 By default HKI has device counters to create sensors that will show you the amount of devices/lights etc that are on at this very moment. Currently you can only use the preconfigured items that are named in that file, this might change in the future.
 
+**NOTE:** It is advised to ALSO fill in the `all_entities:` sensor!
+
 ### Information
 When filling this file you get a few sensors that you can use in your setup. By default the header sensors should work out of the box (provided that you filled the device_counters.yaml file)
 You can use the sensors anywhere you like (for example inside of a navigation button), below is a list of all the available sensors you can use. You can find the documentation of how to setup a badge inside a button [here](https://github.com/jimz011/homekit-infused/blob/master/docs/addons/button-navigation.md) and find examples of my personal setup [here](https://github.com/jimz011/homekit-infused/blob/personal/homekit-infused/user/views/menu/menu-card.yaml).
