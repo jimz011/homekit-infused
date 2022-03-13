@@ -16,14 +16,18 @@ This addon gives your view a core gauge card that shows a simple gauge for an en
 
 You can use any of the following options to modify your addon.
 
+### Stack Config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
 | columns | no | 1 | Set the number of gauges this stack will show horizontally |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
+| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | undefined | Set your entity/entities here, you can define more than one entity per card |
 
-### Devices Extra Options
+### Gauge Extra Options
 The recommended method to change icons and/or friendly names is by the use of customize.yaml, however this is not always adequate enough for the customizations that we might want, you can pass any of the options below to your entity to customize the look and feel.
 
 By default you must enter an array of entities like in the examples below, this does not need extra options and will just get the global name/icon.

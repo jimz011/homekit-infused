@@ -17,7 +17,8 @@ The docs might be incomplete or not completely comprehensible for all. Remember 
 
 #### Known Issues
   - Sometimes notifications would suddenly stop scrolling, solution is to touch the notification slightly, it will go back to automatic scrolling if you do that. I can't and wont fix this as it is a non-issue.
-  - The HKI Custom Themes have a bug when setting the navigation bar icons to be on the right side, this is only an issue on iOS. I am looking into it.
+  - If your popups do not work, download the button card fix [from here](fixes/)
+  - If you get a `t.setConfig is not a function` error, please re-download `Swipe Card` from HACS!
 
 #### QUESTIONS?
 For questions please visit any of the support links on the [main page](https://github.com/jimz011/homekit-infused) of this repo.

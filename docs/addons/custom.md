@@ -16,10 +16,14 @@ This addon is the ultimate addon for anyone wanting to do things that the includ
 
 The custom addon is like all other addons preconfigured as a vertical-stack with a title card which can be hidden if needed.
 
+### Stack Config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
+| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | cards | yes | list | Define all the cards you want. This accepts all cards with a valid configuration, for each cards configuration please refer to the original documentation of that specific card. |
 
 **Tip:** If you want a title above each individual card, create a new stack for each of them, see the examples below.

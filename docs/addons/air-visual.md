@@ -24,6 +24,8 @@ You must have setup the Air Visual integration in Home Assistant (you can do thi
 
 You can use any of the following options to modify your addon.
 
+### Stack and Addon config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
@@ -34,6 +36,8 @@ You can use any of the following options to modify your addon.
 | air_quality_index | yes | sensor.u_s_air_quality_index | Set the air quality index sensor entity |
 | main_pollutant | yes | sensor.u_s_main_pollutant | Set the main pollutant sensor entity |
 | city_name | yes | unknown | Set your city name |
+| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 
 
 ```yaml

@@ -95,6 +95,41 @@ To define an extra addon of the same type in a single view you MUST add a suffix
             - switch.galaxy
 ```
 
+Addons can also be conditional depending on a state of an entity!
+
+```yaml
+# views.yaml (example of defining multiple addons of the same type)
+  my_view:
+    title: Location
+    type: conditional
+    addons:
+      button:
+        - title: This will only show when Jimmy is home
+          conditions:
+            - entity: person.jimmy
+              state: "home"
+          entities:
+            - switch.phone
+      button_2:
+        - title: This will only show when Jimmy AND Stephanie are home
+          conditions:
+            - entity: person.jimmy
+              state: "home"
+            - entity: person.stephanie
+              state: "home"
+          entities:
+            - switch.iphone
+      button_3:
+        - title: This will only show when Jimmy is NOT home AND Stephanie IS home
+          conditions:
+            - entity: person.jimmy
+              state_not: "home"
+            - entity: person.stephanie
+              state: "home"
+          entities:
+            - switch.iphone
+```
+
 ### Extra Information
 
 What happened to the `simple_weather`, `devices`, `rooms`, `sun_card`, `find_my`, `layout`, `columns`, `mini-media-player`, `search` `vacuum` and `graph` addons that were present in HKI 4?

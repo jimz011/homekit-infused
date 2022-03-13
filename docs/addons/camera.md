@@ -16,12 +16,16 @@ Quickly show your camera's on any view!
 
 You can use any of the following options to modify your addon.
 
+### Stack Config
+
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
 | columns | no | 3 | Define the number of columns this stack will use |
 | aspect_ratio | no | 16x10 | Set an aspect ratio for all the cameras in this stack |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
+| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | list of entities | List all your entities you want to show up here |
 
 ### Cameras Extra Options
