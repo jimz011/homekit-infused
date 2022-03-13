@@ -60,9 +60,9 @@ In short Homekit Infused 5 is all of the below and much much more!
 ### Video and screenshots
 #### Screenshots
 
-![Homekit Infused](docs/images/HiShoot_20210516_071529.png)![Homekit Infused](docs/images/HiShoot_20210516_071539.png)
+![Homekit Infused](docs/images/hki-1.png)![Homekit Infused](docs/images/hki-2.png)
 
-![Homekit Infused](docs/images/HiShoot_20210516_071657.png)![Homekit Infused](docs/images/HiShoot_20210516_071045.png)
+![Homekit Infused](docs/images/hki-3.png)![Homekit Infused](docs/images/hki-4.png)
 
 ![Homekit Infused](docs/images/hki-find-my.png)
 
