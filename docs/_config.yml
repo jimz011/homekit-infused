@@ -1,5 +1,5 @@
 theme: jekyll-theme-slate
-show_downloads: true
+show_downloads: false
 title: Homekit Infused 5
 google_analytics: UA-158593402-1
 # buttons:
