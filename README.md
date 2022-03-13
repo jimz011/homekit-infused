@@ -54,6 +54,7 @@ In short Homekit Infused 5 is all of the below and much much more!
 
 ### Support Links
 #### [Click here](https://www.youtube.com/jimz011) for my YouTube channel
+#### [Click here](https://www.youtube.com/playlist?list=PLezjWQmPsNpF9zNbWAXfm3mcnDwFYLdpT) for video guides on how to install and configure HKI 5!
 #### [Click here](https://discord.gg/WZvK4Cb) to join our Discord Community with over 4000+ members
 #### [Click here](https://community.home-assistant.io/t/homekit-infused-hki-v0-13-3/117086/1) for my HA Community Forum Thread
 
