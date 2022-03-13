@@ -20,7 +20,8 @@
       left: 0
       bottom: 0
       pointer-events: none
-      font-size: 13px
+      font-size: var(--name-font-size)
+      font-weight: var(--name-font-weight)
       font-family: var(--font-family)
       line-height: 15px
       color: AliceBlue
@@ -35,7 +36,8 @@
       right: 0
       pointer-events: none
       transform: initial
-      font-size: 12px
+      font-size: var(--state-font-size)
+      font-weight: var(--state-font-weight)
       font-family: var(--font-family)
       color: AliceBlue
       line-height: 32px
@@ -64,7 +66,8 @@
           right: 0
           pointer-events: none
           transform: initial
-          font-size: 12px
+          font-size: var(--state-font-size)
+          font-weight: var(--state-font-weight)
           font-family: var(--font-family)
           color: AliceBlue
           line-height: 32px
@@ -93,7 +96,8 @@
           right: 0
           pointer-events: none
           transform: initial
-          font-size: 12px
+          font-size: var(--state-font-size)
+          font-weight: var(--state-font-weight)
           font-family: var(--font-family)
           color: AliceBlue
           line-height: 32px

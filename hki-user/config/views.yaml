@@ -6,6 +6,10 @@ views: # NEVER REMOVE THIS LINE
     show_in_navbar: true
     show_in_menu: false
     icon: mdi:home
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       weather:
         - title: hide
@@ -41,6 +45,44 @@ views: # NEVER REMOVE THIS LINE
             show:
               mediaquery: "(min-width: 350px)"
           columns: 4
+      layout:
+        - type: gap
+          height: 65px
+      custom:
+        - title: hide
+          type: conditional
+          conditions:
+            - entity: media_player.spotify_jimmy
+              state_not: "idle"
+          cards:
+            - type: custom:mini-media-player
+              card_mod:
+                style: |
+                  .entity__icon {
+                    --mmp-icon-color: LimeGreen !important;
+                  }
+              entity: media_player.spotify_jimmy
+              artwork: cover
+              hide:
+                power_state: true
+                source: true
+        - title: hide
+          type: conditional
+          conditions:
+            - entity: media_player.spotify_stephanie
+              state_not: "idle"
+          cards:
+            - type: custom:mini-media-player
+              card_mod:
+                style: |
+                  .entity__icon {
+                    --mmp-icon-color: LimeGreen !important;
+                  }
+              entity: media_player.spotify_stephanie
+              artwork: cover
+              hide:
+                power_state: true
+                source: true
 
 # Menu
   menu:
@@ -49,6 +91,10 @@ views: # NEVER REMOVE THIS LINE
     show_in_menu: false
     subtitle: "[[[ return `HKI 5 v.${states['sensor.hki_current_version'].state}`; ]]]"
     icon: mdi:apps
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       favorites:
         # Small Screens
@@ -88,15 +134,23 @@ views: # NEVER REMOVE THIS LINE
         if (states['sensor.current_climate_entities_on'].state == 0) return `Thermostats Off`;
         else return `${states['sensor.current_climate_entities_on'].state} Thermostats On`;
       ]]]
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px  
     addons:
       thermostat:
         # Small Screens
         - title: Thermostats
           entities:
-            - climate.tado_smart_radiator_thermostat_va1671957504
-            - climate.tado_smart_radiator_thermostat_va2898201344
-            - climate.tado_smart_radiator_thermostat_va0882906624
-            - climate.tado_smart_radiator_thermostat_va2711623168
+            - entity: climate.kleine_kamer
+              icon: mdi:desk
+            - entity: climate.woonkamer
+              icon: mdi:sofa
+            - entity: climate.slaapkamer
+              icon: mdi:bed-king
+            - entity: climate.keuken
+              icon: mdi:stove
           view_layout:
             show:
               mediaquery: "(max-width: 350px)"
@@ -104,11 +158,14 @@ views: # NEVER REMOVE THIS LINE
         # Larger Screens
         - title: Thermostats
           entities:
-            - entity: climate.tado_smart_radiator_thermostat_va1671957504
+            - entity: climate.kleine_kamer
+              icon: mdi:desk
+            - entity: climate.woonkamer
               icon: mdi:sofa
-            - climate.tado_smart_radiator_thermostat_va2898201344
-            - climate.tado_smart_radiator_thermostat_va0882906624
-            - climate.tado_smart_radiator_thermostat_va2711623168
+            - entity: climate.slaapkamer
+              icon: mdi:bed-king
+            - entity: climate.keuken
+              icon: mdi:stove
           view_layout:
             show:
               mediaquery: "(min-width: 350px)"
@@ -212,7 +269,6 @@ views: # NEVER REMOVE THIS LINE
               mediaquery: "(min-width: 350px)"
           columns: 4
             
-
 # Devices
   devices:
     subtitle: >
@@ -227,6 +283,10 @@ views: # NEVER REMOVE THIS LINE
     show_in_favorites: true
     button_badge: sensor.current_devices_on
     button_label: "[[[ if (states['sensor.current_devices_on'].state == 0) return `Devices Off`; else return `${states['sensor.current_devices_on'].state} Devices On`; ]]]"
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         # Small Screens
@@ -375,17 +435,22 @@ views: # NEVER REMOVE THIS LINE
     view_selector:
       columns: 3
       aspect_ratio: 3/1
+      size: 15%
       elements:
         - icon: mdi:home-floor-b
           path: lights_1
-          size: 25%
+          name: Basement
         - icon: mdi:home-floor-g
           path: lights
           this_view: true
-          size: 25%
+          name: Ground Floor
         - icon: mdi:theme-light-dark
           path: lights_2
-          size: 25%
+          name: Adaptive
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         # Small Screens
@@ -584,17 +649,22 @@ views: # NEVER REMOVE THIS LINE
     view_selector:
       columns: 3
       aspect_ratio: 3/1
+      size: 15%
       elements:
         - icon: mdi:home-floor-b
           path: lights_1
-          size: 25%
+          name: Basement
           this_view: true
         - icon: mdi:home-floor-g
           path: lights
-          size: 25%
+          name: Ground Floor
         - icon: mdi:theme-light-dark
           path: lights_2
-          size: 25%
+          name: Adaptive
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         # Small Screens
@@ -627,17 +697,22 @@ views: # NEVER REMOVE THIS LINE
     view_selector:
       columns: 3
       aspect_ratio: 3/1
+      size: 15%
       elements:
         - icon: mdi:home-floor-b
           path: lights_1
-          size: 25%
+          name: Basement
         - icon: mdi:home-floor-g
           path: lights
-          size: 25%
+          name: Ground Floor
         - icon: mdi:theme-light-dark
           path: lights_2
+          name: Adaptive
           this_view: true
-          size: 25%
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         - title: Woonkamer
@@ -693,6 +768,8 @@ views: # NEVER REMOVE THIS LINE
       layout_type: custom:horizontal-layout
       layout:
         max_cols: 4
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     button_label: "[[[ return `Alarm ${states['alarm_control_panel.home_alarm'].state}`; ]]]"
     addons:
       camera:
@@ -822,14 +899,20 @@ views: # NEVER REMOVE THIS LINE
     button_badge: sensor.current_power_usage
     view_selector:
       columns: 2
-      size: 25%
+      size: 15%
       aspect_ratio: 4/1
       elements:
-        - icon: mdi:chart-line
+        - name: Sensors
+          icon: mdi:chart-line
           path: energy
           this_view: true
-        - icon: mdi:home-lightning-bolt
+        - name: House
+          icon: mdi:home-lightning-bolt
           path: energy_2
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         # Small Screens
@@ -979,14 +1062,20 @@ views: # NEVER REMOVE THIS LINE
     button_badge: sensor.current_power_usage
     view_selector:
       columns: 2
-      size: 25%
+      size: 15%
       aspect_ratio: 4/1
       elements:
-        - icon: mdi:chart-line
+        - name: Sensors
+          icon: mdi:chart-line
           path: energy
-        - icon: mdi:home-lightning-bolt
+        - name: House
+          icon: mdi:home-lightning-bolt
           path: energy_2
           this_view: true
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       energy:
         - type: energy-date-selection
@@ -1003,6 +1092,10 @@ views: # NEVER REMOVE THIS LINE
     icon: mdi:arrange-send-backward
     show_in_favorites: true
     button_badge: sensor.current_scenes_on
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       button:
         # Small Screens
@@ -1028,11 +1121,14 @@ views: # NEVER REMOVE THIS LINE
 
 # Traffic
   traffic:
-    layout:
-      layout_type: advanced
     subtitle: "[[[ return `${states['sensor.reistijd_jimsteph'].state} reistijd naar partner`; ]]]"
     button_badge: sensor.reistijd_jimsteph
     icon: mdi:waze
+    layout:
+      layout:
+        max_cols: 1
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       iframe:
         - url: https://embed.waze.com/iframe?zoom=13&lat=51.473097&lon=5.515480&ct=livemap
@@ -1041,6 +1137,10 @@ views: # NEVER REMOVE THIS LINE
   p2000:
     subtitle: Monitor
     icon: mdi:car-emergency
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       custom: 
         - title: Fire
@@ -1094,26 +1194,38 @@ views: # NEVER REMOVE THIS LINE
     show_in_favorites: true
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
           this_view: true
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       media_player:
         - title: Google Speakers
@@ -1145,28 +1257,38 @@ views: # NEVER REMOVE THIS LINE
     layout:
       layout_type: custom:horizontal-layout
       layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
         max_cols: 4
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
           this_view: true
     addons:
       upcoming_media:
@@ -1187,28 +1309,39 @@ views: # NEVER REMOVE THIS LINE
     show_in_menu: false
     layout:
       layout_type: custom:vertical-layout
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
           this_view: true
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       remote_control:
         - title: Woonkamer
@@ -1228,28 +1361,39 @@ views: # NEVER REMOVE THIS LINE
     show_in_menu: false
     layout:
       layout_type: custom:vertical-layout
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
           this_view: true
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       remote_control:
         - title: Slaapkamer
@@ -1268,28 +1412,41 @@ views: # NEVER REMOVE THIS LINE
     subtitle: Xbox Remote
     icon: mdi:microsoft-xbox
     show_in_menu: false
+    layout:
+      layout_type: custom:vertical-layout
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
           this_view: true
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       xbox:
         - title: Xbox One
@@ -1302,28 +1459,40 @@ views: # NEVER REMOVE THIS LINE
     subtitle: Plex
     icon: mdi:plex
     show_in_menu: false
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
           this_view: true
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       plex:
         - title: Movies
@@ -1354,28 +1523,40 @@ views: # NEVER REMOVE THIS LINE
     subtitle: Spotify
     icon: mdi:spotify
     show_in_menu: false
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
           this_view: true
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       media_player:
         - title: Stephanie
@@ -1393,28 +1574,40 @@ views: # NEVER REMOVE THIS LINE
     subtitle: Google
     icon: mdi:google
     show_in_menu: false
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     view_selector:
       columns: 4
-      size: 25%
+      size: 15%
       aspect_ratio: 2/1
       elements:
         - icon: mdi:play-box-multiple
           path: media
+          name: Players
         - icon: mdi:google
           path: media_7
+          name: Google
           this_view: true
         - icon: mdi:plex
           path: media_5
+          name: Plex
         - icon: mdi:spotify
           path: media_6
+          name: Spotify
         - icon: mdi:android
           path: media_2
+          name: Shield TV
         - icon: mdi:apple
           path: media_3
+          name: Apple TV
         - icon: mdi:microsoft-xbox
           path: media_4
+          name: Xbox
         - icon: mdi:movie-open-plus
           path: media_1
+          name: Upcoming
     addons:
       google:
         - title: Google Nest
@@ -1435,7 +1628,14 @@ views: # NEVER REMOVE THIS LINE
     show_in_favorites: true
     button_badge: vacuum.roborock_vacuum_s5
     layout:
-      layout_type: advanced
+      layout_type: custom:grid-layout
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
+        grid-template-columns: 100%
+        mediaquery:
+          "(min-width: 650px)":
+            grid-template-columns: 60% 40%
     addons:
       custom:
         - title: hide
@@ -1491,6 +1691,10 @@ views: # NEVER REMOVE THIS LINE
   battery:
     subtitle: Overview
     icon: mdi:battery-50
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       battery:
         # Small Screens
@@ -1650,6 +1854,10 @@ views: # NEVER REMOVE THIS LINE
   calendar:
     subtitle: Overview
     icon: mdi:calendar-account
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       calendar:
         - title: Birthdays
@@ -1661,6 +1869,10 @@ views: # NEVER REMOVE THIS LINE
   certificates:
     subtitle: Overview
     icon: mdi:file-certificate
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       entities:
         - title: Certificates
@@ -1698,6 +1910,10 @@ views: # NEVER REMOVE THIS LINE
   cleaning:
     subtitle: Overview
     icon: mdi:washing-machine
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     custom_legacy:
 
 # Stephanie
@@ -1707,6 +1923,10 @@ views: # NEVER REMOVE THIS LINE
     button_badge: person.stephanie
     show_in_menu: false
     icon: mdi:human-female
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       calendar:
         - title: Calendar
@@ -1721,6 +1941,10 @@ views: # NEVER REMOVE THIS LINE
     button_badge: person.jimmy
     show_in_menu: false
     icon: mdi:human-male
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       calendar:
         - title: Calendar
@@ -1734,6 +1958,10 @@ views: # NEVER REMOVE THIS LINE
     button_badge: person.tala
     show_in_menu: false
     icon: mdi:dog-side
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       map_card:
         - title: Location
@@ -1766,6 +1994,10 @@ views: # NEVER REMOVE THIS LINE
     subtitle: "[[[ return `${states['weather.eindhoven'].state}`; ]]]"
     button_badge: sensor.buiten_temperatuur
     icon: mdi:weather-partly-cloudy
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       weather:
         - type: core
@@ -1790,6 +2022,10 @@ views: # NEVER REMOVE THIS LINE
   waste:
     subtitle: Collection
     icon: mdi:trash-can
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     addons:
       entities:
         - title: Waste Collection
@@ -1802,18 +2038,50 @@ views: # NEVER REMOVE THIS LINE
   system:
     subtitle: Overview
     icon: mdi:home-assistant
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     custom_legacy:
 
 # Computers
   computers:
     subtitle: hide
     icon: mdi:desktop-tower-monitor
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
     custom_legacy: 
 
 # Floorplan
   floorplan:
     subtitle: Overview
     layout:
-      layout_type: advanced
+      layout_type: custom:vertical-layout
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
+        max_cols: 1
     icon: mdi:floor-plan
     custom_legacy: 
+
+# Development
+  development:
+    subtitle: Overview
+    layout:
+      layout:
+        card_margin: 4px 8px 8px
+        margin: 0px 8px
+    icon: mdi:tools
+#    custom_legacy: 
+    addons:
+      entities:
+        - title: Test Card
+          entities:
+            - type: button
+              name: Démarrage
+              icon: mdi:play
+              action_name: Cliquer ici
+              tap_action:
+                action: none

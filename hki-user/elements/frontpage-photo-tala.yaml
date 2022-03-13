@@ -20,7 +20,8 @@
     left: 0
     bottom: 0
     pointer-events: none
-    font-size: 13px
+    font-size: var(--name-font-size)
+    font-weight: var(--name-font-weight)
     font-family: var(--font-family)
     line-height: 15px
     color: AliceBlue

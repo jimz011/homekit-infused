@@ -111,33 +111,20 @@ config:
       
       Outside temperature: {{ state_attr('weather.eindhoven', 'temperature') }}℃
     media_player:
-      type: custom:state-switch
-      entity: user
-      states:
-        Jimmy:
-          type: custom:mini-media-player
-          card_mod:
-            style: |
-              :host {
-                --ha-card-background: black !important;
-              }
-          entity: media_player.spotify_jimmy
-          artwork: cover
-          hide:
-            source: true
-            power_state: true
-        Stephanie:
-          type: custom:mini-media-player
-          card_mod:
-            style: |
-              :host {
-                --ha-card-background: black !important;
-              }
-          entity: media_player.spotify_jimmy
-          artwork: cover
-          hide:
-            source: true
-            power_state: true
+      type: custom:mini-media-player
+      card_mod:
+        style: |
+          :host {
+            --ha-card-background: black !important;
+          }
+          .entity__icon {
+            --mmp-icon-color: LimeGreen !important;
+          }
+      entity: "${ 'media_player.spotify_' + user.name.toLowerCase() }" 
+      artwork: cover
+      hide:
+        source: true
+        power_state: true
     cards:
       - title: Calendar
         icon: mdi:calendar
