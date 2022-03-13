@@ -67,7 +67,7 @@ In short Homekit Infused 5 is all of the below and much much more!
 ![Homekit Infused](docs/images/hki-find-my.png)
 
 #### Video
-[![Watch the video](https://img.youtube.com/jimz011/1ujzqV9c5Qk/maxresdefault.jpg)](https://youtu.be/1ujzqV9c5Qk)
+[![Watch the video](https://img.youtube.com/vi/1ujzqV9c5Qk/maxresdefault.jpg)](https://youtu.be/1ujzqV9c5Qk)
 
 #### Extra License Information
 Selling, reselling or redistribution of this dashboard is not permitted without my permission!
