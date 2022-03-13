@@ -6,7 +6,7 @@ group:
 frontend:
   themes: !include_dir_merge_named ../../hki-base/themes/default/
   extra_module_url:
-    - /hacsfiles/lovelace-card-mod/card-mod.js
+    - /local/community/lovelace-card-mod/card-mod.js
 
 lovelace:
   mode: storage

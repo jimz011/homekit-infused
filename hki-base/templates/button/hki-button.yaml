@@ -100,6 +100,8 @@ styles:
     - background-repeat: no-repeat
     - background-position: center 
     - background-size: cover
+    - --mdc-ripple-color: blue
+    - --mdc-ripple-press-opacity: 0.5
   {% endif %}
   icon:
     {% if icon_color_off is defined %}

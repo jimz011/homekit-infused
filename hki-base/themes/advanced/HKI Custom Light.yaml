@@ -29,6 +29,7 @@ HKI Custom Light:
       --primary-text-color: var(--hki-primary-text-color);
       --secondary-text-color: var(--hki-secondary-text-color);
       font-family: {{ states('input_text.font_family') }};
+      --mdc-theme-primary: var(--hki-secondary-text-color); 
     }
     .header-title {
       margin-top: -5px;

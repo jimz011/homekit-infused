@@ -8,7 +8,7 @@ card_mod:
     ha-card {
       {% if ((_global.config.header.show_subtitle is defined) and (_global.config.header.show_subtitle is true) or (_global.config.header.show_subtitle is undefined)) %}
       {% if ((name is defined) and ('hide' not in name) or (name is undefined)) %}
-      height: 81px !important;
+      height: 85px !important;
       {% endif %}
       {% endif %}
       -webkit-box-shadow: var(--header-box-shadow) !important;
@@ -233,6 +233,7 @@ card:
                               background: black;
                               --primary-text-color: AliceBlue;
                               --paper-item-icon-color: LimeGreen;
+                              --mmp-icon-color: LimeGreen;
                             }
                             :host {
                               position: sticky !important;
