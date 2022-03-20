@@ -19,9 +19,7 @@ If you find any information on this page useful, feel free to buy me a coffee:
 
 ## Homekit Infused (Lovelace) by Jimz011
 
-**WARNING:** *HKI 5 will be released within 1 months, there will be NO direct upgrade path from v4 to v5, you will however get over 200 new features that were never possible before! Stay tuned!*
-
-**WARNING:** *Homekit Infused 4 will become deprecated once Homekit Infused 5 releases, this doesn't mean that HKI 4 no longer works! HKI 4 will continue to work until the Home Assistant team decides to throw in some massive breaking changes. This means that either HKI 4 will break soon or that it will continue to run for months/years to come. In any case support for HKI 4 will stop once HKI 5 releases. You can continue to use HKI 4 until it breaks.
+**WARNING: HKI 4 is NO LONGER SUPPORTED, please use HKI 5 instead!**
 
 This is Homekit Infused aka HKI. When you come here for the first time you might be a little confused to what this is. 
 Homekit Infused is in a nutshell a customizable 'framework' that you can use to build your own dashboard on, it is preconfigured to have an Apple style to it.
@@ -36,10 +34,10 @@ By default it contains the following things:
 *Note: None of the custom-cards used in this project are made by me and every custom-card used has a reference to their original creators as well as the original link to their repo's. All contributors/donators and people that gave me the inspiration are mentioned in the docs on the last page!
 
 ### Quick Links
+#### [Click here](https://jimz011.github.io/homekit-infused) to get to HKI 5 instead!
 #### [Click here](/docs/index.md) for the documentation
 #### [Click here](https://github.com/jimz011/homekit-infused/releases) to download the latest release
 #### [Click here](https://github.com/jimz011/homekit-infused/blob/4.x.x-docs/docs/addons.md) for addons
-#### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-docs/docs/addon_list.md) for legacy (v3.x.x) addons
 #### [Click here](https://github.com/jimz011/homekit-infused/tree/4.x.x-personal/) to view how my personal Home Assistant is setup for v2021.x.x
 
 ### Support Links
