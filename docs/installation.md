@@ -33,7 +33,7 @@ Below is a list of all the addons required to run the Homekit Infused, you can i
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities) | Frontend | This card is handy to fill certain domains/entities very quickly |
 | [Card Mod](https://github.com/thomasloven/lovelace-card-mod) | Frontend | This mod allows for custom css on any card and even stacks |
-| [Button Card](https://github.com/custom-cards/button-card) | Frontend | This is the button used throughout the entire setup, WARNING! The latest button-card release has been pulled from HACS, you MUST replace 2 files after installing this card, you can find the fixes [HERE](fixes/) DO NOT SKIP THIS OR YOUR POPUPS WILL NOT WORK!!! |
+| [Button Card](https://github.com/custom-cards/button-card) | Frontend | This is the button used throughout the entire setup, **WARNING: MAKE SURE YOU SELECT, `Show Beta Versions` AND SELECT THE LATEST VERSION!** |
 | [State Switch](https://github.com/thomasloven/lovelace-state-switch) | Frontend | This is used to make cards appear based on certain conditions, like a conditional-card but better |
 | [Card Tools](https://github.com/thomasloven/lovelace-card-tools) | Frontend | This is needed for various custom cards to run |
 | [Search Card](https://github.com/postlund/search-card) | Frontend | An easy to use search card |
