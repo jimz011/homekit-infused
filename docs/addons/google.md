@@ -16,6 +16,12 @@ This addon gives your view a simple Google TTS card.
 
 You can use any of the following options to modify your addon.
 
+### HACS Requirements
+
+| Name | Type  | Description |
+|----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Mini Media Player](https://github.com/kalkih/mini-media-player) | Frontend | This is a very feature rich media player card, it is only used in a simple form for this addon, but you can use the custom addon to go wild with this card |
+
 ### Stack and Addon Config
 
 | Name | Required | Default | Description |
