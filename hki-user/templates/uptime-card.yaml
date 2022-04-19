@@ -1,0 +1,22 @@
+# lovelace_gen
+
+type: custom:uptime-card
+card_mod:
+  class: hki
+ok: up
+ko: down
+alias:
+  ok: Application is up
+  ko: Application is down!
+icon: mdi:web
+color:
+  icon: var(--ha-icon-color)
+  ok: '#45C669'
+  half: '#45C669'
+  ko: '#C66445'
+  title: var(--name-color)
+show:
+  footer: false
+tap_action:
+  action: more-info
+entity: {{ entity }}
