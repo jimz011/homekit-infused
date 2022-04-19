@@ -1,0 +1,52 @@
+# lovelace_gen
+
+type: custom:button-card
+template:
+  - hki-default
+  - hki-battery
+  - hki-grid
+{% if device.entity is defined %}
+entity: {{ device.entity }}
+{% else %}
+entity: {{ device }}
+{% endif %}
+{% if device.name is defined %}
+name: {{ device.name }}
+{% endif %}
+tap_action: 
+  action: fire-dom-event
+  browser_mod:
+    command: call-service
+    service: browser_mod.popup
+    service_data:
+      title: ' '
+      hide_header: true
+      deviceID:
+        - this
+      style:
+        !include ../includes/popup-style.yaml
+      card:
+        type: vertical-stack
+        cards:
+          - !include ../templates/popups/close-popup.yaml
+          - type: custom:more-info-card
+            card_mod: 
+              style: |
+                ha-card {
+                  margin-top: -20px;
+                }
+            {% if device.entity is defined %}
+            entity: {{ device.entity }}
+            {% else %}
+            entity: {{ device }}
+            {% endif %}
+          - type: history-graph
+            hours_to_show: 6
+            {% if device.entity is defined %}
+            entities: 
+              - {{ device.entity }}
+            {% else %}
+            entities: 
+              - {{ device }}
+            {% endif %}
+icon: "[[[ if (entity.state < 10) return `mdi:battery-10`; if (entity.state < 20) return `mdi:battery-20`; if (entity.state < 30) return `mdi:battery-30`; if (entity.state < 40) return `mdi:battery-40`; if (entity.state < 50) return `mdi:battery-50`; if (entity.state < 60) return `mdi:battery-60`; if (entity.state < 70) return `mdi:battery-70`; if (entity.state < 80) return `mdi:battery-80`; if (entity.state < 90) return `mdi:battery-90`; return `mdi:battery`; ]]]"

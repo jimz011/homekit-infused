@@ -1,0 +1,22 @@
+# lovelace_gen
+
+type: entities
+card_mod:
+  class: hki
+{% if ((config.show_header_toggle is defined) and (config.show_header_toggle is true)) %}
+show_header_toggle: {{ config.show_header_toggle }}
+{% else %}
+show_header_toggle: false 
+{% endif %}
+entities:
+  {% if config.entities is defined %}
+  {% for entity in config.entities %}
+  - {{ entity|tojson }}
+  {% endfor %}
+  {% endif %}
+{% if config.header is defined %}
+header: {{ config.header|tojson }}
+{% endif %}
+{% if config.footer is defined %}
+footer: {{ config.footer|tojson }}
+{% endif %}

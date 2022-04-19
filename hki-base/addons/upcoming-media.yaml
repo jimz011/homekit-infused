@@ -1,0 +1,4 @@
+# lovelace_gen
+
+type: 'custom:upcoming-media-card'
+entity: {{ config.entity }} 

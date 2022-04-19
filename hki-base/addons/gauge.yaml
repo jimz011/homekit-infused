@@ -1,0 +1,28 @@
+# lovelace_gen
+
+type: gauge
+card_mod:
+  class: hki
+{% if gauge.entity is defined %}
+entity: {{ gauge.entity }}
+{% else %}
+entity: {{ gauge }}
+{% endif %}
+{% if gauge.name is defined %}
+name: {{ gauge.name }}
+{% endif %}
+{% if gauge.unit is defined %}
+unit: {{ gauge.unit }}
+{% endif %}
+{% if gauge.min is defined %}
+min: {{ gauge.min }}
+{% endif %}
+{% if gauge.max is defined %}
+max: {{ gauge.max }}
+{% endif %}
+{% if gauge.severity is defined %}
+severity:
+  green: {{ gauge.severity.green }}
+  yellow: {{ gauge.severity.yellow }}
+  red: {{ gauge.severity.red }}
+{% endif %}

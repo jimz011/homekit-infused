@@ -1,0 +1,16 @@
+# lovelace_gen
+
+type: custom:simple-weather-card                    
+card_mod:
+  class: hki
+  style: |
+    ha-card {
+      font-weight: var(--name-font-weight) !important;
+      font-size: var(--name-font-size) !important;
+    }
+entity: {{ config.entity }}
+name: {{ config.city_name }}
+backdrop: {{ config.backdrop|default('false') }}
+tap_action:
+  action: navigate
+  navigation_path: {{ config.path|default('weather') }}

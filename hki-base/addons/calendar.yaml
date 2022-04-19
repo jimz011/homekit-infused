@@ -1,0 +1,10 @@
+# lovelace_gen
+
+type: calendar
+initial_view: {{ config.initial_view|default('dayGridMonth') }}
+card_mod:
+  class: hki
+entities: 
+  {% for entity in config.entities %}
+  - {{ entity }}
+  {% endfor %}

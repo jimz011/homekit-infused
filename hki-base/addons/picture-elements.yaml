@@ -1,0 +1,19 @@
+# lovelace_gen
+
+type: picture-elements
+card_mod:
+  class: hki
+image: {{ card.image }}
+{% if card.camera_image is defined %}
+camera_image: {{ card.camera_image }}
+{% endif %}
+{% if card.camera_view is defined %}
+camera_view: {{ card.camera_view }}
+{% endif %}
+{% if card.state_filter is defined %}
+state_filter: {{ card.state_filter|tojson }}
+{% endif %}
+elements:
+  {% for element in card.elements %}
+  - {{ element|tojson }}
+  {% endfor %}

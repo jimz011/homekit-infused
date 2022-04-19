@@ -1,0 +1,17 @@
+# lovelace_gen
+
+type: history-graph
+card_mod:
+  class: hki
+entities:
+  {% for history in config.entities %}
+  - {{ history }}
+  {% endfor %}
+{% if config.hours_to_show is defined %}  
+hours_to_show: {{ config.hours_to_show }}
+{% else %}
+hours_to_show: 24
+{% endif %}
+{% if config.refresh_interval is defined %}  
+refresh_interval: {{ config.refresh_interval }}
+{% endif %}

@@ -1,0 +1,6 @@
+# lovelace_gen
+
+type: {{ config.type }}
+card_mod:
+  class: hki
+link_dashboard: {{ config.link_dashboard|default('false') }}

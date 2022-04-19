@@ -1,0 +1,6 @@
+# lovelace_gen
+
+type: plant-status
+card_mod:
+  class: hki
+entity: {{ config.entity }}

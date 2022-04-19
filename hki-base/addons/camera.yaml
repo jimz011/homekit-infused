@@ -1,0 +1,25 @@
+# lovelace_gen
+
+type: picture-entity
+card_mod: 
+  class: hki
+  style: |
+    ha-card {
+      overflow: hidden !important;
+    }
+{% if camera.aspect_ratio is defined %}
+aspect_ratio: {{ camera.aspect_ratio }}
+{% elif config.aspect_ratio is defined %}
+aspect_ratio: {{ config.aspect_ratio }}
+{% else %}
+aspect_ratio: 16x10.5
+{% endif %}
+{% if camera.entity is defined %}
+entity: {{ camera.entity }}
+{% else %}
+entity: {{ camera }}
+{% endif %}
+show_state: {{ camera.show_state|default('false') }}
+{% if camera.camera_view is defined %}
+camera_view: {{ camera.camera_view }}
+{% endif %}

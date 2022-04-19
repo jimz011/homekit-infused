@@ -1,0 +1,37 @@
+# lovelace_gen
+
+!include
+- '../templates/button/hki-thermostat.yaml'
+{% if thermostat.entity is defined %}
+- entity: {{ thermostat.entity }}
+{% else %}
+- entity: {{ thermostat }}
+{% endif %}
+  {% if thermostat.box_shadow is defined %}
+  box_shadow: {{ thermostat.box_shadow }}
+  {% elif config.box_shadow is defined %}
+  box_shadow: {{ config.box_shadow }}
+  {% endif %}
+  {% if config.action is defined %}
+  action: {{ config.action }}
+  {% elif thermostat.action is defined %}
+  action: {{ thermostat.action }}
+  {% endif %}
+  {% if thermostat.lock is defined %}
+  lock: {{ thermostat.lock }}
+  {% elif config.lock is defined %}
+  lock: {{ config.lock }}
+  {% endif %}
+  {% if thermostat.icon is defined %}
+  icon: {{ thermostat.icon|tojson }}
+  {% endif %}
+  {% if thermostat.name is defined %}
+  name: {{ thermostat.name|tojson }}
+  {% endif %}
+  {% if ((thermostat.ambient_temperature is defined) and (thermostat.entity is defined)) %}
+  notification: "[[[ return `${states['{{thermostat.ambient_temperature}}'].state}°` ]]]"
+  {% elif thermostat.entity is defined %}
+  notification: "[[[ return `${states['{{thermostat.entity}}'].attributes.current_temperature}°` ]]]"
+  {% else %}
+  notification: "[[[ return `${states['{{thermostat}}'].attributes.current_temperature}°` ]]]"
+  {% endif %}

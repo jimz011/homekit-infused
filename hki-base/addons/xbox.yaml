@@ -1,0 +1,6 @@
+# lovelace_gen
+
+!include
+- '../templates/other/xbox-controller.yaml'
+- remote_entity: {{ config.remote_entity }}
+  xbox_entity: {{ config.xbox_entity }}

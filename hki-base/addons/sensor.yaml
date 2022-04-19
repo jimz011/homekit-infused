@@ -1,0 +1,56 @@
+# lovelace_gen
+
+type: sensor
+card_mod:
+  class: hki
+  style: |
+    :host {
+      {% if config.line_color is defined %}
+      --accent-color: {{ config.line_color }}
+      {% elif sensor.line_color is defined %}
+      --accent-color: {{ sensor.line_color }}
+      {% endif %}
+    }
+    .icon {
+      color: var(--ha-icon-color) !important;
+    }
+    .name {
+      font-size: var(--name-font-size) !important;
+      font-weight: var(--name-font-weight) !important;
+      color: var(--name-color) !important;
+    }
+    .value {
+      font-size: var(--state-font-size) !important;
+      font-weight: var(--state-font-weight) !important;
+      color: var(--state-color) !important;
+    }
+    .measurement {
+      font-size: var(--state-font-size) !important;
+      font-state: var(--name-font-weight) !important;
+      color: var(--state-color) !important;
+    }
+{% if sensor.entity is defined %}
+entity: {{ sensor.entity }}
+{% else %}
+entity: {{ sensor }}
+{% endif %}
+{% if sensor.icon is defined %}
+icon: {{ sensor.icon }}
+{% endif %}
+{% if sensor.name is defined %}
+name: {{ sensor.name }}
+{% endif %}
+graph: {{ sensor.graph|default('line') }}
+{% if sensor.unit is defined %}
+unit: {{ sensor.unit }}
+{% endif %}
+{% if sensor.detail is defined %}
+detail: {{ sensor.detail }}
+{% endif %}
+{% if sensor.hours_to_show is defined %}
+hours_to_show: {{ sensor.hours_to_show }}
+{% endif %}
+{% if sensor.limits is defined %}
+limits: 
+  {{ sensor.limits|tojson }}
+{% endif %}

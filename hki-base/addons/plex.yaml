@@ -1,0 +1,31 @@
+# lovelace_gen
+
+type: 'custom:plex-meets-homeassistant'
+token: {{ config.plex_token }}
+ip: {{ config.plex_ip }}
+{% if config.plex_port is defined %}
+port: {{ config.plex_port }}
+{% else %}
+port: 32400
+{% endif %}
+libraryName: {{ config.library_name }}
+{% if config.protocol is defined %}
+protocol: {{ config.protocol }}
+{% else %}
+protocol: http
+{% endif %}
+{% if config.max_count is defined %}
+maxCount: {{ config.max_count }}
+{% else %}
+maxCount: 10
+{% endif %}
+entity:
+  {% if config.android_tv is defined %}
+  androidtv: {{ config.android_tv }}
+  {% endif %}
+  {% if config.kodi is defined %}
+  kodi: {{ config.kodi }}
+  {% endif %}
+  {% if config.plex_player is defined %}
+  plexPlayer: {{ config.plex_player }}
+  {% endif %}

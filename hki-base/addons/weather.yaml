@@ -1,0 +1,19 @@
+# lovelace_gen
+
+type: weather-forecast
+card_mod:
+  class: hki
+  style: |
+    ha-card {
+      {% if ((config.show_forecast is defined) and (config.show_forecast is false)) %}
+      max-height: 85px;
+      {% else %}
+      min-height: 85px;
+      {% endif %}
+    }
+entity: {{ config.entity }}
+name: {{ config.city_name }}
+show_forecast: {{ config.show_forecast|default('true') }}
+tap_action:
+  action: navigate
+  navigation_path: {{ config.path|default('weather') }}

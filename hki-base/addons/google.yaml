@@ -1,0 +1,33 @@
+# lovelace_gen
+
+type: entities
+card_mod:
+  class: hki
+show_header_toggle: false
+entities:
+  {% if config.speaker_group is defined %}
+  - type: custom:mini-media-player
+    entity: {{ config.speaker_group }}
+    group: true
+    source: icon
+    icon: mdi:google-assistant
+    info: short
+    tts:
+      platform: google_translate
+    hide:
+      volume: false
+      power: true
+  {% endif %}
+  {% if config.entities is defined %}
+  {% for device in config.entities %}
+  - type: custom:mini-media-player
+    entity: {{ device }}
+    group: true
+    tts:
+      platform: google_translate
+    hide:
+      icon: true
+      volume: false
+      controls: true
+  {% endfor %}
+  {% endif %}

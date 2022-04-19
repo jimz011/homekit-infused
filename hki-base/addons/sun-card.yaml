@@ -1,0 +1,23 @@
+# lovelace_gen
+
+type: custom:sun-card
+card_mod:
+  class: hki
+  style: |
+    .sun-card {
+      --sun-card-text-color: var(--primary-text-color) !important;
+      --sun-card-subtitle-color: var(--paper-item-icon-color) !important;
+    }
+timeFormat: {{ config.time_format|default('24') }}
+{% if config.darkmode is defined %}
+darkMode: {{ config.darkmode }}
+{% endif %}
+{% if config.language is defined %}
+language: {{ config.language }}
+{% endif %}
+{% if config.show_azimuth is defined %}
+showAzimuth: {{ config.show_azimuth }}
+{% endif %}
+{% if config.show_elevation is defined %}
+showElevation: {{ config.show_elevation }}
+{% endif %}

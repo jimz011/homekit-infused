@@ -1,0 +1,25 @@
+# lovelace_gen
+
+type: statistics-graph
+card_mod:
+  class: hki
+entities:
+  {% for statistics in config.entities %}
+  - {{ statistics|tojson }}
+  {% endfor %}
+{% if config.days_to_show is defined %}  
+days_to_show: {{ config.days_to_show }}
+{% else %}
+days_to_show: 30
+{% endif %}
+{% if config.chart_type is defined %}  
+chart_type: {{ config.chart_type }}
+{% else %}
+chart_type: line
+{% endif %}
+{% if config.stat_types is defined %}  
+stat_types: 
+  {% for stat_type in config.entities %}
+  - {{ stat_type|tojson }}
+  {% endfor %}
+{% endif %}

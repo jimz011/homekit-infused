@@ -1,0 +1,18 @@
+# lovelace_gen
+
+!include
+- '../templates/other/remote-control.yaml'
+- entity_media_player_sound: {{ config.sound_player }}
+  entity_media_player: {{ config.media_player }}
+  entity_media_player_remote: {{ config.remote_entity }}
+  {% if ((config.type is defined) and (config.type == 'atv')) %}
+  service: remote.send_command
+  command_up: up
+  command_menu: menu
+  command_left: left
+  command_center: select
+  command_right: right
+  command_back: menu
+  command_down: down
+  command_home: top_menu
+  {% endif %}

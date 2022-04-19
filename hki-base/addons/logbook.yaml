@@ -1,0 +1,14 @@
+# lovelace_gen
+
+type: logbook
+card_mod:
+  class: hki
+entities:
+  {% for log in config.entities %}
+  - {{ log }}
+  {% endfor %}
+{% if config.hours_to_show is defined %}  
+hours_to_show: {{ config.hours_to_show }}
+{% else %}
+hours_to_show: 24
+{% endif %}

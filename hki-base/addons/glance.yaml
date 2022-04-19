@@ -1,0 +1,26 @@
+# lovelace_gen
+
+type: glance
+card_mod:
+  class: hki
+{% if config.show_name is defined %}
+show_name: {{ config.show_name }}
+{% endif %}
+{% if config.show_icon is defined %}
+show_icon: {{ config.show_icon }}
+{% endif %}
+{% if config.show_state is defined %}
+show_state: {{ config.show_state }}
+{% endif %}
+{% if config.columns is defined %}
+columns: {{ config.columns }}
+{% endif %}
+{% if config.state_color is defined %}
+state_color: {{ config.state_color }}
+{% endif %}
+entities:
+  {% if config.entities is defined %}
+  {% for entity in config.entities %}
+  - {{ entity|tojson }}
+  {% endfor %}
+  {% endif %}

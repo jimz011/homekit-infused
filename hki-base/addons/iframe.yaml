@@ -1,0 +1,14 @@
+# lovelace_gen
+
+type: iframe
+card_mod:
+  class: hki
+  style: |
+    iframe {
+      border-radius: var(--border-radius) !important;
+      -webkit-border-radius: var(--border-radius);
+      border-radius-x: var(--border-radius) !important;
+      overflow: hidden !important;
+    }
+aspect_ratio: {{ config.aspect_ratio|default('125%') }}
+url: {{ config.url }}

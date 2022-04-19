@@ -1,0 +1,18 @@
+# lovelace_gen
+
+type: map                    
+card_mod:
+  class: hki
+{% if config.default_zoom is defined %}
+default_zoom: {{ config.default_zoom }}
+{% endif %}
+{% if config.dark_mode is defined %}
+dark_mode: {{ config.dark_mode }}
+{% endif %}
+{% if config.aspect_ratio is defined %}
+aspect_ratio: {{ config.aspect_ratio }}
+{% endif %}
+entities:
+  {% for map in config.entities %}
+  - {{ map }}
+  {% endfor %}

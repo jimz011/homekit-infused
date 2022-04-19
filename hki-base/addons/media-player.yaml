@@ -1,0 +1,17 @@
+# lovelace_gen
+
+type: media-control
+card_mod:
+  style: |
+    ha-card {
+      border-radius: var(--ha-card-border-radius);
+      box-shadow: var(--ha-card-box-shadow);
+    }
+    .player {
+      color: var(--name-color) !important;
+    }
+{% if media.entity is defined %}
+entity: {{ media.entity }}
+{% else %}
+entity: {{ media }}
+{% endif %}

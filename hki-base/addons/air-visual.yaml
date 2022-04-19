@@ -1,0 +1,22 @@
+# lovelace_gen
+
+type: custom:air-visual-card
+card_mod:
+  style: |
+    border-radius: var(--ha-card-border-radius);
+    box-shadow: var(--ha-card-box-shadow);
+{% if config.weather is defined %}
+weather: {{ config.weather }}
+{% endif %}
+country: {{ config.country|default('US') }}
+hide_title: {{ config.hide_header|default('true') }}
+hide_face: {{ config.hide_face|default('false') }}
+hide_weather: {{ config.hide_weather|default('false') }}
+air_pollution_level: {{ config.air_pollution_level }}
+air_quality_index: {{ config.air_quality_index }}
+main_pollutant: {{ config.main_pollutant }}
+temp: {{ config.weather_entity }}
+{% if config.city_name is defined %}
+city: {{ config.city_name }}
+{% endif %}
+speed_unit: {{ config.speed_unit|default('KM/h') }}
