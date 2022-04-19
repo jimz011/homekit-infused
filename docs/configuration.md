@@ -47,7 +47,9 @@ This is the bare minimum that will give you a brand new view, however without an
 | 'object' | yes | none | Sets the name, path and title of the view, this is not an actual property but the first line of your view, *NOTE: This can NOT contain special characters, use lowercase characters only!* |
 | title | no | view_name | Set the title of the view, if undefined it will use the name of the view instead, you can NOT use templates for the title! |
 | subtitle | no | undefined | Set the subtitle text, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates), if you don't set a subtitle it will show the default notifications instead, to hide the subtitle bar entirely set `subtitle: hide` |
+| [logo](addons/logo.md) | no | undefined | Set a logo instead of a title and subtitle, setting this option will hide both the title and subtitle even if you had set them |
 | icon | no | mdi:home | Set the icon for the navigation_bar, shortcut buttons and subtitle, this also accepts FA icons, you can use [JS templates](https://github.com/custom-cards/button-card#javascript-templates) as long as you don't set this icon to show in the nav_bar |
+| show_header | no | true | Set to true to hide the header entirely on this view |
 | show_in_favorites | no | false | Set to `true` if you want this view to be auto included in the favorites addon |
 | show_in_menu | no | undefined | This forces a view to be shown in the menu addon, this is useful when using the `menu:` or `view_selector:` addon |
 | button_label | no | no label | Set the button label text, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
