@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 2022.3.0
+        value_template: 2022.4.0
 
 # Time Date
   - platform: time_date
@@ -140,3 +140,16 @@ sensor:
     name: Home Assistant Latest Version
     command: "curl -s https://www.home-assistant.io | grep  'Current Version' | sed 's/Current Version: //'"
     scan_interval: 21600
+
+# Updater Sensors
+  - platform: template
+    sensors:
+      hki_updater:
+        value_template: >
+          {% if (states('sensor.hki_latest_version') > states('sensor.hki_current_version')) %}
+            Update Available
+          {% elif (states('sensor.hki_latest_version') < states('sensor.hki_current_version')) %}
+            You are running a Beta
+          {% else %}
+            Up to date
+          {% endif %}

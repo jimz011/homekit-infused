@@ -33,7 +33,7 @@ script:
           entity_id: input_text.badge_text_transform
       - service: input_text.set_value
         data:
-          value: none
+          value: 0px 0px 10px 2px var(--ha-icon-active-color)
         target:
           entity_id: input_text.button_box_shadow_active
       - service: input_text.set_value
@@ -123,7 +123,7 @@ script:
           entity_id: input_text.card_border_width
       - service: input_text.set_value
         data:
-          value: none
+          value: 0.5px 0.5px 1px 0.5px rgba(0,0,0,0.3)
         target:
           entity_id: input_text.card_box_shadow
       - service: input_text.set_value
@@ -273,7 +273,7 @@ script:
           entity_id: input_text.text_color
       - service: input_text.set_value
         data:
-          value: var(--ha-card-background)
+          value: transparent
         target:
           entity_id: input_text.title_text_background_color
       - service: input_text.set_value
@@ -298,7 +298,7 @@ script:
           entity_id: input_text.title_text_border_width
       - service: input_text.set_value
         data:
-          value: var(--ha-card-box-shadow)
+          value: none
         target:
           entity_id: input_text.title_text_box_shadow
       - service: input_text.set_value
@@ -318,11 +318,11 @@ script:
           entity_id: input_text.title_text_font_weight
       - service: input_text.set_value
         data:
-          value: center
+          value: start
         target:
           entity_id: input_text.title_text_justify_self
       - service: input_text.set_value
         data:
-          value: 0px
+          value: 5px
         target:
           entity_id: input_text.title_text_padding
