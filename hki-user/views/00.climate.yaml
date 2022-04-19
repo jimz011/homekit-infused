@@ -15,10 +15,6 @@ climate:
       card_margin: 4px 8px 8px
       margin: 0px 8px  
   addons:
-    climate:
-      - title: Presets
-        entity: group.all_climate_entities
-        average_temperature: sensor.average_temperature
     thermostat:
       # Small Screens
       - title: Thermostats
