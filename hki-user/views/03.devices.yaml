@@ -1,0 +1,163 @@
+# Devices
+devices:
+  subtitle: >
+    [[[ 
+      if (states['sensor.current_devices_on'].state == 0) 
+        return `All devices are turned off`; 
+      if (states['sensor.current_devices_on'].state == 1) 
+        return `1 device is turned on`;
+      return `${states['sensor.current_devices_on'].state} devices are turned on`; 
+    ]]]
+  icon: mdi:power-plug
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: sensor.current_devices_on
+  button_label: "[[[ if (states['sensor.current_devices_on'].state == 0) return `Devices Off`; else return `${states['sensor.current_devices_on'].state} Devices On`; ]]]"
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      # Small Screens
+      - title: Woonkamer
+        entities:
+          - entity: switch.receiver_woonkamer
+          - switch.samsung_tv
+          - switch.xbox_one
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - switch.receiver_slaapkamer
+          - switch.tv_slaapkamer
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Kleine Kamer
+        entities:
+          - entity: switch.pc_van_jimmy
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_57'].state} W`; ]]]"
+          - entity: switch.pc_van_stephanie
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_60'].state} W`; ]]]"
+          - switch.piano
+          - switch.printer
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Keuken
+        entities:
+          - entity: switch.afzuigkap
+            icon_color_active: DodgerBlue
+            lock: true
+            spin: true
+          - entity: switch.oven
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_52'].state}W`; ]]]"
+          - entity: switch.airfryer
+            lock: "[[[ return entity.state === 'on'; ]]]"
+          - switch.nespresso_apparaat
+          - switch.cappumaker
+          - switch.waterkoker_2
+          - entity: switch.vaatwasser
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.vaatwasser_power'].state}W`; ]]]"
+          - entity: switch.koelkast
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.koelkast_power'].state}W`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Bijkeuken
+        lock: "[[[ return entity.state === 'on'; ]]]"
+        entities:
+          - entity: switch.vriezer
+            icon: mdi:snowflake
+            label: "[[[ return `${states['sensor.ts0121_2'].state}W`; ]]]"
+          - entity: switch.washing_machine
+            label: "[[[ return `${states['sensor.washing_machine_power'].state}W`; ]]]"
+          - entity: switch.dryer
+            label: "[[[ return `${states['sensor.dryer_power'].state}W`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Woonkamer
+        entities:
+          - switch.receiver_woonkamer
+          - switch.samsung_tv
+          - switch.xbox_one
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - switch.receiver_slaapkamer
+          - switch.tv_slaapkamer
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Kleine Kamer
+        entities:
+          - entity: switch.pc_van_jimmy
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_57'].state}W`; ]]]"
+          - entity: switch.pc_van_stephanie
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_60'].state}W`; ]]]"
+          - switch.piano
+          - switch.printer
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Keuken
+        entities:
+          - entity: switch.afzuigkap
+            icon_color_active: DodgerBlue
+            lock: true
+            spin: true
+          - entity: switch.oven
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.power_52'].state}W`; ]]]"
+          - entity: switch.airfryer
+            lock: "[[[ return entity.state === 'on'; ]]]"
+          - switch.nespresso_apparaat
+          - switch.cappumaker
+          - switch.waterkoker_2
+          - entity: switch.vaatwasser
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.vaatwasser_power'].state}W`; ]]]"
+          - entity: switch.koelkast
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            label: "[[[ return `${states['sensor.koelkast_power'].state}W`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Bijkeuken
+        lock: "[[[ return entity.state === 'on'; ]]]"
+        entities:
+          - entity: switch.vriezer
+            icon: mdi:snowflake
+            label: "[[[ return `${states['sensor.ts0121_2'].state}W`; ]]]"
+          - entity: switch.washing_machine
+            label: "[[[ return `${states['sensor.washing_machine_power'].state}W`; ]]]"
+          - entity: switch.dryer
+            label: "[[[ return `${states['sensor.dryer_power'].state}W`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4

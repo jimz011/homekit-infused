@@ -1,0 +1,17 @@
+# Floorplan
+floorplan:
+  subtitle: Overview
+  layout:
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 100%
+  icon: mdi:floor-plan
+  addons:
+    custom:
+      - title: hide
+        cards:
+          - type: picture
+            card_mod:
+              class: hki
+            aspect_ratio: 1.78
+            image: /local/images/floorplan.jpg

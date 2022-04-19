@@ -1,0 +1,64 @@
+# Vacuum
+vacuum:
+  subtitle: "[[[ return `The current status is ${states['vacuum.roborock_vacuum_s5'].state}`; ]]]"
+  icon: phu:roborock
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: vacuum.roborock_vacuum_s5
+  layout:
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 100%
+      mediaquery:
+        "(min-width: 650px)":
+          grid-template-columns: 60% 40%
+  addons:
+    custom:
+      - title: hide
+        cards:
+          - type: custom:xiaomi-vacuum-map-card
+            card_mod:
+              class: hki
+            entity: vacuum.roborock_vacuum_s5
+            map_locked: true
+            map_source: 
+              camera: camera.rockrobo_map
+            map_modes:
+              - template: vacuum_clean_zone
+              - template: vacuum_goto
+            calibration_source:
+              calibration_points:
+                - vacuum:
+                    x: 25500
+                    y: 25500
+                  map:
+                    x: 557
+                    y: 86
+                - vacuum:
+                    x: 27115
+                    y: 22748
+                  map:
+                    x: 700
+                    y: 330
+                - vacuum:
+                    x: 30637
+                    y: 23911
+                  map:
+                    x: 1009
+                    y: 230
+      - title: hide
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: history-graph
+                card_mod:
+                  class: hki
+                hours_to_show: 24
+                entities:
+                  - vacuum.roborock_vacuum_s5
+              - type: logbook
+                card_mod:
+                  class: hki
+                hours_to_show: 24
+                entities:
+                  - vacuum.roborock_vacuum_s5

@@ -1,0 +1,435 @@
+# Media Players
+media:
+  title: Media Players
+  subtitle: "[[[ if (states['sensor.media_players_playing'].state == 'Playing') return `A media player is playing right now`; else return `All mediaplayers have stopped playing`; ]]]"
+  icon: mdi:play-box-multiple
+  show_in_favorites: true
+  show_in_menu: false
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+        this_view: true
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    media_player:
+      - title: Google Speakers
+        type: core
+        entities:
+          - media_player.woonkamer_speaker
+          - media_player.gang_speaker
+          - media_player.badkamer_speaker
+          - media_player.bijkeuken_speaker
+      - title: Nest Hubs
+        type: core
+        entities:
+          - media_player.slaapkamer_display
+          - media_player.keuken_display
+          - media_player.slaapkamer_display
+          - media_player.slaapkamer_display_jimmy_1
+      - title: TV's and Consoles
+        type: core
+        entities:
+          - media_player.nvidia_s_h_i_e_l_d_tv_pro
+          - media_player.xboxone
+
+# Upcoming Media
+media_1:
+  title: Media
+  subtitle: Upcoming Media
+  icon: mdi:movie-open-plus
+  show_in_menu: false
+  layout:
+    layout_type: custom:horizontal-layout
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+      max_cols: 4
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+        this_view: true
+  addons:
+    upcoming_media:
+      - title: Recently Added TV
+        entity: sensor.recently_added_tv
+      - title: Recently Added Movies
+        entity: sensor.recently_added_movies
+      - title: Upcoming TV
+        entity: sensor.sonarr_upcoming_media
+      - title: Upcoming Movies
+        entity: sensor.radarr_upcoming_media
+
+# Android Remote
+media_2:
+  title: Media
+  subtitle: Shield TV Remote
+  icon: mdi:android
+  show_in_menu: false
+  layout:
+    layout_type: custom:vertical-layout
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+        this_view: true
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    remote_control:
+      - title: Woonkamer
+        media_player: media_player.nvidia_s_h_i_e_l_d_tv_pro
+        sound_player: media_player.samsung_6_series_65
+        remote_entity: media_player.nvidia_s_h_i_e_l_d_tv_pro
+    media_player:
+      - type: core
+        entities:
+          - media_player.nvidia_s_h_i_e_l_d_tv_pro
+
+# Apple Remote
+media_3:
+  title: Media
+  subtitle: Apple TV Remote
+  icon: mdi:apple
+  show_in_menu: false
+  layout:
+    layout_type: custom:vertical-layout
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+        this_view: true
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    remote_control:
+      - title: Slaapkamer
+        media_player: media_player.slaapkamer
+        sound_player: media_player.slaapkamer
+        remote_entity: remote.slaapkamer
+        type: atv 
+    media_player:
+      - type: core
+        entities:
+          - media_player.slaapkamer
+
+# Xbox Remote
+media_4:
+  title: Media
+  subtitle: Xbox Remote
+  icon: mdi:microsoft-xbox
+  show_in_menu: false
+  layout:
+    layout_type: custom:vertical-layout
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+        this_view: true
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    xbox:
+      - title: Xbox One
+        xbox_entity: media_player.xboxone
+        remote_entity: remote.xboxone_remote
+
+# Plex
+media_5:
+  title: Media
+  subtitle: Plex
+  icon: mdi:plex
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+        this_view: true
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    plex:
+      - title: Movies
+        plex_token: !secret plex_token
+        plex_ip: !secret plex_url
+        plex_port: 443
+        protocol: https
+        library_name: Movies
+        android_tv: media_player.nvidia_s_h_i_e_l_d_tv_pro
+      - title: Series
+        plex_token: !secret plex_token
+        plex_ip: !secret plex_url
+        plex_port: 443
+        protocol: https
+        library_name: TV Series
+        android_tv: media_player.nvidia_s_h_i_e_l_d_tv_pro
+      - title: Music
+        plex_token: !secret plex_token
+        plex_ip: !secret plex_url
+        plex_port: 443
+        protocol: https
+        library_name: Music
+        android_tv: media_player.nvidia_s_h_i_e_l_d_tv_pro
+
+# Spotify
+media_6:
+  title: Media
+  subtitle: Spotify
+  icon: mdi:spotify
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+        this_view: true
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    media_player:
+      - title: Stephanie
+        type: core
+        entities:
+          - media_player.spotify_stephanie
+      - title: Jimmy
+        type: core
+        entities:
+          - media_player.spotify_jimmy
+
+# Google
+media_7:
+  title: Media
+  subtitle: Google
+  icon: mdi:google
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - icon: mdi:play-box-multiple
+        path: media
+        name: Players
+      - icon: mdi:google
+        path: media_7
+        name: Google
+        this_view: true
+      - icon: mdi:plex
+        path: media_5
+        name: Plex
+      - icon: mdi:spotify
+        path: media_6
+        name: Spotify
+      - icon: mdi:android
+        path: media_2
+        name: Shield TV
+      - icon: mdi:apple
+        path: media_3
+        name: Apple TV
+      - icon: mdi:microsoft-xbox
+        path: media_4
+        name: Xbox
+      - icon: mdi:movie-open-plus
+        path: media_1
+        name: Upcoming
+  addons:
+    google:
+      - title: Google Nest
+        speaker_group: media_player.all_speakers
+        entities:
+          - media_player.badkamer_speaker
+          - media_player.bijkeuken_speaker
+          - media_player.woonkamer_speaker
+          - media_player.slaapkamer_display
+          - media_player.keuken_display
+          - media_player.kleine_kamer_speaker
+          - media_player.shield_tv

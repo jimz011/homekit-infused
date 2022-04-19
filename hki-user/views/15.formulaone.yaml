@@ -1,0 +1,247 @@
+# Formula 1 Circuit
+formula_one:
+  logo: 
+    image: https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png
+    width: 260px
+    height: 60px
+    margin_top: -10px
+  title: Formula One
+  subtitle: '.'
+  show_in_favorites: true
+  show_in_menu: false
+  layout:
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 100%
+      mediaquery:
+        "(min-width: 1024px)":
+          grid-template-columns: 50% 50%
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Race
+        icon: mdi:flag-checkered
+        path: formula_one
+        this_view: true
+      - name: Standings
+        icon: mdi:format-list-numbered
+        path: formula_one_2
+      - name: Radio
+        icon: mdi:radio
+        tap_action:
+          action: url
+          url_path: "app://nforza.grandprixradio"
+      - name: ViaPlay
+        icon: mdi:youtube-tv
+        tap_action:
+          action: url
+          url_path: "app://com.viaplay.android"
+  icon: mdi:flag-checkered
+  addons:
+    custom:
+      - title: hide
+        cards:
+          - type: markdown
+            card_mod:
+              class: hki
+              style: |
+                ha-card {
+                  font-family: Roboto;
+                  text-align: center;
+                  font-weight: bold; 
+                }
+            content: >-
+              {% set f1 = states.sensor.formula_one_sensor.attributes.next_race %} 
+              {% if not(f1 == None) %} <h1><img height="22" src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{f1.Circuit.Location.country.replace(" ", "-")}}.png">&nbsp;
+              {{ f1.raceName }}</h1> {{f1.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(f1.date + ' ' + f1.time) | timestamp_custom("Race Starts on %d-%m-%Y at %H:%M") }}</small>&nbsp;&nbsp;
+              <a target="_new" href="{{f1.Circuit.url}}">
+                <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{f1.Circuit.Location.country.replace(" ", "_")}}_Circuit.png.transform/9col/image.png">
+              </a>
+      - title: hide
+        cards:
+          - type: custom:atomic-calendar-revive
+            card_mod:
+              class: hki
+            showProgressBar: true
+            maxDaysToShow: 30
+            maxEventCount: 7
+            europeanDate: true
+            showNoEventsForToday: true
+            showMonth: true
+            showWeekDay: true
+            hideFinishedEvents: true
+            entities:
+              - calendar.formula_one
+          - !include ../../hki-base/includes/gap-height.yaml
+
+# Standings
+formula_one_2:
+  logo:
+    image: https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-7.png
+    width: 260px
+    height: 60px
+    margin_top: -10px
+  title: Formula One
+  subtitle: '.'
+  icon: mdi:format-list-numbered
+  show_in_menu: false
+  layout:
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 100%
+      mediaquery:
+        "(min-width: 1024px)":
+          grid-template-columns: 50% 25% 25%
+          grid-template-areas: |
+            "header drivers constructor"
+        "(min-width: 650px)":
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "header header"
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Race
+        icon: mdi:flag-checkered
+        path: formula_one
+      - name: Standings
+        icon: mdi:format-list-numbered
+        path: formula_one_2
+        this_view: true
+      - name: Radio
+        icon: mdi:radio
+        tap_action:
+          action: url
+          url_path: "app://nforza.grandprixradio"
+      - name: ViaPlay
+        icon: mdi:youtube-tv
+        tap_action:
+          action: url
+          url_path: "app://com.viaplay.android"
+  addons:
+    custom:
+      - title: hide
+        view_layout:
+          grid-area: header
+          show:
+            mediaquery: "(min-width: 650px)"
+        cards:
+          - type: markdown
+            card_mod:
+              class: hki
+              style: |
+                ha-card {
+                  font-family: Roboto;
+                  text-align: center;
+                  font-weight: bold; 
+                }
+            content: >-
+              {% set f1 = states.sensor.formula_one_sensor.attributes.next_race %} 
+              {% if not(f1 == None) %} <h1><img height="22" src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{f1.Circuit.Location.country.replace(" ", "-")}}.png">&nbsp;
+              {{ f1.raceName }}</h1> {{f1.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(f1.date + ' ' + f1.time) | timestamp_custom("Race Starts on %d-%m-%Y at %H:%M") }}</small>&nbsp;&nbsp;
+              <a target="_new" href="{{f1.Circuit.url}}">
+                <img width="100%" src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/{{f1.Circuit.Location.country.replace(" ", "_")}}_Circuit.png.transform/9col/image.png">
+              </a>
+      - title: hide
+        cards:
+          - type: markdown
+            card_mod:
+              style:
+                ha-markdown$: |
+                  table {
+                    width: 100%;
+                    border-spacing: 0;
+                    border-collapse: separate;
+                  }
+                  th {
+                     color: white;
+                     background: rgb(41, 158, 194);
+                  }
+                  tr:nth-child(even) {
+                    background-color: var(--primary-background-color);
+                    color: rgb(41, 158, 194);
+                  }
+                  td:nth-child(1) {
+                    width: 50px;
+                    text-align: center;
+                  }
+                  td:nth-child(2) {
+                    width: 50px;
+                    text-align: center;
+                  }
+                  td:nth-child(4) {
+                    width: 60px;
+                    text-align: center;
+                  }
+            content: |-
+              <table>
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th colspan="2">Drivers</th>
+                    <th class="center">Pts</th>
+                  </tr>
+                </thead>
+                <tbody>
+              {% for driver in states.sensor.formula_one_sensor.attributes.drivers %} <tr>
+                      <td>{{driver.position}}</td>
+                      <td>{{driver.Driver.code}}</td>
+                      <td>{{driver.Driver.givenName }} {{driver.Driver.familyName }}</td>
+                      <td>{{driver.points}}</td>
+                  </tr>
+              {% endfor %}
+                </tbody>
+              </table>
+      - title: hide
+        cards:
+          - type: markdown
+            card_mod:
+              style:
+                ha-markdown$: |
+                  table {
+                    width: 100%;
+                    border-spacing: 0;
+                    border-collapse: separate;
+                  }
+                  th {
+                     color: white;
+                     background: rgb(41, 158, 194);
+                  }
+                  tr:nth-child(even) {
+                    background-color: var(--primary-background-color);
+                    color: rgb(41, 158, 194);
+                  }
+                  td:nth-child(1) {
+                    width: 50px;
+                    text-align: center;
+                  }
+                  td:nth-child(2) {
+                    text-align: left;
+                  }
+                  td:nth-child(3) {
+                    width: 60px;
+                    text-align: center;
+                  }
+            content: |-
+              <table>
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Constructor</th>
+                    <th class="center">Pts</th>
+                  </tr>
+                </thead>
+                <tbody>
+              {% for driver in states.sensor.formula_one_sensor.attributes.constructors %} <tr>
+                      <td>{{driver.position}}</td>
+                      <td>{{driver.Constructor.name }}</td>
+                      <td>{{driver.points}}</td>
+                  </tr>
+              {% endfor %}
+                </tbody>
+              </table>
+          - !include ../../hki-base/includes/gap-height.yaml

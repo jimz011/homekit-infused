@@ -1,0 +1,141 @@
+# Home
+home:
+  title: greeting
+  show_in_navbar: true
+  show_in_menu: false
+  icon: mdi:home
+  layout:
+    layout_type: custom:horizontal-layout
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    weather:
+      - title: hide
+        type: simple_weather
+        entity: weather.eindhoven
+        city_name: Eindhoven
+    picture_elements:
+      - title: hide
+        view_layout:
+          column: 1
+        columns: 2
+        cards:
+          - image: /local/images/stephanie_small.png
+            elements:
+              !include ../elements/frontpage-photo-stephanie.yaml
+          - image: /local/images/jimmy_small.png
+            elements:
+              !include ../elements/frontpage-photo-jimmy.yaml
+      - title: hide
+        view_layout:
+          column: 1
+        square: false
+        cards:
+          - image: /local/images/tala2.png
+            elements:
+              !include ../elements/frontpage-photo-tala.yaml     
+    favorites:
+      # Small Screens
+      - title: hide
+        view_layout:
+          show:
+            column: 1
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: hide
+        view_layout:
+          show:
+            column: 1
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+    custom_1:
+      - title: hide
+        view_layout:
+          show:
+            mediaquery: "(min-width: 650px)"
+        cards:
+          - type: custom:atomic-calendar-revive
+            card_mod:
+              class: hki
+            showProgressBar: true
+            maxDaysToShow: 7
+            maxEventCount: 6
+            europeanDate: true
+            showNoEventsForToday: true
+            showMonth: true
+            showWeekDay: true
+            hideFinishedEvents: true
+            entities:
+              - calendar.jimmy
+              - calendar.stephanie
+              - calendar.family
+      - title: hide
+        view_layout:
+          show:
+            mediaquery: "(min-width: 650px)"
+        cards:
+          - type: custom:vacuum-card
+            card_mod:
+              class: hki
+            entity: vacuum.rockrobo
+            stats:
+              default:
+                - attribute: filter
+                  unit: hours
+                  subtitle: Filter
+                - attribute: sideBrush
+                  unit: hours
+                  subtitle: Side Brush
+                - attribute: mainBrush
+                  unit: hours
+                  subtitle: Main Brush
+                - attribute: sensor
+                  unit: hours
+                  subtitle: Sensors
+              cleaning:
+                - attribute: cleanArea
+                  unit: m2
+                  subtitle: Cleaned Area
+                - attribute: cleanTime
+                  unit: minutes
+                  subtitle: Cleaning Time
+                - attribute: cleanCount
+                  unit: times
+                  subtitle: Cleaning Count
+    custom_2:
+      - title: hide
+        type: conditional
+        conditions:
+          - entity: media_player.spotify_jimmy
+            state_not: "idle"
+        cards:
+          - type: custom:mini-media-player
+            card_mod:
+              style: |
+                .entity__icon {
+                  --mmp-icon-color: LimeGreen !important;
+                }
+            entity: media_player.spotify_jimmy
+            artwork: cover
+            hide:
+              power_state: true
+              source: true
+      - title: hide
+        type: conditional
+        conditions:
+          - entity: media_player.spotify_stephanie
+            state_not: "idle"
+        cards:
+          - type: custom:mini-media-player
+            card_mod:
+              style: |
+                .entity__icon {
+                  --mmp-icon-color: LimeGreen !important;
+                }
+            entity: media_player.spotify_stephanie
+            artwork: cover
+            hide:
+              power_state: true
+              source: true

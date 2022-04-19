@@ -1,0 +1,9 @@
+# Computers
+computers:
+  subtitle: hide
+  icon: mdi:desktop-tower-monitor
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  custom_legacy: 

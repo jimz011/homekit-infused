@@ -1,0 +1,169 @@
+# Unifi
+network_1:
+  title: Network
+  subtitle: Schings
+  icon: mdi:server-network
+  show_in_favorites: true
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Unifi
+        icon: phu:ubiquiti-logo
+        path: network_1
+        this_view: true
+      - name: Adguard
+        icon: mdi:shield-home
+        path: network_2
+      - name: Uptime
+        icon: mdi:arrow-up-bold-box
+        path: network_3
+      - name: Other
+        icon: mdi:dots-horizontal
+        path: network_4
+  addons:
+    entities:
+      - title: Unifi Dream Machine Pro
+        header:
+          type: picture
+          image: /local/images/udm-pro-transparant2.png
+        footer:
+          type: graph
+          entity: sensor.schings_dream_machine_pro_cpu_temperature
+          hours_to_show: 24
+          detail: 2
+        entities:
+          - entity: sensor.schings_dream_machine_pro_uptime
+            name: Uptime
+          - entity: sensor.schings_dream_machine_pro_cpu_utilization
+            name: CPU Utilization
+          - entity: sensor.schings_dream_machine_pro_memory_utilization
+            name: Memory Utilization
+          - entity: sensor.schings_dream_machine_pro_storage_utilization
+            name: Storage Utilization
+          - entity: sensor.schings_dream_machine_pro_recording_capacity
+            name: Recording Capacity
+          - entity: binary_sensor.schings_dream_machine_pro_disk_0_health
+            name: Disk Health
+          
+
+# AdGuard Home
+network_2:
+  title: Network
+  subtitle: Schings
+  icon: mdi:server-network
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Unifi
+        icon: phu:ubiquiti-logo
+        path: network_1
+      - name: Adguard
+        icon: mdi:shield-home
+        path: network_2
+        this_view: true
+      - name: Uptime
+        icon: mdi:arrow-up-bold-box
+        path: network_3
+      - name: Other
+        icon: mdi:dots-horizontal
+        path: network_4
+  addons:
+    button:
+      - title: AdGuard Home
+        columns: 4
+        entities:
+          - name: AdGuard
+            label: Home
+            icon: mdi:shield-home
+            entity: group.adguard
+          - name: Parental
+            label: Control
+            icon: mdi:human-male-female-child
+            entity: group.adguard_parental_control
+          - name: Safe
+            label: Browsing
+            icon: mdi:search-web
+            entity: group.adguard_safe_browsing
+          - name: Safe
+            label: Search
+            icon: mdi:magnify
+            entity: group.adguard_safe_search
+
+# Uptime Monitor
+network_3:
+  title: Network
+  subtitle: Schings
+  icon: mdi:server-network
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Unifi
+        icon: phu:ubiquiti-logo
+        path: network_1
+      - name: Adguard
+        icon: mdi:shield-home
+        path: network_2
+      - name: Uptime
+        icon: mdi:arrow-up-bold-box
+        path: network_3
+        this_view: true
+      - name: Other
+        icon: mdi:dots-horizontal
+        path: network_4
+  custom_legacy:
+
+# Other
+network_4:
+  title: Network
+  subtitle: Schings
+  icon: mdi:server-network
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  view_selector:
+    columns: 4
+    size: 15%
+    aspect_ratio: 2/1
+    elements:
+      - name: Unifi
+        icon: phu:ubiquiti-logo
+        path: network_1
+      - name: Adguard
+        icon: mdi:shield-home
+        path: network_2
+      - name: Uptime
+        icon: mdi:arrow-up-bold-box
+        path: network_3
+      - name: Other
+        icon: mdi:dots-horizontal
+        path: network_4
+        this_view: true
+  addons:
+    entities:
+      - title: Certificate Expiry
+        entities:
+          - !secret certificate_01
+          - !secret certificate_02

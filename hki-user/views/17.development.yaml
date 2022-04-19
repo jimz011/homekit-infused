@@ -1,0 +1,17 @@
+# Development
+development:
+  title: Development
+  show_header: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  icon: si:facebook
+#  custom_legacy: 
+  addons:
+    button:
+      - title: Test
+        columns: 3
+        entities:
+          - cover.test_cover
+          - cover.test_cover_2

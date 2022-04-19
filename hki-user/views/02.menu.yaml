@@ -1,0 +1,38 @@
+# Menu
+menu:
+  title: Menu
+  show_in_navbar: true
+  show_in_menu: false
+  subtitle: "[[[ return `HKI 5 v.${states['sensor.hki_current_version'].state}`; ]]]"
+  icon: mdi:apps
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    favorites:
+      # Small Screens
+      - title: Favorites
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Favorites
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+    menu:
+      # Small Screens
+      - title: Menu
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Menu
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4

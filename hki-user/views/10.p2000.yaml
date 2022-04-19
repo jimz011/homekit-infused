@@ -1,0 +1,52 @@
+# P2000
+p2000:
+  subtitle: Monitor
+  icon: mdi:car-emergency
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    custom: 
+      - title: Fire
+        cards:
+          - type: markdown
+            card_mod:
+              class: hki
+            content: >
+              {{ states('sensor.p2000') }}
+          - type: map
+            card_mod:
+              class: hki
+            default_zoom: 15
+            entities:
+              - entity: sensor.p2000
+              - entity: zone.home
+      - title: Ambulance
+        cards:
+          - type: markdown
+            card_mod:
+              class: hki
+            content: >
+              {{ states('sensor.p2000_2') }}
+          - type: map
+            card_mod:
+              class: hki
+            default_zoom: 15
+            entities:
+              - entity: sensor.p2000_2
+              - entity: zone.home
+      - title: Police
+        cards:
+          - type: markdown
+            card_mod:
+              class: hki
+            content: >
+              {{ states('sensor.p2000_3') }}
+          - type: map
+            card_mod:
+              class: hki
+            default_zoom: 15
+            entities:
+              - entity: sensor.p2000_3
+              - entity: zone.home

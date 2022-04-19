@@ -1,0 +1,164 @@
+# Battery
+battery:
+  subtitle: Overview
+  icon: mdi:battery-50
+  show_in_favorites: true
+  show_in_menu: false
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    battery:
+      # Small Screens
+      - title: Hue Dimmers
+        entities:
+          - sensor.ab_gang_muur_battery_level
+          - sensor.ab_keuken_muur_battery_level
+          - sensor.ab_kleine_kamer_muur_battery_level
+          - sensor.ab_slaapkamer_muur_battery_level
+          - sensor.ab_toilet_muur_battery_level
+          - sensor.ab_woonkamer_muur_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: IKEA Dimmers
+        entities:
+          - sensor.ab_kleine_kamer_battery_level
+          - sensor.ab_slaapkamer_jim_battery_level
+          - sensor.ab_slaapkamer_steph_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Doors
+        entities:
+          - sensor.voordeur_battery_level
+          - sensor.woonkamer_deur_battery_level
+          - sensor.slaapkamer_deur_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Windows
+        entities:
+          - sensor.keukenraam_battery_level
+          - sensor.bijkeukenraam_battery_level
+          - sensor.kleine_kamerraam_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Temperature/Humidity Sensors
+        entities:
+          - sensor.woonkamer_battery_level
+          - sensor.slaapkamer_battery_level
+          - sensor.badkamer_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Motion Sensors
+        entities:
+          - sensor.motion_toilet_battery_level
+          - sensor.motion_office_battery_level
+          - sensor.motion_gang_battery_level
+          - sensor.motion_bijkeuken_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Phones
+        entities:
+          - sensor.sm_n986b_battery_level
+          - sensor.z_fold_3_jimmy_battery_level
+          - sensor.jimmys_iphone_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Other
+        entities:
+          - sensor.vacuum_battery
+          - sensor.smoke_sensor_battery_level
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Hue Dimmers
+        entities:
+          - sensor.ab_gang_muur_battery_level
+          - sensor.ab_keuken_muur_battery_level
+          - sensor.ab_kleine_kamer_muur_battery_level
+          - sensor.ab_slaapkamer_muur_battery_level
+          - sensor.ab_toilet_muur_battery_level
+          - sensor.ab_woonkamer_muur_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: IKEA Dimmers
+        entities:
+          - sensor.ab_kleine_kamer_battery_level
+          - sensor.ab_slaapkamer_jim_battery_level
+          - sensor.ab_slaapkamer_steph_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Doors
+        entities:
+          - sensor.voordeur_battery_level
+          - sensor.woonkamer_deur_battery_level
+          - sensor.slaapkamer_deur_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Windows
+        entities:
+          - sensor.keukenraam_battery_level
+          - sensor.bijkeukenraam_battery_level
+          - sensor.kleine_kamerraam_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Temperature/Humidity Sensors
+        entities:
+          - sensor.woonkamer_battery_level
+          - sensor.slaapkamer_battery_level
+          - sensor.badkamer_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Motion Sensors
+        entities:
+          - sensor.motion_toilet_battery_level
+          - sensor.motion_office_battery_level
+          - sensor.motion_gang_battery_level
+          - sensor.motion_bijkeuken_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Phones
+        entities:
+          - sensor.sm_n986b_battery_level
+          - sensor.z_fold_3_jimmy_battery_level
+          - sensor.jimmys_iphone_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Other
+        entities:
+          - sensor.vacuum_battery
+          - sensor.smoke_sensor_battery_level
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4

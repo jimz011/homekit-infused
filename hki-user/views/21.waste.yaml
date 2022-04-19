@@ -1,0 +1,15 @@
+# Waste
+waste:
+  subtitle: Collection
+  icon: mdi:trash-can
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    entities:
+      - title: Waste Collection
+        entities:
+          - sensor.mijnafvalwijzer_gft
+          - sensor.mijnafvalwijzer_papier
+          - sensor.mijnafvalwijzer_restafval

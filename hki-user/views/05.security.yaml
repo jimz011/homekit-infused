@@ -1,0 +1,133 @@
+# Security
+security:
+  subtitle: "[[[ return `Alarm ${states['alarm_control_panel.home_alarm'].state}`; ]]]"
+  icon: mdi:cctv
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: sensor.current_binary_sensors_on
+  layout:
+    layout_type: custom:horizontal-layout
+    layout:
+      max_cols: 4
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  button_label: "[[[ return `Alarm ${states['alarm_control_panel.home_alarm'].state}`; ]]]"
+  addons:
+    camera:
+      - entities:
+          - camera.gallerij_camera_high
+      - entities:
+          - camera.kennedylaan_links_high
+      - entities:
+          - camera.woonkamer_camera
+      - entities:
+          - camera.kennedylaan_camera
+    button:
+      # Small Screens
+      - title: Motion Sensors
+        entities:
+          - entity: binary_sensor.motion_gang
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_office
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_woonkamer_camera
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_bijkeuken
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_toilet
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.gallerij_camera_motion
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.kennedylaan_links_motion
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_gallerij_camera
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Doors
+        entities:
+          - entity: binary_sensor.voordeur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+          - entity: binary_sensor.woonkamer_deur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+          - entity: binary_sensor.slaapkamer_deur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"    
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3  
+      - title: Windows
+        entities:
+          - entity: binary_sensor.kleine_kamerraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+          - entity: binary_sensor.keukenraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+          - entity: binary_sensor.bijkeukenraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Other
+        entities:
+          - binary_sensor.smoke_sensor
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Motion Sensors
+        entities:
+          - entity: binary_sensor.motion_gang
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_office
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_woonkamer_camera
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_bijkeuken
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_toilet
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.gallerij_camera_motion
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.kennedylaan_links_motion
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+          - entity: binary_sensor.motion_gallerij_camera
+            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Doors
+        entities:
+          - entity: binary_sensor.voordeur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+          - entity: binary_sensor.woonkamer_deur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+          - entity: binary_sensor.slaapkamer_deur
+            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"    
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Windows
+        entities:
+          - entity: binary_sensor.kleine_kamerraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+          - entity: binary_sensor.keukenraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+          - entity: binary_sensor.bijkeukenraam
+            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Other
+        entities:
+          - binary_sensor.smoke_sensor
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4

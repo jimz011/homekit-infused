@@ -1,0 +1,34 @@
+# Weather
+weather:
+  subtitle: "[[[ return `${states['weather.eindhoven'].state}`; ]]]"
+  button_badge: sensor.buiten_temperatuur
+  icon: mdi:weather-partly-cloudy
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    weather:
+      - title: hide
+        type: core
+        entity: weather.eindhoven
+        city_name: Eindhoven
+    air_visual:
+      - title: hide
+        air_pollution_level: sensor.u_s_air_pollution_level
+        air_quality_index: sensor.u_s_air_quality_index
+        main_pollutant: sensor.u_s_main_pollutant
+        weather: weather.eindhoven
+        city_name: Eindhoven
+    sun_card:
+      - title: hide
+        show_elevation: true 
+    meteoalarm:
+      - title: hide
+        entity: binary_sensor.meteoalarm
+    iframe:
+      - title: hide
+        url: https://embed.windy.com/embed2.html?lat=51.402&lon=5.467&detailLat=51.477&detailLon=5.496&width=650&height=750&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1%22%20frameborder=%220%22        
+      - title: hide
+        aspect_ratio: 2x2
+        url: https://image.buienradar.nl/2.0/image/single/RadarMapRainNL?height=512&width=500&renderBackground=True&renderBranding=True&renderText=True 

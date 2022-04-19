@@ -1,0 +1,334 @@
+# Lights Ground Floor
+lights:
+  title: Lights
+  subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
+  icon: mdi:floor-lamp
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: sensor.current_lights_on
+  button_label: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Lights Off`; else return `${states['sensor.current_lights_on'].state} Lights On`; ]]]"
+  view_selector:
+    columns: 3
+    aspect_ratio: 3/1
+    size: 15%
+    elements:
+      - icon: mdi:home-floor-b
+        path: lights_1
+        name: Basement
+      - icon: mdi:home-floor-g
+        path: lights
+        this_view: true
+        name: Ground Floor
+      - icon: mdi:theme-light-dark
+        path: lights_2
+        name: Adaptive
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      # Small Screens
+      - title: Woonkamer
+        entities:
+          - light.plafond
+          - light.eettafel
+          - entity: light.woonkamer_led_lampen
+            type: rgb
+          - entity: light.tafellamp
+            type: color-temp
+          - entity: light.vloerlamp
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - entity: light.nachtkastje_stephanie
+            type: color-temp
+          - entity: light.nachtkastje_jimmy
+            type: color-temp
+          - entity: light.nachtkastjes
+            type: color-temp
+          - entity: light.slaapkamer_led_lampen
+            type: rgb
+          - light.bed_lamp
+          - light.kast_lamp
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Kleine Kamer
+        entities:
+          - entity: light.office_led_lampen
+            type: rgb
+          - entity: light.kleine_kamer
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Keuken
+        entities:
+          - entity: light.keuken
+            type: color-temp
+          - entity: light.keuken_leds
+            type: rgb
+          - entity: light.keuken_leds_onder
+            type: rgb
+          - entity: light.keuken_led_lampen
+            type: rgb
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Bijkeuken
+        entities:
+          - light.bijkeuken
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Gang
+        entities:
+          - light.entree_lamp
+          - light.gang_lamp
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Balkon
+        entities:
+          - light.balkon
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Badkamer
+        entities:
+          - light.koogeek_sw_056ce9
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Toilet
+        entities:
+          - light.toilet
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Woonkamer
+        entities:
+          - light.plafond
+          - light.eettafel
+          - entity: light.woonkamer_led_lampen
+            type: rgb
+          - entity: light.tafellamp
+            type: color-temp
+          - entity: light.vloerlamp
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Slaapkamer
+        lock: true
+        entities:
+          - entity: light.nachtkastje_stephanie
+            type: color-temp
+          - entity: light.nachtkastje_jimmy
+            type: color-temp
+          - entity: light.nachtkastjes
+            type: color-temp
+          - entity: light.slaapkamer_led_lampen
+            type: rgb
+          - light.bed_lamp
+          - light.kast_lamp
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Kleine Kamer
+        entities:
+          - entity: light.office_led_lampen
+            type: rgb
+          - entity: light.kleine_kamer
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Keuken
+        entities:
+          - entity: light.keuken
+            type: color-temp
+          - entity: light.keuken_leds
+            type: rgb
+          - entity: light.keuken_leds_onder
+            type: rgb
+          - entity: light.keuken_led_lampen
+            type: rgb
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Bijkeuken
+        entities:
+          - light.bijkeuken
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Gang
+        entities:
+          - light.entree_lamp
+          - light.gang_lamp
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Balkon
+        entities:
+          - light.balkon
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Badkamer
+        entities:
+          - light.koogeek_sw_056ce9
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Toilet
+        entities:
+          - light.toilet
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+        
+# Lights Basement
+lights_1:
+  title: Lights
+  subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
+  icon: mdi:floor-lamp
+  show_in_menu: false
+  button_badge: sensor.current_lights_on
+  button_label: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Lights Off`; else return `${states['sensor.current_lights_on'].state} Lights On`; ]]]"
+  view_selector:
+    columns: 3
+    aspect_ratio: 3/1
+    size: 15%
+    elements:
+      - icon: mdi:home-floor-b
+        path: lights_1
+        name: Basement
+        this_view: true
+      - icon: mdi:home-floor-g
+        path: lights
+        name: Ground Floor
+      - icon: mdi:theme-light-dark
+        path: lights_2
+        name: Adaptive
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      # Small Screens
+      - title: Berging
+        entities:
+          - entity: light.berging
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Berging
+        entities:
+          - entity: light.berging
+            type: color-temp
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+
+# Adaptive Lighting
+lights_2:
+  title: Lights
+  subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
+  icon: mdi:floor-lamp
+  show_in_menu: false
+  button_badge: sensor.current_lights_on
+  button_label: "[[[ if (states['sensor.current_lights_on'].state == 0) return `Lights Off`; else return `${states['sensor.current_lights_on'].state} Lights On`; ]]]"
+  view_selector:
+    columns: 3
+    aspect_ratio: 3/1
+    size: 15%
+    elements:
+      - icon: mdi:home-floor-b
+        path: lights_1
+        name: Basement
+      - icon: mdi:home-floor-g
+        path: lights
+        name: Ground Floor
+      - icon: mdi:theme-light-dark
+        path: lights_2
+        name: Adaptive
+        this_view: true
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      - title: Woonkamer
+        entities:
+          - entity: switch.adaptive_lighting_livingroom_leds
+            name: LEDs
+          - entity: switch.adaptive_lighting_livingroom_lights
+            name: Lampen
+      - title: Kleine Kamer
+        entities:
+          - entity: switch.adaptive_lighting_office_leds
+            name: LEDs
+          - entity: switch.adaptive_lighting_office_lights
+            name: Lampen
+      - title: Slaapkamer
+        entities:
+          - entity: switch.adaptive_lighting_bedroom_leds
+            name: LEDs
+          - entity: switch.adaptive_lighting_bedroom_lights
+            name: Lampen
+      - title: Keuken
+        entities:
+          - entity: switch.adaptive_lighting_kitchen_leds
+            name: LEDs
+          - entity: switch.adaptive_lighting_kitchen_lights
+            name: Lampen
+          - entity: switch.adaptive_lighting_kitchen_workspace
+            name: Aanrecht
+      - title: Bijkeuken
+        entities:
+          - entity: switch.adaptive_lighting_laundry
+            name: Lamp
+      - title: Balkon
+        entities:
+          - entity: switch.adaptive_lighting_outside
+            name: Lamp
+      - title: Toilet
+        entities:
+          - entity: switch.adaptive_lighting_toilet
+            name: Lamp
+      - title: Berging
+        entities:
+          - entity: switch.adaptive_lighting_berging
+            name: Lamp

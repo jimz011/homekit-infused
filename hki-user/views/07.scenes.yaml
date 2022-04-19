@@ -1,0 +1,33 @@
+# Scenes
+scenes:
+  subtitle: "[[[ if (states['sensor.current_scenes_on'].state == 0) return `All scenes are inactive`; if (states['sensor.current_scenes_on'].state == 1) return `1 scene is active`; else return `${states['sensor.current_scenes_on'].state} scenes are active`; ]]]"
+  icon: mdi:arrange-send-backward
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: sensor.current_scenes_on
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      # Small Screens
+      - title: Scenes
+        entities:
+          - switch.scene_keuken
+          - switch.scene_wassen
+          - switch.scene_welterusten
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Scenes
+        entities:
+          - switch.scene_keuken
+          - switch.scene_wassen
+          - switch.scene_welterusten
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4

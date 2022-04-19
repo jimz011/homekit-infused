@@ -1,0 +1,13 @@
+# Traffic
+traffic:
+  subtitle: "[[[ return `${states['sensor.reistijd_jimsteph'].state} reistijd naar partner`; ]]]"
+  button_badge: sensor.reistijd_jimsteph
+  icon: mdi:waze
+  layout:
+    layout:
+      max_cols: 1
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    iframe:
+      - url: https://embed.waze.com/iframe?zoom=13&lat=51.473097&lon=5.515480&ct=livemap

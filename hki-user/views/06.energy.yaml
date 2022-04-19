@@ -1,0 +1,195 @@
+# Energy
+energy:
+  subtitle: "[[[ return `The current energy usage is ${states['sensor.current_power_usage'].state}`; ]]]"
+  icon: mdi:chart-line
+  show_in_favorites: true
+  show_in_menu: false
+  button_badge: sensor.current_power_usage
+  view_selector:
+    columns: 2
+    size: 15%
+    aspect_ratio: 4/1
+    elements:
+      - name: Sensors
+        icon: mdi:chart-line
+        path: energy
+        this_view: true
+      - name: House
+        icon: mdi:home-lightning-bolt
+        path: energy_2
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    button:
+      # Small Screens
+      - title: Current Meter Readings
+        line_color: limegreen
+        type: graph
+        entities:
+          - entity: sensor.dsmr_consumption_gas_delivered
+            hours_to_show: 72
+          - entity: sensor.dsmr_total_power_delivered
+            hours_to_show: 72
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Total Today
+        line_color: orange
+        type: graph
+        entities:
+          - sensor.dsmr_day_consumption_gas
+          - sensor.dsmr_day_consumption_electricity_merged
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Total Cost Today
+        line_color: crimson
+        type: graph
+        entities:
+          - sensor.dsmr_day_consumption_gas_cost
+          - sensor.dsmr_day_consumption_electricity_cost_merged
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Wattage
+        line_color: yellow
+        type: graph
+        entities:
+          - sensor.washing_machine_power
+          - sensor.dryer_power
+          - sensor.koelkast_power
+          - sensor.vaatwasser_power
+          - sensor.power_52
+          - sensor.ts0121_2
+          - sensor.power_60
+          - sensor.power_57
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Voltage
+        line_color: cyan
+        type: graph
+        entities:
+          - sensor.koelkast_voltage
+          - sensor.vaatwasser_voltage
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      - title: Current
+        line_color: dodgerblue
+        type: graph
+        entities:
+          - sensor.koelkast_current
+          - sensor.vaatwasser_current
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
+      # Larger Screens
+      - title: Current Meter Readings
+        line_color: limegreen
+        type: graph
+        entities:
+          - entity: sensor.dsmr_consumption_gas_delivered
+            hours_to_show: 72
+          - entity: sensor.dsmr_total_power_delivered
+            hours_to_show: 72
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Total Today
+        line_color: orange
+        type: graph
+        entities:
+          - sensor.dsmr_day_consumption_gas
+          - sensor.dsmr_day_consumption_electricity_merged
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Total Cost Today
+        line_color: crimson
+        type: graph
+        entities:
+          - sensor.dsmr_day_consumption_gas_cost
+          - sensor.dsmr_day_consumption_electricity_cost_merged
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Wattage
+        line_color: yellow
+        type: graph
+        entities:
+          - sensor.washing_machine_power
+          - sensor.dryer_power
+          - sensor.koelkast_power
+          - sensor.vaatwasser_power
+          - sensor.power_52
+          - sensor.ts0121_2
+          - sensor.power_60
+          - sensor.power_57
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Voltage
+        line_color: cyan
+        type: graph
+        entities:
+          - sensor.koelkast_voltage
+          - sensor.vaatwasser_voltage
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Current
+        line_color: dodgerblue
+        type: graph
+        entities:
+          - sensor.koelkast_current
+          - sensor.vaatwasser_current
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+
+# Energy
+energy_2:
+  subtitle: "[[[ return `The current energy usage is ${states['sensor.current_power_usage'].state}`; ]]]"
+  icon: mdi:chart-line
+  show_in_menu: false
+  button_badge: sensor.current_power_usage
+  view_selector:
+    columns: 2
+    size: 15%
+    aspect_ratio: 4/1
+    elements:
+      - name: Sensors
+        icon: mdi:chart-line
+        path: energy
+      - name: House
+        icon: mdi:home-lightning-bolt
+        path: energy_2
+        this_view: true
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    energy:
+      - type: energy-date-selection
+      - type: energy-usage-graph
+      - type: energy-gas-graph
+      - type: energy-distribution
+        link_dashboard: true
+      - type: energy-sources-table
+      - type: energy-devices-graph

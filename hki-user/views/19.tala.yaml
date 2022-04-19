@@ -1,0 +1,98 @@
+# Tala
+tala:
+  subtitle: "[[[ if (states['person.tala'].state == 'home') return `Tala is home`; else return `Tala is not home!`; ]]]"
+  button_badge: person.tala
+  show_in_menu: false
+  icon: mdi:dog-side
+  layout:
+    layout:
+      card_margin: 4px 8px 8px
+      margin: 0px 8px
+  addons:
+    custom:
+      - title: Grooming
+        cards:
+          - type: entities
+            card_mod:
+              class: hki
+            entities:
+              - type: custom:check-button-card
+                title: Borstelen
+                entity: sensor.tala_borstelen
+                due: true
+                timeout: 5 days
+                color: '#45C669'
+                severity:
+                  - value: '-1 day'
+                    color: '#C66445'
+                  - value: 1 days
+                    color: '#C6B145'
+              - type: custom:check-button-card
+                title: Wassen
+                entity: sensor.tala_wassen
+                due: true
+                timeout: 1 month
+                color: '#45C669'
+                severity:
+                  - value: '-1 day'
+                    color: '#C66445'
+                  - value: 5 days
+                    color: '#C6B145'
+              - type: custom:check-button-card
+                title: Trimmen
+                entity: sensor.tala_trimmen
+                due: true
+                timeout: 6 months
+                color: '#45C669'
+                severity:
+                  - value: '-1 day'
+                    color: '#C66445'
+                  - value: 2 weeks
+                    color: '#C6B145'
+              - type: custom:check-button-card
+                title: Ontvlooien
+                entity: sensor.tala_ontvlooien
+                due: true
+                timeout: 1 month
+                color: '#45C669'
+                severity:
+                  - value: '-1 day'
+                    color: '#C66445'
+                  - value: 5 days
+                    color: '#C6B145'
+              - type: custom:check-button-card
+                title: Ontwormen
+                entity: sensor.tala_ontwormen
+                due: true
+                timeout: 3 months
+                color: '#45C669'
+                severity:
+                  - value: '-1 day'
+                    color: '#C66445'
+                  - value: 5 days
+                    color: '#C6B145'
+    map:
+      - title: Location
+        entities:
+          - person.tala
+    entities:
+      - title: Information
+        entities:
+          - type: weblink
+            card_mod:
+              style: |
+                a {
+                  color: var(--primary-text-color) !important;
+                }
+            name: Nossek & Verheijden
+            icon: 'mdi:phone'
+            url: tel:+31402571517
+          - type: weblink
+            card_mod:
+              style: |
+                a {
+                  color: var(--primary-text-color) !important;
+                }
+            name: Kivo Dierenvoeding 
+            icon: 'mdi:web'
+            url: https://www.kivobezorgservice.nl/c-4112157/droogvoeding-voor-de-hond/
