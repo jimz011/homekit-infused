@@ -4,6 +4,49 @@ config:
   alarm:
     entity: alarm_control_panel.home_alarm
     show_badge: true
+    popup:
+      - type: custom:switch-popup-card
+        noActiveState: 'Arming'
+        entity_value_path: state
+        icon: mdi:shield-alert
+        icon_color: "rgb(255,212,0)"
+        fullscreen: false
+        settings: true
+        settingsPosition: bottom
+        settingsCard:
+          type: alarm-panel
+          cardOptions:
+            entity: alarm_control_panel.home_alarm
+        entities:
+          - alarm_control_panel.home_alarm
+        buttons:
+          - icon: "mdi:shield-lock-open"
+            value: "disarmed"
+            name: "Disarmed"
+            color: "#FFF"
+            icon_color: "rgb(50,205,50)"
+            service: alarm_control_panel.alarm_disarm
+            service_data:
+              entity_id: alarm_control_panel.home_alarm
+              code: !secret alarm_code
+          - icon: "mdi:shield-home"
+            value: "armed_home"
+            name: "Armed Home"
+            color: "#FFF"
+            icon_color: "rgb(255,127,0)"
+            service: alarm_control_panel.alarm_arm_home
+            service_data:
+              entity_id: alarm_control_panel.home_alarm
+              code: !secret alarm_code
+          - icon: "mdi:shield-lock"
+            value: "armed_away"
+            name: "Armed Away"
+            color: "#FFF"
+            icon_color: "rgb(139,0,0)"
+            service: alarm_control_panel.alarm_arm_away
+            service_data:
+              entity_id: alarm_control_panel.home_alarm
+              code: !secret alarm_code
       
 # HEADER *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/header.md
   header:
@@ -126,96 +169,271 @@ config:
         source: true
         power_state: true
     cards:
-      - title: Calendar
-        icon: mdi:calendar
+      - title: Scheduler
+        icon: mdi:book-clock
         padding: -5
         entities:
-          - type: custom:state-switch
-            entity: user
-            states:
-              Jimmy:
-                type: calendar
-                card_mod:
-                  style: |
-                    ha-card {
-                      --primary-color: #006880 !important;
-                      --secondary-text-color: AliceBlue !important;
-                      --divider-color: rgba(255,255,255,0.2);
-                    }
-                entities:
-                  - calendar.jimmy
-              Stephanie:
-                type: calendar
-                card_mod:
-                  style: |
-                    ha-card {
-                      --primary-color: #006880 !important;
-                      --secondary-text-color: AliceBlue !important;
-                      --divider-color: rgba(255,255,255,0.2);
-                    }
-                entities:
-                  - calendar.stephanie
+          - type: custom:scheduler-card
+            include:
+              - alarm_control_panel
+              - binary_sensor.bijkeukenraam
+              - binary_sensor.car_wash
+              - binary_sensor.galaxy_watch4_classic_ecsm_is_charging
+              - binary_sensor.galaxy_watch4_classic_w4wd_is_charging
+              - binary_sensor.gallerij_camera_motion
+              - binary_sensor.kennedylaan_links_motion
+              - binary_sensor.keukenraam
+              - binary_sensor.kleine_kamerraam
+              - binary_sensor.motion_bijkeuken
+              - binary_sensor.motion_gang
+              - binary_sensor.motion_office
+              - binary_sensor.motion_toilet
+              - binary_sensor.slaapkamer_deur
+              - binary_sensor.sm_n986b_is_charging
+              - binary_sensor.smoke_sensor
+              - binary_sensor.updater
+              - binary_sensor.voordeur
+              - binary_sensor.woonkamer_deur
+              - binary_sensor.z_fold_3_jimmy_is_charging
+              - calendar.contacts
+              - calendar.family
+              - calendar.formula_one
+              - calendar.holidays_in_netherlands
+              - calendar.jimmy
+              - calendar.stephanie
+              - climate.tado_smart_radiator_thermostat_va0882906624
+              - climate.tado_smart_radiator_thermostat_va1671957504
+              - climate.tado_smart_radiator_thermostat_va2711623168
+              - climate.tado_smart_radiator_thermostat_va2898201344
+              - light.balkonlamp
+              - light.bed_lamp
+              - light.berging
+              - light.bijkeuken
+              - light.eettafel
+              - light.gang_lampen
+              - light.kast_lamp
+              - light.kerstboom
+              - light.keuken_lampen
+              - light.keuken_led_lampen
+              - light.koogeek_sw_056ce9
+              - light.nachtkastje_jimmy
+              - light.nachtkastje_stephanie
+              - light.nachtkastjes
+              - light.office_lampen
+              - light.office_led_lampen
+              - light.plafond
+              - light.raam_verlichting
+              - light.slaapkamer_lampen
+              - light.slaapkamer_led_lampen
+              - light.tafellamp
+              - light.toilet
+              - light.vloerlamp
+              - light.woonkamer_lampen
+              - light.woonkamer_led_lampen
+              - media_player
+              - notify.all_devices
+              - notify.android_tv_fire_tv
+              - notify.mobile_app_galaxy_watch4_classic_ecsm
+              - notify.mobile_app_galaxy_watch4_classic_w4wd
+              - notify.mobile_app_sm_n986b
+              - notify.mobile_app_z_fold_3_jimmy
+              - notify.persistent_notification
+              - notify.slack
+              - person.jimmy
+              - person.sleutels
+              - person.stephanie
+              - person.tala
+              - sensor.average_house_temperature
+              - sensor.bathroom_temp
+              - sensor.bedroom_temp
+              - sensor.car_wash
+              - sensor.current_power_usage
+              - sensor.date
+              - sensor.date_time
+              - sensor.dryer_time_left
+              - sensor.dsmr_total_power_delivered
+              - sensor.euro95_advies
+              - sensor.euro_95_e10_advies
+              - sensor.formula_one_sensor
+              - sensor.hacs
+              - sensor.hallway_temp
+              - sensor.internet_time
+              - sensor.kitchen_temp
+              - sensor.laundry_room_temp
+              - sensor.living_temp
+              - sensor.office_temp
+              - sensor.outside_temp
+              - sensor.p2000
+              - sensor.p2000_2
+              - sensor.p2000_3
+              - sensor.pretty_date
+              - sensor.reistijd_jimmy
+              - sensor.reistijd_jimmy_work
+              - sensor.reistijd_jimsteph
+              - sensor.reistijd_stephanie
+              - sensor.reistijd_stephanie_work
+              - sensor.time
+              - sensor.time_date
+              - sensor.time_utc
+              - sensor.toilet_temp
+              - sensor.uptime
+              - sensor.vacuum_battery
+              - sensor.washing_machine_time_left
+              - sun
+              - switch.adguard_protection
+              - switch.adguard_protection_2
+              - switch.afzuigkap
+              - switch.airfryer
+              - switch.cappumaker
+              - switch.dryer
+              - switch.fan
+              - switch.nespresso_apparaat
+              - switch.oven
+              - switch.pc_van_jimmy
+              - switch.pc_van_stephanie
+              - switch.piano
+              - switch.printer
+              - switch.receiver_slaapkamer
+              - switch.receiver_woonkamer
+              - switch.tv_slaapkamer
+              - switch.vaatwasser
+              - switch.washing_machine
+              - switch.waterkoker
+              - switch.waterkoker_2
+              - vacuum.rockrobo
+            time_step: 5
+      - title: Calendar
+        icon: mdi:calendar
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              entity: sensor.empty_sensor
+              icon: mdi:human-female
+              name: Stephanie
+              tap_action:
+                action: fire-dom-event
+                fold_row: true
+            padding: -5
+            entities:
+              - type: custom:hui-vertical-stack-card
+                cards:
+                  - type: custom:atomic-calendar-revive
+                    card_mod:
+                      class: hki
+                      style: |
+                        td.event-left {
+                          color: AliceBlue !important;
+                        }
+                        tr.daywrap {
+                          color: AliceBlue !important;
+                        }
+                    showProgressBar: true
+                    maxDaysToShow: 30
+                    maxEventCount: 7
+                    europeanDate: true
+                    showNoEventsForToday: true
+                    showMonth: true
+                    showWeekDay: true
+                    hideFinishedEvents: true
+                    entities:
+                      - calendar.stephanie
+          - type: custom:fold-entity-row
+            head:
+              entity: sensor.empty_sensor
+              icon: mdi:human-male
+              name: Jimmy
+              tap_action:
+                action: fire-dom-event
+                fold_row: true
+            padding: -5
+            entities:
+              - type: custom:hui-vertical-stack-card
+                cards:
+                  - type: custom:atomic-calendar-revive
+                    card_mod:
+                      class: hki
+                      style: |
+                        td.event-left {
+                          color: AliceBlue !important;
+                        }
+                        tr.daywrap {
+                          color: AliceBlue !important;
+                        }
+                    showProgressBar: true
+                    maxDaysToShow: 30
+                    maxEventCount: 7
+                    europeanDate: true
+                    showNoEventsForToday: true
+                    showMonth: true
+                    showWeekDay: true
+                    hideFinishedEvents: true
+                    entities:
+                      - calendar.jimmy
+          - type: custom:fold-entity-row
+            head:
+              entity: sensor.empty_sensor
+              icon: mdi:human-male-female
+              name: Family
+              tap_action:
+                action: fire-dom-event
+                fold_row: true
+            padding: -5
+            entities:
+                  - type: custom:atomic-calendar-revive
+                    card_mod:
+                      class: hki
+                      style: |
+                        td.event-left {
+                          color: AliceBlue !important;
+                        }
+                        tr.daywrap {
+                          color: AliceBlue !important;
+                        }
+                    showProgressBar: true
+                    maxDaysToShow: 30
+                    maxEventCount: 7
+                    europeanDate: true
+                    showNoEventsForToday: true
+                    showMonth: true
+                    showWeekDay: true
+                    hideFinishedEvents: true
+                    entities:
+                      - calendar.family
+          - type: custom:fold-entity-row
+            head:
+              entity: sensor.empty_sensor
+              icon: mdi:gift
+              name: Birthdays
+              tap_action:
+                action: fire-dom-event
+                fold_row: true
+            padding: -5
+            entities:
+              - type: custom:hui-vertical-stack-card
+                cards:
+                  - type: custom:atomic-calendar-revive
+                    card_mod:
+                      class: hki
+                      style: |
+                        td.event-left {
+                          color: AliceBlue !important;
+                        }
+                        tr.daywrap {
+                          color: AliceBlue !important;
+                        }
+                    showProgressBar: true
+                    maxDaysToShow: 30
+                    maxEventCount: 7
+                    europeanDate: true
+                    showNoEventsForToday: true
+                    showMonth: true
+                    showWeekDay: true
+                    hideFinishedEvents: true
+                    entities:
+                      - calendar.contacts
       - title: Google
         icon: mdi:google
         entities:
-          - type: custom:fold-entity-row
-            head:
-              entity: sensor.empty_sensor
-              icon: mdi:alarm
-              name: Alarms
-              tap_action:
-                action: fire-dom-event
-                fold_row: true
-            padding: 5
-            entities:
-              - type: custom:hui-vertical-stack-card
-                cards:
-                  - type: custom:auto-entities
-                    filter:
-                      include:
-                        - domain: sensor
-                          entity_id: "sensor.*_alarm"
-                          attributes:
-                            integration: google_home
-                      exclude:
-                        - state: unavailable
-                        - state: ''
-                        - state: 'idle'
-                    sort:
-                      method: name
-                      ignore_case: true
-                    show_empty: false
-                    card:
-                      type: custom:timer-bar-card
-          - type: custom:fold-entity-row
-            head:
-              entity: sensor.empty_sensor
-              icon: mdi:timer
-              name: Timers
-              tap_action:
-                action: fire-dom-event
-                fold_row: true
-            padding: 5
-            entities:
-              - type: custom:hui-vertical-stack-card
-                cards:
-                  - type: custom:auto-entities
-                    filter:
-                      include:
-                        - domain: sensor
-                          entity_id: "sensor.*_timer"
-                          attributes:
-                            integration: google_home
-                      exclude:
-                        - state: unavailable
-                        - state: ''
-                        - state: 'idle'
-                    sort:
-                      method: name
-                      ignore_case: true
-                    show_empty: false
-                    card:
-                      type: custom:timer-bar-card
           - type: custom:fold-entity-row
             head:
               entity: sensor.empty_sensor
@@ -307,24 +525,177 @@ config:
                     hide:
                       volume: false
                       power: true
-      - title: Location
-        icon: mdi:map
-        padding: -5
+      - title: Vehicle
+        icon: mdi:car-side
         entities:
           - type: custom:hui-vertical-stack-card
             cards:
-              - type: map
-                dark_mode: true
+              - type: entities
                 card_mod:
                   style: |
                     ha-card {
-                      box-shadow: none;
+                      margin-left: -15px !important;
                     }
-                aspect_ratio: 2x1
                 entities:
-                  - person.jimmy
-                  - person.stephanie
-                  - person.tala
+                  - entity: sensor.euro_95_e10_advies
+                    name: Adviesprijs E10 (Euro 95) 
+                    icon: mdi:gas-station  
+                  - entity: sensor.car_wash
+                    name: Kan ik de auto wassen?
+                    icon: mdi:car-wash
+          - type: custom:state-switch
+            entity: user
+            states:
+              Jimmy:
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    card_mod:
+                      style: |
+                        ha-card {
+                          margin-left: -15px !important;
+                          margin-top: -15px !important;
+                        }
+                    entities:
+                      - entity: sensor.kenteken_jimmy
+                        name: Kenteken
+                        icon: mdi:numeric  
+                      - entity: sensor.ascription_date
+                        name: Tenaamstelling
+                        icon: mdi:account-edit
+                      - entity: sensor.apk_expiration
+                        name: APK
+                        icon: mdi:tools
+                      - entity: binary_sensor.liability_insured
+                        name: Verzekerd
+                        icon: mdi:shield-car
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Stofzuigen
+                    entity: sensor.peugeot_stofzuigen
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Wassen
+                    entity: sensor.peugeot_wassen
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Bandendruk
+                    entity: sensor.peugeot_bandendruk
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Olie
+                    entity: sensor.peugeot_olie
+                    due: true
+                    timeout: 3 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 14 days
+                        color: '#C6B145'
+              Stephanie:
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    card_mod:
+                      style: |
+                        ha-card {
+                          margin-left: -15px !important;
+                          margin-top: -15px !important;
+                        }
+                    entities:
+                      - entity: sensor.kenteken_stephanie
+                        name: Kenteken
+                        icon: mdi:numeric  
+                      - entity: sensor.ascription_date_2
+                        name: Tenaamstelling
+                        icon: mdi:account-edit
+                      - entity: sensor.apk_expiration_2
+                        name: APK
+                        icon: mdi:tools
+                      - entity: binary_sensor.liability_insured_2
+                        name: Verzekerd
+                        icon: mdi:shield-car
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Stofzuigen
+                    entity: sensor.citroen_stofzuigen
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Wassen
+                    entity: sensor.citroen_wassen
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Bandendruk
+                    entity: sensor.citroen_bandendruk
+                    due: true
+                    timeout: 2 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 7 days
+                        color: '#C6B145'
+                  - type: custom:check-button-card
+                    card_mod:
+                      class: hki
+                    title: Olie
+                    entity: sensor.citroen_olie
+                    due: true
+                    timeout: 6 months
+                    color: '#45C669'
+                    severity:
+                      - value: '-1 day'
+                        color: '#C66445'
+                      - value: 14 days
+                        color: '#C6B145'
       - title: Waste
         icon: mdi:trash-can
         entities:
