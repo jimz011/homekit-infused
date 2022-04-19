@@ -64,6 +64,34 @@ The documentation on this page is only a quick way to set it up, however you can
               prefix: "~"
               suffix: Units
 ``` 
+```yaml
+# views.yaml (example of a Unifi Dream Machine Pro card with header and footer)
+  my_view:
+    addons:
+      entities:
+        - title: Unifi Dream Machine Pro
+          header:
+            type: picture
+            image: /local/images/udm-pro-transparant.png
+          footer:
+            type: graph
+            entity: sensor.dream_machine_pro_cpu_temperature
+            hours_to_show: 24
+            detail: 2
+          entities:
+            - entity: sensor.dream_machine_pro_uptime
+              name: Uptime
+            - entity: sensor.dream_machine_pro_cpu_utilization
+              name: CPU Utilization
+            - entity: sensor.dream_machine_pro_memory_utilization
+              name: Memory Utilization
+            - entity: sensor.dream_machine_pro_storage_utilization
+              name: Storage Utilization
+            - entity: sensor.dream_machine_pro_recording_capacity
+              name: Recording Capacity
+            - entity: binary_sensor.dream_machine_pro_disk_0_health
+              name: Disk Health
+``` 
 
 ### Images:
 

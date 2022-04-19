@@ -32,10 +32,14 @@ You can use any of the following options to modify your addon.
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
 | weather | no | unknown | Setup a weather entity to show the weather in this card |
 | hide_header | no | true | Whether to show/hide the header title of this card (this is NOT the same as the title defined above) |
+| hide_face | no | false | Whether to show/hide the face icon in the card |
+| hide_weather | no | false | Whether to show/hide the weather information in the card, this might be useful if you already have another weather card on that view |
+| speed_unit | no | KM/h | Set your prefered speed unit e.g. `MP/s`, `KM/s` or `MP/h` |
 | air_pollution_level | yes | sensor.u_s_air_pollution_level | Set the air pollution sensor entity |
 | air_quality_index | yes | sensor.u_s_air_quality_index | Set the air quality index sensor entity |
 | main_pollutant | yes | sensor.u_s_main_pollutant | Set the main pollutant sensor entity |
-| city_name | yes | unknown | Set your city name |
+| city_name | no | unknown | Set your city name |
+| country | no | US | Set your country name |
 | type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 

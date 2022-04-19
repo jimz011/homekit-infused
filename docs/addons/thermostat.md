@@ -27,7 +27,11 @@ You can use any of the following options to modify your addon.
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
 | columns | no | 3 | Sets the number of columns for this stack |
 | lock | no | undefined | Puts a lock on the entire stack |
+| action | no | undefined | You can reverse the default tap/hold action behaviour by setting `action: alternative` for this entire stack at once |
+| box_shadow | no | fancy | Choose how the box-shadow of your thermostats behave, choose between `none`, `default` or `fancy`, when setting `default` it will follow the default card active box-shadow that you set in the HKI Settings |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
+| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | list of entities | List your thermostat entities |
 
 ```yaml
@@ -56,6 +60,7 @@ You can use any of the following options to modify your addon.
         - title: Thermostats
           columns: 2
           lock: true
+          box_shadow: fancy
           entities:
             - climate.thermostat_livingroom
             - climate.thermostat_kitchen
@@ -72,7 +77,9 @@ If you define your entity as an object you can unlock more options.
 | name | no | default | Set a custom name for this entity, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon | no | mdi:thermostat | Set a custom icon for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | lock | no | false | Puts a lock on the button, choose between `true` or `false` |
+| action | no | undefined | You can reverse the default tap/hold action behaviour by setting `action: alternative` |
 | ambient_temperature | no | undefined | Set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
+| box_shadow | no | fancy | Choose how the box-shadow of your thermostats behave, choose between `none`, `default` or `fancy`, when setting `default` it will follow the default card active box-shadow that you set in the HKI Settings |
 
 ```yaml
 # views.yaml (example with extra options)
@@ -85,6 +92,7 @@ If you define your entity as an object you can unlock more options.
               lock: true
             - entity: climate.thermostat_kitchen
               ambient_temperature: sensor.kitchen_temperature
+              box_shadow: none
 ```
 
 ### Images:
