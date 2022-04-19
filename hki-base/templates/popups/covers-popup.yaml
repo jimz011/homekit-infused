@@ -1,0 +1,27 @@
+# lovelace_gen
+
+type: custom:cover-popup-card
+entity: {{ entity }}
+sliderService: cover.set_cover_position
+sliderColor: "#ddd"
+sliderTrackColor: "#FFF"
+sliderThumbColor: "#ddd"
+sliderThumbBorderColor: "#FFF"
+sliderTrackStripeColor: "#ddd"
+fullscreen: false
+settings: true
+settingsPosition: bottom
+settingsCard:
+  type: custom:more-info-card
+  cardOptions:
+    entity: {{ entity }}
+actionsInARow: 2
+actions:
+  - service: cover.open_cover
+    service_data:
+      entity_id: {{ entity }}
+    icon: mdi:window-shutter-open
+  - service: cover.close_cover
+    service_data:
+      entity_id: {{ entity }}
+    icon: mdi:window-shutter

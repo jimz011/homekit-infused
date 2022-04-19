@@ -16,6 +16,7 @@ icon: {{ icon|tojson }}
 icon: mdi:thermostat
 {% endif %}
 label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
+state_display: "[[[ if (states['{{entity}}'].state == 'off') return `Off`; else return `${states['{{entity}}'].attributes.hvac_action}` ]]]"
 lock:
   enabled: {{ lock|default('false') }}
   unlock: tap
@@ -23,10 +24,18 @@ show_icon: true
 show_name: true
 show_label: true
 show_state: true
+{% if ((action is defined) and (action == 'alternative')) %}
+hold_action:
+{% else %}
 tap_action:
+{% endif %}
   action: toggle
   haptic: light
-hold_action: 
+{% if ((action is defined) and (action == 'alternative')) %}
+tap_action:
+{% else %}
+hold_action:
+{% endif %}
   action: fire-dom-event
   browser_mod:
     command: call-service
@@ -64,7 +73,11 @@ hold_action:
                     }
                 entity: {{ entity }}
   haptic: light
+{% if ((action is defined) and (action == 'alternative')) %}
+tap_action:
+{% else %}
 double_tap_action: 
+{% endif %}
   action: fire-dom-event
   browser_mod:
     command: call-service
@@ -130,6 +143,16 @@ state:
       card:
         - opacity: var(--opacity-on)
         - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
       name:
         - color: var(--name-color-active)
       label:
@@ -150,6 +173,16 @@ state:
       card:
         - opacity: var(--opacity-on)
         - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
       name:
         - color: var(--name-color-active)
       label:
@@ -170,6 +203,16 @@ state:
       card:
         - opacity: var(--opacity-on)
         - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
       name:
         - color: var(--name-color-active)
       label:
@@ -190,6 +233,16 @@ state:
       card:
         - opacity: var(--opacity-on)
         - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
       name:
         - color: var(--name-color-active)
       label:

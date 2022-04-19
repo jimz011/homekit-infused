@@ -5,6 +5,10 @@ type: custom:button-card
 template: 
   - {{ template }}
 entity: input_boolean.dummy1
+{% if view_layout is defined %}
+view_layout:
+  {{ view_layout|tojson }}
+{% endif %}
 {% if name is defined %}
 name: {{ name|tojson }}
 {% endif %}

@@ -255,8 +255,8 @@ entities:
                         deviceID: this
               - !include
                 - profile-menu-shortcut.yaml
-                - name: Exit
-                  label: Menu
+                - name: Close
+                  label: Window
                   icon: mdi:close-circle-outline
                   commands:
                     - command: call-service
@@ -321,8 +321,8 @@ entities:
                     service: homeassistant.restart
               - !include
                 - profile-menu-shortcut.yaml
-                - name: Exit
-                  label: Menu
+                - name: Close
+                  label: Window
                   icon: mdi:close-circle-outline
                   commands:
                     - command: call-service

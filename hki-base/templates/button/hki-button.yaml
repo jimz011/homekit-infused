@@ -15,7 +15,11 @@ entity_picture: {{ entity_picture|tojson }}
 {% endif %}
 size: {{ size|default('25%') }}
 lock:
-  enabled: {{ lock|default('false') }}
+  {% if lock is defined %}
+  enabled: "{{ lock|default('false') }}"
+  {% else %}
+  enabled: false
+  {% endif %}
   unlock: {{ lock_unlock|default('tap') }}
   duration: {{ lock_duration|default('5') }}
 aspect_ratio: {{ aspect_ratio|default('1/1') }}
@@ -51,8 +55,10 @@ units: {{ units }}
 {% if entity is defined %}
 entity: {{ entity }}
 {% endif %}
-{% if ('light.' in entity) %}
+{% if (('light.' in entity) and (label is undefined)) %}
 label: "[[[ if (typeof(entity) === 'undefined') return; if ('brightness' in entity.attributes) { if (entity.attributes && (entity.attributes.brightness <= 255)) { var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; } } ]]]"
+{% elif (('cover.' in entity) and (label is undefined)) %}
+label: "[[[ if (entity.attributes.current_position === '0') return; else return (entity.attributes.current_position) + '%' ]]]"
 {% elif label is defined %}
 label: {{ label|tojson }}
 {% else %}
@@ -67,7 +73,11 @@ show_label: false
 {% else %}
 show_label: {{ show_label|default('true') }}
 {% endif %}
+{% if ('binary_sensor.' in entity) %}
+show_last_changed: true
+{% else %}
 show_last_changed: {{ show_last_changed|default('false') }}
+{% endif %}
 tap_action: 
   {% if tap_action is defined %}
   {{ tap_action|tojson }}
@@ -118,17 +128,21 @@ styles:
   lock:
     - color: var(--lock-color) 
   grid:
-    {% if ('light.' in entity) or ('switch.' in entity) %}
-    - grid-template-areas: '"i i" "area area" "n n" "s l"'
     - grid-template-columns: 1fr
+    {% if (button_type == 'default') %} 
+    - grid-template-areas: '"i i" "area area" "n n" "l l" "s s"'
+    - grid-template-rows: 1fr 1fr min-content min-content
+    {% elif ('light.' in entity) or ('switch.' in entity) or ('cover.' in entity) or (button_type == 'switch') or (button_type == 'rgb') or (button_type == 'color-temp') or (button_type == 'light') or (button_type == 'cover') %}
+    - grid-template-areas: '"i i" "area area" "n n" "s l"'
     - grid-template-rows: 1fr 1fr min-content min-content
     {% elif (button_type == 'graph') %} 
     - grid-template-areas: '"graph" "n" "area" "l"'
-    - grid-template-columns: 1fr 
     - grid-template-rows: 80% 3% 10% 3%
-    {% else %}
+    {% elif ('binary_sensor.' in entity) %} 
     - grid-template-areas: '"i i" "area area" "n n" "s s" "l l"'
-    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr 1fr min-content min-content min-content
+    {% else %}
+    - grid-template-areas: '"i i" "area area" "n n" "l l" "s s"'
     - grid-template-rows: 1fr 1fr min-content min-content min-content
     {% endif %} 
 {% if ((notification is defined) and (background_color is defined)) %}
@@ -187,7 +201,7 @@ custom_fields:
       decimals: 1
       font_size: 53
       show:
-        graph_type: {{ graph_type|default('line') }}
+        graph: {{ graph_type|default('line') }}
         icon: false
         fill: false
         extrema: false
@@ -213,15 +227,22 @@ state:
     styles:
       {% if ('light.' in entity) %}
       card:
+        {% if (button_type == 'rgb') or (button_type == 'color-temp') %}
         - box-shadow: "[[[ return `${states['input_text.card_box_shadow_light_color'].state}` ]]]"
         - -webkit-box-shadow: "[[[ return `${states['input_text.card_box_shadow_light_color'].state}` ]]]"
+        {% else %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% endif %}
         - --ha-card-background: var(--ha-card-background-active) 
         - opacity: var(--opacity-on)
       icon:
         {% if icon_color_on is defined %}
         - color: {{ icon_color_on|tojson }}
-        {% else %}
+        {% elif (button_type == 'rgb') or (button_type == 'color-temp') %}
         - color: var(--button-card-light-color)
+        {% else %}
+        - color: var(--ha-icon-active-color)
         {% endif %}
       {% else %}
       card:
@@ -236,6 +257,28 @@ state:
         - color: var(--ha-icon-active-color)
         {% endif %}
       {% endif %}
+      name:
+        - color: var(--name-color-active)
+      state:
+        - color: var(--state-color-active)
+      label:
+        - color: var(--label-color-active)
+      lock:
+        - color: var(--lock-color-active)
+  - value: "open"
+    spin: {{ spin|default('false') }}
+    styles:
+      card:
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        - --ha-card-background: var(--ha-card-background-active)
+        - opacity: var(--opacity-on)
+      icon:
+        {% if icon_color_on is defined %}
+        - color: {{ icon_color_on|tojson }}
+        {% else %}
+        - color: var(--ha-icon-active-color)
+        {% endif %}
       name:
         - color: var(--name-color-active)
       state:

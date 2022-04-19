@@ -18,6 +18,7 @@ card_mod:
       background: var(--header-color);
       --ha-card-background: transparent;
       border-radius: var(--header-border-radius) !important;
+      position: -webkit-sticky !important;
     }
     :host {
       z-index: 999 !important;
@@ -31,7 +32,11 @@ card:
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
+        {% if ((_global.config.alarm is defined) and (_global.config.alarm.show_badge is defined) and (_global.config.alarm.show_badge is true) or (_global.config.alarm.show_badge is undefined)) %}
         grid-template-columns: auto repeat(3, 43px)
+        {% else %}
+        grid-template-columns: auto repeat(2, 43px)
+        {% endif %}
         grid-template-rows: min-content
         {% if ((_global.config.alarm is defined) and (_global.config.alarm.show_badge is defined) and (_global.config.alarm.show_badge is true) or (_global.config.alarm.show_badge is undefined)) %}
         grid-template-areas: |
@@ -54,8 +59,20 @@ card:
         - type: markdown
           card_mod:
             class: header-title
+            {% if logo_image is defined %}
+            style: |
+              ha-card {
+                margin-top: {{ logo_margin_top|default('-10px') }} !important;
+                margin-left: {{ logo_margin_left|default('0px') }} !important;
+              }
+            {% endif %}
+          {% if logo_image is defined %}
+          content: >
+            <img src="{{ logo_image }}" alt="logo" width="{{ logo_width }}" height="{{ logo_height }}">
+          {% else %}
           content: >
             {{ title|default('undefined') }}
+          {% endif %}
           view_layout:
             grid-area: base
         - type: custom:config-template-card
@@ -104,6 +121,32 @@ card:
                     type: vertical-stack
                     cards:
                       - !include profile-top-menu.yaml
+                      - type: custom:state-switch
+                        entity: group
+                        states:
+                          admin:
+                            type: conditional
+                            conditions:
+                              - entity: sensor.hki_updater
+                                state: "Update Available"
+                            card:
+                              type: custom:button-card
+                              name: "${ 'UPDATE: HKI v' + states['sensor.hki_latest_version'].state + ' is now available!' }" 
+                              show_icon: false
+                              styles:
+                                card:
+                                  - --ha-card-background: DarkRed
+                                  - border-radius: 0px
+                                  - box-shadow: none
+                                  - height: 35px
+                                  - margin-top: -10px
+                                  - overflow: visible
+                                name:
+                                  - font-size: 12px
+                                  - color: AliceBlue
+                                  - font-weight: bold
+                                  - text-align: center
+                                  - margin-top: 8px
                       - type: custom:search-card
                         style:
                           .: |
@@ -335,7 +378,12 @@ card:
     
     {% if ((_global.config.header.show_subtitle is defined) and (_global.config.header.show_subtitle is true) or (_global.config.header.show_subtitle is undefined)) %}
     {% if ((name is defined) and (name != 'hide') or (name is undefined)) %}
-    {% if name is defined %}
+    {% if logo_image is defined %}    
+    - !include
+      - subtitle-notification-template.yaml
+      - icon: mdi:square-small
+        name: '&nbsp;'
+    {% elif name is defined %}
     - !include
       - subtitle-notification-template.yaml
       - icon: {{ icon|tojson|default('mdi:home') }}
