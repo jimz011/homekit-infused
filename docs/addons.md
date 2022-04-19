@@ -65,6 +65,7 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | [remote_control](addons/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
 | [sensor](addons/sensor.md) | A core sensor card |
 | [statistics](addons/statistics.md) | Create beautiful statistics graphs |
+| [sun_card](addons/sun-card.md) | A beautiful sun elevation card |
 | [upcoming_media](addons/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
 | [thermostat](addons/thermostat.md) | Thermostat buttons for your view |
 | [weather](addons/weather.md) | The weather addon for HKI, choose between core or simple-weather |
