@@ -1,112 +1,105 @@
-- type: custom:mod-card
-  style: |
-    ha-card {
-      margin-left: 7px;
-      margin-right: 7px;
-    }
-  card:
-    type: vertical-stack
-    cards:
-      - !include
-        - '../../../hki-base/templates/titles/default.yaml'
-        - name: '&nbsp; Array Status'
-      - type: custom:bar-card
-        style: |-
-          :host {
-            --ha-card-border-radius: 10px;
-            --ha-card-box-shadow: 10px;
-            --ha-card-opacity: 0.8;
-            card-backgroundbar: 0px;
-          }
-          bar-card-title {
-            margin-bottom: 0px;
-          }
-          bar-card-divider {
-            display: none;
-          }
-          bar-card-value {
-            margin-right: auto;
-            margin-left: 20px;
-            margin-bottom: auto;
-            margin-top: 0px;
-          }
-          bar-card-title {
-            margin-bottom: 3px;
-            margin-top: 3px;
-          }
-        entities:
-          - entity: sensor.unraid_array_status_numerical
-            name: Array Status
-            icon: mdi:code-array
-          - entity: sensor.unraid_array_protection_numerical
-            name: Array Protection
-            icon: mdi:harddisk-plus
-        show_icon: true
-        positions:
-          name: inside
-          value: 'off'
-          icon: inside
-        severity:
-          - color: Green
-            from: 0
-            to: 1
-          - color: Red
-            from: 1
-            to: 0
-        direction: right
-        stack: horizontal
-        columns: 1
-        max: 1
-        min: 0
-        tap_action: none
-      - type: custom:bar-card
-        style: |
-          :host {
-            --ha-card-border-radius: 10px;
-            --ha-card-box-shadow: 10px;
-            --ha-card-font-weight: bold;
-            --ha-card-opacity: 0.8;
-          }
-          ha-card {
-            font-size: 10px;
-          }
-          bar-card-value {
-            font-size: 10px;
-          }
-        entity: sensor.unraid_array_space
-        icon: mdi:database-settings
-        show_icon: true
-        positions:
-          name: inside
-          value: inside
-          icon: inside
-        severity:
-          - color: '#3cff00'
-            from: 0
-            to: 30
-          - color: '#ccff00'
-            from: 31
-            to: 40
-          - color: '#d9d21c'
-            from: 41
-            to: 50
-          - color: '#f7da00'
-            from: 51
-            to: 60
-          - color: '#edac09'
-            from: 61
-            to: 70
-          - color: '#ffa408'
-            from: 71
-            to: 80
-          - color: '#ff5e08'
-            from: 81
-            to: 90
-          - color: '#ed0909'
-            from: 91
-            to: 100
-        direction: right
-        columns: 1
-        max: 100
-        min: 0
-        tap_action: none
+- type: vertical-stack
+  cards:
+    - !include
+      - '../../../hki-base/templates/titles/default.yaml'
+      - name: 'Array Status'
+    - type: custom:bar-card
+      style: |-
+        :host {
+          --ha-card-border-radius: 10px;
+          --ha-card-box-shadow: 10px;
+          --ha-card-opacity: 0.8;
+          card-backgroundbar: 0px;
+        }
+        bar-card-title {
+          margin-bottom: 0px;
+        }
+        bar-card-divider {
+          display: none;
+        }
+        bar-card-value {
+          margin-right: auto;
+          margin-left: 20px;
+          margin-bottom: auto;
+          margin-top: 0px;
+        }
+        bar-card-title {
+          margin-bottom: 3px;
+          margin-top: 3px;
+        }
+      entities:
+        - entity: sensor.unraid_array_status_numerical
+          name: Array Status
+          icon: mdi:code-array
+        - entity: sensor.unraid_array_protection_numerical
+          name: Array Protection
+          icon: mdi:harddisk-plus
+      show_icon: true
+      positions:
+        name: inside
+        value: 'off'
+        icon: inside
+      severity:
+        - color: Green
+          from: 0
+          to: 1
+        - color: Red
+          from: 1
+          to: 0
+      direction: right
+      stack: horizontal
+      columns: 1
+      max: 1
+      min: 0
+      tap_action: none
+    - type: custom:bar-card
+      style: |
+        :host {
+          --ha-card-border-radius: 10px;
+          --ha-card-box-shadow: 10px;
+          --ha-card-font-weight: bold;
+          --ha-card-opacity: 0.8;
+        }
+        ha-card {
+          font-size: 10px;
+        }
+        bar-card-value {
+          font-size: 10px;
+        }
+      entity: sensor.unraid_array_space
+      icon: mdi:database-settings
+      show_icon: true
+      positions:
+        name: inside
+        value: inside
+        icon: inside
+      severity:
+        - color: '#3cff00'
+          from: 0
+          to: 30
+        - color: '#ccff00'
+          from: 31
+          to: 40
+        - color: '#d9d21c'
+          from: 41
+          to: 50
+        - color: '#f7da00'
+          from: 51
+          to: 60
+        - color: '#edac09'
+          from: 61
+          to: 70
+        - color: '#ffa408'
+          from: 71
+          to: 80
+        - color: '#ff5e08'
+          from: 81
+          to: 90
+        - color: '#ed0909'
+          from: 91
+          to: 100
+      direction: right
+      columns: 1
+      max: 100
+      min: 0
+      tap_action: none

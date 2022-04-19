@@ -1,143 +1,134 @@
-- type: custom:mod-card
-  style: |
-    ha-card {
-      margin-left: 7px;
-      margin-right: 7px;
-    }
-  card:
-    type: custom:swipe-card
-    parameters:
-      spaceBetween: 8
-      touchEventsTarget: 'container'
-      pagination:
-        type: 'bullets'
-        dynamicBullets: true
-    cards:
-      - type: vertical-stack
-        cards:
-          - !include
-            - '../../../hki-base/templates/titles/default.yaml'
-            - name: '&nbsp; Disk Usage'
-          - type: custom:bar-card
-            style: |
-              :host {
-                --ha-card-background: var(--paper-card-background-color);
-                --ha-card-border-radius: 10px;
-                --ha-card-box-shadow: 10px;
-                --ha-card-font-weight: bold;
-                --ha-card-opacity: 0.8;
-              }
-              ha-card {
-                font-size: 10px;
-              }
-              bar-card-value {
-                font-size: 10px;
-              }
-            entities:
-              - entity: sensor.glances_mnt_disk1_used_percent
-                name: Disk 1 Usage
-              - entity: sensor.glances_mnt_disk2_used_percent
-                name: Disk 2 Usage
-              - entity: sensor.glances_mnt_disk3_used_percent
-                name: Disk 3 Usage
-              - entity: sensor.glances_mnt_disk4_used_percent
-                name: Disk 4 Usage
-            show_icon: true
-            height: 180px
-            stack: horizontal
-            positions:
-              name: inside
-              value: inside
-              icon: inside
-            severity:
-              - color: '#3cff00'
-                from: 0
-                to: 30
-              - color: '#ccff00'
-                from: 30
-                to: 40
-              - color: '#f1f505'
-                from: 40
-                to: 50
-              - color: '#f7da00'
-                from: 50
-                to: 60
-              - color: '#edac09'
-                from: 60
-                to: 70
-              - color: '#ffa408'
-                from: 70
-                to: 80
-              - color: '#ff5e08'
-                from: 80
-                to: 90
-              - color: '#ed0909'
-                from: 90
-                to: 100
-            direction: up
-            columns: 1
-            max: 100
-            min: 0
-            tap_action: none
-      - type: vertical-stack
-        cards:
-          - !include
-            - '../../../hki-base/templates/titles/default.yaml'
-            - name: '&nbsp; Disk Space Free'
-          - type: custom:bar-card
-            style: |
-              :host {
-                --ha-card-background: var(--paper-card-background-color);
-                --ha-card-border-radius: 10px;
-                --ha-card-box-shadow: 10px;
-                --ha-card-font-weight: bold;
-                --ha-card-opacity: 0.8;
-              }
-              ha-card {
-                font-size: 10px;
-              }
-              bar-card-value {
-                font-size: 10px;
-              }
-            entities:
-              - entity: sensor.glances_mnt_disk1_free
-                name: Disk 1 Free
-                min: 0
-                max: 2730
-              - entity: sensor.glances_mnt_disk2_free
-                name: Disk 2 Free
-                min: 0
-                max: 2730
-              - entity: sensor.glances_mnt_disk3_free
-                name: Disk 3 Free
-                min: 0
-                max: 120
-              - entity: sensor.glances_mnt_disk4_free
-                name: Disk 4 Free
-                min: 0
-                max: 931
-            show_icon: true
-            height: 180px
-            stack: horizontal
-            positions:
-              name: inside
-              value: inside
-              icon: inside
-            severity:
-              - color: '#fa0505'
-                from: 0
-                to: 700
-              - color: '#de4314'
-                from: 700
-                to: 800
-              - color: '#d1861d'
-                from: 800
-                to: 900
-              - color: '#d4c11c'
-                from: 900
-                to: 1000
-              - color: '#64c91c'
-                from: 1001
-                to: 5560
-            direction: up
-            tap_action: none
+- type: custom:swipe-card
+  parameters:
+    spaceBetween: 8
+    touchEventsTarget: 'container'
+    pagination:
+      type: 'bullets'
+      dynamicBullets: true
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/titles/default.yaml'
+          - name: 'Disk Usage'
+        - type: custom:bar-card
+          style: |
+            :host {
+              --ha-card-background: var(--ha-card-background);
+              --ha-card-border-radius: 10px;
+              --ha-card-box-shadow: 10px;
+              --ha-card-font-weight: bold;
+            }
+            ha-card {
+              font-size: 10px;
+            }
+            bar-card-value {
+              font-size: 10px;
+            }
+          entities:
+            - entity: sensor.glances_mnt_disk1_used_percent
+              name: Disk 1 Usage
+            - entity: sensor.glances_mnt_disk2_used_percent
+              name: Disk 2 Usage
+            - entity: sensor.glances_mnt_disk3_used_percent
+              name: Disk 3 Usage
+            - entity: sensor.glances_mnt_disk4_used_percent
+              name: Disk 4 Usage
+          show_icon: true
+          height: 180px
+          stack: horizontal
+          positions:
+            name: inside
+            value: inside
+            icon: inside
+          severity:
+            - color: '#3cff00'
+              from: 0
+              to: 30
+            - color: '#ccff00'
+              from: 30
+              to: 40
+            - color: '#f1f505'
+              from: 40
+              to: 50
+            - color: '#f7da00'
+              from: 50
+              to: 60
+            - color: '#edac09'
+              from: 60
+              to: 70
+            - color: '#ffa408'
+              from: 70
+              to: 80
+            - color: '#ff5e08'
+              from: 80
+              to: 90
+            - color: '#ed0909'
+              from: 90
+              to: 100
+          direction: up
+          columns: 1
+          max: 100
+          min: 0
+          tap_action: none
+    - type: vertical-stack
+      cards:
+        - !include
+          - '../../../hki-base/templates/titles/default.yaml'
+          - name: 'Disk Space Free'
+        - type: custom:bar-card
+          style: |
+            :host {
+              --ha-card-background: var(--ha-card-background);
+              --ha-card-border-radius: 10px;
+              --ha-card-box-shadow: 10px;
+              --ha-card-font-weight: bold;
+            }
+            ha-card {
+              font-size: 10px;
+            }
+            bar-card-value {
+              font-size: 10px;
+            }
+          entities:
+            - entity: sensor.glances_mnt_disk1_free
+              name: Disk 1 Free
+              min: 0
+              max: 2730
+            - entity: sensor.glances_mnt_disk2_free
+              name: Disk 2 Free
+              min: 0
+              max: 2730
+            - entity: sensor.glances_mnt_disk3_free
+              name: Disk 3 Free
+              min: 0
+              max: 120
+            - entity: sensor.glances_mnt_disk4_free
+              name: Disk 4 Free
+              min: 0
+              max: 931
+          show_icon: true
+          height: 180px
+          stack: horizontal
+          positions:
+            name: inside
+            value: inside
+            icon: inside
+          severity:
+            - color: '#fa0505'
+              from: 0
+              to: 700
+            - color: '#de4314'
+              from: 700
+              to: 800
+            - color: '#d1861d'
+              from: 800
+              to: 900
+            - color: '#d4c11c'
+              from: 900
+              to: 1000
+            - color: '#64c91c'
+              from: 1001
+              to: 5560
+          direction: up
+          tap_action: none

@@ -1,0 +1,156 @@
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.adguard
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.adguard_backup
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.authelia
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.barcode
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.calibre
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.calibre_web
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.chromium
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.deconz_vnc
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.draw_io
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.dsmr_reader
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.duplicacy
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.esphome
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.ferdi
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.firefly3
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.gitlab
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.grafana
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.grocy
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.home_assistant
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.jackett
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.languagetool
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.lidarr
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.mattermost
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.mealie
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.metube
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.motioneye
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.nextcloud
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.nodered
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.ombi
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.phoscon
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.plex
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.prowlarr
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.qbittorrent
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.radarr
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.readarr
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.resume_builder
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.sabnzbd
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.snippetbox
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.sonarr
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.stash
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.uptime_kuma
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.valetudo
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.vaultwarden
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.vscode
+    - !include
+      - '../../templates/uptime-card.yaml'
+      - entity: sensor.whoogle
