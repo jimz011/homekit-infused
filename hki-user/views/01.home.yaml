@@ -106,7 +106,7 @@ home:
                   subtitle: Cleaning Count
     custom_2:
       - title: hide
-        type: conditional
+        conditional: true
         conditions:
           - entity: media_player.spotify_jimmy
             state_not: "idle"
@@ -123,7 +123,7 @@ home:
               power_state: true
               source: true
       - title: hide
-        type: conditional
+        conditional: true
         conditions:
           - entity: media_player.spotify_stephanie
             state_not: "idle"
