@@ -29,15 +29,17 @@ The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
     close_button_orientation: right
 ```
 
-#### RGB Popups
+#### RGB and Covers Popups
 
-At this moment the only popup that is changeable is the RGB popup for the button addon. You must have set your [button](button.md) to `type: rgb` for these changes to have any effect on them!
+You must have set your [button](button.md) to `type: rgb` or `type: cover` for these changes to have any effect on them!
+
+ONLY height and width will apply to covers, all other settings will only be applied for rgb and color-temp popups.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | slider_colored_by_light | no | true | Set if the slider should be the same color as the light |
-| height | no | 410px | Set the height in `px` of the slider on the popup, it might be useful to lower this on smaller phones |
-| width | no | 110px | Set the width in `px` of the slider on the popup |
+| height | no | 410px | Set the height in `px` of the slider on the popup, it might be useful to lower this on smaller phones, this will set the height for all sliders on any popup type |
+| width | no | 110px | Set the width in `px` of the slider on the popup, this will set the width for all sliders on any popup type |
 | actions_per_row | no | 3 | Set the number of actions that should be shown horizontally |
 | action_size | no | 30px | Set the size of the action button in `px` |
 | rgb_popup | no | undefined | Set the action buttons, see options below |

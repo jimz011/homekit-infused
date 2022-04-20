@@ -25,7 +25,7 @@ You can use any of the following options to modify your addon.
 | aspect_ratio | no | none | Sets an aspect ratio for your map |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
 | dark_mode | no | false | Whether to use a dark or light map |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | array | Add the entities you want in your stack, entities must be listed as an array |
 

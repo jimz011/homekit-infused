@@ -24,7 +24,7 @@ You can use any of the following options to modify your addon.
 | url | yes | undefined | Set your iFrame address here, note that if you use `https` to access your Home Assistant, your iFrame address must be `https` as well! |
 | aspect_ratio | no | undefined | Set a custom aspect_ratio for this iFrame |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 
 

@@ -35,8 +35,9 @@ You can use any of the following options to modify your addon.
 | columns | no | 3 | Define the number of columns this stack will use |
 | square | no | true | Set if the buttons should be square or not, this is only useful when you set individual aspect_ratios in the config below |
 | lock | no | false | this locks the entire stack and will now need two taps to turn on/off, the first tap unlocks, the second toggles |
+| aspect_ratio | no | 1/1 | Set the aspect ratio of all the buttons in this stack at once |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | list of entities | List all your entities you want to show up here |
 
@@ -133,7 +134,7 @@ You must define it as an object instead to make use of the options below.
 ```
 #### HKI Specific Button Types Extra Options
 
-Some buttons get some extra options if you set `type: graph`, `type: switch`, `type: rgb` and `type: color-temp`.
+Some buttons get some extra options if you set `type: graph`, `type: switch`, `type: rgb`, `type: color-temp` and `type: cover`.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -141,6 +142,8 @@ Some buttons get some extra options if you set `type: graph`, `type: switch`, `t
 ||||
 | line_color | no | red | When having `type: graph` you can set the line_color, this can be a css name or a hex value (e.g. Red or '#FF22FF') |
 | graph_type | no | line | When having `type: graph` you can change the graph_type between `bar` or `line` |
+||||
+| cover_control | no | cover_position | When having `type: cover` you can set if you want to control the `cover_position` or `tilt_position` with the slider |  
 
 #### Tips
 By default the label is either the brightness of a light or empty, however with button-card JS templates you can have a cool label like this

@@ -27,10 +27,10 @@ You can use any of the following options to modify your addon.
 | title | no | undefined | Set the title of the stack, ommitting this line will or setting `title: hide` will hide the title |
 | columns | no | 3 | Sets the number of columns for this stack |
 | lock | no | undefined | Puts a lock on the entire stack |
-| action | no | undefined | You can reverse the default tap/hold action behaviour by setting `action: alternative` for this entire stack at once |
+| action | no | undefined | You can reverse the default tap/hold action behaviour by setting `action: alternative` for this entire stack at once. If you want to be able to see the `more-info` window directly use `action: more-info` |
 | box_shadow | no | fancy | Choose how the box-shadow of your thermostats behave, choose between `none`, `default` or `fancy`, when setting `default` it will follow the default card active box-shadow that you set in the HKI Settings |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entities | yes | list of entities | List your thermostat entities |
 

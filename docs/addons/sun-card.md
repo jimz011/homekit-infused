@@ -34,7 +34,7 @@ WARNING! YOU MUST SET AT LEAST 1 OF THE FOLLOWING VALUES FOR THIS CARD TO WORK `
 | language | no | undefined | Changes card language, e.g. `English` |
 | show_azimuth | no | false | Set to show azimuth in the footer |
 | show_elevation | no | false | Set to show the elevation in the footer |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 
 

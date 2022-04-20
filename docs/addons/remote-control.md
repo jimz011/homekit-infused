@@ -26,7 +26,7 @@ You can use any of the following options to modify your addon.
 | remote_entity | yes | undefined | Set your entity that is used as the remote control (for Android TV you must use the same entity as the media_player) |
 | type | no | undefined | Set to `atv` if you have an Apple TV, otherwise don't use this line |
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
-| type | no | undefined | Setting a type can make the stack condtional, this option will ONLY accept `conditional` |
+| conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 
 ```yaml

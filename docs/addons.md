@@ -102,10 +102,10 @@ Addons can also be conditional depending on a state of an entity!
 # views.yaml (example of defining multiple addons of the same type)
   my_view:
     title: Location
-    type: conditional
     addons:
       button:
         - title: This will only show when Jimmy is home
+          conditional: true
           conditions:
             - entity: person.jimmy
               state: "home"
@@ -113,6 +113,7 @@ Addons can also be conditional depending on a state of an entity!
             - switch.phone
       button_2:
         - title: This will only show when Jimmy AND Stephanie are home
+          conditional: true
           conditions:
             - entity: person.jimmy
               state: "home"
@@ -122,6 +123,7 @@ Addons can also be conditional depending on a state of an entity!
             - switch.iphone
       button_3:
         - title: This will only show when Jimmy is NOT home AND Stephanie IS home
+          conditional: true
           conditions:
             - entity: person.jimmy
               state_not: "home"
