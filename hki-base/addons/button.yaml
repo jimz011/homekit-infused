@@ -35,6 +35,8 @@
   {% endif %}
   {% if device.aspect_ratio is defined %}
   aspect_ratio: {{ device.aspect_ratio }}
+  {% elif config.aspect_ratio is defined %}
+  aspect_ratio: {{ config.aspect_ratio }}
   {% endif %}
   {% if device.name is defined %}
   name: {{ device.name|tojson }}
@@ -188,6 +190,11 @@
               {% else %}
               - entity: {{ device }}
               {% endif %}
+                {% if ((device.cover_control is defined) and (device.cover_control == 'tilt_position')) %}
+                cover_control: cover.set_cover_tilt_position
+                {% else %}
+                cover_control: cover.set_cover_position
+                {% endif %}
   {% endif %}
   {% if device.hold_action is defined %}
   hold_action:

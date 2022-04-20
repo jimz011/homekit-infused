@@ -689,7 +689,7 @@ cards:
                                       **Example:** linear-gradient(Black, White)
 
 
-                                      **Example:** 'center / cover no-repeat url("/local/images/my_wallpaper.png") fixed'
+                                      **Example:** center / cover no-repeat url("/local/images/my_wallpaper.png") fixed
                   Dark:
                     type: vertical-stack
                     cards:
@@ -1157,7 +1157,7 @@ cards:
                                       **Example:** linear-gradient(Black, White)
 
 
-                                      **Example:** 'center / cover no-repeat url("/local/images/my_wallpaper.png") fixed'
+                                      **Example:** center / cover no-repeat url("/local/images/my_wallpaper.png") fixed
               - type: entities
                 card_mod:
                   class: hki   

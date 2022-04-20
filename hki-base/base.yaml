@@ -152,7 +152,7 @@
                 {{ config.view_layout|tojson }}
               {% endif %}
               conditions:
-                {% if config.type == 'conditional' %}
+                {% if config.conditional is true %}
                 {% for condition in config.conditions %}
                 - {{ condition|tojson }}
                 {% endfor %}

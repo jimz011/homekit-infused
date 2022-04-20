@@ -24,14 +24,14 @@ show_icon: true
 show_name: true
 show_label: true
 show_state: true
-{% if ((action is defined) and (action == 'alternative')) %}
+{% if ((action is defined) and (action == 'alternative') or (action == 'more-info')) %}
 hold_action:
 {% else %}
 tap_action:
 {% endif %}
   action: toggle
   haptic: light
-{% if ((action is defined) and (action == 'alternative')) %}
+{% if ((action is defined) and (action == 'alternative') or (action == 'more-info')) %}
 tap_action:
 {% else %}
 hold_action:
@@ -51,6 +51,7 @@ hold_action:
         type: vertical-stack
         cards:
           - !include ../popups/close-popup.yaml
+          {% if ((action is defined) and (action != 'more-info') or (action is undefined)) %}
           - type: custom:thermostat-popup-card
             entity: {{ entity }}
             fullscreen: false
@@ -72,6 +73,22 @@ hold_action:
                       --disabled-text-color: AliceBlue !important;
                     }
                 entity: {{ entity }}
+          {% else %}
+          - type: custom:more-info-card
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: none;
+                  box-shadow: none;
+                  background: transparent;
+                  --primary-text-color: AliceBlue !important;
+                  color: AliceBlue !important !important;
+                  --text-primary-color: AliceBlue !important;
+                  --secondary-text-color: AliceBlue !important;
+                  --disabled-text-color: AliceBlue !important;
+                }
+            entity: {{ entity }}
+          {% endif %}
   haptic: light
 {% if ((action is defined) and (action == 'alternative')) %}
 tap_action:

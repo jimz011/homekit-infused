@@ -4,8 +4,8 @@
 type: custom:light-popup-card
 entity: {{ entity }}
 {% if _global.config.rgb_popups.width is defined %}
-brightnessWidth: 110px
-switchWidth: 110px
+brightnessWidth: {{ _global.config.rgb_popups.width }}
+switchWidth: {{ _global.config.rgb_popups.width }}
 {% else %}
 brightnessWidth: 110px
 switchWidth: 110px

@@ -2,12 +2,22 @@
 
 type: custom:cover-popup-card
 entity: {{ entity }}
-sliderService: cover.set_cover_position
+sliderService: {{ cover_control }}
 sliderColor: "#ddd"
 sliderTrackColor: "#FFF"
 sliderThumbColor: "#ddd"
 sliderThumbBorderColor: "#FFF"
 sliderTrackStripeColor: "#ddd"
+{% if _global.config.rgb_popups.width is defined %}
+sliderWidth: {{ _global.config.rgb_popups.width }}
+{% else %}
+sliderWidth: 110px
+{% endif %}
+{% if _global.config.rgb_popups.height is defined %}
+sliderHeight: {{ _global.config.rgb_popups.height }}
+{% else %}
+sliderHeight: 410px
+{% endif %}
 fullscreen: false
 settings: true
 settingsPosition: bottom
