@@ -25,6 +25,7 @@ You can use the sensors anywhere you like (for example inside of a navigation bu
 *Remember that this will NOT work without the device_counters.yaml file!!!
 
 List of available sensors to use:
+```yaml
 - sensor.current_devices_on (to show all devices currently on)
 - sensor.current_lights_on (to show all lights currently on)
 - sensor.current_climate_entities_on (to show all climate devices currently on)
@@ -36,3 +37,4 @@ List of available sensors to use:
 - sensor.current_garage_doors_open (to show all garage doors currently open)
 - sensor.current_fans_on (to show all fans currently on)
 - sensor.current_detectors_on (to show all detector entities, like gas/smoke/fire, currently on)
+```
