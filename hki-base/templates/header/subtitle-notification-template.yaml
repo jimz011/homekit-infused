@@ -4,11 +4,21 @@ type: custom:button-card
 name: {{ name|tojson }}
 icon: {{ icon|tojson|default('mdi:home') }}
 entity: input_boolean.dummy1
+{% if tap_action is defined %}
+tap_action:
+  {{ tap_action|tojson }}
+{% else %}
 tap_action:
   action: more-info
   haptic: light
+{% endif %}
+{% if hold_action is defined %}
+hold_action:
+  {{ hold_action|tojson }}
+{% else %}
 hold_action:
   action: none
+{% endif %}
 styles:
   card:
     - height: 30px

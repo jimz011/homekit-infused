@@ -13,6 +13,7 @@ styles:
     - padding: 0px 10px
     - justify-self: start
     - color: var(--label-color)
+    - text-transform: capitalize
   state:
     - font-size: var(--state-font-size)
     - font-family: var(--font-family)

@@ -38,19 +38,25 @@ hold_action:
 {% endif %}
   action: fire-dom-event
   browser_mod:
-    command: call-service
     service: browser_mod.popup
-    service_data:
+    data:
       title: ' '
-      hide_header: true
-      deviceID:
-        - this
-      style:
-        !include ../../includes/popup-style.yaml
-      card:
+      size: fullscreen
+      card_mod:
+        style:
+          .: |
+            :host {
+              --primary-text-color: AliceBlue !important;
+            }
+            mwc-icon-button {
+              color: AliceBlue !important;
+            }
+      style: |
+        --popup-background-color: black !important;
+        --popup-header-background-color: var(--popup-background-color) !important;
+      content:
         type: vertical-stack
         cards:
-          - !include ../popups/close-popup.yaml
           {% if ((action is defined) and (action != 'more-info') or (action is undefined)) %}
           - type: custom:thermostat-popup-card
             entity: {{ entity }}
@@ -97,19 +103,25 @@ double_tap_action:
 {% endif %}
   action: fire-dom-event
   browser_mod:
-    command: call-service
     service: browser_mod.popup
-    service_data:
+    data:
       title: ' '
-      deviceID:
-        - this
-      hide_header: true
-      style:
-        !include ../../includes/popup-style.yaml
-      card:
+      size: fullscreen
+      card_mod:
+        style:
+          .: |
+            :host {
+              --primary-text-color: AliceBlue !important;
+            }
+            mwc-icon-button {
+              color: AliceBlue !important;
+            }
+      style: |
+        --popup-background-color: black !important;
+        --popup-header-background-color: var(--popup-background-color) !important;
+      content:
         type: vertical-stack
         cards:
-          - !include ../popups/close-popup.yaml
           - type: custom:thermostat-popup-card
             entity: {{ entity }}
             fullscreen: false

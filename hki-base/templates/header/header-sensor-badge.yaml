@@ -13,19 +13,25 @@ tap_action:
 tap_action:
   action: fire-dom-event
   browser_mod:
-    command: call-service
     service: browser_mod.popup
-    service_data:
+    data:
       title: " "
-      hide_header: true
-      style:
-        !include ../../includes/popup-style.yaml
-      deviceID:
-        - this
-      card:
+      size: fullscreen
+      card_mod:
+        style:
+          .: |
+            :host {
+              --primary-text-color: AliceBlue !important;
+            }
+            mwc-icon-button {
+              color: AliceBlue !important;
+            }
+      style: |
+        --popup-background-color: black !important;
+        --popup-header-background-color: var(--popup-background-color) !important;
+      content:
         type: vertical-stack
         cards:
-          - !include ../popups/close-popup.yaml
           {% if popup is defined %}
           {% for cards in popup %}
           - {{ cards|tojson }}

@@ -3,7 +3,8 @@
 type: custom:meteoalarm-card
 card_mod:
   class: hki
-entity: {{ config.entity }}
+entities: 
+  - {{ config.entity }}
 {% if config.integration is defined %}
 integration: {{ config.integration }}
 {% else %}

@@ -4,6 +4,8 @@ type: entities
 card_mod:
   style: |
     ha-card {
+      margin-top: -10px !important;
+      overflow: visible !important;
       border-radius: none !important;
       -webkit-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
       -moz-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
@@ -36,16 +38,12 @@ entities:
               {% else %}
               label: Profile
               {% endif %}
-              commands:
-                - command: call-service
-                  service: browser_mod.navigate
-                  service_data:
-                    navigation_path: ../profile
-                    deviceID: this
-                - command: call-service
-                  service: browser_mod.close_popup
-                  service_data:
-                    deviceID: this
+              sequence:
+                - service: browser_mod.navigate
+                  data:
+                    path: ../profile
+                - service: browser_mod.close_popup
+                  data: []
           - !include
             - profile-menu-shortcut.yaml
             - icon: mdi:map-search-outline
@@ -59,16 +57,12 @@ entities:
               {% else %}
               label: My
               {% endif %}
-              commands:
-                - command: call-service
-                  service: browser_mod.navigate
-                  service_data:
-                    navigation_path: find_my
-                    deviceID: this
-                - command: call-service
-                  service: browser_mod.close_popup
-                  service_data:
-                    deviceID: this
+              sequence:
+                - service: browser_mod.navigate
+                  data:
+                    path: find_my
+                - service: browser_mod.close_popup
+                  data: []
           - !include
             - profile-menu-shortcut.yaml
             - icon: mdi:information-outline
@@ -85,19 +79,25 @@ entities:
               tap_action:
                 action: fire-dom-event
                 browser_mod:
-                  command: call-service
                   service: browser_mod.popup
-                  service_data:
+                  data:
                     title: " "
-                    hide_header: true
-                    style:
-                      !include ../../includes/popup-style.yaml
-                    deviceID:
-                      - this
-                    card:
+                    size: fullscreen
+                    card_mod:
+                      style:
+                        .: |
+                          :host {
+                            --primary-text-color: AliceBlue !important;
+                          }
+                          mwc-icon-button {
+                            color: AliceBlue !important;
+                          }
+                    style: |
+                      --popup-background-color: black !important;
+                      --popup-header-background-color: var(--popup-background-color) !important;
+                    content:
                       type: vertical-stack
                       cards:
-                        - !include ../popups/close-popup.yaml
                         {% raw %}
                         - type: markdown
                           card_mod:
@@ -161,33 +161,22 @@ entities:
               {% else %}
               confirmation: Are you sure you want to refresh the window? This will NOT reload lovelace!
               {% endif %}
-              commands:
-                - command: call-service
-                  service: browser_mod.window_reload
-                  service_data:
-                    deviceID: this
-                - command: call-service
-                  service: browser_mod.close_popup
-                  service_data:
-                    deviceID: this
+              sequence:
+                - service: browser_mod.refresh
+                  data: []
+                - service: browser_mod.close_popup
+                  data: []
           - !include
             - profile-menu-shortcut.yaml
-            - icon: mdi:close-circle-outline
-              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.close_window_1 is defined)) %}
-              name: {{ _global.config.profile.translate.close_window_1 }}
-              {% else %}
-              name: Close
-              {% endif %}
-              {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.close_window_2 is defined)) %}
-              label: {{ _global.config.profile.translate.close_window_2 }}
-              {% else %}
-              label: Window
-              {% endif %}
-              commands:
-                - command: call-service
-                  service: browser_mod.close_popup
-                  service_data:
-                    deviceID: this
+            - name: HKI
+              label: Settings
+              icon: mdi:palette-outline
+              sequence:
+                - service: browser_mod.navigate
+                  data:
+                    path: hki_settings
+                - service: browser_mod.close_popup
+                  data: []
       - type: custom:state-switch
         entity: group
         states:
@@ -201,106 +190,34 @@ entities:
                 - name: Devices
                   label: '& Services'
                   icon: mdi:devices
-                  commands:
-                    - command: call-service
-                      service: browser_mod.navigate
-                      service_data:
-                        navigation_path: ../config/integrations
-                        deviceID: this
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../config/integrations
+                    - service: browser_mod.close_popup
+                      data: []
               - !include
                 - profile-menu-shortcut.yaml
                 - name: Automations
                   label: '& Scenes'
                   icon: mdi:robot-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.navigate
-                      service_data:
-                        navigation_path: ../config/automation/dashboard
-                        deviceID: this
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../config/automation/dashboard
+                    - service: browser_mod.close_popup
+                      data: []
               - !include
                 - profile-menu-shortcut.yaml
                 - name: HACS
                   label: Addons
                   icon: mdi:store-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.navigate
-                      service_data:
-                        navigation_path: ../hacs/entry
-                        deviceID: this
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
-              - !include
-                - profile-menu-shortcut.yaml
-                - name: Reload
-                  label: Lovelace
-                  icon: mdi:cards-heart-outline
-                  confirmation: Are you sure you want to reload lovelace? This can take up to 60 seconds depending on your hardware/setup!
-                  commands:
-                    - command: lovelace_reload
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
-              - !include
-                - profile-menu-shortcut.yaml
-                - name: Close
-                  label: Window
-                  icon: mdi:close-circle-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
-      - type: custom:state-switch
-        entity: group
-        states:
-          admin:
-            type: grid
-            square: false
-            columns: 5
-            cards:
-              - !include
-                - profile-menu-shortcut.yaml
-                - name: HKI
-                  label: Settings
-                  icon: mdi:palette-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.navigate
-                      service_data:
-                        navigation_path: hki_settings
-                        deviceID: this
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
-              - !include
-                - profile-menu-shortcut.yaml
-                - name: HA
-                  label: Settings
-                  icon: mdi:cog-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.navigate
-                      service_data:
-                        navigation_path: ../config/dashboard
-                        deviceID: this
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../hacs/entry
+                    - service: browser_mod.close_popup
+                      data: []
               - !include
                 - profile-menu-shortcut.yaml
                 - name: Reload
@@ -312,6 +229,25 @@ entities:
                     service: frontend.reload_themes
               - !include
                 - profile-menu-shortcut.yaml
+                - name: HA
+                  label: Settings
+                  icon: mdi:cog-outline
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../config/dashboard
+                    - service: browser_mod.close_popup
+                      data: []
+      - type: custom:state-switch
+        entity: group
+        states:
+          admin:
+            type: grid
+            square: false
+            columns: 5
+            cards:
+              - !include
+                - profile-menu-shortcut.yaml
                 - name: Restart
                   label: Home Assistant
                   icon: mdi:restart-alert
@@ -319,13 +255,3 @@ entities:
                   tap_action:
                     action: call-service
                     service: homeassistant.restart
-              - !include
-                - profile-menu-shortcut.yaml
-                - name: Close
-                  label: Window
-                  icon: mdi:close-circle-outline
-                  commands:
-                    - command: call-service
-                      service: browser_mod.close_popup
-                      service_data:
-                        deviceID: this

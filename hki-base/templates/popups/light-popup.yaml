@@ -30,6 +30,20 @@ settingsPosition: bottom
 settingsCard:
   type: custom:more-info-card
   cardOptions:
+    card_mod:
+      style:
+        .: |
+          :host {
+            --ha-card-background: transparent !important;
+            --primary-text-color: AliceBlue !important;
+          }
+          ha-card {
+            background: transparent !important;
+            color: AliceBlue !important;
+            --paper-item-icon-color: auto !important;
+            --paper-item-icon-active-color: #b58e31 !important;
+            --primary-text-color: AliceBlue !important;
+          }
     entity: {{ entity }}
 {% if _global.config.rgb_popups.actions_per_row is defined %}
 actionsInARow: {{ _global.config.rgb_popups.actions_per_row }}

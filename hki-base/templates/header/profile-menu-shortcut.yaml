@@ -15,11 +15,14 @@ tap_action:
   {{ tap_action|tojson }}
 {% else %}
 tap_action:
-  action: call-service
-  service: browser_mod.commands
-  service_data:
-    commands:
-      {{ commands|tojson }}
+  action: fire-dom-event
+  browser_mod:
+    service: browser_mod.sequence
+    data:
+      sequence:
+        {% for cards in sequence %}
+        - {{ cards|tojson }}
+        {% endfor %}
 {% endif %}
 styles:
   card:

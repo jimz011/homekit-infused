@@ -90,6 +90,7 @@ hold_action:
   {{ hold_action|tojson }}
   {% else %}
   action: none
+  haptic: heavy
   {% endif %}
 double_tap_action:
   {% if double_tap_action is defined %}
@@ -98,6 +99,7 @@ double_tap_action:
   {{ hold_action|tojson }}
   {% else %}
   action: none
+  haptic: heavy
   {% endif %}
 {% if ((styles is defined) and (styles != 'none')) %}
 styles:

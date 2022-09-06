@@ -259,39 +259,45 @@ cards:
             states:
               Persons:
                 {% if _global.config.find_my.persons is defined %}
-                type: map
-                view_layout:
-                  grid-area: map
-                entities:
-                  {% for person in _global.config.find_my.persons %}
-                  - {{ person.entity }}
-                  {% endfor %}
+                type: custom:mod-card
+                card:
+                  type: map
+                  view_layout:
+                    grid-area: map
+                  entities:
+                    {% for person in _global.config.find_my.persons %}
+                    - {{ person.entity }}
+                    {% endfor %}
                 {% else %}
                 type: markdown
                 content: Unavailable
                 {% endif %}
               Devices:
                 {% if _global.config.find_my.devices is defined %}
-                type: map
-                view_layout:
-                  grid-area: map
-                entities:
-                  {% for device in _global.config.find_my.devices %}
-                  - {{ device.entity }}
-                  {% endfor %}
+                type: custom:mod-card
+                card:
+                  type: map
+                  view_layout:
+                    grid-area: map
+                  entities:
+                    {% for device in _global.config.find_my.devices %}
+                    - {{ device.entity }}
+                    {% endfor %}
                 {% else %}
                 type: markdown
                 content: Unavailable
                 {% endif %}
               Vehicles:
                 {% if _global.config.find_my.vehicles is defined %}
-                type: map
-                view_layout:
-                  grid-area: map
-                entities:
-                  {% for vehicle in _global.config.find_my.vehicles %}
-                  - {{ vehicle.entity }}
-                  {% endfor %}
+                type: custom:mod-card
+                card:
+                  type: map
+                  view_layout:
+                    grid-area: map
+                  entities:
+                    {% for vehicle in _global.config.find_my.vehicles %}
+                    - {{ vehicle.entity }}
+                    {% endfor %}
                 {% else %}
                 type: markdown
                 content: Unavailable

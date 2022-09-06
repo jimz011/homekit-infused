@@ -145,19 +145,25 @@
     haptic: light
     action: fire-dom-event
     browser_mod:
-      command: call-service
       service: browser_mod.popup
-      service_data:
+      data:
         title: ' '
-        hide_header: true
-        deviceID:
-          - this
-        style:
-          !include ../includes/popup-style.yaml
-        card:
+        size: fullscreen
+        card_mod:
+          style:
+            .: |
+              :host {
+                --primary-text-color: AliceBlue !important;
+              }
+              mwc-icon-button {
+                color: AliceBlue !important;
+              }
+        style: |
+          --popup-background-color: black !important;
+          --popup-header-background-color: var(--popup-background-color) !important;
+        content:
           type: vertical-stack
           cards:
-            - !include ../templates/popups/close-popup.yaml
             - !include 
               - '../templates/popups/default-popup.yaml'
               {% if device.entity is defined %}
@@ -170,19 +176,25 @@
     haptic: light
     action: fire-dom-event
     browser_mod:
-      command: call-service
       service: browser_mod.popup
-      service_data:
+      data:
         title: ' '
-        hide_header: true
-        deviceID:
-          - this
-        style:
-          !include ../includes/popup-style.yaml
-        card:
+        size: fullscreen
+        card_mod:
+          style:
+            .: |
+              :host {
+                --primary-text-color: AliceBlue !important;
+              }
+              mwc-icon-button {
+                color: AliceBlue !important;
+              }
+        style: |
+          --popup-background-color: black !important;
+          --popup-header-background-color: var(--popup-background-color) !important;
+        content:
           type: vertical-stack
           cards:
-            - !include ../templates/popups/close-popup.yaml
             - !include 
               - '../templates/popups/covers-popup.yaml'
               {% if device.entity is defined %}
@@ -201,22 +213,28 @@
     {{ device.hold_action|tojson }}
   {% elif (('light.' in device) or ('switch.' in device) or ('light.' in device.entity) or ('switch.' in device.entity) or (device.type is defined) and (device.type == 'rgb') or (device.type == 'light') or (device.type == 'color-temp') or (device.type == 'switch') or (config.type is defined) and (config.type == 'rgb') or (config.type == 'color-temp') or (config.type == 'light') or (config.type == 'switch')) %}
   hold_action: 
-    haptic: light
+    haptic: heavy
     action: fire-dom-event
     browser_mod:
-      command: call-service
       service: browser_mod.popup
-      service_data:
+      data:
         title: ' '
-        hide_header: true
-        deviceID:
-          - this
-        style:
-          !include ../includes/popup-style.yaml
-        card:
+        size: fullscreen
+        card_mod:
+          style:
+            .: |
+              :host {
+                --primary-text-color: AliceBlue !important;
+              }
+              mwc-icon-button {
+                color: AliceBlue !important;
+              }
+        style: |
+          --popup-background-color: black !important;
+          --popup-header-background-color: var(--popup-background-color) !important; 
+        content:
           type: vertical-stack
           cards:
-            - !include ../templates/popups/close-popup.yaml
             - !include 
               - '../templates/popups/light-popup.yaml'
               {% if device.entity is defined %}

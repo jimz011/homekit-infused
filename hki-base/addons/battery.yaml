@@ -16,24 +16,30 @@ name: {{ device.name }}
 tap_action: 
   action: fire-dom-event
   browser_mod:
-    command: call-service
     service: browser_mod.popup
-    service_data:
+    data:
       title: ' '
-      hide_header: true
-      deviceID:
-        - this
-      style:
-        !include ../includes/popup-style.yaml
-      card:
+      size: fullscreen
+      card_mod:
+        style:
+          .: |
+            :host {
+              --primary-text-color: AliceBlue !important;
+            }
+            mwc-icon-button {
+              color: AliceBlue !important;
+            }
+      style: |
+        --popup-background-color: black !important;
+        --popup-header-background-color: var(--popup-background-color) !important;
+      content:
         type: vertical-stack
         cards:
-          - !include ../templates/popups/close-popup.yaml
           - type: custom:more-info-card
             card_mod: 
               style: |
                 ha-card {
-                  margin-top: -20px;
+                  background: transparent !important;
                 }
             {% if device.entity is defined %}
             entity: {{ device.entity }}
@@ -41,6 +47,11 @@ tap_action:
             entity: {{ device }}
             {% endif %}
           - type: history-graph
+            card_mod:
+              style: |
+                ha-card {
+                  background: transparent !important;
+                }
             hours_to_show: 6
             {% if device.entity is defined %}
             entities: 

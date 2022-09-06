@@ -488,6 +488,17 @@
                       {% endfor %}
                       {% endif %}
 
+            - type: custom:popup-card
+              entity: input_boolean.dummy1
+              title: ' '
+              size: fullscreen
+              style: |
+                --popup-background-color: black !important;
+                --popup-header-background-color: var(--popup-background-color) !important;
+              card:
+                type: vertical-stack
+                cards:
+                  !include ../hki-user/notifications.yaml
 # End of Addons // *Do NOT remove
             {% endfor %}
             {% endfor %}

@@ -123,14 +123,17 @@ cards:
                             font-family: var(--font-family) !important;
                           }              
                         content: >
-                          **NOTE:** The HKI Advanced themes must be active for these settings below to work, with the exception of the `frontend greeting`!
+                          **NOTE:** The HKI Advanced themes must be active for these settings below to work, with the exception of the `frontend greeting`! Light and Dark themes will only work when their respective settings are set as the selected theme.
+
+
+                          **WARNING:** Changing the theme will overwrite your current settings, if you made a custom theme and want to save it you should create a script as mentioned in the [documentation](https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/themes.md#sharing-themes)!
                   - entity: input_select.settings_light_dark
                     name: Select theme to edit
                   - type: custom:fold-entity-row
                     head:
                       entity: sensor.empty_sensor
                       icon: mdi:page-layout-header
-                      name: Reset Options
+                      name: Select Light Theme
                       tap_action:
                         action: fire-dom-event
                         fold_row: true
@@ -141,13 +144,13 @@ cards:
                             columns: 4
                             cards:
                               - type: custom:button-card
-                                name: Reset
-                                label: Light Theme
+                                name: HKI Light
+                                label: Default
                                 icon: mdi:weather-sunny
                                 size: 25%
                                 show_label: true
                                 confirmation:
-                                  text: Are you sure you want to revert the light theme to defaults? This can not be undone!
+                                  text: Are you sure you want to revert the light theme to defaults?
                                 tap_action:
                                   action: call-service
                                   service: script.turn_on
@@ -159,13 +162,45 @@ cards:
                                   label:
                                     - font-size: 10px
                               - type: custom:button-card
-                                name: Reset
-                                label: Dark Theme
+                                name: Purple Blur
+                                label: 'By @msinfo'
+                                icon: mdi:alpha-p-circle
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_purple_blur
+                                styles:
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:page-layout-header
+                      name: Select Dark Theme
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: grid
+                            columns: 4
+                            cards:
+                              - type: custom:button-card
+                                name: HKI Dark
+                                label: Default
                                 icon: mdi:weather-night
                                 size: 25%
                                 show_label: true
                                 confirmation:
-                                  text: Are you sure you want to revert the dark theme to defaults? This can not be undone!
+                                  text: Are you sure you want to revert the dark theme to defaults?
                                 tap_action:
                                   action: call-service
                                   service: script.turn_on
@@ -176,6 +211,20 @@ cards:
                                     - font-size: 12px
                                   label:
                                     - font-size: 10px
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:page-layout-header
+                      name: Clear Themes
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: grid
+                            columns: 4
+                            cards:
                               - type: custom:button-card
                                 name: Clear
                                 label: Light Theme
@@ -212,7 +261,6 @@ cards:
                                     - font-size: 12px
                                   label:
                                     - font-size: 10px
-
           - type: vertical-stack
             cards:
               - !include
@@ -1179,4 +1227,4 @@ cards:
                           **Want to share your theme?** 
                           
                           If you want to share your themes this is possible, it requires a few minutes of your time, please check out the [documentation](https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/themes.md#sharing-themes) for more info!
-              - !include '../../includes/gap-height.yaml'
+              - !include '../../includes/gap-height-large.yaml'

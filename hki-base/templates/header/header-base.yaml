@@ -108,16 +108,25 @@ card:
             tap_action:
               action: fire-dom-event
               browser_mod:
-                command: call-service
                 service: browser_mod.popup
-                service_data:
+                data:
                   title: " "
-                  hide_header: true
-                  style:
-                    !include ../../includes/popup-style.yaml
-                  deviceID:
-                    - this
-                  card:
+                  size: normal
+                  card_mod:
+                    style:
+                      .: |
+                        :host {
+                          --primary-text-color: AliceBlue !important;
+                          --margin-top: -40px !important;
+                        }
+                        mwc-icon-button {
+                          color: AliceBlue !important;
+                        }
+                  style: |
+                    --popup-background-color: black !important;
+                    --popup-header-background-color: var(--popup-background-color) !important;
+                    --popup-border-radius: 0px !important;
+                  content:
                     type: vertical-stack
                     cards:
                       - !include profile-top-menu.yaml
