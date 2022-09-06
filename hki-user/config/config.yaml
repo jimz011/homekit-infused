@@ -39,9 +39,7 @@ config:
         group_entity: group.all_light_entities
         grid_area: one
 
-# POPUPS *Change the orientation of the close button to either the left or right side of the screen.
-  popups:
-    close_button_orientation: right
+# POPUPS *Change the way a popup behaves when a light button is either held or double pressed
 
   rgb_popups: # The settings below apply to all light/switch slider popups
     slider_colored_by_light: true
