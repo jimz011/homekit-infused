@@ -16,7 +16,11 @@ tap_action:
     service: browser_mod.popup
     data:
       title: " "
-      size: fullscreen
+      {% if _global.config.popup_size is defined %}
+      size: {{ _global.config.popup_size }}
+      {% else %}
+      size: wide
+      {% endif %}
       card_mod:
         style:
           .: |
@@ -29,6 +33,11 @@ tap_action:
       style: |
         --popup-background-color: black !important;
         --popup-header-background-color: var(--popup-background-color) !important;
+        {% if _global.config.popup_border_radius is defined %}
+        --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+        {% else %}
+        --popup-border-radius: 12px !important;
+        {% endif %} 
       content:
         type: vertical-stack
         cards:

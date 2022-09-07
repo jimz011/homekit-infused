@@ -140,6 +140,16 @@
   {% if device.tap_action is defined %}
   tap_action: 
     {{ device.tap_action|tojson }}
+  {% elif (('scene.' in device) or ('scene.' in device.entity) or (device.type is defined) and (device.type == 'scene')) %}
+  tap_action:
+    action: call-service
+    service: scene.turn_on
+    service_data:
+      {% if device.entity is defined %} 
+      entity_id: {{ device.entity }}
+      {% else %}
+      entity_id: {{ device }}
+      {% endif %}
   {% elif (('binary_sensor.' in device) or ('binary_sensor.' in device.entity) or (device.type is defined) and (device.type == 'graph') or (config.type is defined) and (config.type == 'graph')) %}
   tap_action:
     haptic: light
@@ -148,12 +158,17 @@
       service: browser_mod.popup
       data:
         title: ' '
-        size: fullscreen
+        {% if _global.config.popup_size is defined %}
+        size: {{ _global.config.popup_size }}
+        {% else %}
+        size: wide
+        {% endif %}
         card_mod:
           style:
             .: |
               :host {
                 --primary-text-color: AliceBlue !important;
+                --margin-top: -40px !important;
               }
               mwc-icon-button {
                 color: AliceBlue !important;
@@ -161,6 +176,11 @@
         style: |
           --popup-background-color: black !important;
           --popup-header-background-color: var(--popup-background-color) !important;
+          {% if _global.config.popup_border_radius is defined %}
+          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+          {% else %}
+          --popup-border-radius: 12px !important;
+          {% endif %} 
         content:
           type: vertical-stack
           cards:
@@ -179,12 +199,17 @@
       service: browser_mod.popup
       data:
         title: ' '
-        size: fullscreen
+        {% if _global.config.popup_size is defined %}
+        size: {{ _global.config.popup_size }}
+        {% else %}
+        size: wide
+        {% endif %}
         card_mod:
           style:
             .: |
               :host {
                 --primary-text-color: AliceBlue !important;
+                --margin-top: -40px !important;
               }
               mwc-icon-button {
                 color: AliceBlue !important;
@@ -192,6 +217,11 @@
         style: |
           --popup-background-color: black !important;
           --popup-header-background-color: var(--popup-background-color) !important;
+          {% if _global.config.popup_border_radius is defined %}
+          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+          {% else %}
+          --popup-border-radius: 12px !important;
+          {% endif %} 
         content:
           type: vertical-stack
           cards:
@@ -219,19 +249,29 @@
       service: browser_mod.popup
       data:
         title: ' '
-        size: fullscreen
+        {% if _global.config.popup_size is defined %}
+        size: {{ _global.config.popup_size }}
+        {% else %}
+        size: wide
+        {% endif %}
         card_mod:
           style:
             .: |
               :host {
                 --primary-text-color: AliceBlue !important;
+                --margin-top: -40px !important;
               }
               mwc-icon-button {
                 color: AliceBlue !important;
               }
         style: |
           --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important; 
+          --popup-header-background-color: var(--popup-background-color) !important;
+          {% if _global.config.popup_border_radius is defined %}
+          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+          {% else %}
+          --popup-border-radius: 12px !important;
+          {% endif %} 
         content:
           type: vertical-stack
           cards:
