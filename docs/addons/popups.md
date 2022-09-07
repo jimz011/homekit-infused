@@ -21,12 +21,11 @@ The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| close_button_orientation | no | right | Choose where the X (close button) is located in HKI popups (this does NOT work for default HA popups) |
+| popup_size | no | wide | Set the popup size, choose between `normal`, `wide` and `fullscreen`. *Note: `normal` might look bad on a mobile phone!* |
 
 ```yaml
 # config.yaml (default popups settings)
-  popups:
-    close_button_orientation: right
+  popup_size: wide
 ```
 
 #### RGB and Covers Popups
@@ -77,8 +76,7 @@ You can have as many actions as you want, as long as you define both rgb and hex
 ```
 ```yaml
 # config.yaml (example with both categories defined)
-  popups:
-    close_button_orientation: right
+  popup_size: wide
   rgb_popups:
     slider_colored_by_light: true
     height: 410px
