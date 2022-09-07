@@ -49,7 +49,7 @@ You must define it as an object instead to make use of the options below.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | undefined | Set the entity used |
-| type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `graph`, `sensor`, `cover` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
+| type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `graph`, `sensor`, `cover`, `scene` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
 | name | no | global_name | Set a name for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | label | no | none | Set a label for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon | no | global_icon | Set an icon for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
