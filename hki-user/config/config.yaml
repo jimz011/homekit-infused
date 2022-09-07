@@ -39,8 +39,9 @@ config:
         group_entity: group.all_light_entities
         grid_area: one
 
-# POPUPS *Change the way a popup behaves when a light button is either held or double pressed
+# POPUPS
 
+  popup_size: wide # Choose between normal, wide or fullscreen (note that normal might look bad on a mobile phone!)
   rgb_popups: # The settings below apply to all light/switch slider popups
     slider_colored_by_light: true
     height: 410px
