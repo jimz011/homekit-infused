@@ -4,7 +4,7 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
 [![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2022.9.x%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-2022.5.0%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-2022.5.1%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 
 ![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/jimz011/homekit-infused?style=social)
