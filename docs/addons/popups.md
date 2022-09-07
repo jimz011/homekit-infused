@@ -12,7 +12,7 @@
 
 ## Popups
 
-HKI comes with preconfigured popups by default. You can edit where to show the close button and which colors/actions to show in a light popup.
+HKI comes with preconfigured popups by default. You can set the popup size and set which colors/actions to show in a light popup.
 There are two different categories and must be defined separately (see last example below).
 
 The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
@@ -101,4 +101,3 @@ You can have as many actions as you want, as long as you define both rgb and hex
 ### Images:
 
 ![Homekit Infused](../images/hki-popup.png)
-![Homekit Infused](../images/hki-button-5.png)
