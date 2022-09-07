@@ -41,7 +41,8 @@ config:
 
 # POPUPS
 
-  popup_size: wide # Choose between normal, wide or fullscreen (note that normal might look bad on a mobile phone!)
+  popup_size: fullscreen # Choose between normal, wide or fullscreen (note that normal and wide might look bad on a mobile phone!)
+  popup_border_radius: 28px # Only useful when popup_size is normal or wide
   rgb_popups: # The settings below apply to all light/switch slider popups
     slider_colored_by_light: true
     height: 410px
