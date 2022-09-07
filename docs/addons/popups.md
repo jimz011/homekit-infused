@@ -21,7 +21,8 @@ The settings on this page MUST be configured in `/hki-user/config/config.yaml`!
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| popup_size | no | wide | Set the popup size, choose between `normal`, `wide` and `fullscreen`. *Note: `normal` might look bad on a mobile phone!* |
+| popup_size | no | fullscreen | Set the popup size, choose between `normal`, `wide` and `fullscreen`. *Note: `normal` or `wide` might look bad on a mobile phone!* |
+| popup_border_radius | no | 28px | Set a border radius on popups. *Note: this does NOT work when `popup_size: fullscreen`!* |
 
 ```yaml
 # config.yaml (default popups settings)
