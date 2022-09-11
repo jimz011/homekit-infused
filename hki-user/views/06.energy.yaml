@@ -62,12 +62,14 @@ energy:
         entities:
           - sensor.washing_machine_power
           - sensor.dryer_power
-          - sensor.koelkast_power
+          - sensor.koelkast_current_consumption
           - sensor.vaatwasser_power
           - sensor.power_52
           - sensor.ts0121_2
           - sensor.power_60
           - sensor.power_57
+          - sensor.unraid_server_power
+          - sensor.udm_pro_power
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -76,8 +78,10 @@ energy:
         line_color: cyan
         type: graph
         entities:
-          - sensor.koelkast_voltage
+          - sensor.koelkast_voltage_2
           - sensor.vaatwasser_voltage
+          - sensor.unraid_server_voltage
+          - sensor.udm_pro_voltage
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -86,8 +90,10 @@ energy:
         line_color: dodgerblue
         type: graph
         entities:
-          - sensor.koelkast_current
+          - sensor.koelkast_current_2
           - sensor.vaatwasser_current
+          - sensor.unraid_server_current
+          - sensor.udm_pro_current
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -131,12 +137,14 @@ energy:
         entities:
           - sensor.washing_machine_power
           - sensor.dryer_power
-          - sensor.koelkast_power
+          - sensor.koelkast_current_consumption
           - sensor.vaatwasser_power
           - sensor.power_52
           - sensor.ts0121_2
           - sensor.power_60
           - sensor.power_57
+          - sensor.unraid_server_power
+          - sensor.udm_pro_power
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -145,8 +153,10 @@ energy:
         line_color: cyan
         type: graph
         entities:
-          - sensor.koelkast_voltage
+          - sensor.koelkast_voltage_2
           - sensor.vaatwasser_voltage
+          - sensor.unraid_server_voltage
+          - sensor.udm_pro_voltage
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -155,8 +165,10 @@ energy:
         line_color: dodgerblue
         type: graph
         entities:
-          - sensor.koelkast_current
+          - sensor.koelkast_current_2
           - sensor.vaatwasser_current
+          - sensor.unraid_server_current
+          - sensor.udm_pro_current
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

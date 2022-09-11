@@ -22,9 +22,19 @@ devices:
       # Small Screens
       - title: Woonkamer
         entities:
-          - entity: switch.receiver_woonkamer
+          - switch.receiver_woonkamer
           - switch.samsung_tv
           - switch.xbox_one
+          - entity: switch.unraid_server
+            label: "[[[ return `${states['sensor.unraid_server_power'].state}W`; ]]]"
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            tap_action:
+              action: none
+          - entity: switch.udm_pro
+            label: "[[[ return `${states['sensor.udm_pro_power'].state}W`; ]]]"
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            tap_action:
+              action: none
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -71,7 +81,9 @@ devices:
             label: "[[[ return `${states['sensor.vaatwasser_power'].state}W`; ]]]"
           - entity: switch.koelkast
             lock: "[[[ return entity.state === 'on'; ]]]"
-            label: "[[[ return `${states['sensor.koelkast_power'].state}W`; ]]]"
+            label: "[[[ return `${states['sensor.koelkast_current_consumption'].state}W`; ]]]"
+            tap_action:
+              action: none
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -82,6 +94,8 @@ devices:
           - entity: switch.vriezer
             icon: mdi:snowflake
             label: "[[[ return `${states['sensor.ts0121_2'].state}W`; ]]]"
+            tap_action:
+              action: none
           - entity: switch.washing_machine
             label: "[[[ return `${states['sensor.washing_machine_power'].state}W`; ]]]"
           - entity: switch.dryer
@@ -96,6 +110,16 @@ devices:
           - switch.receiver_woonkamer
           - switch.samsung_tv
           - switch.xbox_one
+          - entity: switch.unraid_server
+            label: "[[[ return `${states['sensor.unraid_server_power'].state}W`; ]]]"
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            tap_action:
+              action: none
+          - entity: switch.udm_pro
+            label: "[[[ return `${states['sensor.udm_pro_power'].state}W`; ]]]"
+            lock: "[[[ return entity.state === 'on'; ]]]"
+            tap_action:
+              action: none
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -142,7 +166,9 @@ devices:
             label: "[[[ return `${states['sensor.vaatwasser_power'].state}W`; ]]]"
           - entity: switch.koelkast
             lock: "[[[ return entity.state === 'on'; ]]]"
-            label: "[[[ return `${states['sensor.koelkast_power'].state}W`; ]]]"
+            label: "[[[ return `${states['sensor.koelkast_current_consumption'].state}W`; ]]]"
+            tap_action:
+              action: none
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -153,6 +179,8 @@ devices:
           - entity: switch.vriezer
             icon: mdi:snowflake
             label: "[[[ return `${states['sensor.ts0121_2'].state}W`; ]]]"
+            tap_action:
+              action: none
           - entity: switch.washing_machine
             label: "[[[ return `${states['sensor.washing_machine_power'].state}W`; ]]]"
           - entity: switch.dryer

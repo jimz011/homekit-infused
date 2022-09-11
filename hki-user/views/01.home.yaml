@@ -71,39 +71,44 @@ home:
               - calendar.jimmy
               - calendar.stephanie
               - calendar.family
+    entities:
       - title: hide
         view_layout:
           show:
             mediaquery: "(min-width: 650px)"
-        cards:
+        entities:
           - type: custom:vacuum-card
             card_mod:
-              class: hki
-            entity: vacuum.rockrobo
+              style: |
+                ha-card {
+                  --ha-card-box-shadow: none !important;
+                  border-radius: 0px !important;
+                }
+            entity: vacuum.valetudo_gentlepossiblescorpion
             stats:
               default:
-                - attribute: filter
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_main_filter
                   unit: hours
                   subtitle: Filter
-                - attribute: sideBrush
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_right_brush
                   unit: hours
                   subtitle: Side Brush
-                - attribute: mainBrush
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_main_brush
                   unit: hours
                   subtitle: Main Brush
-                - attribute: sensor
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_sensor_cleaning
                   unit: hours
                   subtitle: Sensors
               cleaning:
-                - attribute: cleanArea
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_current_statistics_area
                   unit: m2
                   subtitle: Cleaned Area
-                - attribute: cleanTime
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_current_statistics_time
                   unit: minutes
                   subtitle: Cleaning Time
-                - attribute: cleanCount
-                  unit: times
-                  subtitle: Cleaning Count
+                - entity_id: sensor.valetudo_gentlepossiblescorpion_wi_fi_configuration
+                  unit: dBm
+                  subtitle: Wifi Strength
     custom_2:
       - title: hide
         conditional: true

@@ -89,8 +89,8 @@ all_light_entities:
     - light.keuken
     - light.keuken_led_lampen
     - light.bijkeuken
-    - light.entree_lamp
-    - light.gang_lamp
+    - light.hal_lamp
+    - light.gang_plafond
     - light.berging
     - light.toilet
     - light.balkon
@@ -146,8 +146,8 @@ all_entities:
     - light.keuken
     - light.keuken_led_lampen
     - light.bijkeuken
-    - light.entree_lamp
-    - light.gang_lamp
+    - light.hal_lamp
+    - light.gang_plafond
     - light.berging
     - light.toilet
     - light.balkon

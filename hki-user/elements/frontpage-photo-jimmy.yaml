@@ -30,7 +30,7 @@
       transform: initial
       text-align: right
   - type: state-label
-    entity: sensor.z_fold_3_jimmy_battery_level
+    entity: sensor.sm_f926b_battery_level
     style:
       top: 0
       right: 0

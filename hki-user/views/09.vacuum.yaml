@@ -1,10 +1,11 @@
 # Vacuum
 vacuum:
-  subtitle: "[[[ return `The current status is ${states['vacuum.roborock_vacuum_s5'].state}`; ]]]"
+  subtitle: "[[[ return `The current status is ${states['vacuum.valetudo_gentlepossiblescorpion'].state}`; ]]]"
   icon: phu:roborock
   show_in_favorites: true
   show_in_menu: false
-  button_badge: vacuum.roborock_vacuum_s5
+  button_badge: sensor.vacuum_battery_alternative
+  button_label: "[[[ return `${states['vacuum.valetudo_gentlepossiblescorpion'].state}`; ]]]"
   layout:
     layout_type: custom:grid-layout
     layout:
@@ -19,10 +20,10 @@ vacuum:
           - type: custom:xiaomi-vacuum-map-card
             card_mod:
               class: hki
-            entity: vacuum.roborock_vacuum_s5
+            entity: vacuum.valetudo_gentlepossiblescorpion
             map_locked: true
             map_source: 
-              camera: camera.rockrobo_map
+              camera: camera.rockrobo_rendered_map
             map_modes:
               - template: vacuum_clean_zone
               - template: vacuum_goto
@@ -55,10 +56,11 @@ vacuum:
                   class: hki
                 hours_to_show: 24
                 entities:
-                  - vacuum.roborock_vacuum_s5
+                  - entity: vacuum.valetudo_gentlepossiblescorpion
+                    name: Roborock S55
               - type: logbook
                 card_mod:
                   class: hki
                 hours_to_show: 24
                 entities:
-                  - vacuum.roborock_vacuum_s5
+                  - vacuum.valetudo_gentlepossiblescorpion

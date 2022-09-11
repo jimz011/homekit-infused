@@ -41,6 +41,8 @@ network_1:
         entities:
           - entity: sensor.schings_dream_machine_pro_uptime
             name: Uptime
+          - entity: sensor.udm_pro_power
+            name: Power Usage
           - entity: sensor.schings_dream_machine_pro_cpu_utilization
             name: CPU Utilization
           - entity: sensor.schings_dream_machine_pro_memory_utilization
@@ -51,6 +53,8 @@ network_1:
             name: Recording Capacity
           - entity: binary_sensor.schings_dream_machine_pro_disk_0_health
             name: Disk Health
+          - entity: sensor.schings_dream_machine_pro_cpu_temperature
+            name: CPU Temperature
           
 
 # AdGuard Home

@@ -21,12 +21,37 @@ scenes:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
+      # Small Screens
+      - title: Test
+        entities:
+          - entity: scene.living_movie
+            name: Movie Night
+            icon: mdi:movie
+          - entity: scene.living_dim_2
+            name: Dim Living
+            icon: mdi:sofa
+        view_layout:
+          show:
+            mediaquery: "(max-width: 350px)"
+        columns: 3
       # Larger Screens
       - title: Scenes
         entities:
           - switch.scene_keuken
           - switch.scene_wassen
           - switch.scene_welterusten
+        view_layout:
+          show:
+            mediaquery: "(min-width: 350px)"
+        columns: 4
+      - title: Test
+        entities:
+          - entity: scene.living_movie
+            name: Movie Night
+            icon: mdi:movie
+          - entity: scene.living_dim_2
+            name: Dim Living
+            icon: mdi:sofa
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

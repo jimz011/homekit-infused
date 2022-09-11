@@ -90,6 +90,8 @@ security:
             icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
           - entity: binary_sensor.motion_toilet
             icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            tap_action:
+              action: none
           - entity: binary_sensor.gallerij_camera_motion
             icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
           - entity: binary_sensor.kennedylaan_links_motion

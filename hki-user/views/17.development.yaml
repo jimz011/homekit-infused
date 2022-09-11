@@ -13,5 +13,15 @@ development:
       - title: Test
         columns: 3
         entities:
-          - cover.test_cover
+          - entity: cover.test_cover_2
+            cover_control: tilt_position
           - cover.test_cover_2
+      - title: Test 2
+        columns: 3
+        aspect_ratio: 4/1
+        entities:
+          - entity: light.office_led_lampen
+            aspect_ratio: 2/1
+          - entity: light.office_led_lampen
+            aspect_ratio: 1/1
+          - entity: light.office_led_lampen

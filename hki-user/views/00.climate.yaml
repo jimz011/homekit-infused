@@ -18,14 +18,11 @@ climate:
     thermostat:
       # Small Screens
       - title: Thermostats
-        box_shadow: none
         entities:
           - entity: climate.tado_smart_radiator_thermostat_va1671957504
             icon: mdi:desktop-tower-monitor
-            box_shadow: fancy
           - entity: climate.tado_smart_radiator_thermostat_va2898201344
             icon: mdi:sofa
-            box_shadow: default
           - entity: climate.tado_smart_radiator_thermostat_va0882906624
             icon: mdi:bed-king
           - entity: climate.tado_smart_radiator_thermostat_va2711623168
@@ -72,14 +69,13 @@ climate:
         line_color: crimson
         type: graph
         entities:
-          - sensor.woonkamer
-          - sensor.slaapkamer
+          - sensor.woonkamer_2
+          - sensor.slaapkamer_3
           - sensor.kleine_kamer_temperatuur
           - sensor.keuken_temperatuur
-          - sensor.badkamer
-          - sensor.motion_bijkeuken_temperature
+          - sensor.badkamer_3
           - sensor.voordeur_temperature
-          - sensor.motion_toilet_temperature
+          - sensor.buiten_temperatuur
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -88,11 +84,12 @@ climate:
         line_color: cyan
         type: graph
         entities:
-          - sensor.woonkamer_2
-          - sensor.slaapkamer_2
+          - sensor.woonkamer
+          - sensor.slaapkamer
           - sensor.kleine_kamer_luchtvochtigheid
           - sensor.keuken_luchtvochtigheid
           - sensor.badkamer
+          - sensor.buiten_luchtvochtigheid
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -101,8 +98,9 @@ climate:
         line_color: orange
         type: graph
         entities:
-          - sensor.slaapkamer_3
-          - sensor.badkamer_3
+          - sensor.slaapkamer_2
+          - sensor.badkamer_2
+          - sensor.buiten_luchtdruk
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -112,14 +110,13 @@ climate:
         line_color: crimson
         type: graph
         entities:
-          - sensor.woonkamer
-          - sensor.slaapkamer
+          - sensor.woonkamer_2
+          - sensor.slaapkamer_3
           - sensor.kleine_kamer_temperatuur
           - sensor.keuken_temperatuur
-          - sensor.badkamer
-          - sensor.motion_bijkeuken_temperature
+          - sensor.badkamer_3
           - sensor.voordeur_temperature
-          - sensor.motion_toilet_temperature
+          - sensor.buiten_temperatuur
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -128,11 +125,12 @@ climate:
         line_color: cyan
         type: graph
         entities:
-          - sensor.woonkamer_2
-          - sensor.slaapkamer_2
+          - sensor.woonkamer
+          - sensor.slaapkamer
           - sensor.kleine_kamer_luchtvochtigheid
           - sensor.keuken_luchtvochtigheid
           - sensor.badkamer
+          - sensor.buiten_luchtvochtigheid
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -141,8 +139,9 @@ climate:
         line_color: orange
         type: graph
         entities:
-          - sensor.slaapkamer_3
-          - sensor.badkamer_3
+          - sensor.slaapkamer_2
+          - sensor.badkamer_2
+          - sensor.buiten_luchtdruk
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

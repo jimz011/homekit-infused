@@ -93,8 +93,8 @@ lights:
         columns: 3
       - title: Gang
         entities:
-          - light.entree_lamp
-          - light.gang_lamp
+          - light.hal_lamp
+          - light.gang_plafond
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -185,8 +185,8 @@ lights:
         columns: 4
       - title: Gang
         entities:
-          - light.entree_lamp
-          - light.gang_lamp
+          - light.hal_lamp
+          - light.gang_plafond
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

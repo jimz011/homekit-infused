@@ -13,58 +13,58 @@ battery:
       # Small Screens
       - title: Hue Dimmers
         entities:
-          - sensor.ab_gang_muur_battery_level
-          - sensor.ab_keuken_muur_battery_level
-          - sensor.ab_kleine_kamer_muur_battery_level
-          - sensor.ab_slaapkamer_muur_battery_level
-          - sensor.ab_toilet_muur_battery_level
-          - sensor.ab_woonkamer_muur_battery_level
+          - sensor.ab_gang_muur_battery
+          - sensor.ab_keuken_muur_battery
+          - sensor.ab_kleine_kamer_muur_battery
+          - sensor.ab_slaapkamer_muur_battery
+          - sensor.ab_toilet_muur_battery
+          - sensor.ab_woonkamer_muur_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: IKEA Dimmers
         entities:
-          - sensor.ab_kleine_kamer_battery_level
-          - sensor.ab_slaapkamer_jim_battery_level
-          - sensor.ab_slaapkamer_steph_battery_level
+          - sensor.ab_kleine_kamer_jimmy_battery
+          - sensor.ab_slaapkamer_jimmy_battery
+          - sensor.ab_slaapkamer_steph_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Doors
         entities:
-          - sensor.voordeur_battery_level
-          - sensor.woonkamer_deur_battery_level
-          - sensor.slaapkamer_deur_battery_level
+          - sensor.voordeur_battery
+          - sensor.woonkamer_deur_battery
+          - sensor.slaapkamer_deur_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Windows
         entities:
-          - sensor.keukenraam_battery_level
-          - sensor.bijkeukenraam_battery_level
-          - sensor.kleine_kamerraam_battery_level
+          - sensor.keukenraam_battery
+          - sensor.bijkeukenraam_battery
+          - sensor.kleine_kamerraam_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Temperature/Humidity Sensors
         entities:
-          - sensor.woonkamer_battery_level
-          - sensor.slaapkamer_battery_level
-          - sensor.badkamer_battery_level
+          - sensor.woonkamer_battery
+          - sensor.slaapkamer_battery
+          - sensor.badkamer_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Motion Sensors
         entities:
-          - sensor.motion_toilet_battery_level
-          - sensor.motion_office_battery_level
-          - sensor.motion_gang_battery_level
-          - sensor.motion_bijkeuken_battery_level
+          - sensor.motion_toilet_battery
+          - sensor.motion_office_battery
+          - sensor.motion_gang_battery
+          - sensor.motion_bijkeuken_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -81,7 +81,7 @@ battery:
       - title: Other
         entities:
           - sensor.vacuum_battery
-          - sensor.smoke_sensor_battery_level
+          - sensor.smoke_sensor_battery
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -89,58 +89,58 @@ battery:
       # Larger Screens
       - title: Hue Dimmers
         entities:
-          - sensor.ab_gang_muur_battery_level
-          - sensor.ab_keuken_muur_battery_level
-          - sensor.ab_kleine_kamer_muur_battery_level
-          - sensor.ab_slaapkamer_muur_battery_level
-          - sensor.ab_toilet_muur_battery_level
-          - sensor.ab_woonkamer_muur_battery_level
+          - sensor.ab_gang_muur_battery
+          - sensor.ab_keuken_muur_battery
+          - sensor.ab_kleine_kamer_muur_battery
+          - sensor.ab_slaapkamer_muur_battery
+          - sensor.ab_toilet_muur_battery
+          - sensor.ab_woonkamer_muur_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: IKEA Dimmers
         entities:
-          - sensor.ab_kleine_kamer_battery_level
-          - sensor.ab_slaapkamer_jim_battery_level
-          - sensor.ab_slaapkamer_steph_battery_level
+          - sensor.ab_kleine_kamer_jimmy_battery
+          - sensor.ab_slaapkamer_jimmy_battery
+          - sensor.ab_slaapkamer_steph_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Doors
         entities:
-          - sensor.voordeur_battery_level
-          - sensor.woonkamer_deur_battery_level
-          - sensor.slaapkamer_deur_battery_level
+          - sensor.voordeur_battery
+          - sensor.woonkamer_deur_battery
+          - sensor.slaapkamer_deur_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Windows
         entities:
-          - sensor.keukenraam_battery_level
-          - sensor.bijkeukenraam_battery_level
-          - sensor.kleine_kamerraam_battery_level
+          - sensor.keukenraam_battery
+          - sensor.bijkeukenraam_battery
+          - sensor.kleine_kamerraam_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Temperature/Humidity Sensors
         entities:
-          - sensor.woonkamer_battery_level
-          - sensor.slaapkamer_battery_level
-          - sensor.badkamer_battery_level
+          - sensor.woonkamer_battery
+          - sensor.slaapkamer_battery
+          - sensor.badkamer_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Motion Sensors
         entities:
-          - sensor.motion_toilet_battery_level
-          - sensor.motion_office_battery_level
-          - sensor.motion_gang_battery_level
-          - sensor.motion_bijkeuken_battery_level
+          - sensor.motion_toilet_battery
+          - sensor.motion_office_battery
+          - sensor.motion_gang_battery
+          - sensor.motion_bijkeuken_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -157,7 +157,7 @@ battery:
       - title: Other
         entities:
           - sensor.vacuum_battery
-          - sensor.smoke_sensor_battery_level
+          - sensor.smoke_sensor_battery
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
