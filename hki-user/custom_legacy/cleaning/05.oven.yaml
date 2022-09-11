@@ -1,15 +1,8 @@
-- type: custom:mod-card
-  style: |
-    ha-card {
-      margin-left: 7px;
-      margin-right: 7px;
-    }
-  card:
-    !include
-    - '../../../hki-base-old/templates/picture-elements/appliances-card.yaml'
-    - image: /local/images/appliances/oven.jpg
-      entity_status: input_select.oven_status
-      entity_switch: switch.oven
-      entity_wattage: sensor.power_52
-      entity_extra: sensor.consumption_49
-      entity_extra_icon: mdi:chart-line
+- !include
+  - '../../templates/appliances-card.yaml'
+  - image: /local/images/appliances/oven.jpg
+    entity_status: input_select.oven_status
+    entity_switch: switch.oven
+    entity_wattage: sensor.power_52
+    entity_extra: sensor.consumption_49
+    entity_extra_icon: mdi:chart-line
