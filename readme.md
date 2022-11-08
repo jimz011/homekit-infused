@@ -1,5 +1,7 @@
 # Homekit Infused version 2021.x.x
 
+# DEPRECATED, USE HKI 5 INSTEAD
+
 Before continuing, make sure you have read the documentation on https://github.com/jimz011/homekit-infused
 
 Checklist:
