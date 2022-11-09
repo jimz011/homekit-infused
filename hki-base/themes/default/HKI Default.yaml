@@ -1,4 +1,5 @@
 HKI Default:
+  border-style: none
   lock-color-active: red
   ha-card-border-radius: 12px
   ha-card-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)
@@ -47,6 +48,7 @@ HKI Default:
   title-text-border-radius: 0px
   paper-item-icon-color: var(--ha-icon-color)
   app-header-background-color: '#262628'
+  ha-card-border-width: 0px
   modes:
     light:
       background-image: '#e6e6ed' 
@@ -74,6 +76,7 @@ HKI Default:
       sidebar-selected-icon-color: 'var(--primary-color)'
       sidebar-selected-text-color: 'var(--primary-color)'
       header-color: '#262628'
+      ha-card-border-style: none
     dark:
       background-image: '#3b3b40'
       primary-background-color: 'var(--background-image)'
@@ -82,6 +85,7 @@ HKI Default:
       subtitle-font-weight: normal
       title-text-color: White
       border-radius: 12px
+      ha-card-border-style: none
       box-shadow: var(--ha-card-box-shadow, 2px 4px 2px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
       bar-card-border-radius: 12px
       paper-toast-background-color: '#821414'
@@ -160,8 +164,16 @@ HKI Default:
       color: AliceBlue !important;
       box-shadow: none !important;
       overflow: visible;
+      border-style: none !important;
     }
     .hki {
+      border-radius: var(--ha-card-border-radius) }};
+      box-shadow: var(--ha-card-box-shadow) }};
+      --primary-text-color: var(--primary-text-color);
+      --secondary-text-color: var(--secondary-text-color);
+      font-family: Roboto;
+    }
+    .hki-alt {
       border-radius: var(--ha-card-border-radius) }};
       box-shadow: var(--ha-card-box-shadow) }};
       --primary-text-color: var(--primary-text-color);

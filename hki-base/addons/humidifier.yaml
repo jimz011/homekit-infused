@@ -1,0 +1,13 @@
+# lovelace_gen
+
+type: humidifier
+card_mod: 
+  class: hki
+{% if device.name is defined %}
+name: {{ device.name }}
+{% endif %}
+{% if device.entity is defined %}
+entity: {{ device.entity }}
+{% else %}
+entity: {{ device }}
+{% endif %}

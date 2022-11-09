@@ -26,3 +26,12 @@ severity:
   yellow: {{ gauge.severity.yellow }}
   red: {{ gauge.severity.red }}
 {% endif %}
+{% if gauge.needle is defined %}
+needle: {{ gauge.needle }}
+{% endif %}
+{% if gauge.segments is defined %}
+segments:
+  {% for segment in gauge.segments %}
+  - {{ segment|tojson }}
+  {% endfor %}
+{% endif %}

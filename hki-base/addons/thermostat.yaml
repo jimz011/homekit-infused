@@ -12,6 +12,9 @@
   {% elif config.box_shadow is defined %}
   box_shadow: {{ config.box_shadow }}
   {% endif %}
+  {% if thermostat.attribute is defined %}
+  attribute: {{ thermostat.attribute }}
+  {% endif %}
   {% if config.action is defined %}
   action: {{ config.action }}
   {% elif thermostat.action is defined %}

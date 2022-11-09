@@ -262,6 +262,11 @@ cards:
                 type: custom:mod-card
                 card:
                   type: map
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-style: none !important;
+                      }
                   view_layout:
                     grid-area: map
                   entities:
@@ -277,6 +282,11 @@ cards:
                 type: custom:mod-card
                 card:
                   type: map
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-style: none !important;
+                      }
                   view_layout:
                     grid-area: map
                   entities:
@@ -292,6 +302,11 @@ cards:
                 type: custom:mod-card
                 card:
                   type: map
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-style: none !important;
+                      }
                   view_layout:
                     grid-area: map
                   entities:
@@ -308,3 +323,4 @@ cards:
             styles:
               card:
                 - height: 650px
+                - border-style: none

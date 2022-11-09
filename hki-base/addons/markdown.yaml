@@ -1,0 +1,15 @@
+# lovelace_gen
+
+type: markdown
+card_mod:
+  class: hki
+content: {{ config.content|tojson }}
+{% if config.card_size is defined %}
+card_size: {{ config.card_size }}
+{% endif %}
+{% if config.entity_id is defined %}
+entity_id: 
+  {% for id in config.entity_id%}
+  - {{ id }}
+  {% endfor%}
+{% endif %}

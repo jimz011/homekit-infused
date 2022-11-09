@@ -11,6 +11,12 @@ card_mod:
 entity: {{ config.entity }}
 name: {{ config.city_name }}
 backdrop: {{ config.backdrop|default('false') }}
+{% if config.custom is defined %}
+custom:
+  {% for weather in config.custom %}
+  - {{ weather|tojson }}
+  {% endfor %}
+{% endif %}
 tap_action:
   action: navigate
   navigation_path: {{ config.path|default('weather') }}

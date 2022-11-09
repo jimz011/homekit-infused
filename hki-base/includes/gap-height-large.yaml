@@ -12,3 +12,4 @@ color_type: blank-card
 styles:
   card:
     - height: 865px
+    - border-style: none

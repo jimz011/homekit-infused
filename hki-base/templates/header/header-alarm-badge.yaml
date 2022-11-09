@@ -84,6 +84,7 @@ styles:
     - box-shadow: none
     - width: 35px
     - height: 35px
+    - border-style: none
   icon:
     - color: {{ icon_color|tojson }}
     - animation: >

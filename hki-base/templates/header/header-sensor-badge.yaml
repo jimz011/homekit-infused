@@ -181,6 +181,7 @@ styles:
   card:
     - --ha-card-background: var(--header-badge-background)
     - border-radius: 50%
+    - border-style: none
     - box-shadow: none
     - width: 35px
     - overflow: visible

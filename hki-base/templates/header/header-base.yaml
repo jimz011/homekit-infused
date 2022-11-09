@@ -19,6 +19,7 @@ card_mod:
       --ha-card-background: transparent;
       border-radius: var(--header-border-radius) !important;
       position: -webkit-sticky !important;
+      border-style: none !important;
     }
     :host {
       z-index: 999 !important;
@@ -59,13 +60,18 @@ card:
         - type: markdown
           card_mod:
             class: header-title
-            {% if logo_image is defined %}
             style: |
+              {% if logo_image is defined %}
               ha-card {
+                border-style: none !important;
                 margin-top: {{ logo_margin_top|default('-10px') }} !important;
                 margin-left: {{ logo_margin_left|default('0px') }} !important;
               }
-            {% endif %}
+              {% else %}
+              ha-card {
+                border-style: none !important;
+              }
+              {% endif %}
           {% if logo_image is defined %}
           content: >
             <img src="{{ logo_image }}" alt="logo" width="{{ logo_width }}" height="{{ logo_height }}">
@@ -117,23 +123,25 @@ card:
                   size: wide
                   {% endif %}
                   card_mod:
-                    style:
-                      .: |
-                        :host {
-                          --primary-text-color: AliceBlue !important;
-                          --margin-top: -40px !important;
-                        }
-                        mwc-icon-button {
-                          color: AliceBlue !important;
-                        }
-                  style: |
-                    --popup-background-color: black !important;
-                    --popup-header-background-color: var(--popup-background-color) !important;
-                    {% if _global.config.popup_border_radius is defined %}
-                    --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-                    {% else %}
-                    --popup-border-radius: 12px !important;
-                    {% endif %} 
+                    style: |
+                      :host {
+                        --primary-text-color: AliceBlue !important;
+                        --margin-top: -40px !important;
+                        --popup-background-color: black !important;
+                        --popup-header-background-color: var(--popup-background-color) !important;
+                        {% if _global.config.popup_border_radius is defined %}
+                        --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+                        {% else %}
+                        --popup-border-radius: 12px !important;
+                        {% endif %} 
+                        border-style: none !important;
+                      }
+                      ha-card {
+                        border-style: none !important;
+                      }
+                      mwc-icon-button {
+                        color: AliceBlue !important;
+                      }
                   content:
                     type: vertical-stack
                     cards:
@@ -158,6 +166,7 @@ card:
                                   - height: 35px
                                   - margin-top: -10px
                                   - overflow: visible
+                                  - border-style: none
                                 name:
                                   - font-size: 12px
                                   - color: AliceBlue
@@ -181,6 +190,7 @@ card:
                               --secondary-text-color: AliceBlue !important;
                               --disabled-text-color: AliceBlue !important;
                               --ha-icon-color: AliceBlue !important;
+                              border-style: none !important;
                             }
                         max_results: 10
                         {% if ((_global.config.profile is defined) and (_global.config.profile.translate is defined) and (_global.config.profile.translate.search is defined)) %}
@@ -218,6 +228,7 @@ card:
                                 - box-shadow: none
                                 - width: 115px
                                 - height: 115px
+                                - border-style: none
                           - type: markdown
                             view_layout:
                               grid-area: welcome
@@ -232,6 +243,7 @@ card:
                                     color: AliceBlue !important;
                                     --paper-item-icon-color: auto !important;
                                     --paper-item-icon-active-color: #b58e31 !important;
+                                    border-style: none !important;
                                     text-align: end !important;
                                   }
                             content: {{ _global.config.profile.markdown|tojson }}
@@ -250,6 +262,7 @@ card:
                                 --paper-item-icon-color: auto !important;
                                 --paper-item-icon-active-color: #b58e31 !important;
                                 --primary-text-color: AliceBlue !important;
+                                border-style: none !important;
                               }
                         entities:
                           {% for config in _global.config.profile.cards %}
@@ -281,6 +294,8 @@ card:
                         styles:
                           card:
                             - height: 650px
+                            - border-style: none
+
                       {% if (_global.config.profile.media_player is defined) %}
                       - type: custom:mod-card
                         card_mod:
@@ -290,12 +305,15 @@ card:
                               -webkit-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
                               -moz-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
                               box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
-                              background: black;
+                              --ha-card-background: black !important;
                               --primary-text-color: AliceBlue;
                               --paper-item-icon-color: LimeGreen;
                               --mmp-icon-color: LimeGreen;
+                              border-style: none !important;
+                              border-radius: 0px !important;
                             }
                             :host {
+                              --ha-card-border-radius: 0px !important;
                               position: sticky !important;
                               bottom: 0 !important;
                               left: 0 !important;

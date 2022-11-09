@@ -16,7 +16,11 @@ icon: {{ icon|tojson }}
 icon: mdi:thermostat
 {% endif %}
 label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
+{% if ((attribute is defined) and (attribute == 'state')) %}
+state_display: "[[[ if (states['{{entity}}'].state == 'off') return `Off`; else return `${states['{{entity}}'].state}` ]]]"
+{% else %}
 state_display: "[[[ if (states['{{entity}}'].state == 'off') return `Off`; else return `${states['{{entity}}'].attributes.hvac_action}` ]]]"
+{% endif %}
 lock:
   enabled: {{ lock|default('false') }}
   unlock: tap
@@ -315,6 +319,8 @@ state:
         notification:
           - background-color: var(--badge-background-color)
           - color: var(--badge-text-color)
+      icon:
+        - color: var(--ha-icon-color)
   - operator: 'default'
     spin: false
     styles:
@@ -327,7 +333,7 @@ state:
       state:
         - color: var(--state-color-active)
       icon:
-        - color: var(--ha-icon-active-color)
+        - color: var(--ha-icon-color)
       custom_fields:
         notification:
           - background-color: var(--badge-background-color)

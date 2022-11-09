@@ -10,6 +10,7 @@ card_mod:
       -webkit-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
       -moz-box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important;
       box-shadow: 0px 0px 20px -10px rgba(255,255,255,0.75) !important
+      border-style: none !important;
     }
     :host {
       z-index: 999 !important;
@@ -20,6 +21,15 @@ card_mod:
     }
 entities:
   - type: custom:swipe-card
+    card_mod:
+      style: |
+        .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+          background: DodgerBlue !important;
+          height: 5% !important;
+        }
+    parameters:
+      pagination:
+        type: 'progressbar'
     cards:
       - type: grid
         square: false
@@ -60,7 +70,10 @@ entities:
               sequence:
                 - service: browser_mod.navigate
                   data:
-                    path: find_my
+                    path: ../energy
+                - service: browser_mod.navigate
+                  data:
+                    path: homekit-infused/find_my
                 - service: browser_mod.close_popup
                   data: []
           - !include
@@ -122,6 +135,7 @@ entities:
                                   --paper-item-icon-color: auto !important;
                                   --paper-item-icon-active-color: #b58e31 !important;
                                   --primary-text-color: AliceBlue !important;
+                                  border-style: none !important;
                                 }
                           content: >
                             **Homekit Infused 5 v.{{ states('sensor.hki_current_version') }}**
@@ -177,13 +191,13 @@ entities:
                   data: []
           - !include
             - profile-menu-shortcut.yaml
-            - name: HKI
-              label: Settings
-              icon: mdi:palette-outline
+            - name: Media
+              label: Browser
+              icon: mdi:play-box-multiple
               sequence:
                 - service: browser_mod.navigate
                   data:
-                    path: hki_settings
+                    path: ../media-browser/browser
                 - service: browser_mod.close_popup
                   data: []
       - type: custom:state-switch
@@ -229,13 +243,15 @@ entities:
                       data: []
               - !include
                 - profile-menu-shortcut.yaml
-                - name: Reload
-                  label: Themes
-                  icon: mdi:format-paint
-                  confirmation: Are you sure you want to reload themes?
-                  tap_action:
-                    action: call-service
-                    service: frontend.reload_themes
+                - name: HKI
+                  label: Settings
+                  icon: mdi:palette-outline
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: hki_settings
+                    - service: browser_mod.close_popup
+                      data: []
               - !include
                 - profile-menu-shortcut.yaml
                 - name: HA
@@ -245,6 +261,67 @@ entities:
                     - service: browser_mod.navigate
                       data:
                         path: ../config/dashboard
+                    - service: browser_mod.close_popup
+                      data: []
+      - type: custom:state-switch
+        entity: group
+        states:
+          admin:
+            type: grid
+            square: false
+            columns: 5
+            cards:
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Browser
+                  label: Mod
+                  icon: mdi:server
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../browser-mod
+                    - service: browser_mod.close_popup
+                      data: []
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Logbook
+                  label: ' '
+                  icon: mdi:format-list-bulleted-type
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../logbook
+                    - service: browser_mod.close_popup
+                      data: []
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: History
+                  label: ' '
+                  icon: mdi:chart-box
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../history
+                    - service: browser_mod.close_popup
+                      data: []
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Reload
+                  label: Themes
+                  icon: mdi:format-paint
+                  confirmation: Are you sure you want to reload themes?
+                  tap_action:
+                    action: call-service
+                    service: frontend.reload_themes
+              - !include
+                - profile-menu-shortcut.yaml
+                - name: Developer
+                  label: Tools
+                  icon: mdi:hammer
+                  sequence:
+                    - service: browser_mod.navigate
+                      data:
+                        path: ../developer-tools/yaml
                     - service: browser_mod.close_popup
                       data: []
       - type: custom:state-switch

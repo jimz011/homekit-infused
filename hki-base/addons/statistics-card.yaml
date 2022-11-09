@@ -1,0 +1,46 @@
+# lovelace_gen
+
+type: statistic
+card_mod:
+  class: hki
+  style: |
+    .measurement {
+      color: var(--state-color) !important;
+    }
+    .name {
+      color: var(--name-color) !important;
+    }
+    .icon {
+      color: var(--icon-color) !important;
+    }
+{% if stat.entity is defined %}
+entity: {{ stat.entity }}
+{% else %}
+entity: {{ stat }}
+{% endif %}
+{% if stat.stat_type is defined %}
+stat_type: {{ stat.stat_type }}
+{% else %}
+stat_type: change
+{% endif %}
+{% if stat.name is defined %}
+name: {{ stat.name }}
+{% endif %}
+{% if stat.icon is defined %}
+icon: {{ stat.icon }}
+{% endif %}
+{% if stat.unit is defined %}
+unit: {{ stat.unit }}
+{% endif %}
+{% if stat.period is defined %}
+period: 
+  {{ stat.period|tojson }}
+{% else %}
+period:
+  calendar:
+    period: month
+{% endif %}
+{% if stat.footer is defined %}
+footer: 
+  {{ stat.footer|tojson }}
+{% endif %}

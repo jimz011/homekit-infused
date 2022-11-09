@@ -44,7 +44,18 @@ cards:
                     cards:
                       - type: markdown
                         card_mod:
-                          class: hki   
+                          style: |
+                            :host {
+                              --markdown-code-background-color: transparent !important;
+                            }
+                            ha-card {
+                              box-shadow: none !important;
+                              border-style: none !important;
+                              border-radius: none !important;
+                            }
+                            :host {
+                              font-family: var(--font-family) !important;
+                            }     
                         content: >
                           **NOTE:** iOS will automatically use the HKI Advanced Themes, if you want to force a theme or use the `Default HKI` theme you **MUST** set it in your [profile](../profile)!
               - type: entities 
@@ -86,15 +97,18 @@ cards:
                           cards:
                             - type: markdown
                               card_mod:
-                                class: hki
-                              style: |
-                                ha-card {
-                                  box-shadow: none !important;
-                                  border-radius: none !important;
-                                }
-                                :host {
-                                  font-family: var(--font-family) !important;
-                                }              
+                                style: |
+                                  :host {
+                                    --markdown-code-background-color: transparent !important;
+                                  }
+                                  ha-card {
+                                    box-shadow: none !important;
+                                    border-style: none !important;
+                                    border-radius: none !important;
+                                  }
+                                  :host {
+                                    font-family: var(--font-family) !important;
+                                  }              
                               content: >
                                 **NOTE:** 
                                 
@@ -113,26 +127,29 @@ cards:
                     cards:
                       - type: markdown
                         card_mod:
-                          class: hki
-                        style: |
-                          ha-card {
-                            box-shadow: none !important;
-                            border-radius: none !important;
-                          }
-                          :host {
-                            font-family: var(--font-family) !important;
-                          }              
+                          style: |
+                            :host {
+                              --markdown-code-background-color: transparent !important;
+                            }
+                            ha-card {
+                              box-shadow: none !important;
+                              border-style: none !important;
+                              border-radius: none !important;
+                            }
+                            :host {
+                              font-family: var(--font-family) !important;
+                            }              
                         content: >
                           **NOTE:** The HKI Advanced themes must be active for these settings below to work, with the exception of the `frontend greeting`! Light and Dark themes will only work when their respective settings are set as the selected theme.
 
 
-                          **WARNING:** Changing the theme will overwrite your current settings, if you made a custom theme and want to save it you should create a script as mentioned in the [documentation](https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/themes.md#sharing-themes)!
+                          **WARNING:** Changing the theme will overwrite your current settings, if you made a custom theme and want to save it you should use the save theme button listed below or create a script as mentioned in the [documentation](https://github.com/jimz011/homekit-infused/blob/5.x.x-docs/docs/addons/themes.md#sharing-themes)!
                   - entity: input_select.settings_light_dark
                     name: Select theme to edit
                   - type: custom:fold-entity-row
                     head:
                       entity: sensor.empty_sensor
-                      icon: mdi:page-layout-header
+                      icon: mdi:weather-sunny
                       name: Select Light Theme
                       tap_action:
                         action: fire-dom-event
@@ -157,14 +174,16 @@ cards:
                                   service_data:
                                     entity_id: script.hki_light_default
                                 styles:
+                                  card:
+                                    - box-shadow: none
                                   name:
                                     - font-size: 12px
                                   label:
                                     - font-size: 10px
                               - type: custom:button-card
-                                name: Purple Blur
-                                label: 'By @msinfo'
-                                icon: mdi:alpha-p-circle
+                                name: Paper
+                                label: White
+                                icon: mdi:alpha-w-box
                                 size: 25%
                                 show_label: true
                                 confirmation:
@@ -173,8 +192,50 @@ cards:
                                   action: call-service
                                   service: script.turn_on
                                   service_data:
-                                    entity_id: script.hki_purple_blur
+                                    entity_id: script.hki_paper_white
                                 styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Orange
+                                label: Sunrise
+                                icon: mdi:alpha-o-box
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_orange_sunrise
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Sweet
+                                label: Pink
+                                icon: mdi:alpha-o-box
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_sweet_pink
+                                styles:
+                                  card:
+                                    - box-shadow: none
                                   name:
                                     - font-size: 12px
                                   label:
@@ -182,7 +243,7 @@ cards:
                   - type: custom:fold-entity-row
                     head:
                       entity: sensor.empty_sensor
-                      icon: mdi:page-layout-header
+                      icon: mdi:weather-night
                       name: Select Dark Theme
                       tap_action:
                         action: fire-dom-event
@@ -207,6 +268,68 @@ cards:
                                   service_data:
                                     entity_id: script.hki_dark_default
                                 styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Midnight
+                                label: Black
+                                icon: mdi:alpha-b-box
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_midnight_black
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Orange
+                                label: Sunset
+                                icon: mdi:alpha-o-box
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_orange_sunset
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Purple Blur
+                                label: 'By @msinfo'
+                                icon: mdi:alpha-p-circle
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to set this custom theme?
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.hki_purple_blur
+                                styles:
+                                  card:
+                                    - box-shadow: none
                                   name:
                                     - font-size: 12px
                                   label:
@@ -214,8 +337,127 @@ cards:
                   - type: custom:fold-entity-row
                     head:
                       entity: sensor.empty_sensor
-                      icon: mdi:page-layout-header
-                      name: Clear Themes
+                      icon: mdi:file
+                      name: Save/Load Themes
+                      tap_action:
+                        action: fire-dom-event
+                        fold_row: true
+                    entities:
+                      - type: custom:hui-vertical-stack-card
+                        cards:
+                          - type: markdown
+                            card_mod:
+                              style: |
+                                :host {
+                                  --markdown-code-background-color: transparent !important;
+                                }
+                                ha-card {
+                                  box-shadow: none !important;
+                                  border-style: none !important;
+                                  border-radius: none !important;
+                                }
+                                :host {
+                                  font-family: var(--font-family) !important;
+                                }            
+                            content: >
+                              **NOTE:**
+
+                              You can only save 1 light and 1 dark theme at any given time. When loading the theme it will reset the theme to your saved state!
+
+
+                              **WARNING:**
+
+                              A saved state will NOT persist through a restart. There is a workaround by restarting with the saved theme active, at each HA start it will save the current state. So if you restart with the saved theme active, it will automatically create a new save for you. If you however chose a different theme (but had a theme saved), your save will be lost!
+
+
+                          - type: grid
+                            columns: 4
+                            cards:
+                              - type: custom:button-card
+                                name: Save
+                                label: Light Theme
+                                icon: mdi:file-edit
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to save the light theme? This will overwrite the previous settings!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.light_theme_snapshot_create
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Load
+                                label: Light Theme
+                                icon: mdi:file-restore
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to load the last saved state (light theme)? This will overwrite the current settings!
+                                tap_action:
+                                  action: call-service
+                                  service: scene.turn_on
+                                  service_data:
+                                    entity_id: scene.light_theme_snapshot
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Save
+                                label: Dark Theme
+                                icon: mdi:file-edit
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to save the dark theme? This will overwrite the previous settings!
+                                tap_action:
+                                  action: call-service
+                                  service: script.turn_on
+                                  service_data:
+                                    entity_id: script.dark_theme_snapshot_create
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Load
+                                label: Dark Theme
+                                icon: mdi:file-restore
+                                size: 25%
+                                show_label: true
+                                confirmation:
+                                  text: Are you sure you want to load the last saved state (dark theme)? This will overwrite the current settings!
+                                tap_action:
+                                  action: call-service
+                                  service: scene.turn_on
+                                  service_data:
+                                    entity_id: scene.dark_theme_snapshot
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                  - type: custom:fold-entity-row
+                    head:
+                      entity: sensor.empty_sensor
+                      icon: mdi:file-cog
+                      name: Themes Advanced
                       tap_action:
                         action: fire-dom-event
                         fold_row: true
@@ -228,7 +470,7 @@ cards:
                               - type: custom:button-card
                                 name: Clear
                                 label: Light Theme
-                                icon: mdi:file-restore
+                                icon: mdi:file-remove
                                 size: 25%
                                 show_label: true
                                 confirmation:
@@ -239,6 +481,8 @@ cards:
                                   service_data:
                                     entity_id: script.hki_light_empty
                                 styles:
+                                  card:
+                                    - box-shadow: none
                                   name:
                                     - font-size: 12px
                                   label:
@@ -246,7 +490,7 @@ cards:
                               - type: custom:button-card
                                 name: Clear
                                 label: Dark Theme
-                                icon: mdi:file-restore
+                                icon: mdi:file-remove
                                 size: 25%
                                 show_label: true
                                 confirmation:
@@ -257,6 +501,40 @@ cards:
                                   service_data:
                                     entity_id: script.hki_dark_empty
                                 styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Show All
+                                label: Light Variables
+                                entity: group.light_theme_inputs
+                                icon: mdi:file-eye-outline
+                                size: 25%
+                                show_label: true
+                                tap_action:
+                                  action: more-info
+                                styles:
+                                  card:
+                                    - box-shadow: none
+                                  name:
+                                    - font-size: 12px
+                                  label:
+                                    - font-size: 10px
+                              - type: custom:button-card
+                                name: Show All
+                                label: Dark Variables
+                                entity: group.dark_theme_inputs
+                                icon: mdi:file-eye
+                                size: 25%
+                                show_label: true
+                                tap_action:
+                                  action: more-info
+                                styles:
+                                  card:
+                                    - box-shadow: none
                                   name:
                                     - font-size: 12px
                                   label:
@@ -309,7 +587,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }            
                                     content: >
                                       **NOTE:**
 
@@ -337,6 +626,31 @@ cards:
                               - type: custom:text-input-row 
                                 name: Color Active
                                 entity: input_text.icon_color_active
+                              - entity: input_select.auto_icon_color
+                                name: Auto Icon Color
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }            
+                                    content: >
+                                      **NOTE:**
+                                      
+                                      Icon color can be set to follow the color of that entities current state (e.g. if your LED's are red, the icon will also be red), this is not applicable for all lights!
+    
+    
+                                      Turn this feature off if you want to force your own color to the icons
                           # Fonts
                           - type: custom:fold-entity-row
                             head:
@@ -360,7 +674,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }              
                                     content: >
                                       **NOTE:**
                                       
@@ -399,7 +724,18 @@ cards:
                                     cards:
                                       - type: markdown
                                         card_mod:
-                                          class: hki           
+                                          style: |
+                                            :host {
+                                              --markdown-code-background-color: transparent !important;
+                                            }
+                                            ha-card {
+                                              box-shadow: none !important;
+                                              border-style: none !important;
+                                              border-radius: none !important;
+                                            }
+                                            :host {
+                                              font-family: var(--font-family) !important;
+                                            }             
                                         content: >
                                           **Example:** 0px 0px 10px 2px rgba(0,0,0,0.6)
 
@@ -447,6 +783,9 @@ cards:
                                   - type: custom:text-input-row
                                     name: Label Font Weight
                                     entity: input_text.button_label_font_weight
+                                  - type: custom:text-input-row
+                                    name: Label Text Transform
+                                    entity: input_text.button_label_text_transform
                               - type: custom:fold-entity-row
                                 head:
                                   entity: sensor.empty_sensor
@@ -605,7 +944,18 @@ cards:
                                     cards:
                                       - type: markdown
                                         card_mod:
-                                          class: hki   
+                                          style: |
+                                            :host {
+                                              --markdown-code-background-color: transparent !important;
+                                            }
+                                            ha-card {
+                                              box-shadow: none !important;
+                                              border-style: none !important;
+                                              border-radius: none !important;
+                                            }
+                                            :host {
+                                              font-family: var(--font-family) !important;
+                                            }     
                                         content: >
                                           **NOTE:** You can **NOT** use gradients on the navigation/footer bar!
 
@@ -732,7 +1082,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }             
                                     content: >
                                       **Example:** linear-gradient(Black, White)
 
@@ -777,7 +1138,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }            
                                     content: >
                                       **NOTE:**
 
@@ -805,6 +1177,31 @@ cards:
                               - type: custom:text-input-row 
                                 name: Color Active
                                 entity: input_text.dark_icon_color_active
+                              - entity: input_select.auto_icon_color
+                                name: Auto Icon Color
+                              - type: custom:hui-vertical-stack-card
+                                cards:
+                                  - type: markdown
+                                    card_mod:
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }            
+                                    content: >
+                                      **NOTE:**
+                                      
+                                      Icon color can be set to follow the color of that entities current state (e.g. if your LED's are red, the icon will also be red), this is not applicable for all lights!
+    
+    
+                                      Turn this feature off if you want to force your own color to the icons
                           # Fonts
                           - type: custom:fold-entity-row
                             head:
@@ -828,7 +1225,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }            
                                     content: >
                                       **NOTE:**
                                       
@@ -867,7 +1275,18 @@ cards:
                                     cards:
                                       - type: markdown
                                         card_mod:
-                                          class: hki           
+                                          style: |
+                                            :host {
+                                              --markdown-code-background-color: transparent !important;
+                                            }
+                                            ha-card {
+                                              box-shadow: none !important;
+                                              border-style: none !important;
+                                              border-radius: none !important;
+                                            }
+                                            :host {
+                                              font-family: var(--font-family) !important;
+                                            }          
                                         content: >
                                           **Example:** 0px 0px 10px 2px rgba(0,0,0,0.6)
 
@@ -915,6 +1334,9 @@ cards:
                                   - type: custom:text-input-row
                                     name: Label Font Weight
                                     entity: input_text.dark_button_label_font_weight
+                                  - type: custom:text-input-row
+                                    name: Label Text Transform
+                                    entity: input_text.dark_button_label_text_transform
                               - type: custom:fold-entity-row
                                 head:
                                   entity: sensor.empty_sensor
@@ -1073,7 +1495,18 @@ cards:
                                     cards:
                                       - type: markdown
                                         card_mod:
-                                          class: hki   
+                                          style: |
+                                            :host {
+                                              --markdown-code-background-color: transparent !important;
+                                            }
+                                            ha-card {
+                                              box-shadow: none !important;
+                                              border-style: none !important;
+                                              border-radius: none !important;
+                                            }
+                                            :host {
+                                              font-family: var(--font-family) !important;
+                                            }    
                                         content: >
                                           **NOTE:** You can **NOT** use gradients on the navigation/footer bar!
 
@@ -1200,7 +1633,18 @@ cards:
                                 cards:
                                   - type: markdown
                                     card_mod:
-                                      class: hki           
+                                      style: |
+                                        :host {
+                                          --markdown-code-background-color: transparent !important;
+                                        }
+                                        ha-card {
+                                          box-shadow: none !important;
+                                          border-style: none !important;
+                                          border-radius: none !important;
+                                        }
+                                        :host {
+                                          font-family: var(--font-family) !important;
+                                        }          
                                     content: >
                                       **Example:** linear-gradient(Black, White)
 
@@ -1214,15 +1658,18 @@ cards:
                     cards:
                       - type: markdown
                         card_mod:
-                          class: hki
-                        style: |
-                          ha-card {
-                            box-shadow: none !important;
-                            border-radius: none !important;
-                          }
-                          :host {
-                            font-family: var(--font-family) !important;
-                          }              
+                          style: |
+                            :host {
+                              --markdown-code-background-color: transparent !important;
+                            }
+                            ha-card {
+                              box-shadow: none !important;
+                              border-style: none !important;
+                              border-radius: none !important;
+                            }
+                            :host {
+                              font-family: var(--font-family) !important;
+                            }              
                         content: >
                           **Want to share your theme?** 
                           

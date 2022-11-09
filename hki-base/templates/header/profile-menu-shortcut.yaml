@@ -28,6 +28,7 @@ styles:
   card:
     - box-shadow: none
     - --ha-card-background: transparent
+    - border-style: none
   name:
     - color: AliceBlue
     - font-size: 11px

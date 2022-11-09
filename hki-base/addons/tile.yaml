@@ -1,0 +1,34 @@
+# lovelace_gen
+
+type: tile
+card_mod:
+  {% if tile.color is defined %} 
+  class: hki-alt
+  {% else %}
+  class: hki
+  {% endif %}
+{% if tile.entity is defined %}
+entity: {{ tile.entity }}
+{% else %}
+entity: {{ tile }}
+{% endif %}
+{% if tile.name is defined %}  
+name: {{ tile.name }}
+{% endif %}
+{% if tile.icon is defined %}  
+icon: {{ tile.icon }}
+{% endif %}
+{% if tile.color is defined %}  
+color: {{ tile.color }}
+{% endif %}
+{% if tile.show_entity_picture is defined %}  
+show_entity_picture: {{ tile.show_entity_picture }}
+{% endif %}
+{% if tile.tap_action is defined %}  
+tap_action:
+  {{ tile.tap_action|tojson }}
+{% endif %}
+{% if tile.icon_tap_action is defined %}  
+icon_tap_action:
+  {{ tile.icon_tap_action|tojson }}
+{% endif %}

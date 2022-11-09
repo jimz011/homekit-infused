@@ -1,0 +1,56 @@
+# lovelace_gen
+
+type: area
+card_mod: 
+  class: hki
+  style: |
+    .name {
+      {% if area.name_size is defined %}
+      font-size: {{ area.name_size }} !important;
+      {% else %}
+      font-size: 18px !important;
+      {% endif %}
+      {% if area.name_color is defined %}
+      color: {{ area.name_color }} !important;
+      {% else %}
+      color: var(--name-color) !important;
+      {% endif %}
+    }
+    .sensors {
+      {% if area.sensor_label_size is defined %}
+      font-size: {{ area.sensor_label_size }} !important;
+      {% else %}
+      font-size: 14px !important;
+      {% endif %}
+      {% if area.sensor_color is defined %}
+      color: {{ area.sensor_color }} !important;
+      {% else %}
+      color: var(--label-color) !important;
+      {% endif %}
+      {% if area.sensor_opacity is defined %}
+      opacity: {{ area.sensor_opacity }} !important;
+      {% else %}
+      opacity: 0.8 !important;
+      {% endif %}
+      {% if area.sensor_icon_size is defined %}
+      --mdc-icon-size: {{ area.sensor_icon_size }} !important;
+      {% else %}
+      --mdc-icon-size: 18px !important;
+      {% endif %}
+      {% if area.sensor_margin is defined %}
+      margin-top: {{ area.sensor-margin }} !important;
+      {% else %}
+      margin-top: 0px !important;
+      {% endif %}
+    }
+{% if area.area is defined %}
+area: {{ area.area }}
+{% else %}
+area: {{ area }}
+{% endif %}
+{% if area.show_camera is defined %}
+show_camera: {{ area.show_camera }}
+{% endif %}
+{% if area.navigation_path is defined %}
+navigation_path: {{ area.navigation_path }}
+{% endif %}

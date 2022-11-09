@@ -26,6 +26,7 @@ styles:
     - --ha-card-background: transparent
     - box-shadow: none
     - overflow: visible
+    - border-style: none
   name:
     - justify-self: start
     - font-family: var(--font-family)

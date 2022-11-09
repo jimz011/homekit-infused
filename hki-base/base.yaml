@@ -122,7 +122,7 @@
           {% if (( data.layout is defined) and (data.layout.layout_type is defined)) %}
           layout_type: {{ data.layout.layout_type }}
           {% else %}
-          layout_type: custom:masonry-layout
+          layout_type: custom:horizontal-layout
           {% endif %}
           {% if ((data.layout is defined) and (data.layout.layout is defined)) %}
           layout:
@@ -168,16 +168,18 @@
                     - templates/titles/default.yaml
                     - name: {{ config.title|tojson }}
                   {% endif %}
-                  {% if ('picture_elements' in addon) or ('button' in addon) or ('camera' in addon) or ('thermostat' in addon) or ('battery' in addon) or ('favorites' in addon) or ('menu' in addon) or ('sensor' in addon) %}
+                  {% if ('statistics_card' in addon) or ('area_card' in addon) or ('picture_elements' in addon) or ('button' in addon) or ('camera' in addon) or ('thermostat' in addon) or ('battery' in addon) or ('favorites' in addon) or ('menu' in addon) or ('sensor' in addon) or ('tile' in addon) %}
                   - type: grid
                     {% if config.columns is defined %}
                     columns: {{ config.columns }}
-                    {% elif ('camera' in addon) or ('picture_elements' in addon) %}
+                    {% elif ('camera' in addon) or ('picture_elements' in addon) or ('area_card' in addon) %}
                     columns: 1
+                    {% else %}
+                    columns: 2
                     {% endif %}
                     {% if config.square is defined %}
                     square: {{ config.square }}
-                    {% elif ('camera' in addon) %}
+                    {% elif ('camera' in addon) or ('tile' in addon) or ('area_card' in addon) or ('statistics_card' in addon) %}
                     square: false
                     {% endif %}
                     cards:
@@ -268,11 +270,22 @@
                         - config: {{ config|tojson }}
                       {% endif %}
 
-                      # Statistics // *Can be removed
-                      {% if 'statistics' in addon %}
+                      # Statistics Graph // *Can be removed
+                      {% if 'statistics_graph' in addon %}
                       - !include 
-                        - addons/statistics.yaml
+                        - addons/statistics-graph.yaml
                         - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Shopping List // *Can be removed
+                      {% if 'shopping_list' in addon %}
+                      - type: shopping-list
+                        card_mod:
+                          class: hki
+                          style: |
+                            ha-card {
+                              --mdc-checkbox-unchecked-color: var(--primary-text-color) !important;
+                            }
                       {% endif %}
 
                       # History // *Can be removed
@@ -382,10 +395,37 @@
                         - config: {{ config|tojson }}
                       {% endif %}
 
+                      # Statistic // *Can be removed
+                      {% if 'statistics_card' in addon %}
+                      {% for stat in config.entities %}
+                      - !include 
+                        - addons/statistics-card.yaml
+                        - config: {{ config|tojson }}
+                          stat: {{ stat|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Tile // *Can be removed
+                      {% if 'tile' in addon %}
+                      {% for tile in config.entities %}
+                      - !include 
+                        - addons/tile.yaml
+                        - config: {{ config|tojson }}
+                          tile: {{ tile|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
                       # Maps // *Can be removed
                       {% if 'map' in addon %}
                       - !include 
                         - addons/map.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Markdown // *Can be removed
+                      {% if 'markdown' in addon %}
+                      - !include 
+                        - addons/markdown.yaml
                         - config: {{ config|tojson }}
                       {% endif %}
 
@@ -396,6 +436,26 @@
                         - addons/camera.yaml
                         - config: {{ config|tojson }}
                           camera: {{ camera|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Humidifier // *Can be removed
+                      {% if 'humidifier' in addon %}
+                      {% for device in config.entities %}
+                      - !include 
+                        - addons/humidifier.yaml
+                        - config: {{ config|tojson }}
+                          device: {{ device|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Area Card // *Can be removed
+                      {% if 'area_card' in addon %}
+                      {% for area in config.areas %}
+                      - !include 
+                        - addons/area-card.yaml
+                        - config: {{ config|tojson }}
+                          area: {{ area|tojson }}
                       {% endfor %}
                       {% endif %}
 

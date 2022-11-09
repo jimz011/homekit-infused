@@ -32,6 +32,18 @@ HKI Custom Light:
       --mdc-theme-primary: var(--hki-secondary-text-color); 
       --paper-item-icon-color: var(--ha-icon-color);
     }
+    .hki-alt {
+      border-style: {{ states('input_text.dark_card_border_style') }};
+      border-width: {{ states('input_text.dark_card_border_width') }};
+      border-color: {{ states('input_text.dark_card_border_color') }};
+      border-radius: {{ states('input_text.dark_card_border_radius') }};
+      box-shadow: {{ states('input_text.dark_card_box_shadow') }};
+      --primary-text-color: var(--hki-primary-text-color);
+      --secondary-text-color: var(--hki-secondary-text-color);
+      font-family: {{ states('input_text.dark_font_family') }};
+      --mdc-theme-primary: var(--hki-secondary-text-color); 
+      --paper-item-icon-color: var(--ha-icon-color);
+    }
     .header-title {
       margin-top: -5px;
       margin-left: -10px;
@@ -43,6 +55,7 @@ HKI Custom Light:
       color: var(--header-text-color) !important;
       box-shadow: none !important;
       overflow: visible;
+      border-style: none !important;
     }
   card-mod-root-yaml: |
     .: |
@@ -95,6 +108,7 @@ HKI Custom Light:
         --label-font-weight: {{ states('input_text.button_label_font_weight') }};
         --label-color: {{ states('input_text.button_label_color') }};
         --label-color-active: {{ states('input_text.button_label_color_active') }};
+        --label-text-transform: {{ states('input_text.button_label_text_transform') }};
         --state-font-size: {{ states('input_text.button_state_font_size') }};
         --state-font-weight: {{ states('input_text.button_state_font_weight') }};
         --state-color: {{ states('input_text.button_state_color') }};

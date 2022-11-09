@@ -68,12 +68,16 @@ show_name: {{ show_name|default('true') }}
 show_icon: {{ show_icon|default('true') }}
 show_state: {{ show_state|default('true') }}
 show_units: {{ show_units|default('false') }}
-{% if ('binary_sensor.' in entity) %}
+{% if show_label is defined %}
+show_label: {{ show_label|default('true') }}
+{% elif ('binary_sensor.' in entity) %}
 show_label: false
 {% else %}
 show_label: {{ show_label|default('true') }}
 {% endif %}
-{% if ('binary_sensor.' in entity) %}
+{% if show_last_changed is defined %}
+show_last_changed: {{ show_last_changed|default('false') }}
+{% elif ('binary_sensor.' in entity) %}
 show_last_changed: true
 {% else %}
 show_last_changed: {{ show_last_changed|default('false') }}
@@ -126,6 +130,7 @@ styles:
   state:
     - color: var(--state-color)
   label:
+    - text-transform: var(--label-text-transform)
     - color: var(--label-color)
   lock:
     - color: var(--lock-color) 
@@ -192,6 +197,8 @@ custom_fields:
               box-shadow: none !important;
               margin-left: -7px !important;
               margin-right: -7px !important;
+              border-style: none !important;
+              color: var(--hki-primary-text-color) !important;
             }
       entities: 
         - entity: {{ entity }}
@@ -242,7 +249,7 @@ state:
         {% if icon_color_on is defined %}
         - color: {{ icon_color_on|tojson }}
         {% elif (button_type == 'rgb') or (button_type == 'color-temp') %}
-        - color: var(--button-card-light-color)
+        - color: "[[[ if (states['input_select.auto_icon_color'].state == 'off') return `var(--ha-icon-active-color)`; else return `var(--button-card-light-color)`; ]]]"
         {% else %}
         - color: var(--ha-icon-active-color)
         {% endif %}
@@ -301,6 +308,12 @@ state:
         - filter: grayscale(100%)
       card:
         - opacity: var(--opacity-off)
+      state:
+        - color: var(--state-color)
+      label:
+        - color: var(--label-color)
+      lock:
+        - color: var(--lock-color-inactive)
   - value: "unavailable"
     styles:
       card:
