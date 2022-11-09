@@ -23,6 +23,7 @@ lights:
         path: lights_2
         name: Adaptive
   layout:
+    layout_type: custom:horizontal-layout
     layout:
       card_margin: 4px 8px 8px
       margin: 0px 8px
@@ -31,13 +32,17 @@ lights:
       # Small Screens
       - title: Woonkamer
         entities:
-          - light.plafond
-          - light.eettafel
+          - entity: light.plafond
+            icon: phu:ceiling-fair-semiflush
+          - entity: light.eettafel
+            icon: phu:ceiling-fair-semiflush
           - entity: light.woonkamer_led_lampen
             type: rgb
           - entity: light.tafellamp
+            icon: phu:table-shade
             type: color-temp
           - entity: light.vloerlamp
+            icon: phu:floor-shade
             type: color-temp
         view_layout:
           show:
@@ -47,15 +52,20 @@ lights:
         lock: true
         entities:
           - entity: light.nachtkastje_stephanie
+            icon: phu:table-shade
             type: color-temp
           - entity: light.nachtkastje_jimmy
+            icon: phu:table-shade
             type: color-temp
           - entity: light.nachtkastjes
+            icon: mdi:lamps
             type: color-temp
           - entity: light.slaapkamer_led_lampen
             type: rgb
-          - light.bed_lamp
-          - light.kast_lamp
+          - entity: light.bed_lamp
+            icon: phu:ceiling-lamp-plafond
+          - entity: light.kast_lamp
+            icon: phu:ceiling-lamp-plafond
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -65,6 +75,7 @@ lights:
           - entity: light.office_led_lampen
             type: rgb
           - entity: light.kleine_kamer
+            icon: phu:phoenix-plafond
             type: color-temp
         view_layout:
           show:
@@ -73,12 +84,10 @@ lights:
       - title: Keuken
         entities:
           - entity: light.keuken
+            icon: phu:ceiling-spot-lamp
             type: color-temp
-          - entity: light.keuken_leds
-            type: rgb
-          - entity: light.keuken_leds_onder
-            type: rgb
           - entity: light.keuken_led_lampen
+            name: LEDs
             type: rgb
         view_layout:
           show:
@@ -108,14 +117,16 @@ lights:
         columns: 3
       - title: Badkamer
         entities:
-          - light.koogeek_sw_056ce9
+          - entity: light.koogeek_sw_056ce9
+            icon: phu:spot-bulb-top
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Toilet
         entities:
-          - light.toilet
+          - entity: light.toilet
+            icon: phu:spot-bulb-top
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -123,13 +134,17 @@ lights:
       # Larger Screens
       - title: Woonkamer
         entities:
-          - light.plafond
-          - light.eettafel
+          - entity: light.plafond
+            icon: phu:ceiling-fair-semiflush
+          - entity: light.eettafel
+            icon: phu:ceiling-fair-semiflush
           - entity: light.woonkamer_led_lampen
             type: rgb
           - entity: light.tafellamp
+            icon: phu:table-shade
             type: color-temp
           - entity: light.vloerlamp
+            icon: phu:floor-shade
             type: color-temp
         view_layout:
           show:
@@ -139,15 +154,20 @@ lights:
         lock: true
         entities:
           - entity: light.nachtkastje_stephanie
+            icon: phu:table-shade
             type: color-temp
           - entity: light.nachtkastje_jimmy
+            icon: phu:table-shade
             type: color-temp
           - entity: light.nachtkastjes
+            icon: mdi:lamps
             type: color-temp
           - entity: light.slaapkamer_led_lampen
             type: rgb
-          - light.bed_lamp
-          - light.kast_lamp
+          - entity: light.bed_lamp
+            icon: phu:ceiling-lamp-plafond
+          - entity: light.kast_lamp
+            icon: phu:ceiling-lamp-plafond
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -157,6 +177,7 @@ lights:
           - entity: light.office_led_lampen
             type: rgb
           - entity: light.kleine_kamer
+            icon: phu:phoenix-plafond
             type: color-temp
         view_layout:
           show:
@@ -165,12 +186,10 @@ lights:
       - title: Keuken
         entities:
           - entity: light.keuken
+            icon: phu:ceiling-spot-lamp
             type: color-temp
-          - entity: light.keuken_leds
-            type: rgb
-          - entity: light.keuken_leds_onder
-            type: rgb
           - entity: light.keuken_led_lampen
+            name: LEDs
             type: rgb
         view_layout:
           show:
@@ -200,14 +219,16 @@ lights:
         columns: 4
       - title: Badkamer
         entities:
-          - light.koogeek_sw_056ce9
+          - entity: light.koogeek_sw_056ce9
+            icon: phu:spot-bulb-top
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Toilet
         entities:
-          - light.toilet
+          - entity: light.toilet
+            icon: phu:spot-bulb-top
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

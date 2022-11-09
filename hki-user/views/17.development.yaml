@@ -1,7 +1,6 @@
 # Development
 development:
   title: Development
-  show_header: false
   layout:
     layout:
       card_margin: 4px 8px 8px
@@ -9,19 +8,45 @@ development:
   icon: si:facebook
 #  custom_legacy: 
   addons:
-    button:
-      - title: Test
+    shopping_list:
+      - title: hide
+    area_card:
+      - tile: Areas
+        areas:
+          - area: woonkamer
+            name_color: green
+          - keuken
+    markdown:
+      - title: hide
+        content: >
+          **{{ states('sensor.greeting') }} {{ user|capitalize }}**
+    gauge:
+      - title: Gauges
         columns: 3
         entities:
-          - entity: cover.test_cover_2
-            cover_control: tilt_position
-          - cover.test_cover_2
-      - title: Test 2
-        columns: 3
-        aspect_ratio: 4/1
+          - entity: sensor.unifi_gateway_mem
+            segments:
+              - from: 0
+                color: var(--error-color)
+              - from: 63.5
+                color: var(--success-color)
+
+            needle: true
+          - sensor.memory_use_percent
+    statistics_card:
+      - title: Stats
         entities:
-          - entity: light.office_led_lampen
-            aspect_ratio: 2/1
-          - entity: light.office_led_lampen
-            aspect_ratio: 1/1
-          - entity: light.office_led_lampen
+          - light.tafellamp
+          - entity: sensor.unifi_gateway_mem
+            stat_type: max
+            period:
+              calendar:
+                period: day
+    tile:
+      - title: My Tiles
+        entities:
+          - light.living_room
+          - person.jimmy
+          - person.stephanie
+            
+          

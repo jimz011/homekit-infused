@@ -22,8 +22,10 @@ devices:
       # Small Screens
       - title: Woonkamer
         entities:
-          - switch.receiver_woonkamer
-          - switch.samsung_tv
+          - entity: switch.receiver_woonkamer
+            icon: mdi:set-top-box
+          - entity: switch.samsung_tv
+            icon: fas:tv
           - switch.xbox_one
           - entity: switch.unraid_server
             label: "[[[ return `${states['sensor.unraid_server_power'].state}W`; ]]]"
@@ -42,8 +44,10 @@ devices:
       - title: Slaapkamer
         lock: true
         entities:
-          - switch.receiver_slaapkamer
-          - switch.tv_slaapkamer
+          - entity: switch.receiver_slaapkamer
+            icon: mdi:set-top-box
+          - entity: switch.tv_slaapkamer
+            icon: fas:tv
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -107,8 +111,10 @@ devices:
       # Larger Screens
       - title: Woonkamer
         entities:
-          - switch.receiver_woonkamer
-          - switch.samsung_tv
+          - entity: switch.receiver_woonkamer
+            icon: mdi:set-top-box
+          - entity: switch.samsung_tv
+            icon: fas:tv
           - switch.xbox_one
           - entity: switch.unraid_server
             label: "[[[ return `${states['sensor.unraid_server_power'].state}W`; ]]]"
@@ -127,8 +133,10 @@ devices:
       - title: Slaapkamer
         lock: true
         entities:
-          - switch.receiver_slaapkamer
-          - switch.tv_slaapkamer
+          - entity: switch.receiver_slaapkamer
+            icon: mdi:set-top-box
+          - entity: switch.tv_slaapkamer
+            icon: fas:tv
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"

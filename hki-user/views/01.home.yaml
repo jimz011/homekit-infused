@@ -81,8 +81,10 @@ home:
             card_mod:
               style: |
                 ha-card {
+                  background: transparent !important;
                   --ha-card-box-shadow: none !important;
                   border-radius: 0px !important;
+                  border-style: none !important;
                 }
             entity: vacuum.valetudo_gentlepossiblescorpion
             stats:

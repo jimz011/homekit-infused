@@ -27,21 +27,21 @@ security:
       - title: Motion Sensors
         entities:
           - entity: binary_sensor.motion_gang
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_office
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_woonkamer_camera
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_bijkeuken
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_toilet
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.gallerij_camera_motion
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.kennedylaan_links_motion
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_gallerij_camera
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -49,11 +49,11 @@ security:
       - title: Doors
         entities:
           - entity: binary_sensor.voordeur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.woonkamer_deur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.slaapkamer_deur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"    
+            icon: phu:aqara-contact    
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -61,18 +61,19 @@ security:
       - title: Windows
         entities:
           - entity: binary_sensor.kleine_kamerraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.keukenraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.bijkeukenraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
         columns: 3
       - title: Other
         entities:
-          - binary_sensor.smoke_sensor
+          - entity: binary_sensor.smoke_sensor
+            icon: phu:aqara-smoke-detector
         view_layout:
           show:
             mediaquery: "(max-width: 350px)"
@@ -81,23 +82,21 @@ security:
       - title: Motion Sensors
         entities:
           - entity: binary_sensor.motion_gang
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_office
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_woonkamer_camera
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_bijkeuken
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_toilet
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
-            tap_action:
-              action: none
+            icon: phu:aqara-motion
           - entity: binary_sensor.gallerij_camera_motion
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.kennedylaan_links_motion
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
           - entity: binary_sensor.motion_gallerij_camera
-            icon: "[[[ if (entity.state == 'on') return `mdi:motion-sensor`; else return `mdi:walk`; ]]]"
+            icon: phu:aqara-motion
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -105,11 +104,11 @@ security:
       - title: Doors
         entities:
           - entity: binary_sensor.voordeur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.woonkamer_deur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.slaapkamer_deur
-            icon: "[[[ if (entity.state == 'on') return `mdi:door-open`; else return `mdi:door`; ]]]"    
+            icon: phu:aqara-contact      
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
@@ -117,18 +116,19 @@ security:
       - title: Windows
         entities:
           - entity: binary_sensor.kleine_kamerraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.keukenraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
           - entity: binary_sensor.bijkeukenraam
-            icon: "[[[ if (entity.state == 'on') return `mdi:window-open-variant`; else return `mdi:window-closed-variant`; ]]]"
+            icon: phu:aqara-contact
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
         columns: 4
       - title: Other
         entities:
-          - binary_sensor.smoke_sensor
+          - entity: binary_sensor.smoke_sensor
+            icon: phu:aqara-smoke-detector
         view_layout:
           show:
             mediaquery: "(min-width: 350px)"
