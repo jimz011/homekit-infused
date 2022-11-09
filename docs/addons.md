@@ -40,23 +40,23 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | Name | Description |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [air_visual](addons/air-visual.md) | A nice looking air quality card |
-| [area_card](addons/area-card.md) *New | A HA core card that shows you area/room information |
+| [area_card](addons/area-card.md) *new* | A HA core card that shows you area/room information |
 | [battery](addons/battery.md) | An addon to give your view a battery levels overview |
 | [button](addons/button.md) | The all powerful button-card, probably the only addon you'll ever need |
 | [calendar](addons/calendar.md) | The default Calendar card |
 | [camera](addons/camera.md) | An addon to add your camera's to a view |
 | [custom](addons/custom.md) | The ultimate addon that allows any card or multitude of cards! |
-| [energy](addons/energy.md) *Updated | Recreate the HA energy dashboard in lovelace |
+| [energy](addons/energy.md) *updated* | Recreate the HA energy dashboard in lovelace |
 | [entities](addons/entities.md) | An easy to use entities card |
 | [favorites](addons/favorites.md) | Show a stack with shortcuts to your favorited views |
-| [gauge](addons/gauge.md) *Updated | Show simple gauges for your entities |
+| [gauge](addons/gauge.md) *updated* | Show simple gauges for your entities |
 | [glance](addons/glance.md) | An easy to use glance card |
 | [google](addons/google.md) | A Google Home TTS card |
-| [humidifier](addons/humidifier.md) *New | Core humidifier card |
+| [humidifier](addons/humidifier.md) *new* | Core humidifier card |
 | [history](addons/history.md) | This is the core HA graph card which you can use as an alternative to the graphs addon in HKI |
 | [iframe](addons/iframe.md) | A handy iFrame card that you can use on your views |
 | [logbook](addons/logbook.md) | Keep track of your entities with a logbook |
-| [markdown](addons/markdown.md) *New | The core markdown card with all its features available |
+| [markdown](addons/markdown.md) *new* | The core markdown card with all its features available |
 | [map](addons/map.md) | A map to track your entities |
 | [media_player](addons/media-player.md) | A Media Player addon |
 | [menu](addons/menu.md) | Show the menu on other views than.... menu! |
@@ -66,11 +66,11 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | [plex](addons/plex.md) | A very beautiful Plex addon |
 | [remote_control](addons/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
 | [sensor](addons/sensor.md) | A core sensor card |
-| [shopping_list](addons/shopping-list) *New | A simple shopping list for use on your views |
-| [statistics_card](addons/statistics-card) *New | The newly introduced core statistics card |
-| [statistics_graph](addons/statistics-graph.md) *Renamed | Create beautiful statistics graphs |
+| [shopping_list](addons/shopping-list) *new* | A simple shopping list for use on your views |
+| [statistics_card](addons/statistics-card) *new* | The newly introduced core statistics card |
+| [statistics_graph](addons/statistics-graph.md) *renamed* | Create beautiful statistics graphs |
 | [sun_card](addons/sun-card.md) | A beautiful sun elevation card |
-| [tile](addons/tile.md) *New | A handy tile card |
+| [tile](addons/tile.md) *new* | A handy tile card |
 | [upcoming_media](addons/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
 | [thermostat](addons/thermostat.md) *Updated | Thermostat buttons for your view |
 | [weather](addons/weather.md) | The weather addon for HKI, choose between core or simple-weather |
