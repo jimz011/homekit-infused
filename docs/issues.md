@@ -14,7 +14,7 @@
 
 #### Known Issues
   - If you get a `t.setConfig is not a function` error, please re-download `Swipe Card` from HACS!
-  - If your popups do not work you can try the following solutions below:
+  - If your popups do not work or get the `custom element doesn't exist: popup-card` error you can try the following solutions below:
 
 ```
 # Solution by Jimz011
