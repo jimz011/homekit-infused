@@ -49,7 +49,7 @@ All of you really, thank you. Here are a few names I want to specially thank!
   - @HomeAssistantNL/BE Slack group
   - @everyone I forgot to mention
   
-# Thanks for Translating
+# Thanks for Translating (Applies to HKI 2 and 3)
   - @jolly for Italian
   - @yaazze for French
   - @hassan for Spanish

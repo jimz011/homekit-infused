@@ -27,7 +27,7 @@ There is also a video guide available [HERE](https://www.youtube.com/playlist?li
 - Install all of the cards/components below.
 
 ### HACS
-Below is a list of all the addons required to run the Homekit Infused, you can install ALL of them through HACS. If this is your first time installing HA you want to click on your current dashboard and click on `take over control` if you haven't done so already.
+Below is a list of all the addons required to run Homekit Infused, you can install ALL of them through HACS. If this is your first time installing HA you want to click on your current dashboard and click on `take over control` if you haven't done so already.
 
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

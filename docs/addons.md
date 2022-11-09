@@ -40,21 +40,23 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | Name | Description |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [air_visual](addons/air-visual.md) | A nice looking air quality card |
-| [areas](addons/areas.md) | A card that shows you room information *Coming Soon* |
+| [area_card](addons/area-card.md) *New | A HA core card that shows you area/room information |
 | [battery](addons/battery.md) | An addon to give your view a battery levels overview |
 | [button](addons/button.md) | The all powerful button-card, probably the only addon you'll ever need |
 | [calendar](addons/calendar.md) | The default Calendar card |
 | [camera](addons/camera.md) | An addon to add your camera's to a view |
 | [custom](addons/custom.md) | The ultimate addon that allows any card or multitude of cards! |
-| [energy](addons/energy.md) | Recreate the HA energy dashboard in lovelace |
+| [energy](addons/energy.md) *Updated | Recreate the HA energy dashboard in lovelace |
 | [entities](addons/entities.md) | An easy to use entities card |
 | [favorites](addons/favorites.md) | Show a stack with shortcuts to your favorited views |
-| [gauge](addons/gauge.md) | Show simple gauges for your entities |
+| [gauge](addons/gauge.md) *Updated | Show simple gauges for your entities |
 | [glance](addons/glance.md) | An easy to use glance card |
 | [google](addons/google.md) | A Google Home TTS card |
-| [iframe](addons/iframe.md) | A handy iFrame card that you can use on your views |
+| [humidifier](addons/humidifier.md) *New | Core humidifier card |
 | [history](addons/history.md) | This is the core HA graph card which you can use as an alternative to the graphs addon in HKI |
+| [iframe](addons/iframe.md) | A handy iFrame card that you can use on your views |
 | [logbook](addons/logbook.md) | Keep track of your entities with a logbook |
+| [markdown](addons/markdown.md) *New | The core markdown card with all its features available |
 | [map](addons/map.md) | A map to track your entities |
 | [media_player](addons/media-player.md) | A Media Player addon |
 | [menu](addons/menu.md) | Show the menu on other views than.... menu! |
@@ -64,10 +66,13 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | [plex](addons/plex.md) | A very beautiful Plex addon |
 | [remote_control](addons/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
 | [sensor](addons/sensor.md) | A core sensor card |
-| [statistics](addons/statistics.md) | Create beautiful statistics graphs |
+| [shopping_list](addons/shopping-list) *New | A simple shopping list for use on your views |
+| [statistics_card](addons/statistics-card) *New | The newly introduced core statistics card |
+| [statistics_graph](addons/statistics-graph.md) *Renamed | Create beautiful statistics graphs |
 | [sun_card](addons/sun-card.md) | A beautiful sun elevation card |
+| [tile](addons/tile.md) *New | A handy tile card |
 | [upcoming_media](addons/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
-| [thermostat](addons/thermostat.md) | Thermostat buttons for your view |
+| [thermostat](addons/thermostat.md) *Updated | Thermostat buttons for your view |
 | [weather](addons/weather.md) | The weather addon for HKI, choose between core or simple-weather |
 | [xbox](addons/xbox.md) | An Xbox controller card |
 
@@ -132,17 +137,3 @@ Addons can also be conditional depending on a state of an entity!
           entities:
             - switch.iphone
 ```
-
-### Extra Information
-
-What happened to the `simple_weather`, `devices`, `rooms`, `sun_card`, `find_my`, `layout`, `columns`, `mini-media-player`, `search` `vacuum` and `graph` addons that were present in HKI 4?
-
-Well the reasoning can be found below:
-- `sun_card`, `mini-media-player` and `graph` were addons that are either too large to template or unnecessary to add, you can still use them with the `custom:` addon, this allows for all their options to be unlocked and gives much much more customization.
-- `find_my` and `layout` have NOT been removed but had its documentation moved to the configuration page instead.
-- `columns` is redundant and rather confusing. Columns are now just set per addon instead.
-- `devices` has been merged into the new `button:` addon.
-- `rooms` has been reworked and is now called `areas:`.
-- `simple_weather` has been merged with the `weather:` addon and can be found there.
-- `search` is now integrated into the profile menu.
-- `vacuum` is just too hard to template whilst there are so many great options already available. I suggest using the custom addon with a nice vacuum card (like Xiaomi Vacuum Card or Xiaomi Vacuum Map Card)
