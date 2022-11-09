@@ -1,11 +1,3 @@
-This will fix popups not working with button-cards.
+This fix is no longer available,
 
-For some reason you can no longer download this version through HACS. Download button-card first through HACS.
-Once you are done, go to your `/www/community/button-card/` folder and replace the two files there with the two from this repo.
-
-You might need to change your permissions to this folder to be able to write in there.
-
-For Unraid users you can do something like this (change the path to match your own)
-
-`chmod 777 -R /mnt/user/appdata/Home-Assistant/www/community/button-card`
-
+Please install the latest button-card for this fix. Make sure to tick `show beta versions` and install 3.5.0-dev.1
