@@ -72,12 +72,12 @@ In short Homekit Infused 5 is all of the below and much much more!
 
 #### Included Themes (A powerful real-time theme editor included)
 
-![Homekit Infused](docs/images/hki-theme-paper-white.jpg)
-![Homekit Infused](docs/images/hki-theme-midnight-black.jpg)
-![Homekit Infused](docs/images/hki-theme-orange-sunrise.jpg)
-![Homekit Infused](docs/images/hki-theme-orange-sunset.jpg)
-![Homekit Infused](docs/images/hki-theme-sweet-pink.jpg)
-![Homekit Infused](docs/images/hki-theme-purple-blur.jpg)
+![Homekit Infused](docs/images/hki-theme-paper-white.jpg){ width=50% }
+![Homekit Infused](docs/images/hki-theme-midnight-black.jpg){ width=50% }
+![Homekit Infused](docs/images/hki-theme-orange-sunrise.jpg){ width=50% }
+![Homekit Infused](docs/images/hki-theme-orange-sunset.jpg){ width=50% }
+![Homekit Infused](docs/images/hki-theme-sweet-pink.jpg){ width=50% }
+![Homekit Infused](docs/images/hki-theme-purple-blur.jpg){ width=50% }
 
 
 #### Extra License Information
