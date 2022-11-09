@@ -66,13 +66,13 @@ You can control the placement of the addons by using the [layout](addons/layout.
 | [plex](addons/plex.md) | A very beautiful Plex addon |
 | [remote_control](addons/remote-control.md) | A beautiful remote control for Nvidia Shield TV/Apple TV |
 | [sensor](addons/sensor.md) | A core sensor card |
-| [shopping_list](addons/shopping-list) *new* | A simple shopping list for use on your views |
-| [statistics_card](addons/statistics-card) *new* | The newly introduced core statistics card |
+| [shopping_list](addons/shopping-list.md) *new* | A simple shopping list for use on your views |
+| [statistics_card](addons/statistics-card.md) *new* | The newly introduced core statistics card |
 | [statistics_graph](addons/statistics-graph.md) *renamed* | Create beautiful statistics graphs |
 | [sun_card](addons/sun-card.md) | A beautiful sun elevation card |
 | [tile](addons/tile.md) *new* | A handy tile card |
 | [upcoming_media](addons/upcoming-media.md) | Show your upcoming and recently added media from your sonarr/radarr |
-| [thermostat](addons/thermostat.md) *Updated | Thermostat buttons for your view |
+| [thermostat](addons/thermostat.md) *updated* | Thermostat buttons for your view |
 | [weather](addons/weather.md) | The weather addon for HKI, choose between core or simple-weather |
 | [xbox](addons/xbox.md) | An Xbox controller card |
 
