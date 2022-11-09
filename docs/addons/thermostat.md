@@ -79,6 +79,7 @@ If you define your entity as an object you can unlock more options.
 | lock | no | false | Puts a lock on the button, choose between `true` or `false` |
 | action | no | undefined | You can reverse the default tap/hold action behaviour by setting `action: alternative` |
 | ambient_temperature | no | undefined | Set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
+| attribute | no | undefined | This only accepts `state`, only use this if your thermostats show `undefined` as its state |
 | box_shadow | no | fancy | Choose how the box-shadow of your thermostats behave, choose between `none`, `default` or `fancy`, when setting `default` it will follow the default card active box-shadow that you set in the HKI Settings |
 
 ```yaml
@@ -93,6 +94,7 @@ If you define your entity as an object you can unlock more options.
             - entity: climate.thermostat_kitchen
               ambient_temperature: sensor.kitchen_temperature
               box_shadow: none
+              attribute: state
 ```
 
 ### Images:

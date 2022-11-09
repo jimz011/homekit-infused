@@ -41,6 +41,24 @@ You must define it as an object instead to make use of the options below. See ex
 | min | no | unit defined by entity | This will set the minimum number to show this gauge |
 | max | no | unit defined by entity | This will set the maximum number to show this gauge |
 | severity | no | undefined | You can have colors shown on different severities for this gauge, you MUST use all three option `red`, `yellow` and `green` (see example below) |
+| needle | no | false | Show the gauge as a needle gauge. Required to be set to true, if using segments |
+| segments | no | undefined | List of colors and their corresponding start values. Segments will override the severity settings. Needle required to be true. |
+
+### Segments
+
+| Name | Required | Default | Description |
+|----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| from | yes | undefined | Value from which to start the color. |
+| color | yes | undefined | Color of the segment, may be any CSS color declaration like “red”, “#0000FF” or “rgb(255, 120, 0)”. |
+| label | no | undefined | Label of the segment. This will be shown instead of the value. |
+
+CSS variables can be used (instead of CSS ‘#rrggbb’) for default gauge segment colors:
+
+`var(--success-color)` for green color
+`var(--warning-color)` for yellow color
+`var(--error-color)` for red color
+`var(--info-color)` for blue color
+
 
 ```yaml
 # views.yaml (example)
@@ -69,23 +87,33 @@ You must define it as an object instead to make use of the options below. See ex
                 green: 10
 ```
 ```yaml
-# views.yaml (example mixed)
+# views.yaml (example with segments)
   my_view:
     addons:
       gauge:
         - title: Gauges
           columns: 2
           entities:
-            - entity: sensor.unifi_gateway_mem
-              name: UDM Memory
-              severity:
-                red: 90
-                yellow: 60
-                green: 10
-            - sensor.memory_use_percent
-            - sensor.cpu_use_percent
+            - entity: sensor.kitchen_humidity
+              needle: true
+              min: 20
+              max: 80
+              segments:
+                - from: 0
+                  color: '#db4437'
+                - from: 35
+                  color: '#ffa600'
+                - from: 40
+                  color: '#43a047'
+                - from: 60
+                  color: '#ffa600'
+                - from: 65
+                  color: '#db4437'
 ```
 
 ### Images:
 
 ![Homekit Infused](../images/hki-gauge.png)
+![Homekit Infused](https://www.home-assistant.io/images/dashboards/gauge_card.gif)
+![Homekit Infused](https://www.home-assistant.io/images/dashboards/gauge_segments.png)
+

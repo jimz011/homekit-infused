@@ -26,16 +26,17 @@ You can use any of the following options to modify your addon.
 | [view_layout](layout.md#view-layout) | no | undefined | This is best used in conjunction with the [layout](layout.md#view-layout) addon, but can also be used to control whether to show this stack on different screen sizes. |
 | conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
-| energy-date-selection | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-usage-graph | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-solar-graph | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-gas-graph | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-sources-table | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-grid-neutrality-gauge | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-solar-consumed-gauge | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-carbon-consumed-gauge | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-devices-graph | no | undefined | Add this line to your config if you want to use this card with your addon |
-| energy-distribution | no | undefined | Add this line to your config if you want to use this card with your addon |
+| energy-date-selection | no | undefined | This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards. |
+| energy-usage-graph | no | undefined | The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came. It will also show the amount of energy your have returned to the grid. |
+| energy-solar-graph | no | undefined | The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production. |
+| energy-gas-graph | no | undefined | The gas consumption graph card shows the amount of gas consumed per source. |
+| energy-sources-table | no | undefined | The energy sources table card shows all your energy sources, and the corresponding amount of energy. If setup, it will also show the costs and compensation per source and the total |
+| energy-grid-neutrality-gauge | no | undefined | The grid neutrality gauge card represents your energy dependency. If the needle is in the purple, you returned more energy to the grid than you consumed from it. If it’s in the blue, you consumed more energy from the grid than you returned |
+| energy-solar-consumed-gauge | no | undefined | The solar consumed gauge represents how much of the solar energy was not used by your home and was returned to the grid. If you frequently return a lot, try to conserve this energy by installing a battery or buying an electric car to charge |
+| energy-carbon-consumed-gauge | no | undefined | The carbon consumed gauge card represents how much of the energy consumed by your home was generated using non-fossil fuels like solar, wind and nuclear. It includes the solar energy you generated your self |
+| energy-devices-graph | no | undefined | The devices energy graph show the energy usage per device, it is sorted by usage |
+| energy-distribution | no | undefined | The energy distribution card shows how the energy flowed, from the grid to your house, from your solar panels to your house and/or back to the grid. If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels. If you set link_dashboard to true, the card will include a link to the energy dashboard |
+| energy-water-graph | no | undefined | The water consumption graph card shows the amount of water consumed per source. |
 | link_dashboard | no | false | Add this to your card to create a shortcut to your energy dashboard (this only works when using the `energy-distribution` type)
 
 ```yaml
