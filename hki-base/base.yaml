@@ -174,7 +174,7 @@
                     columns: {{ config.columns }}
                     {% elif ('camera' in addon) or ('picture_elements' in addon) or ('area_card' in addon) %}
                     columns: 1
-                    {% else %}
+                    {% elif ('statistics_card' in addon) or ('tile' in addon) %}
                     columns: 2
                     {% endif %}
                     {% if config.square is defined %}
