@@ -3,8 +3,8 @@
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=plasticr)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jimz011/homekit-infused.svg?style=plasticr)](https://github.com/jimz011/homekit-infused/commits/4.x.x)
-[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2022.10.x%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
-[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-2022.5.1%20-purple)](https://github.com/jimz011/homekit-infused/releases)
+[![HA Version](https://img.shields.io/badge/Latest%20Compatible%20Home%20Assistant-2022.11.x%20-dodgerblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HKI Version](https://img.shields.io/badge/Latest%20Homekit%20Infused-2022.6.0%20-purple)](https://github.com/jimz011/homekit-infused/releases)
 
 ![GitHub stars](https://img.shields.io/github/stars/jimz011/homekit-infused?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/jimz011/homekit-infused?style=social)
@@ -69,6 +69,15 @@ In short Homekit Infused 5 is all of the below and much much more!
 
 #### Video
 [![Watch the video](https://img.youtube.com/vi/1ujzqV9c5Qk/maxresdefault.jpg)](https://youtu.be/1ujzqV9c5Qk)
+
+#### Included Themes (A powerful real-time theme editor included)
+
+![Homekit Infused](docs/images/hki-theme-paper-white.png)![Homekit Infused](docs/images/hki-theme-midnight-black.png)
+
+![Homekit Infused](docs/images/hki-theme-orange-sunrise.png)![Homekit Infused](docs/images/hki-theme-orange-sunset.png)
+
+![Homekit Infused](docs/images/hki-theme-sweet-pink.png)![Homekit Infused](docs/images/hki-theme-purple-blur.png)
+
 
 #### Extra License Information
 Selling, reselling or redistribution of this dashboard is not permitted without my permission!
