@@ -1,338 +1,338 @@
 script:
-  hki_light_empty:
+  hki_orange_sunrise:
     sequence:
       - service: input_select.select_option
         data:
-          option: "off"
+          option: "on"
         target:
           entity_id: input_select.auto_icon_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 1.0
         target:
           entity_id: input_text.opacity_on
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0.6
         target:
           entity_id: input_text.opacity_off
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0.4
         target:
           entity_id: input_text.opacity_unavailable
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0px 0px 3px 1px var(--button-card-light-color)
         target:
           entity_id: input_text.card_box_shadow_light_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Red
         target:
           entity_id: input_text.color_unavailable
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.header_badge_icon_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: '#fcf1d2'
         target:
           entity_id: input_text.header_badge_background
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Maroon
         target:
           entity_id: input_text.header_badge_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: White
         target:
           entity_id: input_text.header_badge_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: none
         target:
           entity_id: input_text.header_border_radius
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0px 14px 21px -15px Gray
         target:
           entity_id: input_text.header_box_shadow
       - service: input_text.set_value
         data:
-          value: undefined
+          value: DarkOrange
         target:
           entity_id: input_text.header_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.header_text_color
       - service: input_text.set_value
         data:
-          value: 0px 0px 0px 0px
+          value: 0px -14px 21px -15px Gray
         target:
           entity_id: input_text.footer_box_shadow
       - service: input_text.set_value
         data:
-          value: undefined
+          value: DarkOrange
         target:
           entity_id: input_text.nav_bar_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.nav_bar_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: '#fcf1d2'
         target:
           entity_id: input_text.card_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: none
         target:
           entity_id: input_text.card_border_style
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0px
         target:
           entity_id: input_text.card_border_width
       - service: input_text.set_value
         data:
-          value: undefined
+          value: none
         target:
           entity_id: input_text.card_border_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 6px
         target:
           entity_id: input_text.card_border_radius
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.1)
         target:
           entity_id: input_text.card_box_shadow
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: DarkOrange
         target:
           entity_id: input_text.secondary_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 'linear-gradient(290deg, #fc9003 -30%, #ffe2bd 65%)'
         target:
           entity_id: input_text.background_image
       - service: input_text.set_value
         data:
-          value: undefined
+          value: DarkOrange
         target:
           entity_id: input_text.icon_color_default
       - service: input_text.set_value
         data:
-          value: undefined
+          value: DarkOrange
         target:
           entity_id: input_text.icon_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Malgun Gothic
         target:
           entity_id: input_text.font_family
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 22px
         target:
           entity_id: input_text.header_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Bolder
         target:
           entity_id: input_text.header_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 12px
         target:
           entity_id: input_text.subtitle_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Bold
         target:
           entity_id: input_text.subtitle_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.subtitle_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.title_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 18px
         target:
           entity_id: input_text.title_text_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Bold
         target:
           entity_id: input_text.title_text_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: transparent
         target:
           entity_id: input_text.title_text_background_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Start
         target:
           entity_id: input_text.title_text_justify_self
       - service: input_text.set_value
         data:
-          value: undefined
+          value: var(--ha-card-border-radius)
         target:
           entity_id: input_text.title_text_border_radius
       - service: input_text.set_value
         data:
-          value: undefined
+          value: none
         target:
           entity_id: input_text.title_text_box_shadow
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 5px
         target:
           entity_id: input_text.title_text_padding
       - service: input_text.set_value
         data:
-          value: undefined
+          value: var(--ha-card-border-style)
         target:
           entity_id: input_text.title_text_border_style
       - service: input_text.set_value
         data:
-          value: undefined
+          value: var(--ha-card-border-width)
         target:
           entity_id: input_text.title_text_border_width
       - service: input_text.set_value
         data:
-          value: undefined
+          value: var(--ha-card-border-color)
         target:
           entity_id: input_text.title_text_border_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: White
         target:
           entity_id: input_text.button_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_name_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_name_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 12px
         target:
           entity_id: input_text.button_name_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Bold
         target:
           entity_id: input_text.button_name_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_label_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_label_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 10px
         target:
           entity_id: input_text.button_label_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: normal
         target:
           entity_id: input_text.button_label_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: capitalize
         target:
           entity_id: input_text.button_label_text_transform
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_state_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.button_state_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 12px
         target:
           entity_id: input_text.button_state_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: bold
         target:
           entity_id: input_text.button_state_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Orange
         target:
           entity_id: input_text.badge_background_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Black
         target:
           entity_id: input_text.badge_text_color
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 10px
         target:
           entity_id: input_text.badge_font_size
       - service: input_text.set_value
         data:
-          value: undefined
+          value: bold
         target:
           entity_id: input_text.badge_font_weight
       - service: input_text.set_value
         data:
-          value: undefined
+          value: capitalize
         target:
           entity_id: input_text.badge_text_transform
       - service: input_text.set_value
         data:
-          value: undefined
+          value: 0px 0px 3px 1px var(--ha-icon-active-color)
         target:
           entity_id: input_text.button_box_shadow_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Red
         target:
           entity_id: input_text.lock_color_active
       - service: input_text.set_value
         data:
-          value: undefined
+          value: Gray
         target:
           entity_id: input_text.lock_color_inactive

@@ -1,4 +1,5 @@
 script:
+  # Defaults Header Greeting
   hki_header_greeting_default:
     sequence:
       - service: input_text.set_value
@@ -21,3 +22,151 @@ script:
           value: Good Night
         target:
           entity_id: input_text.good_night
+
+  # Theme Snapshots
+  light_theme_snapshot_create:
+    sequence:
+      - service: scene.create
+        data:
+          scene_id: light_theme_snapshot
+          snapshot_entities:
+            - input_select.auto_icon_color
+            - input_text.opacity_on
+            - input_text.opacity_off
+            - input_text.opacity_unavailable
+            - input_text.card_box_shadow_light_color
+            - input_text.color_unavailable
+            - input_text.header_badge_icon_color
+            - input_text.header_badge_background
+            - input_text.header_badge_color
+            - input_text.header_badge_text_color
+            - input_text.header_border_radius
+            - input_text.header_box_shadow
+            - input_text.footer_box_shadow
+            - input_text.nav_bar_color
+            - input_text.nav_bar_text_color
+            - input_text.card_color
+            - input_text.card_border_style
+            - input_text.card_border_width
+            - input_text.card_border_color
+            - input_text.card_border_radius
+            - input_text.card_box_shadow
+            - input_text.header_color
+            - input_text.header_text_color
+            - input_text.text_color
+            - input_text.secondary_text_color
+            - input_text.background_image
+            - input_text.icon_color_default
+            - input_text.icon_color_active
+            - input_text.font_family
+            - input_text.header_font_size
+            - input_text.header_font_weight
+            - input_text.subtitle_font_size
+            - input_text.subtitle_font_weight
+            - input_text.subtitle_text_color
+            - input_text.title_text_color
+            - input_text.title_text_font_size
+            - input_text.title_text_font_weight
+            - input_text.title_text_background_color
+            - input_text.title_text_justify_self
+            - input_text.title_text_border_radius
+            - input_text.title_text_box_shadow
+            - input_text.title_text_padding
+            - input_text.title_text_border_style
+            - input_text.title_text_border_width
+            - input_text.title_text_border_color
+            - input_text.button_color_active
+            - input_text.button_name_font_size
+            - input_text.button_name_font_weight
+            - input_text.button_label_font_size
+            - input_text.button_label_font_weight
+            - input_text.button_state_font_size
+            - input_text.button_state_font_weight
+            - input_text.button_name_color
+            - input_text.button_name_color_active
+            - input_text.button_label_color
+            - input_text.button_label_color_active
+            - input_text.button_label_text_transform
+            - input_text.button_state_color
+            - input_text.button_state_color_active
+            - input_text.badge_background_color
+            - input_text.badge_text_color
+            - input_text.badge_font_size
+            - input_text.badge_font_weight
+            - input_text.badge_text_transform
+            - input_text.button_box_shadow_active
+            - input_text.lock_color_active
+            - input_text.lock_color_inactive
+  dark_theme_snapshot_create:
+    sequence:
+      - service: scene.create
+        data:
+          scene_id: dark_theme_snapshot
+          snapshot_entities:
+            - input_select.auto_icon_color
+            - input_text.opacity_on
+            - input_text.opacity_off
+            - input_text.opacity_unavailable
+            - input_text.card_box_shadow_light_color
+            - input_text.dark_color_unavailable
+            - input_text.dark_lock_color_active
+            - input_text.dark_lock_color_inactive
+            - input_text.dark_header_box_shadow
+            - input_text.dark_button_box_shadow_active
+            - input_text.dark_footer_box_shadow
+            - input_text.dark_header_border_radius
+            - input_text.dark_header_badge_icon_color
+            - input_text.dark_header_badge_background
+            - input_text.dark_header_badge_color
+            - input_text.dark_header_badge_text_color
+            - input_text.dark_nav_bar_color
+            - input_text.dark_nav_bar_text_color
+            - input_text.dark_card_color
+            - input_text.dark_card_border_style
+            - input_text.dark_card_border_width
+            - input_text.dark_card_border_color
+            - input_text.dark_card_border_radius
+            - input_text.dark_card_box_shadow
+            - input_text.dark_header_color
+            - input_text.dark_header_text_color
+            - input_text.dark_text_color
+            - input_text.dark_secondary_text_color
+            - input_text.dark_background_image
+            - input_text.dark_icon_color_default
+            - input_text.dark_icon_color_active
+            - input_text.dark_font_family
+            - input_text.dark_header_font_size
+            - input_text.dark_header_font_weight
+            - input_text.dark_subtitle_font_size
+            - input_text.dark_subtitle_font_weight
+            - input_text.dark_subtitle_text_color
+            - input_text.dark_title_text_color
+            - input_text.dark_title_text_font_size
+            - input_text.dark_title_text_font_weight
+            - input_text.dark_title_text_background_color
+            - input_text.dark_title_text_justify_self
+            - input_text.dark_title_text_border_radius
+            - input_text.dark_title_text_box_shadow
+            - input_text.dark_title_text_padding
+            - input_text.dark_title_text_border_style
+            - input_text.dark_title_text_border_width
+            - input_text.dark_title_text_border_color
+            - input_text.dark_button_color_active
+            - input_text.dark_button_name_font_size
+            - input_text.dark_button_name_font_weight
+            - input_text.dark_button_label_font_size
+            - input_text.dark_button_label_font_weight
+            - input_text.dark_button_state_font_size
+            - input_text.dark_button_state_font_weight
+            - input_text.dark_button_name_color
+            - input_text.dark_button_name_color_active
+            - input_text.dark_button_label_color
+            - input_text.dark_button_label_color_active
+            - input_text.dark_button_label_text_transform
+            - input_text.dark_button_state_color
+            - input_text.dark_button_state_color_active
+            - input_text.dark_badge_font_size
+            - input_text.dark_badge_font_weight
+            - input_text.dark_badge_text_transform
+            - input_text.dark_badge_background_color
+            - input_text.dark_badge_text_color

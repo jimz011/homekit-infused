@@ -58,6 +58,11 @@ input_select:
       - Devices
       - Vehicles
 
+  auto_icon_color:
+    options:
+      - 'off'
+      - 'on'
+
 # Input Texts
 input_text:
   good_morning:

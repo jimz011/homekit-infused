@@ -26,6 +26,22 @@ automation:
             {% else %}
               light
             {% endif %}
+
+# Save Last Active Theme
+  - alias: 'theme_save'
+    initial_state: 'true'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.light_theme_snapshot_create
+      - service: script.turn_on
+        data:
+          entity_id: script.dark_theme_snapshot_create
+          
+  # Automatically change theme editor
   - alias: 'theme editor'
     initial_state: 'true'
     trigger:
@@ -43,6 +59,8 @@ automation:
             {% else %}
               Light
             {% endif %}
+
+  # First time startup
   - alias: 'first time startup defaults'
     trigger:
       - platform: homeassistant
