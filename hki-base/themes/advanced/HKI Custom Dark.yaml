@@ -59,7 +59,11 @@ HKI Custom Dark:
   paper-slider-pin-color: var(--ha-icon-color)
   paper-slider-active-color: var(--secondary-text-color)
   switch-checked-color: var(--secondary-text-color)
-
+  mdc-text-field-fill-color: '#121212'
+  mdc-text-field-ink-color: 'White'
+  input-label-ink-color: 'White'
+  input-dropdown-icon-color: 'White'
+  input-idle-line-color: 'White'
   paper-item-icon-color: var(--ha-icon-color)
   header-shadow: 0px 14px 21px -15px rgba(0,0,0,0.75)
   app-header-background-color: Black

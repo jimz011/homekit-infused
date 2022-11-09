@@ -78,6 +78,11 @@ HKI Default:
       header-color: '#262628'
       ha-card-border-style: none
     dark:
+      mdc-text-field-fill-color: '#121212'
+      mdc-text-field-ink-color: 'White'
+      input-label-ink-color: 'White'
+      input-dropdown-icon-color: 'White'
+      input-idle-line-color: 'White'
       background-image: '#3b3b40'
       primary-background-color: 'var(--background-image)'
       subtitle-text-color: 'White'
