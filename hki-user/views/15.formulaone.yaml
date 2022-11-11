@@ -53,7 +53,7 @@ formula_one:
                   font-weight: bold; 
                 }
             content: >-
-              {% set f1 = states.sensor.formula_one_sensor.attributes.next_race %} 
+              {% set f1 = states.sensor.formula_one_sensor_races.attributes.next_race %} 
               {% if not(f1 == None) %} <h1><img height="22" src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{f1.Circuit.Location.country.replace(" ", "-")}}.png">&nbsp;
               {{ f1.raceName }}</h1> {{f1.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(f1.date + ' ' + f1.time) | timestamp_custom("Race Starts on %d-%m-%Y at %H:%M") }}</small>&nbsp;&nbsp;
               <a target="_new" href="{{f1.Circuit.url}}">
@@ -140,7 +140,7 @@ formula_one_2:
                   font-weight: bold; 
                 }
             content: >-
-              {% set f1 = states.sensor.formula_one_sensor.attributes.next_race %} 
+              {% set f1 = states.sensor.formula_one_sensor_races.attributes.next_race %} 
               {% if not(f1 == None) %} <h1><img height="22" src="https://www.countries-ofthe-world.com/flags-normal/flag-of-{{f1.Circuit.Location.country.replace(" ", "-")}}.png">&nbsp;
               {{ f1.raceName }}</h1> {{f1.Circuit.circuitName}} {% endif %} | <small>{{ as_timestamp(f1.date + ' ' + f1.time) | timestamp_custom("Race Starts on %d-%m-%Y at %H:%M") }}</small>&nbsp;&nbsp;
               <a target="_new" href="{{f1.Circuit.url}}">
@@ -187,7 +187,7 @@ formula_one_2:
                   </tr>
                 </thead>
                 <tbody>
-              {% for driver in states.sensor.formula_one_sensor.attributes.drivers %} <tr>
+              {% for driver in states.sensor.formula_one_sensor_drivers.attributes.data %} <tr>
                       <td>{{driver.position}}</td>
                       <td>{{driver.Driver.code}}</td>
                       <td>{{driver.Driver.givenName }} {{driver.Driver.familyName }}</td>
@@ -236,7 +236,7 @@ formula_one_2:
                   </tr>
                 </thead>
                 <tbody>
-              {% for driver in states.sensor.formula_one_sensor.attributes.constructors %} <tr>
+              {% for driver in states.sensor.formula_one_sensor_constructors.attributes.data %} <tr>
                       <td>{{driver.position}}</td>
                       <td>{{driver.Constructor.name }}</td>
                       <td>{{driver.points}}</td>
