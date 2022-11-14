@@ -19,6 +19,7 @@ This addon lets you fill your views with very powerful buttons!
 | Name | Type  | Description |
 |----------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Light Popup Card](https://github.com/DBuit/light-popup-card) | Frontend | This is a popup that opens when holding/double tapping buttons, you need to add this repository MANUALLY in HACS |
+| [Thermostat Popup Card](https://github.com/jimz011/thermostat-popup-card) | Frontend | This is a popup that opens when holding/double tapping buttons, you need to add this repository MANUALLY in HACS |
 | [Cover Popup Card](https://github.com/DBuit/cover-popup-card) | Frontend | This is a popup that opens when holding/double tapping buttons, you need to add this repository MANUALLY in HACS |
 | [More Info Card](https://github.com/thomasloven/lovelace-more-info-card) | Frontend | This is the card that shows a standard HA styled color wheel in conjunction with the light popup card |
 | [Mini Graph Card](https://github.com/kalkih/mini-graph-card) | Frontend | Mini Graph Card gives the possibility to create more advanced graphs! |
@@ -49,7 +50,7 @@ You must define it as an object instead to make use of the options below.
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | entity | yes | undefined | Set the entity used |
-| type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `graph`, `sensor`, `cover`, `scene` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
+| type | no | auto | This forces a button to be seen by HKI as a specific type, which alters the appearance. Choose between `rgb`, `color-temp`, `switch`, `graph`, `sensor`, `cover`, `scene`, `thermostat` or `fan`. By default HKI tries to figure out itself what kind of type the button is, but if it gets it wrong force it by setting the type |
 | name | no | global_name | Set a name for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | label | no | none | Set a label for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
 | icon | no | global_icon | Set an icon for this button, this accepts [JS templates](https://github.com/custom-cards/button-card#javascript-templates) |
@@ -134,7 +135,7 @@ You must define it as an object instead to make use of the options below.
 ```
 #### HKI Specific Button Types Extra Options
 
-Some buttons get some extra options if you set `type: graph`, `type: switch`, `type: rgb`, `type: color-temp` and `type: cover`.
+Some buttons get some extra options if you set `type: graph`, `type: switch`, `type: rgb`, `type: color-temp`, `type: thermostat` and `type: cover`.
 
 | Name | Required | Default | Description |
 |----------------------------------|-------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,6 +145,10 @@ Some buttons get some extra options if you set `type: graph`, `type: switch`, `t
 | graph_type | no | line | When having `type: graph` you can change the graph_type between `bar` or `line` |
 ||||
 | cover_control | no | cover_position | When having `type: cover` you can set if you want to control the `cover_position` or `tilt_position` with the slider |  
+||||
+| action | no | undefined | When having `type: thermostat`, you can reverse the default tap/hold action behaviour by setting `action: alternative` |
+| ambient_temperature | no | undefined | When having `type: thermostat`, set this to show the current temperature from a different sensor in your thermostat buttons, this is only an aesthetic change and doesn't change the functionality of your thermostat! |
+| attribute | no | undefined | Only works when having `type: thermostat`! If your thermostats show `undefined` as its state you should use the following config `attribute: state` |
 
 #### Tips
 By default the label is either the brightness of a light or empty, however with button-card JS templates you can have a cool label like this

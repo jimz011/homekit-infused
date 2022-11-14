@@ -14,6 +14,8 @@
 
 A gorgeous thermostat for your views!
 
+**NOTE:** This is an addon that will only display thermostats, it is useful if you want something quick or if you have a lot of thermostats. If you want to mix a thermostat inside of your button addon stack, you should use the button addon instead!
+
 ### HACS Requirements
 
 | Name | Type  | Description |
