@@ -39,6 +39,10 @@ state:
 {% endif %}
 {% if state_display is defined %}
 state_display: {{ state_display|tojson }}
+{% elif (('attribute' is defined) and ('attribute' == 'state')) %}
+state_display: "[[[ if (states['{{entity}}'].state == 'off') return `Off`; else return `${states['{{entity}}'].state}` ]]]"
+{% elif ('climate.' in entity) %}
+state_display: "[[[ if (states['{{entity}}'].state == 'off') return `Off`; else return `${states['{{entity}}'].attributes.hvac_action}` ]]]"
 {% endif %}
 {% if triggers_updates is defined %}
 triggers_updates:
@@ -55,12 +59,14 @@ units: {{ units }}
 {% if entity is defined %}
 entity: {{ entity }}
 {% endif %}
-{% if (('light.' in entity) and (label is undefined)) %}
-label: "[[[ if (typeof(entity) === 'undefined') return; if ('brightness' in entity.attributes) { if (entity.attributes && (entity.attributes.brightness <= 255)) { var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; } } ]]]"
-{% elif (('cover.' in entity) and (label is undefined)) %}
-label: "[[[ if (entity.attributes.current_position === '0') return; else return (entity.attributes.current_position) + '%' ]]]"
-{% elif label is defined %}
+{% if label is defined %}
 label: {{ label|tojson }}
+{% elif ('light.' in entity) %}
+label: "[[[ if (typeof(entity) === 'undefined') return; if ('brightness' in entity.attributes) { if (entity.attributes && (entity.attributes.brightness <= 255)) { var bri = Math.round(entity.attributes.brightness / 2.55); return (bri ? bri : '0') + '%'; } } ]]]"
+{% elif ('cover.' in entity) %}
+label: "[[[ if (entity.attributes.current_position === '0') return; else return (entity.attributes.current_position) + '%' ]]]"
+{% elif ('climate.' in entity) or ('button_type' == 'thermostat') %}
+label: "[[[ if (states['{{entity}}'].state == 'heat_cool') return `${states['{{entity}}'].attributes.target_temp_low}° - ${states['{{entity}}'].attributes.target_temp_high}°`; if (states['{{entity}}'].state == 'heat') return `${states['{{entity}}'].attributes.temperature}°`; if (states['{{entity}}'].state == 'cool') return `${states['{{entity}}'].attributes.temperature}°`; else return `--` ]]]"
 {% else %}
 label: '&nbsp;'
 {% endif %}
@@ -73,14 +79,14 @@ show_label: {{ show_label|default('true') }}
 {% elif ('binary_sensor.' in entity) %}
 show_label: false
 {% else %}
-show_label: {{ show_label|default('true') }}
+show_label: true
 {% endif %}
 {% if show_last_changed is defined %}
 show_last_changed: {{ show_last_changed|default('false') }}
 {% elif ('binary_sensor.' in entity) %}
 show_last_changed: true
 {% else %}
-show_last_changed: {{ show_last_changed|default('false') }}
+show_last_changed: false
 {% endif %}
 tap_action: 
   {% if tap_action is defined %}
@@ -139,7 +145,7 @@ styles:
     {% if (button_type == 'default') %} 
     - grid-template-areas: '"i i" "area area" "n n" "l l" "s s"'
     - grid-template-rows: 1fr 1fr min-content min-content
-    {% elif ('light.' in entity) or ('switch.' in entity) or ('cover.' in entity) or (button_type == 'switch') or (button_type == 'rgb') or (button_type == 'color-temp') or (button_type == 'light') or (button_type == 'cover') %}
+    {% elif ('climate.' in entity) or ('light.' in entity) or ('switch.' in entity) or ('cover.' in entity) or (button_type == 'switch') or (button_type == 'thermostat') or (button_type == 'rgb') or (button_type == 'color-temp') or (button_type == 'light') or (button_type == 'cover') %}
     - grid-template-areas: '"i i" "area area" "n n" "s l"'
     - grid-template-rows: 1fr 1fr min-content min-content
     {% elif (button_type == 'graph') %} 
@@ -169,6 +175,21 @@ styles:
       - line-height: 22px
       - font-weight: var(--badge-font-weight)
       - text-transform: var(--badge-text-transform)
+{% elif ((button_type is defined) and (button_type == 'thermostat') or ('climate.' in entity)) %}
+  custom_fields:
+    notification:
+      - background-color: var(--ha-icon-color)
+      - color: var(--ha-card-background)
+      - font-weight: var(--badge-font-weight)
+      - border-radius: 50%
+      - overflow: visible
+      - position: absolute
+      - top: 10%
+      - right: 7%
+      - width: 33px
+      - height: 33px
+      - font-size: var(--badge-font-size)
+      - line-height: 36px
 {% endif %}
 {% if (button_type == 'graph') %} 
   custom_fields:
@@ -320,4 +341,158 @@ state:
         - opacity: var(--opacity-unavailable)
       state:
         - color: var(--color-unavailable)
+{% if ('climate.' in entity) or ('button_type' == 'thermostat') %}
+  - value: "heat"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `#1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `#EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `#00CC66`; else return `#EE7600`; ]]]"
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "cool"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#1E90FF'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "heat_cool"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "idle"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-on)
+        - --ha-card-background: var(--ha-card-background-active)
+        {% if ((box_shadow is defined) and (box_shadow == 'default')) %}
+        - box-shadow: var(--ha-card-box-shadow-active)
+        - -webkit-box-shadow: var(--ha-card-box-shadow-active)
+        {% elif ((box_shadow is defined) and (box_shadow == 'none')) %}
+        - box-shadow: none
+        - -webkit-box-shadow: none
+        {% else %}
+        - box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        - -webkit-box-shadow: "[[[ if (states['{{entity}}'].attributes.hvac_action == 'cooling') return `0px 0px 10px 2px #1E90FF`; if (states['{{entity}}'].attributes.hvac_action == 'heating') return `0px 0px 10px 2px #EE7600`; if (states['{{entity}}'].attributes.hvac_action == 'idle') return `0px 0px 10px 2px #00CC66`; else return `0px 0px 10px 2px #EE7600`; ]]]"
+        {% endif %}
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-active-color)
+      custom_fields:
+        notification:
+          - background-color: '#00CC66'
+          - color: white
+      lock:
+        - color: var(--lock-color-active)
+  - value: "off"
+    spin: false
+    styles:
+      card:
+        - opacity: var(--opacity-off)
+      lock:
+        - color: var(--lock-color-inactive)
+      custom_fields:
+        notification:
+          - background-color: var(--badge-background-color)
+          - color: var(--badge-text-color)
+      icon:
+        - color: var(--ha-icon-color)
+  - operator: 'default'
+    spin: false
+    styles:
+      card:
+        - --ha-card-background: var(--ha-card-background-active)
+      name:
+        - color: var(--name-color-active)
+      label:
+        - color: var(--label-color-active)
+      state:
+        - color: var(--state-color-active)
+      icon:
+        - color: var(--ha-icon-color)
+      custom_fields:
+        notification:
+          - background-color: var(--badge-background-color)
+          - color: var(--badge-text-color)
+      lock:
+        - color: var(--lock-color-active)
+{% endif %}
 {% endif %}
