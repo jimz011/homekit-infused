@@ -45,7 +45,7 @@ You can use any of the following options to modify your addon.
     addons:
       tile:
         - title: My Tiles
-          cards:
+          entities:
             - light.living_room
             - person.jimmy
             - person.stephanie
@@ -56,7 +56,7 @@ You can use any of the following options to modify your addon.
     addons:
       tile:
         - title: My Tiles
-          cards:
+          entities:
             - entity: light.living_room
               name: Living
             - entity: person.jimmy
