@@ -180,6 +180,25 @@ The same is true for icons and you can template an icon to be different for each
               icon: "[[[ if (entity.state == 'on') return `mdi:lamp`; else return `mdi:floor-lamp` ]]]"
 ```
 
+How to force a HKI type to your entities?
+
+```yaml
+# views.yaml (example with forced types)
+  my_view:
+    addons:
+      button:
+        - title: Buttons
+          entities:
+            - entity: light.bedroom
+              type: rgb
+            - entity: switch.ventilator
+              type: fan
+            - entity: climate.bedroom
+              type: thermostat
+            - entity: sensor.bedroom_temperature
+              type: graph
+```
+
 ### Images:
 
 ![Homekit Infused](../images/hki-button-1.png)
