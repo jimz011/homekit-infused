@@ -266,7 +266,7 @@
                       # Plant Status // *Can be removed
                       {% if 'plant_status' in addon %}
                       - !include 
-                        - addons/media-player.yaml
+                        - addons/plant-status.yaml
                         - config: {{ config|tojson }}
                       {% endif %}
 

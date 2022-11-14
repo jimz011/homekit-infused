@@ -83,7 +83,7 @@
   {% endif %}
   {% if device.spin is defined %}
   spin: {{ device.spin }}
-  {% elif (('fan.' in device) or ('fan.' in device.entity) or ('switch.fan' in device) or ('switch.fan' in device.entity) or (type is defined) and (type == 'fan')) %}
+  {% elif (('fan.' in device) or ('fan.' in device.entity) or ('switch.fan' in device) or ('switch.fan' in device.entity) or (config.type is defined) and (type == 'fan') or (device.type is defined) and (device.type == 'fan')) %}
   spin: true
   {% endif %}
   {% if device.state_display is defined %}
@@ -94,7 +94,7 @@
   {% endif %}
   {% if device.icon_color_active is defined %}
   icon_color_on: {{ device.icon_color_active|tojson }}
-  {% elif (('fan.' in device) or ('fan.' in device.entity) or ('switch.fan' in device) or ('switch.fan' in device.entity) or (type is defined) and (type == 'fan')) %}
+  {% elif (('fan.' in device) or ('fan.' in device.entity) or ('switch.fan' in device) or ('switch.fan' in device.entity) or (device.type is defined) and (device.type == 'fan') or (config.type is defined) and (config.type == 'fan')) %}
   icon_color_on: DodgerBlue
   {% endif %}
   {% if device.template is defined %}
@@ -122,6 +122,14 @@
   {% elif device.button_badge is defined %}
   notification: "[[[ if (states['{{ device.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ device.button_badge }}'].state}`; ]]]"
   background_color: "[[[ if (states['{{ device.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--badge-background-color)'; ]]]" 
+  {% elif (('climate.' in device) or ('climate.' in device.entity) or ('type' is defined) and ('type' == 'thermostat')) %}
+  {% if ((ambient_temperature is defined) and (device.entity is defined)) %}
+  notification: "[[[ return `${states['{{device.ambient_temperature}}'].state}°` ]]]"
+  {% elif device.entity is defined %}
+  notification: "[[[ return `${states['{{device.entity}}'].attributes.current_temperature}°` ]]]"
+  {% else %}
+  notification: "[[[ return `${states['{{device}}'].attributes.current_temperature}°` ]]]"
+  {% endif %}
   {% endif %}
   {% if device.confirmation is defined %}
   confirmation: 
@@ -237,7 +245,167 @@
                 {% else %}
                 cover_control: cover.set_cover_position
                 {% endif %}
+  {% elif (('device.type' is defined) and ('device.type' == 'thermostat') or ('climate.' in device.entity) or ('climate.' in device)) %}
+  {% if ((device.action is defined) and (device.action == 'alternative') or (device.action == 'more-info')) %}
+  hold_action:
+  {% else %}
+  tap_action:
   {% endif %}
+    action: toggle
+    haptic: light
+  {% if ((device.action is defined) and (device.action == 'alternative') or (device.action == 'more-info')) %}
+  tap_action:
+  {% else %}
+  hold_action:
+  {% endif %}
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        title: ' '
+        {% if _global.config.popup_size is defined %}
+        size: {{ _global.config.popup_size }}
+        {% else %}
+        size: wide
+        {% endif %}
+        card_mod:
+          style:
+            .: |
+              :host {
+                --primary-text-color: AliceBlue !important;
+              }
+              mwc-icon-button {
+                color: AliceBlue !important;
+              }
+        style: |
+          --popup-background-color: black !important;
+          --popup-header-background-color: var(--popup-background-color) !important;
+          {% if _global.config.popup_border_radius is defined %}
+          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+          {% else %}
+          --popup-border-radius: 12px !important;
+          {% endif %} 
+        content:
+          type: vertical-stack
+          cards:
+            {% if ((device.action is defined) and (device.action != 'more-info') or (device.action is undefined)) %}
+            - type: custom:thermostat-popup-card
+              {% if device.entity is defined %}
+              entity: {{ device.entity }}
+              {% else %}
+              entity: {{ device }}
+              {% endif %}
+              fullscreen: false
+              settings: true
+              settingsPosition: bottom
+              settingsCard:
+                type: custom:more-info-card
+                cardOptions:
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-radius: none;
+                        box-shadow: none;
+                        background: transparent;
+                        --primary-text-color: AliceBlue !important;
+                        color: AliceBlue !important !important;
+                        --text-primary-color: AliceBlue !important;
+                        --secondary-text-color: AliceBlue !important;
+                        --disabled-text-color: AliceBlue !important;
+                      }
+                  {% if device.entity is defined %}
+                  entity: {{ device.entity }}
+                  {% else %}
+                  entity: {{ device }}
+                  {% endif %}
+            {% else %}
+            - type: custom:more-info-card
+              card_mod:
+                style: |
+                  ha-card {
+                    border-radius: none;
+                    box-shadow: none;
+                    background: transparent;
+                    --primary-text-color: AliceBlue !important;
+                    color: AliceBlue !important !important;
+                    --text-primary-color: AliceBlue !important;
+                    --secondary-text-color: AliceBlue !important;
+                    --disabled-text-color: AliceBlue !important;
+                  }
+              {% if device.entity is defined %}
+              entity: {{ device.entity }}
+              {% else %}
+              entity: {{ device }}
+              {% endif %}
+            {% endif %}
+    haptic: light
+  {% if ((device.action is defined) and (device.action == 'alternative')) %}
+  tap_action:
+  {% else %}
+  double_tap_action: 
+  {% endif %}
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        title: ' '
+        {% if _global.config.popup_size is defined %}
+        size: {{ _global.config.popup_size }}
+        {% else %}
+        size: wide
+        {% endif %}
+        card_mod:
+          style:
+            .: |
+              :host {
+                --primary-text-color: AliceBlue !important;
+              }
+              mwc-icon-button {
+                color: AliceBlue !important;
+              }
+        style: |
+          --popup-background-color: black !important;
+          --popup-header-background-color: var(--popup-background-color) !important;
+          {% if _global.config.popup_border_radius is defined %}
+          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
+          {% else %}
+          --popup-border-radius: 12px !important;
+          {% endif %} 
+        content:
+          type: vertical-stack
+          cards:
+            - type: custom:thermostat-popup-card
+              {% if device.entity is defined %}
+              entity: {{ device.entity }}
+              {% else %}
+              entity: {{ device }}
+              {% endif %}
+              fullscreen: false
+              settings: true
+              settingsPosition: bottom
+              settingsCard:
+                type: custom:more-info-card
+                cardOptions:
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-radius: none;
+                        box-shadow: none;
+                        background: transparent;
+                        --primary-text-color: AliceBlue !important;
+                        color: AliceBlue !important !important;
+                        --text-primary-color: AliceBlue !important;
+                        --secondary-text-color: AliceBlue !important;
+                        --disabled-text-color: AliceBlue !important;
+                      }
+                  {% if device.entity is defined %}
+                  entity: {{ device.entity }}
+                  {% else %}
+                  entity: {{ device }}
+                  {% endif %}
+    haptic: light
+  {% endif %}
+  {% if (('climate.' not in device) or ('device.type' is defined) and ('device.type' != 'thermostat')) %}
   {% if device.hold_action is defined %}
   hold_action:
     {{ device.hold_action|tojson }}
@@ -288,6 +456,7 @@
                 {% if device.popup_style is defined %}
                 display_type: {{ device.popup_style }}
                 {% endif %}
+  {% endif %}
   {% endif %}
   {% if device.double_tap_action is defined %}
   double_tap_action:

@@ -79,10 +79,10 @@ HKI Default:
       ha-card-border-style: none
     dark:
       mdc-text-field-fill-color: '#121212'
-      mdc-text-field-ink-color: 'White'
-      input-label-ink-color: 'White'
-      input-dropdown-icon-color: 'White'
-      input-idle-line-color: 'White'
+      mdc-text-field-ink-color: 'Crimson'
+      input-label-ink-color: 'Crimson'
+      input-dropdown-icon-color: 'Crimson'
+      input-idle-line-color: 'Crimson'
       background-image: '#3b3b40'
       primary-background-color: 'var(--background-image)'
       subtitle-text-color: 'White'
