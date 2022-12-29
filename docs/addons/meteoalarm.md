@@ -33,7 +33,7 @@ You can use any of the following options to modify your addon.
 | conditional | no | false | Setting this to `true` will make the stack condtional |
 | conditions | no | undefined | Add entities and conditions, this will determine when this addon will be shown, e.g. if entity x is turned `on`, then show this addon (see [addons](../addons.md) for examples |
 | entity | yes | unknown | The entity to use, this MUST have weather alerts in its attributes! |
-| integration | yes | automatic | Name of the integration. Available options: <ul><li>`automatic`</li><li>`meteoalarm`</li><li>`meteofrance`</li><li>`dwd`</li><li>`weatheralerts`</li></ul><ul><li>`burze_dzis_net`</li><ul><li>`env_canada`</li><ul><li>`nina`</li> |
+| integration | yes | automatic | Name of the integration. Available options: <ul><li>`automatic`</li><li>`meteoalarm`</li><li>`meteofrance`</li><li>`dwd`</li><li>`weatheralerts`</li><li>`burze_dzis_net`</li><ul><li>`env_canada`</li><ul><li>`nina`</li></ul> |
 
 ```yaml
 # views.yaml (example)
