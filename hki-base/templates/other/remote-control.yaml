@@ -72,8 +72,11 @@ cards:
         action: call-service
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
+        {% if ((config.type is defined) and (config.type == 'atv')) %}
+          delay_secs: 1
+        {% endif %}
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("POWER") }}"
+          command: "{{ command_power|default("POWER") }}"
   - !include
     - '../button/hki-button.yaml'
     - template: hki-remote
@@ -86,7 +89,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("UP") }}"
+          command: "{{ command_up|default("UP") }}"
   - !include
     - '../button/hki-button.yaml'
     - template: hki-remote
@@ -99,7 +102,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("MENU") }}"
+          command: "{{ command_menu|default("MENU") }}"
   - !include
     - '../button/hki-button.yaml'
     - name: Netflix
@@ -137,7 +140,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("CENTER") }}"
+          command: "{{ command_center|default("CENTER") }}"
   - !include
     - '../button/hki-button.yaml'
     - template: hki-remote
@@ -150,7 +153,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("RIGHT") }}"
+          command: "{{ command_right|default("RIGHT") }}"
   - !include
     - '../button/hki-button.yaml'
     - name: Spotify
@@ -175,7 +178,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("BACK") }}"
+          command: "{{ command_back|default("BACK") }}"
   - !include
     - '../button/hki-button.yaml'
     - template: hki-remote
@@ -188,7 +191,7 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("DOWN") }}"
+          command: "{{ command_down|default("DOWN") }}"
   - !include
     - '../button/hki-button.yaml'
     - template: hki-remote
@@ -201,4 +204,4 @@ cards:
         service: {{ service|default('androidtv.adb_command') }}
         service_data:
           entity_id: {{ entity_media_player_remote }}
-          command: "{{ command_left|default("HOME") }}"
+          command: "{{ command_home|default("HOME") }}"
