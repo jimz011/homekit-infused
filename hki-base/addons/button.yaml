@@ -4,6 +4,8 @@
 - '../templates/button/hki-button.yaml'
 {% if device.entity is defined %}
 - entity: {{ device.entity }}
+{% elif ((device.name is defined) or (device.icon is defined) and (device.entity is undefined)) %}
+- entity: input_boolean.empty
 {% else %}
 - entity: {{ device }}
 {% endif %}
@@ -63,6 +65,10 @@
   show_state: {{ device.show_state }}
   {% elif ((config.type is defined) and (config.type == 'graph') or (device.type is defined) and (device.type == 'graph')) %}
   show_state: false
+  {% elif ((config.type is defined) and (config.type == 'thermostat') or (device.type is defined) and (device.type == 'thermostat') or (device.type is defined) and (device.type == 'light')) %}
+  show_state: true
+  {% elif ((device.name is defined) or (device.icon is defined) and (device.entity is undefined)) %}
+  show_state: false
   {% endif %}
   {% if device.show_label is defined %}
   show_label: {{ device.show_label }}
@@ -88,6 +94,12 @@
   {% endif %}
   {% if device.state_display is defined %}
   state_display: {{ device.state_display|tojson }}
+  {% elif ((device.attribute is defined) and ('device.attribute' == 'state') and (device.type is defined) and (device.type == 'thermostat')) %}
+  state_display: "[[[ if (states['{{device.entity}}'].state == 'off') return `Off`; else return `${states['{{device.entity}}'].state}` ]]]"
+  {% elif ((device.type is defined) and (device.type == 'thermostat') or ('climate.' in device.entity)) %}
+  state_display: "[[[ if (states['{{device.entity}}'].state == 'off') return `Off`; else return `${states['{{device.entity}}'].attributes.hvac_action}` ]]]"
+  {% elif ('climate.' in device) %}
+  state_display: "[[[ if (states['{{device}}'].state == 'off') return `Off`; else return `${states['{{device}}'].attributes.hvac_action}` ]]]"
   {% endif %}
   {% if device.icon_color_inactive is defined %}
   icon_color_off: {{ device.icon_color_inactive|tojson }}
@@ -148,317 +160,24 @@
   {% if device.tap_action is defined %}
   tap_action: 
     {{ device.tap_action|tojson }}
-  {% elif (('scene.' in device) or ('scene.' in device.entity) or (device.type is defined) and (device.type == 'scene')) %}
-  tap_action:
-    action: call-service
-    service: scene.turn_on
-    service_data:
-      {% if device.entity is defined %} 
-      entity_id: {{ device.entity }}
-      {% else %}
-      entity_id: {{ device }}
-      {% endif %}
-  {% elif (('binary_sensor.' in device) or ('binary_sensor.' in device.entity) or (device.type is defined) and (device.type == 'graph') or (config.type is defined) and (config.type == 'graph')) %}
-  tap_action:
-    haptic: light
-    action: fire-dom-event
-    browser_mod:
-      service: browser_mod.popup
-      data:
-        title: ' '
-        {% if _global.config.popup_size is defined %}
-        size: {{ _global.config.popup_size }}
-        {% else %}
-        size: wide
-        {% endif %}
-        card_mod:
-          style:
-            .: |
-              :host {
-                --primary-text-color: AliceBlue !important;
-                --margin-top: -40px !important;
-              }
-              mwc-icon-button {
-                color: AliceBlue !important;
-              }
-        style: |
-          --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important;
-          {% if _global.config.popup_border_radius is defined %}
-          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-          {% else %}
-          --popup-border-radius: 12px !important;
-          {% endif %} 
-        content:
-          type: vertical-stack
-          cards:
-            - !include 
-              - '../templates/popups/default-popup.yaml'
-              {% if device.entity is defined %}
-              - entity: {{ device.entity }}
-              {% else %}
-              - entity: {{ device }}
-              {% endif %}
-  {% elif (('cover.' in device) or ('cover' in device.entity) or (device.type is defined) and (device.type == 'cover')) %}
-  tap_action:
-    haptic: light
-    action: fire-dom-event
-    browser_mod:
-      service: browser_mod.popup
-      data:
-        title: ' '
-        {% if _global.config.popup_size is defined %}
-        size: {{ _global.config.popup_size }}
-        {% else %}
-        size: wide
-        {% endif %}
-        card_mod:
-          style:
-            .: |
-              :host {
-                --primary-text-color: AliceBlue !important;
-                --margin-top: -40px !important;
-              }
-              mwc-icon-button {
-                color: AliceBlue !important;
-              }
-        style: |
-          --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important;
-          {% if _global.config.popup_border_radius is defined %}
-          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-          {% else %}
-          --popup-border-radius: 12px !important;
-          {% endif %} 
-        content:
-          type: vertical-stack
-          cards:
-            - !include 
-              - '../templates/popups/covers-popup.yaml'
-              {% if device.entity is defined %}
-              - entity: {{ device.entity }}
-              {% else %}
-              - entity: {{ device }}
-              {% endif %}
-                {% if ((device.cover_control is defined) and (device.cover_control == 'tilt_position')) %}
-                cover_control: cover.set_cover_tilt_position
-                {% else %}
-                cover_control: cover.set_cover_position
-                {% endif %}
-  {% elif (('device.type' is defined) and ('device.type' == 'thermostat') or ('climate.' in device.entity) or ('climate.' in device)) %}
-  {% if ((device.action is defined) and (device.action == 'alternative') or (device.action == 'more-info')) %}
-  hold_action:
   {% else %}
   tap_action:
-  {% endif %}
     action: toggle
     haptic: light
-  {% if ((device.action is defined) and (device.action == 'alternative') or (device.action == 'more-info')) %}
-  tap_action:
-  {% else %}
-  hold_action:
   {% endif %}
-    action: fire-dom-event
-    browser_mod:
-      service: browser_mod.popup
-      data:
-        title: ' '
-        {% if _global.config.popup_size is defined %}
-        size: {{ _global.config.popup_size }}
-        {% else %}
-        size: wide
-        {% endif %}
-        card_mod:
-          style:
-            .: |
-              :host {
-                --primary-text-color: AliceBlue !important;
-              }
-              mwc-icon-button {
-                color: AliceBlue !important;
-              }
-        style: |
-          --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important;
-          {% if _global.config.popup_border_radius is defined %}
-          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-          {% else %}
-          --popup-border-radius: 12px !important;
-          {% endif %} 
-        content:
-          type: vertical-stack
-          cards:
-            {% if ((device.action is defined) and (device.action != 'more-info') or (device.action is undefined)) %}
-            - type: custom:thermostat-popup-card
-              {% if device.entity is defined %}
-              entity: {{ device.entity }}
-              {% else %}
-              entity: {{ device }}
-              {% endif %}
-              fullscreen: false
-              settings: true
-              settingsPosition: bottom
-              settingsCard:
-                type: custom:more-info-card
-                cardOptions:
-                  card_mod:
-                    style: |
-                      ha-card {
-                        border-radius: none;
-                        box-shadow: none;
-                        background: transparent;
-                        --primary-text-color: AliceBlue !important;
-                        color: AliceBlue !important !important;
-                        --text-primary-color: AliceBlue !important;
-                        --secondary-text-color: AliceBlue !important;
-                        --disabled-text-color: AliceBlue !important;
-                      }
-                  {% if device.entity is defined %}
-                  entity: {{ device.entity }}
-                  {% else %}
-                  entity: {{ device }}
-                  {% endif %}
-            {% else %}
-            - type: custom:more-info-card
-              card_mod:
-                style: |
-                  ha-card {
-                    border-radius: none;
-                    box-shadow: none;
-                    background: transparent;
-                    --primary-text-color: AliceBlue !important;
-                    color: AliceBlue !important !important;
-                    --text-primary-color: AliceBlue !important;
-                    --secondary-text-color: AliceBlue !important;
-                    --disabled-text-color: AliceBlue !important;
-                  }
-              {% if device.entity is defined %}
-              entity: {{ device.entity }}
-              {% else %}
-              entity: {{ device }}
-              {% endif %}
-            {% endif %}
-    haptic: light
-  {% if ((device.action is defined) and (device.action == 'alternative')) %}
-  tap_action:
-  {% else %}
-  double_tap_action: 
-  {% endif %}
-    action: fire-dom-event
-    browser_mod:
-      service: browser_mod.popup
-      data:
-        title: ' '
-        {% if _global.config.popup_size is defined %}
-        size: {{ _global.config.popup_size }}
-        {% else %}
-        size: wide
-        {% endif %}
-        card_mod:
-          style:
-            .: |
-              :host {
-                --primary-text-color: AliceBlue !important;
-              }
-              mwc-icon-button {
-                color: AliceBlue !important;
-              }
-        style: |
-          --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important;
-          {% if _global.config.popup_border_radius is defined %}
-          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-          {% else %}
-          --popup-border-radius: 12px !important;
-          {% endif %} 
-        content:
-          type: vertical-stack
-          cards:
-            - type: custom:thermostat-popup-card
-              {% if device.entity is defined %}
-              entity: {{ device.entity }}
-              {% else %}
-              entity: {{ device }}
-              {% endif %}
-              fullscreen: false
-              settings: true
-              settingsPosition: bottom
-              settingsCard:
-                type: custom:more-info-card
-                cardOptions:
-                  card_mod:
-                    style: |
-                      ha-card {
-                        border-radius: none;
-                        box-shadow: none;
-                        background: transparent;
-                        --primary-text-color: AliceBlue !important;
-                        color: AliceBlue !important !important;
-                        --text-primary-color: AliceBlue !important;
-                        --secondary-text-color: AliceBlue !important;
-                        --disabled-text-color: AliceBlue !important;
-                      }
-                  {% if device.entity is defined %}
-                  entity: {{ device.entity }}
-                  {% else %}
-                  entity: {{ device }}
-                  {% endif %}
-    haptic: light
-  {% endif %}
-  {% if (('climate.' not in device) or ('device.type' is defined) and ('device.type' != 'thermostat')) %}
   {% if device.hold_action is defined %}
-  hold_action:
-    {{ device.hold_action|tojson }}
-  {% elif (('light.' in device) or ('switch.' in device) or ('light.' in device.entity) or ('switch.' in device.entity) or (device.type is defined) and (device.type == 'rgb') or (device.type == 'light') or (device.type == 'color-temp') or (device.type == 'switch') or (config.type is defined) and (config.type == 'rgb') or (config.type == 'color-temp') or (config.type == 'light') or (config.type == 'switch')) %}
   hold_action: 
-    haptic: heavy
-    action: fire-dom-event
-    browser_mod:
-      service: browser_mod.popup
-      data:
-        title: ' '
-        {% if _global.config.popup_size is defined %}
-        size: {{ _global.config.popup_size }}
-        {% else %}
-        size: wide
-        {% endif %}
-        card_mod:
-          style:
-            .: |
-              :host {
-                --primary-text-color: AliceBlue !important;
-                --margin-top: -40px !important;
-              }
-              mwc-icon-button {
-                color: AliceBlue !important;
-              }
-        style: |
-          --popup-background-color: black !important;
-          --popup-header-background-color: var(--popup-background-color) !important;
-          {% if _global.config.popup_border_radius is defined %}
-          --popup-border-radius: {{ _global.config.popup_border_radius }} !important;
-          {% else %}
-          --popup-border-radius: 12px !important;
-          {% endif %} 
-        content:
-          type: vertical-stack
-          cards:
-            - !include 
-              - '../templates/popups/light-popup.yaml'
-              {% if device.entity is defined %}
-              - entity: {{ device.entity }}
-              {% else %}
-              - entity: {{ device }}
-              {% endif %}
-                {% if device.type is defined %}
-                type: {{ device.type }}
-                {% endif %}
-                {% if device.popup_style is defined %}
-                display_type: {{ device.popup_style }}
-                {% endif %}
-  {% endif %}
+    {{ device.hold_action|tojson }}
+  {% else %}
+  hold_action:
+    action: more-info
+    haptic: light
   {% endif %}
   {% if device.double_tap_action is defined %}
   double_tap_action:
     {{ device.double_tap_action|tojson }}
+  {% else %}
+  double_tap_action:
+    action: more-info
+    haptic: light
   {% endif %}
