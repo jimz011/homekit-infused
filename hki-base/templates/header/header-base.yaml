@@ -22,7 +22,7 @@ card_mod:
       border-style: none !important;
     }
     :host {
-      z-index: 999 !important;
+      z-index: 1 !important;
       position: sticky !important;
       position: -webkit-sticky !important;
       top: 0 !important;
@@ -318,7 +318,7 @@ card:
                               bottom: 0 !important;
                               left: 0 !important;
                               right: 0 !important;
-                              z-index: 999;
+                              z-index: 1;
                             }
                         card:
                           {{ _global.config.profile.media_player|tojson }}
