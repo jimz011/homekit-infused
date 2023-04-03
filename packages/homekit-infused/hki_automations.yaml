@@ -78,4 +78,17 @@ automation:
       - service: automation.turn_off
         target:
           entity_id: automation.first_time_startup_defaults
+
+  # Turn off Navbar for HA 2023.4.x
+  - alias: 'turn off navbar'
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: input_select.navigation_bar
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.navigation_bar
+          option: 'Off'
         
