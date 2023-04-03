@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 2022.6.4
+        value_template: 2023.1.0
 
 # Time Date
   - platform: time_date
