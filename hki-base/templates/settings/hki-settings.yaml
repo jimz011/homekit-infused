@@ -112,13 +112,7 @@ cards:
                               content: >
                                 **NOTE:** 
                                 
-                                Enabling options for the navigation bar will enable them on ALL dashboards! This can be useful if you want to have a clock/date and such on your other dashboards to be present.
-            
-            
-                                Turn this feature off if you don't like to use this or if it is conflicting with your other dashboards.
-            
-            
-                                **This note will no longer show when you enable this feature!**
+                                Navigation Bar options have been disabled as they conflict with HA 2023.4.x and newer, a solution is underway. So for now this feature is temporarily disabled.
               - type: entities
                 card_mod:
                   class: hki   
