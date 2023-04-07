@@ -99,7 +99,7 @@ card:
                 - width: 35px
                 - height: 35px
                 - border-radius: 50%
-                - overflow: visible
+                - overflow: hidden
               img_cell:
                 - overflow: visible
               card:
