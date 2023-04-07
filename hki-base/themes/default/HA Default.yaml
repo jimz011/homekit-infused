@@ -1,0 +1,123 @@
+HA Default:
+  card-mod-theme: HA Default
+  card-mod-card: |
+    .header-title {
+      margin-top: -5px;
+      margin-left: -10px;
+      margin-bottom: -17px;
+      background: transparent !important;
+      font-family: Roboto !important;
+      font-size: 22px !important;
+      font-weight: bold !important;
+      color: AliceBlue !important;
+      box-shadow: none !important;
+      overflow: visible;
+      border-style: none !important;
+    }
+    .hki {
+      border-radius: var(--ha-card-border-radius) }};
+      box-shadow: var(--ha-card-box-shadow) }};
+      --primary-text-color: var(--primary-text-color);
+      --secondary-text-color: var(--secondary-text-color);
+      font-family: Roboto;
+    }
+    .hki-alt {
+      border-radius: var(--ha-card-border-radius) }};
+      box-shadow: var(--ha-card-box-shadow) }};
+      --primary-text-color: var(--primary-text-color);
+      --secondary-text-color: var(--secondary-text-color);
+      font-family: Roboto;
+    }
+  card-mod-root-yaml: |
+    .: |
+      {% if not is_state('input_select.navigation_bar', 'Off') %}
+      ha-menu-button {
+        display: none !important;
+      }
+      @media (orientation: portrait) {
+        paper-icon-button[icon="paper-tabs:chevron-right"] {
+          display: none;
+        }
+        paper-icon-button[icon="paper-tabs:chevron-left"] {
+          display: none;
+        }
+      }
+      ha-button-menu ha-icon-button $ mwc-icon-button: |
+        {% if not is_state('input_select.navigation_bar_options', 'Default') %}
+        ha-svg-icon {
+          display: none;
+        }
+        {% endif %}
+        ha-button-menu::after {
+          font-size: 18px;
+          height: 20px; 
+          width: 150px;
+          position: absolute;
+          -webkit-text-fill-color: var(--navbar-text-color) !important;
+          color: var(--navbar-text-color) !important;
+
+          {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+          text-align: left;
+          top: 14px;
+          right: 5px;
+          transform: rotateY(180deg) !important;
+          {% else %}
+          text-align: right;
+          top: 14px;
+          right: 12px;
+          {% endif %}
+  
+          {% if is_state('input_select.navigation_bar_options', 'User') %}
+          content: "{{ user }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Date') %}
+          content: "{{ states('sensor.date') }}";
+          {% elif is_state('input_select.navigation_bar_options', 'Time') %}
+          content: "{{ states('sensor.time') }}";
+          {% else %}
+          display: none !important;
+          {% endif %}
+        }
+
+      {% if is_state('input_select.navigation_bar', 'Bottom') %}
+      selectionBar {
+        bottom: unset !important;
+      }
+      #view {
+        margin-top: 0px !important;
+      }
+      .header {
+        top: calc(100vh - 56px) !important;
+        bottom: 0 !important;
+        transform: unset !important;
+      }
+      {% endif %}
+
+      .toolbar {
+        background-color: {{ states('input_text.dark_nav_bar_color') }} !important;
+        {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+        transform: rotateY(180deg) !important;
+        {% endif %}
+      }
+
+      ha-tabs {
+        --paper-tabs-selection-bar-color: transparent !important;
+      }
+      [main-title] {
+        color: transparent !important;
+      }
+      {% if is_state('input_select.navigation_bar_direction', 'Right') %}
+      paper-tab {
+        transform: rotateY(180deg) !important;
+      }
+      {% endif %}
+
+      ha-icon {
+        -webkit-text-fill-color: var(--navbar-text-color) !important;
+        color: var(--navbar-text-color) !important;
+      }
+      {% if not is_state('input_select.navigation_bar_options', 'Default') %}
+      ha-button-menu {
+        color: transparent !important;
+      }
+      {% endif %}
+      {% endif %}

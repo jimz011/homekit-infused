@@ -200,9 +200,11 @@ HKI Default:
         }
       }
       ha-button-menu ha-icon-button $ mwc-icon-button: |
+        {% if not is_state('input_select.navigation_bar_options', 'Default') %}
         ha-svg-icon {
           display: none;
         }
+        {% endif %}
         ha-button-menu::after {
           font-size: 18px;
           height: 20px; 
@@ -234,19 +236,21 @@ HKI Default:
         }
 
       {% if is_state('input_select.navigation_bar', 'Bottom') %}
-      app-header {
-        top: auto !important;
-        bottom: 0 !important;
-        transform: unset !important;
-        box-shadow: 0px -14px 21px -15px rgba(0,0,0,0.75);
+      selectionBar {
+        bottom: unset !important;
       }
       #view {
-        margin-top: -56px !important;
+        margin-top: 0px !important;
+      }
+      .header {
+        top: calc(100vh - 56px) !important;
+        bottom: 0 !important;
+        transform: unset !important;
       }
       {% endif %}
 
-      app-toolbar {
-        background-color: var(--header-color) !important;
+      .toolbar {
+        background-color: {{ states('input_text.dark_nav_bar_color') }} !important;
         {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         {% endif %}
@@ -268,7 +272,9 @@ HKI Default:
         -webkit-text-fill-color: var(--navbar-text-color) !important;
         color: var(--navbar-text-color) !important;
       }
+      {% if not is_state('input_select.navigation_bar_options', 'Default') %}
       ha-button-menu {
         color: transparent !important;
       }
+      {% endif %}
       {% endif %}

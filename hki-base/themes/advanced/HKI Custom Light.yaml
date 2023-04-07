@@ -137,9 +137,11 @@ HKI Custom Light:
         }
       }
       ha-button-menu ha-icon-button $ mwc-icon-button: |
+        {% if not is_state('input_select.navigation_bar_options', 'Default') %}
         ha-svg-icon {
           display: none;
         }
+        {% endif %}
         ha-button-menu::after {
           font-size: 18px;
           height: 20px; 
@@ -171,19 +173,21 @@ HKI Custom Light:
         }
 
       {% if is_state('input_select.navigation_bar', 'Bottom') %}
-      app-header {
-        top: auto !important;
-        bottom: 0 !important;
-        transform: unset !important;
-        box-shadow: {{ states('input_text.footer_box_shadow') }};
+      selectionBar {
+        bottom: unset !important;
       }
       #view {
-        margin-top: -56px !important;
+        margin-top: 0px !important;
+      }
+      .header {
+        top: calc(100vh - 56px) !important;
+        bottom: 0 !important;
+        transform: unset !important;
       }
       {% endif %}
 
-      app-toolbar {
-        background-color: {{ states('input_text.nav_bar_color') }} !important;
+      .toolbar {
+        background-color: {{ states('input_text.dark_nav_bar_color') }} !important;
         {% if is_state('input_select.navigation_bar_direction', 'Right') %}
         transform: rotateY(180deg) !important;
         {% endif %}
@@ -205,7 +209,9 @@ HKI Custom Light:
         -webkit-text-fill-color: var(--navbar-text-color) !important;
         color: var(--navbar-text-color) !important;
       }
+      {% if not is_state('input_select.navigation_bar_options', 'Default') %}
       ha-button-menu {
         color: transparent !important;
       }
+      {% endif %}
       {% endif %}
