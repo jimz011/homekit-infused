@@ -240,7 +240,7 @@ HKI Default:
         bottom: unset !important;
       }
       #view {
-        margin-top: 0px !important;
+        margin-top: -56px !important;
       }
       .header {
         top: calc(100vh - 56px) !important;
