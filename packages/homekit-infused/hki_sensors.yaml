@@ -3,7 +3,7 @@ sensor:
   - platform: template
     sensors:
       hki_current_version:
-        value_template: 2023.1.1
+        value_template: 2023.1.3
 
 # Time Date
   - platform: time_date
@@ -59,8 +59,9 @@ sensor:
         value_template: >-
           {% set heat = expand('group.all_climate_entities')|selectattr('state','eq','heat')|list|count %}
           {% set cool = expand('group.all_climate_entities')|selectattr('state','eq','cool')|list|count %}
-          {% set heat_cool = expand('group.all_climate_entities')|selectattr('state','eq','heat_cool')|list|count %}          
-          {% set total = heat + cool + heat_cool %}
+          {% set heat_cool = expand('group.all_climate_entities')|selectattr('state','eq','heat_cool')|list|count %}
+          {% set auto = expand('group.all_climate_entities')|selectattr('state','eq','auto')|list|count %}       
+          {% set total = heat + cool + heat_cool + auto %}
           {{ total }}
       current_covers_open:
         friendly_name: All Covers Currently Open
@@ -123,24 +124,6 @@ sensor:
         arg: eth0
       - type: processor_use
 
-# Latest HKI Version
-  - platform: command_line
-    name: HKI Latest Version
-    command: "curl -s https://jimz011.github.io/homekit-infused/version | grep  'Current Version' | sed 's/Current Version: //'"
-    scan_interval: 21600
-
-# Latest Compatible HA Version
-  - platform: command_line
-    name: Latest Compatible HA Version
-    command: "curl -s https://jimz011.github.io/homekit-infused/version_compatible | grep  'Latest Compatible Version' | sed 's/Latest Compatible Version: //'"
-    scan_interval: 21600
-
-# Latest Home Assistant Version
-  - platform: command_line
-    name: Home Assistant Latest Version
-    command: "curl -s https://www.home-assistant.io | grep  'Current Version' | sed 's/Current Version: //'"
-    scan_interval: 21600
-
 # Updater Sensors
   - platform: template
     sensors:
@@ -153,3 +136,22 @@ sensor:
           {% else %}
             Up to date
           {% endif %}
+
+command_line:
+# Latest HKI Version
+  - sensor:
+      name: HKI Latest Version
+      command: "curl -s https://jimz011.github.io/homekit-infused/version | grep  'Current Version' | sed 's/Current Version: //'"
+      scan_interval: 21600
+
+# Latest Compatible HA Version
+  - sensor:
+      name: Latest Compatible HA Version
+      command: "curl -s https://jimz011.github.io/homekit-infused/version_compatible | grep  'Latest Compatible Version' | sed 's/Latest Compatible Version: //'"
+      scan_interval: 21600
+
+# Latest Home Assistant Version
+  - sensor:
+      name: Home Assistant Latest Version
+      command: "curl -s https://www.home-assistant.io | grep  'Current Version' | sed 's/Current Version: //'"
+      scan_interval: 21600
