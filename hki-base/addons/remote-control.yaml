@@ -15,4 +15,7 @@
   command_back: menu
   command_down: down
   command_home: top_menu
+  command_power: |
+    - home_hold
+    - select
   {% endif %}
