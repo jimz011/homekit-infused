@@ -15,10 +15,10 @@
 
 <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
 
-# Deprecation warning: This project has NOT been updated since 2023, it might still work or it might not. No new updates or new features will be added to HKI5. When installing, do so at your own risk! If you want to make changes to the project, feel free to fork the repo and push your own version. As far as I know the project is for the most part still usable as of December 2025.
+# Deprecation warning: This project has NOT been updated since 2023.
 
 ##### HKI 6 was the supposed successor, but is cancelled! 
-##### HKI 7 is under construction, it may be released or it may not be released. It may also be released under a different name or as modules that can be added to the UI instead of a full dashboard.
+##### Instead I have released a separate card instead https://github.com/jimz011/hki-header-card
 
 ##### For anyone seeking news about the future of this project feel free to join the discord channel (link above). In the meantime I wanted to thank everyone that supported this project.
 
