@@ -18,7 +18,7 @@
 # Deprecation warning: This project has NOT been updated since 2023.
 
 ##### HKI 6 was the supposed successor, but is cancelled! 
-##### Instead I have released a separate card instead https://github.com/jimz011/hki-header-card
+##### Instead I have released a separate card instead [HKI-Header-Card](https://github.com/jimz011/hki-header-card)
 
 ##### For anyone seeking news about the future of this project feel free to join the discord channel (link above). In the meantime I wanted to thank everyone that supported this project.
 
