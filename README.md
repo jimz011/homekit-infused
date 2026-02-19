@@ -12,10 +12,9 @@
 
 <a href="https://discord.gg/WZvK4Cb"><img src="https://img.shields.io/badge/-Discord-5865F2?&style=for-the-badge&logo=discord&logoColor=white" height=35></a>
 
-# Deprecation warning: This project has NOT been updated since 2023.
+# Deprecation warning: This project has NOT been updated since 2023. Redo your dashboards with the [HKI-Elements](https://github.com/jimz011/hki-elements) card suite instead!
 
 ##### HKI 6 was the supposed successor, but is cancelled! 
-##### Instead I have released a separate card suite instead [HKI-Elements](https://github.com/jimz011/hki-elements)
 
 ##### For anyone seeking news about the future of this project feel free to join the discord channel (link above). In the meantime I wanted to thank everyone that supported this project. If you are still looking for documentation for HKI 5 (I wouldn't really know why you'd still want to, but IF, then just browse this repo for the docs).
 
